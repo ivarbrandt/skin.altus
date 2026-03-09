@@ -1611,12 +1611,12 @@
 					<centertop>50%</centertop>
 					<left>20</left>
 					<right>20</right>
-					<height>67</height>
+					<height>87</height>
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-					<font>font23_title</font>
+					<font>font23_stacked_widgets_fo</font>
 					<autoscroll delay="2000" time="3000" repeat="2000">$PARAM[focused]</autoscroll>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [[!Control.HasFocus($PARAM[list_id]) + [String.IsEqual(Window(Home).Property(altus.$PARAM[list_id].Label),ListItem.Label) | String.IsEqual(Window(1121).Property(altus.$PARAM[list_id].Label),ListItem.Label)]] + String.IsEqual(Window(Home).Property(altus_stacked_linked_list_id),$PARAM[list_id])]</visible>
 				</control>
@@ -1624,12 +1624,12 @@
 					<centertop>50%</centertop>
 					<left>20</left>
 					<right>20</right>
-					<height>67</height>
+					<height>87</height>
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>unfocused_text</textcolor>
-					<font>font23</font>
+					<font>font23_stacked_widgets_unfo</font>
 					<visible>![[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [[!Control.HasFocus($PARAM[list_id]) + [String.IsEqual(Window(Home).Property(altus.$PARAM[list_id].Label),ListItem.Label) | String.IsEqual(Window(1121).Property(altus.$PARAM[list_id].Label),ListItem.Label)]] + String.IsEqual(Window(Home).Property(altus_stacked_linked_list_id),$PARAM[list_id])]]</visible>
 				</control>
 			</control>

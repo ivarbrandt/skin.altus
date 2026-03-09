@@ -87,7 +87,7 @@
 				<left>40</left>
 				<top>72</top>
 				<height>50</height>
-				<width>1380</width>
+				<width>1180</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<visible>$PARAM[visible]</visible>
 				<include content="FocusedCategoryLabel">
@@ -105,6 +105,18 @@
 					<param name="label" value="[COLOR unfocused_text]$PARAM[label][/COLOR]"/>
 					<param name="visible" value="!Control.HasFocus($PARAM[list_id])"/>
 				</include>
+				<control type="label" id="$PARAM[id]">
+					<align>right</align>
+					<right>-150</right>
+					<label>$INFO[System.Time]</label>
+					<font>font30_title</font>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>text_shadow</shadowcolor>
+					<scroll>true</scroll>
+					<scrollspeed>100</scrollspeed>
+					<visible>Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window(Home).Property(SpotlightWidget))</visible>
+					<animation effect="fade" time="100">Visible</animation>
+				</control>
 			</control>
 		</definition>
 	</include>
@@ -120,7 +132,7 @@
 				<left>40</left>
 				<top>72</top>
 				<height>50</height>
-				<width>1380</width>
+				<width>1180</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<!-- <visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible> -->
 				<visible>$PARAM[visible]</visible>
@@ -215,6 +227,18 @@
 						<param name="visible" value="Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window(Home).Property(altus.countdown_active)) + !String.IsEmpty(Window(1121).Property(altus.$PARAM[list_id].Label))"/>
 					</include>
 				</control>
+				<control type="label" id="$PARAM[id]">
+					<align>right</align>
+					<right>-150</right>
+					<label>$INFO[System.Time]</label>
+					<font>font30_title</font>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>text_shadow</shadowcolor>
+					<scroll>true</scroll>
+					<scrollspeed>100</scrollspeed>
+					<visible>[Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1)] + String.IsEmpty(Window(Home).Property(SpotlightWidget))</visible>
+					<animation effect="fade" time="100">Visible</animation>
+				</control>
 			</control>
 		</definition>
 	</include>
@@ -299,7 +323,7 @@
 				<top>107</top>
 				<right>0</right>
 				<left>0</left>
-				<height>1027</height>
+				<height>974</height>
 				<!-- <height>1027</height> -->
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
@@ -365,7 +389,7 @@
 				<right>0</right>
 				<left>0</left>
 				<!-- 153 difference -->
-				<height>1118</height>
+				<height>1065</height>
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>

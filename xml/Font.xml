@@ -35,6 +35,13 @@
 			<size>25</size>
 		</font>
 		<font>
+			<name>font23_stacked_widgets_unfo</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>25</size>
+			<!-- <linespacing>0.80</linespacing> -->
+			<linespacing>1.25</linespacing>
+		</font>
+		<font>
 			<name>font25</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>23</size>
@@ -213,6 +220,14 @@
 			<filename>RobotoCJKSC-Bold.ttf</filename>
 			<size>25</size>
 			<style>lighten</style>
+		</font>
+		<font>
+			<name>font23_stacked_widgets_fo</name>
+			<filename>RobotoCJKSC-Bold.ttf</filename>
+			<size>25</size>
+			<style>lighten</style>
+			<!-- <linespacing>0.80</linespacing> -->
+			<linespacing>1.22</linespacing>
 		</font>
 		<font>
 			<name>font27_title</name>

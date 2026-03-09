@@ -41,7 +41,6 @@
 			<animation effect="fade" start="100" end="0" time="500" tween="sine" condition="Player.HasVideo + !String.IsEmpty(Skin.String(TrailerPlaying))">Conditional</animation>
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
-			<height>105%</height>
 				<!-- <top>-50</top> -->
 				<left>-1</left>
 				<!-- <top>-20</top>
@@ -55,7 +54,6 @@
 				</animation>
 				<animation effect="slide" condition="!String.IsEmpty(Window(Home).Property(SpotlightWidget))" time="0" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation>
 				<animation effect="slide" condition="![ControlGroup(2000).HasFocus + ![ControlGroup(19000).HasFocus | ControlGroup(22000).HasFocus | ControlGroup(23000).HasFocus | ControlGroup(24000).HasFocus | ControlGroup(25000).HasFocus]]" time="498" start="0,0" end="500,0" tween="cubic" easing="inout">Conditional</animation>
-				<animation effect="slide" condition="ControlGroup(2000).HasFocus + !ControlGroup(15000).HasFocus" time="400" start="0,0" end="0,-50" tween="sine" easing="inout">Conditional</animation>
 				<!-- <animation type="Conditional" condition="Control.IsVisible(20000)" reversible="false">
 					<effect type="slide" end="0,20" time="60" tween="sine" />
 					<effect type="slide" end="0,-20" time="180" tween="sine" delay="80" />
