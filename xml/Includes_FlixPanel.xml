@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	<include name="PlotHeight_1080">
+		<height max="463">auto</height>
+	</include>
+	<include name="PlotHeight_4K">
+		<height max="456">auto</height>
+	</include>
 	<include name="FlixPanel">
 		<definition>
 			<control type="group">
@@ -160,7 +166,7 @@
 						<width>338</width>
 						<orientation>vertical</orientation>
 						<align>center</align>
-						<itemgap>11</itemgap>
+						<itemgap>8</itemgap>
 						<animation effect="slide" condition="$EXP[isEpisode] | [[[Window.IsVisible(Home) | Window.IsVisible(1121)] + Skin.HasSetting(Disable.HomePanelRatings)] | [Control.IsVisible(51) + Skin.HasSetting(Disable.51Ratings)] | [Control.IsVisible(53) + Skin.HasSetting(Disable.53Ratings)] | [Control.IsVisible(54) + Skin.HasSetting(Disable.54Ratings)] | [Control.IsVisible(55) + Skin.HasSetting(Disable.55Ratings)] | [Control.IsVisible(56) + Skin.HasSetting(Disable.56Ratings)]
 							]" time="0" start="0,0" end="25,0" tween="sine" easing="inout">Conditional</animation>
 						<animation effect="slide" condition="!$EXP[isContent]" time="0" start="0,0" end="-498,0" tween="sine" easing="inout">Conditional</animation>
@@ -261,8 +267,8 @@
 						<control type="textbox">
 							<align>left</align>
 							<height max="300">auto</height>
-							<label>$INFO[ListItem.Title]</label>
-							<font>font27_title</font>
+							<label>$VAR[EpisodeTitle]</label>
+							<font>font27_plot</font>
 							<textcolor>unfocused_text</textcolor>
 							<scroll>true</scroll>
 							<scrollspeed>150</scrollspeed>
@@ -284,7 +290,7 @@
 							<align>left</align>
 							<height max="300">auto</height>
 							<label>$VAR[VI_WidgetInfoPanelTop]</label>
-							<font>font27</font>
+							<font>font27_plot</font>
 							<textcolor>unfocused_text</textcolor>
 							<scroll>true</scroll>
 							<scrollspeed>150</scrollspeed>
@@ -302,19 +308,20 @@
 							<visible>$EXP[isContent]</visible>
 						</control>
 						<control type="textbox">
-							<height max="443">auto</height>
-							<font>font27</font>
+							<include condition="String.IsEqual(System.ScreenHeight,1080)">PlotHeight_1080</include>
+							<include condition="!String.IsEqual(System.ScreenHeight,1080)">PlotHeight_4K</include>
+							<font>font27_plot</font>
 							<textcolor>unfocused_text</textcolor>
 							<align>left</align>
 							<label>$VAR[RI_Plot]</label>
-							<autoscroll delay="7000" time="1600" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+							<autoscroll delay="10000" time="2000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
 							<visible>[Window.IsVisible(Home) | Window.IsVisible(1121)] | [String.IsEqual(Container.Viewmode,$LOCALIZE[31101]) | String.IsEqual(Container.Viewmode,$LOCALIZE[311012]) | String.IsEqual(Container.Viewmode,$LOCALIZE[31107])]</visible>
 						</control>
 						<control type="textbox">
 							<top>0</top>
 							<left>0</left>
 							<right>0</right>
-							<height>-6</height>
+							<height>1</height>
 							<label></label>
 						</control>
 						<!-- <include content="PlotBox">

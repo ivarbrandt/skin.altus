@@ -46,6 +46,12 @@
 			<linespacing>0.8</linespacing>
 		</font>
 		<font>
+			<name>font27_plot</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>27</size>
+			<!-- <linespacing>1.0</linespacing> -->
+		</font>
+		<font>
 			<name>font27</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>27</size>
@@ -200,6 +206,12 @@
 			<name>font25_title</name>
 			<filename>RobotoCJKSC-Bold.ttf</filename>
 			<size>23</size>
+			<style>lighten</style>
+		</font>
+		<font>
+			<name>font23_title</name>
+			<filename>RobotoCJKSC-Bold.ttf</filename>
+			<size>25</size>
 			<style>lighten</style>
 		</font>
 		<font>

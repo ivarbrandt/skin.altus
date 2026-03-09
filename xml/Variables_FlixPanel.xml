@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+
+	<variable name="EpisodeTitle">
+		<value condition="Window.IsVisible(videos) + !String.IsEqual(Container.Viewmode,$LOCALIZE[311012])">[B]$INFO[ListItem.Season]x$INFO[ListItem.Episode] - $INFO[ListItem.Title][/B]</value>
+		<value>[B]$INFO[ListItem.Title][/B]</value>
+	</variable>
+
   <!-- RATINGS INFOPANEL VARIABLES -->
 
 	<!-- <variable name="AltusIP_Divider">
