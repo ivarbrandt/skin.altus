@@ -2060,7 +2060,7 @@
 		<onload condition="String.IsEmpty(Window(Home).Property(altus.starting_widgets)) | !Skin.HasSetting(Disable.ResetStacked)">RunScript(script.altus.helper,mode=starting_widgets)</onload>
 		<onload condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onload>
 		<onload condition="String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,20)</onload>	
-		<onload condition="String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,1.5)</onload>
+		<onload condition="String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,1.0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(waitInterval))">Skin.SetString(waitInterval,1)</onload>	
 		<onload condition="String.IsEmpty(Skin.String(onBackSetting))">Skin.SetString(onBackSetting,0)</onload>	
 		<onload condition="String.IsEmpty(Skin.String(onLeftSetting))">Skin.SetString(onLeftSetting,0)</onload>
