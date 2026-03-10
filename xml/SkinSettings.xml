@@ -730,6 +730,110 @@
 				</control>
 			</control>
 
+			<control type="grouplist" id="650">
+				<top>133</top>
+				<left>0</left>
+				<right>470</right>
+				<bottom>37</bottom>
+				<onleft>9000</onleft>
+				<onright>60</onright>
+				<onup>650</onup>
+				<pagecontrol>60</pagecontrol>
+				<ondown>650</ondown>
+				<visible>Container(9000).HasFocus(8)</visible>
+				<!-- RELEASE DATE -->
+				<control type="radiobutton" id="65000">
+					<label>Show release date (movies)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.VI.Digital)</selected>
+					<onclick>Skin.ToggleSetting(Disable.VI.Digital)</onclick>
+				</control>
+				<!-- AIRED DATE -->
+				<control type="radiobutton" id="65001">
+					<label>Show aired date (shows, seasons, episodes)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.VI.Aired)</selected>
+					<onclick>Skin.ToggleSetting(Disable.VI.Aired)</onclick>
+				</control>
+				<!-- RATING -->
+				<control type="radiobutton" id="65002">
+					<label>Show content rating (movies, shows, seasons)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.VI.Mpaa)</selected>
+					<onclick>Skin.ToggleSetting(Disable.VI.Mpaa)</onclick>
+				</control>
+				<!-- GENRE -->
+				<control type="radiobutton" id="65003">
+					<label>Show genre (movies, shows, seasons)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.VI.Genre)</selected>
+					<onclick>Skin.ToggleSetting(Disable.VI.Genre)</onclick>
+				</control>
+				<!-- DIRECTOR -->
+				<control type="radiobutton" id="65004">
+					<label>Show director (movies, shows, episodes)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.VI.Director)</selected>
+					<onclick>Skin.ToggleSetting(Disable.VI.Director)</onclick>
+				</control>
+				<!-- WRITER -->
+				<control type="radiobutton" id="65005">
+					<label>Show writer (episodes)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.VI.Writer)</selected>
+					<onclick>Skin.ToggleSetting(Disable.VI.Writer)</onclick>
+				</control>
+				<!-- DURATION -->
+				<control type="radiobutton" id="65006">
+					<label>Show duration (movies, episodes)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.VI.Runtime)</selected>
+					<onclick>Skin.ToggleSetting(Disable.VI.Runtime)</onclick>
+				</control>
+				<!-- EPISODE DURATION -->
+				<control type="radiobutton" id="65007">
+					<label>Show episode duration (shows, seasons)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.VI.EpDuration)</selected>
+					<onclick>Skin.ToggleSetting(Disable.VI.EpDuration)</onclick>
+				</control>
+				<!-- SEASONS COUNT -->
+				<control type="radiobutton" id="65008">
+					<label>Show seasons count (shows)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.VI.TotalSeasons)</selected>
+					<onclick>Skin.ToggleSetting(Disable.VI.TotalSeasons)</onclick>
+				</control>
+				<!-- EPISODES COUNT -->
+				<control type="radiobutton" id="65009">
+					<label>Show episodes count (shows)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.VI.TotalEpisodes)</selected>
+					<onclick>Skin.ToggleSetting(Disable.VI.TotalEpisodes)</onclick>
+				</control>
+				<!-- STATUS -->
+				<control type="radiobutton" id="65010">
+					<label>Show status (shows)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.VI.Status)</selected>
+					<onclick>Skin.ToggleSetting(Disable.VI.Status)</onclick>
+				</control>
+				<!-- ENDS AT -->
+				<control type="radiobutton" id="65011">
+					<label>Show ends at (movies, seasons, episodes)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.VI.Endsat)</selected>
+					<onclick>Skin.ToggleSetting(Disable.VI.Endsat)</onclick>
+				</control>
+				<!-- EPISODE TYPE -->
+				<control type="radiobutton" id="65012">
+					<label>Show episode type (episodes)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.VI.EpisodeType)</selected>
+					<onclick>Skin.ToggleSetting(Disable.VI.EpisodeType)</onclick>
+				</control>
+			</control>
+
 			<control type="grouplist" id="640">
 				<top>133</top>
 				<left>0</left>
@@ -1047,6 +1151,10 @@
 					</item>
 					<item id="9">
 						<label>Widget options</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="8">
+						<label>Info panel</label>
 						<onclick>noop</onclick>
 					</item>
 					<item id="2">
