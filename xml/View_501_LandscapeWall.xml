@@ -1,5 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	<!-- DEFAULT LAYOUT - No Titles -->
+	<include name="View501_Default_NoTitles">
+		<definition>
+			<itemlayout width="470" height="282" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<control type="group">
+					<include content="ViewUnfocusedAnimations">
+						<param name="id" value="501"/>
+					</include>
+            <left>21</left>
+					<!-- <top>45</top> -->
+					<top>0</top>
+					<include>LandscapeLayout</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="470" height="282" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+				<control type="group">
+					<depth>DepthContentPopout</depth>
+            <left>21</left>
+					<!-- <top>45</top> -->
+					<top>0</top>
+					<include content="LandscapeLayout">
+						<param name="focused" value="true" />
+					</include>
+					<include>WallTimer</include>
+					<include>FocusBounce</include>
+					<include>VideoTrailerControl</include>
+				</control>
+			</focusedlayout>
+		</definition>
+	</include>
+
+	<!-- DEFAULT LAYOUT - Titles -->
+	<include name="View501_Default_Titles">
+		<definition>
+			<itemlayout width="470" height="340" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<control type="group">
+					<include content="ViewUnfocusedAnimations">
+						<param name="id" value="501"/>
+					</include>
+            <left>21</left>
+					<!-- <top>45</top> -->
+					<top>0</top>
+					<include>LandscapeLayout</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="470" height="340" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+				<control type="group">
+					<depth>DepthContentPopout</depth>
+            <left>21</left>
+					<!-- <top>45</top> -->
+					<top>0</top>
+					<include content="LandscapeLayout">
+						<param name="focused" value="true" />
+					</include>
+					<include>WallTimer</include>
+					<include>FocusBounce</include>
+					<include>VideoTrailerControl</include>
+				</control>
+			</focusedlayout>
+		</definition>
+	</include>
+
+	<!-- LARGE LAYOUT - No Titles -->
+	<include name="View501_Large_NoTitles">
+		<definition>
+			<itemlayout width="616" height="361" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<control type="group">
+					<include content="ViewUnfocusedAnimations">
+						<param name="id" value="501"/>
+					</include>
+            <left>33</left>
+					<!-- <top>45</top> -->
+					<top>0</top>
+					<include>BigLandscapeLayout</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="616" height="361" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+				<control type="group">
+					<depth>DepthContentPopout</depth>
+            <left>33</left>
+					<!-- <top>45</top> -->
+					<top>0</top>
+					<include content="BigLandscapeLayout">
+						<param name="focused" value="true" />
+					</include>
+					<include>WallTimer</include>
+					<include>FocusBounce</include>
+					<include>VideoTrailerControl</include>
+				</control>
+			</focusedlayout>
+		</definition>
+	</include>
+
+	<!-- LARGE LAYOUT - Titles -->
+	<include name="View501_Large_Titles">
+		<definition>
+			<itemlayout width="636" height="400" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<control type="group">
+					<include content="ViewUnfocusedAnimations">
+						<param name="id" value="501"/>
+					</include>
+            <left>13</left>
+					<!-- <top>45</top> -->
+					<top>0</top>
+					<include>BigLandscapeLayout</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="636" height="400" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+				<control type="group">
+					<depth>DepthContentPopout</depth>
+            <left>13</left>
+					<!-- <top>45</top> -->
+					<top>0</top>
+					<include content="BigLandscapeLayout">
+						<param name="focused" value="true" />
+					</include>
+					<include>WallTimer</include>
+					<include>FocusBounce</include>
+					<include>VideoTrailerControl</include>
+				</control>
+			</focusedlayout>
+		</definition>
+	</include>
+
+	<!-- SMALL LAYOUT - No Titles -->
+	<include name="View501_Small_NoTitles">
+		<definition>
+			<itemlayout width="358" height="213"  condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<control type="group">
+					<include content="ViewUnfocusedAnimations">
+						<param name="id" value="501"/>
+					</include>
+            <left>65</left>
+					<!-- <top>45</top> -->
+					<top>0</top>
+					<include>SmallLandscapeLayout</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="358" height="213"  condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+				<control type="group">
+					<depth>DepthContentPopout</depth>
+            <left>65</left>
+					<!-- <top>45</top> -->
+					<top>0</top>
+					<include content="SmallLandscapeLayout">
+						<param name="focused" value="true" />
+					</include>
+					<include>WallTimer</include>
+					<include>FocusBounce</include>
+					<include>VideoTrailerControl</include>
+				</control>
+			</focusedlayout>
+		</definition>
+	</include>
+
+	<!-- SMALL LAYOUT - Titles -->
+	<include name="View501_Small_Titles">
+		<definition>
+			<itemlayout width="380" height="255"  condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<control type="group">
+					<include content="ViewUnfocusedAnimations">
+						<param name="id" value="501"/>
+					</include>
+					<left>20</left>
+					<!-- <top>45</top> -->
+					<top>0</top>
+					<include>SmallLandscapeLayout</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="380" height="255"  condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+				<control type="group">
+					<depth>DepthContentPopout</depth>
+            <left>20</left>
+					<!-- <top>45</top> -->
+					<top>0</top>
+					<include content="SmallLandscapeLayout">
+						<param name="focused" value="true" />
+					</include>
+					<include>WallTimer</include>
+					<include>FocusBounce</include>
+					<include>VideoTrailerControl</include>
+				</control>
+			</focusedlayout>
+		</definition>
+	</include>
+
 	<include name="View_501_LandscapeWall">
 		<control type="group">
 			<!-- <include>OpenClose_Right</include> -->
@@ -51,164 +237,18 @@
 					[Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$LOCALIZE[311023]) | String.IsEqual(Skin.String(Skin.ForcedView.games),$LOCALIZE[310981]) | String.IsEqual(Skin.String(Skin.ForcedView.games),$LOCALIZE[31100]) | String.IsEqual(Skin.String(Skin.ForcedView.games),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]]
 				</visible>
 
-				<!-- DEFAULT -->
-				<!-- W:430 H:242 -->
-				<itemlayout width="470" height="282" condition="String.IsEqual(Skin.String(ArtworkSize501Setting),0) + !Skin.HasSetting(Enable.501Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
-					<control type="group">
-						<include content="ViewUnfocusedAnimations">
-							<param name="id" value="501"/>
-						</include>
-            <left>21</left>
-						<!-- <top>45</top> -->
-						<top>0</top>
-						<include>LandscapeLayout</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="470" height="282" condition="String.IsEqual(Skin.String(ArtworkSize501Setting),0) + !Skin.HasSetting(Enable.501Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-            <left>21</left>
-						<!-- <top>45</top> -->
-						<top>0</top>
-						<include content="LandscapeLayout">
-							<param name="focused" value="true" />
-						</include>
-						<include>WallTimer</include>
-						<include>FocusBounce</include>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
-				<itemlayout width="470" height="340" condition="String.IsEqual(Skin.String(ArtworkSize501Setting),0) + Skin.HasSetting(Enable.501Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
-					<control type="group">
-						<include content="ViewUnfocusedAnimations">
-							<param name="id" value="501"/>
-						</include>
-            <left>21</left>
-						<!-- <top>45</top> -->
-						<top>0</top>
-						<include>LandscapeLayout</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="470" height="340" condition="String.IsEqual(Skin.String(ArtworkSize501Setting),0) + Skin.HasSetting(Enable.501Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-            <left>21</left>
-						<!-- <top>45</top> -->
-						<top>0</top>
-						<include content="LandscapeLayout">
-							<param name="focused" value="true" />
-						</include>
-						<include>WallTimer</include>
-						<include>FocusBounce</include>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
-
-				<!-- LARGE LAYOUT -->
-				<!-- W:582 H:327 -->
-				<itemlayout width="616" height="361" condition="String.IsEqual(Skin.String(ArtworkSize501Setting),1) + !Skin.HasSetting(Enable.501Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
-					<control type="group">
-						<include content="ViewUnfocusedAnimations">
-							<param name="id" value="501"/>
-						</include>
-            <left>33</left>
-						<!-- <top>45</top> -->
-						<top>0</top>
-						<include>BigLandscapeLayout</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="616" height="361" condition="String.IsEqual(Skin.String(ArtworkSize501Setting),1) + !Skin.HasSetting(Enable.501Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-            <left>33</left>
-						<!-- <top>45</top> -->
-						<top>0</top>
-						<include content="BigLandscapeLayout">
-							<param name="focused" value="true" />
-						</include>
-						<include>WallTimer</include>
-						<include>FocusBounce</include>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
-				<itemlayout width="636" height="400" condition="String.IsEqual(Skin.String(ArtworkSize501Setting),1) + Skin.HasSetting(Enable.501Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
-					<control type="group">
-						<include content="ViewUnfocusedAnimations">
-							<param name="id" value="501"/>
-						</include>
-            <left>13</left>
-						<!-- <top>45</top> -->
-						<top>0</top>
-						<include>BigLandscapeLayout</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="636" height="400" condition="String.IsEqual(Skin.String(ArtworkSize501Setting),1) + Skin.HasSetting(Enable.501Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-            <left>13</left>
-						<!-- <top>45</top> -->
-						<top>0</top>
-						<include content="BigLandscapeLayout">
-							<param name="focused" value="true" />
-						</include>
-						<include>WallTimer</include>
-						<include>FocusBounce</include>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
-
-				<!-- SMALL LAYOUT -->
-				<!-- W:317 H:178 -->
-				<itemlayout width="358" height="213"  condition="String.IsEqual(Skin.String(ArtworkSize501Setting),2) + !Skin.HasSetting(Enable.501Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
-					<control type="group">
-						<include content="ViewUnfocusedAnimations">
-							<param name="id" value="501"/>
-						</include>
-            <left>65</left>
-						<!-- <top>45</top> -->
-						<top>0</top>
-						<include>SmallLandscapeLayout</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="358" height="213"  condition="String.IsEqual(Skin.String(ArtworkSize501Setting),2) + !Skin.HasSetting(Enable.501Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-            <left>65</left>
-						<!-- <top>45</top> -->
-						<top>0</top>
-						<include content="SmallLandscapeLayout">
-							<param name="focused" value="true" />
-						</include>
-						<include>WallTimer</include>
-						<include>FocusBounce</include>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
-				<itemlayout width="380" height="255"  condition="String.IsEqual(Skin.String(ArtworkSize501Setting),2) + Skin.HasSetting(Enable.501Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
-					<control type="group">
-						<include content="ViewUnfocusedAnimations">
-							<param name="id" value="501"/>
-						</include>
-						<left>20</left>
-						<!-- <top>45</top> -->
-						<top>0</top>
-						<include>SmallLandscapeLayout</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="380" height="255"  condition="String.IsEqual(Skin.String(ArtworkSize501Setting),2) + Skin.HasSetting(Enable.501Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-            <left>20</left>
-						<!-- <top>45</top> -->
-						<top>0</top>
-						<include content="SmallLandscapeLayout">
-							<param name="focused" value="true" />
-						</include>
-						<include>WallTimer</include>
-						<include>FocusBounce</include>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
+				<!-- DEFAULT LAYOUT - No Titles -->
+				<include condition="String.IsEqual(Skin.String(ArtworkSize501Setting),0) + !Skin.HasSetting(Enable.501Titles)">View501_Default_NoTitles</include>
+				<!-- DEFAULT LAYOUT - Titles -->
+				<include condition="String.IsEqual(Skin.String(ArtworkSize501Setting),0) + Skin.HasSetting(Enable.501Titles)">View501_Default_Titles</include>
+				<!-- LARGE LAYOUT - No Titles -->
+				<include condition="String.IsEqual(Skin.String(ArtworkSize501Setting),1) + !Skin.HasSetting(Enable.501Titles)">View501_Large_NoTitles</include>
+				<!-- LARGE LAYOUT - Titles -->
+				<include condition="String.IsEqual(Skin.String(ArtworkSize501Setting),1) + Skin.HasSetting(Enable.501Titles)">View501_Large_Titles</include>
+				<!-- SMALL LAYOUT - No Titles -->
+				<include condition="String.IsEqual(Skin.String(ArtworkSize501Setting),2) + !Skin.HasSetting(Enable.501Titles)">View501_Small_NoTitles</include>
+				<!-- SMALL LAYOUT - Titles -->
+				<include condition="String.IsEqual(Skin.String(ArtworkSize501Setting),2) + Skin.HasSetting(Enable.501Titles)">View501_Small_Titles</include>
 
 				<!-- EPISODES -->
 				<!-- W:582 H:327 -->

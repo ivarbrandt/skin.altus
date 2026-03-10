@@ -13,6 +13,7 @@
 				<left>77</left>
 				<right>77</right>
 				<top>-70</top>
+				<visible>[$EXP[isWall] + Skin.HasSetting(Enable.500Info)] | [$EXP[isLandscapeWall] + Skin.HasSetting(Enable.501Info)]</visible>
 				<control type="grouplist">
 					<top>960</top>
 					<orientation>vertical</orientation>

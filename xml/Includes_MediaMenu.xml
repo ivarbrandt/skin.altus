@@ -662,12 +662,14 @@
 				<label>Artwork Size</label>
 				<label2>[B]$VAR[ArtworkSize54SettingVar][/B]</label2>
 				<onclick>$VAR[ArtworkSize54ToggleVar]</onclick>
+				<onclick>ReloadSkin()</onclick>
 				<visible>Control.IsVisible(54) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 			</control>
 			<control type="radiobutton" id="6075">
 				<label>Enable titles</label>
 				<include>MediaMenuItemsCommon</include>
 				<onclick>Skin.ToggleSetting(Enable.54Titles)</onclick>
+				<onclick>ReloadSkin()</onclick>
 				<selected>Skin.HasSetting(Enable.54Titles)</selected>
 				<visible>Control.IsVisible(54) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 			</control>
@@ -693,12 +695,14 @@
 				<label>Artwork Size</label>
 				<label2>[B]$VAR[ArtworkSize55SettingVar][/B]</label2>
 				<onclick>$VAR[ArtworkSize55ToggleVar]</onclick>
+				<onclick>ReloadSkin()</onclick>
 				<visible>Control.IsVisible(55) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
 			</control>
 			<control type="radiobutton" id="6079">
 				<label>Enable titles</label>
 				<include>MediaMenuItemsCommon</include>
 				<onclick>Skin.ToggleSetting(Enable.55Titles)</onclick>
+				<onclick>ReloadSkin()</onclick>
 				<selected>Skin.HasSetting(Enable.55Titles)</selected>
 				<visible>Control.IsVisible(55) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
 			</control>
@@ -764,6 +768,7 @@
 				<label>Artwork Size</label>
 				<label2>[B]$VAR[ArtworkSize500SettingVar][/B]</label2>
 				<onclick>$VAR[ArtworkSize500ToggleVar]</onclick>
+				<onclick>ReloadSkin()</onclick>
 				<visible>Control.IsVisible(500) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
 			</control>
 			<control type="radiobutton" id="6088">
@@ -785,6 +790,7 @@
 				<label>Enable titles</label>
 				<include>MediaMenuItemsCommon</include>
 				<onclick>Skin.ToggleSetting(Enable.500Titles)</onclick>
+				<onclick>ReloadSkin()</onclick>
 				<selected>Skin.HasSetting(Enable.500Titles)</selected>
 				<visible>Control.IsVisible(500) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
 			</control>
@@ -802,6 +808,7 @@
 				<label>Artwork Size</label>
 				<label2>[B]$VAR[ArtworkSize501SettingVar][/B]</label2>
 				<onclick>$VAR[ArtworkSize501ToggleVar]</onclick>
+				<onclick>ReloadSkin()</onclick>
 				<visible>Control.IsVisible(501) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
 			</control>
 			<control type="radiobutton" id="6093">
@@ -823,6 +830,7 @@
 				<label>Enable titles</label>
 				<include>MediaMenuItemsCommon</include>
 				<onclick>Skin.ToggleSetting(Enable.501Titles)</onclick>
+				<onclick>ReloadSkin()</onclick>
 				<selected>Skin.HasSetting(Enable.501Titles)</selected>
 				<visible>Control.IsVisible(501) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
 			</control>

@@ -341,6 +341,110 @@
 		</definition>
 	</include>
 
+	<!-- DEFAULT LAYOUT - No Titles -->
+	<include name="View54_Default_NoTitles">
+		<definition>
+			<itemlayout width="283" height="409" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<control type="group">
+					<include content="ViewUnfocusedAnimations">
+						<param name="id" value="54"/>
+					</include>
+					<top>0</top>
+					<include>PosterLayout</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="283" height="409" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+				<control type="group">
+					<depth>DepthContentPopout</depth>
+					<top>0</top>
+					<include content="PosterLayout">
+						<param name="focused" value="true" />
+					</include>
+					<include>FocusBounce</include>
+					<include>VideoTrailerControl</include>
+				</control>
+			</focusedlayout>
+		</definition>
+	</include>
+
+	<!-- DEFAULT LAYOUT - Titles -->
+	<include name="View54_Default_Titles">
+		<definition>
+			<itemlayout width="283" height="444" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<control type="group">
+					<include content="ViewUnfocusedAnimations">
+						<param name="id" value="54"/>
+					</include>
+					<top>0</top>
+					<include>PosterLayout</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="283" height="444" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+				<control type="group">
+					<depth>DepthContentPopout</depth>
+					<top>0</top>
+					<include content="PosterLayout">
+						<param name="focused" value="true" />
+					</include>
+					<include>FocusBounce</include>
+					<include>VideoTrailerControl</include>
+				</control>
+			</focusedlayout>
+		</definition>
+	</include>
+
+	<!-- SMALL LAYOUT - No Titles -->
+	<include name="View54_Small_NoTitles">
+		<definition>
+			<itemlayout width="235" height="337" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<control type="group">
+					<include content="ViewUnfocusedAnimations">
+						<param name="id" value="54"/>
+					</include>
+					<top>0</top>
+					<include>SmallPosterLayout</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="235" height="337" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+				<control type="group">
+					<depth>DepthContentPopout</depth>
+					<top>0</top>
+					<include content="SmallPosterLayout">
+						<param name="focused" value="true" />
+					</include>
+					<include>FocusBounce</include>
+					<include>VideoTrailerControl</include>
+				</control>
+			</focusedlayout>
+		</definition>
+	</include>
+
+	<!-- SMALL LAYOUT - Titles -->
+	<include name="View54_Small_Titles">
+		<definition>
+			<itemlayout width="235" height="375" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<control type="group">
+					<include content="ViewUnfocusedAnimations">
+						<param name="id" value="54"/>
+					</include>
+					<top>0</top>
+					<include>SmallPosterLayout</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="235" height="375" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+				<control type="group">
+					<depth>DepthContentPopout</depth>
+					<top>0</top>
+					<include content="SmallPosterLayout">
+						<param name="focused" value="true" />
+					</include>
+					<include>FocusBounce</include>
+					<include>VideoTrailerControl</include>
+				</control>
+			</focusedlayout>
+		</definition>
+	</include>
+
 	<include name="View_54_PosterInfo">
 		<control type="group">
 			<include>OpenClose_Right</include>
@@ -438,91 +542,14 @@
 					[Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$LOCALIZE[31101]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]]
 				</visible>
 
-				<!-- DEFAULT LAYOUT -->
-				<!-- W:249 H:375 -->
-				<itemlayout width="283" height="409" condition="String.IsEqual(Skin.String(ArtworkSize54Setting),0) + !Skin.HasSetting(Enable.54Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
-					<control type="group">
-						<include content="ViewUnfocusedAnimations">
-							<param name="id" value="54"/>
-						</include>
-						<top>0</top>
-						<include>PosterLayout</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="283" height="409" condition="String.IsEqual(Skin.String(ArtworkSize54Setting),0) + !Skin.HasSetting(Enable.54Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-						<top>0</top>
-						<include content="PosterLayout">
-							<param name="focused" value="true" />
-						</include>
-						<include>FocusBounce</include>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
-				<itemlayout width="283" height="444" condition="String.IsEqual(Skin.String(ArtworkSize54Setting),0) + Skin.HasSetting(Enable.54Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
-					<control type="group">
-						<include content="ViewUnfocusedAnimations">
-							<param name="id" value="54"/>
-						</include>
-						<top>0</top>
-						<include>PosterLayout</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="283" height="444" condition="String.IsEqual(Skin.String(ArtworkSize54Setting),0) + Skin.HasSetting(Enable.54Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-						<top>0</top>
-						<include content="PosterLayout">
-							<param name="focused" value="true" />
-						</include>
-						<include>FocusBounce</include>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
-
-				<!-- SMALL LAYOUT -->
-				<!-- W: 204 H: 306 -->
-				<itemlayout width="235" height="337" condition="String.IsEqual(Skin.String(ArtworkSize54Setting),1) + !Skin.HasSetting(Enable.54Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
-					<control type="group">
-						<include content="ViewUnfocusedAnimations">
-							<param name="id" value="54"/>
-						</include>
-						<top>0</top>
-						<include>SmallPosterLayout</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="235" height="337" condition="String.IsEqual(Skin.String(ArtworkSize54Setting),1) + !Skin.HasSetting(Enable.54Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-						<top>0</top>
-						<include content="SmallPosterLayout">
-							<param name="focused" value="true" />
-						</include>
-						<include>FocusBounce</include>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
-				<itemlayout width="235" height="375" condition="String.IsEqual(Skin.String(ArtworkSize54Setting),1) + Skin.HasSetting(Enable.54Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
-					<control type="group">
-						<include content="ViewUnfocusedAnimations">
-							<param name="id" value="54"/>
-						</include>
-						<top>0</top>
-						<include>SmallPosterLayout</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="235" height="375" condition="String.IsEqual(Skin.String(ArtworkSize54Setting),1) + Skin.HasSetting(Enable.54Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-						<top>0</top>
-						<include content="SmallPosterLayout">
-							<param name="focused" value="true" />
-						</include>
-						<include>FocusBounce</include>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
+				<!-- DEFAULT LAYOUT - No Titles -->
+				<include condition="String.IsEqual(Skin.String(ArtworkSize54Setting),0) + !Skin.HasSetting(Enable.54Titles)">View54_Default_NoTitles</include>
+				<!-- DEFAULT LAYOUT - Titles -->
+				<include condition="String.IsEqual(Skin.String(ArtworkSize54Setting),0) + Skin.HasSetting(Enable.54Titles)">View54_Default_Titles</include>
+				<!-- SMALL LAYOUT - No Titles -->
+				<include condition="String.IsEqual(Skin.String(ArtworkSize54Setting),1) + !Skin.HasSetting(Enable.54Titles)">View54_Small_NoTitles</include>
+				<!-- SMALL LAYOUT - Titles -->
+				<include condition="String.IsEqual(Skin.String(ArtworkSize54Setting),1) + Skin.HasSetting(Enable.54Titles)">View54_Small_Titles</include>
 				<!-- <itemlayout height="410" width="310" condition="Container.Content(artists) | Container.Content(albums)">
 					<control type="group">
 						<top>150</top>
