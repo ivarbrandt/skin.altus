@@ -30,4 +30,12 @@
 	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | Control.HasFocus(6130) | Control.HasFocus(6131)</expression>
 	<expression name="dialog_visible">Window.IsVisible(shutdownmenu) | Window.IsVisible(contextmenu) | Window.IsVisible(1107) | Window.IsVisible(Custom_1122_ViewSelector.xml)</expression>
 
+  <expression name="hasMovieVI">$EXP[isMovie] + [!Skin.HasSetting(Disable.VI.Digital) | !Skin.HasSetting(Disable.VI.Mpaa) | !Skin.HasSetting(Disable.VI.Genre) | !Skin.HasSetting(Disable.VI.Director) | !Skin.HasSetting(Disable.VI.Runtime) | !Skin.HasSetting(Disable.VI.Endsat)]</expression>
+  <expression name="hasTVShowVI">$EXP[isTVShow] + [!Skin.HasSetting(Disable.VI.Aired) | !Skin.HasSetting(Disable.VI.Mpaa) | !Skin.HasSetting(Disable.VI.Genre) | !Skin.HasSetting(Disable.VI.Director) | !Skin.HasSetting(Disable.VI.TotalSeasons) | !Skin.HasSetting(Disable.VI.TotalEpisodes) | !Skin.HasSetting(Disable.VI.EpDuration) | !Skin.HasSetting(Disable.VI.Status)]</expression>
+  <expression name="hasSeasonVI">$EXP[isSeason] + [!Skin.HasSetting(Disable.VI.Aired) | !Skin.HasSetting(Disable.VI.Mpaa) | !Skin.HasSetting(Disable.VI.Genre) | !Skin.HasSetting(Disable.VI.EpDuration) | !Skin.HasSetting(Disable.VI.Endsat)]</expression>
+  <expression name="hasEpisodeVI">$EXP[isEpisode] + [!Skin.HasSetting(Disable.VI.Aired) | !Skin.HasSetting(Disable.VI.Director) | !Skin.HasSetting(Disable.VI.Writer) | !Skin.HasSetting(Disable.VI.Runtime) | !Skin.HasSetting(Disable.VI.Endsat) | !Skin.HasSetting(Disable.VI.EpisodeType)]</expression>
+  <expression name="hasAnyVI">$EXP[hasMovieVI] | $EXP[hasTVShowVI] | $EXP[hasSeasonVI] | $EXP[hasEpisodeVI]</expression>
+
+  <expression name="showPlot">[String.IsEmpty(Skin.String(PlotSetting)) | String.IsEqual(Skin.String(PlotSetting),0)] | [String.IsEqual(Skin.String(PlotSetting),1) + !$EXP[isEpisode]]</expression>
+
 </includes>

@@ -18,11 +18,28 @@
 		<value condition="Control.HasFocus(64006)">Set delay before loading a stacked widget.[CR][CR]This is how long Altus will wait after focusing on a stacked category item before loading its content.[CR][CR]Example: With a 3000 setting, Altus waits 3 seconds after focus. If focus remains, the stacked widget begins loading.</value>
 		<value condition="Control.HasFocus(64007)">Show a countdown timer for stacked widget loading.[CR][CR]The timer displays in 0.25 second increments within the parent stacked category widget label. When the timer reaches 0, the stacked widget begins loading.</value>
 		<value condition="Control.HasFocus(64008)">Toggle whether parent stacked widgets reset when returning to the home screen.[CR][CR]When enabled, all parent stacked widgets will reset to their first item upon returning home.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] This setting also triggers automatic content loading for child stacked widgets.</value>
-		<value condition="Control.HasFocus(64009)">Select content to display in the InfoPanel header.</value>
-		<value condition="Control.HasFocus(64010)">Show ratings in the InfoPanel.[CR][CR]Select which ratings to display in the API features section.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Requires a valid MDbList API key.</value>
-		<value condition="Control.HasFocus(64011)">Configure studio logo display in the InfoPanel footer.[CR][CR]Options: Show for movies only, TV shows only, both, or disable completely.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] This setting applies globally, including video window views.</value>
 		<value condition="Control.HasFocus(64012)">$VAR[Capitalize_DimorFadeLabel] unfocused widget rows while showing the focused row in full color and brightness.</value>
 		<value condition="Control.HasFocus(64013)">$VAR[Capitalize_DimorFadeLabel] the entire widget section when the main menu is focused.</value>
+
+		<!-- INFO PANEL SECTION -->
+		<value condition="Container(9000).HasFocus(8) + !ControlGroup(10000).HasFocus">Configure InfoPanel display settings for widgets and video window views.</value>
+		<value condition="Control.HasFocus(65013)">Select content to display in the InfoPanel header.[CR][CR]CLEARLOGO shows the media logo.[CR]TEXT shows the title as text.[CR]OFF hides the header completely.</value>
+		<value condition="Control.HasFocus(65000)">Show the digital release date for movies in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65001)">Show the aired date for TV shows, seasons, and episodes in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65002)">Show the content rating (MPAA) for movies, TV shows, and seasons in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65003)">Show the genre for movies, TV shows, and seasons in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65004)">Show the director for movies, TV shows, and episodes in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65005)">Show the writer for episodes in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65006)">Show the duration for movies and episodes in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65007)">Show the episode duration for TV shows and seasons in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65008)">Show the total seasons count for TV shows in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65009)">Show the total episodes count for TV shows in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65010)">Show the status for TV shows in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65011)">Show the ends at time for movies, seasons, and episodes in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65012)">Show the episode type for episodes in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65014)">Show ratings in the InfoPanel.[CR][CR]Select which ratings to display in the API features section.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Requires a valid MDbList API key.</value>
+		<value condition="Control.HasFocus(65015)">Configure plot display in the InfoPanel.[CR][CR]ON shows the plot for all content types.[CR]EXCLUDE EPISODES hides the plot for episodes only.[CR]OFF hides the plot completely.</value>
+		<value condition="Control.HasFocus(65016)">Configure studio logo display in the InfoPanel footer.[CR][CR]Options: Show for movies only, TV shows only, both, or disable completely.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] This setting applies globally, including video window views.</value>
 
 		<!-- CUSTOMIZATION SECTION -->
 		<value condition="Container(9000).HasFocus(2) + !ControlGroup(10000).HasFocus">Various skin settings.</value>
@@ -46,7 +63,7 @@
 		<value condition="Control.HasFocus(6004)">Adjust the intensity of background blur.[CR][CR]Higher values wash out more detail. Lower values preserve more detail.[CR][CR]RECOMMENDED: 2-40. DEFAULT: 20[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Changing this also affects color selection when COLOR THEME is set to ADAPTIVE.</value>
 		<value condition="Control.HasFocus(6005)">Set the color saturation of background blur.[CR][CR]Higher values create more vibrant, intense colors. Lower values produce more subtle, neutral colors.[CR][CR]DEFAULT: 1.0</value>
 		<value condition="Control.HasFocus(6006)">Restore the default background image.</value>
-		<value condition="Control.HasFocus(6007)">Show clearlogos for media content.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Only affects the InfoPanel in video windows. For widget InfoPanel settings, go to Widget Options [B]»[/B] Header.</value>
+		<value condition="Control.HasFocus(6007)">Show clearlogos for media content.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Only affects the InfoPanel in video windows. For widget InfoPanel settings, go to Info Panel [B]»[/B] Header.</value>
 
 		<!-- RATINGS SECTION -->
 		<value condition="Container(9000).HasFocus(4) + !ControlGroup(10000).HasFocus">API related settings.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] All features in this section require a valid MDbList API key.[CR][CR]If you don't have an API key, visit https://mdblist.com to sign up for a free one.</value>

@@ -430,6 +430,20 @@
 		<value>Skin.SetString(WidgetClearlogoSetting,0)</value>
 	</variable>
 
+	<variable name="PlotSettingVar">
+    <value condition="String.IsEqual(Skin.String(PlotSetting),0)">On</value>
+    <value condition="String.IsEqual(Skin.String(PlotSetting),1)">Exclude episodes</value>
+    <value condition="String.IsEqual(Skin.String(PlotSetting),2)">Off</value>
+    <value>On</value>
+	</variable>
+
+	<variable name="PlotToggleVar">
+		<value condition="String.IsEqual(Skin.String(PlotSetting),0)">Skin.SetString(PlotSetting,1)</value>
+		<value condition="String.IsEqual(Skin.String(PlotSetting),1)">Skin.SetString(PlotSetting,2)</value>
+		<value condition="String.IsEqual(Skin.String(PlotSetting),2)">Skin.SetString(PlotSetting,0)</value>
+		<value>Skin.SetString(PlotSetting,0)</value>
+	</variable>
+
 	<variable name="PosterSizeSettingVar">
     <value condition="String.IsEqual(Skin.String(PosterSizeSetting),0)">Default</value>
     <value condition="String.IsEqual(Skin.String(PosterSizeSetting),1)">Large</value>

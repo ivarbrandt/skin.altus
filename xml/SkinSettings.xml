@@ -741,6 +741,13 @@
 				<pagecontrol>60</pagecontrol>
 				<ondown>650</ondown>
 				<visible>Container(9000).HasFocus(8)</visible>
+				<!-- HEADER -->
+				<control type="button" id="65013">
+					<label>Header</label>
+					<label2>$VAR[WidgetClearlogoSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[WidgetClearlogoToggleVar]</onclick>
+				</control>
 				<!-- RELEASE DATE -->
 				<control type="radiobutton" id="65000">
 					<label>Show release date (movies)</label>
@@ -832,6 +839,28 @@
 					<selected>!Skin.HasSetting(Disable.VI.EpisodeType)</selected>
 					<onclick>Skin.ToggleSetting(Disable.VI.EpisodeType)</onclick>
 				</control>
+				<!-- RATINGS -->
+				<control type="radiobutton" id="65014">
+					<label>Ratings</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(Disable.HomePanelRatings)</onclick>
+					<selected>!Skin.HasSetting(Disable.HomePanelRatings)</selected>
+				</control>
+				<!-- PLOT -->
+				<control type="button" id="65015">
+					<label>Plot</label>
+					<label2>$VAR[PlotSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[PlotToggleVar]</onclick>
+				</control>
+				<!-- FOOTER (STUDIO LOGO) -->
+				<control type="button" id="65016">
+					<label>Footer (Studio logo)</label>
+					<label2>$VAR[StudioLogoSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick condition="!System.HasAddon(resource.images.studios.white)">InstallAddon(resource.images.studios.white)</onclick>
+					<onclick>$VAR[StudioLogoToggleVar]</onclick>
+				</control>
 			</control>
 
 			<control type="grouplist" id="640">
@@ -900,25 +929,6 @@
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.ResetStacked)</selected>
 					<onclick>Skin.ToggleSetting(Disable.ResetStacked)</onclick>
-				</control>
-				<control type="button" id="64009">
-					<label>Header</label>
-					<label2>$VAR[WidgetClearlogoSettingVar]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>$VAR[WidgetClearlogoToggleVar]</onclick>
-				</control>
-				<control type="radiobutton" id="64010">
-					<label>Ratings</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(Disable.HomePanelRatings)</onclick>
-					<selected>!Skin.HasSetting(Disable.HomePanelRatings)</selected>
-				</control>
-				<control type="button" id="64011">
-					<label>Footer (Studio logo)</label>
-					<label2>$VAR[StudioLogoSettingVar]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick condition="!System.HasAddon(resource.images.studios.white)">InstallAddon(resource.images.studios.white)</onclick>
-					<onclick>$VAR[StudioLogoToggleVar]</onclick>
 				</control>
 				<!-- DIM/FADE WIDGETS -->
 				<control type="radiobutton" id="64012">
