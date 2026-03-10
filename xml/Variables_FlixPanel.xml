@@ -145,6 +145,10 @@
     <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Western)"> • [COLOR unfocused_text]Western[/COLOR]</value>
 	</variable>
 
+	<variable name="VI_GenreLabel">
+		<value condition="!String.IsEmpty(ListItem.Genre)">[COLOR $VAR[FocusColorTheme]][B]Genre:[/B][/COLOR] </value>
+	</variable>
+
 	<variable name="VI_Genre">
 		<!-- Specific Genre Combinations -->
     <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Documentary) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,History)">Historical Docudrama[CR]</value>
@@ -287,21 +291,23 @@
     <value condition="!Skin.HasSetting(Enable.SmartStatus) | String.IsEqual(Window(home).Property(altus.digital_release_flag),expired) | !String.IsEmpty(ListItem.Premiered)">[COLOR unfocused_text]$INFO[ListItem.Premiered][/COLOR]</value>
 	</variable>
 	<variable name="VI_Digital">
-    <!-- Already digitally released (more than 3 days) - show digital release date in teal -->
-    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(altus.digital_release_flag),true)">[COLOR FF40E0B0]$INFO[Window(home).Property(altus.digital_release_date)][/COLOR][CR]</value>
-    <!-- Recently released (within 3 days) - show digital release date in yellow -->
-    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(altus.digital_release_flag),recently)">[COLOR FFFFC30B]$INFO[Window(home).Property(altus.digital_release_date)][/COLOR][CR]</value>
-    <!-- Future digital release - show date in coral -->
-    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(altus.digital_release_flag),false) + !String.IsEmpty(Window(home).Property(altus.digital_release_date))">[COLOR FFFF4D4D]$INFO[Window(home).Property(altus.digital_release_date)][/COLOR][CR]</value>
+    <!-- Already digitally released (more than 3 days) - teal label -->
+    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(altus.digital_release_flag),true)">[COLOR FF40E0B0][B]Released:[/B][/COLOR] $INFO[Window(home).Property(altus.digital_release_date)][CR]</value>
+    <!-- Recently released (within 3 days) - yellow label -->
+    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(altus.digital_release_flag),recently)">[COLOR FFFFC30B][B]Released:[/B][/COLOR] $INFO[Window(home).Property(altus.digital_release_date)][CR]</value>
+    <!-- Future digital release - coral label -->
+    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(altus.digital_release_flag),false) + !String.IsEmpty(Window(home).Property(altus.digital_release_date))">[COLOR FFFF4D4D][B]Upcoming:[/B][/COLOR] $INFO[Window(home).Property(altus.digital_release_date)][CR]</value>
     <!-- Expired or disabled or fallback - show premiered date in unfocused color -->
-    <value condition="!Skin.HasSetting(Enable.SmartStatus) | String.IsEqual(Window(home).Property(altus.digital_release_flag),expired) | !String.IsEmpty(ListItem.Premiered)">[COLOR unfocused_text]$INFO[ListItem.Premiered][/COLOR][CR]</value>
+    <value condition="!Skin.HasSetting(Enable.SmartStatus) | String.IsEqual(Window(home).Property(altus.digital_release_flag),expired) | !String.IsEmpty(ListItem.Premiered)">[COLOR $VAR[FocusColorTheme]][B]Premiered:[/B][/COLOR] $INFO[ListItem.Premiered][CR]</value>
 	</variable>
 	<!-- Aired -->
 	<variable name="RI_Aired">
 		<value condition="!String.IsEmpty(ListItem.Premiered)">[COLOR unfocused_text]$INFO[ListItem.Premiered][/COLOR]</value>
 	</variable>
 	<variable name="VI_Aired">
-		<value condition="!String.IsEmpty(ListItem.Premiered)">[COLOR unfocused_text]$INFO[ListItem.Premiered][/COLOR][CR]</value>
+		<value condition="!String.IsEmpty(ListItem.Premiered) + $EXP[isTVShow]">[COLOR $VAR[FocusColorTheme]][B]First aired:[/B][/COLOR] $INFO[ListItem.Premiered][CR]</value>
+		<value condition="!String.IsEmpty(ListItem.Premiered) + $EXP[isSeason]">[COLOR $VAR[FocusColorTheme]][B]Aired:[/B][/COLOR] $INFO[ListItem.Premiered][CR]</value>
+		<value condition="!String.IsEmpty(ListItem.Premiered) + $EXP[isEpisode]">[COLOR $VAR[FocusColorTheme]][B]Aired:[/B][/COLOR] $INFO[ListItem.Premiered][CR]</value>
 	</variable>
 	<!-- MPAA Rating -->
 	<variable name="RI_Mpaa">
@@ -314,7 +320,7 @@
 		<value condition="!String.IsEmpty(ListItem.Mpaa)"> • [COLOR unfocused_text]$VAR[Rated_]$INFO[ListItem.Mpaa][/COLOR]</value>
 	</variable>
 	<variable name="VI_Mpaa">
-		<value condition="!String.IsEmpty(ListItem.Mpaa)">$VAR[Rated_]$INFO[ListItem.Mpaa][CR]</value>
+		<value condition="!String.IsEmpty(ListItem.Mpaa)">[COLOR $VAR[FocusColorTheme]][B]Rated:[/B][/COLOR] $INFO[ListItem.Mpaa][CR]</value>
 	</variable>
 	<!-- Rating -->
 	<variable name="RI_Rating">
@@ -377,8 +383,7 @@
 		<value condition="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsGreater(Container.ListItem.Property(TotalSeasons),1)"> • [COLOR unfocused_text]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[36905]][/COLOR]</value>
 	</variable>
 	<variable name="VI_TotalSeasons">
-		<value condition="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsEqual(Container.ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[36904]][CR]</value>
-		<value condition="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsGreater(Container.ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[36905]][CR]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(TotalSeasons))">[COLOR $VAR[FocusColorTheme]][B]Seasons:[/B][/COLOR] $INFO[ListItem.Property(TotalSeasons)][CR]</value>
 	</variable>
 	<!-- Total Seasons -->
 	<variable name="I_Available">
@@ -404,7 +409,16 @@
 		<value condition="!String.IsEmpty(ListItem.Status)"> • [COLOR unfocused_text]$INFO[Container.ListItem.Status][/COLOR]</value>
 	</variable>
 	<variable name="VI_Status">
-		<value condition="!String.IsEmpty(ListItem.Status)">$INFO[Container.ListItem.Status][CR]</value>
+		<value condition="!String.IsEmpty(ListItem.Status)">[COLOR $VAR[FocusColorTheme]][B]Status:[/B][/COLOR] $INFO[Container.ListItem.Status][CR]</value>
+	</variable>
+	<variable name="VI_Director">
+		<value condition="!String.IsEmpty(ListItem.Director)">[COLOR $VAR[FocusColorTheme]][B]Director:[/B][/COLOR] $INFO[ListItem.Director][CR]</value>
+	</variable>
+	<variable name="VI_Writer">
+		<value condition="!String.IsEmpty(ListItem.Writer)">[COLOR $VAR[FocusColorTheme]][B]Writer:[/B][/COLOR] $INFO[ListItem.Writer][CR]</value>
+	</variable>
+	<variable name="VI_TotalEpisodes">
+		<value condition="!String.IsEmpty(ListItem.Property(TotalEpisodes))">[COLOR $VAR[FocusColorTheme]][B]Episodes:[/B][/COLOR] $INFO[ListItem.Property(TotalEpisodes)][CR]</value>
 	</variable>
 	<!-- Runtime -->
 	<variable name="RI_Runtime">
@@ -422,16 +436,19 @@
 	</variable>
 	<variable name="VI_Runtime">
     <!-- MOVIES -->
-    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hrs] $INFO[ListItem.Duration(m),, mins][CR]</value>
-    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hrs] 1 min[CR]</value>
-    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">$INFO[ListItem.Duration(h),, hrs][CR]</value>
-    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">1 hr $INFO[ListItem.Duration(m),, mins][CR]</value>
-    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">1 hr 1 min[CR]</value>
-    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">1 hr[CR]</value>
-    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(m),, mins][CR]</value>
-    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsEqual(ListItem.Duration(m),1)">1 min[CR]</value>
+    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] $INFO[ListItem.Duration(h),, hrs] $INFO[ListItem.Duration(m),, mins][CR]</value>
+    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] $INFO[ListItem.Duration(h),, hrs] 1 min[CR]</value>
+    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] $INFO[ListItem.Duration(h),, hrs][CR]</value>
+    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] 1 hr $INFO[ListItem.Duration(m),, mins][CR]</value>
+    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] 1 hr 1 min[CR]</value>
+    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] 1 hr[CR]</value>
+    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsGreater(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] $INFO[ListItem.Duration(m),, mins][CR]</value>
+    <value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsEqual(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] 1 min[CR]</value>
     <!-- TVSHOWS, SEASONS, EPISODES -->
-    <value condition="!String.IsEmpty(ListItem.Duration) + !$EXP[isMovie]">$INFO[ListItem.Duration(mins),, mins][CR]</value>
+    <value condition="!String.IsEmpty(ListItem.Duration) + !$EXP[isMovie]">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] $INFO[ListItem.Duration(mins),, mins][CR]</value>
+	</variable>
+	<variable name="VI_EpDuration">
+		<value condition="!String.IsEmpty(ListItem.Duration) + !$EXP[isMovie]">[COLOR $VAR[FocusColorTheme]][B]Ep duration:[/B][/COLOR] $INFO[ListItem.Duration(mins),, mins][CR]</value>
 	</variable>
 
 	<!-- Runtime -->
@@ -447,12 +464,12 @@
 
 
 	<variable name="RI_EpisodeType">
-		<value condition="String.IsEqual(ListItem.Property(episode_type), series_premiere)"> • [COLOR ff8fc5d9][UPPERCASE]Series Premiere[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), season_premiere)"> • [COLOR ff8fd9c5][UPPERCASE]Season Premiere[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)"> • [COLOR ffc5d98f][UPPERCASE]Mid-Season Premiere[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), series_finale)"> • [COLOR ffc58fd9][UPPERCASE]Series Finale[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), season_finale)"> • [COLOR ffd98fc5][UPPERCASE]Season Finale[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_finale)"> • [COLOR ffd9c58f][UPPERCASE]Mid-Season Finale[/UPPERCASE][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_premiere)"> • [COLOR ff8fc5d9][B][UPPERCASE]Series Premiere[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_premiere)"> • [COLOR ff8fd9c5][B][UPPERCASE]Season Premiere[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)"> • [COLOR ffc5d98f][B][UPPERCASE]Mid-Season Premiere[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_finale)"> • [COLOR ffc58fd9][B][UPPERCASE]Series Finale[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_finale)"> • [COLOR ffd98fc5][B][UPPERCASE]Season Finale[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_finale)"> • [COLOR ffd9c58f][B][UPPERCASE]Mid-Season Finale[/UPPERCASE][/B][/COLOR]</value>
 		<!-- <value condition="String.IsEqual(ListItem.Property(episode_type), series_premiere)"> • [COLOR unfocused_text]Series Premiere[/COLOR]</value>
 		<value condition="String.IsEqual(ListItem.Property(episode_type), season_premiere)"> • [COLOR unfocused_text]Season Premiere[/COLOR]</value>
 		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)"> • [COLOR unfocused_text]Mid-Season Premiere[/COLOR]</value>
@@ -471,12 +488,12 @@
 	</variable> -->
 
 	<variable name="VI_EpisodeType">
-		<value condition="String.IsEqual(ListItem.Property(episode_type), series_premiere)">[COLOR ff8fc5d9][UPPERCASE]Series Premiere[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), season_premiere)">[COLOR ff8fd9c5][UPPERCASE]Season Premiere[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)">[COLOR ffc5d98f][UPPERCASE]Mid-Season Premiere[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), series_finale)">[COLOR ffc58fd9][UPPERCASE]Series Finale[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), season_finale)">[COLOR ffd98fc5][UPPERCASE]Season Finale[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_finale)">[COLOR ffd9c58f][UPPERCASE]Mid-Season Finale[/UPPERCASE][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_premiere)">[COLOR ff8fc5d9][B][UPPERCASE]Series Premiere[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_premiere)">[COLOR ff8fd9c5][B][UPPERCASE]Season Premiere[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)">[COLOR ffc5d98f][B][UPPERCASE]Mid-Season Premiere[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_finale)">[COLOR ffc58fd9][B][UPPERCASE]Series Finale[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_finale)">[COLOR ffd98fc5][B][UPPERCASE]Season Finale[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_finale)">[COLOR ffd9c58f][B][UPPERCASE]Mid-Season Finale[/UPPERCASE][/B][/COLOR]</value>
 	</variable>
 	
 	<variable name="RI_EpisodesRemaining">
@@ -503,7 +520,7 @@
 	</variable>
 
 	<variable name="VI_Endsat">
-		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration)">[COLOR $VAR[FocusColorTheme]]Ends at:[/COLOR] $INFO[ListItem.EndTime]</value>
+		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration)">[COLOR $VAR[FocusColorTheme]][B]Ends at:[/B][/COLOR] $INFO[ListItem.EndTime]</value>
 	</variable>
 
 	<!-- <variable name="RI_StartsEnds">
@@ -537,12 +554,12 @@
 		<value condition="!String.IsEmpty(Container(5057).ListItem.EndTime) + !String.IsEmpty(Container(5057).ListItem.Duration)"> • [COLOR unfocused_text]$INFO[Container(5057).ListItem.EndTime,$LOCALIZE[31080]: ][/COLOR]</value>
 	</variable>
 	<variable name="Season_EpisodeType">
-		<value condition="String.IsEqual(Container(5057).ListItem.Property(episode_type), series_premiere)"> • [COLOR ff8fc5d9][UPPERCASE]Series Premiere[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(Container(5057).ListItem.Property(episode_type), season_premiere)"> • [COLOR ff8fd9c5][UPPERCASE]Season Premiere[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(Container(5057).ListItem.Property(episode_type), mid_season_premiere)"> • [COLOR ffc5d98f][UPPERCASE]Mid-Season Premiere[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(Container(5057).ListItem.Property(episode_type), series_finale)"> • [COLOR ffc58fd9][UPPERCASE]Series Finale[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(Container(5057).ListItem.Property(episode_type), season_finale)"> • [COLOR ffd98fc5][UPPERCASE]Season Finale[/UPPERCASE][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_finale)"> • [COLOR ffd9c58f][UPPERCASE]Mid-Season Finale[/UPPERCASE][/COLOR]</value>
+		<value condition="String.IsEqual(Container(5057).ListItem.Property(episode_type), series_premiere)"> • [COLOR ff8fc5d9][B][UPPERCASE]Series Premiere[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(Container(5057).ListItem.Property(episode_type), season_premiere)"> • [COLOR ff8fd9c5][B][UPPERCASE]Season Premiere[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(Container(5057).ListItem.Property(episode_type), mid_season_premiere)"> • [COLOR ffc5d98f][B][UPPERCASE]Mid-Season Premiere[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(Container(5057).ListItem.Property(episode_type), series_finale)"> • [COLOR ffc58fd9][B][UPPERCASE]Series Finale[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(Container(5057).ListItem.Property(episode_type), season_finale)"> • [COLOR ffd98fc5][B][UPPERCASE]Season Finale[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_finale)"> • [COLOR ffd9c58f][B][UPPERCASE]Mid-Season Finale[/UPPERCASE][/B][/COLOR]</value>
 	</variable>
 
 	<variable name="SeasonInfoPanelTop">
@@ -584,14 +601,14 @@
 
 	<variable name="VI_WidgetInfoPanelTop">
 		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + $EXP[isMovie]">$VAR[VI_Digital]$VAR[VI_Mpaa]$VAR[VI_Genre]$VAR[VI_Runtime]$VAR[VI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isMovie]">$VAR[VI_Digital]$VAR[VI_Mpaa]$VAR[VI_GenreLabel]$VAR[VI_Genre]$VAR[VI_Director]$VAR[VI_Runtime]$VAR[VI_Endsat]</value>
 		<!-- SHOWS -->
-		<value condition="!ListItem.IsCollection + $EXP[isTVShow]">$VAR[VI_Aired]$VAR[VI_Mpaa]$VAR[VI_Genre]$VAR[VI_TotalSeasons]$VAR[VI_Status]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isTVShow]">$VAR[VI_Aired]$VAR[VI_Mpaa]$VAR[VI_GenreLabel]$VAR[VI_Genre]$VAR[VI_Director]$VAR[VI_TotalSeasons]$VAR[VI_TotalEpisodes]$VAR[VI_EpDuration]$VAR[VI_Status]</value>
 		<!-- SEASONS -->
-		<value condition="!ListItem.IsCollection + $EXP[isSeason]">$VAR[VI_Aired]$VAR[VI_Mpaa]$VAR[VI_Genre]$VAR[VI_Runtime]$VAR[VI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isSeason]">$VAR[VI_Aired]$VAR[VI_Mpaa]$VAR[VI_GenreLabel]$VAR[VI_Genre]$VAR[VI_EpDuration]$VAR[VI_Endsat]</value>
 		<!-- EPISODES -->
-		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + String.IsEmpty(ListItem.Property(episode_type))">$VAR[VI_Aired]$VAR[VI_Runtime]$VAR[VI_Endsat]</value>
-		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + !String.IsEmpty(ListItem.Property(episode_type))">$VAR[VI_Aired]$VAR[VI_Runtime]$VAR[VI_Endsat]$VAR[VI_EpisodeType]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + String.IsEmpty(ListItem.Property(episode_type))">$VAR[VI_Aired]$VAR[VI_Director]$VAR[VI_Writer]$VAR[VI_Runtime]$VAR[VI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + !String.IsEmpty(ListItem.Property(episode_type))">$VAR[VI_Aired]$VAR[VI_Director]$VAR[VI_Writer]$VAR[VI_Runtime]$VAR[VI_Endsat][CR]$VAR[VI_EpisodeType]</value>
 	</variable>
 
 	<variable name="Spotlight_WidgetInfoPanelTop">
