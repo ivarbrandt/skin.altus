@@ -1714,13 +1714,6 @@
 										[Window.IsActive(videos) + Control.IsVisible(501)]
 								] | 
 								Window.IsVisible(extendedprogressdialog)
-						] + 
-						![
-								!Player.HasMedia + 
-								[
-										[Window.IsVisible(home) | Window.IsVisible(1121)] + 
-										ControlGroup(2000).HasFocus
-								]
 						]
 				</visible>
 				
@@ -1735,6 +1728,8 @@
 					<animation effect="fade" start="0" end="100" time="700">VisibleChange</animation>
 					<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
 				</control>
+				<control type="group">
+				<visible>![[Window.IsVisible(home) | Window.IsVisible(1121)] + ControlGroup(2000).HasFocus]</visible>
 				<control type="grouplist">
 					<width>900</width>
 					<include content="TopBarLabels">
@@ -1930,6 +1925,7 @@
 					<visible>Container.SortMethod(1) | Container.SortMethod(4) | Container.SortMethod(12) | Container.SortMethod(10) | Container.SortMethod(7) | Container.SortMethod(29) | Container.SortMethod(17)</visible>
 					<animation effect="fade" start="0" end="100" time="200" reversible="true">VisibleChange</animation>
 					<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				</control>
 				</control>
 			</control>
 			<include condition="Skin.HasSetting(touchmode) + !Window.IsActive(home)">TouchBackButton</include>
@@ -2259,7 +2255,7 @@
 						]
 					]
 				</visible> -->
-				<visible>String.IsEmpty(Window(Home).Property(SpotlightWidget)) + !Window.IsVisible(videos) + ![ControlGroup(15000).HasFocus | Window.IsVisible(1100)] + ![!Player.HasMedia + [[Window.IsVisible(home) | Window.IsVisible(1121)] + ControlGroup(2000).HasFocus]]</visible>
+				<visible>String.IsEmpty(Window(Home).Property(SpotlightWidget)) + !Window.IsVisible(videos) + ![ControlGroup(15000).HasFocus | Window.IsVisible(1100)]</visible>
 				<animation effect="fade" time="300" tween="cubic" easing="out">VisibleChange</animation>
 				<bottom>0</bottom>
 				<control type="image">

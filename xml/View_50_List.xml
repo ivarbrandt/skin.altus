@@ -236,10 +236,12 @@
 				</control>
 				
 				<control type="image">
-					<left>0</left>
+					<top>55</top>
+					<left>55</left>
 					<bottom>0</bottom>
-					<width>720</width>
-					<height>1080</height>
+					<!-- 98 -->
+					<width>647</width>
+					<height>970</height>
 					<fadetime>500</fadetime>
 					<texture colordiffuse="artwork_dim" background="true" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[FlixPosterVar]</texture>
 					
@@ -880,10 +882,10 @@
 								<shadowcolor>text_shadow</shadowcolor>
 							</control>
 							<control type="textbox">
-								<top>80</top>
+								<top>78</top>
 								<left>33</left>
 								<width>810</width>
-								<bottom>10</bottom>
+								<bottom>8</bottom>
 								<aligny>center</aligny>
 								<font>font27</font>
 								<label>$VAR[RI_Plot]</label>
