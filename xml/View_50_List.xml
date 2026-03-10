@@ -178,19 +178,11 @@
 					$PARAM[ratings_notvisible]" 
 					reversible="true">
 					<effect type="slide" start="0,0" end="-166,0" delay="200" time="500" tween="cubic" easing="in" />
-				</animation>
-					<include content="MenuContentPanel">
-						<!-- <param name="width" value="1030"/>
-						<param name="bg_left" value="0"/>
-						<param name="dividerleft" value="1030"/> -->
-						<param name="width" value="1200"/>
-						<param name="bg_left" value="1005"/>
-						<param name="dividerleft" value="1005"/>
-					</include>
+					</animation>
 				</control>
 				<control type="image">
 					<!-- 70 -->
-					<left>35</left>
+					<left>45</left>
 					<bottom>240</bottom>
 					<width>930</width>
 					<height>523</height>
@@ -227,7 +219,7 @@
 					]</visible>
 					<include>ListLandscapeArtworkSlide</include>
 					<include content="ProgressBar">
-						<param name="left" value="35"/>
+						<param name="left" value="45"/>
 						<param name="top" value="840"/>
 						<param name="width" value="930"/>
 						<param name="visible1" value="true"/>
@@ -310,7 +302,7 @@
 					</visible>
 				</control>
 				<control type="image">
-					<left>104</left>
+					<left>124</left>
 					<bottom>190</bottom>
 					<width>700</width>
 					<height>700</height>
@@ -359,14 +351,14 @@
 					<include>ListLandscapeArtworkSlide</include>
 					<control type="image">
 						<top>590</top>
-						<left>35</left>
+						<left>45</left>
 						<width>931</width>
 						<height>250</height>
 						<texture colordiffuse="overlay_fade_color" background="true">overlays/overlay_bg_long.png</texture>
 					</control>
 					<control type="image">
 						<top>674</top>
-						<left>85</left>
+						<left>95</left>
 						<width>300</width>
 						<height>116</height>
 						<fadetime>300</fadetime>
@@ -389,7 +381,7 @@
 						$EXP[isContent]"/>
 						<param name="align" value="center"/>
 						<param name="top" value="249.5"/>
-						<param name="left" value="-925"/>
+						<param name="left" value="-935"/>
 						<!-- <param name="left" value="-942.5"/> -->
 					</include>
 				</control>
@@ -398,7 +390,7 @@
 				<control type="grouplist">
 					<animation effect="fade" time="400">VisibleChange</animation>
 					<width>150</width>
-					<left>728.5</left>
+					<left>738.5</left>
 					<bottom>90</bottom>
 					<height>915</height>
 					<orientation>vertical</orientation>
@@ -997,7 +989,7 @@
 								<top>8</top>
 								<bottom>8</bottom>
 								<width>5</width>
-								<left>-15</left>
+								<left>5</left>
 								<texture colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
 								<visible>!String.IsEmpty(ListItem.Plot) + Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
 								<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
@@ -1184,7 +1176,7 @@
 								<top>8</top>
 								<bottom>8</bottom>
 								<width>5</width>
-								<left>-15</left>
+								<left>5</left>
 								<texture colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
 								<visible>!String.IsEmpty(ListItem.Plot) + Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
 								<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
@@ -1374,7 +1366,7 @@
 								<top>8</top>
 								<bottom>8</bottom>
 								<width>5</width>
-								<left>-15</left>
+								<left>5</left>
 								<texture colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
 								<visible>!String.IsEmpty(ListItem.Plot) + Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
 								<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
@@ -1602,18 +1594,10 @@
 								<top>8</top>
 								<bottom>8</bottom>
 								<width>5</width>
-								<left>-15</left>
+								<left>5</left>
 								<texture colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
 								<visible>Control.HasFocus($PARAM[list_id])</visible>
 								<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
-								<animation condition="
-									[
-										[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] | 
-										[Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video.otaku) + String.IsEqual(Skin.String(ListArtworkChoice.addons),0)]
-									]" 
-									reversible="true">
-									<effect type="slide" start="0,0" end="20,0" />
-								</animation>
 							</control>
 							<control type="label">
 								<left>29</left>
@@ -1661,17 +1645,10 @@
 								<top>8</top>
 								<bottom>8</bottom>
 								<width>5</width>
-								<left>-15</left>
+								<left>5</left>
 								<texture colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
 								<visible>Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
 								<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
-								<animation condition="
-									[
-										[Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video.otaku) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
-									]" 
-									reversible="true">
-									<effect type="slide" start="0,0" end="20,0" time="0" tween="cubic" easing="in" />
-								</animation>
 							</control>
 							<control type="label">
 								<left>79</left>

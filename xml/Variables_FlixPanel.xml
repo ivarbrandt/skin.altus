@@ -464,12 +464,12 @@
 
 
 	<variable name="RI_EpisodeType">
-		<value condition="String.IsEqual(ListItem.Property(episode_type), series_premiere)"> • [COLOR ff8fc5d9][B][UPPERCASE]Series Premiere[/UPPERCASE][/B][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), season_premiere)"> • [COLOR ff8fd9c5][B][UPPERCASE]Season Premiere[/UPPERCASE][/B][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)"> • [COLOR ffc5d98f][B][UPPERCASE]Mid-Season Premiere[/UPPERCASE][/B][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), series_finale)"> • [COLOR ffc58fd9][B][UPPERCASE]Series Finale[/UPPERCASE][/B][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), season_finale)"> • [COLOR ffd98fc5][B][UPPERCASE]Season Finale[/UPPERCASE][/B][/COLOR]</value>
-		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_finale)"> • [COLOR ffd9c58f][B][UPPERCASE]Mid-Season Finale[/UPPERCASE][/B][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_premiere)"> • [COLOR ff8fc5d9][UPPERCASE]Series Premiere[/UPPERCASE][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_premiere)"> • [COLOR ff8fd9c5][UPPERCASE]Season Premiere[/UPPERCASE][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)"> • [COLOR ffc5d98f][UPPERCASE]Mid-Season Premiere[/UPPERCASE][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_finale)"> • [COLOR ffc58fd9][UPPERCASE]Series Finale[/UPPERCASE][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_finale)"> • [COLOR ffd98fc5][UPPERCASE]Season Finale[/UPPERCASE][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_finale)"> • [COLOR ffd9c58f][UPPERCASE]Mid-Season Finale[/UPPERCASE][/COLOR]</value>
 		<!-- <value condition="String.IsEqual(ListItem.Property(episode_type), series_premiere)"> • [COLOR unfocused_text]Series Premiere[/COLOR]</value>
 		<value condition="String.IsEqual(ListItem.Property(episode_type), season_premiere)"> • [COLOR unfocused_text]Season Premiere[/COLOR]</value>
 		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)"> • [COLOR unfocused_text]Mid-Season Premiere[/COLOR]</value>
