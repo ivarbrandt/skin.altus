@@ -192,13 +192,14 @@
 	</variable>
 
 	<variable name="FlixCategory">
-    <value condition="!String.IsEmpty(Container.PluginCategory) + [!String.StartsWith(Container.PluginCategory,Season)]"> » [COLOR unfocused_text]$INFO[Container.PluginCategory][/COLOR]</value>
-    <value condition="!String.IsEmpty(Container.PluginCategory) + String.StartsWith(Container.PluginCategory,Season) + $EXP[isEpisode]"> » [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR]</value>
-    <value></value>
+    <value condition="!String.IsEmpty(Container.PluginCategory) + [!String.StartsWith(Container.PluginCategory,Season)]">[COLOR unfocused_text]$INFO[Container.PluginCategory][/COLOR]</value>
+    <value condition="!String.IsEmpty(Container.PluginCategory) + String.StartsWith(Container.PluginCategory,Season) + $EXP[isEpisode]">[COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR]</value>
+    <!-- <value condition="$EXP[isPlugin]">[COLOR unfocused_text]$INFO[Container.PluginName][/COLOR]</value> -->
+    <value>[COLOR unfocused_text]Videos[/COLOR]</value>
 	</variable>
 
 	<variable name="LeftVideoHeader">
-    <value>$VAR[BreadcrumbsVideoVar]$VAR[FlixCategory]$VAR[VideoFlixCrumbsVar]</value>
+    <value>$VAR[FlixCategory]$VAR[VideoFlixCrumbsVar]</value>
 	</variable>
 
 	<variable name="RightVideoHeader">
@@ -261,7 +262,7 @@
 
 	<variable name="ListLandscapeHeaderVar">
     <value condition="Container.Content(favourites)">[COLOR unfocused_text]$LOCALIZE[1036][/COLOR]</value>
-    <value condition="$EXP[isPlugin]">$VAR[BreadcrumbsVideoVar]$VAR[FlixCategory]</value>
+    <value condition="$EXP[isPlugin]">$VAR[FlixCategory]</value>
     <value condition="!$EXP[isPlugin]">[COLOR unfocused_text]$INFO[Container.FolderName][/COLOR]</value>
 	</variable>
 

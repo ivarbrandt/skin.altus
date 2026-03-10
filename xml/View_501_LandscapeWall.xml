@@ -349,52 +349,55 @@
 					</control>
 				</focusedlayout> -->
 			</control>
-			<include content="TopBottomBars">
-				<param name="top_visible" value="true"/>
-				<param name="bottom_visible" value="!Skin.HasSetting(Enable.501Info)"/>
-			</include>
-			<control type="label">
-				<left>37</left>
-				<right>video_header_right</right>
-				<top>15</top>
-				<label>$VAR[LeftVideoHeader]</label>
-				<font>font30_title_uppercase</font>
-				<textcolor>$VAR[FocusColorTheme]</textcolor>
-				<shadowcolor>text_shadow</shadowcolor>
-				<align>left</align>
-				<scroll>true</scroll>
-				<scrollspeed>170</scrollspeed>
-				<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
-				<animation effect="slide" end="-7,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),1) + Skin.HasSetting(Enable.501Titles)">Conditional</animation>
-				<animation effect="slide" end="13,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),1) + !Skin.HasSetting(Enable.501Titles)">Conditional</animation>
-				<animation effect="slide" end="-1,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),2) + Skin.HasSetting(Enable.501Titles)">Conditional</animation>
-				<animation effect="slide" end="43,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),2) + !Skin.HasSetting(Enable.501Titles)">Conditional</animation>
-				<animation effect="slide" end="13,0" condition="Container.Content(episodes)">Conditional</animation>
+			<control type="group">
+				<visible>$EXP[isLandscapeWall]</visible>
+				<include content="TopBottomBars">
+					<param name="top_visible" value="true"/>
+					<param name="bottom_visible" value="!Skin.HasSetting(Enable.501Info)"/>
+				</include>
+				<control type="label">
+					<left>37</left>
+					<right>video_header_right</right>
+					<top>15</top>
+					<label>$VAR[LeftVideoHeader]</label>
+					<font>font30_title_uppercase</font>
+					<textcolor>$VAR[FocusColorTheme]</textcolor>
+					<shadowcolor>text_shadow</shadowcolor>
+					<align>left</align>
+					<scroll>true</scroll>
+					<scrollspeed>170</scrollspeed>
+					<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
+					<animation effect="slide" end="-7,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),1) + Skin.HasSetting(Enable.501Titles)">Conditional</animation>
+					<animation effect="slide" end="13,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),1) + !Skin.HasSetting(Enable.501Titles)">Conditional</animation>
+					<animation effect="slide" end="-1,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),2) + Skin.HasSetting(Enable.501Titles)">Conditional</animation>
+					<animation effect="slide" end="43,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),2) + !Skin.HasSetting(Enable.501Titles)">Conditional</animation>
+					<animation effect="slide" end="13,0" condition="Container.Content(episodes)">Conditional</animation>
+				</control>
+				<control type="label">
+					<right>37</right>
+					<top>15</top>
+					<width>1815</width>
+					<label>$VAR[RightVideoHeader]</label>
+					<font>font30_title_uppercase</font>
+					<textcolor>$VAR[FocusColorTheme]</textcolor>
+					<shadowcolor>text_shadow</shadowcolor>
+					<align>right</align>
+					<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
+					<animation effect="slide" end="7,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),1) + Skin.HasSetting(Enable.501Titles)">Conditional</animation>
+					<animation effect="slide" end="-13,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),1) + !Skin.HasSetting(Enable.501Titles)">Conditional</animation>
+					<animation effect="slide" end="-3,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),2) + Skin.HasSetting(Enable.501Titles)">Conditional</animation>
+					<animation effect="slide" end="-47,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),2) + !Skin.HasSetting(Enable.501Titles)">Conditional</animation>
+					<animation effect="slide" end="-13,0" condition="Container.Content(episodes)">Conditional</animation>
+				</control>
+				<control type="image">
+					<bottom>0</bottom>
+					<width>100%</width>
+					<height>350</height>
+					<texture colordiffuse="black">overlays/bottombarinfo.png</texture>
+					<visible>Skin.HasSetting(Enable.501Info)</visible>
+					<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
+				</control>
 			</control>
-			<control type="label">
-				<right>37</right>
-				<top>15</top>
-				<width>1815</width>
-				<label>$VAR[RightVideoHeader]</label>
-				<font>font30_title_uppercase</font>
-				<textcolor>$VAR[FocusColorTheme]</textcolor>
-				<shadowcolor>text_shadow</shadowcolor>
-				<align>right</align>
-				<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
-				<animation effect="slide" end="7,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),1) + Skin.HasSetting(Enable.501Titles)">Conditional</animation>
-				<animation effect="slide" end="-13,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),1) + !Skin.HasSetting(Enable.501Titles)">Conditional</animation>
-				<animation effect="slide" end="-3,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),2) + Skin.HasSetting(Enable.501Titles)">Conditional</animation>
-				<animation effect="slide" end="-47,0" condition="!Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkSize501Setting),2) + !Skin.HasSetting(Enable.501Titles)">Conditional</animation>
-				<animation effect="slide" end="-13,0" condition="Container.Content(episodes)">Conditional</animation>
-			</control>
-			<control type="image">
-        <bottom>0</bottom>
-        <width>100%</width>
-        <height>350</height>
-        <texture colordiffuse="black">overlays/bottombarinfo.png</texture>
-        <visible>Skin.HasSetting(Enable.501Info)</visible>
-        <animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
-      </control>
 		</control>
 	</include>
 </includes>
