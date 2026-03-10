@@ -990,19 +990,7 @@
   </include>
 
   <include name="FlixPanelRatings">
-    <control type="grouplist">
-      <width>418</width>
-      <height>75</height>
-      <orientation>horizontal</orientation>
-      <itemgap>-9</itemgap>
-      <align>left</align>
-      <visible>!String.IsEmpty(Skin.String(valid_api_key)) + !Skin.HasSetting(Disable.HomePanelRatings)</visible>
-      <control type="label">
-        <width>-7</width>
-        <height>1</height>
-        <label></label>
-      </control>
-      <visible>!String.IsEmpty(ListItem.Genre) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason]] +
+    <param name="visible">!String.IsEmpty(ListItem.Genre) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason]] +
           [
               [[Window.IsVisible(Home) | Window.IsVisible(1121)] + !Skin.HasSetting(Disable.HomePanelRatings)] | [Control.IsVisible(51) + !Skin.HasSetting(Disable.51Ratings)] | [Control.IsVisible(53) + !Skin.HasSetting(Disable.53Ratings)] | [Control.IsVisible(54) + !Skin.HasSetting(Disable.54Ratings)] | [Control.IsVisible(55) + !Skin.HasSetting(Disable.55Ratings)] | [Control.IsVisible(56) + !Skin.HasSetting(Disable.56Ratings)]
           ] +
@@ -1070,42 +1058,78 @@
               [String.IsEqual(Skin.String(RatingSlot7),imdb) + !String.IsEmpty(Window(Home).Property(altus.imdbRating))] |
               [String.IsEqual(Skin.String(RatingSlot7),imdbpop) + !String.IsEmpty(Window(Home).Property(altus.popularRating))] |
               [String.IsEqual(Skin.String(RatingSlot7),tmdb) + !String.IsEmpty(Window(Home).Property(altus.tmdbRating))]
-          ]</visible>
-      <include content="FlixPanelRatingSlotTemplate">
-        <param name="rating_slot" value="RatingSlot1"/>
-        <param name="rating_image" value="$VAR[Rating1ImageVar]"/>
-        <param name="rating_value" value="$VAR[Rating1ValueVarClean]"/>
-      </include>
-      <include content="FlixPanelRatingSlotTemplate">
-        <param name="rating_slot" value="RatingSlot2"/>
-        <param name="rating_image" value="$VAR[Rating2ImageVar]"/>
-        <param name="rating_value" value="$VAR[Rating2ValueVarClean]"/>
-      </include>
-      <include content="FlixPanelRatingSlotTemplate">
-        <param name="rating_slot" value="RatingSlot3"/>
-        <param name="rating_image" value="$VAR[Rating3ImageVar]"/>
-        <param name="rating_value" value="$VAR[Rating3ValueVarClean]"/>
-      </include>
-      <include content="FlixPanelRatingSlotTemplate">
-        <param name="rating_slot" value="RatingSlot4"/>
-        <param name="rating_image" value="$VAR[Rating4ImageVar]"/>
-        <param name="rating_value" value="$VAR[Rating4ValueVarClean]"/>
-      </include>
-      <include content="FlixPanelRatingSlotTemplate">
-        <param name="rating_slot" value="RatingSlot5"/>
-        <param name="rating_image" value="$VAR[Rating5ImageVar]"/>
-        <param name="rating_value" value="$VAR[Rating5ValueVarClean]"/>
-      </include>
-      <include content="FlixPanelRatingSlotTemplate">
-        <param name="rating_slot" value="RatingSlot6"/>
-        <param name="rating_image" value="$VAR[Rating6ImageVar]"/>
-        <param name="rating_value" value="$VAR[Rating6ValueVarClean]"/>
-      </include>
-      <include content="FlixPanelRatingSlotTemplate">
-        <param name="rating_slot" value="RatingSlot7"/>
-        <param name="rating_image" value="$VAR[Rating7ImageVar]"/>
-        <param name="rating_value" value="$VAR[Rating7ValueVarClean]"/>
-      </include>
-    </control>
+        ]</param>
+      <definition>
+      <control type="textbox">
+        <top>0</top>
+        <left>0</left>
+        <right>0</right>
+        <height>6</height>
+        <label></label>
+        <visible>!$EXP[isEpisode] + [!String.IsEmpty(Skin.String(valid_api_key)) + !Skin.HasSetting(Disable.HomePanelRatings)] + $PARAM[visible]</visible>
+      </control>
+      <control type="grouplist">
+        <width>418</width>
+        <height>75</height>
+        <orientation>horizontal</orientation>
+        <itemgap>-9</itemgap>
+        <align>left</align>
+        <visible>!String.IsEmpty(Skin.String(valid_api_key)) + !Skin.HasSetting(Disable.HomePanelRatings)</visible>
+        <control type="label">
+          <width>-7</width>
+          <height>1</height>
+          <label></label>
+        </control>
+        <visible>$PARAM[visible]</visible>
+        <include content="FlixPanelRatingSlotTemplate">
+          <param name="rating_slot" value="RatingSlot1"/>
+          <param name="rating_image" value="$VAR[Rating1ImageVar]"/>
+          <param name="rating_value" value="$VAR[Rating1ValueVarClean]"/>
+        </include>
+        <include content="FlixPanelRatingSlotTemplate">
+          <param name="rating_slot" value="RatingSlot2"/>
+          <param name="rating_image" value="$VAR[Rating2ImageVar]"/>
+          <param name="rating_value" value="$VAR[Rating2ValueVarClean]"/>
+        </include>
+        <include content="FlixPanelRatingSlotTemplate">
+          <param name="rating_slot" value="RatingSlot3"/>
+          <param name="rating_image" value="$VAR[Rating3ImageVar]"/>
+          <param name="rating_value" value="$VAR[Rating3ValueVarClean]"/>
+        </include>
+        <include content="FlixPanelRatingSlotTemplate">
+          <param name="rating_slot" value="RatingSlot4"/>
+          <param name="rating_image" value="$VAR[Rating4ImageVar]"/>
+          <param name="rating_value" value="$VAR[Rating4ValueVarClean]"/>
+        </include>
+        <include content="FlixPanelRatingSlotTemplate">
+          <param name="rating_slot" value="RatingSlot5"/>
+          <param name="rating_image" value="$VAR[Rating5ImageVar]"/>
+          <param name="rating_value" value="$VAR[Rating5ValueVarClean]"/>
+        </include>
+        <include content="FlixPanelRatingSlotTemplate">
+          <param name="rating_slot" value="RatingSlot6"/>
+          <param name="rating_image" value="$VAR[Rating6ImageVar]"/>
+          <param name="rating_value" value="$VAR[Rating6ValueVarClean]"/>
+        </include>
+        <include content="FlixPanelRatingSlotTemplate">
+          <param name="rating_slot" value="RatingSlot7"/>
+          <param name="rating_image" value="$VAR[Rating7ImageVar]"/>
+          <param name="rating_value" value="$VAR[Rating7ValueVarClean]"/>
+        </include>
+      </control>
+      <control type="textbox">
+        <top>0</top>
+        <left>0</left>
+        <right>0</right>
+        <height>6</height>
+        <label></label>
+        <visible>!$EXP[isEpisode] + [!String.IsEmpty(Skin.String(valid_api_key)) + !Skin.HasSetting(Disable.HomePanelRatings)] + $PARAM[visible]</visible>
+      </control>
+      <control type="image">
+        <height>3</height>
+        <texture colordiffuse="$VAR[FocusColorTheme]">masks/infopanel_divider.png</texture>
+        <visible>!$EXP[isEpisode] + [!String.IsEmpty(Skin.String(valid_api_key)) + !Skin.HasSetting(Disable.HomePanelRatings)] + $PARAM[visible]</visible>
+      </control>
+    </definition>
   </include>
 </includes>

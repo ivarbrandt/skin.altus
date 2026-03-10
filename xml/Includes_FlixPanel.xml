@@ -219,28 +219,9 @@
 							<texture colordiffuse="$VAR[FocusColorTheme]">masks/infopanel_divider.png</texture>
 							<visible>$EXP[isContent]</visible>
 						</control>
-						<control type="textbox">
-							<top>0</top>
-							<left>0</left>
-							<right>0</right>
-							<height>6</height>
-							<label></label>
-							<visible>!$EXP[isEpisode] + [!String.IsEmpty(Skin.String(valid_api_key)) + !Skin.HasSetting(Disable.HomePanelRatings)]</visible>
-						</control>
+						
 						<include>FlixPanelRatings</include>
-						<control type="textbox">
-							<top>0</top>
-							<left>0</left>
-							<right>0</right>
-							<height>6</height>
-							<label></label>
-							<visible>!$EXP[isEpisode] + [!String.IsEmpty(Skin.String(valid_api_key)) + !Skin.HasSetting(Disable.HomePanelRatings)]</visible>
-						</control>
-						<control type="image">
-							<height>3</height>
-							<texture colordiffuse="$VAR[FocusColorTheme]">masks/infopanel_divider.png</texture>
-							<visible>!$EXP[isEpisode] + [!String.IsEmpty(Skin.String(valid_api_key)) + !Skin.HasSetting(Disable.HomePanelRatings)]</visible>
-						</control>
+						
 						<control type="textbox">
 							<include condition="!Integer.IsGreater(System.ScreenHeight,1080)">PlotHeight_1080</include>                                                                 
 							<include condition="Integer.IsGreater(System.ScreenHeight,1080)">PlotHeight_4K</include>
