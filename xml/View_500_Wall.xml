@@ -251,8 +251,8 @@
 				</focusedlayout> -->
 			</control>
 			<include content="TopBottomBars">
-				<param name="top_visible" value="!Skin.HasSetting(Enable.500Dim)"/>
-				<param name="bottom_visible" value="!Skin.HasSetting(Enable.500Dim) | !Skin.HasSetting(Enable.500Info)"/>
+				<param name="top_visible" value="true"/>
+				<param name="bottom_visible" value="!Skin.HasSetting(Enable.500Info)"/>
 			</include>
 			<control type="label">
 				<left>20</left>

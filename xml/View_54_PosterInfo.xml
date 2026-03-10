@@ -480,30 +480,7 @@
 					<scrollspeed>170</scrollspeed>
 				</control>
 			</control> -->
-			<control type="label">
-				<left>513</left>
-				<right>video_header_right</right>
-				<top>-50</top>
-				<label>$VAR[LeftVideoHeader]</label>
-				<font>font30_title_uppercase</font>
-				<textcolor>$VAR[FocusColorTheme]</textcolor>
-				<shadowcolor>text_shadow</shadowcolor>
-				<align>left</align>
-				<scroll>true</scroll>
-				<scrollspeed>170</scrollspeed>
-				<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
-			</control>
-			<control type="label">
-				<right>25</right>
-				<top>-50</top>
-				<width>1815</width>
-				<label>$VAR[RightVideoHeader]</label>
-				<font>font30_title_uppercase</font>
-				<textcolor>$VAR[FocusColorTheme]</textcolor>
-				<shadowcolor>text_shadow</shadowcolor>
-				<align>right</align>
-				<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
-			</control>
+			
 			<control type="panel" id="54">
 				<left>496</left>
 				<right>0</right>
@@ -585,10 +562,37 @@
 					</control>
 				</focusedlayout>
 			</control>
+		</control>
+		<control type="group">
+			<visible>$EXP[isPosterInfo]</visible>
 			<include content="TopBottomBars">
-				<param name="top_visible" value="false"/>
-				<param name="bottom_visible" value="!Skin.HasSetting(Enable.54Dim)"/>
+				<param name="top_visible" value="true"/>
+				<param name="bottom_visible" value="true"/>
 			</include>
+			<control type="label">
+				<left>513</left>
+				<right>video_header_right</right>
+				<top>20</top>
+				<label>$VAR[LeftVideoHeader]</label>
+				<font>font30_title_uppercase</font>
+				<textcolor>$VAR[FocusColorTheme]</textcolor>
+				<shadowcolor>text_shadow</shadowcolor>
+				<align>left</align>
+				<scroll>true</scroll>
+				<scrollspeed>170</scrollspeed>
+				<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
+			</control>
+			<control type="label">
+				<right>25</right>
+				<top>20</top>
+				<width>1815</width>
+				<label>$VAR[RightVideoHeader]</label>
+				<font>font30_title_uppercase</font>
+				<textcolor>$VAR[FocusColorTheme]</textcolor>
+				<shadowcolor>text_shadow</shadowcolor>
+				<align>right</align>
+				<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
+			</control>
 		</control>
 	</include>
 
