@@ -15,6 +15,7 @@
   <expression name="isSong">String.IsEqual(ListItem.DBType,song)</expression> -->
   <expression name="noDBType">String.IsEmpty(ListItem.DBType)</expression>
 
+  <expression name="isList">String.IsEqual(Container.Viewmode,$LOCALIZE[535])</expression>
   <expression name="isPosterFlow">String.IsEqual(Container.Viewmode,$LOCALIZE[310981])</expression>
   <expression name="isIconWall">String.IsEqual(Container.Viewmode,$LOCALIZE[31099])</expression>
   <expression name="isSlide">String.IsEqual(Container.Viewmode,$LOCALIZE[31100])</expression>

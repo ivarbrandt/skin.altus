@@ -107,7 +107,7 @@
 				</include>
 				<control type="label" id="$PARAM[id]">
 					<align>right</align>
-					<right>-150</right>
+					<right>-155</right>
 					<label>$INFO[System.Time]</label>
 					<font>font30_title</font>
 					<textcolor>unfocused_text</textcolor>
@@ -115,7 +115,8 @@
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
 					<visible>Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window(Home).Property(SpotlightWidget))</visible>
-					<animation effect="fade" time="100">Visible</animation>
+					<!-- <animation effect="fade" time="100">Visible</animation> -->
+					<animation effect="slide" condition="ControlGroup(2000).HasFocus + ![ControlGroup(19000).HasFocus | ControlGroup(22000).HasFocus | ControlGroup(23000).HasFocus | ControlGroup(24000).HasFocus | ControlGroup(25000).HasFocus]" time="0" start="0,0" end="498,0" tween="cubic" easing="inout">Conditional</animation>
 				</control>
 			</control>
 		</definition>
