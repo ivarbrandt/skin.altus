@@ -196,7 +196,7 @@
             <top>650</top>
             <width>35</width>
             <height>35</height>
-            <texture colordiffuse="unfocused_text">$VAR[WallWatchedIconVar]</texture>
+            <texture colordiffuse="unfocused_text">$VAR[ListWatchedIconVar]</texture>
             <align>left</align>
           </control>
         </control>
@@ -381,13 +381,13 @@
             <scrollspeed>150</scrollspeed>
           </control>
           <control type="textbox">
-            <height max="113">auto</height>
+            <height max="115">auto</height>
             <font>font27</font>
             <textcolor>unfocused_text</textcolor>
             <align>center</align>
             <label>$VAR[RI_Plot]</label>
             <autoscroll delay="12000" time="5000" repeat="12000">Skin.HasSetting(autoscroll)</autoscroll>
-            <visible>String.IsEqual(Container.Viewmode,$LOCALIZE[310981])</visible>
+            <visible>$EXP[isPosterFlow]</visible>
           </control>
           <control type="label">
             <align>center</align>

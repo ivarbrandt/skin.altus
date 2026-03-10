@@ -502,6 +502,10 @@
 		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration)">[COLOR unfocused_text]$INFO[System.Time] - $INFO[ListItem.EndTime][/COLOR][CR]</value>
 	</variable>
 
+	<variable name="VI_Endsat">
+		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration)">[COLOR $VAR[FocusColorTheme]]Ends at:[/COLOR] $INFO[ListItem.EndTime]</value>
+	</variable>
+
 	<!-- <variable name="RI_StartsEnds">
 		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration) + !Window.IsVisible(videos)">[COLOR unfocused_text]$INFO[System.Time] - $INFO[ListItem.EndTime][/COLOR][CR]</value>
 		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration) + Window.IsVisible(videos) + !Skin.HasSetting(Enable.ClockCrumbs)">[COLOR unfocused_text]$INFO[System.Time] - $INFO[ListItem.EndTime][/COLOR][CR]</value>
@@ -580,14 +584,14 @@
 
 	<variable name="VI_WidgetInfoPanelTop">
 		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + $EXP[isMovie]">$VAR[VI_Digital]$VAR[VI_Mpaa]$VAR[VI_Genre]$VAR[VI_Runtime]$VAR[RI_StartsEnds]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isMovie]">$VAR[VI_Digital]$VAR[VI_Mpaa]$VAR[VI_Genre]$VAR[VI_Runtime]$VAR[VI_Endsat]</value>
 		<!-- SHOWS -->
 		<value condition="!ListItem.IsCollection + $EXP[isTVShow]">$VAR[VI_Aired]$VAR[VI_Mpaa]$VAR[VI_Genre]$VAR[VI_TotalSeasons]$VAR[VI_Status]</value>
 		<!-- SEASONS -->
-		<value condition="!ListItem.IsCollection + $EXP[isSeason]">$VAR[VI_Aired]$VAR[VI_Mpaa]$VAR[VI_Genre]$VAR[VI_Runtime]$VAR[RI_StartsEnds]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isSeason]">$VAR[VI_Aired]$VAR[VI_Mpaa]$VAR[VI_Genre]$VAR[VI_Runtime]$VAR[VI_Endsat]</value>
 		<!-- EPISODES -->
-		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + String.IsEmpty(ListItem.Property(episode_type))">$VAR[VI_Aired]$VAR[VI_Runtime]$VAR[RI_StartsEnds]</value>
-		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + !String.IsEmpty(ListItem.Property(episode_type))">$VAR[VI_Aired]$VAR[VI_Runtime]$VAR[RI_StartsEnds]$VAR[VI_EpisodeType]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + String.IsEmpty(ListItem.Property(episode_type))">$VAR[VI_Aired]$VAR[VI_Runtime]$VAR[VI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + !String.IsEmpty(ListItem.Property(episode_type))">$VAR[VI_Aired]$VAR[VI_Runtime]$VAR[VI_Endsat]$VAR[VI_EpisodeType]</value>
 	</variable>
 
 	<variable name="Spotlight_WidgetInfoPanelTop">

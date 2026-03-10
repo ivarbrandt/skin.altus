@@ -212,7 +212,7 @@
 	</variable>
 
 	<variable name="ClockCrumbs">
-    <value condition="Skin.HasSetting(Enable.ClockCrumbs)"> • [COLOR unfocused_text]$INFO[System.Time][/COLOR]</value>
+    <value> • [COLOR unfocused_text]$INFO[System.Time][/COLOR]</value>
 	</variable>
 
 	<variable name="SubstituteLabel">

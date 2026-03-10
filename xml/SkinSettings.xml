@@ -256,12 +256,12 @@
 					<onclick>$VAR[FocusColorThemeToggleVar]</onclick>
 				</control>
 				<!-- CLOCK -->
-				<control type="radiobutton" id="63706">
+				<!-- <control type="radiobutton" id="63706">
 					<label>Show current time in InfoLine</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.ClockCrumbs)</selected>
 					<onclick>Skin.ToggleSetting(Enable.ClockCrumbs)</onclick>
-				</control>
+				</control> -->
 				<!-- ITEM TITLE -->
 				<control type="radiobutton" id="63707">
 					<label>Show item title in InfoLine</label>
