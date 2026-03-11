@@ -2035,9 +2035,25 @@
 		<control type="group">
 			<depth>DepthBackground</depth>
 			<include>FullScreenFanartDimensions</include>
-			<control type="image" id="100000">
+			<!-- <control type="image" id="100000">
 				<visible>false</visible>
 				<texture fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ImageTextureSourceVar]</texture>
+			</control> -->
+			<control type="image" id="100000">
+				<aspectratio>scale</aspectratio>
+				<fadetime>400</fadetime>
+				<texture background="true" colordiffuse="66FFFFFF" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ImageTextureSourceVar]</texture>
+				<visible>
+					[
+						[String.IsEqual(Skin.String(BackgroundSetting),1) + ![Control.IsVisible(51) | Control.IsVisible(56)]] |
+						[String.IsEqual(Skin.String(BackgroundSetting),2) + String.IsEmpty(Window(home).Property(listitem_blurred))] |
+						[String.IsEqual(Skin.String(BackgroundSetting),1) + !String.IsEmpty(Window(home).Property(ViewTransitioning))]
+					] +
+					String.IsEmpty(Window(Home).Property(SpotlightWidget)) +
+					![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] |
+					!String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))
+				</visible>
+				<!-- <visible>!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),1)</visible> -->
 			</control>
 			<control type="image">
 				<fadetime>500</fadetime>
@@ -2045,17 +2061,10 @@
 				<aspectratio>scale</aspectratio>
 				<!-- <include>ArtworkAnimations</include> -->
 				<texture colordiffuse="$VAR[MainBlurDiffuse]">$VAR[MainBlurTextureVar]</texture>
-				<visible>!Player.HasMedia + 
+				<visible>!Player.HasMedia +
 					[
-						String.IsEqual(Skin.String(BackgroundSetting),2) | 
-						[
-							String.IsEqual(Skin.String(BackgroundSetting),1) + 
-								[
-									Control.IsVisible(51) | Control.IsVisible(56)
-								] + 
-							String.IsEmpty(Window(home).Property(ViewTransitioning)) |  
-							!String.IsEmpty(Window(Home).Property(SpotlightWidget))
-						]
+						String.IsEqual(Skin.String(BackgroundSetting),2) |
+						String.IsEqual(Skin.String(BackgroundSetting),1)
 					]
 				</visible>
 				<!-- <visible>!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),2) + 
@@ -2184,12 +2193,8 @@
 					<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(FullscreenGame) | Window.Previous(startup)">WindowOpen</animation>
 					<include>ColoredBackgroundImages</include>
 				</control>
-				<control type="image" id="100000">
-					<!-- <animation effect="fadediffuse" end="ff646464" start="FFFFFFFF" time="300" condition="$EXP[isContent]">Conditional</animation> -->
+				<!-- <control type="image" id="100000">
 					<animation effect="fadediffuse" end="8CFFFFFF" start="FFFFFFFF" time="300" condition="!Window.IsVisible(1100) + $EXP[isContent] | Container.Content(addons) | [Window.IsVisible(1100) + !String.IsEmpty(ListItem.Art(fanart))]">Conditional</animation>
-					<!-- <animation effect="fadediffuse" end="ffc3c3c3" start="FFFFFFFF" time="300" condition="Window.IsVisible(1100)">Conditional</animation> -->
-					<!-- <animation effect="fadediffuse" end="ffc3c3c3" start="FFFFFFFF" time="300" condition="!String.IsEmpty(Listitem.Art(fanart))">Conditional</animation> -->
-					<!-- <include>ArtworkAnimations</include> -->
 					<aspectratio>scale</aspectratio>
 					<fadetime>400</fadetime>
 					<texture background="true" colordiffuse="$VAR[MainFanartDiffuse]" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ImageTextureSourceVar]</texture>
@@ -2197,7 +2202,7 @@
 					![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | 
 					!String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]
 					</visible>
-				</control>
+				</control> -->
 			</control>
 			<control type="group">
 				<visible>!String.IsEmpty(Window(home).Property(ViewSwitchLabel))</visible>

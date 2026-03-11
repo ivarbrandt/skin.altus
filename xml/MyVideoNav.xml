@@ -33,6 +33,9 @@
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
 				<include>Visible_Left</include>
+				<!-- <include content="MenuContentPanel">
+					<param name="visible" value="Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)"/>
+				</include> -->
 				<include>VerticalInfoPanel</include>
 				<visible>Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)</visible>
 				<control type="group">

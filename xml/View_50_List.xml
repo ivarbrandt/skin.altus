@@ -82,7 +82,7 @@
 					]
 		]</param>
 		<definition>
-			<control type="group">
+			<!-- <control type="group">
 				<visible>
 				!Player.HasMedia + Control.IsVisible(50) + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),1)] + 
 					[
@@ -105,7 +105,7 @@
 				<control type="image">
 					<texture colordiffuse="99000000">overlays/fanart-diffuse_setting0or1.png</texture>
 				</control>
-			</control>
+			</control> -->
 			<control type="group">
 				<visible>
 				!Player.HasMedia + Control.IsVisible(50) + String.IsEqual(Skin.String(BackgroundSetting),2) + 
