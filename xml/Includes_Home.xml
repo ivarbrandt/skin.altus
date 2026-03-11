@@ -630,7 +630,7 @@
 			</control>
 			<include content="WidgetLeftRightArrows">
 				<param name="list_id" value="$PARAM[list_id]" />
-				<param name="posy" value="153" />
+				<param name="posy" value="158" />
 			</include>
 		</definition>
 	</include>
@@ -693,7 +693,7 @@
 			</control>
 			<include content="WidgetLeftRightArrows">
 				<param name="list_id" value="$PARAM[list_id]" />
-				<param name="posy" value="153" />
+				<param name="posy" value="158" />
 			</include>
 		</definition>
 	</include>

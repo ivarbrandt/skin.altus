@@ -851,9 +851,10 @@
 					<animation effect="fade" condition="!$EXP[isContent] + String.IsEmpty(Window(Home).Property(SpotlightWidget))" time="300" end="100" tween="sine" easing="inout">Conditional</animation>
 					<width>498</width>
 					<control type="fixedlist" id="9000">
-						<left>0</left>
+						<left>90</left>
+						<!-- 180 -->
 						<top>180</top>
-						<width>498</width>
+						<width>378</width>
 						<height>832</height>
 						<movement>9</movement>
 						<focusposition>0</focusposition>
@@ -871,6 +872,8 @@
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
 						<include content="List">
 							<param name="id" value="9000" />
+							<param name="img_texture" value="masks/mainmenu_text.png" />
+							<param name="focused_text" value="$VAR[FocusColorTheme]" />
 						</include>
 						<content>
 							<!-- MOVIES 19000 -->
@@ -968,17 +971,17 @@
 						</content>
 					</control>
 					<control type="group">
-						<left>75</left>
+						<left>73</left>
 						<top>70</top>
-						<width>343</width>
+						<width>415</width>
 						<height>140</height>
 						<control type="label">
-							<left>0</left>
+							<left>20</left>
 							<top>-38</top>
-							<width>340</width>
+							<width>415</width>
 							<height>30</height>
 							<font>font12</font>
-							<align>center</align>
+							<align>left</align>
 							<aligny>center</aligny>
 							<textcolor>lightgrey</textcolor>
 							<label>$VAR[HomeSubmenuButtonLabelsVar]</label>
@@ -986,14 +989,14 @@
 						</control>
 						<control type="grouplist" id="700">
 							<orientation>horizontal</orientation>
-							<itemgap>-19</itemgap>
-							<width>343</width>
+							<itemgap>4</itemgap>
+							<width>415</width>
 							<height>100</height>
 							<onup>SetFocus(9000,99,absolute)</onup>
 							<ondown>SetFocus(9000,0,absolute)</ondown>
 							<onright>2000</onright>
 							<onback>9000</onback>
-							<align>center</align>
+							<align>left</align>
 							<include content="IconButton">
 								<param name="control_id" value="801" />
 								<param name="onclick" value="$VAR[HomePowerButtonActionVar]" />

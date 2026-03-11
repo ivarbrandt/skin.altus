@@ -19,6 +19,7 @@
           <param name="img_width" value="$PARAM[img_width]" />
           <param name="img_left" value="$PARAM[img_left]" />
           <param name="img_texture" value="$PARAM[img_texture]" />
+          <param name="focused_text" value="$PARAM[focused_text]" />
           <param name="focused_font" value="$PARAM[focused_font]" />
         </include>
       </focusedlayout>
@@ -84,12 +85,13 @@
     <param name="focused">false</param>
     <param name="img_top">0</param>
     <param name="img_bottom">0</param>
-    <param name="align">center</param>
-    <param name="left_right_text">20</param>
+    <param name="align">left</param>
+    <param name="left_right_text">30</param>
     <!-- <param name="img_left">47</param> -->
     <param name="focused_font">font37</param>
     <param name="unfocused_font">font37</param>
     <param name="img_texture">colors/grey.png</param>
+    <param name="focused_text">$VAR[FocusedTextColorVar]</param>
     <definition>
       <control type="group">
         <control type="image">
@@ -126,7 +128,7 @@
             <aligny>center</aligny>
             <font>$PARAM[focused_font]</font>
             <label>[B]$VAR[MenuCaseVar][/B]</label>
-            <textcolor>$VAR[FocusedTextColorVar]</textcolor>
+            <textcolor>$PARAM[focused_text]</textcolor>
             <align>$PARAM[align]</align>
             <!-- <textcolor>FFFFFFFF</textcolor> -->
             <shadowcolor>text_shadow</shadowcolor>
