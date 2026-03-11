@@ -2042,7 +2042,7 @@
 			<control type="image" id="100000">
 				<aspectratio>scale</aspectratio>
 				<fadetime>400</fadetime>
-				<texture background="true" colordiffuse="66FFFFFF" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ImageTextureSourceVar]</texture>
+				<texture background="true" colordiffuse="$VAR[MainFanartDiffuse]" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ImageTextureSourceVar]</texture>
 				<visible>
 					[
 						[String.IsEqual(Skin.String(BackgroundSetting),1) + ![Control.IsVisible(51) | Control.IsVisible(56)]] |
@@ -2772,14 +2772,14 @@
 		<control type="group">
 			<width>100%</width>
 			<control type="image">
-				<top>0</top>
+				<top>$PARAM[top]</top>
 				<height>115</height>
 				<texture>frame/InfoBar.png</texture>
 				<visible>$PARAM[top_visible]</visible>
 				<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
 			</control>
 			<control type="image">
-				<bottom>0</bottom>
+				<bottom>$PARAM[bottom]</bottom>
 				<height>115</height>
 				<texture flipy="true">frame/InfoBar.png</texture>
 				<visible>$PARAM[bottom_visible]</visible>

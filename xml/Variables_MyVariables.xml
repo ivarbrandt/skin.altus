@@ -716,9 +716,53 @@
 	</variable>
 
 	<variable name="MainFanartDiffuse">
-		<value condition="!String.IsEmpty(Window(home).Property(ViewTransitioning))">66FFFFFF</value>
-		<value condition="!Window.IsVisible(videos) | [$EXP[isList] | $EXP[isSlide] | $EXP[isFlixInfo]]">66FFFFFF</value>
-		<value>33FFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(BackgroundOpacity),0)">33FFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(BackgroundOpacity),1)">4DFFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(BackgroundOpacity),3)">80FFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(BackgroundOpacity),4)">99FFFFFF</value>
+		<value>66FFFFFF</value>
+	</variable>
+
+	<variable name="BackgroundOpacityToggleVar">
+		<value condition="String.IsEqual(Skin.String(BackgroundOpacity),0)">Skin.SetString(BackgroundOpacity,1)</value>
+		<value condition="String.IsEqual(Skin.String(BackgroundOpacity),1)">Skin.SetString(BackgroundOpacity,2)</value>
+		<value condition="String.IsEqual(Skin.String(BackgroundOpacity),2)">Skin.SetString(BackgroundOpacity,3)</value>
+		<value condition="String.IsEqual(Skin.String(BackgroundOpacity),3)">Skin.SetString(BackgroundOpacity,4)</value>
+		<value condition="String.IsEqual(Skin.String(BackgroundOpacity),4)">Skin.SetString(BackgroundOpacity,0)</value>
+		<value>Skin.SetString(BackgroundOpacity,1)</value>
+	</variable>
+
+	<variable name="BackgroundOpacitySettingVar">
+		<value condition="String.IsEqual(Skin.String(BackgroundOpacity),0)">20%</value>
+		<value condition="String.IsEqual(Skin.String(BackgroundOpacity),1)">30%</value>
+		<value condition="String.IsEqual(Skin.String(BackgroundOpacity),3)">50%</value>
+		<value condition="String.IsEqual(Skin.String(BackgroundOpacity),4)">60%</value>
+		<value>40%</value>
+	</variable>
+
+	<variable name="BlurBrightnessVar">
+		<value condition="String.IsEqual(Skin.String(BlurBrightness),0)">33FFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(BlurBrightness),1)">4DFFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(BlurBrightness),3)">80FFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(BlurBrightness),4)">99FFFFFF</value>
+		<value>66FFFFFF</value>
+	</variable>
+
+	<variable name="BlurBrightnessToggleVar">
+		<value condition="String.IsEqual(Skin.String(BlurBrightness),0)">Skin.SetString(BlurBrightness,1)</value>
+		<value condition="String.IsEqual(Skin.String(BlurBrightness),1)">Skin.SetString(BlurBrightness,2)</value>
+		<value condition="String.IsEqual(Skin.String(BlurBrightness),2)">Skin.SetString(BlurBrightness,3)</value>
+		<value condition="String.IsEqual(Skin.String(BlurBrightness),3)">Skin.SetString(BlurBrightness,4)</value>
+		<value condition="String.IsEqual(Skin.String(BlurBrightness),4)">Skin.SetString(BlurBrightness,0)</value>
+		<value>Skin.SetString(BlurBrightness,1)</value>
+	</variable>
+
+	<variable name="BlurBrightnessSettingVar">
+		<value condition="String.IsEqual(Skin.String(BlurBrightness),0)">20%</value>
+		<value condition="String.IsEqual(Skin.String(BlurBrightness),1)">30%</value>
+		<value condition="String.IsEqual(Skin.String(BlurBrightness),3)">50%</value>
+		<value condition="String.IsEqual(Skin.String(BlurBrightness),4)">60%</value>
+		<value>40%</value>
 	</variable>
 
 	<!-- <variable name="MainBlurDiffuse">
@@ -755,7 +799,7 @@
 		<value condition="String.IsEqual(Skin.String(BackgroundSetting),1)">99999999</value>
 		<value condition="!String.IsEmpty(Window(home).Property(ViewTransitioning))">33FFFFFF</value>
 		<value condition="$EXP[infodialog_active]">4DFFFFFF</value>
-		<value condition="$EXP[isSlide] | $EXP[isPosterInfo] | $EXP[isLandscapeInfo] | $EXP[isFlixInfo] | $EXP[isWall] | $EXP[isLandscapeWall]">66FFFFFF</value>
+		<value condition="$EXP[isSlide] | $EXP[isPosterInfo] | $EXP[isLandscapeInfo] | $EXP[isFlixInfo] | $EXP[isWall] | $EXP[isLandscapeWall]">$VAR[BlurBrightnessVar]</value>
 
 		<value condition="Window.IsVisible(videos) + $EXP[isList] +
 		[
@@ -768,7 +812,7 @@
 			[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
 			[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
 		]">73FFFFFF</value>
-		<value condition="Window.IsVisible(videos) + $EXP[isList] + !Window.IsVisible(systeminfo)">66FFFFFF</value>
+		<value condition="Window.IsVisible(videos) + $EXP[isList] + !Window.IsVisible(systeminfo)">$VAR[BlurBrightnessVar]</value>
 
 		<value condition="!Window.IsVisible(videos) + $EXP[isList] +
 		![Window.IsVisible(tvguide) | Window.IsVisible(tvchannels) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)] +
@@ -778,14 +822,14 @@
 			[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
 			[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
 		]">73FFFFFF</value>
-		<value condition="!Window.IsVisible(videos) + $EXP[isList] + ![Window.IsVisible(tvguide) | Window.IsVisible(tvchannels) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)]">66FFFFFF</value>
+		<value condition="!Window.IsVisible(videos) + $EXP[isList] + ![Window.IsVisible(tvguide) | Window.IsVisible(tvchannels) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)]">$VAR[BlurBrightnessVar]</value>
 
 		<value condition="Window.IsVisible(tvguide)">73FFFFFF</value>
-		<value condition="Window.IsVisible(tvchannels) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)">66FFFFFF</value>
+		<value condition="Window.IsVisible(tvchannels) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)">$VAR[BlurBrightnessVar]</value>
 		<value condition="$EXP[isPosterFlow]">73FFFFFF</value>
-		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEmpty(Window(Home).Property(SpotlightWidget))">66FFFFFF</value>
-		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !String.IsEmpty(Window(Home).Property(SpotlightWidget))">73FFFFFF</value>
-		<value>66FFFFFF</value>
+		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEmpty(Window(Home).Property(SpotlightWidget))">$VAR[BlurBrightnessVar]</value>
+		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !String.IsEmpty(Window(Home).Property(SpotlightWidget))">59FFFFFF</value>
+		<value>$VAR[BlurBrightnessVar]</value>
 	</variable>
 
 	<!-- <variable name="MainBlurDiffuse">

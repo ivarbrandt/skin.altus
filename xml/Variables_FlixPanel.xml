@@ -436,19 +436,19 @@
 	</variable>
 	<variable name="VI_Runtime">
     <!-- MOVIES -->
-    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] $INFO[ListItem.Duration(h),, hrs] $INFO[ListItem.Duration(m),, mins][CR]</value>
-    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] $INFO[ListItem.Duration(h),, hrs] 1 min[CR]</value>
-    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] $INFO[ListItem.Duration(h),, hrs][CR]</value>
-    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] 1 hr $INFO[ListItem.Duration(m),, mins][CR]</value>
-    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] 1 hr 1 min[CR]</value>
-    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] 1 hr[CR]</value>
-    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsGreater(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] $INFO[ListItem.Duration(m),, mins][CR]</value>
-    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsEqual(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] 1 min[CR]</value>
+    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Runtime:[/B][/COLOR] $INFO[ListItem.Duration(h),, hrs] $INFO[ListItem.Duration(m),, mins][CR]</value>
+    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Runtime:[/B][/COLOR] $INFO[ListItem.Duration(h),, hrs] 1 min[CR]</value>
+    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">[COLOR $VAR[FocusColorTheme]][B]Runtime:[/B][/COLOR] $INFO[ListItem.Duration(h),, hrs][CR]</value>
+    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Runtime:[/B][/COLOR] 1 hr $INFO[ListItem.Duration(m),, mins][CR]</value>
+    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Runtime:[/B][/COLOR] 1 hr 1 min[CR]</value>
+    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">[COLOR $VAR[FocusColorTheme]][B]Runtime:[/B][/COLOR] 1 hr[CR]</value>
+    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsGreater(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Runtime:[/B][/COLOR] $INFO[ListItem.Duration(m),, mins][CR]</value>
+    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + $EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsEqual(ListItem.Duration(m),1)">[COLOR $VAR[FocusColorTheme]][B]Runtime:[/B][/COLOR] 1 min[CR]</value>
     <!-- TVSHOWS, SEASONS, EPISODES -->
-    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + !$EXP[isMovie]">[COLOR $VAR[FocusColorTheme]][B]Duration:[/B][/COLOR] $INFO[ListItem.Duration(mins),, mins][CR]</value>
+    <value condition="!Skin.HasSetting(Disable.VI.Runtime) + !String.IsEmpty(ListItem.Duration) + !$EXP[isMovie]">[COLOR $VAR[FocusColorTheme]][B]Runtime:[/B][/COLOR] $INFO[ListItem.Duration(mins),, mins][CR]</value>
 	</variable>
 	<variable name="VI_EpDuration">
-		<value condition="!Skin.HasSetting(Disable.VI.EpDuration) + !String.IsEmpty(ListItem.Duration) + !$EXP[isMovie]">[COLOR $VAR[FocusColorTheme]][B]Ep duration:[/B][/COLOR] $INFO[ListItem.Duration(mins),, mins][CR]</value>
+		<value condition="!Skin.HasSetting(Disable.VI.EpDuration) + !String.IsEmpty(ListItem.Duration) + !$EXP[isMovie]">[COLOR $VAR[FocusColorTheme]][B]Ep runtime:[/B][/COLOR] $INFO[ListItem.Duration(mins),, mins][CR]</value>
 	</variable>
 
 	<!-- Runtime -->

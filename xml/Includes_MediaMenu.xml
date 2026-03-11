@@ -375,6 +375,22 @@
 				<onclick>RunScript(script.altus.helper,mode=select_view)</onclick>
 			</control>
 
+			<control type="button" id="6099">
+				<include>MediaMenuItemsCommon</include>
+				<label>Background opacity</label>
+				<label2>[B]$VAR[BackgroundOpacitySettingVar][/B]</label2>
+				<onclick>$VAR[BackgroundOpacityToggleVar]</onclick>
+				<visible>String.IsEqual(Skin.String(BackgroundSetting),1)</visible>
+			</control>
+
+			<control type="button" id="6100">
+				<include>MediaMenuItemsCommon</include>
+				<label>Blur brightness</label>
+				<label2>[B]$VAR[BlurBrightnessSettingVar][/B]</label2>
+				<onclick>$VAR[BlurBrightnessToggleVar]</onclick>
+				<visible>String.IsEqual(Skin.String(BackgroundSetting),2)</visible>
+			</control>
+
 			<!-- <control type="button" id="6051">
 				<include>MediaMenuItemsCommon</include>
 				<label>$LOCALIZE[31023]</label>

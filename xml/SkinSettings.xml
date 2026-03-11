@@ -621,6 +621,22 @@
 					<onclick>RunScript(script.altus.helper, mode=set_blursaturation)</onclick>
 					<visible>String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)</visible>
 				</control>
+				<!-- BACKGROUND OPACITY -->
+				<control type="button" id="6015">
+					<label>    - Set background opacity</label>
+					<label2>$VAR[BackgroundOpacitySettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[BackgroundOpacityToggleVar]</onclick>
+					<visible>String.IsEqual(Skin.String(BackgroundSetting),1)</visible>
+				</control>
+				<!-- BLUR BRIGHTNESS -->
+				<control type="button" id="6016">
+					<label>    - Set blur brightness</label>
+					<label2>$VAR[BlurBrightnessSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[BlurBrightnessToggleVar]</onclick>
+					<visible>String.IsEqual(Skin.String(BackgroundSetting),2)</visible>
+				</control>
 				<control type="button" id="6006">
 					<label>   - Restore default background</label>
 					<include>DefaultSettingButton</include>
@@ -841,14 +857,14 @@
 				</control>
 				<!-- RATINGS -->
 				<control type="radiobutton" id="65014">
-					<label>Ratings</label>
+					<label>Show ratings</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Disable.HomePanelRatings)</onclick>
 					<selected>!Skin.HasSetting(Disable.HomePanelRatings)</selected>
 				</control>
 				<!-- PLOT -->
 				<control type="button" id="65015">
-					<label>Plot</label>
+					<label>Show plot</label>
 					<label2>$VAR[PlotSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[PlotToggleVar]</onclick>
@@ -1164,7 +1180,7 @@
 						<onclick>noop</onclick>
 					</item>
 					<item id="8">
-						<label>Info panel</label>
+						<label>InfoPanel</label>
 						<onclick>noop</onclick>
 					</item>
 					<item id="2">

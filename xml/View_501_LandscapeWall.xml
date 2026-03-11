@@ -354,6 +354,8 @@
 				<include content="TopBottomBars">
 					<param name="top_visible" value="true"/>
 					<param name="bottom_visible" value="!Skin.HasSetting(Enable.501Info)"/>
+					<param name="top" value="0"/>
+					<param name="bottom" value="0"/>
 				</include>
 				<control type="label">
 					<left>37</left>

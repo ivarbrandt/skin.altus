@@ -62,6 +62,8 @@
 		<value condition="Control.HasFocus(6003)">Set a custom background image.[CR][CR]This image serves as the main background for menus and settings, and as a fallback when fanart isn't available.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Primarily used with FANART or BLUR background styles. With DEFAULT style, this image only appears in FANART/LANDSCAPE LIST views.</value>
 		<value condition="Control.HasFocus(6004)">Adjust the intensity of background blur.[CR][CR]Higher values wash out more detail. Lower values preserve more detail.[CR][CR]RECOMMENDED: 2-40. DEFAULT: 20[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Changing this also affects color selection when COLOR THEME is set to ADAPTIVE.</value>
 		<value condition="Control.HasFocus(6005)">Set the color saturation of background blur.[CR][CR]Higher values create more vibrant, intense colors. Lower values produce more subtle, neutral colors.[CR][CR]DEFAULT: 1.0</value>
+		<value condition="Control.HasFocus(6015)">Adjust the opacity of the background fanart image.[CR][CR]Higher values produce a more vivid image. Lower values produce a more faded image.[CR][CR]DEFAULT: 40%</value>
+		<value condition="Control.HasFocus(6016)">Adjust the brightness of the blurred background.[CR][CR]Higher values produce a brighter blur. Lower values produce a darker blur.[CR][CR]DEFAULT: 40%</value>
 		<value condition="Control.HasFocus(6006)">Restore the default background image.</value>
 		<value condition="Control.HasFocus(6007)">Show clearlogos for media content.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Only affects the InfoPanel in video windows. For widget InfoPanel settings, go to Info Panel [B]»[/B] Header.</value>
 
