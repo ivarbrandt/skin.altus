@@ -168,7 +168,7 @@
 	<variable name="VideoFlixCrumbsVar">
 		<!-- Other windows -->
 		<value condition="$EXP[isEpisode] + ![Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(501)] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Title][/COLOR]</value>
-		<value condition="$EXP[isEpisode] + Control.IsVisible(56) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + Control.IsVisible(56) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR]</value>
 		<value condition="
 			[
 				[String.IsEqual(Container.ViewMode,$LOCALIZE[31101]) + !Skin.HasSetting(Enable.54Titles)] | 

@@ -316,7 +316,7 @@
 						<include content="PosterFlowLayout">
 							<param name="focused" value="true" />
 						</include>
-            <include>ResetFanartVisible</include>
+            <!-- <include>ResetFanartVisible</include> -->
             <include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>

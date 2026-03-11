@@ -17,6 +17,34 @@
 					<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="300" />
 				</animation>
 				<include>OpenClose_Right</include>
+				<control type="group" id="27000">
+					<visible>false</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="addons"/>
+					</include>
+					<control type="grouplist" id="27001">
+						<include>WidgetGroupListCommon</include>
+						<pagecontrol>27010</pagecontrol>
+						<include content="WidgetListSquareNoInfo">
+							<param name="content_path" value="addons://sources/video/"/>
+							<param name="widget_header" value="$LOCALIZE[1037]"/>
+							<param name="widget_target" value="videos"/>
+							<param name="sortby" value="lastused"/>
+							<param name="sortorder" value="descending"/>
+							<param name="list_id" value="27100"/>
+							<param name="fallback_icon" value="DefaultAddon.png"/>
+						</include>
+						<include content="WidgetListSquareNoInfo">
+							<param name="content_path" value="addons://sources/executable/"/>
+							<param name="widget_header" value="$LOCALIZE[1043]"/>
+							<param name="widget_target" value="programs"/>
+							<param name="sortby" value="lastused"/>
+							<param name="sortorder" value="descending"/>
+							<param name="list_id" value="27300"/>
+							<param name="fallback_icon" value="DefaultAddon.png"/>
+						</include>
+					</control>
+				</control>
 				<!-- SEARCH RESULTS -->
 				<control type="group" id="26000">
 					<include content="Visible_Right_Delayed">
