@@ -107,7 +107,7 @@
 				</include>
 				<control type="label" id="$PARAM[id]">
 					<align>right</align>
-					<right>-155</right>
+					<right>-158</right>
 					<label>$INFO[System.Time]</label>
 					<font>font30_title</font>
 					<textcolor>unfocused_text</textcolor>
@@ -230,7 +230,7 @@
 				</control>
 				<control type="label" id="$PARAM[id]">
 					<align>right</align>
-					<right>-150</right>
+					<right>-158</right>
 					<label>$INFO[System.Time]</label>
 					<font>font30_title</font>
 					<textcolor>unfocused_text</textcolor>
@@ -286,7 +286,7 @@
 					<aligny>center</aligny>
 					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
 					<control type="image" id="$PARAM[list_id]673">
-						<left>0</left>
+						<left>2</left>
 						<top>$PARAM[posy]</top>
 						<width>40</width>
 						<height>40</height>
@@ -297,7 +297,13 @@
 						<visible>String.IsEmpty(Window(Home).Property(SpotlightWidget)) + Control.IsVisible($PARAM[list_id]) + Container($PARAM[list_id]).HasPrevious</visible>
 						<visible>$PARAM[visible]</visible>
 					</control>
-					<animation effect="fade" time="300">Visible</animation>
+					<!-- <animation effect="fade" time="300">Visible</animation> -->
+					<include content="WidgetUnfocusedAnimations">
+						<param name="list_id" value="$PARAM[list_id]"/>
+					</include>
+					<include content="StackedWidgetAnimations">
+						<param name="list_id" value="$PARAM[list_id]"/>
+					</include>
 				</control>
 			</control>
 		</definition>
@@ -323,7 +329,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>107</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<height>974</height>
 				<!-- <height>1027</height> -->
 				<onright>$PARAM[list_id]</onright>
@@ -341,7 +347,7 @@
 				</include>
 				<itemlayout width="1355" >
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="FeatureLandscapeLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -351,7 +357,7 @@
 				<focusedlayout width="1355" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="FeatureLandscapeLayout">
 							<param name="focused" value="true" />
@@ -367,6 +373,10 @@
 			</control>
 			<include content="SpotlightInfo">
 				<param name="list_id" value="$PARAM[list_id]"/>
+			</include>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="-75" />
 			</include>
 		</definition>
 	</include>
@@ -388,7 +398,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>17</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<!-- 153 difference -->
 				<height>1065</height>
 				<onright>$PARAM[list_id]</onright>
@@ -406,7 +416,7 @@
 				</include>
 				<itemlayout width="1355" >
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="SpotlightLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -416,7 +426,7 @@
 				<focusedlayout width="1355" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="SpotlightLayout">
 							<param name="focused" value="true" />
@@ -432,6 +442,10 @@
 			</control>
 			<include content="SpotlightInfo">
 				<param name="list_id" value="$PARAM[list_id]"/>
+			</include>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="-75" />
 			</include>
 		</definition>
 	</include>
@@ -449,7 +463,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>107</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<height>599</height>
 				<focusposition>0</focusposition>
 				<movement>4</movement>
@@ -466,7 +480,7 @@
 				</include>
 				<itemlayout width="271" >
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="PosterLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -476,7 +490,7 @@
 				<focusedlayout width="271" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="PosterLayout">
 							<param name="focused" value="true" />
@@ -488,6 +502,10 @@
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="130" />
+			</include>
 		</definition>
 	</include>
 
@@ -505,7 +523,7 @@
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>17</top>
-				<left>0</left>
+				<left>45</left>
 				<right>0</right>
 				<height>599</height>
 				<focusposition>0</focusposition>
@@ -525,7 +543,7 @@
 				</include>
 				<itemlayout width="271" >
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="PosterLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -535,7 +553,7 @@
 				<focusedlayout width="271" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="PosterLayout">
 							<param name="focused" value="true" />
@@ -547,6 +565,10 @@
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="130" />
+			</include>
 		</definition>
 	</include>
 
@@ -584,7 +606,7 @@
 				</include>
 				<itemlayout width="226" >
 					<control type="group">
-						<left>-22</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="SmallPosterLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -594,7 +616,7 @@
 				<focusedlayout width="226" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>-22</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="SmallPosterLayout">
 							<param name="focused" value="true" />
@@ -628,7 +650,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>17</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<height>529</height>
 				<focusposition>0</focusposition>
 				<movement>5</movement>
@@ -647,7 +669,7 @@
 				</include>
 				<itemlayout width="226" >
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="SmallPosterLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -657,7 +679,7 @@
 				<focusedlayout width="226" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="SmallPosterLayout">
 							<param name="focused" value="true" />
@@ -669,6 +691,10 @@
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="153" />
+			</include>
 		</definition>
 	</include>
 
@@ -685,7 +711,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>107</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<height>875</height>
 				<focusposition>0</focusposition>
 				<movement>2</movement>
@@ -702,7 +728,7 @@
 				</include>
 				<itemlayout width="452" >
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="FeaturePosterLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -712,7 +738,7 @@
 				<focusedlayout width="452" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="FeaturePosterLayout">
 							<param name="focused" value="true" />
@@ -724,6 +750,10 @@
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="-10" />
+			</include>
 		</definition>
 	</include>
 
@@ -741,7 +771,7 @@
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>17</top>
-				<left>0</left>
+				<left>45</left>
 				<right>0</right>
 				<height>875</height>
 				<focusposition>0</focusposition>
@@ -761,7 +791,7 @@
 				</include>
 				<itemlayout width="452" >
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="FeaturePosterLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -771,7 +801,7 @@
 				<focusedlayout width="452" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="FeaturePosterLayout">
 							<param name="focused" value="true" />
@@ -783,6 +813,10 @@
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="-10" />
+			</include>
 		</definition>
 	</include>
 
@@ -814,7 +848,7 @@
 				</include>
 				<itemlayout width="452" height="393" >
 					<control type="group">
-						<left>-22</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="LandscapeLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -824,7 +858,7 @@
 				<focusedlayout width="452" height="393" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>-22</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="LandscapeLayout">
 							<param name="focused" value="true" />
@@ -858,7 +892,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>17</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<height>471</height>
 				<focusposition>0</focusposition>
 				<movement>2</movement>
@@ -875,7 +909,7 @@
 				</include>
 				<itemlayout width="452" height="393" >
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="LandscapeLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -885,7 +919,7 @@
 				<focusedlayout width="452" height="393" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="LandscapeLayout">
 							<param name="focused" value="true" />
@@ -897,6 +931,10 @@
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="185" />
+			</include>
 		</definition>
 	</include>
 
@@ -930,7 +968,7 @@
 				</include>
 				<itemlayout width="339" >
 					<control type="group">
-						<left>-22</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="SmallLandscapeLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -940,7 +978,7 @@
 				<focusedlayout width="339" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>-22</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="SmallLandscapeLayout">
 							<param name="focused" value="true" />
@@ -974,7 +1012,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>17</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<height>407</height>
 				<focusposition>0</focusposition>
 				<movement>3</movement>
@@ -993,7 +1031,7 @@
 				</include>
 				<itemlayout width="339" >
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="SmallLandscapeLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -1003,7 +1041,7 @@
 				<focusedlayout width="339" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="SmallLandscapeLayout">
 							<param name="focused" value="true" />
@@ -1015,6 +1053,10 @@
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="217" />
+			</include>
 		</definition>
 	</include>
 
@@ -1033,7 +1075,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>107</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<height>973</height>
 				<!-- <height>970</height> -->
 				<onright>$PARAM[list_id]</onright>
@@ -1051,7 +1093,7 @@
 				</include>
 				<itemlayout width="1355" >
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="FeatureLandscapeLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -1061,18 +1103,22 @@
 				<focusedlayout width="1355" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="FeatureLandscapeLayout">
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>FocusBounce</include>
+						<!-- <include>FocusBounce</include> -->
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="-75" />
+			</include>
 		</definition>
 	</include>
 
@@ -1092,7 +1138,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>17</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<!-- 153 difference -->
 				<height>973</height>
 				<onright>$PARAM[list_id]</onright>
@@ -1109,7 +1155,7 @@
 				</include>
 				<itemlayout width="1355" >
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="FeatureLandscapeLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -1119,18 +1165,22 @@
 				<focusedlayout width="1355" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>70</top>
 						<include content="FeatureLandscapeLayout">
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>FocusBounce</include>
+						<!-- <include>FocusBounce</include> -->
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="-75" />
+			</include>
 		</definition>
 	</include>
 
@@ -1276,7 +1326,7 @@
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>107</top>
-				<left>0</left>
+				<left>45</left>
 				<right>0</right>
 				<height>489</height>
 				<onright>$PARAM[list_id]</onright>
@@ -1290,7 +1340,7 @@
 				<itemlayout width="265">
 					<control type="group">
 						<top>80</top>
-						<left>23</left>
+						<left>-20</left>
 						<include content="SmallSquareLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="single_label" value="$PARAM[single_label]" />
@@ -1303,7 +1353,7 @@
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<top>80</top>
-						<left>23</left>
+						<left>-20</left>
 						<include content="SmallSquareLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="single_label" value="$PARAM[single_label]" />
@@ -1318,6 +1368,10 @@
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[item_limit]">$PARAM[content_path]</content>
 				<include>$PARAM[content_include]</include>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="175" />
+			</include>
 		</definition>
 	</include>
 
@@ -1339,7 +1393,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>107</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<height>350</height>
 				<focusposition>0</focusposition>
 				<movement>5</movement>
@@ -1359,7 +1413,7 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<itemlayout width="309">
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>55</top>
 						<include content="WidgetListCategoryOtherLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -1369,7 +1423,7 @@
 				<focusedlayout width="309" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>55</top>
 						<include content="WidgetListCategoryOtherLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -1381,6 +1435,10 @@
 				</focusedlayout>
 				<content target="$PARAM[widget_target]" sortby="$PARAM[list_id]" limit="$PARAM[item_limit]">$PARAM[content_path]</content>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="257" />
+			</include>
 		</definition>
 	</include>
 
@@ -1402,7 +1460,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>107</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<height>370</height>
 				<focusposition>0</focusposition>
 				<movement>3</movement>
@@ -1423,7 +1481,7 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<itemlayout width="339">
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>55</top>
 						<include content="WidgetListCategoryLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -1433,7 +1491,7 @@
 				<focusedlayout width="339" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>55</top>
 						<include content="WidgetListCategoryLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -1445,6 +1503,10 @@
 				</focusedlayout>
 				<content target="$PARAM[widget_target]" sortby="$PARAM[list_id]" limit="$PARAM[item_limit]">$PARAM[content_path]</content>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="238" />
+			</include>
 		</definition>
 	</include>
 
@@ -1467,7 +1529,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>107</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<!-- 350 -->
 				<height>273</height>
 				<focusposition>0</focusposition>
@@ -1491,7 +1553,7 @@
 				<!-- <visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible> -->
 				<itemlayout width="271" height="393" infoupdate="30">
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>55</top>
 						<include content="WidgetListCategoryStackedLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -1501,18 +1563,22 @@
 				<focusedlayout width="271" height="393" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>55</top>
 						<include content="WidgetListCategoryStackedLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
 							<param name="focused" value="true" />
 						</include>
-						<include>FocusBounce</include>
+						<!-- <include>FocusBounce</include> -->
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
 				<content target="$PARAM[widget_target]" sortby="$PARAM[list_id]" limit="$PARAM[item_limit]">$PARAM[content_path]</content>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="312" />
+			</include>
 		</definition>
 	</include>
 
@@ -1618,7 +1684,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>107</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<height>506</height>
 				<onright>$PARAM[list_id]</onright>
 				<movement>3</movement>
@@ -1633,7 +1699,7 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<itemlayout width="464">
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<top>55</top>
 						<include content="WidgetListPVRLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -1643,7 +1709,7 @@
 				<focusedlayout width="464" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<top>55</top>
 						<include content="WidgetListPVRLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
@@ -1655,6 +1721,10 @@
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[item_limit]">$PARAM[content_path]</content>
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="185" />
+			</include>
 		</definition>
 	</include>
 
@@ -1673,7 +1743,7 @@
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>157</top>
 				<right>0</right>
-				<left>0</left>
+				<left>45</left>
 				<height>488</height>
 				<onright>$PARAM[list_id]</onright>
 				<movement>6</movement>
@@ -1685,7 +1755,7 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<itemlayout width="265">
 					<control type="group">
-						<left>23</left>
+						<left>-20</left>
 						<include content="WeatherWidgetLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
@@ -1694,7 +1764,7 @@
 				<focusedlayout width="265" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>23</left>
+						<left>-20</left>
 						<include content="WeatherWidgetLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
 							<param name="focused" value="true" />
@@ -1706,6 +1776,10 @@
 				<include>$PARAM[content_include]</include>
 				<!-- <content target="$PARAM[widget_target]" limit="$PARAM[item_limit]">$PARAM[content_path]</content> -->
 			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="128" />
+			</include>
 		</definition>
 	</include>
 

@@ -418,8 +418,11 @@
     </animation>
     <animation condition="!Skin.HasSetting(Disable.WidgetDimming) + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),2)] + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus" reversible="true">
 			<effect type="fade" start="100" end="40" time="300" tween="sine" easing="inout" />
-			<!-- <effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="300" /> -->
     </animation>
+		<animation condition="Container($PARAM[list_id]).IsUpdating" reversible="true" pulse="true">
+			<effect type="fade" start="100" end="80" time="700" tween="sine" easing="inout" />
+			<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="700" />
+		</animation>
 	</include>
 
 	<include name="StackedWidgetAnimations">
@@ -428,7 +431,6 @@
     </animation>
 		<animation condition="!Skin.HasSetting(Disable.WidgetDimming) + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),2)] + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus" reversible="true">
 			<effect type="fade" start="100" end="40" time="300" tween="sine" easing="inout" />
-			<!-- <effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="300" /> -->
     </animation>
 		<animation condition="Container($PARAM[list_id]).IsUpdating" reversible="true" pulse="true">
 			<effect type="fade" start="100" end="80" time="700" tween="sine" easing="inout" />
