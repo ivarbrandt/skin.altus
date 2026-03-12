@@ -7,12 +7,15 @@
 			<left>0</left>
 			<visible>Control.IsVisible(56)</visible>
 			<control type="image">
-				<right>0</right>
+				<top>-2</top>
+				<right>-2</right>
 				<width>1427</width>
 				<height>803</height>
 				<fadetime>500</fadetime>
-				<texture colordiffuse="artwork_dim" background="true" diffuse="overlays/flixinfo-fanartdiffuse.png" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[MediaFanartVar]</texture>
-				<aspectratio align="left" aligny="top">keep</aspectratio>
+				<bordersize>2</bordersize>
+				<texture border="2" colordiffuse="artwork_dim" background="true" diffuse="overlays/flixinfo-fanartdiffuse.png" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[MediaFanartVar]</texture>
+				<aspectratio align="right" aligny="top">keep</aspectratio>
+				<bordertexture colordiffuse="$VAR[FocusColorTheme]" infill="false">overlays/flixinfo-fanartdiffuse_border.png</bordertexture>
 				<include>ArtworkAnimations</include>
 			</control>
 			<control type="label">
@@ -42,7 +45,7 @@
 			</control>
 			<control type="fixedlist" id="56">
 				<top>700</top>
-				<left>493</left>
+				<left>541</left>
 				<right>0</right>
 				<onright>56</onright>
 				<onleft>56</onleft>
@@ -98,22 +101,22 @@
 
 				<!-- DEFAULT LAYOUT -->
 				<!-- W: 204 H: 306 -->
-				<itemlayout width="226.5" height="337" condition="[Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
+				<itemlayout width="226" height="337" condition="[Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
 					<control type="group">
 						<include content="ViewUnfocusedAnimations">
 							<param name="id" value="56"/>
 						</include>
 						<top>0</top>
-						<left>25</left>
+						<left>-20</left>
 						<include>SmallPosterLayout</include>
 						<include>altus.PreloadFanart</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="226.5" height="337" condition="[Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
+				<focusedlayout width="226" height="337" condition="[Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<top>0</top>
-						<left>25</left>
+						<left>-20</left>
 						<include content="SmallPosterLayout">
 							<param name="focused" value="true" />
 						</include>
@@ -228,7 +231,11 @@
 			<!-- <include content="TopBottomBars">
 				<param name="top_visible" value="false"/>
 				<param name="bottom_visible" value="!Skin.HasSetting(Enable.54Dim)"/>
-			</include> -->
-		</control>
-	</include>
+				</include> -->
+				<include content="LeftRightArrows_56">
+					<param name="list_id" value="56" />
+					<param name="posy" value="845" />
+				</include>
+			</control>
+		</include>
 </includes>

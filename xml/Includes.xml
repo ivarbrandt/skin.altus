@@ -1474,6 +1474,39 @@
 		</definition>
 	</include>
 
+	<include name="LeftRightArrows_56">
+		<param name="left_posx">495</param>
+		<param name="right_posx">1843</param>
+		<param name="posy">936</param>
+		<param name="visible">!System.HasActiveModalDialog</param>
+		<definition>
+			<control type="image">
+				<left>$PARAM[left_posx]</left>
+				<top>$PARAM[posy]</top>
+				<width>40</width>
+				<height>40</height>
+				<texture flipx="true" colordiffuse="$VAR[FocusColorTheme]">overlays/arrowright.png</texture>
+				<animation effect="zoom" start="0,100" end="100,100" center="auto" time="200">VisibleChange</animation>
+				<animation effect="zoom" start="0,100" end="100,100" delay="500" center="auto" time="200">WindowOpen</animation>
+				<animation effect="zoom" start="100,100" end="0,100" center="auto" time="200">WindowClose</animation>
+				<visible>Control.IsVisible($PARAM[list_id]) + Container($PARAM[list_id]).HasPrevious</visible>
+				<visible>$PARAM[visible]</visible>
+			</control>
+			<!-- <control type="image">
+				<left>$PARAM[right_posx]</left>
+				<top>$PARAM[posy]</top>
+				<width>28</width>
+				<height>28</height>
+				<texture colordiffuse="unfocused_text">overlays/arrowright.png</texture>
+				<animation effect="zoom" start="0,100" end="100,100" center="auto" time="200">VisibleChange</animation>
+				<animation effect="zoom" start="0,100" end="100,100" delay="500" center="auto" time="200">WindowOpen</animation>
+				<animation effect="zoom" start="100,100" end="0,100" center="auto" time="200">WindowClose</animation>
+				<visible>Control.IsVisible($PARAM[list_id]) + Container($PARAM[list_id]).HasNext</visible>
+				<visible>$PARAM[visible]</visible>
+			</control> -->
+		</definition>
+	</include>
+
 
 	<include name="DialogBackgroundCommons">
 		<param name="width">1220</param>
