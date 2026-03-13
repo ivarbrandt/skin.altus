@@ -13,6 +13,7 @@
 
 	<include name="FocusedCategoryLabel">
 		<control type="label" id="$PARAM[id]">
+			<top>3</top>
 			<label>$PARAM[label]</label>
 			<font>font30_title</font>
 			<textcolor>$VAR[FocusColorTheme]</textcolor>
@@ -229,6 +230,7 @@
 					</include>
 				</control>
 				<control type="label" id="$PARAM[id]">
+					<top>3</top>
 					<align>right</align>
 					<right>-158</right>
 					<label>$INFO[System.Time]</label>
@@ -279,7 +281,7 @@
 		<definition>
 			<control type="group" id="$PARAM[list_id]671">
 				<top>-297</top>
-				<height>470</height>
+				<height>477</height>
 				<width>1815</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<control type="group" id="$PARAM[list_id]672">
@@ -2113,10 +2115,18 @@
 				<visible>$PARAM[visible]</visible>
 				<control type="image">
 					<top>$PARAM[posy]</top>
-					<width>80</width>
-					<height>80</height>
+					<width>55</width>
+					<height>55</height>
 					<aspectratio aligny="center">keep</aspectratio>
-					<texture>special://skin/resources/loading.gif</texture>
+					<texture colordiffuse="$VAR[FocusColorTheme]">dialogs/extendedprogress/loading-back.png</texture>
+				</control>
+				<control type="image">
+					<top>$PARAM[posy]</top>
+					<width>55</width>
+					<height>55</height>
+					<aspectratio aligny="center">keep</aspectratio>
+					<texture colordiffuse="$VAR[FocusColorTheme]">dialogs/extendedprogress/loading.png</texture>
+					<animation effect="rotate" center="auto" start="360" end="0" time="4000" loop="true" condition="true">Conditional</animation>
 				</control>
 			</control>
 		</definition>
@@ -2134,10 +2144,18 @@
 				<visible>$PARAM[visible]</visible>
 				<control type="image">
 					<top>$PARAM[posy]</top>
-					<width>80</width>
-					<height>80</height>
+					<width>55</width>
+					<height>55</height>
 					<aspectratio aligny="center">keep</aspectratio>
-					<texture>special://skin/resources/loading.gif</texture>
+					<texture colordiffuse="$VAR[FocusColorTheme]">dialogs/extendedprogress/loading-back.png</texture>
+				</control>
+				<control type="image">
+					<top>$PARAM[posy]</top>
+					<width>55</width>
+					<height>55</height>
+					<aspectratio aligny="center">keep</aspectratio>
+					<texture colordiffuse="$VAR[FocusColorTheme]">dialogs/extendedprogress/loading.png</texture>
+					<animation effect="rotate" center="auto" start="360" end="0" time="4000" loop="true" condition="true">Conditional</animation>
 				</control>
 			</control>
 		</definition>

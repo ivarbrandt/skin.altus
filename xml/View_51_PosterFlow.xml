@@ -196,7 +196,7 @@
             <top>650</top>
             <width>35</width>
             <height>35</height>
-            <texture colordiffuse="unfocused_text">$VAR[ListWatchedIconVar]</texture>
+            <texture colordiffuse="unfocused_text">$VAR[WallWatchedIconVar]</texture>
             <align>left</align>
           </control>
         </control>

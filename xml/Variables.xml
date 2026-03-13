@@ -498,26 +498,44 @@
     <value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 	</variable>
 	
-	<!-- <variable name="WallWatchedIconVar">
-    <value condition="String.IsEqual(Container.PluginName,plugin.video.pov)">$VAR[WallWatchedIconVar.POV]</value>
+	<variable name="WallWatchedIconVar">
+    <value condition="String.IsEqual(Container.PluginName,plugin.video.fenlight) | String.StartsWith(ListItem.Path,plugin://plugin.video.fenlight)">$VAR[WallWatchedIconVar.Other]</value>
     <value>$VAR[WallWatchedIconVar.All]</value>
-	</variable>
-	<variable name="WallWatchedIconVar.POV">
-		<value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
-		<value condition="ListItem.HasArchive">windows/pvr/archive.png</value>
-		<value condition="$EXP[isContent] + Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
-		<value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
-	</variable> -->
-	<!-- <variable name="WallWatchedIconVar">
+</variable>
+
+<variable name="WallWatchedIconVar.All">
     <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
     <value condition="ListItem.HasReminder">icons/pvr/timers/bell.png</value>
     <value condition="ListItem.HasTimer">icons/pvr/timers/recording.png</value>
     <value condition="ListItem.IsCollection">overlays/set.png</value>
-    <value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
-    <value condition="ListItem.HasArchive">windows/pvr/archive.png</value>
+    <value condition="ListItem.IsPlaying">osd/fullscreen/buttons/play.png</value>
+    <!-- <value condition="ListItem.IsFolder + $EXP[noDBType] + !String.IsEqual(ListItem.Overlay,OverlayWatched.png) + !ListItem.IsParentFolder">overlays/folder.png</value> -->
+    <!-- TV Shows -->
+    <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
+    <!-- Movies -->
+    <value condition="String.IsEqual(ListItem.DBType,movie) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
+    <value condition="String.IsEqual(ListItem.DBType,movie) + Integer.IsGreater(ListItem.Playcount,0) + [!String.IsEmpty(ListItem.ResumeTime) | !String.IsEmpty(ListItem.Property(ResumeTime))]">progress/unwatched/$INFO[ListItem.PercentPlayed,,.png]</value>
+    <value condition="String.IsEqual(ListItem.DBType,movie) + Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
+    <!-- Fallback for any other content type -->
     <value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
-	</variable> -->
-	<variable name="WallWatchedIconVar">
+    <value condition="!Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
+    <!-- <value condition="!String.IsEmpty(ListItem.Overlay)">$INFO[ListItem.Overlay]</value> -->
+</variable>
+
+<variable name="WallWatchedIconVar.Other">
+    <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
+    <value condition="ListItem.HasReminder">icons/pvr/timers/bell.png</value>
+    <value condition="ListItem.HasTimer">icons/pvr/timers/recording.png</value>
+    <value condition="ListItem.IsPlaying">osd/fullscreen/buttons/play.png</value>
+    <value condition="!Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
+    <value condition="ListItem.IsCollection">overlays/set.png</value>
+    <!-- <value condition="ListItem.IsFolder + $EXP[noDBType] + !String.IsEqual(ListItem.Overlay,OverlayWatched.png) + !ListItem.IsParentFolder">overlays/folder.png</value> -->
+    <!-- <value condition="!String.IsEmpty(ListItem.Overlay)">$INFO[ListItem.Overlay]</value> -->
+    <value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
+</variable>
+
+
+	<!-- <variable name="WallWatchedIconVar">
 		<value condition="ListItem.IsRecording">windows/pvr/record.png</value>
 		<value condition="ListItem.HasReminder">icons/pvr/timers/bell.png</value>
 		<value condition="ListItem.HasTimer">icons/pvr/timers/recording.png</value>
@@ -526,7 +544,7 @@
 		<value condition="ListItem.IsResumable">overlays/watched/resume.png</value>
 		<value condition="ListItem.HasArchive">windows/pvr/archive.png</value>
 		<value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
-	</variable>
+	</variable> -->
 	<variable name="ListPVRRecordingsIconVar">
 		<value condition="ListItem.IsRecording">windows/pvr/record.png</value>
 		<value condition="ListItem.IsResumable">overlays/watched/resume.png</value>

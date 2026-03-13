@@ -23,10 +23,20 @@
 				<control type="image">
 					<centerleft>50%</centerleft>
 					<centertop>50%</centertop>
-					<width>175</width>
-					<height>175</height>
+					<width>80</width>
+					<height>80</height>
 					<aspectratio>keep</aspectratio>
-					<texture>special://skin/resources/loading.gif</texture>
+					<animation effect="rotate" end="-45" center="auto" time="200" delay="600" loop="true" reversible="false" condition="true">Conditional</animation>
+					<texture colordiffuse="$VAR[FocusColorTheme]">spinner.png</texture>
+				</control>
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<width>50</width>
+					<height>50</height>
+					<aspectratio>keep</aspectratio>
+					<animation effect="rotate" end="45" center="auto" time="200" delay="600" loop="true" reversible="false" condition="true">Conditional</animation>
+					<texture flipx="true" colordiffuse="$VAR[FocusColorTheme]">spinner.png</texture>
 				</control>
 				<control type="image">
 					<centerleft>50%</centerleft>

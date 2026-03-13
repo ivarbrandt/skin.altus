@@ -21,7 +21,7 @@
 			<control type="label">
 				<left>535</left>
 				<right>video_header_right</right>
-				<top>650</top>
+				<top>655</top>
 				<label>$VAR[LeftVideoHeader]</label>
 				<font>font30_title_uppercase</font>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
@@ -33,7 +33,7 @@
 			</control>
 			<control type="label">
 				<right>45</right>
-				<top>650</top>
+				<top>655</top>
 				<label>$VAR[RightVideoHeader]</label>
 				<font>font30_title_uppercase</font>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>

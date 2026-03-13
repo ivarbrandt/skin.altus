@@ -185,13 +185,13 @@
             <fadetime>600</fadetime>
             <bordertexture colordiffuse="FF5B5B5B" border="border_size" infill="false">masks/bordertexture.png</bordertexture>
           </control>
-          <control type="image">
+          <!-- <control type="image">
             <visible>Container(50).IsUpdating</visible>
             <animation effect="fade" start="0" end="100" time="100" delay="2000" reversible="false">Visible</animation>
             <width>120</width>
             <aspectratio>keep</aspectratio>
             <texture>special://skin/resources/loading.gif</texture>
-          </control>
+          </control> -->
           <control type="list" id="50">
             <onright condition="System.AddonIsEnabled(script.embuary.info) + Control.HasFocus(50) + !$EXP[isSet]">RunScript(script.embuary.info,call=person,query='$ESCINFO[Container(50).ListItem.Label]')</onright>
             <onright condition="System.HasAddon(script.embuary.info) + !System.AddonIsEnabled(script.embuary.info) + !$EXP[isSet]">EnableAddon(script.embuary.info)</onright>
@@ -223,13 +223,13 @@
           <animation effect="fade" start="100" end="0" time="300">Hidden</animation>
           <left>620</left>
           <width>1160</width>
-          <control type="image">
+          <!-- <control type="image">
             <visible>Container(53).IsUpdating</visible>
             <animation effect="fade" start="0" end="100" time="100" delay="2000" reversible="false">Visible</animation>
             <width>120</width>
             <aspectratio>keep</aspectratio>
             <texture>special://skin/resources/loading.gif</texture>
-          </control>
+          </control> -->
           <control type="list" id="53">
             <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
             <include content="CenterList104">

@@ -181,7 +181,6 @@
 					</animation>
 				</control>
 				<control type="image">
-					<!-- 70 -->
 					<left>45</left>
 					<bottom>240</bottom>
 					<width>930</width>
@@ -190,7 +189,7 @@
 					<texture colordiffuse="artwork_dim" background="true" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ListLandscapeVar]</texture>
 					<bordersize>border_size</bordersize>
 					<aspectratio scalediffuse="false">scale</aspectratio>
-					<!-- <include>ArtworkAnimations</include> -->
+					<include>ArtworkAnimations</include>
 					<include>ListLandscapeArtworkSlide</include>
 					<bordertexture border="border_size" colordiffuse="$VAR[BorderColorVar]" infill="false">masks/bordertexture.png</bordertexture>
 					<visible>
@@ -693,7 +692,7 @@
 					<textcolor>$VAR[FocusColorTheme]</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>left</align>
-					<visible>!Window.IsVisible(busydialog)</visible>
+					<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
 				</control>
 				<control type="label">
 					<include>ListLandscapeSlideUpAnimations</include>
@@ -705,7 +704,7 @@
 					<textcolor>$VAR[FocusColorTheme]</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>left</align>
-					<visible>!Window.IsVisible(busydialog)</visible>
+					<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
 				</control>
 				<control type="fixedlist" id="$PARAM[list_id]">
 					<left>-40</left>

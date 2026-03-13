@@ -261,7 +261,7 @@
 			<control type="label">
 				<left>20</left>
 				<right>video_header_right</right>
-				<top>15</top>
+				<top>20</top>
 				<label>$VAR[LeftVideoHeader]</label>
 				<font>font30_title_uppercase</font>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
@@ -274,7 +274,7 @@
 			</control>
 			<control type="label">
 				<right>12</right>
-				<top>15</top>
+				<top>20</top>
 				<width>1815</width>
 				<label>$VAR[RightVideoHeader]</label>
 				<font>font30_title_uppercase</font>

@@ -88,7 +88,7 @@
     <param name="align">left</param>
     <param name="left_right_text">30</param>
     <!-- <param name="img_left">47</param> -->
-    <param name="focused_font">font37</param>
+    <param name="focused_font">font37_title</param>
     <param name="unfocused_font">font37</param>
     <param name="img_texture">colors/grey.png</param>
     <param name="focused_text">$VAR[FocusedTextColorVar]</param>
@@ -127,7 +127,7 @@
             <right>$PARAM[left_right_text]</right>
             <aligny>center</aligny>
             <font>$PARAM[focused_font]</font>
-            <label>[B]$VAR[MenuCaseVar][/B]</label>
+            <label>$VAR[MenuCaseVar]</label>
             <textcolor>$PARAM[focused_text]</textcolor>
             <align>$PARAM[align]</align>
             <!-- <textcolor>FFFFFFFF</textcolor> -->
