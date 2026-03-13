@@ -66,7 +66,7 @@
 	<constant name="list_item_height">69</constant>
 	<constant name="border_size">1</constant>
 	<constant name="focus_border_size">6</constant>
-	<constant name="video_header_right">600</constant>
+	<constant name="video_header_right">500</constant>
 
 	<include name="CommonScrollbars">
 		<param name="bottom_offset">list_bottom_offset</param>
@@ -2079,8 +2079,7 @@
 				<visible>
 					[
 						[String.IsEqual(Skin.String(BackgroundSetting),1) + ![Control.IsVisible(51) | Control.IsVisible(56)]] |
-						[String.IsEqual(Skin.String(BackgroundSetting),2) + String.IsEmpty(Window(home).Property(listitem_blurred))] |
-						[String.IsEqual(Skin.String(BackgroundSetting),1) + !String.IsEmpty(Window(home).Property(ViewTransitioning))]
+						[String.IsEqual(Skin.String(BackgroundSetting),2) + String.IsEmpty(Window(home).Property(listitem_blurred))]
 					] +
 					String.IsEmpty(Window(Home).Property(SpotlightWidget)) +
 					![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] |
@@ -2117,7 +2116,7 @@
 				<aspectratio>scale</aspectratio>
 				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
 				<visible>!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEmpty(Window(Home).Property(SpotlightWidget)) + String.IsEmpty(Skin.String(TrailerPlaying)) + 
-				![Control.IsVisible(50) + String.IsEmpty(Window(home).Property(ViewTransitioning)) + [Window.IsVisible(videos) | ![Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)]] + 
+				![Control.IsVisible(50) + [Window.IsVisible(videos) | ![Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)]] + 
 				[
 						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
 						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
@@ -2231,34 +2230,11 @@
 					<aspectratio>scale</aspectratio>
 					<fadetime>400</fadetime>
 					<texture background="true" colordiffuse="$VAR[MainFanartDiffuse]" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ImageTextureSourceVar]</texture>
-					<visible>[[[String.IsEqual(Skin.String(BackgroundSetting),1) + ![Control.IsVisible(51) | Control.IsVisible(56)]] | [String.IsEqual(Skin.String(BackgroundSetting),2) + String.IsEmpty(Window(home).Property(listitem_blurred))] | [String.IsEqual(Skin.String(BackgroundSetting),1) + !String.IsEmpty(Window(home).Property(ViewTransitioning))]] + String.IsEmpty(Window(Home).Property(SpotlightWidget)) + 
+					<visible>[[[String.IsEqual(Skin.String(BackgroundSetting),1) + ![Control.IsVisible(51) | Control.IsVisible(56)]] | [String.IsEqual(Skin.String(BackgroundSetting),2) + String.IsEmpty(Window(home).Property(listitem_blurred))] | [String.IsEqual(Skin.String(BackgroundSetting),1)]] + String.IsEmpty(Window(Home).Property(SpotlightWidget)) + 
 					![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | 
 					!String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]
 					</visible>
 				</control> -->
-			</control>
-			<control type="group">
-				<visible>!String.IsEmpty(Window(home).Property(ViewSwitchLabel))</visible>
-				<animation effect="fade" start="0" end="100" time="300">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
-				<control type="image">
-					<width>700</width>
-					<height>150</height>
-					<centertop>50%</centertop>
-					<centerleft>50%</centerleft>
-					<texture colordiffuse="overlay_fade_color">colors/white.png</texture>
-				</control>
-				<control type="label">
-					<width>500</width>
-					<height>80</height>
-					<centertop>50%</centertop>
-					<centerleft>50%</centerleft>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>[COLOR unfocused_text]Setting view to[/COLOR] [UPPERCASE]$INFO[Window(home).Property(ViewSwitchLabel)][/UPPERCASE][CR][COLOR unfocused_text]Please wait...[/COLOR]</label>
-					<font>font32</font>
-					<textcolor>$VAR[FocusColorTheme]</textcolor>
-				</control>
 			</control>
 		</definition>
 	</include>

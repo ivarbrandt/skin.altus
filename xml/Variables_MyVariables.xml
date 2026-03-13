@@ -236,18 +236,6 @@
 		<value condition="!Window.IsVisible(Home)">$VAR[SmallLandscapeVar]</value>
 		<value>$VAR[FlixScapeVar]</value>
 	</variable>
-
-	<!-- <variable name="ViewSelectorTexture">
-		<value condition="!String.IsEmpty(Container.Content)">special://skin/resources/previews/$INFO[Container.Content]/$INFO[Container(3000).ListItem.Label]_$INFO[Container.Content].png</value>
-		<value>special://skin/resources/previews/menus/$INFO[Container(3000).ListItem.Label]_menu.png</value>
-	</variable> -->
-
-	<variable name="ViewSelectorTexture">
-    <value condition="Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season)">special://skin/resources/previews/episodes/$INFO[Container(3000).ListItem.Label]_episodes.png</value>
-    <value condition="Container.Content(episodes)">special://skin/resources/previews/episode_lists/$INFO[Container(3000).ListItem.Label]_episode_lists.png</value>
-    <value condition="!String.IsEmpty(Container.Content)">special://skin/resources/previews/$INFO[Container.Content]/$INFO[Container(3000).ListItem.Label]_$INFO[Container.Content].png</value>
-    <value>special://skin/resources/previews/menus/$INFO[Container(3000).ListItem.Label]_menu.png</value>
-	</variable>
 	
 
 	<variable name="HomescreenFlixCrumbs">
@@ -797,7 +785,6 @@
 	<variable name="MainBlurDiffuse">
 		<value condition="!String.IsEqual(Skin.String(MainBlurTexture),0)"></value>
 		<value condition="String.IsEqual(Skin.String(BackgroundSetting),1)">99999999</value>
-		<value condition="!String.IsEmpty(Window(home).Property(ViewTransitioning))">33FFFFFF</value>
 		<value condition="$EXP[infodialog_active]">4DFFFFFF</value>
 		<value condition="$EXP[isSlide] | $EXP[isPosterInfo] | $EXP[isLandscapeInfo] | $EXP[isFlixInfo] | $EXP[isWall] | $EXP[isLandscapeWall]">$VAR[BlurBrightnessVar]</value>
 
@@ -834,7 +821,6 @@
 
 	<!-- <variable name="MainBlurDiffuse">
 		<value condition="!String.IsEqual(Skin.String(MainBlurTexture),0)"></value>
-		<value condition="!String.IsEmpty(Window(home).Property(ViewTransitioning))">33FFFFFF</value>
 		<value condition="$EXP[infodialog_active]">4DFFFFFF</value>
 		<value condition="String.IsEqual(Container.ViewMode,$LOCALIZE[31100])">66FFFFFF</value>
 		<value condition="String.IsEqual(Container.ViewMode,$LOCALIZE[31101]) | String.IsEqual(Container.ViewMode,$LOCALIZE[311012]) | String.IsEqual(Container.ViewMode,$LOCALIZE[31107]) | String.IsEqual(Container.ViewMode,$LOCALIZE[311022]) | String.IsEqual(Container.ViewMode,$LOCALIZE[311023])">26FFFFFF</value>

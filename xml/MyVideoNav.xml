@@ -5,11 +5,9 @@
 	<views>50,51,52,53,54,55,56,57,500,501</views>
 	<menucontrol>9000</menucontrol>
 	<onload>ClearProperty(SpotlightWidget,Home)</onload>
-	<onload>ClearProperty(ViewTransitioning,home)</onload>
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">
-			<visible>String.IsEmpty(Window(home).Property(ViewTransitioning))</visible>
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<animation effect="fade" start="100" end="0" time="500" tween="sine" condition="Player.HasVideo + !String.IsEmpty(Skin.String(TrailerPlaying))">Conditional</animation>
 			<include>View_50_List</include>

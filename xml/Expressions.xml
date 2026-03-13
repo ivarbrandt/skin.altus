@@ -28,7 +28,7 @@
 
   <expression name="infodialog_active">Window.IsActive(musicinformation) | Window.IsActive(songinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | Window.IsVisible(script-embuary-image.xml)</expression>
 	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | Control.HasFocus(6130) | Control.HasFocus(6131)</expression>
-	<expression name="dialog_visible">Window.IsVisible(shutdownmenu) | Window.IsVisible(contextmenu) | Window.IsVisible(1107) | Window.IsVisible(Custom_1122_ViewSelector.xml)</expression>
+	<expression name="dialog_visible">Window.IsVisible(shutdownmenu) | Window.IsVisible(contextmenu) | Window.IsVisible(1107)</expression>
 
   <expression name="hasMovieVI">$EXP[isMovie] + [!Skin.HasSetting(Disable.VI.Digital) | !Skin.HasSetting(Disable.VI.Mpaa) | !Skin.HasSetting(Disable.VI.Genre) | !Skin.HasSetting(Disable.VI.Director) | !Skin.HasSetting(Disable.VI.Runtime) | !Skin.HasSetting(Disable.VI.Endsat)]</expression>
   <expression name="hasTVShowVI">$EXP[isTVShow] + [!Skin.HasSetting(Disable.VI.Aired) | !Skin.HasSetting(Disable.VI.Mpaa) | !Skin.HasSetting(Disable.VI.Genre) | !Skin.HasSetting(Disable.VI.Director) | !Skin.HasSetting(Disable.VI.TotalSeasons) | !Skin.HasSetting(Disable.VI.TotalEpisodes) | !Skin.HasSetting(Disable.VI.EpDuration) | !Skin.HasSetting(Disable.VI.Status)]</expression>

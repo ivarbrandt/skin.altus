@@ -371,8 +371,9 @@
 				<onclick condition="Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)">Skin.Reset(Skin.ForcedView.episodes.outside)</onclick>
 				<onclick condition="Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season)">Skin.Reset(Skin.ForcedView.episodes.inside)</onclick>
 				<onclick condition="!Container.Content(episodes)">Skin.Reset(Skin.ForcedView.$INFO[Container.Content])</onclick>
-				<!-- Call the view selector script -->
-				<onclick>RunScript(script.altus.helper,mode=select_view)</onclick>
+				<!-- Cycle to next view and start auto-lock timer -->
+				<onclick>Container.NextViewMode</onclick>
+				<onclick>Skin.TimerStart(autolock_view_timer)</onclick>
 			</control>
 
 			<control type="button" id="6099">
