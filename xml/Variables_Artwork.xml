@@ -335,12 +335,12 @@
 		</control>
 	</include>
 
-  <include name="altus.PreloadFanart">
+  <!-- <include name="altus.PreloadFanart">
 		<control type="image">
 			<include>altus.HiddenArtwork</include>
 			<texture background="true">$VAR[ImageTextureSourceVar]</texture>
 		</control>
-	</include>
+	</include> -->
 
 	<!-- <include name="altus.PreloadPoster_ListSetting1">
 		<control type="image">

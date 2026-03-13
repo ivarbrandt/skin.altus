@@ -595,29 +595,6 @@
 				<onclick>$VAR[56OnDownToggleVar.Other]</onclick>
 				<visible>Control.IsVisible(56) + [Container.Content(seasons) | Container.Content(episodes)]</visible>
 			</control>
-			<control type="button" id="6067">
-				<label>    - Revert back in $VAR[SkinSettingRevertFromWallDelay] $VAR[RevertBackLabel]</label>
-				<!-- <label2>[B]$VAR[SkinSettingRevertFromWallDelay][/B]</label2> -->
-				<include>MediaMenuItemsCommon</include>
-				<onclick>Skin.SetNumeric(altus_revert_from_wall_delay)</onclick>
-				<visible>
-					[
-						[Container.Content(movies) | Container.Content(tvshows)] + 
-						[
-								[Control.IsVisible(51) + [String.IsEqual(Skin.String(51OnDownSetting.MovieTV),1) | String.IsEqual(Skin.String(51OnDownSetting.MovieTV),2)]] |
-								[Control.IsVisible(53) + [String.IsEqual(Skin.String(53OnDownSetting.MovieTV),1) | String.IsEqual(Skin.String(53OnDownSetting.MovieTV),2)]] | 
-								[Control.IsVisible(56) + [String.IsEqual(Skin.String(56OnDownSetting.MovieTV),1) | String.IsEqual(Skin.String(56OnDownSetting.MovieTV),2)]]
-						] | 
-						[Container.Content(seasons) | Container.Content(episodes)] + 
-						[
-								[Control.IsVisible(51) + String.IsEqual(Skin.String(51OnDownSetting.Other),1)] |
-								[Control.IsVisible(53) + String.IsEqual(Skin.String(53OnDownSetting.Other),1)] | 
-								[Control.IsVisible(56) + String.IsEqual(Skin.String(56OnDownSetting.Other),1)]
-						]
-					]
-				</visible>
-			</control>
-			
 			<!-- <control type="button" id="6061">
 				<include>MediaMenuItemsCommon</include>
 				<label>Artwork (Items)</label>

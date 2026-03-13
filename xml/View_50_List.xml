@@ -924,7 +924,7 @@
 							</control> -->
 							<control type="image">
 								<left>33</left>
-								<top>14</top>
+								<top>16</top>
 								<width>21</width>
 								<height>21</height>
 								<texture>$VAR[ListWatchedIconVar]</texture>

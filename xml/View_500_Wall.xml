@@ -21,7 +21,6 @@
 					<include content="PosterLayout">
 						<param name="focused" value="true" />
 					</include>
-					<include>WallTimer</include>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -50,7 +49,6 @@
 					<include content="PosterLayout">
 						<param name="focused" value="true" />
 					</include>
-					<include>WallTimer</include>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -81,7 +79,6 @@
 					<include content="SmallPosterLayout">
 						<param name="focused" value="true" />
 					</include>
-					<include>WallTimer</include>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -112,7 +109,6 @@
 					<include content="SmallPosterLayout">
 						<param name="focused" value="true" />
 					</include>
-					<include>WallTimer</include>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -147,25 +143,25 @@
 				<pagecontrol>531</pagecontrol>
 				<scrolltime tween="cubic" easing="out">600</scrolltime>
 				<visible>
-					[Container.Content(artists) + [String.IsEqual(Skin.String(Skin.ForcedView.artists),$LOCALIZE[311022]) | String.IsEqual(Skin.String(Skin.ForcedView.artists),$LOCALIZE[310981]) | String.IsEqual(Skin.String(Skin.ForcedView.artists),$LOCALIZE[31100]) | String.IsEqual(Skin.String(Skin.ForcedView.artists),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.artists))]] |
+					[Container.Content(artists) + [String.IsEqual(Skin.String(Skin.ForcedView.artists),$LOCALIZE[311022]) | String.IsEmpty(Skin.String(Skin.ForcedView.artists))]] |
 
-					[Container.Content(albums) + [String.IsEqual(Skin.String(Skin.ForcedView.albums),$LOCALIZE[311022]) | String.IsEqual(Skin.String(Skin.ForcedView.albums),$LOCALIZE[310981]) | String.IsEqual(Skin.String(Skin.ForcedView.albums),$LOCALIZE[31100]) | String.IsEqual(Skin.String(Skin.ForcedView.albums),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.albums))]] |
+					[Container.Content(albums) + [String.IsEqual(Skin.String(Skin.ForcedView.albums),$LOCALIZE[311022]) | String.IsEmpty(Skin.String(Skin.ForcedView.albums))]] |
 
-					[Container.Content(sets) + [String.IsEqual(Skin.String(Skin.ForcedView.sets),$LOCALIZE[311022]) | String.IsEqual(Skin.String(Skin.ForcedView.sets),$LOCALIZE[310981]) | String.IsEqual(Skin.String(Skin.ForcedView.sets),$LOCALIZE[31100]) | String.IsEqual(Skin.String(Skin.ForcedView.sets),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.sets))]] |
+					[Container.Content(sets) + [String.IsEqual(Skin.String(Skin.ForcedView.sets),$LOCALIZE[311022]) | String.IsEmpty(Skin.String(Skin.ForcedView.sets))]] |
 
-					[Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$LOCALIZE[311022]) | String.IsEqual(Skin.String(Skin.ForcedView.movies),$LOCALIZE[310981]) | String.IsEqual(Skin.String(Skin.ForcedView.movies),$LOCALIZE[31100]) | String.IsEqual(Skin.String(Skin.ForcedView.movies),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] |
+					[Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$LOCALIZE[311022]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] |
 
-					[Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$LOCALIZE[311022]) | String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$LOCALIZE[310981]) | String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$LOCALIZE[31100]) | String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] |
+					[Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$LOCALIZE[311022]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] |
 
-					[Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$LOCALIZE[311022]) | String.IsEqual(Skin.String(Skin.ForcedView.seasons),$LOCALIZE[310981]) | String.IsEqual(Skin.String(Skin.ForcedView.seasons),$LOCALIZE[31100]) | String.IsEqual(Skin.String(Skin.ForcedView.seasons),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] |
+					[Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$LOCALIZE[311022]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] |
 
-					[Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$LOCALIZE[311022]) | String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$LOCALIZE[310981]) | String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$LOCALIZE[31100]) | String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] |
+					[Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$LOCALIZE[311022]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] |
 
-					[Container.Content(images) + [String.IsEqual(Skin.String(Skin.ForcedView.images),$LOCALIZE[311022]) | String.IsEqual(Skin.String(Skin.ForcedView.images),$LOCALIZE[310981]) | String.IsEqual(Skin.String(Skin.ForcedView.images),$LOCALIZE[31100]) | String.IsEqual(Skin.String(Skin.ForcedView.images),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.images))]] |
+					[Container.Content(images) + [String.IsEqual(Skin.String(Skin.ForcedView.images),$LOCALIZE[311022]) | String.IsEmpty(Skin.String(Skin.ForcedView.images))]] |
 
-					[Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$LOCALIZE[311022]) | String.IsEqual(Skin.String(Skin.ForcedView.videos),$LOCALIZE[310981]) | String.IsEqual(Skin.String(Skin.ForcedView.videos),$LOCALIZE[31100]) | String.IsEqual(Skin.String(Skin.ForcedView.videos),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] |
+					[Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$LOCALIZE[311022]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] |
 
-					[Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$LOCALIZE[311022]) | String.IsEqual(Skin.String(Skin.ForcedView.games),$LOCALIZE[310981]) | String.IsEqual(Skin.String(Skin.ForcedView.games),$LOCALIZE[31100]) | String.IsEqual(Skin.String(Skin.ForcedView.games),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]]
+					[Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$LOCALIZE[311022]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]]
 				</visible>
 
 				<!-- DEFAULT LAYOUT - No Titles -->

@@ -390,10 +390,6 @@
 		<value condition="!String.IsEmpty(Skin.String(altus_digital_expired_window))">$INFO[Skin.String(altus_digital_expired_window)]</value>
 		<value condition="String.IsEmpty(Skin.String(altus_digital_expired_window))">21</value> <!-- Default value -->
 	</variable>
-	<variable name="SkinSettingRevertFromWallDelay">
-		<value condition="!String.IsEmpty(Skin.String(altus_revert_from_wall_delay))">$INFO[Skin.String(altus_revert_from_wall_delay)]</value>
-		<value condition="String.IsEmpty(Skin.String(altus_revert_from_wall_delay))">2</value> <!-- Default value -->
-	</variable>
 	<variable name="VolumeIconVar">
 		<value condition="Player.Muted">dialogs/volume/mute.png</value>
 		<value condition="Integer.IsGreater(Player.Volume,66)">dialogs/volume/volume.png</value>

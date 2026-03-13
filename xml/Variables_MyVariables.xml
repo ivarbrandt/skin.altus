@@ -385,11 +385,6 @@
 		<value>dim</value>
 	</variable>
 
-	<variable name="RevertBackLabel">
-		<value condition="String.IsEqual(Skin.String(altus_revert_from_wall_delay),1)">second</value>
-		<value>seconds</value>
-	</variable>
-
 	<variable name="EditMainMenusVar">
     <value condition="String.IsEqual(Container(9000).ListItem.Property(id),movies)">RunScript(script.altus.helper,mode=manage_main_menu_path&amp;cpath_setting=movie.main_menu)</value>
     <value condition="String.IsEqual(Container(9000).ListItem.Property(id),tvshows)">RunScript(script.altus.helper,mode=manage_main_menu_path&amp;cpath_setting=tvshow.main_menu)</value>
@@ -491,92 +486,86 @@
 	<!-- POSTERFLOW TOGGLES -->
 	<variable name="51OnDownSettingVar.MovieTV">
 		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),0)">Scrollbar</value>
-		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),1)">PosterWall</value>
-		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),2)">LandscapeWall</value>
-		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),3)">Play trailer</value>
-		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),4)">Information</value>
-		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),5)">Show fanart</value>
+		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),1)">Play trailer</value>
+		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),2)">Information</value>
+		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),3)">Show fanart</value>
+		<value>Scrollbar</value>
 	</variable>
 
 	<variable name="51OnDownSettingVar.Other">
 		<value condition="String.IsEqual(Skin.String(51OnDownSetting.Other),0)">Scrollbar</value>
-		<value condition="String.IsEqual(Skin.String(51OnDownSetting.Other),1)">LandscapeWall</value>
-		<value condition="String.IsEqual(Skin.String(51OnDownSetting.Other),2)">Information</value>
-		<value condition="String.IsEqual(Skin.String(51OnDownSetting.Other),3)">Show fanart</value>
+		<value condition="String.IsEqual(Skin.String(51OnDownSetting.Other),1)">Information</value>
+		<value condition="String.IsEqual(Skin.String(51OnDownSetting.Other),2)">Show fanart</value>
+		<value>Scrollbar</value>
 	</variable>
 
 	<variable name="51OnDownToggleVar.MovieTV">
 		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),0)">Skin.SetString(51OnDownSetting.MovieTV,1)</value>
 		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),1)">Skin.SetString(51OnDownSetting.MovieTV,2)</value>
 		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),2)">Skin.SetString(51OnDownSetting.MovieTV,3)</value>
-		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),3)">Skin.SetString(51OnDownSetting.MovieTV,4)</value>
-		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),4)">Skin.SetString(51OnDownSetting.MovieTV,5)</value>
-		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),5)">Skin.SetString(51OnDownSetting.MovieTV,0)</value>
+		<value condition="String.IsEqual(Skin.String(51OnDownSetting.MovieTV),3)">Skin.SetString(51OnDownSetting.MovieTV,0)</value>
+		<value>Skin.SetString(51OnDownSetting.MovieTV,0)</value>
 	</variable>
 
 	<variable name="51OnDownToggleVar.Other">
 		<value condition="String.IsEqual(Skin.String(51OnDownSetting.Other),0)">Skin.SetString(51OnDownSetting.Other,1)</value>
 		<value condition="String.IsEqual(Skin.String(51OnDownSetting.Other),1)">Skin.SetString(51OnDownSetting.Other,2)</value>
-		<value condition="String.IsEqual(Skin.String(51OnDownSetting.Other),2)">Skin.SetString(51OnDownSetting.Other,3)</value>
-		<value condition="String.IsEqual(Skin.String(51OnDownSetting.Other),3)">Skin.SetString(51OnDownSetting.Other,0)</value>
+		<value condition="String.IsEqual(Skin.String(51OnDownSetting.Other),2)">Skin.SetString(51OnDownSetting.Other,0)</value>
+		<value>Skin.SetString(51OnDownSetting.Other,0)</value>
 	</variable>
 
 	<!-- SLIDE TOGGLES -->
 	<variable name="53OnDownSettingVar.MovieTV">
 		<value condition="String.IsEqual(Skin.String(53OnDownSetting.MovieTV),0)">Scrollbar</value>
-		<value condition="String.IsEqual(Skin.String(53OnDownSetting.MovieTV),1)">PosterWall</value>
-		<value condition="String.IsEqual(Skin.String(53OnDownSetting.MovieTV),2)">LandscapeWall</value>
-		<value condition="String.IsEqual(Skin.String(53OnDownSetting.MovieTV),3)">Play trailer</value>
-		<value condition="String.IsEqual(Skin.String(53OnDownSetting.MovieTV),4)">Information</value>
+		<value condition="String.IsEqual(Skin.String(53OnDownSetting.MovieTV),1)">Play trailer</value>
+		<value condition="String.IsEqual(Skin.String(53OnDownSetting.MovieTV),2)">Information</value>
+		<value>Scrollbar</value>
 	</variable>
 
 	<variable name="53OnDownSettingVar.Other">
 		<value condition="String.IsEqual(Skin.String(53OnDownSetting.Other),0)">Scrollbar</value>
-		<value condition="String.IsEqual(Skin.String(53OnDownSetting.Other),1)">LandscapeWall</value>
-		<value condition="String.IsEqual(Skin.String(53OnDownSetting.Other),2)">Information</value>
+		<value condition="String.IsEqual(Skin.String(53OnDownSetting.Other),1)">Information</value>
+		<value>Scrollbar</value>
 	</variable>
 
 	<variable name="53OnDownToggleVar.MovieTV">
 		<value condition="String.IsEqual(Skin.String(53OnDownSetting.MovieTV),0)">Skin.SetString(53OnDownSetting.MovieTV,1)</value>
 		<value condition="String.IsEqual(Skin.String(53OnDownSetting.MovieTV),1)">Skin.SetString(53OnDownSetting.MovieTV,2)</value>
-		<value condition="String.IsEqual(Skin.String(53OnDownSetting.MovieTV),2)">Skin.SetString(53OnDownSetting.MovieTV,3)</value>
-		<value condition="String.IsEqual(Skin.String(53OnDownSetting.MovieTV),3)">Skin.SetString(53OnDownSetting.MovieTV,4)</value>
-		<value condition="String.IsEqual(Skin.String(53OnDownSetting.MovieTV),4)">Skin.SetString(53OnDownSetting.MovieTV,0)</value>
+		<value condition="String.IsEqual(Skin.String(53OnDownSetting.MovieTV),2)">Skin.SetString(53OnDownSetting.MovieTV,0)</value>
+		<value>Skin.SetString(53OnDownSetting.MovieTV,0)</value>
 	</variable>
 
 	<variable name="53OnDownToggleVar.Other">
 		<value condition="String.IsEqual(Skin.String(53OnDownSetting.Other),0)">Skin.SetString(53OnDownSetting.Other,1)</value>
-		<value condition="String.IsEqual(Skin.String(53OnDownSetting.Other),1)">Skin.SetString(53OnDownSetting.Other,2)</value>
-		<value condition="String.IsEqual(Skin.String(53OnDownSetting.Other),2)">Skin.SetString(53OnDownSetting.Other,0)</value>
+		<value condition="String.IsEqual(Skin.String(53OnDownSetting.Other),1)">Skin.SetString(53OnDownSetting.Other,0)</value>
+		<value>Skin.SetString(53OnDownSetting.Other,0)</value>
 	</variable>
 
 	<!-- FLIXINFO TOGGLES -->
 	<variable name="56OnDownSettingVar.MovieTV">
 		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),0)">Scrollbar</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),1)">PosterWall</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),2)">LandscapeWall</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),3)">Play trailer</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),4)">Information</value>
+		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),1)">Play trailer</value>
+		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),2)">Information</value>
+		<value>Scrollbar</value>
 	</variable>
 
 	<variable name="56OnDownSettingVar.Other">
 		<value condition="String.IsEqual(Skin.String(56OnDownSetting.Other),0)">Scrollbar</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.Other),1)">LandscapeWall</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.Other),2)">Information</value>
+		<value condition="String.IsEqual(Skin.String(56OnDownSetting.Other),1)">Information</value>
+		<value>Scrollbar</value>
 	</variable>
 
 	<variable name="56OnDownToggleVar.MovieTV">
 		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),0)">Skin.SetString(56OnDownSetting.MovieTV,1)</value>
 		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),1)">Skin.SetString(56OnDownSetting.MovieTV,2)</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),2)">Skin.SetString(56OnDownSetting.MovieTV,3)</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),3)">Skin.SetString(56OnDownSetting.MovieTV,4)</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),4)">Skin.SetString(56OnDownSetting.MovieTV,0)</value>
+		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),2)">Skin.SetString(56OnDownSetting.MovieTV,0)</value>
+		<value>Skin.SetString(56OnDownSetting.MovieTV,0)</value>
 	</variable>
 
 	<variable name="56OnDownToggleVar.Other">
 		<value condition="String.IsEqual(Skin.String(56OnDownSetting.Other),0)">Skin.SetString(56OnDownSetting.Other,1)</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.Other),1)">Skin.SetString(56OnDownSetting.Other,2)</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.Other),2)">Skin.SetString(56OnDownSetting.Other,0)</value>
+		<value condition="String.IsEqual(Skin.String(56OnDownSetting.Other),1)">Skin.SetString(56OnDownSetting.Other,0)</value>
+		<value>Skin.SetString(56OnDownSetting.Other,0)</value>
 	</variable>
 
 	<variable name="StudioLogoSettingVar">

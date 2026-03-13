@@ -2196,7 +2196,6 @@
 		<onload condition="String.IsEmpty(Skin.String(MainBlurTexture))">Skin.SetString(MainBlurTexture,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(altus_category_widget_delay))">Skin.SetString(altus_category_widget_delay,750)</onload>
 		<onload condition="String.IsEmpty(Skin.String(altus_spotlight_delay))">Skin.SetString(altus_spotlight_delay,10)</onload>
-		<onload condition="String.IsEmpty(Skin.String(altus_revert_from_wall_delay))">Skin.SetString(altus_revert_from_wall_delay,2)</onload>
 		<onload condition="String.IsEmpty(Skin.String(TrailerSource))">Skin.SetString(TrailerSource,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(current_search_provider))">Skin.SetString(current_search_provider,1)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDAudioButtonSetting))">Skin.SetString(OSDAudioButtonSetting,0)</onload>

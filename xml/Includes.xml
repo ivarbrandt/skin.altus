@@ -2804,13 +2804,6 @@
     </control>
 	</include>
 
-	<include name="WallTimer">
-		<control type="button">
-			<include>HiddenObject</include>
-			<onfocus>RunScript(script.altus.helper,mode=wall_timer)</onfocus>
-		</control>
-	</include>
-
 	<include name="TestManual">
 		<control type="button">
 			<include>HiddenObject</include>
