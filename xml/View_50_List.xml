@@ -186,12 +186,10 @@
 					<width>930</width>
 					<height>523</height>
 					<fadetime>500</fadetime>
-					<texture colordiffuse="artwork_dim" background="true" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ListLandscapeVar]</texture>
-					<bordersize>border_size</bordersize>
+					<texture diffuse="masks/landscape50.png" colordiffuse="artwork_dim" background="true" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ListLandscapeVar]</texture>
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<include>ArtworkAnimations</include>
 					<include>ListLandscapeArtworkSlide</include>
-					<bordertexture border="border_size" colordiffuse="$VAR[BorderColorVar]" infill="false">masks/bordertexture.png</bordertexture>
 					<visible>
 						Control.IsVisible(50) + !Player.HasMedia + 
 						[
@@ -217,13 +215,6 @@
 						[Container.Content(addons) + String.StartsWith(Container.PluginName,plugin.video.otaku) + String.IsEqual(Skin.String(ListArtworkChoice.addons),0)]
 					]</visible>
 					<include>ListLandscapeArtworkSlide</include>
-					<include content="ProgressBar">
-						<param name="left" value="45"/>
-						<param name="top" value="840"/>
-						<param name="width" value="930"/>
-						<param name="visible1" value="true"/>
-						<param name="visible2" value="true"/>
-					</include>
 				</control>
 				
 				<control type="image">
@@ -234,7 +225,7 @@
 					<width>647</width>
 					<height>970</height>
 					<fadetime>500</fadetime>
-					<texture colordiffuse="artwork_dim" background="true" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[FlixPosterVar]</texture>
+					<texture diffuse="masks/poster-50.png" colordiffuse="artwork_dim" background="true" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[FlixPosterVar]</texture>
 					
 					
 					<aspectratio scalediffuse="false">scale</aspectratio>
@@ -273,13 +264,6 @@
 						[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),1)] |
 						[Container.Content(addons) + String.StartsWith(Container.PluginName,plugin.video.otaku) + String.IsEqual(Skin.String(ListArtworkChoice.addons),1)]
 					]</visible>
-					<include content="ProgressBar">
-						<param name="left" value="0"/>
-						<param name="top" value="1074"/>
-						<param name="width" value="720"/>
-						<param name="visible1" value="true"/>
-						<param name="visible2" value="true"/>
-					</include>
 				</control>
 				<control type="image">
 					<top>90</top>
@@ -794,10 +778,10 @@
 								<width>127</width>
 								<!-- 354 -->
 								<height>190</height>
-								<texture background="true">$VAR[FlixPosterVar]</texture>
+								<texture diffuse="masks/smallposter-50.png" background="true">$VAR[FlixPosterVar]</texture>
 								<bordersize>4</bordersize>
 								<aspectratio scalediffuse="false">scale</aspectratio>
-								<bordertexture border="4" colordiffuse="$VAR[FocuscolorTheme]" infill="false">colors/white.png</bordertexture>
+								<bordertexture border="8" colordiffuse="$VAR[FocuscolorTheme]" infill="false">masks/smallposter-50-fo.png</bordertexture>
 								<!-- <animation condition="Container($PARAM[list_id]).IsUpdating + String.IsEmpty(Skin.String(TrailerPlaying))" effect="fade" time="700" start="50" end="100" pulse="true">Conditional</animation> -->
 							</control>
 							<!-- <control type="image">

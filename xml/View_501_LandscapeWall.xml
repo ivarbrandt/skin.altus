@@ -251,7 +251,6 @@
 							<param name="id" value="501"/>
 						</include>
             <left>33</left>
-						<!-- <top>45</top> -->
 						<top>0</top>
 						<include>BigLandscapeLayout</include>
 					</control>
@@ -260,7 +259,6 @@
 					<control type="group">
 						<depth>DepthContentPopout</depth>
             <left>33</left>
-						<!-- <top>45</top> -->
 						<top>0</top>
 						<include content="BigLandscapeLayout">
 							<param name="focused" value="true" />

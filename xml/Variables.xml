@@ -497,7 +497,7 @@
 	<variable name="WallWatchedIconVar">
     <value condition="String.IsEqual(Container.PluginName,plugin.video.fenlight) | String.StartsWith(ListItem.Path,plugin://plugin.video.fenlight)">$VAR[WallWatchedIconVar.Other]</value>
     <value>$VAR[WallWatchedIconVar.All]</value>
-</variable>
+	</variable>
 
 <variable name="WallWatchedIconVar.All">
     <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
@@ -505,7 +505,6 @@
     <value condition="ListItem.HasTimer">icons/pvr/timers/recording.png</value>
     <value condition="ListItem.IsCollection">overlays/set.png</value>
     <value condition="ListItem.IsPlaying">osd/fullscreen/buttons/play.png</value>
-    <!-- <value condition="ListItem.IsFolder + $EXP[noDBType] + !String.IsEqual(ListItem.Overlay,OverlayWatched.png) + !ListItem.IsParentFolder">overlays/folder.png</value> -->
     <!-- TV Shows -->
     <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
     <!-- Movies -->
@@ -515,7 +514,6 @@
     <!-- Fallback for any other content type -->
     <value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
     <value condition="!Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
-    <!-- <value condition="!String.IsEmpty(ListItem.Overlay)">$INFO[ListItem.Overlay]</value> -->
 </variable>
 
 <variable name="WallWatchedIconVar.Other">
@@ -525,8 +523,6 @@
     <value condition="ListItem.IsPlaying">osd/fullscreen/buttons/play.png</value>
     <value condition="!Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
     <value condition="ListItem.IsCollection">overlays/set.png</value>
-    <!-- <value condition="ListItem.IsFolder + $EXP[noDBType] + !String.IsEqual(ListItem.Overlay,OverlayWatched.png) + !ListItem.IsParentFolder">overlays/folder.png</value> -->
-    <!-- <value condition="!String.IsEmpty(ListItem.Overlay)">$INFO[ListItem.Overlay]</value> -->
     <value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 </variable>
 

@@ -85,7 +85,7 @@
 					<param name="c1" value="57" />
 					<param name="c2" value="225" />
 				</include> -->
-				<left>40</left>
+				<left>35</left>
 				<top>72</top>
 				<height>50</height>
 				<width>1180</width>
@@ -131,7 +131,7 @@
 			<control type="group" id="$PARAM[list_id]665">
 				<animation effect="fade" start="100" end="45" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus">Conditional</animation>
 				<!-- <animation effect="slide" end="7,0" time="300" condition="Control.HasFocus($PARAM[list_id])">Conditional</animation> -->
-				<left>40</left>
+				<left>35</left>
 				<top>72</top>
 				<height>50</height>
 				<width>1180</width>
@@ -475,7 +475,6 @@
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
 				<onfocus>ClearProperty(SpotlightWidget,Home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
-				<onfocus>ClearProperty(SmallLandscapeWidgetFocused,Home)</onfocus>
 				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
@@ -538,7 +537,6 @@
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
 				<onfocus>ClearProperty(SpotlightWidget,Home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
-				<onfocus>ClearProperty(SmallLandscapeWidgetFocused,Home)</onfocus>
 				<onfocus>ClearProperty(altus_spotlight_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
@@ -601,7 +599,6 @@
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
 				<onfocus>ClearProperty(SpotlightWidget,Home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
-				<onfocus>ClearProperty(SmallLandscapeWidgetFocused,Home)</onfocus>
 				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
@@ -664,7 +661,6 @@
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
 				<onfocus>ClearProperty(SpotlightWidget,Home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
-				<onfocus>ClearProperty(SmallLandscapeWidgetFocused,Home)</onfocus>
 				<onfocus>ClearProperty(altus_spotlight_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
@@ -723,7 +719,6 @@
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
 				<onfocus>SetProperty(FeatureWidgetFocused,true,Home)</onfocus>
 				<onfocus>ClearProperty(SpotlightWidget,Home)</onfocus>
-				<onfocus>ClearProperty(SmallLandscapeWidgetFocused,Home)</onfocus>
 				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
@@ -786,7 +781,6 @@
 				<onfocus>SetProperty(altus_stacked_linked_list_id,$PARAM[parent_id],home)</onfocus>
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
 				<onfocus>ClearProperty(SpotlightWidget,Home)</onfocus>
-				<onfocus>ClearProperty(SmallLandscapeWidgetFocused,Home)</onfocus>
 				<onfocus>ClearProperty(altus_spotlight_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
@@ -961,7 +955,6 @@
 				<orientation>horizontal</orientation>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
-				<onfocus>SetProperty(SmallLandscapeWidgetFocused,true,Home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
 				<onfocus>ClearProperty(SpotlightWidget,Home)</onfocus>
 				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
@@ -1022,7 +1015,6 @@
 				<orientation>horizontal</orientation>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
 				<include>SpotlightAnimations_Stacked</include>
-				<onfocus>SetProperty(SmallLandscapeWidgetFocused,true,Home)</onfocus>
 				<onfocus>SetProperty(altus_stacked_linked_list_id,$PARAM[parent_id],home)</onfocus>
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
@@ -1402,7 +1394,6 @@
 				<onright>$PARAM[list_id]</onright>
 				<onfocus>ClearProperty(SpotlightWidget,Home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
-				<onfocus>ClearProperty(SmallLandscapeWidgetFocused,Home)</onfocus>
 				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
@@ -1470,7 +1461,6 @@
 				<movement>5</movement>
 				<onfocus>ClearProperty(SpotlightWidget,Home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
-				<onfocus>ClearProperty(SmallLandscapeWidgetFocused,Home)</onfocus>
 				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
@@ -1541,7 +1531,6 @@
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
 				<onfocus>ClearProperty(SpotlightWidget,Home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
-				<onfocus>ClearProperty(SmallLandscapeWidgetFocused,Home)</onfocus>
 				<onfocus>ClearProperty(altus_spotlight_linked_list_id,home)</onfocus>
 				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommonStacked">

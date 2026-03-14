@@ -38,4 +38,6 @@
 
   <expression name="showPlot">[String.IsEmpty(Skin.String(PlotSetting)) | String.IsEqual(Skin.String(PlotSetting),0)] | [String.IsEqual(Skin.String(PlotSetting),1) + !$EXP[isEpisode]]</expression>
 
+  <expression name="hasWallWatchedIcon">ListItem.IsRecording | ListItem.HasReminder | ListItem.HasTimer | ListItem.IsCollection | ListItem.IsPlaying | Integer.IsGreater(ListItem.Playcount,0) | !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)</expression>
+
 </includes>

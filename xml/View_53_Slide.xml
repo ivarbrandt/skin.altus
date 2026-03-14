@@ -91,12 +91,12 @@
 							</include>
               <!-- <visible>!$EXP[sidebar_visible]</visible>
               <animation effect="fade" time="300">VisibleChange</animation> -->
-							<left>-175</left>
+							<left>-170</left>
 							<top>18</top>
 							<include>SmallPosterLayout</include>
 						</control>
 					</itemlayout>
-					<focusedlayout width="515">
+					<focusedlayout width="505">
 						<control type="group">
 							<include>VideoTrailerControl</include>
 							<control type="group">
@@ -260,7 +260,7 @@
 				<height>714</height>
 				<fadetime>200</fadetime>
 				<aspectratio scalediffuse="false">scale</aspectratio>
-				<texture colordiffuse="artwork_dim" fallback="DefaultMovies.png" background="true">$VAR[FlixPosterVar]</texture>
+				<texture diffuse="masks/poster-53.png" colordiffuse="artwork_dim" fallback="DefaultMovies.png" background="true">$VAR[FlixPosterVar]</texture>
 			</control>
       
 			<control type="group">
@@ -292,10 +292,9 @@
 				<width>476</width>
 				<height>714</height>
 				<fadetime>200</fadetime>
-				<bordersize>-6</bordersize>
 				<visible>Control.HasFocus(53)</visible>
 				<animation effect="fade" time="100">VisibleChange</animation>
-				<texture border="focus_border_size" colordiffuse="$VAR[FocusColorTheme]" infill="false">colors/white.png</texture>
+				<texture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/poster-53-fo.png</texture>
 			</control>
 			<control type="group">
 				<left>216</left>
