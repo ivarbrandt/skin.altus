@@ -124,6 +124,13 @@
 			<style>light</style>
 		</font>
 		<font>
+			<name>eps_51</name>
+			<filename>Nick-Titling.ttf</filename>
+			<size>34</size>
+			<aspect>0.85</aspect>
+			<style>light</style>
+		</font>
+		<font>
 			<name>font32</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>30</size>

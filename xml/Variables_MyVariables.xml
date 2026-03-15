@@ -170,9 +170,57 @@
 		<value condition="!Skin.HasSetting(Disable.WidgetInfoLineTitle) + String.IsEmpty(Window(Home).Property(SpotlightWidget)) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> $VAR[HomeFlixTypes]</value>
 	</variable>
 
+	<variable name="BadgeColorVar">
+		<value condition="String.IsEqual(Skin.String(BadgeColorSetting),1)">FF39FF14</value>
+		<value condition="String.IsEqual(Skin.String(BadgeColorSetting),2)">FFDEDEDE</value>
+		<value condition="String.IsEqual(Skin.String(BadgeColorSetting),3)">FF1A1A2E</value>
+		<value>FF50E850</value>
+	</variable>
+
+	<variable name="BadgeBackgroundColorVar">
+		<value condition="String.IsEqual(Skin.String(BadgeBackgroundSetting),1)">FF000000</value>
+		<value condition="String.IsEqual(Skin.String(BadgeBackgroundSetting),2)">FFFFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(BadgeBackgroundSetting),3)">FFE0E0E0</value>
+		<value condition="String.IsEqual(Skin.String(BadgeBackgroundSetting),4)">CCFFFFFF</value>
+		<value>CC111111</value>
+	</variable>
+
+	<variable name="BadgeColorSettingVar">
+		<value condition="String.IsEqual(Skin.String(BadgeColorSetting),1)">Neon Green</value>
+		<value condition="String.IsEqual(Skin.String(BadgeColorSetting),2)">White</value>
+		<value condition="String.IsEqual(Skin.String(BadgeColorSetting),3)">Dark</value>
+		<value>Muted Green</value>
+	</variable>
+
+	<variable name="BadgeColorToggleVar">
+		<value condition="String.IsEqual(Skin.String(BadgeColorSetting),0)">Skin.SetString(BadgeColorSetting,1)</value>
+		<value condition="String.IsEqual(Skin.String(BadgeColorSetting),1)">Skin.SetString(BadgeColorSetting,2)</value>
+		<value condition="String.IsEqual(Skin.String(BadgeColorSetting),2)">Skin.SetString(BadgeColorSetting,3)</value>
+		<value condition="String.IsEqual(Skin.String(BadgeColorSetting),3)">Skin.SetString(BadgeColorSetting,0)</value>
+		<value>Skin.SetString(BadgeColorSetting,0)</value>
+	</variable>
+
+	<variable name="BadgeBackgroundSettingVar">
+		<value condition="String.IsEqual(Skin.String(BadgeBackgroundSetting),1)">Black</value>
+		<value condition="String.IsEqual(Skin.String(BadgeBackgroundSetting),2)">White</value>
+		<value condition="String.IsEqual(Skin.String(BadgeBackgroundSetting),3)">Light Gray</value>
+		<value condition="String.IsEqual(Skin.String(BadgeBackgroundSetting),4)">Translucent White</value>
+		<value>Translucent Dark</value>
+	</variable>
+
+	<variable name="BadgeBackgroundToggleVar">
+		<value condition="String.IsEqual(Skin.String(BadgeBackgroundSetting),0)">Skin.SetString(BadgeBackgroundSetting,1)</value>
+		<value condition="String.IsEqual(Skin.String(BadgeBackgroundSetting),1)">Skin.SetString(BadgeBackgroundSetting,2)</value>
+		<value condition="String.IsEqual(Skin.String(BadgeBackgroundSetting),2)">Skin.SetString(BadgeBackgroundSetting,3)</value>
+		<value condition="String.IsEqual(Skin.String(BadgeBackgroundSetting),3)">Skin.SetString(BadgeBackgroundSetting,4)</value>
+		<value condition="String.IsEqual(Skin.String(BadgeBackgroundSetting),4)">Skin.SetString(BadgeBackgroundSetting,0)</value>
+		<value>Skin.SetString(BadgeBackgroundSetting,0)</value>
+	</variable>
+
 	<variable name="VideoFlixCrumbsVar">
 		<!-- Other windows -->
 		<value condition="$EXP[isEpisode] + Control.IsVisible(501) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Title][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + Control.IsVisible(55) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Title][/COLOR]</value>
 		<value condition="$EXP[isEpisode] + ![Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(501)] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Title][/COLOR]</value>
 		<value condition="$EXP[isEpisode] + Control.IsVisible(56) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR]</value>
 		<value condition="

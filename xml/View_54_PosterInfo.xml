@@ -200,6 +200,7 @@
 					<texture diffuse="masks/poster.png" colordiffuse="artwork_dim" background="true">$VAR[FlixPosterVar]</texture>
 					<aspectratio scalediffuse="false">scale</aspectratio>
 				</control>
+				
 				<!-- <control type="image">
 					<left>20</left>
 					<top>274</top>
@@ -277,9 +278,9 @@
 					<textoffsetx>10</textoffsetx>
 					<textoffsety>2</textoffsety>
 					<font>eps</font>
-					<textcolor>FF14FF13</textcolor>
-					<texturenofocus border="13" colordiffuse="FF000000">masks/flixicon-filled.png</texturenofocus>
-					<texturefocus border="13" colordiffuse="FF000000">masks/flixicon-filled.png</texturefocus>
+					<textcolor>$VAR[BadgeColorVar]</textcolor>
+					<texturenofocus border="13" colordiffuse="$VAR[BadgeBackgroundColorVar]">masks/flixicon-filled.png</texturenofocus>
+					<texturefocus border="13" colordiffuse="$VAR[BadgeBackgroundColorVar]">masks/flixicon-filled.png</texturefocus>
 					<label>[UPPERCASE][LIGHT]$INFO[ListItem.Property(UnwatchedEpisodes),, remaining][/LIGHT][/UPPERCASE]</label>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 					<visible>
@@ -337,7 +338,11 @@
 				<scrollspeed>100</scrollspeed>
 				<visible>[String.IsEqual(Container.ViewMode,$LOCALIZE[31101]) + Skin.HasSetting(Enable.54Titles)] | [String.IsEqual(Container.ViewMode,$LOCALIZE[311022]) + Skin.HasSetting(Enable.500Titles)]</visible>
 			</control>
-			<include content="ProgressWheel">
+			<include content="CollectionBadge">
+				<param name="left" value="68"/>
+				<param name="top" value="346"/>
+			</include>
+			<include content="ProgressBadge">
 				<param name="left" value="31"/>
 				<param name="top" value="346"/>
 			</include>
@@ -346,7 +351,7 @@
 				<top>11</top>
 				<width>249</width>
 				<height>375</height>
-				<texture border="12" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/poster-fo.png</texture>
+				<texture border="10" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/poster-fo.png</texture>
 				<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 			</control>

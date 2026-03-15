@@ -82,9 +82,9 @@
 					]
 		]</param>
 		<definition>
-			<!-- <control type="group">
+			<control type="group">
 				<visible>
-				!Player.HasMedia + Control.IsVisible(50) + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),1)] + 
+				!Player.HasMedia + Control.IsVisible(50) + String.IsEqual(Skin.String(BackgroundSetting),0) + 
 					[
 						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
 						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
@@ -105,7 +105,7 @@
 				<control type="image">
 					<texture colordiffuse="99000000">overlays/fanart-diffuse_setting0or1.png</texture>
 				</control>
-			</control> -->
+			</control>
 			<control type="group">
 				<visible>
 				!Player.HasMedia + Control.IsVisible(50) + String.IsEqual(Skin.String(BackgroundSetting),2) + 
@@ -290,10 +290,8 @@
 					<width>700</width>
 					<height>700</height>
 					<fadetime>500</fadetime>
-					<!-- <bordersize>1</bordersize> -->
-					<texture background="true" fallback="$VAR[AltusCustomBackgroundImage]">$INFO[ListItem.Icon]</texture>
+					<texture diffuse="masks/square-50.png" background="true" fallback="$VAR[AltusCustomBackgroundImage]">$INFO[ListItem.Icon]</texture>
 					<aspectratio scalediffuse="true">keep</aspectratio>
-					<!-- <bordertexture border="1border_size" colordiffuse="$VAR[BorderColorVar]" infill="false">masks/bordertexture.png</bordertexture> -->
 					<include>ArtworkAnimations</include>
 					<visible>
 						Control.IsVisible(50) + !Player.HasMedia + 
@@ -335,9 +333,9 @@
 					<control type="image">
 						<top>590</top>
 						<left>45</left>
-						<width>931</width>
+						<width>930</width>
 						<height>250</height>
-						<texture colordiffuse="overlay_fade_color" background="true">overlays/overlay_bg_long.png</texture>
+						<texture colordiffuse="overlay_fade_color" background="true">overlays/landscape50-bg.png</texture>
 					</control>
 					<control type="image">
 						<top>674</top>

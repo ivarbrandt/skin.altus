@@ -255,6 +255,20 @@
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[FocusColorThemeToggleVar]</onclick>
 				</control>
+				<!-- BADGE COLOR -->
+				<control type="button" id="63711">
+					<label>Badge color</label>
+					<label2>$VAR[BadgeColorSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[BadgeColorToggleVar]</onclick>
+				</control>
+				<!-- BADGE BACKGROUND COLOR -->
+				<control type="button" id="63712">
+					<label>Badge background color</label>
+					<label2>$VAR[BadgeBackgroundSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[BadgeBackgroundToggleVar]</onclick>
+				</control>
 				<!-- CLOCK -->
 				<!-- <control type="radiobutton" id="63706">
 					<label>Show current time in InfoLine</label>

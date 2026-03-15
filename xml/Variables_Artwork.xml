@@ -37,7 +37,7 @@
 
 	<variable name="MediaFanartVar">
     <value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo)">$INFO[Window(home).Property(infobackground)]</value>
-		<value condition="!String.IsEmpty(ListItem.Thumb) + String.IsEqual(Skin.String(BackgroundSetting),2) + $EXP[isEpisode]">$INFO[ListItem.Thumb]</value>
+		<value condition="!String.IsEmpty(ListItem.Thumb) + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),2)] + $EXP[isEpisode]">$INFO[ListItem.Thumb]</value>
 		<value condition="!String.IsEmpty(ListItem.Thumb) + String.IsEqual(Skin.String(BackgroundSetting),1) + $EXP[isEpisode] + ![Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(55) | Control.IsVisible(501)] + ![Control.IsVisible(50) + [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)]]">$INFO[ListItem.Thumb]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container.Art(tvshow.fanart))">$INFO[Container.Art(tvshow.fanart)]</value>

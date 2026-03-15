@@ -177,9 +177,9 @@
 					<textoffsetx>10</textoffsetx>
 					<textoffsety>2</textoffsety>
 					<font>eps</font>
-					<textcolor>FF14FF13</textcolor>
-					<texturenofocus border="13" colordiffuse="FF000000">masks/flixicon-filled.png</texturenofocus>
-					<texturefocus border="13" colordiffuse="FF000000">masks/flixicon-filled.png</texturefocus>
+					<textcolor>$VAR[BadgeColorVar]</textcolor>
+					<texturenofocus border="13" colordiffuse="$VAR[BadgeBackgroundColorVar]">masks/flixicon-filled.png</texturenofocus>
+					<texturefocus border="13" colordiffuse="$VAR[BadgeBackgroundColorVar]">masks/flixicon-filled.png</texturefocus>
 					<label>[UPPERCASE][LIGHT]$INFO[ListItem.Property(UnwatchedEpisodes),, remaining][/LIGHT][/UPPERCASE]</label>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]</visible>
 					<visible>
@@ -244,7 +244,11 @@
 				<scrollspeed>100</scrollspeed>
 				<visible>!$EXP[isEpisode] + String.IsEqual(Container.ViewMode,$LOCALIZE[311023]) + Skin.HasSetting(Enable.501Titles)</visible>
 			</control>
-			<include content="ProgressWheel">
+			<include content="CollectionBadge">
+				<param name="left" value="68"/>
+				<param name="top" value="298"/>
+			</include>
+			<include content="ProgressBadge">
 				<param name="left" value="31"/>
 				<param name="top" value="298"/>
 			</include>
@@ -253,7 +257,7 @@
 				<top>11</top>
 				<width>582</width>
 				<height>327</height>
-				<texture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/biglandscape-fo.png</texture>
+				<texture border="10" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/biglandscape-fo.png</texture>
 				<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 			</control>
