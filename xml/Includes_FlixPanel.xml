@@ -175,7 +175,7 @@
 						<control type="image">
 							<height>3</height>
 							<texture colordiffuse="$VAR[FocusColorTheme]">masks/infopanel_divider.png</texture>
-							<visible>Window.IsVisible(videos) + $EXP[isEpisode]</visible>
+							<visible>$EXP[isEpisode]</visible>
 						</control>
 						<control type="textbox">
 							<align>left</align>
@@ -185,7 +185,7 @@
 							<textcolor>unfocused_text</textcolor>
 							<scroll>true</scroll>
 							<scrollspeed>150</scrollspeed>
-							<visible>Window.IsVisible(videos) + $EXP[isEpisode]</visible>
+							<visible>$EXP[isEpisode]</visible>
 						</control>
 						<control type="textbox">
 							<top>0</top>
@@ -197,7 +197,7 @@
 						<control type="image">
 							<height>3</height>
 							<texture colordiffuse="$VAR[FocusColorTheme]">masks/infopanel_divider.png</texture>
-							<visible>$EXP[isContent]</visible>
+							<!-- <visible>$EXP[isContent]</visible> -->
 						</control>
 						<control type="textbox">
 							<align>left</align>

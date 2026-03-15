@@ -2,7 +2,7 @@
 <includes>
 
 	<variable name="EpisodeTitle">
-		<value condition="Window.IsVisible(videos) + !String.IsEqual(Container.Viewmode,$LOCALIZE[311012])">[B]$INFO[ListItem.Season]x$INFO[ListItem.Episode] - $INFO[ListItem.Title][/B]</value>
+		<value condition="[Window.IsVisible(videos) + !String.IsEqual(Container.Viewmode,$LOCALIZE[311012])] | [Window.IsVisible(Home) | Window.IsVisible(1121]">[B]$INFO[ListItem.Season]x$INFO[ListItem.Episode] [COLOR $VAR[FocusColorTheme]]-[/COLOR] $INFO[ListItem.Title][/B]</value>
 		<value>[B]$INFO[ListItem.Title][/B]</value>
 	</variable>
 
