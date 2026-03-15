@@ -264,6 +264,7 @@
 				<param name="icon_size" value="25"/>
 				<param name="back_size" value="44"/>
 				<param name="offset" value="9"/>
+				<param name="slide" value="-56"/>
 			</include>
 			<include content="ProgressBadge">
 				<param name="left" value="31"/>
@@ -305,7 +306,7 @@
 				<fadetime>200</fadetime>
 				<visible>Control.HasFocus(53)</visible>
 				<animation effect="fade" time="100">VisibleChange</animation>
-				<texture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/poster-53-fo.png</texture>
+				<texture border="24" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-26.png</texture>
 			</control>
 			<control type="group">
 				<left>216</left>

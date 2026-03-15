@@ -5,7 +5,7 @@
 		<orientation>vertical</orientation>
 		<height>100%</height>
 		<itemgap>-180</itemgap>
-		<scrolltime tween="cubic" easing="out">500</scrolltime>
+		<scrolltime tween="cubic" easing="out">700</scrolltime>
 		<!-- <onup>20000</onup>
 		<ondown>20001</ondown> -->
 		<usecontrolcoords>true</usecontrolcoords>
@@ -1560,7 +1560,7 @@
 							<param name="list_id" value="$PARAM[list_id]" />
 							<param name="focused" value="true" />
 						</include>
-						<!-- <include>FocusBounce</include> -->
+						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>

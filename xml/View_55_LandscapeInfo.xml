@@ -257,7 +257,7 @@
 				<top>11</top>
 				<width>582</width>
 				<height>327</height>
-				<texture border="10" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/biglandscape-fo.png</texture>
+				<texture border="21" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-23.png</texture>
 				<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 			</control>

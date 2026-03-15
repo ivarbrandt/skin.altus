@@ -38,7 +38,9 @@
 		<param name="icon_size">15</param>
 		<param name="back_size">29</param>
 		<param name="offset">7</param>
+		<param name="slide">-37</param>
 		<param name="animation_vis"></param>
+		<param name="animation_vis_51"></param>
 		<definition>
 			<control type="group">
 				<left>$PARAM[left]</left>
@@ -46,8 +48,11 @@
 				<animation condition="$PARAM[animation_vis]" reversible="true">
 					<effect type="slide" start="0,0" end="-30,0" time="0" tween="cubic" easing="inout" />
 				</animation>
-				<animation effect="slide" end="-37,0" time="0" condition="!Control.IsVisible(51) + !$EXP[hasWallWatchedIcon]">Conditional</animation>
-				<visible>String.IsEqual(Container.ListItem.Property(belongs_to_collection),true)</visible>
+				<animation condition="$PARAM[animation_vis_51]" reversible="true">
+					<effect type="slide" start="0,0" end="0,55" time="0" tween="cubic" easing="inout" />
+				</animation>
+				<animation effect="slide" end="$PARAM[slide],0" time="0" condition="!Control.IsVisible(51) + !$EXP[hasWallWatchedIcon]">Conditional</animation>
+				<visible>String.IsEqual(Container.ListItem.Property(belongs_to_collection),true) + !String.EndsWith(Container.PluginCategory,Collection)</visible>
 				<control type="image">
 					<width>$PARAM[back_size]</width>
 					<height>$PARAM[back_size]</height>
@@ -69,8 +74,6 @@
 		<param name="top">0</param>
 		<param name="text_color">$VAR[BadgeColorVar]</param>
 		<param name="badge_color">$VAR[BadgeBackgroundColorVar]</param>
-		<!-- <param name="text_color">$VAR[BadgeBackgroundColorVar]</param>
-		<param name="badge_color">FFFFFFFF</param> -->
 		<param name="list_id"></param>
 		<definition>
 			<control type="group">
@@ -166,8 +169,6 @@
 		<param name="top">0</param>
 		<param name="text_color">$VAR[BadgeColorVar]</param>
 		<param name="badge_color">$VAR[BadgeBackgroundColorVar]</param>
-		<!-- <param name="text_color">$VAR[BadgeBackgroundColorVar]</param>
-		<param name="badge_color">FFFFFFFF</param> -->
 		<param name="list_id"></param>
 		<param name="visible"></param>
 		<definition>
@@ -947,6 +948,7 @@
 				<param name="icon_size" value="25"/>
 				<param name="back_size" value="44"/>
 				<param name="offset" value="9"/>
+				<param name="slide" value="-56"/>
 			</include>
 			<include content="ProgressBadge">
 				<param name="left" value="41"/>
@@ -964,7 +966,7 @@
 				<top>11</top>
 				<width>430</width>
 				<height>645</height>
-				<texture border="10" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/featureposter-fo.png</texture>
+				<texture border="17" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-19.png</texture>
 				<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 			</control>
@@ -1205,7 +1207,7 @@
 				<top>11</top>
 				<width>204</width>
 				<height>306</height>
-				<texture border="9" colordiffuse="$VAR[FocusColorTheme]" infill="false" >masks/smallposter-fo.png</texture>
+				<texture border="13" colordiffuse="$VAR[FocusColorTheme]" infill="false" >masks/bordertexture-15.png</texture>
 				<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(56) | Control.IsVisible(500)]]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 			</control>
@@ -1477,7 +1479,7 @@
 				<top>11</top>
 				<width>430</width>
 				<height>242</height>
-				<texture border="10" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/landscape-fo.png</texture>
+				<texture border="17" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-19.png</texture>
 				<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501) | Control.IsVisible(5057)]]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 			</control>
@@ -1550,9 +1552,7 @@
 				<control type="image">
 					<left>20</left>
 					<top>11</top>
-					<!-- 430 -->
 					<width>317</width>
-					<!-- 242 -->
 					<height>178</height>
 					<texture diffuse="masks/small-landscape.png" colordiffuse="artwork_dim" background="true">$VAR[SmallLandscapeVar]</texture>
 					<aspectratio scalediffuse="false">scale</aspectratio>
@@ -1693,7 +1693,7 @@
 				<top>11</top>
 				<width>317</width>
 				<height>178</height>
-				<texture border="9" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/small-landscape-fo.png</texture>
+				<texture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-15.png</texture>
 				<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 			</control>
@@ -1933,7 +1933,7 @@
 					<visible>$EXP[isContent]</visible>
 				</control> -->
 				<control type="image">
-					<texture border="focus_border_size" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/small-square-fo.png</texture>
+					<texture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-15.png</texture>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>

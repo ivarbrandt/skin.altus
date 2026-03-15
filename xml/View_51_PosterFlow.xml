@@ -214,6 +214,7 @@
             <param name="back_size" value="44"/>
             <param name="offset" value="9"/>
             <param name="animation_vis" value="!Skin.HasSetting(Disable.51Dim) + [$PARAM[focused] + Control.IsVisible(51)]"/>
+            <param name="animation_vis_51" value="Control.IsVisible(51) + !$EXP[hasWallWatchedIcon]"/>
           </include>
           <include content="ProgressBadge">
             <param name="left" value="52"/>

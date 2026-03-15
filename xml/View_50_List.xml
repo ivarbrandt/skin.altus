@@ -187,6 +187,8 @@
 					<height>523</height>
 					<fadetime>500</fadetime>
 					<texture diffuse="masks/landscape50.png" colordiffuse="artwork_dim" background="true" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ListLandscapeVar]</texture>
+					<bordersize>2</bordersize>
+					<bordertexture border="28" colordiffuse="$VAR[FocuscolorTheme]" infill="false">masks/bordertexture-30.png</bordertexture>
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<include>ArtworkAnimations</include>
 					<include>ListLandscapeArtworkSlide</include>
@@ -226,8 +228,8 @@
 					<height>970</height>
 					<fadetime>500</fadetime>
 					<texture diffuse="masks/poster-50.png" colordiffuse="artwork_dim" background="true" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[FlixPosterVar]</texture>
-					
-					
+					<bordersize>2</bordersize>
+					<bordertexture border="32" colordiffuse="$VAR[FocuscolorTheme]" infill="false">masks/bordertexture-34.png</bordertexture>
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<include>ArtworkAnimations</include>
 					<!-- <animation condition="
@@ -291,6 +293,8 @@
 					<height>700</height>
 					<fadetime>500</fadetime>
 					<texture diffuse="masks/square-50.png" background="true" fallback="$VAR[AltusCustomBackgroundImage]">$INFO[ListItem.Icon]</texture>
+					<bordersize>4</bordersize>
+					<bordertexture border="32" colordiffuse="$VAR[FocuscolorTheme]" infill="false">masks/bordertexture-34.png</bordertexture>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<include>ArtworkAnimations</include>
 					<visible>
@@ -331,9 +335,9 @@
 					</visible>
 					<include>ListLandscapeArtworkSlide</include>
 					<control type="image">
-						<top>590</top>
-						<left>45</left>
-						<width>930</width>
+						<top>586</top>
+						<left>49</left>
+						<width>922</width>
 						<height>250</height>
 						<texture colordiffuse="overlay_fade_color" background="true">overlays/landscape50-bg.png</texture>
 					</control>
@@ -777,9 +781,9 @@
 								<!-- 354 -->
 								<height>190</height>
 								<texture diffuse="masks/smallposter-50.png" background="true">$VAR[FlixPosterVar]</texture>
-								<bordersize>4</bordersize>
+								<bordersize>3</bordersize>
 								<aspectratio scalediffuse="false">scale</aspectratio>
-								<bordertexture border="8" colordiffuse="$VAR[FocuscolorTheme]" infill="false">masks/smallposter-50-fo.png</bordertexture>
+								<bordertexture border="8" colordiffuse="$VAR[FocuscolorTheme]" infill="false">masks/bordertexture-10.png</bordertexture>
 								<!-- <animation condition="Container($PARAM[list_id]).IsUpdating + String.IsEmpty(Skin.String(TrailerPlaying))" effect="fade" time="700" start="50" end="100" pulse="true">Conditional</animation> -->
 							</control>
 							<!-- <control type="image">

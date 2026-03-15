@@ -95,9 +95,9 @@
           <bottom>0</bottom>
           <right>60</right>
           <!-- <aspectratio scalediffuse="false">scale</aspectratio> -->
-          <texture>$VAR[FlixPosterVar]</texture>
-          <bordersize>border_size</bordersize>
-          <bordertexture colordiffuse="FF5B5B5B" border="border_size" infill="false">masks/bordertexture.png</bordertexture>
+          <texture diffuse="masks/poster-videoinfo.png" >$VAR[FlixPosterVar]</texture>
+          <bordersize>4</bordersize>
+          <bordertexture border="32" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-34.png</bordertexture>
           <visible>!String.IsEqual(Container(20000).ListItem.Property(id),cast)</visible>
         </control>
         <control type="group">
@@ -180,10 +180,10 @@
             <bottom>160</bottom>
             <right>-20</right>
             <!-- <aspectratio scalediffuse="false">scale</aspectratio> -->
-            <texture>$INFO[Container(50).ListItem.Art(thumb)]</texture>
-            <bordersize>border_size</bordersize>
+            <texture diffuse="masks/poster-videoinfo.png">$INFO[Container(50).ListItem.Art(thumb)]</texture>
+            <bordersize>4</bordersize>
+            <bordertexture border="32" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-34.png</bordertexture>
             <fadetime>600</fadetime>
-            <bordertexture colordiffuse="FF5B5B5B" border="border_size" infill="false">masks/bordertexture.png</bordertexture>
           </control>
           <!-- <control type="image">
             <visible>Container(50).IsUpdating</visible>
