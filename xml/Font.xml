@@ -121,14 +121,14 @@
 			<filename>Nick-Titling.ttf</filename>
 			<size>23</size>
 			<aspect>0.85</aspect>
-			<style>light</style>
+			<style>light uppercase</style>
 		</font>
 		<font>
 			<name>eps_51</name>
 			<filename>Nick-Titling.ttf</filename>
 			<size>34</size>
 			<aspect>0.85</aspect>
-			<style>light</style>
+			<style>light uppercase</style>
 		</font>
 		<font>
 			<name>font32</name>

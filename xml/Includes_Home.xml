@@ -2204,7 +2204,7 @@
 		<onload condition="String.IsEmpty(Skin.String(BackgroundSetting))">Skin.SetString(BackgroundSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(BackgroundOpacity))">Skin.SetString(BackgroundOpacity,2)</onload>
 		<onload condition="String.IsEmpty(Skin.String(BlurBrightness))">Skin.SetString(BlurBrightness,2)</onload>
-		<onload condition="String.IsEmpty(Skin.String(PlotSetting)0">Skin.SetString(PlotSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(PlotSetting))">Skin.SetString(PlotSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(WidgetClearlogoSetting))">Skin.SetString(WidgetClearlogoSetting,1)</onload>
 		<onload condition="String.IsEmpty(Skin.String(PosterSizeSetting))">Skin.SetString(PosterSizeSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDSubtitleButtonSetting))">Skin.SetString(OSDSubtitleButtonSetting,0)</onload>

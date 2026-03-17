@@ -217,6 +217,11 @@
 		<value>Skin.SetString(BadgeBackgroundSetting,0)</value>
 	</variable>
 
+	<variable name="EpisodeLabelVar">
+		<value condition="!String.StartsWith(Container($PARAM[list_id]).PluginCategory,Season)">$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, | ,]</value>
+		<value>INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.Title, | ,]</value>
+	</variable>
+
 	<variable name="VideoFlixCrumbsVar">
 		<!-- Other windows -->
 		<value condition="$EXP[isEpisode] + Control.IsVisible(501) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Title][/COLOR]</value>

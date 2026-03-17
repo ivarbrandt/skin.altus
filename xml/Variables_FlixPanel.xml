@@ -308,6 +308,7 @@
 		<value condition="!Skin.HasSetting(Disable.VI.Aired) + !String.IsEmpty(ListItem.Premiered) + $EXP[isTVShow]">[COLOR $VAR[FocusColorTheme]][B]First aired:[/B][/COLOR] $INFO[ListItem.Premiered][CR]</value>
 		<value condition="!Skin.HasSetting(Disable.VI.Aired) + !String.IsEmpty(ListItem.Premiered) + $EXP[isSeason]">[COLOR $VAR[FocusColorTheme]][B]Aired:[/B][/COLOR] $INFO[ListItem.Premiered][CR]</value>
 		<value condition="!Skin.HasSetting(Disable.VI.Aired) + !String.IsEmpty(ListItem.Premiered) + $EXP[isEpisode]">[COLOR $VAR[FocusColorTheme]][B]Aired:[/B][/COLOR] $INFO[ListItem.Premiered][CR]</value>
+		<value condition="!Skin.HasSetting(Disable.VI.Aired) + !String.IsEmpty(ListItem.Premiered)">[COLOR $VAR[FocusColorTheme]][B]Aired:[/B][/COLOR] $INFO[ListItem.Premiered][CR]</value>
 	</variable>
 	<!-- MPAA Rating -->
 	<variable name="RI_Mpaa">
