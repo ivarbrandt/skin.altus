@@ -274,8 +274,6 @@
 				<param name="back_size" value="44"/>
 				<param name="offset" value="7"/>
 			</include>
-			
-      
 			<control type="group">
 				<visible>String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBType,season) | ListItem.IsRecording | ListItem.HasReminder | ListItem.HasTimer | ListItem.IsCollection | ListItem.HasVideoVersions | ListItem.IsPlaying | ListItem.IsResumable | ListItem.HasVideoExtras | ListItem.HasArchive | Integer.IsGreater(ListItem.Playcount,0)</visible>
 				<control type="image">

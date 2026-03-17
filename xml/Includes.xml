@@ -2092,7 +2092,7 @@
 				<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
 				<aspectratio>scale</aspectratio>
 				<!-- <include>ArtworkAnimations</include> -->
-				<texture colordiffuse="$VAR[MainBlurDiffuse]">$VAR[MainBlurTextureVar]</texture>
+				<texture colordiffuse="$VAR[MainBlurDiffuse]" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[MainBlurTextureVar]</texture>
 				<visible>!Player.HasMedia +
 					[
 						String.IsEqual(Skin.String(BackgroundSetting),2) |
