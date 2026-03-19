@@ -1708,11 +1708,11 @@
 				<!-- <animation effect="fade" start="0" end="100" time="300" condition="!Container.Scrolling">Conditional</animation> -->
 				<animation effect="fade" start="0" end="100" time="300" condition="[Window.Previous(fullscreenvideo) | Window.Previous(startup)] + !Window.IsVisible(1109)">WindowOpen</animation>
 				
-				<!-- <visible>[String.IsEmpty(Window(Home).Property(SpotlightWidget)) + ![ControlGroup(15000).HasFocus | Control.IsVisible(51) | [Window.IsActive(videos) + Control.IsVisible(53)] | Control.IsVisible(54) | Control.IsVisible(55) | [Control.IsVisible(50) + ![Window.IsVisible(tvguide) | Window.IsVisible(tvchannels) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)]] | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(500) | [Window.IsActive(videos) + Control.IsVisible(501)]] | Window.IsVisible(extendedprogressdialog)] + ![!Player.HasMedia + [[Window.IsVisible(home) | Window.IsVisible(1121)] + ControlGroup(2000).HasFocus]]</visible> -->
+				<!-- <visible>[String.IsEmpty(Window(Home).Property(FlixWidget)) + ![ControlGroup(15000).HasFocus | Control.IsVisible(51) | [Window.IsActive(videos) + Control.IsVisible(53)] | Control.IsVisible(54) | Control.IsVisible(55) | [Control.IsVisible(50) + ![Window.IsVisible(tvguide) | Window.IsVisible(tvchannels) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)]] | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(500) | [Window.IsActive(videos) + Control.IsVisible(501)]] | Window.IsVisible(extendedprogressdialog)] + ![!Player.HasMedia + [[Window.IsVisible(home) | Window.IsVisible(1121)] + ControlGroup(2000).HasFocus]]</visible> -->
 
 				<visible>
 						[
-								String.IsEmpty(Window(Home).Property(SpotlightWidget)) + 
+								String.IsEmpty(Window(Home).Property(FlixWidget)) + 
 								![
 										ControlGroup(15000).HasFocus | 
 										Control.IsVisible(51) | 
@@ -1969,7 +1969,7 @@
 		<!-- <visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)]</visible> -->
 		<visible>
 				[
-						String.IsEmpty(Window(Home).Property(SpotlightWidget)) + 
+						String.IsEmpty(Window(Home).Property(FlixWidget)) + 
 						![
 								ControlGroup(15000).HasFocus | 
 								Control.IsVisible(51) | 
@@ -2081,7 +2081,7 @@
 						[String.IsEqual(Skin.String(BackgroundSetting),1) + ![Control.IsVisible(51) | Control.IsVisible(56)]] |
 						[String.IsEqual(Skin.String(BackgroundSetting),2) + String.IsEmpty(Window(home).Property(listitem_blurred))]
 					] +
-					String.IsEmpty(Window(Home).Property(SpotlightWidget)) +
+					String.IsEmpty(Window(Home).Property(FlixWidget)) +
 					![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] |
 					!String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))
 				</visible>
@@ -2115,7 +2115,7 @@
 			<control type="image">
 				<aspectratio>scale</aspectratio>
 				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
-				<visible>!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEmpty(Window(Home).Property(SpotlightWidget)) + String.IsEmpty(Skin.String(TrailerPlaying)) + 
+				<visible>!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEmpty(Window(Home).Property(FlixWidget)) + String.IsEmpty(Skin.String(TrailerPlaying)) + 
 				![Control.IsVisible(50) + [Window.IsVisible(videos) | ![Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)]] + 
 				[
 						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
@@ -2230,7 +2230,7 @@
 					<aspectratio>scale</aspectratio>
 					<fadetime>400</fadetime>
 					<texture background="true" colordiffuse="$VAR[MainFanartDiffuse]" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ImageTextureSourceVar]</texture>
-					<visible>[[[String.IsEqual(Skin.String(BackgroundSetting),1) + ![Control.IsVisible(51) | Control.IsVisible(56)]] | [String.IsEqual(Skin.String(BackgroundSetting),2) + String.IsEmpty(Window(home).Property(listitem_blurred))] | [String.IsEqual(Skin.String(BackgroundSetting),1)]] + String.IsEmpty(Window(Home).Property(SpotlightWidget)) + 
+					<visible>[[[String.IsEqual(Skin.String(BackgroundSetting),1) + ![Control.IsVisible(51) | Control.IsVisible(56)]] | [String.IsEqual(Skin.String(BackgroundSetting),2) + String.IsEmpty(Window(home).Property(listitem_blurred))] | [String.IsEqual(Skin.String(BackgroundSetting),1)]] + String.IsEmpty(Window(Home).Property(FlixWidget)) + 
 					![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | 
 					!String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]
 					</visible>
@@ -2248,28 +2248,28 @@
 				<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(visualisation) | Window.Next(screencalibration)">WindowClose</animation>
 				<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(startup) | Window.Previous(visualisation)">WindowOpen</animation>
 				<!-- <visible>
-					[String.IsEmpty(Window(Home).Property(SpotlightWidget)) + 
+					[String.IsEmpty(Window(Home).Property(FlixWidget)) + 
 					![ControlGroup(15000).HasFocus | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(56) | Window.IsVisible(1100) | 
 						[Control.IsVisible(500) + Skin.HasSetting(Enable.500Dim)] | ![Control.IsVisible(500) + !Skin.HasSetting(Enable.500Dim)]
 						]
 					] | 
-					[String.IsEmpty(Window(Home).Property(SpotlightWidget)) + 
+					[String.IsEmpty(Window(Home).Property(FlixWidget)) + 
 					![ControlGroup(15000).HasFocus | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(56) | Window.IsVisible(1100) | 
 						[Control.IsVisible(501) + Skin.HasSetting(Enable.501Dim)] | ![Control.IsVisible(501) + !Skin.HasSetting(Enable.501Dim)]
 						]
 					] | 
-					[String.IsEmpty(Window(Home).Property(SpotlightWidget)) + 
+					[String.IsEmpty(Window(Home).Property(FlixWidget)) + 
 					![ControlGroup(15000).HasFocus | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(56) | Window.IsVisible(1100) | 
 						[Control.IsVisible(54) + Skin.HasSetting(Enable.54Dim)] | ![Control.IsVisible(54) + !Skin.HasSetting(Enable.54Dim)]
 						]
 					] | 
-					[String.IsEmpty(Window(Home).Property(SpotlightWidget)) + 
+					[String.IsEmpty(Window(Home).Property(FlixWidget)) + 
 					![ControlGroup(15000).HasFocus | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(56) | Window.IsVisible(1100) | 
 						[Control.IsVisible(55) + Skin.HasSetting(Enable.55Dim)] | ![Control.IsVisible(55) + !Skin.HasSetting(Enable.55Dim)]
 						]
 					]
 				</visible> -->
-				<visible>String.IsEmpty(Window(Home).Property(SpotlightWidget)) + !Window.IsVisible(videos) + ![ControlGroup(15000).HasFocus | Window.IsVisible(1100)]</visible>
+				<visible>String.IsEmpty(Window(Home).Property(FlixWidget)) + !Window.IsVisible(videos) + ![ControlGroup(15000).HasFocus | Window.IsVisible(1100)]</visible>
 				<animation effect="fade" time="300" tween="cubic" easing="out">VisibleChange</animation>
 				<bottom>0</bottom>
 				<control type="image">

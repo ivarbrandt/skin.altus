@@ -4,7 +4,7 @@
 	<backgroundcolor>background</backgroundcolor>
 	<views>50,51,52,53,54,55,56,57,500,501</views>
 	<menucontrol>9000</menucontrol>
-	<onload>ClearProperty(SpotlightWidget,Home)</onload>
+	<onload>ClearProperty(FlixWidget,Home)</onload>
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">

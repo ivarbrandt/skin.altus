@@ -9,11 +9,11 @@
   <!-- RATINGS INFOPANEL VARIABLES -->
 
 	<!-- <variable name="AltusIP_Divider">
-		<value condition="[[Window.IsVisible(Home) | Window.IsVisible(1121)] + !String.IsEmpty(Window(Home).Property(SpotlightWidget))] | [Window.IsVisible(videos) + ![Control.IsVisible(54) | Control.IsVisible(55)]]"> • </value>
+		<value condition="[[Window.IsVisible(Home) | Window.IsVisible(1121)] + !String.IsEmpty(Window(Home).Property(FlixWidget))] | [Window.IsVisible(videos) + ![Control.IsVisible(54) | Control.IsVisible(55)]]"> • </value>
 	</variable>
 
 	<variable name="Linebreak">
-		<value condition="[[Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEmpty(Window(Home).Property(SpotlightWidget))] | [Window.IsVisible(videos) + [Control.IsVisible(54) | Control.IsVisible(55)]]">[CR]</value>
+		<value condition="[[Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEmpty(Window(Home).Property(FlixWidget))] | [Window.IsVisible(videos) + [Control.IsVisible(54) | Control.IsVisible(55)]]">[CR]</value>
 	</variable> -->
 
 	<variable name="_Genre">
@@ -315,7 +315,7 @@
 		<value condition="!String.IsEmpty(ListItem.Mpaa)"> • [COLOR unfocused_text]$INFO[ListItem.Mpaa][/COLOR]</value>
 	</variable>
 	<variable name="Rated_">
-		<value condition="!String.IsEmpty(ListItem.Mpaa) + String.IsEmpty(Window(Home).Property(SpotlightWidget))">Rated </value>
+		<value condition="!String.IsEmpty(ListItem.Mpaa) + String.IsEmpty(Window(Home).Property(FlixWidget))">Rated </value>
 	</variable>
 	<variable name="Alt_Mpaa">
 		<value condition="!String.IsEmpty(ListItem.Mpaa)"> • [COLOR unfocused_text]$VAR[Rated_]$INFO[ListItem.Mpaa][/COLOR]</value>
@@ -508,8 +508,8 @@
 
 	<!-- Ends at: -->
 	<variable name="RI_Endsat">
-		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration) + String.IsEmpty(Window(Home).Property(SpotlightWidget))"> • [COLOR unfocused_text]$INFO[ListItem.EndTime,$LOCALIZE[31080]: ][/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration) + !String.IsEmpty(Window(Home).Property(SpotlightWidget))"> » [COLOR unfocused_text]$INFO[ListItem.EndTime][/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration) + String.IsEmpty(Window(Home).Property(FlixWidget))"> • [COLOR unfocused_text]$INFO[ListItem.EndTime,$LOCALIZE[31080]: ][/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration) + !String.IsEmpty(Window(Home).Property(FlixWidget))"> » [COLOR unfocused_text]$INFO[ListItem.EndTime][/COLOR]</value>
 	</variable>
 
 	<variable name="RI_AltEndsat">
@@ -623,7 +623,7 @@
 		<value condition="!ListItem.IsCollection + $EXP[isEpisode]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Rating]$VAR[RI_Runtime]$VAR[RI_AltEndsat]$VAR[RI_EpisodeType]</value>
 	</variable>
 
-	<variable name="SpotlightWidgetStatus">
+	<variable name="FlixWidgetStatus">
 		<!-- MOVIES -->
 		<value condition="!ListItem.IsCollection + $EXP[isMovie] + Integer.IsGreater(ListItem.Playcount,0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)">[COLOR unfocused_text]Rewatching[/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Property(WatchedProgress)]% watched[/COLOR]</value>
 		<value condition="!ListItem.IsCollection + $EXP[isMovie] + Integer.IsGreater(ListItem.Playcount,0)">[COLOR unfocused_text]You've previously watched this movie[/COLOR]</value>

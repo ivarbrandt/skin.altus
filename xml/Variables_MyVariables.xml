@@ -160,14 +160,14 @@
 	</variable>
 
 	<variable name="HomeFlixTypes">
-		<value condition="$EXP[isEpisode] + !String.StartsWith(Container.PluginCategory,Season)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + !String.StartsWith(Container.PluginCategory,Season)"></value>
 		<value condition="$EXP[isEpisode] + String.StartsWith(Container.PluginCategory,Season)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Title][/COLOR]</value>
 		<value>| [COLOR unfocused_text]$INFO[ListItem.Label][/COLOR]</value>
 	</variable>
 
 	<variable name="HomeFlixCrumbsVar">
 		<!-- Home/Search windows -->
-		<value condition="!Skin.HasSetting(Disable.WidgetInfoLineTitle) + String.IsEmpty(Window(Home).Property(SpotlightWidget)) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> $VAR[HomeFlixTypes]</value>
+		<value condition="!Skin.HasSetting(Disable.WidgetInfoLineTitle) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> $VAR[HomeFlixTypes]</value>
 	</variable>
 
 	<variable name="BadgeColorVar">
@@ -224,8 +224,7 @@
 
 	<variable name="VideoFlixCrumbsVar">
 		<!-- Other windows -->
-		<value condition="$EXP[isEpisode] + Control.IsVisible(501) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Title][/COLOR]</value>
-		<value condition="$EXP[isEpisode] + Control.IsVisible(55) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + Control.IsVisible(501) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Title][/COLOR]</value>
 		<value condition="$EXP[isEpisode] + ![Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(501)] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Title][/COLOR]</value>
 		<value condition="$EXP[isEpisode] + Control.IsVisible(56) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR]</value>
 		<value condition="
@@ -307,9 +306,14 @@
     <value>[COLOR grey]Click OK to activate location cycling[/COLOR]</value>
 	</variable> -->
 
+
+	<variable name="ListLandscapeEpisodesVar">
+    <value condition="$EXP[isEpisode] + !String.StartsWith(Container.PluginCategory,Season)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR]</value>
+	</variable>
+
 	<variable name="ListLandscapeHeaderVar">
     <value condition="Container.Content(favourites)">[COLOR unfocused_text]$LOCALIZE[1036][/COLOR]</value>
-    <value condition="$EXP[isPlugin]">$VAR[FlixCategory]</value>
+    <value condition="$EXP[isPlugin]">$VAR[FlixCategory]$VAR[ListLandscapeEpisodesVar]</value>
     <value condition="!$EXP[isPlugin]">[COLOR unfocused_text]$INFO[Container.FolderName][/COLOR]</value>
 	</variable>
 
@@ -824,8 +828,8 @@
 			[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
 		] | Control.IsVisible(53) | Control.IsVisible(56)] + !Window.IsVisible(systeminfo)">66FFFFFF</value>
 		<value condition="Control.IsVisible(51)">4DFFFFFF</value>
-		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEmpty(Window(Home).Property(SpotlightWidget))">26FFFFFF</value>
-		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !String.IsEmpty(Window(Home).Property(SpotlightWidget))">66FFFFFF</value>
+		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEmpty(Window(Home).Property(FlixWidget))">26FFFFFF</value>
+		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !String.IsEmpty(Window(Home).Property(FlixWidget))">66FFFFFF</value>
 		<value condition="$EXP[dialog_visible]">$INFO[Window(home).Property(LastMainBlurDiffuse)]</value>
 		<value>26FFFFFF</value>
 	</variable> -->
@@ -862,8 +866,8 @@
 		<value condition="Window.IsVisible(tvguide)">73FFFFFF</value>
 		<value condition="Window.IsVisible(tvchannels) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)">$VAR[BlurBrightnessVar]</value>
 		<value condition="$EXP[isPosterFlow]">73FFFFFF</value>
-		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEmpty(Window(Home).Property(SpotlightWidget))">$VAR[BlurBrightnessVar]</value>
-		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !String.IsEmpty(Window(Home).Property(SpotlightWidget))">59FFFFFF</value>
+		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEmpty(Window(Home).Property(FlixWidget))">$VAR[BlurBrightnessVar]</value>
+		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !String.IsEmpty(Window(Home).Property(FlixWidget))">59FFFFFF</value>
 		<value>$VAR[BlurBrightnessVar]</value>
 	</variable>
 
@@ -927,8 +931,8 @@
 		<value condition="Window.IsVisible(tvguide)">73FFFFFF</value>
 		<value condition="Window.IsVisible(tvchannels) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)">26FFFFFF</value>
 		<value condition="String.IsEqual(Container.ViewMode,$LOCALIZE[310981])">73FFFFFF</value>
-		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEmpty(Window(Home).Property(SpotlightWidget))">33FFFFFF</value>
-		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !String.IsEmpty(Window(Home).Property(SpotlightWidget))">73FFFFFF</value>
+		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEmpty(Window(Home).Property(FlixWidget))">33FFFFFF</value>
+		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !String.IsEmpty(Window(Home).Property(FlixWidget))">73FFFFFF</value>
 		<value>33FFFFFF</value>
 	</variable> -->
 

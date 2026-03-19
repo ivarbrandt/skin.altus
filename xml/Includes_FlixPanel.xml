@@ -72,7 +72,7 @@
 		<definition>
 			<control type="group">
 				<width>418</width>
-				<animation effect="fade" condition="$EXP[isContent] + String.IsEmpty(Window(Home).Property(SpotlightWidget))" time="300" end="100" tween="sine" easing="inout">Conditonal</animation>
+				<animation effect="fade" condition="$EXP[isContent]" time="300" end="100" tween="sine" easing="inout">Conditonal</animation>
 				<include>OpenClose_Left</include>
 				<control type="grouplist">
 					<left>$PARAM[left]</left>
@@ -432,17 +432,17 @@
 				<align>center</align>
 				<aligny>center</aligny>
 				<label></label>
-				<visible>!String.IsEmpty(Window(Home).Property(SpotlightWidget))</visible>
+				<visible>!String.IsEmpty(Window(Home).Property(FlixWidget))</visible>
 			</control>
 			<!-- Watched Status Labels First -->
 			<control type="label">
 				<height>45</height>
-				<label>$VAR[SpotlightWidgetStatus]</label>
+				<label>$VAR[FlixWidgetStatus]</label>
 				<font>font32_title</font>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
 				<scroll>true</scroll>
 				<scrollspeed>100</scrollspeed>
-				<visible>!String.IsEmpty(Window(Home).Property(SpotlightWidget)) + [
+				<visible>!String.IsEmpty(Window(Home).Property(FlixWidget)) + [
 					!$EXP[isMovie] + !$EXP[isTVShow] | 
 					[$EXP[isMovie] + [Integer.IsGreater(ListItem.Playcount,0) | !Integer.IsEqual(ListItem.Property(WatchedProgress),0)]] | 
 					[$EXP[isTVShow] + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),-1)]

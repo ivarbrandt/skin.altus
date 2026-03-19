@@ -15,7 +15,7 @@
 		<value condition="String.IsEmpty(Skin.String(AltusCustomBackground))">special://skin/resources/wave.jpg</value>
 	</variable>
   <!-- <variable name="SpotlightColorDiffuse">
-		<value condition="String.IsEmpty(Window(Home).Property(SpotlightWidget))">FF404040</value>
+		<value condition="String.IsEmpty(Window(Home).Property(FlixWidget))">FF404040</value>
 		<value>FF000000</value>
 	</variable> -->
 
@@ -23,7 +23,7 @@
 
   <variable name="HomeFanartVar">
     <value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo)">$INFO[Window(home).Property(infobackground)]</value>
-    <value condition="!String.IsEmpty(ListItem.Thumb) + !String.IsEmpty(Window(Home).Property(SpotlightWidget)) + $EXP[isEpisode]">$INFO[ListItem.Thumb]</value>
+    <value condition="!String.IsEmpty(ListItem.Thumb) + !String.IsEmpty(Window(Home).Property(FlixWidget)) + $EXP[isEpisode]">$INFO[ListItem.Thumb]</value>
     <value condition="!String.IsEmpty(ListItem.Art(fanart)) | [String.IsEmpty(ListItem.Art(landscape)) + !String.IsEmpty(ListItem.Art(fanart))] | [!$EXP[isContent] + !String.IsEmpty(ListItem.Art(fanart))]">$INFO[ListItem.Art(fanart)]</value>
     <value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
     <value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo)">$INFO[Window(home).Property(infobackground)]</value>
@@ -119,7 +119,7 @@
 		<value condition="!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),2) + !String.IsEmpty(Window(home).Property(listitem_blurred))">FF888888</value>
 		<value condition="Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">CC000000</value>
 		<value condition="!Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + String.IsEmpty(Window(home).Property(listitem_blurred))">CC000000</value>
-    <value condition="!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),1) + ![Window.IsVisible(Home) | Window.IsVisible(1121)] +  [!String.IsEmpty(Window(Home).Property(SpotlightWidget)) | String.IsEqual(Container.ViewMode,$LOCALIZE[31107]) | Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">D9999999</value>
+    <value condition="!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),1) + ![Window.IsVisible(Home) | Window.IsVisible(1121)] +  [!String.IsEmpty(Window(Home).Property(FlixWidget)) | String.IsEqual(Container.ViewMode,$LOCALIZE[31107]) | Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">D9999999</value>
     <value condition="!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),1) + !String.IsEqual(Container.ViewMode,$LOCALIZE[31107]) + !String.IsEmpty(Window(home).Property(listitem_blurred))">99999999</value>
 		<value condition="String.IsEqual(Skin.String(BackgroundSetting),0)">80000000</value>
 	</variable>

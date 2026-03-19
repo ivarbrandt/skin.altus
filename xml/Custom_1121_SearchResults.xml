@@ -66,7 +66,6 @@
 			</include>
 			<include>BottomBar</include>
 			<control type="label">
-				<!-- <include>SearchMenuAnimations</include> -->
 				<visible>!String.IsEmpty(Window(home).Property(altus.search.input)) + Control.HasFocus(26011) + !String.IsEqual(Window(home).Property(altus.search.history.count),0) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
 				<top>35</top>
 				<left>540</left>
@@ -83,34 +82,9 @@
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-				<!-- <include>osd_darkenBG</include> -->
-				<!-- <include content="ImageWidget" condition="String.IsEqual(Window(home).Property(altus.search.history.count),0)">
-					<param name="left">50</param>
-					<param name="text_label" value="Your search history is currently empty. Would you like to perform a new search or return to the home screen?" />
-					<param name="button_label" value="New search" />
-					<param name="button_onclick" value="RunScript(script.altus.helper,mode=re_search)"/>
-					<param name="button3_onclick" value="ActivateWindow(home)"/>
-					<param name="button_id" value="26400"/>
-				</include> -->
-				<include content="MenuContentPanel">
-					<param name="bg_left" value="0"/>
-					<param name="width" value="498"/>
-					<param name="dividerleft" value="498"/>
-				</include>
 				<control type="group">
 					<visible allowhiddenfocus="true">!$EXP[isContent]</visible>
 					<animation effect="fade" condition="!$EXP[isContent]" time="300" end="100" tween="sine" easing="inout">Conditional</animation>
-				<!-- <animation effect="slide" condition="ControlGroup(2000).HasFocus" time="500" start="0,0" end="-500,0" tween="cubic" easing="inout">Conditional</animation> -->
-					<!-- <left>-610</left> -->
-					<!-- <animation type="Conditional" condition="!ControlGroup(2000).HasFocus" reversible="true">
-						<effect type="slide" start="0" end="610" time="500" tween="cubic" easing="inout" />
-					</animation> -->
-					<!-- <include content="MenuContentPanel">
-						<param name="width" value="611"/>
-						<param name="width" value="600"/>
-					</include> -->
-					<!-- <visible allowhiddenfocus="true">true</visible> -->
-					
 					<control type="textbox">
 						<top>145</top>
 						<left>40</left>
@@ -123,41 +97,39 @@
 						<textcolor>unfocused_text</textcolor>
 						<visible>String.IsEqual(Window(home).Property(altus.search.history.count),0)</visible>
 					</control>
-					
-					<control type="fixedlist" id="9000">
+					<control type="list" id="9000">
 						<visible>!String.IsEqual(Window(home).Property(altus.search.history.count),0)</visible>
-						<left>0</left>
-						<top>185</top>
-						<width>498</width>
-						<height>824</height>
-						<movement>10</movement>
-						<focusposition>0</focusposition>
+						<left>90</left>
+						<top>180</top>
+						<width>378</width>
+						<height>832</height>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onfocus>ClearProperty(altus_saved_list_id,Home)</onfocus>
 						<onfocus>ClearProperty(altus_stacked_linked_list_id,Home)</onfocus>
-						<!-- <onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright> -->
 						<onleft>9000</onleft>
 						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">SetFocus(2000)</onright>
 						<onup>700</onup>
 						<ondown>9000</ondown>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
 						<include content="List">
-              <param name="id" value="9000" />
-            </include>
+							<param name="id" value="9000" />
+							<param name="img_texture" value="masks/mainmenu_text.png" />
+							<param name="focused_text" value="$VAR[FocusColorTheme]" />
+						</include>
 						<content>
 							<!-- SEARCH HISTORY -->
 							<include content="SearchHistory" />
 						</content>
 					</control>
 					<control type="group">
-						<left>75</left>
+						<left>73</left>
 						<top>70</top>
-						<width>343</width>
+						<width>415</width>
 						<height>140</height>
 						<control type="grouplist" id="700">
 							<orientation>horizontal</orientation>
-							<itemgap>-19</itemgap>
-							<width>343</width>
+							<itemgap>4</itemgap>
+							<width>415</width>
 							<height>100</height>
 							<onup condition="!String.IsEqual(Window(home).Property(altus.search.history.count),0)">SetFocus(9000,99,absolute)</onup>
 							<onup condition="String.IsEqual(Window(home).Property(altus.search.history.count),0)">700</onup>
@@ -166,7 +138,7 @@
 							<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">801</onright>
 							<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
 							<onback>9000</onback>
-							<align>center</align>
+							<align>left</align>
 							<include content="IconButton">
 								<param name="control_id" value="801" />
 								<param name="onclick" value="RunScript(script.altus.helper,mode=toggle_search_provider)" />
@@ -195,28 +167,16 @@
 							</include>
 						</control>
 						<control type="label">
-							<left>0</left>
+							<left>20</left>
 							<top>-38</top>
-							<width>340</width>
+							<width>415</width>
 							<height>30</height>
 							<font>font12</font>
-							<align>center</align>
+							<align>left</align>
 							<aligny>center</aligny>
 							<textcolor>lightgrey</textcolor>
 							<label>$VAR[SearchSubmenuButtonLabelsVar]</label>
 						</control>
-						<!-- <control type="label">
-							<left>0</left>
-							<top>100</top>
-							<width>340</width>
-							<height>30</height>
-							<font>font12</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<textcolor>grey</textcolor>
-							<label>Click to cycle providers</label>
-							<visible>Control.HasFocus(801)</visible>
-						</control> -->
 					</control>
 				</control>
 				<include>VerticalInfoPanel</include>
@@ -232,26 +192,6 @@
 					<param name="resolution_var" value="$VAR[ContainerResolutionFlagVar]" />
 				</include>
 			</control>
-			<!-- <control type="group">
-				<include>OpenClose_Right</include>
-				<animation effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
-				<animation effect="slide" end="0,-90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
-				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<control type="label">
-				<visible>String.IsEmpty(Window(home).Property(altus.search.input)) + !String.IsEqual(Window(home).Property(altus.search.history.count),0)</visible>
-					<top>500</top>
-					<left>650</left>
-					<width>1085</width>
-					<aligny>center</aligny>
-					<align>center</align>
-					<height>98</height>
-					<font>font14</font>
-					<textcolor>unfocused_text</textcolor>
-					<wrapmultiline>true</wrapmultiline>
-					<label>Explore your past searches on the left, delve into TRAKT lists using the TRAKT button, or click the search icon to initiate a new search.</label>
-				</control>
-			</control> -->
 		</control>
 	</controls>
 </window>

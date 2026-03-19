@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
   <defaultcontrol always="true">20000</defaultcontrol>
-  <!-- <onload>ClearProperty(SpotlightWidget,Home)</onload> -->
+  <!-- <onload>ClearProperty(FlixWidget,Home)</onload> -->
   <controls>
     <control type="button" id="6">
       <texturefocus/>

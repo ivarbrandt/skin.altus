@@ -4,7 +4,7 @@
 	<backgroundcolor>background</backgroundcolor>
 	<onload>RunScript(script.altus.helper, mode=calculate_cache_size)</onload>
 	<!-- <onload>RunScript(script.altus.helper,mode=getkodisettings&amp;window_id=10035&amp;altus_kodisetting_language=locale.language&amp;altus_kodisetting_country=locale.country&amp;altus_kodisetting_screensaver=screensaver.mode&amp;altus_kodisetting_audiolang=locale.audiolanguage&amp;altus_kodisetting_vidprefer=videoplayer.preferdefaultflag&amp;altus_kodisetting_subtitlelang=locale.subtitlelanguage&amp;altus_kodisetting_weather=weather.addon)</onload> -->
-	<onload>ClearProperty(SpotlightWidget,Home)</onload>
+	<onload>ClearProperty(FlixWidget,Home)</onload>
 	<onload>ClearProperty(altus_saved_list_id,Home)</onload>
 	<onload>ClearProperty(altus_stacked_saved_list_id,Home)</onload>
 	<controls>

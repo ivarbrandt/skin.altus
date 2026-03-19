@@ -439,23 +439,23 @@
 	</include>
 
 	<include name="SpotlightAnimations">
-		<animation condition="!String.IsEmpty(Window(Home).Property(SpotlightWidget)) + Integer.IsGreaterOrEqual($PARAM[list_id],Window(Home).Property(altus_saved_list_id))" reversible="false">
+		<!-- <animation condition="!String.IsEmpty(Window(Home).Property(FlixWidget)) + Integer.IsGreaterOrEqual($PARAM[list_id],Window(Home).Property(altus_saved_list_id))" reversible="false">
 			<effect type="fade" start="0" end="100" time="600" />
-		</animation>
-		<animation condition="!String.IsEmpty(Window(Home).Property(SpotlightWidget)) + Integer.IsLess($PARAM[list_id],Window(Home).Property(altus_saved_list_id))" reversible="false">
+		</animation> -->
+		<animation condition="!String.IsEmpty(Window(Home).Property(FlixWidget)) + Integer.IsLess($PARAM[list_id],Window(Home).Property(altus_saved_list_id))" reversible="false">
 			<effect type="fade" start="100" end="0" time="400" />
 		</animation>
 	</include>
 
 	<include name="SpotlightAnimations_Stacked">
-		<animation condition="!String.IsEmpty(Window(Home).Property(SpotlightWidget))" reversible="true">
+		<animation condition="!String.IsEmpty(Window(Home).Property(FlixWidget))" reversible="true">
 			<effect type="fade" start="100" end="0" time="500" tween="cubic" easing="out"/>
 		</animation>
 	</include>
 
 	<include name="SpotlightAnimations_Fade">
-		<animation effect="fade" start="100" end="0" time="500" tween="cubic" easing="in" condition="!String.IsEmpty(Window(Home).Property(SpotlightWidget)) + Control.HasFocus($PARAM[list_id])">Conditional</animation>
-		<animation effect="fade" start="0" end="100" time="500" tween="cubic" easing="in" condition="String.IsEmpty(Window(Home).Property(SpotlightWidget)) | !Control.HasFocus($PARAM[list_id])">Conditional</animation>
+		<animation effect="fade" start="100" end="0" time="500" tween="cubic" easing="in" condition="!String.IsEmpty(Window(Home).Property(FlixWidget)) + Control.HasFocus($PARAM[list_id])">Conditional</animation>
+		<animation effect="fade" start="0" end="100" time="500" tween="cubic" easing="in" condition="String.IsEmpty(Window(Home).Property(FlixWidget)) | !Control.HasFocus($PARAM[list_id])">Conditional</animation>
 	</include>
 
 </includes>

@@ -21,13 +21,26 @@
 		<include>DefaultBackground</include>
 		<include>PlayerLogoProcessor</include>
 		<control type="image" id="100000">
+			<top>-2</top>
+			<right>-2</right>
+			<width>1427</width>
+			<height>803</height>
+			<fadetime>500</fadetime>
+			<bordersize>2</bordersize>
+			<texture border="2" colordiffuse="artwork_dim" background="true" diffuse="overlays/flixinfo-fanartdiffuse.png" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[MediaFanartVar]</texture>
+			<aspectratio align="right" aligny="top">stretch</aspectratio>
+			<bordertexture colordiffuse="$VAR[FocusColorTheme]" infill="false">overlays/flixinfo-fanartdiffuse_border.png</bordertexture>
+			<include>ArtworkAnimations</include>
+			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + !Window.IsVisible(movieinformation) + !String.IsEmpty(Window(Home).Property(FlixWidget))</visible>
+		</control>
+		<!-- <control type="image" id="100000">
 			<include>FullScreenFanartDimensions</include>
 			<aspectratio>scale</aspectratio>
 			<fadetime>500</fadetime>
 			<include>ArtworkAnimations</include>
 			<texture background="true" colordiffuse="B3FFFFFF" diffuse="overlays/spotlightdiffuse.png" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[HomeFanartVar]</texture>
-			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + !Window.IsVisible(movieinformation) + !String.IsEmpty(Window(Home).Property(SpotlightWidget))</visible>
-		</control>
+			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + !Window.IsVisible(movieinformation) + !String.IsEmpty(Window(Home).Property(FlixWidget))</visible>
+		</control> -->
 		<control type="multiimage" id="100000">
 			<include>FullScreenDimensions</include>
 			<include>ArtworkAnimations</include>
@@ -52,7 +65,7 @@
 					<effect type="fade" start="100" end="60" time="300" tween="sine" easing="inout" />
 					<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="300" />
 				</animation>
-				<animation effect="slide" condition="!String.IsEmpty(Window(Home).Property(SpotlightWidget))" time="0" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation>
+				<!-- <animation effect="slide" condition="!String.IsEmpty(Window(Home).Property(FlixWidget))" time="0" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation> -->
 				<animation effect="slide" condition="![ControlGroup(2000).HasFocus + ![ControlGroup(19000).HasFocus | ControlGroup(22000).HasFocus | ControlGroup(23000).HasFocus | ControlGroup(24000).HasFocus | ControlGroup(25000).HasFocus]]" time="498" start="0,0" end="500,0" tween="cubic" easing="inout">Conditional</animation>
 				<!-- <animation type="Conditional" condition="Control.IsVisible(20000)" reversible="false">
 					<effect type="slide" end="0,20" time="60" tween="sine" />
@@ -838,30 +851,21 @@
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
 				<animation effect="slide" condition="ControlGroup(2000).HasFocus + ![ControlGroup(19000).HasFocus | ControlGroup(22000).HasFocus | ControlGroup(23000).HasFocus | ControlGroup(24000).HasFocus | ControlGroup(25000).HasFocus]" time="500" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation>
-				<!-- <include content="MenuContentPanel">
-					<param name="bg_left" value="0"/>
-					<param name="width" value="498"/>
-					<param name="dividerleft" value="498"/>
-					<param name="visible" value="String.IsEmpty(Window(Home).Property(SpotlightWidget))"/>
-				</include> -->
 				<include>VerticalInfoPanel</include>
 				<control type="group">
 					<!-- <visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus + !Control.HasFocus(20000) + !Control.HasFocus(20001)</visible> -->
 					<visible allowhiddenfocus="true">!$EXP[isContent]</visible>
-					<animation effect="fade" condition="!$EXP[isContent] + String.IsEmpty(Window(Home).Property(SpotlightWidget))" time="300" end="100" tween="sine" easing="inout">Conditional</animation>
+					<animation effect="fade" condition="!$EXP[isContent]" time="300" end="100" tween="sine" easing="inout">Conditional</animation>
 					<width>498</width>
-					<control type="fixedlist" id="9000">
+					<control type="list" id="9000">
 						<left>90</left>
-						<!-- 180 -->
 						<top>180</top>
 						<width>378</width>
 						<height>832</height>
-						<movement>9</movement>
-						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<!-- <onfocus>ClearProperty(FirstWidgetID,home)</onfocus>
 						<onfocus>ClearProperty(LastWidgetID,home)</onfocus> -->
-						<onfocus>ClearProperty(SpotlightWidget,Home)</onfocus>
+						<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
 						<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
 						<onfocus>ClearProperty(altus_saved_list_id,Home)</onfocus>
 						<onfocus>ClearProperty(altus_stacked_linked_list_id,Home)</onfocus>
