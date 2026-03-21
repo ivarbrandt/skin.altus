@@ -5,7 +5,7 @@
 		<orientation>vertical</orientation>
 		<height>100%</height>
 		<itemgap>-180</itemgap>
-		<scrolltime tween="cubic" easing="out">700</scrolltime>
+		<scrolltime tween="cubic" easing="out">500</scrolltime>
 		<!-- <onup>20000</onup>
 		<ondown>20001</ondown> -->
 		<usecontrolcoords>true</usecontrolcoords>
@@ -56,7 +56,7 @@
 				<width>1380</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<visible>$PARAM[visible]</visible>
-				<include content="FocusedCategoryLabel">
+				<!-- <include content="FocusedCategoryLabel">
 					<param name="id" value=""/>
 					<param name="label" value="$VAR[HomescreenFlixCrumbs][COLOR unfocused_text]$PARAM[label][/COLOR]$PARAM[label_focus]"/>
 					<param name="visible" value="Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window(Home).Property(FlixWidget))"/>
@@ -70,7 +70,7 @@
 					<param name="id" value=""/>
 					<param name="label" value="[COLOR unfocused_text]$PARAM[label][/COLOR]"/>
 					<param name="visible" value="!Control.HasFocus($PARAM[list_id])"/>
-				</include>
+				</include> -->
 			</control>
 		</definition>
 	</include>
@@ -81,7 +81,7 @@
 		<param name="visible">true</param>
 		<param name="item_treshold">0</param>
 		<param name="label_focus">$VAR[HomeFlixCrumbsVar]</param>
-		<param name="spacer_height">164</param>
+		<param name="spacer_height">167</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]670">
 				<animation effect="fade" start="100" end="45" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus">Conditional</animation>
@@ -97,7 +97,7 @@
 				<width>1380</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<visible>$PARAM[visible]</visible>
-				<include content="FocusedCategoryLabel">
+				<!-- <include content="FocusedCategoryLabel">
 					<param name="id" value=""/>
 					<param name="label" value="$VAR[HomescreenFlixCrumbs][COLOR unfocused_text]$PARAM[label][/COLOR]$PARAM[label_focus]"/>
 					<param name="visible" value="Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window(Home).Property(FlixWidget))"/>
@@ -111,7 +111,7 @@
 					<param name="id" value=""/>
 					<param name="label" value="[COLOR unfocused_text]$PARAM[label][/COLOR]"/>
 					<param name="visible" value="!Control.HasFocus($PARAM[list_id])"/>
-				</include>
+				</include> -->
 			</control>
 		</definition>
 	</include>
@@ -136,7 +136,7 @@
 				<width>1380</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<visible>$PARAM[visible]</visible>
-				<include content="FocusedCategoryLabel">
+				<!-- <include content="FocusedCategoryLabel">
 					<param name="id" value=""/>
 					<param name="label" value="$VAR[HomescreenFlixCrumbs][COLOR unfocused_text]$PARAM[label][/COLOR]$PARAM[label_focus]"/>
 					<param name="visible" value="Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window(Home).Property(FlixWidget))"/>
@@ -150,7 +150,7 @@
 					<param name="id" value=""/>
 					<param name="label" value="[COLOR unfocused_text]$PARAM[label][/COLOR]"/>
 					<param name="visible" value="!Control.HasFocus($PARAM[list_id])"/>
-				</include>
+				</include> -->
 			</control>
 		</definition>
 	</include>
@@ -162,7 +162,7 @@
 		<definition>
 			<control type="group" id="$PARAM[list_id]665">
 				<animation effect="fade" start="100" end="45" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,465" time="700" condition="Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Window(Home).Property(FlixWidget))" tween="sine" reversible="true">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,523" time="400" condition="Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Window(Home).Property(FlixWidget))" tween="quadratic" reversible="true">Conditional</animation>
 				<!-- <include content="WidgetZoomAnimation">
 					<param name="list_id" value="$PARAM[list_id]" />
 					<param name="c1" value="57" />
@@ -213,7 +213,7 @@
 		<definition>
 			<control type="group" id="$PARAM[list_id]665">
 				<animation effect="fade" start="100" end="45" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,465" time="700" condition="Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Window(Home).Property(FlixWidget))" tween="cubic" easing="out">Conditional</animation>
+				<!-- <animation effect="slide" start="0,0" end="0,667" time="700" condition="Control.HasFocus($PARAM[list_id])" tween="cubic" easing="out">Conditional</animation> -->
 				<!-- <animation effect="slide" end="7,0" time="300" condition="Control.HasFocus($PARAM[list_id])">Conditional</animation> -->
 				<left>35</left>
 				<top>72</top>
@@ -247,12 +247,12 @@
 					<include content="FocusedCategoryLabel">
 						<param name="id" value="PARAM[list_id]667"/>
 						<param name="label" value="[COLOR unfocused_text]$INFO[Container(9000).ListItem.Label][/COLOR] » [COLOR unfocused_text]$PARAM[label][/COLOR] » [COLOR unfocused_text]$INFO[Window(Home).Property(altus.$PARAM[list_id].Label)][/COLOR]$PARAM[label_focus]"/>
-						<param name="visible" value="Control.HasFocus($PARAM[list_id]1) + String.IsEmpty(Window(Home).Property(FlixWidget)) + String.IsEmpty(Window(Home).Property(altus_spotlight_linked_list_id))"/>
+						<param name="visible" value="Control.HasFocus($PARAM[list_id]1) + String.IsEmpty(Window(Home).Property(FlixWidget)) + String.IsEmpty(Window(Home).Property(altus_flix_linked_list_id))"/>
 					</include>
 					<include content="FocusedCategoryLabel">
 						<param name="id" value="PARAM[list_id]667"/>
 						<param name="label" value="[COLOR unfocused_text]$INFO[Container(9000).ListItem.Label][/COLOR] » [COLOR unfocused_text]$PARAM[label][/COLOR] » [COLOR unfocused_text]$INFO[Window(Home).Property(altus.$PARAM[list_id].Label)][/COLOR]"/>
-						<param name="visible" value="Control.HasFocus($PARAM[list_id]1) + String.IsEmpty(Window(Home).Property(FlixWidget)) + !String.IsEmpty(Window(Home).Property(altus_spotlight_linked_list_id))"/>
+						<param name="visible" value="Control.HasFocus($PARAM[list_id]1) + String.IsEmpty(Window(Home).Property(FlixWidget)) + !String.IsEmpty(Window(Home).Property(altus_flix_linked_list_id))"/>
 					</include>
 					<include content="FocusedCategoryLabel">
 						<param name="id" value="PARAM[list_id]667"/>
@@ -262,17 +262,17 @@
 					<include content="FocusedCategoryLabel">
 						<param name="id" value="PARAM[list_id]668"/>
 						<param name="label" value="$VAR[HomescreenFlixCrumbs][COLOR unfocused_text]$PARAM[label][/COLOR]$PARAM[label_focus] » [COLOR unfocused_text]$INFO[Window(Home).Property(altus.$PARAM[list_id].Label)][/COLOR]"/>
-						<param name="visible" value="Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window(Home).Property(FlixWidget)) + String.IsEmpty(Window(Home).Property(altus.countdown_active)) + String.IsEmpty(Window(Home).Property(altus_spotlight_linked_list_id))"/>
+						<param name="visible" value="Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window(Home).Property(FlixWidget)) + String.IsEmpty(Window(Home).Property(altus.countdown_active)) + String.IsEmpty(Window(Home).Property(altus_flix_linked_list_id))"/>
 					</include>
 					<!-- <include content="FocusedCategoryLabel">
 						<param name="id" value="PARAM[list_id]668"/>
 						<param name="label" value="$VAR[HomescreenFlixCrumbs][COLOR unfocused_text]$PARAM[label][/COLOR]$PARAM[label_focus] » [COLOR unfocused_text]$INFO[ListItem.Label][/COLOR]"/>
-						<param name="visible" value="Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window(Home).Property(FlixWidget)) + String.IsEmpty(Window(Home).Property(altus.countdown_active)) + String.IsEmpty(Window(Home).Property(altus_spotlight_linked_list_id))"/>
+						<param name="visible" value="Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window(Home).Property(FlixWidget)) + String.IsEmpty(Window(Home).Property(altus.countdown_active)) + String.IsEmpty(Window(Home).Property(altus_flix_linked_list_id))"/>
 					</include> -->
 					<include content="FocusedCategoryLabel">
 						<param name="id" value="PARAM[list_id]668"/>
 						<param name="label" value="$VAR[HomescreenFlixCrumbs][COLOR unfocused_text]$PARAM[label][/COLOR]$PARAM[label_focus]"/>
-						<param name="visible" value="Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window(Home).Property(FlixWidget)) + String.IsEmpty(Window(Home).Property(altus.countdown_active)) + !String.IsEmpty(Window(Home).Property(altus_spotlight_linked_list_id))"/>
+						<param name="visible" value="Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window(Home).Property(FlixWidget)) + String.IsEmpty(Window(Home).Property(altus.countdown_active)) + !String.IsEmpty(Window(Home).Property(altus_flix_linked_list_id))"/>
 					</include>
 					<include content="FocusedCategoryLabel">
 						<param name="id" value="PARAM[list_id]668"/>
@@ -329,6 +329,47 @@
 			</control>
 		</definition>
 	</include>
+
+	<include name="CategoryLabelFlix">
+		<param name="visible">true</param>
+		<param name="item_treshold">0</param>
+		<param name="label_focus">$VAR[HomeFlixCrumbsVar]</param>
+		<definition>
+			<control type="group" id="$PARAM[list_id]665">
+				<animation effect="fade" start="100" end="45" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" tween="sine" easing="inout" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,525" time="400" tween="quadratic" condition="Control.HasFocus($PARAM[list_id])" reversible="true">Conditional</animation>
+				<left>35</left>
+				<top>72</top>
+				<height>50</height>
+				<width>1180</width>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<include content="FocusedCategoryLabel">
+					<param name="id" value="$PARAM[list_id]667"/>
+					<param name="label" value="$VAR[HomescreenFlixCrumbs][COLOR unfocused_text]$PARAM[widget_header][/COLOR]$PARAM[label_focus]"/>
+					<param name="visible" value="Control.HasFocus($PARAM[list_id])"/>
+				</include>
+				<include content="UnfocusedCategoryLabel">
+					<param name="id" value="$PARAM[list_id]666"/>
+					<param name="label" value="[COLOR unfocused_text]$PARAM[widget_header][/COLOR]"/>
+					<param name="visible" value="!Control.HasFocus($PARAM[list_id])"/>
+				</include>
+				<control type="label">
+					<align>right</align>
+					<right>-158</right>
+					<label>$INFO[System.Time]</label>
+					<font>font30_title</font>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>text_shadow</shadowcolor>
+					<scroll>true</scroll>
+					<scrollspeed>100</scrollspeed>
+					<visible>Control.HasFocus($PARAM[list_id])</visible>
+					<animation effect="fade" time="100">Visible</animation>
+					<animation effect="slide" condition="ControlGroup(2000).HasFocus + ![ControlGroup(19000).HasFocus | ControlGroup(22000).HasFocus | ControlGroup(23000).HasFocus | ControlGroup(24000).HasFocus | ControlGroup(25000).HasFocus]" time="0" start="0,0" end="498,0" tween="cubic" easing="inout">Conditional</animation>
+				</control>
+			</control>
+		</definition>
+	</include>
 	
 	<include name="SpotlightInfo">
 		<!-- <param name="visible">true</param> -->
@@ -362,8 +403,10 @@
 
 	<include name="WidgetLeftRightArrows">
 		<param name="visible">true</param>
+		<param name="slide_end">0</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]671">
+				<animation effect="slide" start="0,0" end="0,$PARAM[slide_end]" time="400" tween="quadratic" condition="!Control.HasFocus($PARAM[list_id])" reversible="true">Conditional</animation>
 				<top>-297</top>
 				<height>477</height>
 				<width>1815</width>
@@ -390,14 +433,87 @@
 					<include content="StackedWidgetAnimations">
 						<param name="list_id" value="$PARAM[list_id]"/>
 					</include>
+					<animation effect="fade" start="100" end="0" time="400" condition="Control.HasFocus($PARAM[list_id]1) + !String.IsEmpty(Window(Home).Property(FlixWidget))">Conditional</animation>
 				</control>
 			</control>
 		</definition>
 	</include>
 
-	<include name="WidgetListSpotlight">
+	<include name="WidgetListSmallPosterFlix">
 		<param name="onclick_condition">false</param>
 		<definition>
+			<include content="CategoryLabel">
+				<param name="label">$PARAM[widget_header]</param>
+				<param name="list_id" value="$PARAM[list_id]"/>
+			</include>
+			<include content="BusyListSpinner">
+				<param name="list_id" value="$PARAM[list_id]"/>
+			</include>
+			<control type="fixedlist" id="$PARAM[list_id]">
+				<top>107</top>
+				<right>0</right>
+				<left>45</left>
+				<height>974</height>
+				<focusposition>0</focusposition>
+				<movement>5</movement>
+				<onright>$PARAM[list_id]</onright>
+				<orientation>horizontal</orientation>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<onfocus>SetProperty(FlixWidget,true,Home)</onfocus>
+				<onfocus>SetProperty(altus_flix_linked_list_id,$PARAM[parent_id],home)</onfocus>
+				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
+				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
+				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
+				<animation effect="slide" start="0,0" end="0,523" time="400" tween="quadratic" condition="Control.HasFocus($PARAM[list_id])">Conditional</animation>
+				<include content="WidgetListCommon">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<itemlayout width="226" >
+					<control type="image">
+						<left>0</left>
+						<top>386</top>
+						<width>204</width>
+						<height>306</height>
+						<texture flipy="true" diffuse="masks/smallposter.png" colordiffuse="4DFFFFFF" background="true">$VAR[FlixPosterVar]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<visible>!Control.HasFocus($PARAM[list_id]) + ![$EXP[dialog_visible] + !String.IsEmpty(Window(Home).Property(FlixWidget))]</visible>
+					</control>
+					<control type="group">
+						<left>-20</left>
+						<top>70</top>
+						<include content="SmallPosterLayout">
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="226" infoupdate="30">
+					<control type="image">
+						<left>0</left>
+						<top>386</top>
+						<width>204</width>
+						<height>306</height>
+						<texture flipy="true" diffuse="masks/smallposter.png" colordiffuse="4DFFFFFF" background="true">$VAR[FlixPosterVar]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<visible>!Control.HasFocus($PARAM[list_id]) + ![$EXP[dialog_visible] + !String.IsEmpty(Window(Home).Property(FlixWidget))]</visible>
+					</control>
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<left>-20</left>
+						<top>70</top>
+						<include content="SmallPosterLayout">
+							<param name="focused" value="true" />
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+						<include>VideoTrailerControl</include>
+					</control>
+				</focusedlayout>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
+			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="visible" value="Control.HasFocus($PARAM[list_id])" />
+				<param name="posy" value="233" />
+			</include>
 			<include content="LabelSpacer">
         <param name="label"></param>
         <param name="list_id" value="$PARAM[list_id]"/>
@@ -408,186 +524,90 @@
         <param name="list_id" value="$PARAM[list_id]"/>
         <param name="visible" value="Control.HasFocus($PARAM[list_id]) + !String.EndsWith(Window(Home).Property(altus_saved_list_id),11)"/>
 			</include>
-			<include content="CategoryLabel">
-				<param name="label">$PARAM[widget_header]</param>
+		</definition>
+	</include>
+
+	<include name="WidgetListSmallPosterFlixStacked">
+		<param name="onclick_condition">false</param>
+		<definition>
+			<include content="BusyListWidgetSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
-				<!-- <param name="visible" value="String.IsEmpty(Window(Home).Property(FlixWidget))"/> -->
-				<!-- <param name="visible" value="!ControlGroup(2000).HasFocus | [!Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Window(Home).Property(FlixWidget))] | [String.IsEmpty(Window(Home).Property(FlixWidget)) + Skin.HasSetting(Enable.AlternateSpotlight)]"/> -->
+				<param name="label" value="stacked spotlight"/>
+				<param name="posy" value="97"/>
 			</include>
-			<include content="BusyListSpinner">
+			<include content="CategoryLabelFlix">
+				<param name="widget_header">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
-				<top>107</top>
+				<top>17</top>
 				<right>0</right>
 				<left>45</left>
-				<!-- 974 - 529 = 445 (need to add to label spacers -->
-				<height>974</height>
+				<height>1065</height>
 				<focusposition>0</focusposition>
 				<movement>5</movement>
-				<!-- <height>1027</height> -->
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
-				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<onfocus>SetProperty(FlixWidget,true,Home)</onfocus>
-				<onfocus>SetProperty(altus_spotlight_linked_list_id,$PARAM[parent_id],home)</onfocus>
-				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
-				<!-- <animation effect="zoom" start="100,100" end="245,245" center="45,974" time="700" condition="!Control.HasFocus($PARAM[list_id])" tween="sine" reversible="true">Conditional</animation> -->
-				<!-- <animation effect="slide" start="0,0" end="0,200" time="300" condition="Control.HasFocus($PARAM[list_id])" tween="sine">Conditional</animation> -->
-				<!-- <include content="SpotlightAnimations_Fade">
-					<param name="list_id" value="$PARAM[list_id]"/>
-				</include> -->
-				<include content="WidgetListCommon">
+				<onfocus>SetProperty(FlixWidget,true,Home)</onfocus>
+				<onfocus>SetProperty(altus_flix_linked_list_id,$PARAM[parent_id],home)</onfocus>
+				<onfocus>SetProperty(altus_stacked_linked_list_id,$PARAM[parent_id],home)</onfocus>
+				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
+				<animation effect="slide" start="0,0" end="0,560" time="400" tween="quadratic" condition="Control.HasFocus($PARAM[list_id])" reversible="true">Conditional</animation>
+				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<itemlayout width="226" >
-					<control type="group">
+					<control type="image">
+						<left>0</left>
+						<top>441</top>
+						<width>204</width>
+						<height>306</height>
+						<texture flipy="true" diffuse="masks/smallposter.png" colordiffuse="4DFFFFFF" background="true">$VAR[FlixPosterVar]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
 						<visible>!Control.HasFocus($PARAM[list_id]) + ![$EXP[dialog_visible] + !String.IsEmpty(Window(Home).Property(FlixWidget))]</visible>
-						<control type="image">
-							<left>0</left>
-							<top>80</top>
-							<width>204</width>
-							<height>120</height>
-							<texture colordiffuse="FFFFFFFF" background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-							<aspectratio align="center" aligny="center">keep</aspectratio>
-							<visible>!String.IsEmpty(ListItem.Art(clearlogo))</visible>
-						</control>
-						<control type="image">
-							<left>0</left>
-							<top>215</top>
-							<width>204</width>
-							<height>306</height>
-							<texture flipy="true" diffuse="masks/smallposter.png" colordiffuse="66FFFFFF" background="true">$VAR[FlixPosterVar]</texture>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-						</control>
 					</control>
 					<control type="group">
 						<left>-20</left>
-						<top>535</top>
+						<top>125</top>
 						<include content="SmallPosterLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
 					</control>
 				</itemlayout>
 				<focusedlayout width="226" infoupdate="30">
-					<control type="group">
+					<control type="image">
+						<left>0</left>
+						<top>441</top>
+						<width>204</width>
+						<height>306</height>
+						<texture flipy="true" diffuse="masks/smallposter.png" colordiffuse="4DFFFFFF" background="true">$VAR[FlixPosterVar]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
 						<visible>!Control.HasFocus($PARAM[list_id]) + ![$EXP[dialog_visible] + !String.IsEmpty(Window(Home).Property(FlixWidget))]</visible>
-						<control type="image">
-							<left>0</left>
-							<top>80</top>
-							<width>204</width>
-							<height>120</height>
-							<texture colordiffuse="FFFFFFFF" background="true">$INFO[ListItem.Art(clearlogo)]</texture>
-							<aspectratio align="center" aligny="center">keep</aspectratio>
-							<visible>!String.IsEmpty(ListItem.Art(clearlogo))</visible>
-						</control>
-						<control type="image">
-							<left>0</left>
-							<top>215</top>
-							<width>204</width>
-							<height>306</height>
-							<texture flipy="true" diffuse="masks/smallposter.png" colordiffuse="66FFFFFF" background="true">$VAR[FlixPosterVar]</texture>
-							<aspectratio scalediffuse="false">scale</aspectratio>
-						</control>
 					</control>
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>-20</left>
-						<top>535</top>
+						<top>125</top>
 						<include content="SmallPosterLayout">
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
 			</control>
-			<!-- <include content="SpotlightInfo">
-				<param name="list_id" value="$PARAM[list_id]"/>
-			</include> -->
 			<include content="WidgetLeftRightArrows">
 				<param name="list_id" value="$PARAM[list_id]" />
-				<param name="visible" value="Control.HasFocus($PARAM[list_id])" />
-				<param name="posy" value="183" />
+				<param name="posy" value="239" />
+				<param name="slide_end" value="-555" />
 			</include>
-			
-		</definition>
-	</include>
-
-	<include name="WidgetListSpotlightStacked">
-		<param name="onclick_condition">false</param>
-		<definition>
 			<include content="LabelSpacer">
         <param name="label"></param>
         <param name="spacer_height">167</param>
         <param name="list_id" value="$PARAM[list_id]"/>
         <param name="visible" value="Control.HasFocus($PARAM[list_id])"/>
-			</include>
-			<include content="CategoryLabelWidget">
-				<param name="label">$PARAM[widget_header]</param>
-				<param name="list_id" value="$PARAM[list_id]"/>
-				<param name="visible" value="false"/>
-				<!-- <param name="visible" value="!ControlGroup(2000).HasFocus | [!Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Window(Home).Property(FlixWidget))] | [String.IsEmpty(Window(Home).Property(FlixWidget)) + Skin.HasSetting(Enable.AlternateSpotlight)]"/> -->
-			</include>
-			<include content="BusyListWidgetSpinner">
-				<param name="list_id" value="$PARAM[list_id]"/>
-				<param name="label" value="stacked spotlight"/>
-				<param name="posy" value="97"/>
-			</include>
-			<control type="fixedlist" id="$PARAM[list_id]">
-				<top>17</top>
-				<right>0</right>
-				<left>45</left>
-				<!-- 153 difference -->
-				<height>1065</height>
-				<onright>$PARAM[list_id]</onright>
-				<orientation>horizontal</orientation>
-				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
-				<!-- <include content="SpotlightAnimations_Fade">
-					<param name="list_id" value="$PARAM[list_id]"/>
-				</include> -->
-				<include>SpotlightAnimations_Stacked</include>
-				<onfocus>SetProperty(FlixWidget,true,Home)</onfocus>
-				<onfocus>SetProperty(altus_spotlight_linked_list_id,$PARAM[parent_id],home)</onfocus>
-				<onfocus>SetProperty(altus_stacked_linked_list_id,$PARAM[parent_id],home)</onfocus>
-				<include content="WidgetListCommonStacked">
-					<param name="list_id" value="$PARAM[list_id]"/>
-				</include>
-				<itemlayout width="1355" >
-					<control type="group">
-						<left>-20</left>
-						<top>70</top>
-						<include content="SpotlightLayout">
-							<param name="list_id" value="$PARAM[list_id]" />
-						</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="1355" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-						<left>-20</left>
-						<top>70</top>
-						<include content="SpotlightLayout">
-							<param name="focused" value="true" />
-							<param name="list_id" value="$PARAM[list_id]" />
-						</include>
-						<include content="AutoScrollSpotlightTimer">
-							<param name="list_id" value="$PARAM[list_id]" />
-						</include>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
-				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
-			</control>
-			<!-- <include content="SpotlightInfo">
-				<param name="list_id" value="$PARAM[list_id]"/>
-			</include> -->
-			<include content="WidgetLeftRightArrows">
-				<param name="list_id" value="$PARAM[list_id]" />
-				<param name="posy" value="-75" />
 			</include>
 		</definition>
 	</include>
@@ -672,12 +692,12 @@
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
-				<include>SpotlightAnimations_Stacked</include>
+				<include>FlixAnimations_Stacked</include>
 				<onfocus>SetProperty(altus_stacked_linked_list_id,$PARAM[parent_id],home)</onfocus>
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
 				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
-				<onfocus>ClearProperty(altus_spotlight_linked_list_id,home)</onfocus>
+				<onfocus>ClearProperty(altus_flix_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
@@ -795,12 +815,12 @@
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
-				<include>SpotlightAnimations_Stacked</include>
+				<include>FlixAnimations_Stacked</include>
 				<onfocus>SetProperty(altus_stacked_linked_list_id,$PARAM[parent_id],home)</onfocus>
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
 				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
-				<onfocus>ClearProperty(altus_spotlight_linked_list_id,home)</onfocus>
+				<onfocus>ClearProperty(altus_flix_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
@@ -915,12 +935,12 @@
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
-				<include>SpotlightAnimations_Stacked</include>
+				<include>FlixAnimations_Stacked</include>
 				<onfocus>SetProperty(FeatureWidgetFocused,true,Home)</onfocus>
 				<onfocus>SetProperty(altus_stacked_linked_list_id,$PARAM[parent_id],home)</onfocus>
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
 				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
-				<onfocus>ClearProperty(altus_spotlight_linked_list_id,home)</onfocus>
+				<onfocus>ClearProperty(altus_flix_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
@@ -1034,11 +1054,11 @@
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
-				<include>SpotlightAnimations_Stacked</include>
+				<include>FlixAnimations_Stacked</include>
 				<onfocus>SetProperty(altus_stacked_linked_list_id,$PARAM[parent_id],home)</onfocus>
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
 				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
-				<onfocus>ClearProperty(altus_spotlight_linked_list_id,home)</onfocus>
+				<onfocus>ClearProperty(altus_flix_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
@@ -1153,12 +1173,12 @@
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
-				<include>SpotlightAnimations_Stacked</include>
+				<include>FlixAnimations_Stacked</include>
 				<onfocus>SetProperty(altus_stacked_linked_list_id,$PARAM[parent_id],home)</onfocus>
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
 				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
-				<onfocus>ClearProperty(altus_spotlight_linked_list_id,home)</onfocus>
+				<onfocus>ClearProperty(altus_flix_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
@@ -1218,7 +1238,7 @@
 				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
 				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
-				<!-- <include content="SpotlightAnimations_Fade">
+				<!-- <include content="FlixAnimations_Fade">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include> -->
 				<include content="WidgetListCommon">
@@ -1277,12 +1297,12 @@
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
-				<include>SpotlightAnimations_Stacked</include>
+				<include>FlixAnimations_Stacked</include>
 				<onfocus>SetProperty(FeatureWidgetFocused,true,Home)</onfocus>
 				<onfocus>SetProperty(altus_stacked_linked_list_id,$PARAM[parent_id],home)</onfocus>
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
 				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
-				<onfocus>ClearProperty(altus_spotlight_linked_list_id,home)</onfocus>
+				<onfocus>ClearProperty(altus_flix_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
@@ -1670,13 +1690,13 @@
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
 				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
-				<onfocus>ClearProperty(altus_spotlight_linked_list_id,home)</onfocus>
+				<onfocus>ClearProperty(altus_flix_linked_list_id,home)</onfocus>
 				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<!-- <animation effect="slide" end="7,0" time="300" condition="Control.HasFocus($PARAM[list_id])">Conditional</animation> -->
-				<animation condition="!String.IsEmpty(Window(Home).Property(FlixWidget)) + Integer.IsEqual($PARAM[list_id],Window(Home).Property(altus_spotlight_linked_list_id))" reversible="false">
+				<animation condition="!String.IsEmpty(Window(Home).Property(FlixWidget)) + Integer.IsEqual($PARAM[list_id],Window(Home).Property(altus_flix_linked_list_id))" reversible="false">
 					<effect type="fade" start="100" end="0" time="400" />
 				</animation>
 				<visible>$PARAM[visible]</visible>
@@ -2204,7 +2224,7 @@
 		<include content="WidgetUnfocusedAnimations">
 			<param name="list_id" value="$PARAM[list_id]"/>
 		</include>
-		<include content="SpotlightAnimations">
+		<include content="FlixAnimations">
 			<param name="list_id" value="$PARAM[list_id]"/>
 		</include>
 		<preloaditems>2</preloaditems>

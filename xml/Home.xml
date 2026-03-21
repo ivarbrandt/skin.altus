@@ -840,7 +840,7 @@
 				<font>font12</font>
 				<textcolor>FFFFFFFF</textcolor>
 				<label>DB Type: $INFO[Window(Home).Property(CurrentDBType)]</label>
-				<label>Saved: $INFO[Window(Home).Property(altus_saved_list_id)][CR]Stacked: $INFO[Window(Home).Property(altus_stacked_saved_list_id)][CR]Linked: $INFO[Window(Home).Property(altus_spotlight_linked_list_id)]</label>
+				<label>Saved: $INFO[Window(Home).Property(altus_saved_list_id)][CR]Stacked: $INFO[Window(Home).Property(altus_stacked_saved_list_id)][CR]Linked: $INFO[Window(Home).Property(altus_flix_linked_list_id)]</label>
 				<label>Current Focus: $INFO[System.CurrentControlID]</label>
 				<label>First: $INFO[Window(Home).Property(FirstWidgetID)] • Last: $INFO[Window(Home).Property(LastWidgetID)] • Current Focus: $INFO[System.CurrentControlID]</label>
 				<label>Feature: $INFO[Window(Home).Property(FeatureWidgetFocused)]</label>

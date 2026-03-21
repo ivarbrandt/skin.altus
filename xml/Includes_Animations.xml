@@ -438,7 +438,7 @@
 		</animation>
 	</include>
 
-	<include name="SpotlightAnimations">
+	<include name="FlixAnimations">
 		<!-- <animation condition="!String.IsEmpty(Window(Home).Property(FlixWidget)) + Integer.IsGreaterOrEqual($PARAM[list_id],Window(Home).Property(altus_saved_list_id))" reversible="false">
 			<effect type="fade" start="0" end="100" time="600" />
 		</animation> -->
@@ -447,13 +447,13 @@
 		</animation>
 	</include>
 
-	<include name="SpotlightAnimations_Stacked">
+	<include name="FlixAnimations_Stacked">
 		<animation condition="!String.IsEmpty(Window(Home).Property(FlixWidget))" reversible="true">
 			<effect type="fade" start="100" end="0" time="500" tween="cubic" easing="out"/>
 		</animation>
 	</include>
 
-	<include name="SpotlightAnimations_Fade">
+	<include name="FlixAnimations_Fade">
 		<animation effect="fade" start="100" end="0" time="500" tween="cubic" easing="in" condition="!String.IsEmpty(Window(Home).Property(FlixWidget)) + Control.HasFocus($PARAM[list_id])">Conditional</animation>
 		<animation effect="fade" start="0" end="100" time="500" tween="cubic" easing="in" condition="String.IsEmpty(Window(Home).Property(FlixWidget)) | !Control.HasFocus($PARAM[list_id])">Conditional</animation>
 	</include>
