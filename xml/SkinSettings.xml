@@ -649,7 +649,7 @@
 					<label2>$VAR[BlurBrightnessSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[BlurBrightnessToggleVar]</onclick>
-					<visible>String.IsEqual(Skin.String(BackgroundSetting),2)</visible>
+					<visible>String.IsEqual(Skin.String(BackgroundSetting),2) + String.IsEqual(Skin.String(MainBlurTexture),0)</visible>
 				</control>
 				<control type="button" id="6006">
 					<label>   - Restore default background</label>

@@ -116,7 +116,6 @@
 						<include content="SmallPosterLayout">
 							<param name="focused" value="true" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -140,7 +139,6 @@
 						<include content="PosterLayout">
 							<param name="focused" value="true" />
 						</include>
-						<include>FocusBounce</include>
 					</control>
 				</focusedlayout> -->
 

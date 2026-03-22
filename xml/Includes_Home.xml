@@ -159,10 +159,11 @@
 		<param name="visible">true</param>
 		<param name="item_treshold">0</param>
 		<param name="label_focus">$VAR[HomeFlixCrumbsVar]</param>
+		<param name="flix_slide">0</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]665">
 				<animation effect="fade" start="100" end="45" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,523" time="400" condition="Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Window(Home).Property(FlixWidget))" tween="quadratic" reversible="true">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,$PARAM[flix_slide]" time="400" condition="Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Window(Home).Property(FlixWidget))" tween="quadratic" reversible="true">Conditional</animation>
 				<!-- <include content="WidgetZoomAnimation">
 					<param name="list_id" value="$PARAM[list_id]" />
 					<param name="c1" value="57" />
@@ -334,11 +335,12 @@
 		<param name="visible">true</param>
 		<param name="item_treshold">0</param>
 		<param name="label_focus">$VAR[HomeFlixCrumbsVar]</param>
+		<param name="flix_slide">0</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]665">
 				<animation effect="fade" start="100" end="45" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus">Conditional</animation>
 				<animation effect="fade" start="100" end="0" time="400" tween="sine" easing="inout" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,525" time="400" tween="quadratic" condition="Control.HasFocus($PARAM[list_id])" reversible="true">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,$PARAM[flix_slide]" time="400" tween="quadratic" condition="Control.HasFocus($PARAM[list_id])" reversible="true">Conditional</animation>
 				<left>35</left>
 				<top>72</top>
 				<height>50</height>
@@ -406,7 +408,9 @@
 		<param name="slide_end">0</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]671">
-				<animation effect="slide" start="0,0" end="0,$PARAM[slide_end]" time="400" tween="quadratic" condition="!Control.HasFocus($PARAM[list_id])" reversible="true">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,$PARAM[slide_end]" time="400" tween="quadratic" condition="Control.HasFocus($PARAM[list_id])" reversible="true">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="400" condition="Control.HasFocus($PARAM[list_id]1) + !String.IsEmpty(Window(Home).Property(FlixWidget)) + !String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])">Conditional</animation>
+				<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus" reversible="true">Conditional</animation>
 				<top>-297</top>
 				<height>477</height>
 				<width>1815</width>
@@ -427,13 +431,6 @@
 						<visible>$PARAM[visible]</visible>
 					</control>
 					<!-- <animation effect="fade" time="300">Visible</animation> -->
-					<include content="WidgetUnfocusedAnimations">
-						<param name="list_id" value="$PARAM[list_id]"/>
-					</include>
-					<include content="StackedWidgetAnimations">
-						<param name="list_id" value="$PARAM[list_id]"/>
-					</include>
-					<animation effect="fade" start="100" end="0" time="400" condition="Control.HasFocus($PARAM[list_id]1) + !String.IsEmpty(Window(Home).Property(FlixWidget))">Conditional</animation>
 				</control>
 			</control>
 		</definition>
@@ -445,6 +442,7 @@
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="flix_slide" value="523"/>
 			</include>
 			<include content="BusyListSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
@@ -511,8 +509,9 @@
 			</control>
 			<include content="WidgetLeftRightArrows">
 				<param name="list_id" value="$PARAM[list_id]" />
-				<param name="visible" value="Control.HasFocus($PARAM[list_id])" />
-				<param name="posy" value="233" />
+				<param name="visible" value="Control.HasFocus($PARAM[list_id]) | String.IsEmpty(Window(Home).Property(FlixWidget))" />
+				<param name="posy" value="-280" />
+				<param name="slide_end" value="525" />
 			</include>
 			<include content="LabelSpacer">
         <param name="label"></param>
@@ -538,6 +537,7 @@
 			<include content="CategoryLabelFlix">
 				<param name="widget_header">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="flix_slide" value="525"/>
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>17</top>
@@ -600,8 +600,8 @@
 			</control>
 			<include content="WidgetLeftRightArrows">
 				<param name="list_id" value="$PARAM[list_id]" />
-				<param name="posy" value="239" />
-				<param name="slide_end" value="-555" />
+				<param name="posy" value="-311" />
+				<param name="slide_end" value="555" />
 			</include>
 			<include content="LabelSpacer">
         <param name="label"></param>
@@ -657,7 +657,6 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -719,7 +718,6 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -780,7 +778,6 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -842,7 +839,6 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -900,7 +896,6 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -962,7 +957,6 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -1019,7 +1013,6 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -1080,7 +1073,6 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -1138,7 +1130,6 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -1200,7 +1191,6 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -1262,7 +1252,6 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<!-- <include>FocusBounce</include> -->
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -1324,7 +1313,6 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<!-- <include>FocusBounce</include> -->
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -1389,7 +1377,6 @@
 							<param name="list_id" value="$PARAM[list_id]" />
 							<param name="focused" value="true" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -1514,7 +1501,6 @@
 							<param name="list_id" value="$PARAM[list_id]" />
 							<param name="focused" value="true" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -1581,7 +1567,6 @@
 							<param name="list_id" value="$PARAM[list_id]" />
 							<param name="focused" value="true" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -1648,7 +1633,6 @@
 							<param name="list_id" value="$PARAM[list_id]" />
 							<param name="focused" value="true" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -1719,7 +1703,6 @@
 							<param name="list_id" value="$PARAM[list_id]" />
 							<param name="focused" value="true" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -1865,7 +1848,6 @@
 							<param name="list_id" value="$PARAM[list_id]" />
 							<param name="focused" value="true" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -1919,7 +1901,6 @@
 							<param name="list_id" value="$PARAM[list_id]" />
 							<param name="focused" value="true" />
 						</include>
-						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
