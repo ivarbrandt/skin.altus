@@ -372,36 +372,6 @@
 			</control>
 		</definition>
 	</include>
-	
-	<include name="SpotlightInfo">
-		<!-- <param name="visible">true</param> -->
-		<definition>
-			<control type="group" id="$PARAM[list_id]669">
-				<!-- <animation effect="fade" start="100" end="45" time="300" tween="sine" easing="inout" condition="!Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(9000)">Conditional</animation> -->
-				<left>10</left>
-				<top>-297</top>
-				<height>470</height>
-				<width>1815</width>
-				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
-				<control type="group">
-					<top>-225</top>
-					<aligny>center</aligny>
-					<visible>String.IsEmpty(Skin.String(TrailerPlaying)) + Control.HasFocus($PARAM[list_id])</visible>
-					<include>SpotlightInfoPanel</include>
-					<control type="image">
-						<left>1620</left>
-						<top>430</top>
-						<width>300</width>
-						<height>140</height>
-						<aspectratio align="left" aligny="center">keep</aspectratio>
-						<texture colordiffuse="$VAR[StudioColorDiffuseVar]">$VAR[StudioLogoPathVar]</texture>
-						<visible>!String.IsEmpty(ListItem.Studio) + [String.IsEqual(Skin.String(StudioLogoSetting),3) | [String.IsEqual(Skin.String(StudioLogoSetting),1) + $EXP[isMovie]] | [String.IsEqual(Skin.String(StudioLogoSetting),2) + !$EXP[isMovie]]]</visible>
-					</control>
-					<animation effect="fade" time="300">Visible</animation>
-				</control>
-			</control>
-		</definition>
-	</include>
 
 	<include name="WidgetLeftRightArrows">
 		<param name="visible">true</param>
@@ -531,7 +501,6 @@
 		<definition>
 			<include content="BusyListWidgetSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
-				<param name="label" value="stacked spotlight"/>
 				<param name="posy" value="97"/>
 			</include>
 			<include content="CategoryLabelFlix">
@@ -707,7 +676,6 @@
 		<definition>
 			<include content="BusyListWidgetSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
-				<param name="label" value="stacked spotlight"/>
 				<param name="posy" value="97"/>
 			</include>
 			<include content="CategoryLabelFlix">
@@ -883,7 +851,6 @@
 		<definition>
 			<include content="BusyListWidgetSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
-				<param name="label" value="stacked spotlight"/>
 				<param name="posy" value="97"/>
 			</include>
 			<include content="CategoryLabelFlix">
@@ -1551,128 +1518,6 @@
 			<include content="WidgetLeftRightArrows">
 				<param name="list_id" value="$PARAM[list_id]" />
 				<param name="posy" value="217" />
-			</include>
-		</definition>
-	</include>
-
-	<include name="FeatureWidgetListLandscape">
-		<param name="onclick_condition">false</param>
-		<definition>
-			<include content="CategoryLabel">
-				<param name="label">$PARAM[widget_header]</param>
-				<param name="list_id" value="$PARAM[list_id]"/>
-				<!-- <param name="visible" value="String.IsEmpty(Window(Home).Property(FlixWidget))"/> -->
-				<!-- <param name="visible" value="!ControlGroup(2000).HasFocus | [!Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Window(Home).Property(FlixWidget))] | [String.IsEmpty(Window(Home).Property(FlixWidget)) + Skin.HasSetting(Enable.AlternateSpotlight)]"/> -->
-			</include>
-			<include content="BusyListSpinner">
-				<param name="list_id" value="$PARAM[list_id]"/>
-			</include>
-			<control type="fixedlist" id="$PARAM[list_id]">
-				<top>107</top>
-				<right>0</right>
-				<left>45</left>
-				<height>973</height>
-				<!-- <height>970</height> -->
-				<onright>$PARAM[list_id]</onright>
-				<orientation>horizontal</orientation>
-				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<onfocus>SetProperty(FeatureWidgetFocused,true,Home)</onfocus>
-				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
-				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
-				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
-				<!-- <include content="FlixAnimations_Fade">
-					<param name="list_id" value="$PARAM[list_id]"/>
-				</include> -->
-				<include content="WidgetListCommon">
-					<param name="list_id" value="$PARAM[list_id]"/>
-				</include>
-				<itemlayout width="1355" >
-					<control type="group">
-						<left>-20</left>
-						<top>70</top>
-						<include content="FeatureLandscapeLayout">
-							<param name="list_id" value="$PARAM[list_id]" />
-						</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="1355" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-						<left>-20</left>
-						<top>70</top>
-						<include content="FeatureLandscapeLayout">
-							<param name="focused" value="true" />
-							<param name="list_id" value="$PARAM[list_id]" />
-						</include>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
-				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
-			</control>
-			<include content="WidgetLeftRightArrows">
-				<param name="list_id" value="$PARAM[list_id]" />
-				<param name="posy" value="-75" />
-			</include>
-		</definition>
-	</include>
-
-	<include name="FeatureWidgetListLandscapeStacked">
-		<param name="onclick_condition">false</param>
-		<definition>
-			<include content="CategoryLabelWidget">
-				<param name="label">$PARAM[widget_header]</param>
-				<param name="list_id" value="$PARAM[list_id]"/>
-				<param name="visible" value="false"/>
-				<!-- <param name="visible" value="!ControlGroup(2000).HasFocus | [!Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Window(Home).Property(FlixWidget))] | [String.IsEmpty(Window(Home).Property(FlixWidget)) + Skin.HasSetting(Enable.AlternateSpotlight)]"/> -->
-			</include>
-			<include content="BusyListWidgetSpinner">
-				<param name="list_id" value="$PARAM[list_id]"/>
-				<param name="posy" value="97"/>
-			</include>
-			<control type="fixedlist" id="$PARAM[list_id]">
-				<top>17</top>
-				<right>0</right>
-				<left>45</left>
-				<!-- 153 difference -->
-				<height>973</height>
-				<onright>$PARAM[list_id]</onright>
-				<orientation>horizontal</orientation>
-				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
-				<include>FlixAnimations_Stacked</include>
-				<onfocus>SetProperty(FeatureWidgetFocused,true,Home)</onfocus>
-				<onfocus>SetProperty(altus_stacked_linked_list_id,$PARAM[parent_id],home)</onfocus>
-				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
-				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
-				<onfocus>ClearProperty(altus_flix_linked_list_id,home)</onfocus>
-				<include content="WidgetListCommonStacked">
-					<param name="list_id" value="$PARAM[list_id]"/>
-				</include>
-				<itemlayout width="1355" >
-					<control type="group">
-						<left>-20</left>
-						<top>70</top>
-						<include content="FeatureLandscapeLayout">
-							<param name="list_id" value="$PARAM[list_id]" />
-						</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="1355" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-						<left>-20</left>
-						<top>70</top>
-						<include content="FeatureLandscapeLayout">
-							<param name="focused" value="true" />
-							<param name="list_id" value="$PARAM[list_id]" />
-						</include>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
-				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
-			</control>
-			<include content="WidgetLeftRightArrows">
-				<param name="list_id" value="$PARAM[list_id]" />
-				<param name="posy" value="-75" />
 			</include>
 		</definition>
 	</include>
@@ -2676,7 +2521,6 @@
 		<onload condition="String.IsEmpty(Skin.String(onLeftSetting))">Skin.SetString(onLeftSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(MainBlurTexture))">Skin.SetString(MainBlurTexture,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(altus_category_widget_delay))">Skin.SetString(altus_category_widget_delay,750)</onload>
-		<onload condition="String.IsEmpty(Skin.String(altus_spotlight_delay))">Skin.SetString(altus_spotlight_delay,10)</onload>
 		<onload condition="String.IsEmpty(Skin.String(TrailerSource))">Skin.SetString(TrailerSource,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(current_search_provider))">Skin.SetString(current_search_provider,1)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDAudioButtonSetting))">Skin.SetString(OSDAudioButtonSetting,0)</onload>
@@ -2721,7 +2565,6 @@
 		<onload condition="String.IsEmpty(Skin.String(ArtworkSize501Setting))">Skin.SetString(ArtworkSize501Setting,0)</onload>
 
 		<onload condition="String.IsEmpty(Skin.String(FocusColorThemeSetting))">Skin.SetString(FocusColorThemeSetting,0)</onload>
-		<onload condition="String.IsEmpty(Skin.String(HomeItemArtworkChoice))">Skin.SetString(HomeItemArtworkChoice,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.movies))">Skin.SetString(ListArtworkChoice.movies,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.tvshows))">Skin.SetString(ListArtworkChoice.tvshows,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.seasons))">Skin.SetString(ListArtworkChoice.seasons,0)</onload>

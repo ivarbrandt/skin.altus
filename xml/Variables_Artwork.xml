@@ -14,10 +14,6 @@
 		<value condition="!String.IsEmpty(Skin.String(AltusCustomBackground))">$INFO[Skin.String(AltusCustomBackground)]</value>
 		<value condition="String.IsEmpty(Skin.String(AltusCustomBackground))">special://skin/resources/wave.jpg</value>
 	</variable>
-  <!-- <variable name="SpotlightColorDiffuse">
-		<value condition="String.IsEmpty(Window(Home).Property(FlixWidget))">FF404040</value>
-		<value>FF000000</value>
-	</variable> -->
 
 
 
@@ -208,8 +204,7 @@
 
   <variable name="FlixScapeVar">
     <!-- Home window -->
-    <value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !$EXP[isEpisode] + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
-    <value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !$EXP[isEpisode] + String.IsEqual(Skin.String(HomeItemArtworkChoice),1) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(fanart)]</value>
+    <value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !$EXP[isEpisode] + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
     <value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + $EXP[isEpisode] + !String.IsEmpty(ListItem.Art(Thumb))">$INFO[ListItem.Thumb]</value>
     <!-- Fallbacks/Universes (mixed content) -->
     <value condition="![Window.IsVisible(Home) | Window.IsVisible(1121)] + Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season) + $EXP[isMovie] + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
@@ -282,16 +277,6 @@
     <value condition="[[Container.Content(movies) + String.IsEqual(Skin.String(ListLandscape.movies),0)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListLandscape.tvshows),0)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListLandscape.seasons),0)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListLandscape.episodes),0)]]">Default</value>
     <value condition="[[Container.Content(movies) + String.IsEqual(Skin.String(ListLandscape.movies),1)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListLandscape.tvshows),1)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListLandscape.seasons),1)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListLandscape.episodes),1)]]">Fanart</value>
     <value condition="Container.Content(episodes) + String.IsEqual(Skin.String(ListLandscape.episodes),2)">Landscape</value>
-  </variable>
-
-  <variable name="HomeItemArtworkChoiceToggleVar">
-    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0)">Skin.SetString(HomeItemArtworkChoice,1)</value>
-    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeItemArtworkChoice),1)">Skin.SetString(HomeItemArtworkChoice,0)</value>
-  </variable>
-  
-  <variable name="HomeItemArtworkChoiceSettingVar">
-    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0)">Default</value>
-    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeItemArtworkChoice),1)">Fanart</value>
   </variable>
 
   <variable name="MainBlurTextureToggleVar">

@@ -2797,13 +2797,6 @@
 		</control>
 	</include>
 
-	<include name="AutoScrollSpotlightTimer">
-    <control type="button">
-			<include>HiddenObject</include>
-			<onfocus condition="Skin.HasSetting(Enable.AutoScrollSpotlight)">RunScript(script.altus.helper,mode=spotlight_timer&amp;list_id=$PARAM[list_id])</onfocus>
-    </control>
-	</include>
-
 	<include name="TestManual">
 		<control type="button">
 			<include>HiddenObject</include>

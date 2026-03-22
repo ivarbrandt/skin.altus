@@ -904,42 +904,6 @@
 				<pagecontrol>60</pagecontrol>
 				<ondown>640</ondown>
 				<visible>Container(9000).HasFocus(9)</visible>
-				<!-- SPOTLIGHT CLEARLOGO -->
-				<control type="radiobutton" id="64001">
-					<label>Enable spotlight clearlogo</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Disable.SpotlightClearlogo)</selected>
-					<onclick>Skin.ToggleSetting(Disable.SpotlightClearlogo)</onclick>
-				</control>
-				<!--AUTOSCROLL SPOTLIGHT -->
-				<control type="radiobutton" id="64002">
-					<label>Autoscroll spotlight widgets</label>
-					<include>DefaultSettingButton</include>
-					<selected>Skin.HasSetting(Enable.AutoScrollSpotlight)</selected>
-					<onclick>Skin.ToggleSetting(Enable.AutoScrollSpotlight)</onclick>
-				</control>
-				<control type="button" id="64003">
-					<label>    - Delay (seconds)</label>
-					<label2>$VAR[SkinSettingAutoScrollSpotlightDelay]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.SetNumeric(altus_spotlight_delay)</onclick>
-					<visible>Skin.HasSetting(Enable.AutoScrollSpotlight)</visible>
-				</control>
-				<!-- LANDSCAPE DISPLAY STYLE -->
-				<control type="button" id="64004">
-					<label>Feature landscape display style</label>
-					<label2>$VAR[HomeItemArtworkChoiceSettingVar]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>$VAR[HomeItemArtworkChoiceToggleVar]</onclick>
-					<onclick condition="!Skin.HasSetting(Disable.LandscapeWidgetClearlogo)">Skin.SetBool(Disable.LandscapeWidgetClearlogo)</onclick>
-				</control>
-				<control type="radiobutton" id="64005">
-					<label>    - Enable clearlogo</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Disable.LandscapeWidgetClearlogo)</selected>
-					<onclick>Skin.ToggleSetting(Disable.LandscapeWidgetClearlogo)</onclick>
-					<visible>String.IsEqual(Skin.String(HomeItemArtworkChoice),1)</visible>
-				</control>
 				<!-- STACKED WIDGET DELAY -->
 				<control type="button" id="64006">
 					<label>Set stacked load delay (milliseconds)</label>

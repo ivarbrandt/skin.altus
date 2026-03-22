@@ -10,9 +10,6 @@
 
 		<!-- WIDGET OPTIONS SECTION -->
 		<value condition="Container(9000).HasFocus(9) + !ControlGroup(10000).HasFocus">Widget related options</value>
-		<value condition="Control.HasFocus(64001)">Toggle display of clearlogo for spotlight widgets.</value>
-		<value condition="Control.HasFocus(64002)">Automatically scroll the focused spotlight widget at regular intervals.[CR][CR]Configure the scroll delay below.</value>
-		<value condition="Control.HasFocus(64003)">Set the time interval between automatic spotlight widget scrolls.</value>
 		<value condition="Control.HasFocus(64004)">Choose display style for feature landscape widgets.[CR][CR]DEFAULT = Landscape image format.[CR]FANART = Fanart image format.</value>
 		<value condition="Control.HasFocus(64005)">Show clearlogo on feature landscape widgets for:[CR][CR]Movies[CR]TV Shows[CR]Seasons</value>
 		<value condition="Control.HasFocus(64006)">Set delay before loading a stacked widget.[CR][CR]This is how long Altus will wait after focusing on a stacked category item before loading its content.[CR][CR]Example: With a 3000 setting, Altus waits 3 seconds after focus. If focus remains, the stacked widget begins loading.</value>

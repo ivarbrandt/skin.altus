@@ -374,10 +374,6 @@
 		<value condition="!String.IsEmpty(Skin.String(OSDAutoCloseTime))">$INFO[Skin.String(OSDAutoCloseTime)]</value>
 		<value condition="String.IsEmpty(Skin.String(OSDAutoCloseTime))">4</value> <!-- Default value -->
 	</variable>
-	<variable name="SkinSettingAutoScrollSpotlightDelay">
-    <value condition="!String.IsEmpty(Skin.String(altus_spotlight_delay))">$INFO[Skin.String(altus_spotlight_delay)]</value>
-    <value condition="String.IsEmpty(Skin.String(altus_spotlight_delay))">10</value> <!-- Default 750ms -->
-	</variable>
 	<variable name="SkinSettingStackedLoadDelay">
     <value condition="!String.IsEmpty(Skin.String(altus_category_widget_delay))">$INFO[Skin.String(altus_category_widget_delay)]</value>
     <value condition="String.IsEmpty(Skin.String(altus_category_widget_delay))">750</value> <!-- Default 750ms -->

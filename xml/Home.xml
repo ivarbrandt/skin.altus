@@ -33,14 +33,6 @@
 			<include>ArtworkAnimations</include>
 			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + !Window.IsVisible(movieinformation) + !String.IsEmpty(Window(Home).Property(FlixWidget))</visible>
 		</control>
-		<!-- <control type="image" id="100000">
-			<include>FullScreenFanartDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<fadetime>500</fadetime>
-			<include>ArtworkAnimations</include>
-			<texture background="true" colordiffuse="B3FFFFFF" diffuse="overlays/spotlightdiffuse.png" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[HomeFanartVar]</texture>
-			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + !Window.IsVisible(movieinformation) + !String.IsEmpty(Window(Home).Property(FlixWidget))</visible>
-		</control> -->
 		<control type="multiimage" id="100000">
 			<include>FullScreenDimensions</include>
 			<include>ArtworkAnimations</include>

@@ -612,17 +612,6 @@
 		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + !String.IsEmpty(ListItem.Property(episode_type))">$VAR[VI_Aired]$VAR[VI_Director]$VAR[VI_Writer]$VAR[VI_Runtime]$VAR[VI_Endsat][CR]$VAR[VI_EpisodeType]</value>
 	</variable>
 
-	<variable name="Spotlight_WidgetInfoPanelTop">
-		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + $EXP[isMovie]">$VAR[RI_Digital]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Rating_Other]$VAR[RI_Runtime]$VAR[RI_AltEndsat]</value>
-		<!-- SHOWS -->
-		<value condition="!ListItem.IsCollection + $EXP[isTVShow]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_TotalSeasons]$VAR[RI_Rating_Other]$VAR[RI_Widget_Status]</value>
-		<!-- SEASONS -->
-		<value condition="!ListItem.IsCollection + $EXP[isSeason]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Rating_Other]$VAR[RI_Runtime]$VAR[RI_AltEndsat]</value>
-		<!-- EPISODES -->
-		<value condition="!ListItem.IsCollection + $EXP[isEpisode]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Rating]$VAR[RI_Runtime]$VAR[RI_AltEndsat]$VAR[RI_EpisodeType]</value>
-	</variable>
-
 	<variable name="FlixWidgetStatus">
 		<!-- MOVIES -->
 		<value condition="!ListItem.IsCollection + $EXP[isMovie] + Integer.IsGreater(ListItem.Playcount,0) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)">[COLOR unfocused_text]Rewatching[/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Property(WatchedProgress)]% watched[/COLOR]</value>
