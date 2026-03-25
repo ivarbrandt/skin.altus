@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <include name="MainMenuItems">
+    <item>
+      <label>Browse...</label>
+      <onclick>ActivateWindow(Videos,plugin://plugin.video.fenlight,return)</onclick>
+      <property name="menu_id">$NUMBER[19101]</property>
+      <property name="id">movies</property>
+      <visible>!Skin.HasSetting(HomeMenuNoSection_1)</visible>
+    </item>
+    <item>
+      <label>Anime</label>
+      <onclick>ActivateWindow(Videos,plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=Universes&amp;iconImage=next_episodes,return)</onclick>
+      <property name="menu_id">$NUMBER[19201]</property>
+      <property name="id">movies</property>
+      <visible>!Skin.HasSetting(HomeMenuNoSection_13)</visible>
+    </item>
+    <item>
+      <label>TV Shows</label>
+      <onclick>ActivateWindow(Videos,plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=TV+Shows&amp;iconImage=tv,return)</onclick>
+      <property name="menu_id">$NUMBER[19301]</property>
+      <property name="id">movies</property>
+      <visible>!Skin.HasSetting(HomeMenuNoSection_2)</visible>
+    </item>
+    <item>
+      <label>All Addons</label>
+      <onclick>ActivateWindow(AddonBrowser,addons://,return)</onclick>
+      <property name="menu_id">$NUMBER[19401]</property>
+      <property name="id">movies</property>
+      <visible>!Skin.HasSetting(HomeMenuNoSection_14)</visible>
+    </item>
+  </include>
+</includes>

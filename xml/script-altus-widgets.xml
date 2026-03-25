@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <include name="AllWidgets">
+    <include content="WidgetListLandscape">
+      <param name="content_path" value=""/>
+      <param name="widget_header" value="Recently added"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19101"/>
+    </include>
+    <include content="WidgetListCategoryStacked">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=Browse+movies...&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ffolder.png"/>
+      <param name="widget_header" value="Browse movies..."/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19102"/>
+      <param name="child_id" value="191021"/>
+    </include>
+    <include content="WidgetListSmallLandscapeFlix">
+      <param name="content_path" value="$INFO[Window(Home).Property(altus.19102.path)]"/>
+      <param name="widget_header" value="$INFO[Window(Home).Property(altus.19102.label)]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="191021"/>
+      <param name="parent_id" value="19102"/>
+    </include>
+    <include content="WidgetListSmallPoster">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=trakt.list.build_trakt_list&amp;user=streamer3925&amp;slug=bubu-s-movies&amp;list_type=my_lists&amp;list_name=Bubu%27s+movies&amp;name=Bubu%27s+movies&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ftrakt.png"/>
+      <param name="widget_header" value="Bubu's movies"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19103"/>
+      <param name="sortby" value="none"/>
+    </include>
+    <include content="WidgetListLandscapeFlix">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=build_movie_list&amp;action=trakt_watchlist&amp;category_name=Movies+Watchlist&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ftrakt.png&amp;name=Watchlist"/>
+      <param name="widget_header" value="Watchlist"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19104"/>
+    </include>
+    <include content="WidgetListCategoryStacked">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=My+movies&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ffolder.png"/>
+      <param name="widget_header" value="My movies"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19201"/>
+      <param name="child_id" value="192011"/>
+    </include>
+    <include content="WidgetListSmallLandscape">
+      <param name="content_path" value="$INFO[Window(Home).Property(altus.19201.path)]"/>
+      <param name="widget_header" value="$INFO[Window(Home).Property(altus.19201.label)]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="192011"/>
+      <param name="parent_id" value="19201"/>
+    </include>
+    <include content="WidgetListSmallPoster">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=build_tvshow_list&amp;action=trakt_collection_lists&amp;new_page=recent&amp;category_name=Recently+Added+TV+Shows&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ftrakt.png&amp;name=Recently+added"/>
+      <param name="widget_header" value="Recently added"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19301"/>
+    </include>
+    <include content="WidgetListCategoryStacked">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=My+shows&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ffolder.png"/>
+      <param name="widget_header" value="My shows"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19302"/>
+      <param name="child_id" value="193021"/>
+    </include>
+    <include content="WidgetListSmallPosterStacked">
+      <param name="content_path" value="$INFO[Window(Home).Property(altus.19302.path)]"/>
+      <param name="widget_header" value="$INFO[Window(Home).Property(altus.19302.label)]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="193021"/>
+      <param name="parent_id" value="19302"/>
+    </include>
+    <include content="WidgetListSquareNoInfo">
+      <param name="content_path" value="addons://sources/video/"/>
+      <param name="widget_header" value="Video Addons"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19401"/>
+    </include>
+  </include>
+</includes>

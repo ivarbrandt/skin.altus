@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- Inline icon button for widget manager lists. Used inside focusedlayout. -->
+	<include name="WM_InlineBtn">
+		<param name="btn_color">$VAR[FocusColorTheme]</param>
+		<definition>
+			<control type="group">
+				<left>$PARAM[btn_left]</left>
+				<top>$PARAM[btn_top]</top>
+				<width>45</width>
+				<height>45</height>
+				<visible>Control.HasFocus($PARAM[list_id])</visible>
+				<!-- Icon - highlighted -->
+				<control type="image">
+					<visible>String.IsEqual(Window.Property($PARAM[btn_prop]),$PARAM[btn_id])</visible>
+					<left>7</left>
+					<top>7</top>
+					<width>31</width>
+					<height>31</height>
+					<texture colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[btn_icon]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<!-- Icon - normal -->
+				<control type="image">
+					<visible>!String.IsEqual(Window.Property($PARAM[btn_prop]),$PARAM[btn_id])</visible>
+					<left>7</left>
+					<top>7</top>
+					<width>31</width>
+					<height>31</height>
+					<texture colordiffuse="60FFFFFF">$PARAM[btn_icon]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+			</control>
+		</definition>
+	</include>
+</includes>

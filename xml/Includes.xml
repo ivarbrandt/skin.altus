@@ -16,6 +16,9 @@
 	<include file="Includes_Search.xml" />
 	<include file="Includes_Seekbar.xml" />
 	<include file="Includes_Weather.xml" />
+	<include file="Includes_WidgetManager.xml" />
+	<include file="script-altus-main_menu.xml" />
+	<include file="script-altus-widgets.xml" />
 	<include file="script-altus-main_menu_movies.xml" />
 	<include file="script-altus-main_menu_tvshows.xml" />
 	<include file="script-altus-main_menu_custom1.xml" />
