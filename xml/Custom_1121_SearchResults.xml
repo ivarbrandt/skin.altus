@@ -25,7 +25,7 @@
 					<control type="grouplist" id="27001">
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>27010</pagecontrol>
-						<include content="WidgetListSquareNoInfo">
+						<include content="WidgetListSquare">
 							<param name="content_path" value="addons://sources/video/"/>
 							<param name="widget_header" value="$LOCALIZE[1037]"/>
 							<param name="widget_target" value="videos"/>
@@ -34,7 +34,7 @@
 							<param name="list_id" value="27100"/>
 							<param name="fallback_icon" value="DefaultAddon.png"/>
 						</include>
-						<include content="WidgetListSquareNoInfo">
+						<include content="WidgetListSquare">
 							<param name="content_path" value="addons://sources/executable/"/>
 							<param name="widget_header" value="$LOCALIZE[1043]"/>
 							<param name="widget_target" value="programs"/>

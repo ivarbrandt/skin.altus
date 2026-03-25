@@ -1522,7 +1522,7 @@
 		</definition>
 	</include>
 
-	<include name="WidgetListSquare">
+	<!-- <include name="WidgetListSquare">
 		<param name="visible">true</param>
 		<param name="sub_label">$INFO[ListItem.Label]</param>
 		<param name="fallback_icon">DefaultFolder.png</param>
@@ -1581,7 +1581,7 @@
 				<include>$PARAM[content_include]</include>
 			</control>
 		</definition>
-	</include>
+	</include> -->
 
 	<!-- <include name="WidgetListSquareSmall">
 		<param name="visible">true</param>
@@ -1646,7 +1646,7 @@
 		</definition>
 	</include> -->
 
-	<include name="WidgetListSquareNoInfo">
+	<include name="WidgetListSquare">
 		<param name="visible">true</param>
 		<param name="sub_label">$INFO[ListItem.Label]</param>
 		<param name="fallback_icon">DefaultFolder.png</param>

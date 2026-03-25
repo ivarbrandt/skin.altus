@@ -461,6 +461,7 @@
 					<bottom>10</bottom>
 					<orientation>vertical</orientation>
 					<itemgap>0</itemgap>
+					<onleft>4000</onleft>
 					<scrolltime tween="cubic" easing="out">300</scrolltime>
 					<visible>Integer.IsGreater(Container(4000).NumItems,0)</visible>
 
@@ -516,8 +517,8 @@
 					<control type="button" id="5103">
 						<width>max</width>
 						<height>65</height>
-						<label>Target:</label>
-						<label2>$INFO[Container(4000).ListItem.Property(target)]</label2>
+						<label>Stacked:</label>
+						<label2>$INFO[Container(4000).ListItem.Property(is_stacked)]</label2>
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
@@ -532,8 +533,8 @@
 					<control type="button" id="5104">
 						<width>max</width>
 						<height>65</height>
-						<label>Stacked:</label>
-						<label2>$INFO[Container(4000).ListItem.Property(is_stacked)]</label2>
+						<label>Target:</label>
+						<label2>$INFO[Container(4000).ListItem.Property(target)]</label2>
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
