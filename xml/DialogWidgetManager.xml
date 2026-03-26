@@ -284,7 +284,7 @@
 					<textcolor>unfocused_text</textcolor>
 					<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 					<onleft>3000</onleft>
-					<visible>!Integer.IsGreater(Container(4000).NumItems,0)</visible>
+					<visible>!Integer.IsGreater(Container(4000).NumItems,0) + String.IsEmpty(Window.Property(weather_section))</visible>
 				</control>
 
 				<!-- Widgets list -->
@@ -467,7 +467,18 @@
 					<font>font27</font>
 					<textcolor>60FFFFFF</textcolor>
 					<aligny>center</aligny>
-					<visible>!Integer.IsGreater(Container(4000).NumItems,0)</visible>
+					<visible>!Integer.IsGreater(Container(4000).NumItems,0) + String.IsEmpty(Window.Property(weather_section))</visible>
+				</control>
+				<control type="label">
+					<left>20</left>
+					<top>65</top>
+					<right>20</right>
+					<height>40</height>
+					<label>Weather widgets are built-in</label>
+					<font>font27</font>
+					<textcolor>60FFFFFF</textcolor>
+					<aligny>center</aligny>
+					<visible>!String.IsEmpty(Window.Property(weather_section))</visible>
 				</control>
 
 				<!-- Detail fields grouplist -->

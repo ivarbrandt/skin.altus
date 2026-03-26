@@ -2,51 +2,34 @@
 <includes>
   <include name="AllWidgets">
     <include content="WidgetListCategoryStacked">
-      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=Browse+movies...&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ffolder.png"/>
-      <param name="widget_header" value="Browse movies..."/>
+      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=My+movies&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ffolder.png"/>
+      <param name="widget_header" value="My movies"/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19101"/>
       <param name="child_id" value="191011"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
     </include>
-    <include content="WidgetListSmallPosterFlixStacked">
+    <include content="WidgetListSmallPosterStacked">
       <param name="content_path" value="$INFO[Window(Home).Property(altus.19101.path)]"/>
       <param name="widget_header" value="$INFO[Window(Home).Property(altus.19101.label)]"/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="191011"/>
       <param name="parent_id" value="19101"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
     </include>
-    <include content="WidgetListLandscape">
+    <include content="WidgetListSmallLandscape">
       <param name="content_path" value="plugin://plugin.video.fenlight/?mode=build_movie_list&amp;action=trakt_collection_lists&amp;new_page=recent&amp;category_name=Recently+Added+Movies&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ftrakt.png&amp;name=Recently+added"/>
       <param name="widget_header" value="Recently added"/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19102"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
     </include>
-    <include content="WidgetListLandscapeFlix">
+    <include content="WidgetListSmallPoster">
       <param name="content_path" value="plugin://plugin.video.fenlight/?mode=build_movie_list&amp;action=trakt_watchlist&amp;category_name=Movies+Watchlist&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ftrakt.png&amp;name=Watchlist"/>
       <param name="widget_header" value="Watchlist"/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19103"/>
-    </include>
-    <include content="WidgetListCategoryStacked">
-      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=My+shows&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ffolder.png"/>
-      <param name="widget_header" value="My shows"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="19104"/>
-      <param name="child_id" value="191041"/>
-    </include>
-    <include content="WidgetListSmallPosterStacked">
-      <param name="content_path" value="$INFO[Window(Home).Property(altus.19104.path)]"/>
-      <param name="widget_header" value="$INFO[Window(Home).Property(altus.19104.label)]"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="191041"/>
-      <param name="parent_id" value="19104"/>
-    </include>
-    <include content="WidgetListSmallPoster">
-      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=trakt.list.build_trakt_list&amp;user=streamer3925&amp;slug=bubu-s-movies&amp;list_type=my_lists&amp;list_name=Bubu%27s+movies&amp;name=Bubu%27s+movies&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ftrakt.png"/>
-      <param name="widget_header" value="Bubu's movies"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="19105"/>
-      <param name="sortby" value="none"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
     </include>
     <include content="WidgetListCategoryStacked">
       <param name="content_path" value="plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=My+shows&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ffolder.png"/>
@@ -54,6 +37,7 @@
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19201"/>
       <param name="child_id" value="192011"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
     </include>
     <include content="WidgetListSmallPosterStacked">
       <param name="content_path" value="$INFO[Window(Home).Property(altus.19201.path)]"/>
@@ -61,48 +45,63 @@
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="192011"/>
       <param name="parent_id" value="19201"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
     </include>
-    <include content="WidgetListSmallPoster">
-      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=build_tvshow_list&amp;action=trakt_collection_lists&amp;new_page=recent&amp;category_name=Recently+Added+TV+Shows&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ftrakt.png&amp;name=Recently+added"/>
-      <param name="widget_header" value="Recently added"/>
+    <include content="WidgetListLandscapeFlix">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?name=Up+next&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Fnext_episodes.png&amp;mode=build_next_episode"/>
+      <param name="widget_header" value="Up next"/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19202"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
+    </include>
+    <include content="WidgetListSmallPoster">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?name=Recently+watched&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Fwatched_1.png&amp;mode=build_tvshow_list&amp;action=watched_tvshows"/>
+      <param name="widget_header" value="Recently watched"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19203"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
     </include>
     <include content="WidgetListCategoryOther">
       <param name="content_path" value="pvr://tv/"/>
       <param name="widget_header" value="TV Categories"/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19301"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19301)"/>
     </include>
     <include content="WidgetListPVR">
       <param name="content_path" value="pvr://channels/tv/*?view=lastplayed"/>
       <param name="widget_header" value="TV Channels (Last Played)"/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19302"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19301)"/>
     </include>
     <include content="WidgetListPVR">
       <param name="content_path" value="pvr://timers/tv/timers/?view=hidedisabled"/>
       <param name="widget_header" value="TV Timers"/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19303"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19301)"/>
     </include>
     <include content="WidgetListSquare">
       <param name="content_path" value="pvr://channels/tv"/>
       <param name="widget_header" value="TV Channel Groups"/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19304"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19301)"/>
     </include>
     <include content="WidgetListCategoryOther">
       <param name="content_path" value="addons://"/>
       <param name="widget_header" value="Addon Categories"/>
       <param name="widget_target" value="addonbrowser"/>
       <param name="list_id" value="19401"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19401)"/>
     </include>
     <include content="WidgetListSquare">
       <param name="content_path" value="addons://sources/video/"/>
       <param name="widget_header" value="Video Addons"/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19402"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19401)"/>
       <param name="sortby" value="lastused"/>
       <param name="sortorder" value="descending"/>
     </include>
@@ -111,6 +110,7 @@
       <param name="widget_header" value="Program Addons"/>
       <param name="widget_target" value="programs"/>
       <param name="list_id" value="19403"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19401)"/>
       <param name="sortby" value="lastused"/>
       <param name="sortorder" value="descending"/>
     </include>

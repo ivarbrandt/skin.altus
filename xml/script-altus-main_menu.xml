@@ -2,7 +2,7 @@
 <includes>
   <include name="MainMenuItems">
     <item>
-      <label>Browse...</label>
+      <label>Movies</label>
       <onclick>ActivateWindow(Videos,plugin://plugin.video.fenlight,return)</onclick>
       <property name="menu_id">$NUMBER[19101]</property>
       <property name="id">movies</property>
@@ -28,6 +28,17 @@
       <property name="menu_id">$NUMBER[19401]</property>
       <property name="id">movies</property>
       <visible>!Skin.HasSetting(HomeMenuNoSection_14)</visible>
+    </item>
+    <item>
+      <label>$LOCALIZE[8]</label>
+      <onclick condition="!String.IsEmpty(Weather.Plugin) + String.IsEmpty(Window(Home).Property(weather_cycling))">SetProperty(weather_cycling,true,home)</onclick>
+      <onclick condition="!String.IsEmpty(Weather.Plugin) + String.IsEmpty(Window(Home).Property(weather_cycling))">ReplaceWindow(Weather)</onclick>
+      <onclick condition="!String.IsEmpty(Weather.Plugin)">Notification(Weather, Cycling to next location..., 2000)</onclick>
+      <onclick condition="!String.IsEmpty(Weather.Plugin)">Weather.LocationNext</onclick>
+      <onclick condition="String.IsEmpty(Weather.Plugin)">ReplaceWindow(servicesettings,weather)</onclick>
+      <property name="menu_id">$NUMBER[15000]</property>
+      <property name="id">weather</property>
+      <visible>!Skin.HasSetting(HomeMenuNoSection_17)</visible>
     </item>
   </include>
 </includes>
