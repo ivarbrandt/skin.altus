@@ -1,5 +1,7 @@
 .DS_Store
 ._*
+xml/script-altus-main_menu.xml
+xml/script-altus-widgets.xml
 xml/script-altus-main_menu_movies.xml
 xml/script-altus-main_menu_tvshows.xml
 xml/script-altus-main_menu_custom1.xml

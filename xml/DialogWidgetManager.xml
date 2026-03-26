@@ -93,6 +93,23 @@
 					<visible>!String.IsEmpty(Window.Property(reorder_sections))</visible>
 				</control>
 
+				<!-- Add Section button (visible when list is empty) -->
+				<control type="button" id="3500">
+					<left>20</left>
+					<top>65</top>
+					<right>20</right>
+					<height>65</height>
+					<label>Add Section...</label>
+					<font>font32</font>
+					<textoffsetx>20</textoffsetx>
+					<textoffsety>4</textoffsety>
+					<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+					<texturenofocus />
+					<textcolor>unfocused_text</textcolor>
+					<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+					<visible>!Integer.IsGreater(Container(3000).NumItems,0)</visible>
+				</control>
+
 				<!-- Sections list -->
 				<control type="list" id="3000">
 					<left>20</left>
@@ -470,7 +487,7 @@
 						<width>max</width>
 						<height>65</height>
 						<label>Label:</label>
-						<label2>$INFO[Container(4000).ListItem.Property(widget_label)]</label2>
+						<label2>$VAR[WM_DetailLabel]</label2>
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
@@ -486,7 +503,7 @@
 						<width>max</width>
 						<height>65</height>
 						<label>Display Type:</label>
-						<label2>$INFO[Container(4000).ListItem.Property(display_type)]</label2>
+						<label2>$VAR[WM_DetailDisplayType]</label2>
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
@@ -502,7 +519,7 @@
 						<width>max</width>
 						<height>65</height>
 						<label>Path:</label>
-						<label2>$INFO[Container(4000).ListItem.Property(widget_path)]</label2>
+						<label2>$VAR[WM_DetailPath]</label2>
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
@@ -518,7 +535,7 @@
 						<width>max</width>
 						<height>65</height>
 						<label>Stacked:</label>
-						<label2>$INFO[Container(4000).ListItem.Property(is_stacked)]</label2>
+						<label2>$VAR[WM_DetailStacked]</label2>
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
@@ -534,7 +551,7 @@
 						<width>max</width>
 						<height>65</height>
 						<label>Target:</label>
-						<label2>$INFO[Container(4000).ListItem.Property(target)]</label2>
+						<label2>$VAR[WM_DetailTarget]</label2>
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
@@ -550,7 +567,7 @@
 						<width>max</width>
 						<height>65</height>
 						<label>Limit:</label>
-						<label2>$INFO[Container(4000).ListItem.Property(limit_num)]</label2>
+						<label2>$VAR[WM_DetailLimit]</label2>
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
@@ -566,7 +583,7 @@
 						<width>max</width>
 						<height>65</height>
 						<label>Sort By:</label>
-						<label2>$INFO[Container(4000).ListItem.Property(sortby)]</label2>
+						<label2>$VAR[WM_DetailSortBy]</label2>
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
@@ -582,7 +599,7 @@
 						<width>max</width>
 						<height>65</height>
 						<label>Sort Order:</label>
-						<label2>$INFO[Container(4000).ListItem.Property(sortorder)]</label2>
+						<label2>$VAR[WM_DetailSortOrder]</label2>
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
