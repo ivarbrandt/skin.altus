@@ -959,84 +959,6 @@
 		</definition>
 	</include>
 
-  <include name="WidgetListCategoryOtherLayout">
-		<!-- <param name="item_limit">30</param> -->
-		<param name="icon">$INFO[ListItem.Icon]</param>
-		<param name="focused">false</param>
-		<definition>
-			<control type="group">
-        <top>26</top>
-        <left>20</left>
-				<width>285</width>
-				<height>139</height>
-				<control type="image">
-					<texture colordiffuse="66000000">masks/category-other.png</texture>
-				</control>
-				<control type="image">
-					<texture colordiffuse="$VAR[FocusColorTheme]">masks/category-other.png</texture>
-					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control>
-				<control type="group">
-					<centertop>37%</centertop>
-					<centerleft>50%</centerleft>
-					<width>90</width>
-					<height>90</height>
-					<visible>!$EXP[isContent]</visible>
-					<control type="image">
-						<texture colordiffuse="$VAR[FocusedTextColorVar]" background="true">$PARAM[icon]</texture>
-						<aspectratio aligny="bottom" align="center">scale</aspectratio>
-						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
-					</control>
-					<control type="image">
-						<texture colordiffuse="unfocused_text" background="true">$PARAM[icon]</texture>
-						<aspectratio aligny="bottom" align="center">scale</aspectratio>
-						<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
-					</control>
-				</control>
-				<!-- <control type="image">
-					<centertop>50%</centertop>
-					<centerleft>50%</centerleft>
-					<texture background="true">$PARAM[icon]</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<visible>$EXP[isContent]</visible>
-				</control> -->
-				<control type="label">
-					<centerleft>50%</centerleft>
-					<!-- 145 -->
-					<top>75</top>
-					<width>280</width>
-					<height>65</height>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$VAR[AddonsTitleVar]</label>
-					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-					<font>font25</font>
-					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
-					<scrollspeed>50</scrollspeed>
-					<visible>!$EXP[isContent]</visible>
-					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
-				</control>
-				<control type="label">
-					<centerleft>50%</centerleft>
-					<!-- 145 -->
-					<top>75</top>
-					<width>280</width>
-					<height>65</height>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$VAR[AddonsTitleVar]</label>
-					<textcolor>unfocused_text</textcolor>
-					<font>font25</font>
-					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
-					<scrollspeed>50</scrollspeed>
-					<visible>!$EXP[isContent]</visible>
-					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
-				</control>
-			</control>
-		</definition>
-	</include>
-
   <include name="WidgetListCategoryStackedLayout">
 		<!-- <param name="item_limit">30</param> -->
 		<param name="icon">$INFO[ListItem.Icon]</param>
@@ -1093,8 +1015,8 @@
 		<definition>
 			<control type="group">
 				<!-- 235 -->
-				<width>242</width>
-				<height>242</height>
+				<width>249</width>
+				<height>249</height>
 				<left>20</left>
 				<control type="image">
 					<texture colordiffuse="66000000">masks/small-square.png</texture>
@@ -1121,7 +1043,7 @@
 				<control type="label">
 					<centerleft>50%</centerleft>
 					<!-- <left>10</left> -->
-					<top>229</top>
+					<top>236</top>
 					<left>10</left>
 					<right>10</right>
 					<height>75</height>
@@ -1140,7 +1062,7 @@
 					<left>10</left>
 					<right>10</right>
 					<control type="label">
-						<top>256</top>
+						<top>236</top>
 						<label>$PARAM[sub_label]</label>
 						<font>font10</font>
 						<shadowcolor>text_shadow</shadowcolor>
@@ -1177,7 +1099,7 @@
 			<control type="group">
         <top>26</top>
         <left>20</left>
-				<width>440</width>
+				<width>430</width>
 				<height>300</height>
 				<control type="image">
 					<texture colordiffuse="66000000">masks/pvr.png</texture>
@@ -1190,16 +1112,16 @@
 				<control type="image">
           <centertop>25%</centertop>
           <centerleft>50%</centerleft>
-          <width>139</width>
-          <height>100</height>
+          <width>129</width>
+          <height>93</height>
 					<texture align="center" aligny="top" fallback="DefaultTVShows.png" background="true">$PARAM[icon]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="group">
 					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 					<control type="image">
-						<right>30</right>
-						<top>30</top>
+						<right>20</right>
+						<top>20</top>
 						<width>32</width>
 						<height>32</height>
 						<texture colordiffuse="$VAR[FocusedTextColorVar]">$VAR[WallWatchedIconVar]</texture>
@@ -1207,7 +1129,7 @@
 					<control type="label">
 						<centerleft>50%</centerleft>
 						<top>120</top>
-						<width>370</width>
+						<width>360</width>
 						<height>75</height>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -1221,7 +1143,7 @@
 					<control type="label">
 						<centerleft>50%</centerleft>
 						<top>150</top>
-						<width>370</width>
+						<width>360</width>
 						<height>75</height>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -1235,7 +1157,7 @@
 					<control type="label">
 						<centerleft>-13%</centerleft>
 						<top>187</top>
-						<width>370</width>
+						<width>360</width>
 						<height>75</height>
 						<align>right</align>
 						<aligny>center</aligny>
@@ -1250,7 +1172,7 @@
 					<control type="label">
 						<centerleft>113%</centerleft>
 						<top>187</top>
-						<width>370</width>
+						<width>360</width>
 						<height>75</height>
 						<align>left</align>
 						<aligny>center</aligny>
@@ -1265,7 +1187,7 @@
 					<control type="label">
 						<centerleft>50%</centerleft>
 						<top>187</top>
-						<width>370</width>
+						<width>360</width>
 						<height>75</height>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -1280,7 +1202,7 @@
 					<control type="label">
 						<centerleft>50%</centerleft>
 						<top>224</top>
-						<width>375</width>
+						<width>365</width>
 						<height>75</height>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -1308,8 +1230,8 @@
 				<control type="group">
 					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
 					<control type="image">
-						<right>30</right>
-						<top>30</top>
+						<right>20</right>
+						<top>20</top>
 						<width>32</width>
 						<height>32</height>
 						<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[WallWatchedIconVar]</texture>
@@ -1317,7 +1239,7 @@
 					<control type="label">
 						<centerleft>50%</centerleft>
 						<top>120</top>
-						<width>370</width>
+						<width>360</width>
 						<height>75</height>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -1329,7 +1251,7 @@
 					<control type="label">
 						<centerleft>50%</centerleft>
 						<top>150</top>
-						<width>370</width>
+						<width>360</width>
 						<height>75</height>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -1341,7 +1263,7 @@
 					<control type="label">
 						<centerleft>-13%</centerleft>
 						<top>187</top>
-						<width>370</width>
+						<width>360</width>
 						<height>75</height>
 						<align>right</align>
 						<aligny>center</aligny>
@@ -1354,7 +1276,7 @@
 					<control type="label">
 						<centerleft>113%</centerleft>
 						<top>187</top>
-						<width>370</width>
+						<width>360</width>
 						<height>75</height>
 						<align>left</align>
 						<aligny>center</aligny>
@@ -1367,7 +1289,7 @@
 					<control type="label">
 						<centerleft>50%</centerleft>
 						<top>187</top>
-						<width>370</width>
+						<width>360</width>
 						<height>75</height>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -1381,7 +1303,7 @@
 					<control type="label">
 						<centerleft>50%</centerleft>
 						<top>224</top>
-						<width>375</width>
+						<width>365</width>
 						<height>75</height>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -1408,14 +1330,14 @@
           <control type="progress">
             <centerleft>50%</centerleft>
             <top>222</top>
-            <width>150</width>
+            <width>140</width>
             <height>7</height>
             <info>ListItem.PercentPlayed</info>
           </control>
           <control type="progress">
             <centerleft>50%</centerleft>
             <top>222</top>
-            <width>150</width>
+            <width>140</width>
             <height>7</height>
             <info>ListItem.Progress</info>
           </control>
@@ -1425,7 +1347,7 @@
           <control type="progress">
             <centerleft>50%</centerleft>
             <top>222</top>
-            <width>150</width>
+            <width>140</width>
             <height>7</height>
             <info>ListItem.PercentPlayed</info>
 					<midtexture colordiffuse="$VAR[FocusedTextColorVar]">colors/white.png</midtexture>
@@ -1433,7 +1355,7 @@
           <control type="progress">
             <centerleft>50%</centerleft>
             <top>222</top>
-            <width>150</width>
+            <width>140</width>
             <height>7</height>
             <info>ListItem.Progress</info>
 						<midtexture colordiffuse="$VAR[FocusedTextColorVar]">colors/white.png</midtexture>

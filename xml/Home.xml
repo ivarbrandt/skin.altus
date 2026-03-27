@@ -58,7 +58,7 @@
 					<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="300" />
 				</animation>
 				<!-- <animation effect="slide" condition="!String.IsEmpty(Window(Home).Property(FlixWidget))" time="0" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation> -->
-				<animation effect="slide" condition="![ControlGroup(2000).HasFocus + ![ControlGroup(19000).HasFocus | ControlGroup(22000).HasFocus | ControlGroup(23000).HasFocus | ControlGroup(24000).HasFocus | ControlGroup(25000).HasFocus]]" time="498" start="0,0" end="500,0" tween="cubic" easing="inout">Conditional</animation>
+				<animation effect="slide" condition="!ControlGroup(15000).HasFocus" time="500" start="0,0" end="498,0" tween="cubic" easing="inout">Conditional</animation>
 				<!-- <animation type="Conditional" condition="Control.IsVisible(20000)" reversible="false">
 					<effect type="slide" end="0,20" time="60" tween="sine" />
 					<effect type="slide" end="0,-20" time="180" tween="sine" delay="80" />
