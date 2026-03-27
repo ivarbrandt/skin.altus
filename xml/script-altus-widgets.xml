@@ -2,14 +2,14 @@
 <includes>
   <include name="AllWidgets">
     <include content="WidgetListCategoryStacked">
-      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=My+movies&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ffolder.png"/>
-      <param name="widget_header" value="My movies"/>
+      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=Browse+movies...&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ffolder.png"/>
+      <param name="widget_header" value="Browse movies..."/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19101"/>
       <param name="child_id" value="191011"/>
       <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
     </include>
-    <include content="WidgetListSmallPosterStacked">
+    <include content="WidgetListSmallLandscapeStacked">
       <param name="content_path" value="$INFO[Window(Home).Property(altus.19101.path)]"/>
       <param name="widget_header" value="$INFO[Window(Home).Property(altus.19101.label)]"/>
       <param name="widget_target" value="videos"/>
@@ -17,29 +17,95 @@
       <param name="parent_id" value="19101"/>
       <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
     </include>
-    <include content="WidgetListSmallLandscape">
-      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=build_movie_list&amp;action=trakt_collection_lists&amp;new_page=recent&amp;category_name=Recently+Added+Movies&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ftrakt.png&amp;name=Recently+added"/>
-      <param name="widget_header" value="Recently added"/>
+    <include content="WidgetListCategoryStacked">
+      <param name="content_path" value="plugin://plugin.video.pov/?mode=navigator.build_shortcut_folder_list&amp;shortcut_folder=True&amp;name=My+movies&amp;iconImage=folder.png&amp;external_list_item=True"/>
+      <param name="widget_header" value="SHORTCUT FOLDERS :  My movies"/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19102"/>
+      <param name="child_id" value="191021"/>
       <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
     </include>
-    <include content="WidgetListSmallPoster">
-      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=build_movie_list&amp;action=trakt_watchlist&amp;category_name=Movies+Watchlist&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ftrakt.png&amp;name=Watchlist"/>
-      <param name="widget_header" value="Watchlist"/>
+    <include content="WidgetListSmallPosterStacked">
+      <param name="content_path" value="$INFO[Window(Home).Property(altus.19102.path)]"/>
+      <param name="widget_header" value="$INFO[Window(Home).Property(altus.19102.label)]"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="19103"/>
+      <param name="list_id" value="191021"/>
+      <param name="parent_id" value="19102"/>
       <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
     </include>
     <include content="WidgetListCategoryStacked">
-      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=My+shows&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ffolder.png"/>
-      <param name="widget_header" value="My shows"/>
+      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=My+movies&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ffolder.png"/>
+      <param name="widget_header" value="My movies"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19103"/>
+      <param name="child_id" value="191031"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
+    </include>
+    <include content="WidgetListSmallLandscapeStacked">
+      <param name="content_path" value="$INFO[Window(Home).Property(altus.19103.path)]"/>
+      <param name="widget_header" value="$INFO[Window(Home).Property(altus.19103.label)]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="191031"/>
+      <param name="parent_id" value="19103"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
+    </include>
+    <include content="WidgetListCategoryStacked">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?name=Browse+genres...&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Fgenres.png&amp;mode=navigator.genres&amp;menu_type=movie&amp;random_support=true"/>
+      <param name="widget_header" value="Browse genres..."/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19104"/>
+      <param name="child_id" value="191041"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
+    </include>
+    <include content="WidgetListSmallLandscapeStacked">
+      <param name="content_path" value="$INFO[Window(Home).Property(altus.19104.path)]"/>
+      <param name="widget_header" value="$INFO[Window(Home).Property(altus.19104.label)]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="191041"/>
+      <param name="parent_id" value="19104"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
+    </include>
+    <include content="WidgetListCategoryStacked">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?name=Browse+providers...&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Fproviders.png&amp;mode=navigator.providers&amp;menu_type=movie&amp;random_support=true"/>
+      <param name="widget_header" value="Browse providers..."/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19105"/>
+      <param name="child_id" value="191051"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
+    </include>
+    <include content="WidgetListSmallLandscapeStacked">
+      <param name="content_path" value="$INFO[Window(Home).Property(altus.19105.path)]"/>
+      <param name="widget_header" value="$INFO[Window(Home).Property(altus.19105.label)]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="191051"/>
+      <param name="parent_id" value="19105"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
+    </include>
+    <include content="WidgetListCategoryStacked">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?name=Because+you+watched...&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Fbecause_you_watched.png&amp;mode=navigator.because_you_watched&amp;menu_type=movie"/>
+      <param name="widget_header" value="Because you watched..."/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19106"/>
+      <param name="child_id" value="191061"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
+    </include>
+    <include content="WidgetListSmallLandscapeStacked">
+      <param name="content_path" value="$INFO[Window(Home).Property(altus.19106.path)]"/>
+      <param name="widget_header" value="$INFO[Window(Home).Property(altus.19106.label)]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="191061"/>
+      <param name="parent_id" value="19106"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19101)"/>
+    </include>
+    <include content="WidgetListCategoryStacked">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=Browse+tvshows...&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ffolder.png"/>
+      <param name="widget_header" value="Browse tvshows..."/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19201"/>
       <param name="child_id" value="192011"/>
       <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
     </include>
-    <include content="WidgetListSmallPosterStacked">
+    <include content="WidgetListSmallLandscapeStacked">
       <param name="content_path" value="$INFO[Window(Home).Property(altus.19201.path)]"/>
       <param name="widget_header" value="$INFO[Window(Home).Property(altus.19201.label)]"/>
       <param name="widget_target" value="videos"/>
@@ -47,18 +113,68 @@
       <param name="parent_id" value="19201"/>
       <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
     </include>
-    <include content="WidgetListLandscapeFlix">
-      <param name="content_path" value="plugin://plugin.video.fenlight/?name=Up+next&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Fnext_episodes.png&amp;mode=build_next_episode"/>
-      <param name="widget_header" value="Up next"/>
+    <include content="WidgetListCategoryStacked">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=navigator.build_shortcut_folder_contents&amp;name=My+shows&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Ffolder.png"/>
+      <param name="widget_header" value="My shows"/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19202"/>
+      <param name="child_id" value="192021"/>
       <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
     </include>
-    <include content="WidgetListSmallPoster">
-      <param name="content_path" value="plugin://plugin.video.fenlight/?name=Recently+watched&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Fwatched_1.png&amp;mode=build_tvshow_list&amp;action=watched_tvshows"/>
-      <param name="widget_header" value="Recently watched"/>
+    <include content="WidgetListSmallLandscapeStacked">
+      <param name="content_path" value="$INFO[Window(Home).Property(altus.19202.path)]"/>
+      <param name="widget_header" value="$INFO[Window(Home).Property(altus.19202.label)]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="192021"/>
+      <param name="parent_id" value="19202"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
+    </include>
+    <include content="WidgetListCategoryStacked">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?name=Browse+genres...&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Fgenres.png&amp;mode=navigator.genres&amp;menu_type=tvshow&amp;random_support=true"/>
+      <param name="widget_header" value="Browse genres..."/>
       <param name="widget_target" value="videos"/>
       <param name="list_id" value="19203"/>
+      <param name="child_id" value="192031"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
+    </include>
+    <include content="WidgetListSmallLandscapeStacked">
+      <param name="content_path" value="$INFO[Window(Home).Property(altus.19203.path)]"/>
+      <param name="widget_header" value="$INFO[Window(Home).Property(altus.19203.label)]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="192031"/>
+      <param name="parent_id" value="19203"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
+    </include>
+    <include content="WidgetListCategoryStacked">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?name=Browse+networks...&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Fnetworks.png&amp;mode=navigator.networks&amp;menu_type=tvshow&amp;random_support=true"/>
+      <param name="widget_header" value="Browse networks..."/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19204"/>
+      <param name="child_id" value="192041"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
+    </include>
+    <include content="WidgetListSmallLandscapeStacked">
+      <param name="content_path" value="$INFO[Window(Home).Property(altus.19204.path)]"/>
+      <param name="widget_header" value="$INFO[Window(Home).Property(altus.19204.label)]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="192041"/>
+      <param name="parent_id" value="19204"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
+    </include>
+    <include content="WidgetListCategoryStacked">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?name=Because+you+watched...&amp;iconImage=https%3A%2F%2Fraw.githubusercontent.com%2FFenlightAnonyMouse%2FFenlightAnonyMouse.github.io%2Fmain%2Fpackages%2Fmedia%2Ficons%2Fbecause_you_watched.png&amp;mode=navigator.because_you_watched&amp;menu_type=tvshow"/>
+      <param name="widget_header" value="Because you watched..."/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19205"/>
+      <param name="child_id" value="192051"/>
+      <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
+    </include>
+    <include content="WidgetListSmallLandscapeStacked">
+      <param name="content_path" value="$INFO[Window(Home).Property(altus.19205.path)]"/>
+      <param name="widget_header" value="$INFO[Window(Home).Property(altus.19205.label)]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="192051"/>
+      <param name="parent_id" value="19205"/>
       <param name="section_visible" value="String.IsEqual(Container(9000).ListItem.Property(menu_id),19201)"/>
     </include>
     <include content="WidgetListCategoryOther">
