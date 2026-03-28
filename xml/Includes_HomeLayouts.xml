@@ -408,7 +408,7 @@
 					<top>11</top>
 					<width>430</width>
 					<height>645</height>
-					<texture border="17" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-19.png</texture>
+					<texture border="28" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-30.png</texture>
 					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -542,7 +542,7 @@
 					<top>11</top>
 					<width>204</width>
 					<height>306</height>
-					<texture border="13" colordiffuse="$VAR[FocusColorTheme]" infill="false" >masks/bordertexture-15.png</texture>
+					<texture border="18" colordiffuse="$VAR[FocusColorTheme]" infill="false" >masks/bordertexture-20.png</texture>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(56) | Control.IsVisible(500)]]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -705,7 +705,7 @@
 					<top>11</top>
 					<width>430</width>
 					<height>242</height>
-					<texture border="17" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-19.png</texture>
+					<texture border="22" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-24.png</texture>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501) | Control.IsVisible(5057)]]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -873,7 +873,7 @@
 					<top>11</top>
 					<width>317</width>
 					<height>178</height>
-					<texture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-15.png</texture>
+					<texture border="20" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-22.png</texture>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -1019,6 +1019,8 @@
 				<height>249</height>
 				<left>20</left>
 				<control type="image">
+					<width>249</width>
+					<height>249</height>
 					<texture colordiffuse="66000000">masks/small-square.png</texture>
 				</control>
 				<control type="image">
@@ -1026,7 +1028,6 @@
 					<centerleft>50%</centerleft>
 					<texture diffuse="masks/small-square.png" colordiffuse="artwork_dim" fallback="$PARAM[fallback_icon]" background="true">$VAR[FlixThumbVar]</texture>
 					<aspectratio>keep</aspectratio>
-					<!-- <visible>!$EXP[isContent]</visible> -->
 				</control>
 				<!-- <control type="image">
 					<centertop>50%</centertop>
@@ -1036,7 +1037,7 @@
 					<visible>$EXP[isContent]</visible>
 				</control> -->
 				<control type="image">
-					<texture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-15.png</texture>
+					<texture border="18" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-20.png</texture>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
