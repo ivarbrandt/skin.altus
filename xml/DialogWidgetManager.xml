@@ -218,12 +218,12 @@
 
 				<!-- Scrollbar -->
 				<control type="scrollbar" id="3001">
-					<left>415</left>
-					<top>55</top>
-					<width>5</width>
-					<bottom>10</bottom>
+					<left>518</left>
+					<top>0</top>
+					<width>4</width>
+					<bottom>0</bottom>
 					<orientation>vertical</orientation>
-					<texturesliderbackground colordiffuse="26FFFFFF">colors/white.png</texturesliderbackground>
+					<texturesliderbackground/>
 					<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
 					<texturesliderbarfocus colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbarfocus>
 					<showonepage>false</showonepage>
