@@ -45,9 +45,7 @@
 		<definition>
 			<control type="group" id="$PARAM[list_id]664">
 				<animation effect="fade" start="100" end="45" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus">Conditional</animation>
-				<include content="Section_Vis_FadeSlide_Right_Delayed">
-					<param name="menu_id" value="$PARAM[menu_id]"/>
-				</include>
+				<include>Section_Visible_Right_Delayed</include>
 				<!-- <include content="WidgetZoomAnimation">
 					<param name="list_id" value="$PARAM[list_id]" />
 					<param name="c1" value="57" />
@@ -2427,9 +2425,7 @@
 				<left>43</left>
 				<visible>Container($PARAM[list_id]).IsUpdating + !Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)</visible>
 				<visible>$PARAM[visible]</visible>
-				<include content="Section_Vis_FadeSlide_Right_Delayed">
-					<param name="menu_id" value="$PARAM[menu_id]"/>
-				</include>
+				<!-- <include>Section_Visible_Right_Delayed</include> -->
 				<control type="image">
 					<top>$PARAM[posy]</top>
 					<width>55</width>
@@ -2459,9 +2455,7 @@
 				<left>43</left>
 				<visible>Container($PARAM[list_id]).IsUpdating + !Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)</visible>
 				<visible>$PARAM[visible]</visible>
-				<include content="Section_Vis_FadeSlide_Right_Delayed">
-					<param name="menu_id" value="$PARAM[menu_id]"/>
-				</include>
+				<!-- <include>Section_Visible_Right_Delayed</include> -->
 				<control type="image">
 					<top>$PARAM[posy]</top>
 					<width>55</width>

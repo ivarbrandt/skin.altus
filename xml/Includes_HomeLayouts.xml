@@ -7,7 +7,7 @@
 		<param name="icon_size">19</param>
 		<param name="back_size">29</param>
 		<param name="offset">5</param>
-		<param name="animation_vis"></param>
+		<param name="animation_vis">false</param>
 		<definition>
 			<control type="group">
 				<left>$PARAM[left]</left>
@@ -38,8 +38,8 @@
 		<param name="icon_size">15</param>
 		<param name="back_size">29</param>
 		<param name="offset">7</param>
-		<param name="animation_vis"></param>
-		<param name="animation_vis_51"></param>
+		<param name="animation_vis">false</param>
+		<param name="animation_vis_51">false</param>
 		<param name="vis">true</param>
 		<definition>
 			<control type="group">
@@ -76,8 +76,6 @@
 		<param name="badge_color">$VAR[BadgeBackgroundColorVar]</param>
 		<param name="list_id"></param>
 		<param name="vis">$EXP[isEpisode]</param>
-		<param name="home_ani_vis2"></param>
-		<param name="home_ani_vis3"></param>
 		<definition>
 			<control type="group">
 				<left>$PARAM[left]</left>
@@ -236,8 +234,8 @@
 				<textoffsety>2</textoffsety>
 				<font>$PARAM[font]</font>
 				<textcolor>$VAR[BadgeColorVar]</textcolor>
-				<texturenofocus border="13" colordiffuse="$VAR[BadgeBackgroundColorVar]">masks/flixicon-filled.png</texturenofocus>
 				<texturefocus border="13" colordiffuse="$VAR[BadgeBackgroundColorVar]">masks/flixicon-filled.png</texturefocus>
+				<texturenofocus border="13" colordiffuse="$VAR[BadgeBackgroundColorVar]">masks/flixicon-filled.png</texturenofocus>
 				<label>$PARAM[label]</label>
 				<visible>$PARAM[vis]</visible>
 				<visible>$PARAM[vis2]</visible>
