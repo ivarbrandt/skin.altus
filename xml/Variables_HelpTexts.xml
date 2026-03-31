@@ -4,7 +4,7 @@
   <variable name="SkinSettingsHelpTextVar">
 		<!-- MAIN MENU ITEMS SECTION -->
 		<value condition="Control.HasFocus(624)">Open the Widget Manager to add, remove, reorder, and configure sections and widgets for the home screen.</value>
-		<value condition="Control.HasFocus(6240)">Regenerate the home screen XML from the current widget configuration.[CR][CR]Use this if the home screen looks out of sync with your config.</value>
+		<value condition="Control.HasFocus(6240)">Regenerate the home screen from the current widget configuration.[CR][CR]Use this if the home screen looks out of sync with your config.</value>
 		<value condition="Control.HasFocus(6241)">Import a widget configuration from Nimbus or FENtastic.[CR][CR]Display types are automatically mapped to their Altus equivalents.</value>
 		<value condition="Control.HasFocus(6242)">Create a new config profile starting from the default sections and widgets.[CR][CR]Your current config is automatically saved before switching.</value>
 		<value condition="Control.HasFocus(6243)">Switch to a different saved config profile.[CR][CR]Your current config is automatically saved before switching.</value>

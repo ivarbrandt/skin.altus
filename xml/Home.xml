@@ -97,21 +97,7 @@
 						</include>
 					</control>
 				</control>
-				<!-- ALL WIDGETS (single grouplist) -->
-				<control type="group" id="19000">
-					<visible>String.IsEqual(Container(9000).ListItem.Property(id),movies)</visible>
-					<include content="Visible_Right_Delayed">
-						<param name="id" value="movies"/>
-					</include>
-					<control type="grouplist" id="19001">
-						<include>WidgetGroupListCommon</include>
-						<pagecontrol>19099</pagecontrol>
-						<include>AllWidgets</include>
-					</control>
-					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
-						<param name="scrollbar_id" value="19099"/>
-					</include>
-				</control>
+				<include>HomeWidgetGroups</include>
 				<control type="group" id="15000">
 					<visible>String.IsEqual(Container(9000).ListItem.Property(id),weather)</visible>
 					<include content="Visible_Right_Delayed">
@@ -215,7 +201,9 @@
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-				<animation effect="slide" condition="ControlGroup(2000).HasFocus + ![ControlGroup(19000).HasFocus | ControlGroup(22000).HasFocus | ControlGroup(23000).HasFocus | ControlGroup(24000).HasFocus | ControlGroup(25000).HasFocus]" time="500" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation>
+				<!-- <animation effect="slide" condition="ControlGroup(2000).HasFocus + ![ControlGroup(19000).HasFocus | ControlGroup(22000).HasFocus | ControlGroup(23000).HasFocus | ControlGroup(24000).HasFocus | ControlGroup(25000).HasFocus]" time="500" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation> -->
+				<animation effect="slide" condition="ControlGroup(15000).HasFocus" time="500" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation>
+				<!-- <animation effect="slide" condition="ControlGroup(2000).HasFocus + !Control.HasFocus(9000) + !ControlGroup(15000).HasFocus" time="500" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation> -->
 				<include>VerticalInfoPanel</include>
 				<control type="group">
 					<!-- <visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus + !Control.HasFocus(20000) + !Control.HasFocus(20001)</visible> -->
@@ -232,7 +220,6 @@
 						<onfocus>ClearProperty(LastWidgetID,home)</onfocus> -->
 						<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
 						<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
-						<onfocus>ClearProperty(altus_saved_list_id,Home)</onfocus>
 						<onfocus>ClearProperty(altus_stacked_linked_list_id,Home)</onfocus>
 						<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
 						<onback>700</onback>

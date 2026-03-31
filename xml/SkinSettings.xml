@@ -36,37 +36,37 @@
 					<onclick>RunScript(script.altus.helper,mode=open_widget_manager)</onclick>
 				</control>
 				<control type="button" id="6240">
-					<label>Rebuild Menus &amp; Widgets</label>
+					<label>    - Rebuild</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.altus.helper,mode=generate_xml)</onclick>
 				</control>
 				<control type="button" id="6241">
-					<label>Import from Other Skin</label>
+					<label>    - Import</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.altus.helper,mode=import_widget_config)</onclick>
 				</control>
 				<control type="button" id="6242">
-					<label>New Config Profile</label>
+					<label>    - New</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.altus.helper,mode=new_widget_config)</onclick>
 				</control>
 				<control type="button" id="6243">
-					<label>Switch Config Profile</label>
+					<label>    - Switch</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.altus.helper,mode=load_widget_config)</onclick>
 				</control>
 				<control type="button" id="6244">
-					<label>Rename Config Profile</label>
+					<label>    - Rename</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.altus.helper,mode=rename_widget_config)</onclick>
 				</control>
 				<control type="button" id="6245">
-					<label>Delete Config Profile</label>
+					<label>    - Delete</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.altus.helper,mode=delete_widget_config)</onclick>
 				</control>
 				<control type="button" id="6246">
-					<label>Reset to Defaults</label>
+					<label>    - Reset</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.altus.helper,mode=load_default_config)</onclick>
 				</control>
@@ -1090,7 +1090,7 @@
 			<top>105</top>
 			<right>60</right>
 			<height>940</height>
-			<font>font27</font>
+			<font>font27_plot</font>
 			<align>left</align>
 			<aligny>center</aligny>
 			<textcolor>unfocused_text</textcolor>

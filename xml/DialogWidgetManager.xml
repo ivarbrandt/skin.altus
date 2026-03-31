@@ -26,10 +26,10 @@
 
 		<!-- Main dialog container -->
 		<control type="group">
-			<left>70</left>
-			<top>70</top>
-			<right>70</right>
-			<bottom>70</bottom>
+			<left>77</left>
+			<top>77</top>
+			<right>77</right>
+			<bottom>77</bottom>
 
 			<!-- Background -->
 			<control type="image">

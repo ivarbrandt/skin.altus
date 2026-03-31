@@ -19,6 +19,7 @@
 	<include file="Includes_WidgetManager.xml" />
 	<include file="script-altus-main_menu.xml" />
 	<include file="script-altus-widgets.xml" />
+	<include file="script-altus-home_groups.xml" />
 	<include file="View_50_Includes.xml" />
 	<include file="View_50_List.xml" />
 	<include file="View_51_PosterFlow.xml" />
