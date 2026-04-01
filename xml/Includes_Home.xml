@@ -2375,11 +2375,7 @@
 	</include>
 
 	<include name="AltusSkinStringsInitialization">
-		<onload condition="!Skin.HasSetting(firsttimerun)">ActivateWindow(1112)</onload>
-		<onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.altus.helper,mode=check_for_update&amp;skin_id=skin.altus)</onload>
-		<onload>RunScript(script.altus.helper,mode=check_for_profile_change&amp;skin_id=skin.altus)</onload>
-		<onload condition="String.IsEmpty(Window(Home).Property(altus.starting_widgets)) | !Skin.HasSetting(Disable.ResetStacked)">RunScript(script.altus.helper,mode=starting_widgets)</onload>
-		<onload condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onload>
+		<onload>ActivateWindow(1112)</onload>
 		<onload condition="String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,20)</onload>	
 		<onload condition="String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,1.0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(waitInterval))">Skin.SetString(waitInterval,1)</onload>	
@@ -2424,12 +2420,10 @@
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting.MovieTV))">Skin.SetString(OnRightSetting.MovieTV,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting.Other))">Skin.SetString(OnRightSetting.Other,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting))">Skin.SetString(OnRightSetting,0)</onload>
-
 		<onload condition="String.IsEmpty(Skin.String(ArtworkSize54Setting))">Skin.SetString(ArtworkSize54Setting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ArtworkSize55Setting))">Skin.SetString(ArtworkSize55Setting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ArtworkSize500Setting))">Skin.SetString(ArtworkSize500Setting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ArtworkSize501Setting))">Skin.SetString(ArtworkSize501Setting,0)</onload>
-
 		<onload condition="String.IsEmpty(Skin.String(FocusColorThemeSetting))">Skin.SetString(FocusColorThemeSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.movies))">Skin.SetString(ListArtworkChoice.movies,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.tvshows))">Skin.SetString(ListArtworkChoice.tvshows,0)</onload>
@@ -2444,7 +2438,6 @@
 		<onload condition="String.IsEmpty(Skin.String(ListLandscape.tvshows))">Skin.SetString(ListLandscape.tvshows,1)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListLandscape.seasons))">Skin.SetString(ListLandscape.seasons,1)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListLandscape.episodes))">Skin.SetString(ListLandscape.episodes,0)</onload>
-		<onload condition="!String.IsEmpty(Skin.String(mdblist_api_key)) + String.IsEmpty(Skin.String(valid_api_key))">RunScript(script.altus.helper, mode=check_api_key_on_load)</onload>
 	</include>
 
 </includes>
