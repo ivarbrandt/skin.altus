@@ -43,7 +43,7 @@
 				<top>$PARAM[btn_top]</top>
 				<width>45</width>
 				<height>45</height>
-				<visible>Control.HasFocus($PARAM[list_id])</visible>
+				<visible>Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window.Property(edit_menu_open))</visible>
 				<!-- Icon - highlighted -->
 				<control type="image">
 					<visible>String.IsEqual(Window.Property($PARAM[btn_prop]),$PARAM[btn_id])</visible>

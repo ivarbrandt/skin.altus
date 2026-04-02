@@ -223,6 +223,7 @@
 						<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
 						<onfocus>ClearProperty(altus_stacked_linked_list_id,Home)</onfocus>
 						<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
+						<onleft>SetFocus($INFO[Container(9000).ListItem.Property(submenu_id)])</onleft>
 						<onback>700</onback>
 						<onup>700</onup>
 						<ondown>9000</ondown>
@@ -243,6 +244,14 @@
 								<visible>System.HasMediaDVD</visible>
 							</item>
 						</content>
+					</control>
+					<!-- Section submenus (positioned right of main menu) -->
+					<control type="group">
+						<left>478</left>
+						<top>180</top>
+						<width>300</width>
+						<height>832</height>
+						<include>HomeSubmenus</include>
 					</control>
 					<control type="group">
 						<left>73</left>
@@ -299,11 +308,11 @@
 								<param name="visible" value="Player.HasMedia" />
 							</include>
 							<!-- TEMP: Widget Manager test button -->
-							<!-- <include content="IconButton">
+							<include content="IconButton">
 								<param name="control_id" value="806" />
 								<param name="onclick" value="RunScript(script.altus.helper,mode=open_widget_manager)" />
 								<param name="icon" value="icons/submenu/settings.png" />
-							</include> -->
+							</include>
 						</control>
 					</control>
 				</control>

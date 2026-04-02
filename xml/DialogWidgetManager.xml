@@ -72,7 +72,7 @@
 					<texture colordiffuse="4D000000">colors/dark.png</texture>
 				</control>
 
-				<!-- Section label -->
+				<!-- Section label (normal mode) -->
 				<control type="label">
 					<left>20</left>
 					<top>10</top>
@@ -80,6 +80,18 @@
 					<label>Sections</label>
 					<font>font27_title</font>
 					<textcolor>$VAR[FocusColorTheme]</textcolor>
+					<visible>String.IsEmpty(Window.Property(submenu_mode))</visible>
+				</control>
+				<!-- Section label (submenu mode) -->
+				<control type="label">
+					<left>20</left>
+					<top>10</top>
+					<right>20</right>
+					<height>40</height>
+					<label>$INFO[Window.Property(submenu_header)]</label>
+					<font>font27_title</font>
+					<textcolor>$VAR[FocusColorTheme]</textcolor>
+					<visible>!String.IsEmpty(Window.Property(submenu_mode))</visible>
 				</control>
 
 				<!-- Reorder indicator icon -->
@@ -93,13 +105,13 @@
 					<visible>!String.IsEmpty(Window.Property(reorder_sections))</visible>
 				</control>
 
-				<!-- Add Section button (visible when list is empty) -->
+				<!-- Add Section button (visible when list is empty, normal mode) -->
 				<control type="button" id="3500">
 					<left>20</left>
 					<top>65</top>
 					<right>20</right>
 					<height>65</height>
-					<label>Add Section...</label>
+					<label>$INFO[Window.Property(add_section_label)]</label>
 					<font>font32</font>
 					<textoffsetx>20</textoffsetx>
 					<textoffsety>4</textoffsety>
@@ -121,6 +133,17 @@
 
 					<!-- Non-focused item: compact -->
 					<itemlayout width="480" height="65">
+						<!-- Icon -->
+						<control type="image">
+							<left>14</left>
+							<top>17</top>
+							<width>30</width>
+							<height>30</height>
+							<texture colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
+						</control>
+						<!-- Label (no icon) -->
 						<control type="label">
 							<left>20</left>
 							<top>0</top>
@@ -130,6 +153,19 @@
 							<textcolor>unfocused_text</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<aligny>center</aligny>
+							<visible>String.IsEmpty(ListItem.Property(icon))</visible>
+						</control>
+						<!-- Label (with icon) -->
+						<control type="label">
+							<left>50</left>
+							<top>0</top>
+							<right>10</right>
+							<height>65</height>
+							<font>font32</font>
+							<textcolor>unfocused_text</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<aligny>center</aligny>
+							<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 						</control>
 					</itemlayout>
 
@@ -145,9 +181,28 @@
 							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(3000)">Conditional</animation>
 						</control>
 
-						<!-- Label - unfocused -->
+						<!-- Icon -->
+						<control type="image">
+							<left>14</left>
+							<top>17</top>
+							<width>30</width>
+							<height>30</height>
+							<texture colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>!String.IsEmpty(ListItem.Property(icon)) + !Control.HasFocus(3000)</visible>
+						</control>
+						<control type="image">
+							<left>14</left>
+							<top>17</top>
+							<width>30</width>
+							<height>30</height>
+							<texture colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Property(icon)]</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(3000)</visible>
+						</control>
+						<!-- Label - unfocused (no icon) -->
 						<control type="label">
-							<visible>!Control.HasFocus(3000)</visible>
+							<visible>!Control.HasFocus(3000) + String.IsEmpty(ListItem.Property(icon))</visible>
 							<left>20</left>
 							<top>0</top>
 							<right>10</right>
@@ -157,12 +212,38 @@
 							<label>$INFO[ListItem.Label]</label>
 							<aligny>center</aligny>
 						</control>
-						<!-- Label - focused -->
+						<!-- Label - unfocused (with icon) -->
 						<control type="label">
-							<visible>Control.HasFocus(3000)</visible>
+							<visible>!Control.HasFocus(3000) + !String.IsEmpty(ListItem.Property(icon))</visible>
+							<left>50</left>
+							<top>0</top>
+							<right>10</right>
+							<height>65</height>
+							<font>font32</font>
+							<textcolor>unfocused_text</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<aligny>center</aligny>
+						</control>
+						<!-- Label - focused (no icon) -->
+						<control type="label">
+							<visible>Control.HasFocus(3000) + String.IsEmpty(ListItem.Property(icon))</visible>
 							<left>20</left>
 							<top>0</top>
-							<right>255</right>
+							<right>205</right>
+							<height>65</height>
+							<font>font32</font>
+							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+							<label>[B]$INFO[ListItem.Label][/B]</label>
+							<aligny>center</aligny>
+							<scroll>true</scroll>
+							<scrollspeed>75</scrollspeed>
+						</control>
+						<!-- Label - focused (with icon) -->
+						<control type="label">
+							<visible>Control.HasFocus(3000) + !String.IsEmpty(ListItem.Property(icon))</visible>
+							<left>50</left>
+							<top>0</top>
+							<right>205</right>
 							<height>65</height>
 							<font>font32</font>
 							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
@@ -176,15 +257,7 @@
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="add" />
 							<param name="btn_icon" value="buttons/widget_manager/addlarge.png" />
-							<param name="btn_left" value="232" />
-							<param name="btn_top" value="10" />
-							<param name="list_id" value="3000" />
-							<param name="btn_prop" value="section_active_btn" />
-						</include>
-						<include content="WM_InlineBtn">
-							<param name="btn_id" value="rename" />
-							<param name="btn_icon" value="buttons/widget_manager/rename.png" />
-							<param name="btn_left" value="279" />
+							<param name="btn_left" value="280" />
 							<param name="btn_top" value="10" />
 							<param name="list_id" value="3000" />
 							<param name="btn_prop" value="section_active_btn" />
@@ -192,7 +265,7 @@
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="edit" />
 							<param name="btn_icon" value="buttons/widget_manager/edit.png" />
-							<param name="btn_left" value="326" />
+							<param name="btn_left" value="327" />
 							<param name="btn_top" value="10" />
 							<param name="list_id" value="3000" />
 							<param name="btn_prop" value="section_active_btn" />
@@ -200,7 +273,7 @@
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="reorder" />
 							<param name="btn_icon" value="buttons/widget_manager/reorder.png" />
-							<param name="btn_left" value="373" />
+							<param name="btn_left" value="374" />
 							<param name="btn_top" value="10" />
 							<param name="list_id" value="3000" />
 							<param name="btn_prop" value="section_active_btn" />
@@ -208,11 +281,12 @@
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="delete" />
 							<param name="btn_icon" value="icons/submenu/trash.png" />
-							<param name="btn_left" value="420" />
+							<param name="btn_left" value="421" />
 							<param name="btn_top" value="10" />
 							<param name="list_id" value="3000" />
 							<param name="btn_prop" value="section_active_btn" />
 						</include>
+
 					</focusedlayout>
 				</control>
 

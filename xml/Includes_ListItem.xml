@@ -110,7 +110,27 @@
           <texture colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
           <animation effect="fade" start="100" end="40" time="40" condition="!Control.HasFocus(56)">Conditional</animation>
         </control> -->
+        <!-- Section icon -->
+        <control type="image">
+          <left>8</left>
+          <top>0</top>
+          <bottom>0</bottom>
+          <width>28</width>
+          <texture colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
+          <aspectratio>keep</aspectratio>
+          <visible>!String.IsEmpty(ListItem.Property(icon)) + [!Control.HasFocus($PARAM[id]) | !$PARAM[focused]]</visible>
+        </control>
+        <control type="image">
+          <left>8</left>
+          <top>0</top>
+          <bottom>0</bottom>
+          <width>28</width>
+          <texture colordiffuse="$PARAM[focused_text]">$INFO[ListItem.Property(icon)]</texture>
+          <aspectratio>keep</aspectratio>
+          <visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
+        </control>
         <control type="group">
+          <animation effect="slide" start="0,0" end="35,0" time="0" condition="!String.IsEmpty(ListItem.Property(icon))">Conditional</animation>
           <control type="label">
             <left>$PARAM[left_right_text]</left>
             <right>$PARAM[left_right_text]</right>
