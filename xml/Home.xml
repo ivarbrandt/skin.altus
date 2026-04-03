@@ -232,8 +232,6 @@
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
 						<include content="List">
 							<param name="id" value="9000" />
-							<!-- <param name="img_texture" value="masks/mainmenu_text.png" /> -->
-							<!-- <param name="focused_text" value="$VAR[FocusColorTheme]" /> -->
 						</include>
 						<content>
 							<!-- Dynamic sections from widget manager -->
@@ -243,6 +241,7 @@
 								<onclick>PlayDisc</onclick>
 								<property name="menu_id">$NUMBER[21000]</property>
 								<property name="id">disc</property>
+								<property name="icon">icons/sidemenu/disc.png</property>
 								<visible>System.HasMediaDVD</visible>
 							</item>
 						</content>
@@ -296,7 +295,7 @@
 							<include content="IconButton">
 								<param name="control_id" value="803" />
 								<param name="onclick" value="RunScript(script.altus.helper,mode=open_widget_manager)" />
-								<param name="icon" value="buttons/widget_manager/edit2.png" />
+								<param name="icon" value="icons/submenu/edit.png" />
 								<param name="visible" value="Skin.HasSetting(Enable.WMButton)" />
 							</include>
 							<include content="IconButton">

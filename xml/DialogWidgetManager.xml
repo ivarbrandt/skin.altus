@@ -115,7 +115,7 @@
 					<font>font32</font>
 					<textoffsetx>20</textoffsetx>
 					<textoffsety>4</textoffsety>
-					<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+					<texturefocus colordiffuse="$VAR[FocusColorTheme]">lists/wm-sections-fo.png</texturefocus>
 					<texturenofocus />
 					<textcolor>unfocused_text</textcolor>
 					<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
@@ -135,7 +135,7 @@
 					<itemlayout width="480" height="65">
 						<!-- Icon -->
 						<control type="image">
-							<left>19</left>
+							<left>25</left>
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
@@ -177,21 +177,21 @@
 							<top>0</top>
 							<right>0</right>
 							<height>65</height>
-							<texture colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texture>
+							<texture colordiffuse="$VAR[FocusColorTheme]">lists/wm-sections-fo.png</texture>
 							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(3000)">Conditional</animation>
 						</control>
-						<control type="image">
+						<!-- <control type="image">
 							<height>40</height>
 							<width>40</width>
 							<top>12</top>
 							<left>14</left>
 							<texture colordiffuse="4D000000">lists/mainmenu-img.png</texture>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(3000)</visible>
-						</control>
+						</control> -->
 
 						<!-- Icon -->
 						<control type="image">
-							<left>19</left>
+							<left>25</left>
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
@@ -200,11 +200,11 @@
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + !Control.HasFocus(3000)</visible>
 						</control>
 						<control type="image">
-							<left>19</left>
+							<left>25</left>
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
-							<texture diffuse="lists/mainmenu-img.png">$INFO[ListItem.Property(icon)]</texture>
+							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Property(icon)]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(3000)</visible>
 						</control>
@@ -288,7 +288,7 @@
 						</include>
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="delete" />
-							<param name="btn_icon" value="icons/submenu/trash.png" />
+							<param name="btn_icon" value="buttons/widget_manager/trash.png" />
 							<param name="btn_left" value="421" />
 							<param name="btn_top" value="10" />
 							<param name="list_id" value="3000" />
@@ -361,7 +361,7 @@
 					<font>font32</font>
 					<textoffsetx>20</textoffsetx>
 					<textoffsety>4</textoffsety>
-					<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+					<texturefocus colordiffuse="$VAR[FocusColorTheme]">lists/wm-sections-fo.png</texturefocus>
 					<texturenofocus />
 					<textcolor>unfocused_text</textcolor>
 					<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
@@ -488,7 +488,7 @@
 						</include>
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="delete" />
-							<param name="btn_icon" value="icons/submenu/trash.png" />
+							<param name="btn_icon" value="buttons/widget_manager/trash.png" />
 							<param name="btn_left" value="509" />
 							<param name="btn_top" value="23" />
 							<param name="list_id" value="4000" />

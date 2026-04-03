@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog">
-	<defaultcontrol always="true">3000</defaultcontrol>
+	<defaultcontrol always="true">3001</defaultcontrol>
 	<depth>DepthOSD</depth>
 	<include>Animation_DialogPopupOpenClose</include>
 	<controls>
@@ -28,7 +28,7 @@
 		<control type="group">
 			<centerleft>50%</centerleft>
 			<centertop>50%</centertop>
-			<width>590</width>
+			<width>945</width>
 			<height>680</height>
 
 			<!-- Background -->
@@ -54,15 +54,68 @@
 				<textcolor>unfocused_text</textcolor>
 			</control>
 
-			<!-- Icon grid panel -->
-			<control type="panel" id="3000">
+			<!-- Folder list (left side) -->
+			<control type="list" id="3001">
 				<left>20</left>
 				<top>80</top>
-				<width>550</width>
+				<width>230</width>
+				<bottom>20</bottom>
+				<onup>3001</onup>
+				<ondown>3001</ondown>
+				<onleft>3001</onleft>
+				<onright>3000</onright>
+				<scrolltime tween="cubic" easing="out">300</scrolltime>
+				<itemlayout width="230" height="59">
+					<control type="label">
+						<left>15</left>
+						<top>0</top>
+						<right>10</right>
+						<height>59</height>
+						<font>font27</font>
+						<textcolor>unfocused_text</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<aligny>center</aligny>
+					</control>
+				</itemlayout>
+				<focusedlayout width="230" height="59">
+					<control type="image">
+						<left>0</left>
+						<top>5</top>
+						<right>0</right>
+						<bottom>5</bottom>
+						<texture colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texture>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>0</top>
+						<right>10</right>
+						<height>59</height>
+						<font>font27</font>
+						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<aligny>center</aligny>
+					</control>
+				</focusedlayout>
+			</control>
+
+			<!-- Separator -->
+			<control type="image">
+				<left>260</left>
+				<top>85</top>
+				<width>1</width>
+				<bottom>25</bottom>
+				<texture colordiffuse="26FFFFFF">colors/white.png</texture>
+			</control>
+
+			<!-- Icon grid panel -->
+			<control type="panel" id="3000">
+				<left>270</left>
+				<top>80</top>
+				<width>740</width>
 				<bottom>20</bottom>
 				<onup>3000</onup>
 				<ondown>3000</ondown>
-				<onleft>3000</onleft>
+				<onleft>3001</onleft>
 				<onright>3000</onright>
 				<orientation>vertical</orientation>
 				<itemlayout height="110" width="110">
@@ -87,16 +140,6 @@
 							<height>50</height>
 							<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
 							<aspectratio>keep</aspectratio>
-							<visible>!String.IsEmpty(ListItem.Property(monochrome))</visible>
-						</control>
-						<control type="image">
-							<left>25</left>
-							<top>25</top>
-							<width>50</width>
-							<height>50</height>
-							<texture diffuse="lists/mainmenu-img.png">$INFO[ListItem.Icon]</texture>
-							<aspectratio>keep</aspectratio>
-							<visible>String.IsEmpty(ListItem.Property(monochrome))</visible>
 						</control>
 					</control>
 				</itemlayout>
@@ -111,7 +154,7 @@
 							<top>0</top>
 							<width>100</width>
 							<height>100</height>
-							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
+							<texture colordiffuse="$VAR[FocusColorTheme]">lists/iconpicker-bg.png</texture>
 							<aspectratio>stretch</aspectratio>
 						</control>
 						<control type="image">
@@ -121,16 +164,6 @@
 							<height>50</height>
 							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Icon]</texture>
 							<aspectratio>keep</aspectratio>
-							<visible>!String.IsEmpty(ListItem.Property(monochrome))</visible>
-						</control>
-						<control type="image">
-							<left>25</left>
-							<top>25</top>
-							<width>50</width>
-							<height>50</height>
-							<texture>$INFO[ListItem.Icon]</texture>
-							<aspectratio>keep</aspectratio>
-							<visible>String.IsEmpty(ListItem.Property(monochrome))</visible>
 						</control>
 					</control>
 				</focusedlayout>

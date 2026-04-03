@@ -99,7 +99,7 @@
 					</control>
 					<control type="list" id="9000">
 						<visible>!String.IsEqual(Window(home).Property(altus.search.history.count),0)</visible>
-						<left>90</left>
+						<left>70</left>
 						<top>180</top>
 						<width>378</width>
 						<height>832</height>
@@ -113,8 +113,6 @@
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
 						<include content="List">
 							<param name="id" value="9000" />
-							<param name="img_texture" value="masks/mainmenu_text.png" />
-							<param name="focused_text" value="$VAR[FocusColorTheme]" />
 						</include>
 						<content>
 							<!-- SEARCH HISTORY -->
@@ -122,7 +120,7 @@
 						</content>
 					</control>
 					<control type="group">
-						<left>73</left>
+						<left>53</left>
 						<top>70</top>
 						<width>415</width>
 						<height>140</height>

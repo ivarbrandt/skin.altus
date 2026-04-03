@@ -15,7 +15,7 @@
 			<control type="group">
 				<!-- Icon -->
 				<control type="image">
-					<left>19</left>
+					<left>25</left>
 					<top>19</top>
 					<width>47</width>
 					<height>47</height>
@@ -59,19 +59,9 @@
 					<visible>Control.HasFocus($PARAM[list_id])</visible>
 					<include>Animation_FocusTextureFade</include>
 				</control>
-				<!-- Icon background -->
-				<control type="image">
-					<height>61</height>
-					<width>61</width>
-					<top>12</top>
-					<left>12</left>
-					<texture colordiffuse="4D000000">lists/mainmenu-img.png</texture>
-					<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus($PARAM[list_id])</visible>
-					<include>Animation_FocusTextureFade</include>
-				</control>
 				<!-- Icon - unfocused -->
 				<control type="image">
-					<left>19</left>
+					<left>25</left>
 					<top>19</top>
 					<width>47</width>
 					<height>47</height>
@@ -81,11 +71,11 @@
 				</control>
 				<!-- Icon - focused -->
 				<control type="image">
-					<left>19</left>
+					<left>25</left>
 					<top>19</top>
 					<width>47</width>
 					<height>47</height>
-					<texture diffuse="lists/mainmenu-img.png">$INFO[ListItem.Property(icon)]</texture>
+					<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Property(icon)]</texture>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus($PARAM[list_id])</visible>
 				</control>
