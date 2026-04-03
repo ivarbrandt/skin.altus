@@ -984,11 +984,12 @@
 		<value condition="Control.HasFocus(801) + Skin.HasSetting(OneClickClose)">Exit Kodi</value>
 		<value condition="Control.HasFocus(801) + !Skin.HasSetting(OneClickClose)">Open shutdownmenu</value>
 		<value condition="Control.HasFocus(802)">Open settings</value>
-		<value condition="Control.HasFocus(803) + String.IsEqual(Skin.String(SearchSetting),0)">Open search window</value>
-		<value condition="Control.HasFocus(803) + String.IsEqual(Skin.String(SearchSetting),1)">Open search dialog</value>
-		<value condition="Control.HasFocus(804) + Integer.IsEqual(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available update</value>
-		<value condition="Control.HasFocus(804) + Integer.IsGreater(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available updates</value>
-		<value condition="Control.HasFocus(805)">Toggle fullscreen</value>
+		<value condition="Control.HasFocus(803)">Open widget manager</value>
+		<value condition="Control.HasFocus(804) + String.IsEqual(Skin.String(SearchSetting),0)">Open search window</value>
+		<value condition="Control.HasFocus(804) + String.IsEqual(Skin.String(SearchSetting),1)">Open search dialog</value>
+		<value condition="Control.HasFocus(805) + Integer.IsEqual(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available update</value>
+		<value condition="Control.HasFocus(806) + Integer.IsGreater(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available updates</value>
+		<value condition="Control.HasFocus(807)">Toggle fullscreen</value>
 	</variable>
 
 	<!-- ADDON LAUNCHER SUBMENU BUTTON LABELS -->

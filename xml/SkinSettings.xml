@@ -768,6 +768,13 @@
 				<pagecontrol>60</pagecontrol>
 				<ondown>640</ondown>
 				<visible>Container(9000).HasFocus(9)</visible>
+				<!-- WIDGET MANAGER BUTTON -->
+				<control type="radiobutton" id="64005">
+					<label>Show widget manager button on home</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(Enable.WMButton)</selected>
+					<onclick>Skin.ToggleSetting(Enable.WMButton)</onclick>
+				</control>
 				<!-- STACKED WIDGET DELAY -->
 				<control type="button" id="64006">
 					<label>Set stacked load delay (milliseconds)</label>

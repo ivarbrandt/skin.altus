@@ -135,11 +135,11 @@
 					<itemlayout width="480" height="65">
 						<!-- Icon -->
 						<control type="image">
-							<left>14</left>
+							<left>19</left>
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
-							<texture colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
+							<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 						</control>
@@ -157,7 +157,7 @@
 						</control>
 						<!-- Label (with icon) -->
 						<control type="label">
-							<left>50</left>
+							<left>68</left>
 							<top>0</top>
 							<right>10</right>
 							<height>65</height>
@@ -180,23 +180,31 @@
 							<texture colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texture>
 							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(3000)">Conditional</animation>
 						</control>
+						<control type="image">
+							<height>40</height>
+							<width>40</width>
+							<top>12</top>
+							<left>14</left>
+							<texture colordiffuse="4D000000">lists/mainmenu-img.png</texture>
+							<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(3000)</visible>
+						</control>
 
 						<!-- Icon -->
 						<control type="image">
-							<left>14</left>
+							<left>19</left>
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
-							<texture colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
+							<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + !Control.HasFocus(3000)</visible>
 						</control>
 						<control type="image">
-							<left>14</left>
+							<left>19</left>
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
-							<texture colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Property(icon)]</texture>
+							<texture diffuse="lists/mainmenu-img.png">$INFO[ListItem.Property(icon)]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(3000)</visible>
 						</control>
@@ -215,7 +223,7 @@
 						<!-- Label - unfocused (with icon) -->
 						<control type="label">
 							<visible>!Control.HasFocus(3000) + !String.IsEmpty(ListItem.Property(icon))</visible>
-							<left>50</left>
+							<left>68</left>
 							<top>0</top>
 							<right>10</right>
 							<height>65</height>
@@ -233,7 +241,7 @@
 							<height>65</height>
 							<font>font32</font>
 							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-							<label>[B]$INFO[ListItem.Label][/B]</label>
+							<label>$INFO[ListItem.Label]</label>
 							<aligny>center</aligny>
 							<scroll>true</scroll>
 							<scrollspeed>75</scrollspeed>
@@ -241,13 +249,13 @@
 						<!-- Label - focused (with icon) -->
 						<control type="label">
 							<visible>Control.HasFocus(3000) + !String.IsEmpty(ListItem.Property(icon))</visible>
-							<left>50</left>
+							<left>68</left>
 							<top>0</top>
 							<right>205</right>
 							<height>65</height>
 							<font>font32</font>
 							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-							<label>[B]$INFO[ListItem.Label][/B]</label>
+							<label>$INFO[ListItem.Label]</label>
 							<aligny>center</aligny>
 							<scroll>true</scroll>
 							<scrollspeed>75</scrollspeed>
@@ -428,7 +436,7 @@
 							<height>34</height>
 							<font>font32</font>
 							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-							<label>[B]$INFO[ListItem.Label][/B]</label>
+							<label>$INFO[ListItem.Label]</label>
 							<aligny>top</aligny>
 							<scroll>true</scroll>
 							<scrollspeed>75</scrollspeed>

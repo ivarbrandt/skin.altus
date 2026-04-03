@@ -19,7 +19,7 @@
 		<!-- WIDGET OPTIONS SECTION -->
 		<value condition="Container(9000).HasFocus(9) + !ControlGroup(10000).HasFocus">Widget related options</value>
 		<value condition="Control.HasFocus(64004)">Choose display style for feature landscape widgets.[CR][CR]DEFAULT = Landscape image format.[CR]FANART = Fanart image format.</value>
-		<value condition="Control.HasFocus(64005)">Show clearlogo on feature landscape widgets for:[CR][CR]Movies[CR]TV Shows[CR]Seasons</value>
+		<value condition="Control.HasFocus(64005)">Display the widget manager button above the main menu.[CR][CR]Keep this on while customizing your home screen, then turn it off once you're satisfied with your layout.</value>
 		<value condition="Control.HasFocus(64006)">Set delay before loading a stacked widget.[CR][CR]This is how long Altus will wait after focusing on a stacked category item before loading its content.[CR][CR]Example: With a 3000 setting, Altus waits 3 seconds after focus. If focus remains, the stacked widget begins loading.</value>
 		<value condition="Control.HasFocus(64007)">Show a countdown timer for stacked widget loading.[CR][CR]The timer displays in 0.25 second increments within the parent stacked category widget label. When the timer reaches 0, the stacked widget begins loading.</value>
 		<value condition="Control.HasFocus(64008)">Toggle whether parent stacked widgets reset when returning to the home screen.[CR][CR]When enabled, all parent stacked widgets will reset to their first item upon returning home.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] This setting also triggers automatic content loading for child stacked widgets.</value>

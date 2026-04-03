@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+	<defaultcontrol always="true">3000</defaultcontrol>
+	<depth>DepthOSD</depth>
+	<include>Animation_DialogPopupOpenClose</include>
+	<controls>
+		<!-- Backdrop darken + close on click -->
+		<control type="image">
+			<left>-2000</left>
+			<top>-2000</top>
+			<width>6000</width>
+			<height>6000</height>
+			<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+			<texture colordiffuse="A6FFFFFF">colors/black.png</texture>
+		</control>
+		<control type="button">
+			<left>-2000</left>
+			<top>-2000</top>
+			<width>6000</width>
+			<height>6000</height>
+			<texturefocus />
+			<texturenofocus />
+			<onclick>Action(close)</onclick>
+		</control>
+
+		<!-- Main dialog container -->
+		<control type="group">
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>590</width>
+			<height>680</height>
+
+			<!-- Background -->
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<right>0</right>
+				<bottom>0</bottom>
+				<texture colordiffuse="$VAR[DialogBackgroundDiffuse]">$VAR[DialogBackgroundTexture]</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+
+			<!-- Header label -->
+			<control type="label" id="1">
+				<left>30</left>
+				<right>30</right>
+				<top>17</top>
+				<height>50</height>
+				<label>Choose icon</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font36_title</font>
+				<textcolor>unfocused_text</textcolor>
+			</control>
+
+			<!-- Icon grid panel -->
+			<control type="panel" id="3000">
+				<left>20</left>
+				<top>80</top>
+				<width>550</width>
+				<bottom>20</bottom>
+				<onup>3000</onup>
+				<ondown>3000</ondown>
+				<onleft>3000</onleft>
+				<onright>3000</onright>
+				<orientation>vertical</orientation>
+				<itemlayout height="110" width="110">
+					<control type="group">
+						<left>5</left>
+						<top>5</top>
+						<width>100</width>
+						<height>100</height>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>100</width>
+							<height>100</height>
+							<texture diffuse="lists/mainmenu-img.png">colors/white.png</texture>
+							<colordiffuse>1A000000</colordiffuse>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<left>25</left>
+							<top>25</top>
+							<width>50</width>
+							<height>50</height>
+							<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>!String.IsEmpty(ListItem.Property(monochrome))</visible>
+						</control>
+						<control type="image">
+							<left>25</left>
+							<top>25</top>
+							<width>50</width>
+							<height>50</height>
+							<texture diffuse="lists/mainmenu-img.png">$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>String.IsEmpty(ListItem.Property(monochrome))</visible>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="110" width="110">
+					<control type="group">
+						<left>5</left>
+						<top>5</top>
+						<width>100</width>
+						<height>100</height>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>100</width>
+							<height>100</height>
+							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<left>25</left>
+							<top>25</top>
+							<width>50</width>
+							<height>50</height>
+							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>!String.IsEmpty(ListItem.Property(monochrome))</visible>
+						</control>
+						<control type="image">
+							<left>25</left>
+							<top>25</top>
+							<width>50</width>
+							<height>50</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>String.IsEmpty(ListItem.Property(monochrome))</visible>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+
+			<!-- Selected icon name -->
+			<control type="label">
+				<right>30</right>
+				<bottom>20</bottom>
+				<right>30</right>
+				<height>30</height>
+				<font>font12</font>
+				<align>right</align>
+				<textcolor>grey</textcolor>
+				<label>$INFO[Container(3000).ListItem.Label]</label>
+			</control>
+		</control>
+	</controls>
+</window>

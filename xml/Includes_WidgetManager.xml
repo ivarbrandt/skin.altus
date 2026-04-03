@@ -34,6 +34,11 @@
 		<value>$INFO[Container(4000).ListItem.Property(sortorder)]</value>
 	</variable>
 
+	<variable name="WM_UnfocusedBtnClr">
+		<value condition="String.IsEqual(Window(home).Property(listitem_textcolor),FFFFFFFF)">60FFFFFF</value>
+		<value>40000000</value>
+	</variable>
+
 	<!-- Inline icon button for widget manager lists. Used inside focusedlayout. -->
 	<include name="WM_InlineBtn">
 		<param name="btn_color">$VAR[FocusColorTheme]</param>
@@ -61,7 +66,7 @@
 					<top>7</top>
 					<width>31</width>
 					<height>31</height>
-					<texture colordiffuse="60FFFFFF">$PARAM[btn_icon]</texture>
+					<texture colordiffuse="$VAR[WM_UnfocusedBtnClr]">$PARAM[btn_icon]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 			</control>
