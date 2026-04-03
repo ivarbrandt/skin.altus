@@ -3,6 +3,14 @@
 	
   <variable name="SkinSettingsHelpTextVar">
 		<!-- MAIN MENU ITEMS SECTION -->
+		<value condition="Control.HasFocus(624)">Open the Widget Manager to add, remove, reorder, and configure sections and widgets for the home screen.</value>
+		<value condition="Control.HasFocus(6240)">Regenerate the home screen from the current widget configuration.[CR][CR]Use this if the home screen looks out of sync with your config.</value>
+		<value condition="Control.HasFocus(6241)">Import a widget configuration from Nimbus or FENtastic.[CR][CR]Display types are automatically mapped to their Altus equivalents.</value>
+		<value condition="Control.HasFocus(6242)">Create a new config profile starting from the default sections and widgets.[CR][CR]Your current config is automatically saved before switching.</value>
+		<value condition="Control.HasFocus(6243)">Switch to a different saved config profile.[CR][CR]Your current config is automatically saved before switching.</value>
+		<value condition="Control.HasFocus(6246)">Reset the home screen to the default sections and widgets.[CR][CR]This clears the active profile and reverts to a fresh default setup.</value>
+		<value condition="Control.HasFocus(6244)">Rename the currently active config profile.</value>
+		<value condition="Control.HasFocus(6245)">Delete a saved config profile.[CR][CR]The active profile cannot be deleted. Switch to another profile first.</value>
 		<value condition="Container(9000).HasFocus(1)">$LOCALIZE[31130]</value>
 
 		<!-- GENERAL CONFIGURATION SECTION -->
@@ -11,7 +19,7 @@
 		<!-- WIDGET OPTIONS SECTION -->
 		<value condition="Container(9000).HasFocus(9) + !ControlGroup(10000).HasFocus">Widget related options</value>
 		<value condition="Control.HasFocus(64004)">Choose display style for feature landscape widgets.[CR][CR]DEFAULT = Landscape image format.[CR]FANART = Fanart image format.</value>
-		<value condition="Control.HasFocus(64005)">Show clearlogo on feature landscape widgets for:[CR][CR]Movies[CR]TV Shows[CR]Seasons</value>
+		<value condition="Control.HasFocus(64005)">Display the widget manager button above the main menu.[CR][CR]Keep this on while customizing your home screen, then turn it off once you're satisfied with your layout.</value>
 		<value condition="Control.HasFocus(64006)">Set delay before loading a stacked widget.[CR][CR]This is how long Altus will wait after focusing on a stacked category item before loading its content.[CR][CR]Example: With a 3000 setting, Altus waits 3 seconds after focus. If focus remains, the stacked widget begins loading.</value>
 		<value condition="Control.HasFocus(64007)">Show a countdown timer for stacked widget loading.[CR][CR]The timer displays in 0.25 second increments within the parent stacked category widget label. When the timer reaches 0, the stacked widget begins loading.</value>
 		<value condition="Control.HasFocus(64008)">Toggle whether parent stacked widgets reset when returning to the home screen.[CR][CR]When enabled, all parent stacked widgets will reset to their first item upon returning home.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] This setting also triggers automatic content loading for child stacked widgets.</value>

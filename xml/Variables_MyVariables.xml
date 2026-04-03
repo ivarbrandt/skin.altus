@@ -448,20 +448,8 @@
 		<value>dim</value>
 	</variable>
 
-	<variable name="EditMainMenusVar">
-    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),movies)">RunScript(script.altus.helper,mode=manage_main_menu_path&amp;cpath_setting=movie.main_menu)</value>
-    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),tvshows)">RunScript(script.altus.helper,mode=manage_main_menu_path&amp;cpath_setting=tvshow.main_menu)</value>
-    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom1)">RunScript(script.altus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom1.main_menu)</value>
-    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom2)">RunScript(script.altus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom2.main_menu)</value>
-    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom3)">RunScript(script.altus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom3.main_menu)</value>
-	</variable>
-
-	<variable name="EditWidgetsVar">
-    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),movies)">RunScript(script.altus.helper,mode=manage_widgets&amp;cpath_setting=movie.widget)</value>
-    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),tvshows)">RunScript(script.altus.helper,mode=manage_widgets&amp;cpath_setting=tvshow.widget)</value>
-    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom1)">RunScript(script.altus.helper,mode=manage_widgets&amp;cpath_setting=custom1.widget)</value>
-    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom2)">RunScript(script.altus.helper,mode=manage_widgets&amp;cpath_setting=custom2.widget)</value>
-    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom3)">RunScript(script.altus.helper,mode=manage_widgets&amp;cpath_setting=custom3.widget)</value>
+	<variable name="OpenWidgetManagerVar">
+    <value>RunScript(script.altus.helper,mode=open_widget_manager)</value>
 	</variable>
 
 	<variable name="WidgetClearlogoSettingVar">
@@ -996,11 +984,12 @@
 		<value condition="Control.HasFocus(801) + Skin.HasSetting(OneClickClose)">Exit Kodi</value>
 		<value condition="Control.HasFocus(801) + !Skin.HasSetting(OneClickClose)">Open shutdownmenu</value>
 		<value condition="Control.HasFocus(802)">Open settings</value>
-		<value condition="Control.HasFocus(803) + String.IsEqual(Skin.String(SearchSetting),0)">Open search window</value>
-		<value condition="Control.HasFocus(803) + String.IsEqual(Skin.String(SearchSetting),1)">Open search dialog</value>
-		<value condition="Control.HasFocus(804) + Integer.IsEqual(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available update</value>
-		<value condition="Control.HasFocus(804) + Integer.IsGreater(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available updates</value>
-		<value condition="Control.HasFocus(805)">Toggle fullscreen</value>
+		<value condition="Control.HasFocus(803)">Open widget manager</value>
+		<value condition="Control.HasFocus(804) + String.IsEqual(Skin.String(SearchSetting),0)">Open search window</value>
+		<value condition="Control.HasFocus(804) + String.IsEqual(Skin.String(SearchSetting),1)">Open search dialog</value>
+		<value condition="Control.HasFocus(805) + Integer.IsEqual(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available update</value>
+		<value condition="Control.HasFocus(806) + Integer.IsGreater(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available updates</value>
+		<value condition="Control.HasFocus(807)">Toggle fullscreen</value>
 	</variable>
 
 	<!-- ADDON LAUNCHER SUBMENU BUTTON LABELS -->
@@ -1084,6 +1073,11 @@
     <value condition="String.IsEqual(Skin.String(BackgroundSetting),1) + String.IsEmpty(Skin.String(valid_api_key)) + !String.IsEmpty(Skin.String(mdblist_api_key))">[COLOR red]INVALID API KEY[/COLOR]</value>
     <value condition="String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEmpty(Skin.String(valid_api_key)) + !String.IsEmpty(Skin.String(mdblist_api_key))">INVALID API KEY</value>
     <value condition="String.IsEmpty(Skin.String(mdblist_api_key))">Enter key</value>
+	</variable>
+
+	<variable name="ActiveWidgetConfigVar">
+		<value condition="!String.IsEmpty(Skin.String(altus_active_widget_config))">Active config: [B]$INFO[Skin.String(altus_active_widget_config)][/B]</value>
+		<value>Active config: [B]NONE[/B]</value>
 	</variable>
 
 </includes>

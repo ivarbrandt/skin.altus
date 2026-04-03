@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- Detail panel variables: frozen during widget reorder, live otherwise -->
+	<variable name="WM_DetailLabel">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_widget_label)]</value>
+		<value>$INFO[Container(4000).ListItem.Property(widget_label)]</value>
+	</variable>
+	<variable name="WM_DetailDisplayType">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_display_type)]</value>
+		<value>$INFO[Container(4000).ListItem.Property(display_type)]</value>
+	</variable>
+	<variable name="WM_DetailPath">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_widget_path)]</value>
+		<value>$INFO[Container(4000).ListItem.Property(widget_path)]</value>
+	</variable>
+	<variable name="WM_DetailStacked">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_is_stacked)]</value>
+		<value>$INFO[Container(4000).ListItem.Property(is_stacked)]</value>
+	</variable>
+	<variable name="WM_DetailTarget">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_target)]</value>
+		<value>$INFO[Container(4000).ListItem.Property(target)]</value>
+	</variable>
+	<variable name="WM_DetailLimit">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_limit_num)]</value>
+		<value>$INFO[Container(4000).ListItem.Property(limit_num)]</value>
+	</variable>
+	<variable name="WM_DetailSortBy">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_sortby)]</value>
+		<value>$INFO[Container(4000).ListItem.Property(sortby)]</value>
+	</variable>
+	<variable name="WM_DetailSortOrder">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_sortorder)]</value>
+		<value>$INFO[Container(4000).ListItem.Property(sortorder)]</value>
+	</variable>
+
+	<variable name="WM_UnfocusedBtnClr">
+		<value condition="String.IsEqual(Window(home).Property(listitem_textcolor),FFFFFFFF)">60FFFFFF</value>
+		<value>40000000</value>
+	</variable>
+
+	<!-- Inline icon button for widget manager lists. Used inside focusedlayout. -->
+	<include name="WM_InlineBtn">
+		<param name="btn_color">$VAR[FocusColorTheme]</param>
+		<definition>
+			<control type="group">
+				<left>$PARAM[btn_left]</left>
+				<top>$PARAM[btn_top]</top>
+				<width>45</width>
+				<height>45</height>
+				<visible>Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window.Property(edit_menu_open))</visible>
+				<!-- Icon - highlighted -->
+				<control type="image">
+					<visible>String.IsEqual(Window.Property($PARAM[btn_prop]),$PARAM[btn_id])</visible>
+					<left>7</left>
+					<top>7</top>
+					<width>31</width>
+					<height>31</height>
+					<texture colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[btn_icon]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<!-- Icon - normal -->
+				<control type="image">
+					<visible>!String.IsEqual(Window.Property($PARAM[btn_prop]),$PARAM[btn_id])</visible>
+					<left>7</left>
+					<top>7</top>
+					<width>31</width>
+					<height>31</height>
+					<texture colordiffuse="$VAR[WM_UnfocusedBtnClr]">$PARAM[btn_icon]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+			</control>
+		</definition>
+	</include>
+</includes>

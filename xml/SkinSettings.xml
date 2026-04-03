@@ -30,181 +30,45 @@
 				<ondown>610</ondown>
 				<visible>Container(9000).HasFocus(1)</visible>
 				<control type="button" id="624">
-					<label>Remake menus and widgets</label>
+					<label>Widget Manager</label>
+					<label2>$VAR[ActiveWidgetConfigVar]</label2>
 					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.altus.helper,mode=remake_all_cpaths)</onclick>
+					<onclick>RunScript(script.altus.helper,mode=open_widget_manager)</onclick>
 				</control>
-				<!-- MOVIES -->
-				<control type="radiobutton" id="6240">
-					<label>$INFO[Skin.String(MenuMovieLabel)]</label>
+				<control type="button" id="6240">
+					<label>    - Rebuild</label>
 					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoMoviesButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoMoviesButton)</onclick>
+					<onclick>RunScript(script.altus.helper,mode=generate_xml)</onclick>
 				</control>
 				<control type="button" id="6241">
-					<label>   - Set main menu path</label>
+					<label>    - Import</label>
 					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.altus.helper,mode=manage_main_menu_path&amp;cpath_setting=movie.main_menu)</onclick>
-					<visible>!Skin.HasSetting(HomeMenuNoMoviesButton)</visible>
+					<onclick>RunScript(script.altus.helper,mode=import_widget_config)</onclick>
 				</control>
 				<control type="button" id="6242">
-					<label>   - Set widgets</label>
+					<label>    - New</label>
 					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.altus.helper,mode=manage_widgets&amp;cpath_setting=movie.widget)</onclick>
-					<visible>!Skin.HasSetting(HomeMenuNoMoviesButton)</visible>
+					<onclick>RunScript(script.altus.helper,mode=new_widget_config)</onclick>
 				</control>
-				<!-- TV SHOWS -->
-				<control type="radiobutton" id="625">
-					<label>$INFO[Skin.String(MenuTVShowLabel)]</label>
+				<control type="button" id="6243">
+					<label>    - Switch</label>
 					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoTVShowsButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoTVShowsButton)</onclick>
+					<onclick>RunScript(script.altus.helper,mode=load_widget_config)</onclick>
 				</control>
-				<control type="button" id="6250">
-					<label>   - Set main menu path</label>
+				<control type="button" id="6244">
+					<label>    - Rename</label>
 					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.altus.helper,mode=manage_main_menu_path&amp;cpath_setting=tvshow.main_menu)</onclick>
-					<visible>!Skin.HasSetting(HomeMenuNoTVShowsButton)</visible>
+					<onclick>RunScript(script.altus.helper,mode=rename_widget_config)</onclick>
 				</control>
-				<control type="button" id="6251">
-					<label>   - Set widgets</label>
+				<control type="button" id="6245">
+					<label>    - Delete</label>
 					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.altus.helper,mode=manage_widgets&amp;cpath_setting=tvshow.widget)</onclick>
-					<visible>!Skin.HasSetting(HomeMenuNoTVShowsButton)</visible>
+					<onclick>RunScript(script.altus.helper,mode=delete_widget_config)</onclick>
 				</control>
-				<!-- CUSTOM 1 -->
-				<control type="radiobutton" id="626">
-					<label>$INFO[Skin.String(MenuCustom1Label)]</label>
+				<control type="button" id="6246">
+					<label>    - Reset</label>
 					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoCustom1Button)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoCustom1Button)</onclick>
-				</control>
-				<control type="button" id="6260">
-					<label>   - Set main menu path</label>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.altus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom1.main_menu)</onclick>
-					<visible>!Skin.HasSetting(HomeMenuNoCustom1Button)</visible>
-				</control>
-				<control type="button" id="6261">
-					<label>   - Set widgets</label>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.altus.helper,mode=manage_widgets&amp;cpath_setting=custom1.widget)</onclick>
-					<visible>!Skin.HasSetting(HomeMenuNoCustom1Button)</visible>
-				</control>
-				<!-- CUSTOM 2 -->
-				<control type="radiobutton" id="627">
-					<label>$INFO[Skin.String(MenuCustom2Label)]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoCustom2Button)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoCustom2Button)</onclick>
-				</control>
-				<control type="button" id="6270">
-					<label>   - Set main menu path</label>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.altus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom2.main_menu)</onclick>
-					<visible>!Skin.HasSetting(HomeMenuNoCustom2Button)</visible>
-				</control>
-				<control type="button" id="6271">
-					<label>   - Set widgets</label>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.altus.helper,mode=manage_widgets&amp;cpath_setting=custom2.widget)</onclick>
-					<visible>!Skin.HasSetting(HomeMenuNoCustom2Button)</visible>
-				</control>
-				<!-- CUSTOM 3 -->
-				<control type="radiobutton" id="628">
-					<label>$INFO[Skin.String(MenuCustom3Label)]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoCustom3Button)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoCustom3Button)</onclick>
-				</control>
-				<control type="button" id="6280">
-					<label>   - Set main menu path</label>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.altus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom3.main_menu)</onclick>
-					<visible>!Skin.HasSetting(HomeMenuNoCustom3Button)</visible>
-				</control>
-				<control type="button" id="6281">
-					<label>   - Set widgets</label>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.altus.helper,mode=manage_widgets&amp;cpath_setting=custom3.widget)</onclick>
-					<visible>!Skin.HasSetting(HomeMenuNoCustom3Button)</visible>
-				</control>
-				<!-- MUSIC -->
-				<control type="radiobutton" id="629">
-					<label>$LOCALIZE[31008]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(home_no_categories_widget)</selected>
-					<onclick>Skin.ToggleSetting(home_no_categories_widget)</onclick>
-				</control>
-				<control type="radiobutton" id="6290">
-					<label>$LOCALIZE[2]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoMusicButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoMusicButton)</onclick>
-				</control>
-				<!-- MUSIC VIDEOS -->
-				<control type="radiobutton" id="6291">
-					<label>$LOCALIZE[20389]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoMusicVideoButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoMusicVideoButton)</onclick>
-				</control>
-				<!-- PVR -->
-				<control type="radiobutton" id="6292">
-					<label>$LOCALIZE[19020]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoTVButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoTVButton)</onclick>
-				</control>
-				<!-- radio -->
-				<control type="radiobutton" id="6293">
-					<label>$LOCALIZE[19021]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoRadioButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoRadioButton)</onclick>
-				</control>
-				<!-- addons -->
-				<control type="radiobutton" id="6294">
-					<label>$LOCALIZE[24001]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoProgramsButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoProgramsButton)</onclick>
-				</control>
-				<!-- pictures -->
-				<control type="radiobutton" id="6295">
-					<label>$LOCALIZE[1]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoPicturesButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoPicturesButton)</onclick>
-				</control>
-				<!-- videos -->
-				<control type="radiobutton" id="6296">
-					<label>$LOCALIZE[3]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoVideosButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoVideosButton)</onclick>
-				</control>
-				<!-- games -->
-				<control type="radiobutton" id="6297">
-					<label>$LOCALIZE[15016]</label>
-					<visible>System.GetBool(gamesgeneral.enable)</visible>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoGamesButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoGamesButton)</onclick>
-				</control>
-				<!-- favorites -->
-				<control type="radiobutton" id="6298">
-					<label>$LOCALIZE[10134]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoFavButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoFavButton)</onclick>
-				</control>
-				<!-- weather -->
-				<control type="radiobutton" id="6299">
-					<label>$LOCALIZE[8]</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(HomeMenuNoWeatherButton)</selected>
-					<onclick>Skin.ToggleSetting(HomeMenuNoWeatherButton)</onclick>
+					<onclick>RunScript(script.altus.helper,mode=load_default_config)</onclick>
 				</control>
 			</control>
 
@@ -904,6 +768,13 @@
 				<pagecontrol>60</pagecontrol>
 				<ondown>640</ondown>
 				<visible>Container(9000).HasFocus(9)</visible>
+				<!-- WIDGET MANAGER BUTTON -->
+				<control type="radiobutton" id="64005">
+					<label>Show widget manager button on home</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(Enable.WMButton)</selected>
+					<onclick>Skin.ToggleSetting(Enable.WMButton)</onclick>
+				</control>
 				<!-- STACKED WIDGET DELAY -->
 				<control type="button" id="64006">
 					<label>Set stacked load delay (milliseconds)</label>
@@ -1226,7 +1097,7 @@
 			<top>105</top>
 			<right>60</right>
 			<height>940</height>
-			<font>font27</font>
+			<font>font27_plot</font>
 			<align>left</align>
 			<aligny>center</aligny>
 			<textcolor>unfocused_text</textcolor>
