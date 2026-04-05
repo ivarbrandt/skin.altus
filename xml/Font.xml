@@ -299,6 +299,19 @@
 			<style>bold</style>
 		</font>
 		<font>
+			<name>font40_settings</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>36</size>
+			<style>bold</style>
+			<linespacing>1.1</linespacing>
+		</font>
+		<font>
+			<name>font40_title_uppercase</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>36</size>
+			<style>bold uppercase</style>
+		</font>
+		<font>
 			<name>font45_title</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>43</size>

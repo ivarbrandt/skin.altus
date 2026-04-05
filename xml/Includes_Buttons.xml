@@ -37,7 +37,7 @@
 		<param name="height">70</param>
 		<param name="right">0</param>
 		<param name="textoffsetx">40</param>
-		<param name="texture">colors/grey.png</param>
+		<param name="texture">lists/defaultsetting-fo.png</param>
 		<definition>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
 			<height>$PARAM[height]</height>
@@ -71,21 +71,21 @@
 		</definition>
 	</include>
 	<include name="DefaultSystemSettingsButton">
-		<param name="height">70</param>
+		<param name="height">85</param>
 		<param name="right">25</param>
-		<param name="textoffsetx">40</param>
+		<param name="textoffsetx">50</param>
 		<definition>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
 			<height>$PARAM[height]</height>
 			<right>$PARAM[right]</right>
 			<aligny>center</aligny>
-			<align>center</align>
+			<align>left</align>
 			<textcolor>unfocused_text</textcolor>
 			<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 			<font>font37</font>
 			<invalidcolor>invalid</invalidcolor>
 			<selectedcolor>selected</selectedcolor>
-			<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+			<texturefocus colordiffuse="$VAR[FocusColorTheme]">lists/mainmenu-fo.png</texturefocus>
 			<texturenofocus />
 		</definition>
 	</include>
@@ -218,7 +218,8 @@
 				<font></font>
 				<label>$PARAM[label]</label>
 				<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>
-				<texturenofocus/>
+				<texturenofocus colordiffuse="33000000">buttons/roundbutton-fo.png</texturenofocus>
+				<!-- <texturenofocus/> -->
 				<radioposx>30</radioposx>
 				<radioposy>0</radioposy>
 				<radiowidth>40</radiowidth>

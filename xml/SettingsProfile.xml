@@ -6,22 +6,24 @@
 		<include>DefaultBackground</include>
 		<control type="group" id="9100">
 			<include>OpenClose_Right</include>
-			<left>472</left>
-			<control type="image">
+			<left>470</left>
+			<!-- <control type="image">
+				<left>20</left>
 				<top>130</top>
-				<right>0</right>
+				<right>490</right>
 				<height>3</height>
 				<texture colordiffuse="$VAR[FocusColorTheme]" border="3">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="image">
+				<left>20</left>
 				<bottom>134</bottom>
-				<right>0</right>
+				<right>490</right>
 				<height>3</height>
 				<texture colordiffuse="$VAR[FocusColorTheme]" border="3">dialogs/separator-grey.png</texture>
-			</control>
+			</control> -->
 			<control type="panel" id="2">
-				<top>148</top>
-				<left>30</left>
+				<top>128</top>
+				<left>55</left>
 				<visible>Container(9000).Hasfocus(2)</visible>
 				<right>0</right>
 				<bottom>137</bottom>
@@ -30,12 +32,12 @@
 				<onup>2</onup>
 				<ondown>2</ondown>
 				<scrolltime>200</scrolltime>
-				<itemlayout height="390" width="354">
+				<itemlayout height="390" width="355">
 					<control type="image">
 						<top>5</top>
 						<width>320</width>
-						<height>380</height>
-						<texture colordiffuse="dialog_bg">colors/white.png</texture>
+						<height>390</height>
+						<texture colordiffuse="66000000">masks/profile.png</texture>
 						<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 						<bordersize>20</bordersize>
 					</control>
@@ -82,21 +84,21 @@
 						<visible>!String.Contains(Listitem.Label,$LOCALIZE[20058])</visible>
 					</control>
 				</itemlayout>
-				<focusedlayout height="390" width="354">
+				<focusedlayout height="390" width="355">
 					<control type="group">
 						<control type="image">
 							<top>5</top>
 							<width>320</width>
-							<height>380</height>
-							<texture colordiffuse="dialog_bg">colors/white.png</texture>
+							<height>390</height>
+							<texture colordiffuse="66000000">masks/profile.png</texture>
 							<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
 							<top>5</top>
 							<width>320</width>
-							<height>380</height>
-							<texture colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
+							<height>390</height>
+							<texture colordiffuse="$VAR[FocusColorTheme]">masks/profile.png</texture>
 							<bordersize>20</bordersize>
 							<include>Animation_FocusTextureFade</include>
 						</control>
@@ -148,9 +150,10 @@
 			</control>
 			<control type="grouplist" id="9001">
 				<visible>Container(9000).Hasfocus(1)</visible>
-				<right>0</right>
+				<left>20</left>
+				<right>490</right>
 				<height>735</height>
-				<top>163</top>
+				<top>133</top>
 				<onleft>9000</onleft>
 				<onright>9000</onright>
 				<onup>9001</onup>
@@ -170,50 +173,44 @@
 		<control type="group">
 			<depth>DepthContentPanel</depth>
 			<include>OpenClose_Left</include>
-			<include content="MenuContentPanel">
-				<!-- <param name="top" value="130" /> -->
-				<param name="width" value="470" />
-				<param name="dividerleft" value="470" />
-				<!-- <param name="color" value="4D000000" /> -->
-			</include>
 			<control type="list" id="9000">
-				<left>0</left>
+				<left>40</left>
 				<top>130</top>
-				<width>470</width>
+				<width>410</width>
 				<height>567</height>
 				<onleft>9100</onleft>
 				<onright>9100</onright>
 				<onup>9000</onup>
 				<ondown>9000</ondown>
 				<scrolltime>300</scrolltime>
-				<itemlayout height="85" width="470">
+				<itemlayout height="85" width="410">
 					<control type="label">
-						<left>30</left>
-						<right>30</right>
-						<bottom>0</bottom>
+						<textoffsetx>50</textoffsetx>
+						<width>410</width>
+						<height>85</height>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>unfocused_text</textcolor>
 						<font>font37</font>
 						<aligny>center</aligny>
-						<align>center</align>
+						<align>left</align>
 					</control>
 				</itemlayout>
-				<focusedlayout height="85" width="470">
+				<focusedlayout height="85" width="410">
 					<control type="image">
 						<right>0</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">lists/mainmenu-fo.png</texture>
 						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 					<control type="label">
-						<left>30</left>
-						<right>30</right>
-						<bottom>0</bottom>
+						<textoffsetx>50</textoffsetx>
+						<width>410</width>
+						<height>85</height>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 						<font>font37</font>
-						<align>center</align>
 						<aligny>center</aligny>
+						<align>left</align>
 					</control>
 				</focusedlayout>
 				<content>

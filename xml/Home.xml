@@ -219,6 +219,7 @@
 						<width>378</width>
 						<height>832</height>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
+						<!-- <onfocus>SetProperty(fenlight.default_addon_fanart,,home)</onfocus> -->
 						<!-- <onfocus>ClearProperty(FirstWidgetID,home)</onfocus>
 						<onfocus>ClearProperty(LastWidgetID,home)</onfocus> -->
 						<onfocus>ClearProperty(FlixWidget,Home)</onfocus>

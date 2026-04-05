@@ -16,18 +16,12 @@
 		<control type="group">
 			<left>0</left>
 			<include>OpenClose_Left</include>
-			<include content="MenuContentPanel">
-				<!-- <param name="top" value="130" /> -->
-				<param name="width" value="818" />
-				<param name="dividerleft" value="818" />
-				<!-- <param name="color" value="4D000000" /> -->
-			</include>
 			<include content="FileManagerPanel">
 				<param name="list_id" value="20" />
 				<param name="scrollbar_id" value="60" />
 				<param name="onleft_id" value="60" />
 				<param name="onright_id" value="21" />
-				<param name="width" value="818" />
+				<param name="width" value="778" />
 			</include>
 			<control type="scrollbar" id="60">
 				<top>150</top>
@@ -45,19 +39,14 @@
 			<width>818</width>
 			<right>0</right>
 			<include>OpenClose_Right</include>
-			<include content="MenuContentPanel">
-				<!-- <param name="top" value="130" /> -->
-				
-				<param name="width" value="818" />
-				<param name="dividerleft" value="0" />
-				<!-- <param name="color" value="4D000000" /> -->
-			</include>
 			<include content="FileManagerPanel">
+				<param name="left" value="0" />
+				<param name="right" value="0" />
 				<param name="list_id" value="21" />
 				<param name="scrollbar_id" value="61" />
 				<param name="onleft_id" value="20" />
 				<param name="onright_id" value="61" />
-				<param name="width" value="817" />
+				<param name="width" value="778" />
 			</include>
 			<control type="scrollbar" id="61">
 				<left>800</left>
@@ -82,7 +71,7 @@
 			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
 			<control type="label">
-				<right>380</right>
+				<right>415</right>
 				<width>400</width>
 				<height>48</height>
 				<aligny>center</aligny>
@@ -104,7 +93,7 @@
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="label">
-				<left>380</left>
+				<left>415</left>
 				<width>400</width>
 				<height>48</height>
 				<aligny>center</aligny>
