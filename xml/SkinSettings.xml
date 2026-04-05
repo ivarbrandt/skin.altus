@@ -8,7 +8,7 @@
 	<onload>ClearProperty(altus_saved_list_id,Home)</onload>
 	<onload>ClearProperty(altus_stacked_saved_list_id,Home)</onload>
 	<controls>
-		<include>DefaultBackground</include>
+		<include>ZeroFadeBackground</include>
 		<control type="group" id="10000">
 			<left>470</left>
 			<include>OpenClose_Right</include>

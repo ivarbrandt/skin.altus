@@ -2012,53 +2012,78 @@
 		<width>auto</width>
 	</include>
 
+	<include name="ZeroFadeBackground">
+		<control type="image" id="100000">
+			<include>FullScreenDimensions</include>
+			<aspectratio>scale</aspectratio>
+			<animation effect="fade" start="100" end="100" time="0">WindowOpen</animation>
+			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+			<texture background="true" colordiffuse="$VAR[MainFanartDiffuse]" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ImageTextureSourceVar]</texture>
+			<visible>
+				String.IsEmpty(Container.ListItem.Art(fanart)) +
+				[
+					[String.IsEqual(Skin.String(BackgroundSetting),1) |
+					[String.IsEqual(Skin.String(BackgroundSetting),2) + String.IsEmpty(Window(home).Property(listitem_blurred))]]
+				] +
+				![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] |
+				!String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))
+			</visible>
+		</control>
+		<control type="image">
+			<include>FullScreenDimensions</include>
+			<aspectratio>scale</aspectratio>
+			<animation effect="fade" start="100" end="100" time="0">WindowOpen</animation>
+			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+			<texture colordiffuse="$VAR[MainBlurDiffuse]" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[MainBlurTextureVar]</texture>
+			<visible>String.IsEmpty(Container.ListItem.Art(fanart)) + !Player.HasMedia +
+				[
+					String.IsEqual(Skin.String(BackgroundSetting),2) |
+					String.IsEqual(Skin.String(BackgroundSetting),1)
+				]
+			</visible>
+		</control>
+	</include>
+
 	<include name="ColoredBackgroundImages">
 		<control type="group">
 			<depth>DepthBackground</depth>
-			<include>FullScreenFanartDimensions</include>
-			<!-- <control type="image" id="100000">
-				<visible>false</visible>
-				<texture fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ImageTextureSourceVar]</texture>
-			</control> -->
+			<include>FullScreenDimensions</include>
 			<control type="image" id="100000">
 				<aspectratio>scale</aspectratio>
 				<fadetime>400</fadetime>
+				<animation effect="fade" start="100" end="100" time="0">WindowOpen</animation>
+				<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				<texture background="true" colordiffuse="$VAR[MainFanartDiffuse]" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ImageTextureSourceVar]</texture>
 				<visible>
-					[
-						[String.IsEqual(Skin.String(BackgroundSetting),1) + ![Control.IsVisible(51) | Control.IsVisible(56)]] |
-						[String.IsEqual(Skin.String(BackgroundSetting),2) + String.IsEmpty(Window(home).Property(listitem_blurred))]
-					] +
-					String.IsEmpty(Window(Home).Property(FlixWidget)) +
-					![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] |
-					!String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))
+						[
+								[
+										[Window.IsVisible(Home) | Window.IsVisible(1121) | Window.IsVisible(videos)] +
+										![Control.IsVisible(51) | Control.IsVisible(56)]
+								] |
+								[
+										![Window.IsVisible(Home) | Window.IsVisible(1121) | Window.IsVisible(videos)] +
+										!String.IsEmpty(Container.ListItem.Art(fanart))
+								]
+						] +
+						String.IsEqual(Skin.String(BackgroundSetting),1) +
+						![Control.IsVisible(51) | Control.IsVisible(56)] +
+						String.IsEmpty(Window(Home).Property(FlixWidget)) +
+						![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] |
+						!String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))
 				</visible>
-				<!-- <visible>!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),1)</visible> -->
 			</control>
 			<control type="image">
-				<fadetime>500</fadetime>
-				<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+				<fadetime>400</fadetime>
 				<aspectratio>scale</aspectratio>
-				<!-- <include>ArtworkAnimations</include> -->
+				<animation effect="fade" start="100" end="100" time="0">WindowOpen</animation>
+				<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				<texture colordiffuse="$VAR[MainBlurDiffuse]" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[MainBlurTextureVar]</texture>
-				<visible>!Player.HasMedia +
+				<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Window.IsVisible(videos)] | [![Window.IsVisible(Home) | Window.IsVisible(1121) | Window.IsVisible(videos)] + !String.IsEmpty(Container.ListItem.Art(fanart))] + !Player.HasMedia + 
 					[
 						String.IsEqual(Skin.String(BackgroundSetting),2) |
 						String.IsEqual(Skin.String(BackgroundSetting),1)
 					]
 				</visible>
-				<!-- <visible>!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),2) + 
-				![Control.IsVisible(50) + 
-				[
-						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
-						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
-						[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
-						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
-						[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
-						[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
-						[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
-				]
-			]</visible> -->
 			</control>
 			<control type="image">
 				<aspectratio>scale</aspectratio>
@@ -2075,12 +2100,8 @@
 						[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
 				]
 			]
-				
 				</visible>
 			</control>
-		</control>
-
-		<control type="group">
 		</control>
 	</include>
 

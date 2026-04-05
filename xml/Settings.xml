@@ -3,7 +3,7 @@
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
 	<controls>
-		<include>DefaultBackground</include>
+		<include>ZeroFadeBackground</include>
 		<control type="group">
 			<centerleft>50%</centerleft>
 			<width>1600</width>
@@ -162,6 +162,6 @@
 		<include content="TopBar">
 			<param name="breadcrumbs_label" value="[COLOR unfocused_text]$LOCALIZE[13000][/COLOR]" />
 		</include>
-		<!-- <include>BottomBar</include> -->
+		<include>BottomBar</include>
 	</controls>
 </window>

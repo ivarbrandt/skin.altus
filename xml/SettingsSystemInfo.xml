@@ -3,7 +3,7 @@
 	<defaultcontrol always="true">95</defaultcontrol>
 	<onload>ClearProperty(FlixWidget,Home)</onload>
 	<controls>
-		<include>DefaultBackground</include>
+		<include>ZeroFadeBackground</include>
 		<control type="group">
 			<left>40</left>
 			<top>133</top>
