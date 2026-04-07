@@ -721,11 +721,11 @@
 					<onclick>Skin.ToggleSetting(Disable.VI.Endsat)</onclick>
 				</control>
 				<!-- EPISODE TYPE -->
-				<control type="radiobutton" id="65012">
+				<control type="button" id="65012">
 					<label>Show episode type (episodes)</label>
+					<label2>$VAR[EpisodeTypeSettingVar]</label2>
 					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Disable.VI.EpisodeType)</selected>
-					<onclick>Skin.ToggleSetting(Disable.VI.EpisodeType)</onclick>
+					<onclick>$VAR[EpisodeTypeToggleVar]</onclick>
 				</control>
 				<!-- RATINGS -->
 				<control type="radiobutton" id="65014">

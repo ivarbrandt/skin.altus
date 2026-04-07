@@ -27,8 +27,8 @@
 		<value condition="Control.HasFocus(64013)">$VAR[Capitalize_DimorFadeLabel] the entire widget section when the main menu is focused.</value>
 
 		<!-- INFO PANEL SECTION -->
-		<value condition="Container(9000).HasFocus(8) + !ControlGroup(10000).HasFocus">Configure InfoPanel display settings for widgets and video window views.</value>
-		<value condition="Control.HasFocus(65013)">Select content to display in the InfoPanel header.[CR][CR]CLEARLOGO shows the media logo.[CR]TEXT shows the title as text.[CR]OFF hides the header completely.</value>
+		<value condition="Container(9000).HasFocus(8) + !ControlGroup(10000).HasFocus">Configure InfoPanel display settings for home screen, search window, and video window views.</value>
+		<value condition="Control.HasFocus(65013)">Select content to display in the InfoPanel header.[CR][CR]CLEARLOGO shows the media logo.[CR][CR]TEXT shows the title as text.[CR][CR]OFF hides the header completely.</value>
 		<value condition="Control.HasFocus(65000)">Show the digital release date for movies in the InfoPanel.</value>
 		<value condition="Control.HasFocus(65001)">Show the aired date for TV shows, seasons, and episodes in the InfoPanel.</value>
 		<value condition="Control.HasFocus(65002)">Show the content rating (MPAA) for movies, TV shows, and seasons in the InfoPanel.</value>
@@ -41,9 +41,9 @@
 		<value condition="Control.HasFocus(65009)">Show the total episodes count for TV shows in the InfoPanel.</value>
 		<value condition="Control.HasFocus(65010)">Show the status for TV shows in the InfoPanel.</value>
 		<value condition="Control.HasFocus(65011)">Show the ends at time for movies, seasons, and episodes in the InfoPanel.</value>
-		<value condition="Control.HasFocus(65012)">Show the episode type for episodes in the InfoPanel.</value>
+		<value condition="Control.HasFocus(65012)">Show the episode type in various parts of the skin.[CR][CR]VERTICAL INFOPANEL shows in the vertical infopanel on the homescreen, search window, and LandscapeInfo/FlixInfo views.[CR][CR]HORIZONTAL INFOPANEL shows in the horizontal infopanel in List, PosterFlow, Slide, and LandscapeWall views.[CR][CR]ARTWORK shows on individual items in landscape style layouts.[CR][CR]OFF hides it completely.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] When showing in ARTWORK, the badge will adapt to the badge color, and badge color background setting.</value>
 		<value condition="Control.HasFocus(65014)">Show ratings in the InfoPanel.[CR][CR]Select which ratings to display in the API features section.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Requires a valid MDbList API key.</value>
-		<value condition="Control.HasFocus(65015)">Configure plot display in the InfoPanel.[CR][CR]ON shows the plot for all content types.[CR]EXCLUDE EPISODES hides the plot for episodes only.[CR]OFF hides the plot completely.</value>
+		<value condition="Control.HasFocus(65015)">Configure plot display in the InfoPanel.[CR][CR]ON shows the plot for all content types.[CR][CR]EXCLUDE EPISODES hides the plot for episodes only.[CR][CR]OFF hides the plot completely.</value>
 		<value condition="Control.HasFocus(65016)">Configure studio logo display in the InfoPanel footer.[CR][CR]Options: Show for movies only, TV shows only, both, or disable completely.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] This setting applies globally, including video window views.</value>
 
 		<!-- CUSTOMIZATION SECTION -->

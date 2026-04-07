@@ -233,6 +233,29 @@
 		<value>Skin.SetString(BadgeBackgroundSetting,0)</value>
 	</variable>
 
+	<variable name="EpisodeTypeSettingVar">
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),1)">Vertical InfoPanel</value>
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),2)">Horizontal InfoPanel</value>
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),3)">Artwork</value>
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),4)">Vertical/Horizontal InfoPanel</value>
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),5)">Vertical InfoPanel + Artwork</value>
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),6)">Horizontal InfoPanel + Artwork</value>
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),7)">All</value>
+		<value>Off</value>
+	</variable>
+
+	<variable name="EpisodeTypeToggleVar">
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),0)">Skin.SetString(EpisodeTypeSetting,1)</value>
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),1)">Skin.SetString(EpisodeTypeSetting,2)</value>
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),2)">Skin.SetString(EpisodeTypeSetting,3)</value>
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),3)">Skin.SetString(EpisodeTypeSetting,4)</value>
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),4)">Skin.SetString(EpisodeTypeSetting,5)</value>
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),5)">Skin.SetString(EpisodeTypeSetting,6)</value>
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),6)">Skin.SetString(EpisodeTypeSetting,7)</value>
+		<value condition="String.IsEqual(Skin.String(EpisodeTypeSetting),7)">Skin.SetString(EpisodeTypeSetting,0)</value>
+		<value>Skin.SetString(EpisodeTypeSetting,0)</value>
+	</variable>
+
 	<variable name="EpisodeLabelVar">
 		<value condition="!String.StartsWith(Container($PARAM[list_id]).PluginCategory,Season)">$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, | ,]</value>
 		<value>INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.Title, | ,]</value>

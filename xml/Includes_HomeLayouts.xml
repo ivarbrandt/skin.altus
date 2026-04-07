@@ -215,7 +215,7 @@
 	<include name="EpisodeTypeBadge">
 		<param name="right">0</param>
 		<param name="top">0</param>
-		<param name="vis">!String.IsEmpty(ListItem.Property(episode_type))</param>
+		<param name="vis">!String.IsEmpty(ListItem.Property(episode_type)) + $EXP[ET_Artwork]</param>
 		<definition>
 			<control type="group">
 				<top>$PARAM[top]</top>
