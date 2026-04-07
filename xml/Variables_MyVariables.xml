@@ -25,6 +25,22 @@
 		<value condition="!String.IsEmpty(VideoPlayer.AudioChannels)">[COLOR accent_color][B]|[/B][/COLOR]</value>
 	</variable>
 
+	<variable name="SeasonWatchedTextColor">
+		<value condition="String.IsEqual(ListItem.Property(UnwatchedEpisodes),0)">FF4CAF50</value>
+		<value condition="Integer.IsGreater(ListItem.Property(WatchedEpisodes),0)">FFFFC107</value>
+		<value>FFE57373</value>
+	</variable>
+
+	<variable name="SeasonPlot">
+		<value condition="Control.HasFocus(5057)">[COLOR unfocused_text]$INFO[Container(5057).ListItem.Plot][/COLOR]</value>
+		<value>[COLOR unfocused_text]$INFO[Container(57).ListItem.Plot][/COLOR]</value>
+  </variable>
+
+	<variable name="InfoBadgeSeasonTitle">
+		<value condition="Control.IsVisible(57)">$INFO[Container(5057).ListItem.Title]</value>
+		<value>$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle]</value>
+	</variable>
+
 	<!-- Return a single genre -->
   <variable name="GenreVar">
 		<!-- Specific Genre Combinations -->

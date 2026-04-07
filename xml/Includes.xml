@@ -2014,7 +2014,7 @@
 
 	<include name="ZeroFadeBackground">
 		<control type="image" id="100000">
-			<include>FullScreenDimensions</include>
+			<include>FullScreenFanartDimensions</include>
 			<aspectratio>scale</aspectratio>
 			<animation effect="fade" start="100" end="100" time="0">WindowOpen</animation>
 			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
@@ -2030,7 +2030,7 @@
 			</visible>
 		</control>
 		<control type="image">
-			<include>FullScreenDimensions</include>
+			<include>FullScreenFanartDimensions</include>
 			<aspectratio>scale</aspectratio>
 			<animation effect="fade" start="100" end="100" time="0">WindowOpen</animation>
 			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
@@ -2042,12 +2042,30 @@
 				]
 			</visible>
 		</control>
+		<control type="image">
+			<include>FullScreenFanartDimensions</include>
+			<aspectratio>scale</aspectratio>
+			<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
+			<visible>!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEmpty(Skin.String(TrailerPlaying)) + 
+			![Control.IsVisible(50) + [Window.IsVisible(videos) | ![Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)]] + 
+				[
+						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
+						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
+						[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
+						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
+						[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
+						[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
+						[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
+				]
+			]
+			</visible>
+		</control>
 	</include>
 
 	<include name="ColoredBackgroundImages">
 		<control type="group">
 			<depth>DepthBackground</depth>
-			<include>FullScreenDimensions</include>
+			<include>FullScreenFanartDimensions</include>
 			<control type="image" id="100000">
 				<aspectratio>scale</aspectratio>
 				<fadetime>400</fadetime>

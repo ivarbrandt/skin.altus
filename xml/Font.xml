@@ -136,6 +136,12 @@
 			<size>30</size>
 		</font>
 		<font>
+			<name>font32_eps</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>30</size>
+			<linespacing>1.2</linespacing>
+		</font>
+		<font>
 			<name>font37</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>35</size>

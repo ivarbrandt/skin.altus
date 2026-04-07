@@ -212,6 +212,85 @@
 		</definition>
 	</include>
 
+	<include name="EpisodeTypeBadge">
+		<param name="right">0</param>
+		<param name="top">0</param>
+		<param name="vis">!String.IsEmpty(ListItem.Property(episode_type))</param>
+		<definition>
+			<control type="group">
+				<top>$PARAM[top]</top>
+				<align>right</align>
+				<right>$PARAM[right]</right>
+				<visible>$PARAM[vis]</visible>
+				<!-- Series Premiere -->
+				<control type="image">
+					<align>right</align>
+					<right>0</right>
+					<width>190</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$VAR[EpisodeTypeBadgeBg]">masks/flixicon-filled.png</texture>
+					<visible>String.IsEqual(ListItem.Property(episode_type),series_premiere)</visible>
+				</control>
+				<!-- Season Premiere -->
+				<control type="image">
+					<align>right</align>
+					<right>0</right>
+					<width>205</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$VAR[EpisodeTypeBadgeBg]">masks/flixicon-filled.png</texture>
+					<visible>String.IsEqual(ListItem.Property(episode_type),season_premiere)</visible>
+				</control>
+				<!-- Mid-Season Premiere -->
+				<control type="image">
+					<align>right</align>
+					<right>0</right>
+					<width>254</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$VAR[EpisodeTypeBadgeBg]">masks/flixicon-filled.png</texture>
+					<visible>String.IsEqual(ListItem.Property(episode_type),mid_season_premiere)</visible>
+				</control>
+				<!-- Series Finale -->
+				<control type="image">
+					<align>right</align>
+					<right>0</right>
+					<width>164</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$VAR[EpisodeTypeBadgeBg]">masks/flixicon-filled.png</texture>
+					<visible>String.IsEqual(ListItem.Property(episode_type),series_finale)</visible>
+				</control>
+				<!-- Season Finale -->
+				<control type="image">
+					<align>right</align>
+					<right>0</right>
+					<width>177</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$VAR[EpisodeTypeBadgeBg]">masks/flixicon-filled.png</texture>
+					<visible>String.IsEqual(ListItem.Property(episode_type),season_finale)</visible>
+				</control>
+				<!-- Mid-Season Finale -->
+				<control type="image">
+					<align>right</align>
+					<right>0</right>
+					<width>225</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$VAR[EpisodeTypeBadgeBg]">masks/flixicon-filled.png</texture>
+					<visible>String.IsEqual(ListItem.Property(episode_type),mid_season_finale)</visible>
+				</control>
+				<!-- Label -->
+				<control type="label">
+					<top>-1</top>
+					<align>right</align>
+					<right>10</right>
+					<width>250</width>
+					<height>36</height>
+					<aligny>center</aligny>
+					<font>eps</font>
+					<label>[UPPERCASE]$VAR[EpisodeTypeBadgeLabel][/UPPERCASE]</label>
+				</control>
+			</control>
+		</definition>
+	</include>
+
 	<include name="InfoBadge">
 		<param name="left">63</param>
 		<param name="top">7</param>
@@ -632,6 +711,10 @@
 				<control type="group">
 					<top>204</top>
 					<visible>$EXP[isEpisode]</visible>
+					<include content="EpisodeTypeBadge">
+						<param name="right" value="30"/>
+						<param name="top" value="-187"/>
+					</include>
 					<include content="SeasonEpisodeBadge">
 						<param name="left" value="63"/>
 						<param name="top" value="6"/>
@@ -785,6 +868,10 @@
 				<control type="group">
 					<top>145</top>
 					<visible>$EXP[isEpisode]</visible>
+					<include content="EpisodeTypeBadge">
+						<param name="right" value="30"/>
+						<param name="top" value="-127"/>
+					</include>
 					<include content="SeasonEpisodeBadge">
 						<param name="left" value="63"/>
 						<param name="top" value="0"/>

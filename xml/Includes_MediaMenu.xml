@@ -734,11 +734,11 @@
 			</control>
 
 			<!-- 57 -->
-			<control type="radiobutton" id="6084">
-				<label>Clearlogo</label>
+			<control type="radiobutton" id="7101">
+				<label>Plot</label>
 				<include>MediaMenuItemsCommon</include>
-				<onclick>Skin.ToggleSetting(Disable.57Clearlogo)</onclick>
-				<selected>!Skin.HasSetting(Disable.57Clearlogo)</selected>
+				<onclick>Skin.ToggleSetting(Disable.57Plot)</onclick>
+				<selected>!Skin.HasSetting(Disable.57Plot)</selected>
 				<visible>Control.IsVisible(57)</visible>
 			</control>
 			<control type="radiobutton" id="6085">
@@ -746,6 +746,20 @@
 				<include>MediaMenuItemsCommon</include>
 				<onclick>Skin.ToggleSetting(Enable.57Dim)</onclick>
 				<selected>Skin.HasSetting(Enable.57Dim)</selected>
+				<visible>Control.IsVisible(57)</visible>
+			</control>
+			<control type="radiobutton" id="7100">
+				<label>Focus first unwatched</label>
+				<include>MediaMenuItemsCommon</include>
+				<onclick>Skin.ToggleSetting(Enable.57FocusUnwatched)</onclick>
+				<selected>Skin.HasSetting(Enable.57FocusUnwatched)</selected>
+				<visible>Control.IsVisible(57)</visible>
+			</control>
+			<control type="radiobutton" id="6084">
+				<label>Clearlogo</label>
+				<include>MediaMenuItemsCommon</include>
+				<onclick>Skin.ToggleSetting(Disable.57Clearlogo)</onclick>
+				<selected>!Skin.HasSetting(Disable.57Clearlogo)</selected>
 				<visible>Control.IsVisible(57)</visible>
 			</control>
 			<control type="radiobutton" id="6086">
