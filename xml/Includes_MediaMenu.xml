@@ -378,7 +378,7 @@
 
 			<control type="button" id="6099">
 				<include>MediaMenuItemsCommon</include>
-				<label>Background opacity</label>
+				<label>Background $VAR[BG_LABEL]</label>
 				<label2>[B]$VAR[BackgroundOpacitySettingVar][/B]</label2>
 				<onclick>$VAR[BackgroundOpacityToggleVar]</onclick>
 				<visible>String.IsEqual(Skin.String(BackgroundSetting),1)</visible>

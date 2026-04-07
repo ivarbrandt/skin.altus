@@ -987,7 +987,7 @@
 
 	<variable name="BackgroundSettingVar">
 		<value condition="String.IsEqual(Skin.String(BackgroundSetting),0)">Default</value>
-		<value condition="String.IsEqual(Skin.String(BackgroundSetting),1)">Combined</value>
+		<value condition="String.IsEqual(Skin.String(BackgroundSetting),1)">Fanart</value>
 		<value condition="String.IsEqual(Skin.String(BackgroundSetting),2)">Blur</value>
 	</variable>
 
@@ -995,6 +995,11 @@
 		<value condition="String.IsEqual(Skin.String(BackgroundSetting),0)">Skin.SetString(BackgroundSetting,1)</value>
 		<value condition="String.IsEqual(Skin.String(BackgroundSetting),1)">Skin.SetString(BackgroundSetting,2)</value>
 		<value condition="String.IsEqual(Skin.String(BackgroundSetting),2)">Skin.SetString(BackgroundSetting,0)</value>
+	</variable>
+
+	<variable name="BG_LABEL">
+		<value condition="!Skin.HasSetting(Disable.AdaptiveOverlay)">opacity</value>
+		<value>brightness</value>
 	</variable>
 	
 	<variable name="SearchSettingVar">

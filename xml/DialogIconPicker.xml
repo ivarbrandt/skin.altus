@@ -64,6 +64,7 @@
 				<ondown>3001</ondown>
 				<onleft>3001</onleft>
 				<onright>3000</onright>
+				<onfocus>RunScript(script.altus.helper,mode=icon_folder_debounce)</onfocus>
 				<scrolltime tween="cubic" easing="out">300</scrolltime>
 				<itemlayout width="230" height="59">
 					<control type="label">
@@ -84,6 +85,7 @@
 						<right>0</right>
 						<bottom>5</bottom>
 						<texture colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texture>
+						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(3001)">Conditional</animation>
 					</control>
 					<control type="label">
 						<left>15</left>

@@ -456,28 +456,35 @@
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[BackgroundToggleVar]</onclick>
 				</control>
-				<control type="button" id="6002">
-					<label>    - Main blur texture</label>
-					<label2>$VAR[MainBlurTextureSettingVar]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>$VAR[MainBlurTextureToggleVar]</onclick>
-					<visible>String.IsEqual(Skin.String(BackgroundSetting),2)</visible>
-				</control>
 				<!-- FANART -->
 				<!-- <control type="radiobutton" id="6002">
 					<label>$LOCALIZE[31002]</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Enable.Fanart)</onclick>
 					<selected>Skin.HasSetting(Enable.Fanart)</selected>
-				</control> -->
-				<!-- DEFAULT BACKGROUND -->
-				<control type="button" id="6003">
-					<label>    - Choose default background</label>
-					<label2>$INFO[Skin.String(AltusCustomBackground)]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.altus.helper, mode=set_image)</onclick>
-					<visible>!String.IsEqual(Skin.String(BackgroundSetting),0)</visible>
-				</control>
+					</control> -->
+					<!-- DEFAULT BACKGROUND -->
+					<control type="button" id="6003">
+						<label>    - Choose default background</label>
+						<label2>$INFO[Skin.String(AltusCustomBackground)]</label2>
+						<include>DefaultSettingButton</include>
+						<onclick>RunScript(script.altus.helper, mode=set_image)</onclick>
+						<visible>!String.IsEqual(Skin.String(BackgroundSetting),0)</visible>
+					</control>
+					<control type="button" id="6002">
+						<label>    - Main blur texture</label>
+						<label2>$VAR[MainBlurTextureSettingVar]</label2>
+						<include>DefaultSettingButton</include>
+						<onclick>$VAR[MainBlurTextureToggleVar]</onclick>
+						<visible>String.IsEqual(Skin.String(BackgroundSetting),2)</visible>
+					</control>
+					<control type="radiobutton" id="6018">
+						<label>    - Enable adaptive overlay</label>
+						<include>DefaultSettingButton</include>
+						<selected>!Skin.HasSetting(Disable.AdaptiveOverlay)</selected>
+						<onclick>Skin.ToggleSetting(Disable.AdaptiveOverlay)</onclick>
+						<visible>String.IsEqual(Skin.String(BackgroundSetting),1)</visible>
+					</control>
 				<control type="button" id="6004">
 					<label>    - Set blur radius</label>
 					<label2>$INFO[Skin.String(BlurRadius)]</label2>
@@ -493,9 +500,9 @@
 					<onclick>RunScript(script.altus.helper, mode=set_blursaturation)</onclick>
 					<visible>String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)</visible>
 				</control>
-				<!-- BACKGROUND OPACITY -->
+				<!-- BACKGROUND OPACITY/BRIGHTNESS -->
 				<control type="button" id="6015">
-					<label>    - Set background opacity</label>
+					<label>    - Set background $VAR[BG_LABEL]</label>
 					<label2>$VAR[BackgroundOpacitySettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[BackgroundOpacityToggleVar]</onclick>

@@ -2038,7 +2038,7 @@
 			<visible>String.IsEmpty(Container.ListItem.Art(fanart)) + !Player.HasMedia +
 				[
 					String.IsEqual(Skin.String(BackgroundSetting),2) |
-					String.IsEqual(Skin.String(BackgroundSetting),1)
+					[String.IsEqual(Skin.String(BackgroundSetting),1) + !Skin.HasSetting(Disable.AdaptiveOverlay)]
 				]
 			</visible>
 		</control>
@@ -2096,10 +2096,11 @@
 				<animation effect="fade" start="100" end="100" time="0">WindowOpen</animation>
 				<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				<texture colordiffuse="$VAR[MainBlurDiffuse]" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[MainBlurTextureVar]</texture>
-				<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Window.IsVisible(videos)] | [![Window.IsVisible(Home) | Window.IsVisible(1121) | Window.IsVisible(videos)] + !String.IsEmpty(Container.ListItem.Art(fanart))] + !Player.HasMedia + 
+				<visible>
+					[[Window.IsVisible(Home) | Window.IsVisible(1121) | Window.IsVisible(videos)] | [![Window.IsVisible(Home) | Window.IsVisible(1121) | Window.IsVisible(videos)] + !String.IsEmpty(Container.ListItem.Art(fanart))]] + !Player.HasMedia +
 					[
 						String.IsEqual(Skin.String(BackgroundSetting),2) |
-						String.IsEqual(Skin.String(BackgroundSetting),1)
+						[String.IsEqual(Skin.String(BackgroundSetting),1) + [!Skin.HasSetting(Disable.AdaptiveOverlay) | Control.IsVisible(51) | Control.IsVisible(56)]]
 					]
 				</visible>
 			</control>
