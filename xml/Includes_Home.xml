@@ -215,6 +215,7 @@
 		<definition>
 			<control type="group" id="$PARAM[list_id]670">
 				<animation effect="fade" start="100" end="45" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus">Conditional</animation>
+				<!-- <animation effect="fade" start="0" end="0" time="3000">VisibleChange</animation> -->
 				<!-- <include content="WidgetZoomAnimation">
 					<param name="list_id" value="$PARAM[list_id]" />
 					<param name="c1" value="57" />
@@ -551,7 +552,7 @@
 				<top>107</top>
 				<right>0</right>
 				<left>45</left>
-				<height>974</height>
+				<height>971</height>
 				<focusposition>0</focusposition>
 				<movement>5</movement>
 				<onright>$PARAM[list_id]</onright>
@@ -642,7 +643,7 @@
 				<top>17</top>
 				<right>0</right>
 				<left>45</left>
-				<height>1065</height>
+				<height>1062</height>
 				<focusposition>0</focusposition>
 				<movement>5</movement>
 				<onright>$PARAM[list_id]</onright>
@@ -726,7 +727,7 @@
 				<top>107</top>
 				<right>0</right>
 				<left>45</left>
-				<height>974</height>
+				<height>971</height>
 				<focusposition>0</focusposition>
 				<movement>3</movement>
 				<onright>$PARAM[list_id]</onright>
@@ -817,7 +818,7 @@
 				<top>17</top>
 				<right>0</right>
 				<left>45</left>
-				<height>1065</height>
+				<height>1062</height>
 				<focusposition>0</focusposition>
 				<movement>3</movement>
 				<onright>$PARAM[list_id]</onright>
@@ -901,7 +902,7 @@
 				<top>107</top>
 				<right>0</right>
 				<left>45</left>
-				<height>974</height>
+				<height>971</height>
 				<focusposition>0</focusposition>
 				<movement>2</movement>
 				<onright>$PARAM[list_id]</onright>
@@ -992,7 +993,7 @@
 				<top>17</top>
 				<right>0</right>
 				<left>45</left>
-				<height>1065</height>
+				<height>1062</height>
 				<focusposition>0</focusposition>
 				<movement>2</movement>
 				<onright>$PARAM[list_id]</onright>
