@@ -256,6 +256,16 @@
 		<value>Skin.SetString(EpisodeTypeSetting,0)</value>
 	</variable>
 
+	<variable name="FontSizeSettingVar">
+		<value condition="String.IsEqual(Skin.String(FontSizeSetting),0)">Default</value>
+		<value condition="String.IsEqual(Skin.String(FontSizeSetting),1)">Large</value>
+	</variable>
+
+	<variable name="FontSizeToggleVar">
+		<value condition="String.IsEqual(Skin.String(FontSizeSetting),0)">Skin.SetString(FontSizeSetting,1)</value>
+		<value>Skin.SetString(FontSizeSetting,0)</value>
+	</variable>
+
 	<variable name="EpisodeLabelVar">
 		<value condition="!String.StartsWith(Container($PARAM[list_id]).PluginCategory,Season)">$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, | ,]</value>
 		<value>INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.Title, | ,]</value>

@@ -520,6 +520,13 @@
     <value condition="String.IsEqual(Skin.String(RatingSlot7),tmdb)">Skin.SetString(RatingSlot7,none)</value>
   </variable>
 
+  <include name="VerticalRatingsFont_Default">
+    <font>font27</font>
+  </include>
+  <include name="VerticalRatingsFont_Large">
+    <font>font32</font>
+  </include>
+
   <include name="VerticalRatingSlotTemplate">
     <control type="grouplist">
       <width>150</width>
@@ -561,10 +568,24 @@
         <align>center</align>
         <aligny>center</aligny>
         <label>$PARAM[rating_value]</label>
-        <font>font27</font>
+        <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">VerticalRatingsFont_Default</include>
+        <include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">VerticalRatingsFont_Large</include>
         <textcolor>unfocused_text</textcolor>
       </control>
     </control>
+  </include>
+
+  <include name="HorizontalRatingsFont_Default">
+    <font>font27</font>
+  </include>
+  <include name="HorizontalRatingsFont_Large">
+    <font>font32</font>
+  </include>
+  <include name="HorizontalRatingsOffset_Default">
+    <textoffsety>-7</textoffsety>
+  </include>
+  <include name="HorizontalRatingsOffset_Large">
+    <textoffsety>-9</textoffsety>
   </include>
 
   <include name="HorizontalRatingSlotTemplate">
@@ -615,12 +636,21 @@
         <height>38</height>
         <align>left</align>
         <aligny>left</aligny>
-        <textoffsety>-7</textoffsety>
+        <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">HorizontalRatingsOffset_Default</include>
+        <include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">HorizontalRatingsOffset_Large</include>
         <label>$PARAM[rating_value]</label>
-        <font>font27</font>
+        <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">HorizontalRatingsFont_Default</include>
+        <include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">HorizontalRatingsFont_Large</include>
         <textcolor>unfocused_text</textcolor>
       </control>
     </control>
+  </include>
+
+  <include name="FlixPanelRatingsFont_Default">
+    <font>font23</font>
+  </include>
+  <include name="FlixPanelRatingsFont_Large">
+    <font>font27</font>
   </include>
 
   <include name="FlixPanelRatingSlotTemplate">
@@ -655,7 +685,8 @@
         <align>center</align>
         <aligny>center</aligny>
         <label>$PARAM[rating_value]</label>
-        <font>font23</font>
+        <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">FlixPanelRatingsFont_Default</include>
+        <include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">FlixPanelRatingsFont_Large</include>
         <textcolor>unfocused_text</textcolor>
       </control>
     </control>

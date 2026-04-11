@@ -138,7 +138,8 @@
             <control type="textbox">
               <visible>!String.IsEmpty(ListItem.TagLine)</visible>
               <height max="180">auto</height>
-              <font>font27</font>
+              <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">Flix_Font_Default</include>
+							<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">Flix_Font_Large</include>
               <textcolor>unfocused_text</textcolor>
               <align>center</align>
               <aligny>center</aligny>
@@ -159,7 +160,8 @@
             <control type="textbox">
               <visible>!String.IsEmpty(ListItem.Plot)</visible>
               <height max="370">auto</height>
-              <font>font27</font>
+              <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">Flix_Font_Default</include>
+							<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">Flix_Font_Large</include>
               <textcolor>unfocused_text</textcolor>
               <align>center</align>
               <label>$INFO[ListItem.Plot]</label>

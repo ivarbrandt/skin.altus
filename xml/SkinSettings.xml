@@ -636,6 +636,13 @@
 				<pagecontrol>60</pagecontrol>
 				<ondown>650</ondown>
 				<visible>Container(9000).HasFocus(8)</visible>
+				<!-- FONT SIZE -->
+				<control type="button" id="65017">
+					<label>Font size</label>
+					<label2>$VAR[FontSizeSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[FontSizeToggleVar]</onclick>
+				</control>
 				<!-- HEADER -->
 				<control type="button" id="65013">
 					<label>Header</label>

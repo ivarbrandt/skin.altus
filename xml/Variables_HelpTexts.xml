@@ -28,6 +28,7 @@
 
 		<!-- INFO PANEL SECTION -->
 		<value condition="Container(9000).HasFocus(8) + !ControlGroup(10000).HasFocus">Configure InfoPanel display settings for home screen, search window, and video window views.</value>
+		<value condition="Control.HasFocus(65017)">Choose the font size.[CR][CR]This affects the Vertical/Horizontal InfoPanel across the home screen, search window, video views, and list items (Fanart/Landscape/Poster List views).</value>
 		<value condition="Control.HasFocus(65013)">Select content to display in the InfoPanel header.[CR][CR]CLEARLOGO shows the media logo.[CR][CR]TEXT shows the title as text.[CR][CR]OFF hides the header completely.</value>
 		<value condition="Control.HasFocus(65000)">Show the digital release date for movies in the InfoPanel.</value>
 		<value condition="Control.HasFocus(65001)">Show the aired date for TV shows, seasons, and episodes in the InfoPanel.</value>

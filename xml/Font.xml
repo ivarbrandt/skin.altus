@@ -136,6 +136,11 @@
 			<size>30</size>
 		</font>
 		<font>
+			<name>font33</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>32</size>
+		</font>
+		<font>
 			<name>font32_eps</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>30</size>

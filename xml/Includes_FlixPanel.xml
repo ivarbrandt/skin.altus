@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<include name="PlotHeight_1080">
-		<!-- 463 -->
+	<include name="PlotHeight_1080_FontSize_Default">
 		<height max="335">auto</height>
 	</include>
-	<include name="PlotHeight_4K">
+	<include name="PlotHeight_4K_FontSize_Default">
 		<height max="330">auto</height>
+	</include>
+	<include name="PlotHeight_1080_FontSize_Large">
+		<height max="297">auto</height>
+	</include>
+	<include name="PlotHeight_4K_FontSize_Large">
+		<height max="297">auto</height>
+	</include>
+	<include name="PlotHeight_51_FontSize_Default">
+		<height max="78">auto</height>
+	</include>
+	<include name="PlotHeight_51_FontSize_Large">
+		<height max="87">auto</height>
+	</include>
+	<include name="Flix_Font_Default">
+		<font>font27_plot</font>
+	</include>
+	<include name="Flix_Font_Large">
+		<font>font32</font>
 	</include>
 	<include name="FlixPanel">
 		<definition>
@@ -26,16 +43,19 @@
 						<align>center</align>
 						<height>35</height>
 						<label>$VAR[VideoInfoPanelTop]</label>
-						<font>font27</font>
+						<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">Flix_Font_Default</include>
+						<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">Flix_Font_Large</include>
 						<textcolor>$VAR[FocusColorTheme]</textcolor>
 						<scroll>true</scroll>
 						<scrollspeed>150</scrollspeed>
 					</control>
 					<control type="textbox">
-						<height max="87">auto</height>
+						<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">PlotHeight_51_FontSize_Default</include>
+						<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">PlotHeight_51_FontSize_Large</include>
 						<bottom>70</bottom>
 						<label>$VAR[RI_Plot]</label>
-						<font>font27</font>
+						<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">Flix_Font_Default</include>
+						<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">Flix_Font_Large</include>
 						<textcolor>unfocused_text</textcolor>
 						<align>center</align>
 						<autoscroll delay="10000" time="5000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
@@ -181,7 +201,8 @@
 							<align>left</align>
 							<height max="300">auto</height>
 							<label>$VAR[EpisodeTitle]</label>
-							<font>font27</font>
+							<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">Flix_Font_Default</include>
+							<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">Flix_Font_Large</include>
 							<textcolor>unfocused_text</textcolor>
 							<scroll>true</scroll>
 							<scrollspeed>150</scrollspeed>
@@ -203,7 +224,8 @@
 							<align>left</align>
 							<height max="300">auto</height>
 							<label>$VAR[VI_WidgetInfoPanelTop]</label>
-							<font>font27_plot</font>
+							<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">Flix_Font_Default</include>
+							<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">Flix_Font_Large</include>
 							<textcolor>unfocused_text</textcolor>
 							<scroll>true</scroll>
 							<scrollspeed>150</scrollspeed>
@@ -226,9 +248,12 @@
 						<include>FlixPanelRatings</include>
 						
 						<control type="textbox">
-							<include condition="!Integer.IsGreater(System.ScreenHeight,1080)">PlotHeight_1080</include>
-							<include condition="Integer.IsGreater(System.ScreenHeight,1080)">PlotHeight_4K</include>
-							<font>font27_plot</font>
+							<include condition="!Integer.IsGreater(System.ScreenHeight,1080) + String.IsEqual(Skin.String(FontSizeSetting),0)">PlotHeight_1080_FontSize_Default</include>
+							<include condition="Integer.IsGreater(System.ScreenHeight,1080) + String.IsEqual(Skin.String(FontSizeSetting),0)">PlotHeight_4K_FontSize_Default</include>
+							<include condition="!Integer.IsGreater(System.ScreenHeight,1080) + String.IsEqual(Skin.String(FontSizeSetting),1)">PlotHeight_1080_FontSize_Large</include>
+							<include condition="Integer.IsGreater(System.ScreenHeight,1080) + String.IsEqual(Skin.String(FontSizeSetting),1)">PlotHeight_4K_FontSize_Large</include>
+							<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">Flix_Font_Default</include>
+							<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">Flix_Font_Large</include>
 							<textcolor>unfocused_text</textcolor>
 							<align>left</align>
 							<label>$VAR[RI_Plot]</label>

@@ -600,6 +600,27 @@
 		</control>
 	</include>
 
+	<include name="50_FanartList_FontPlot_Default">
+		<font>font27</font>
+	</include>
+	<include name="50_FanartList_FontPlot_Large">
+		<font>font32</font>
+	</include>
+
+	<include name="50_FanartList_FontHeader_Default">
+		<font>font23</font>
+	</include>
+	<include name="50_FanartList_FontHeader_Large">
+		<font>font27</font>
+	</include>
+
+	<include name="50_FanartList_FontUnfo_Default">
+		<font>font32</font>
+	</include>
+	<include name="50_FanartList_FontUnfo_Large">
+		<font>font33</font>
+	</include>
+
 	<include name="ListContainer">
 		<param name="left">45</param>
 		<param name="right">0</param>
@@ -853,7 +874,9 @@
 								<aligny>center</aligny>
 								<scroll>$PARAM[focused]</scroll>
 								<scrollspeed>300</scrollspeed>
-								<font>font23</font>
+								<!-- <font>font23</font> -->
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">50_FanartList_FontHeader_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontHeader_Large</include>
 								<label>$VAR[InfoPanelTop]</label>
 								<textcolor>$VAR[FocusColorTheme]</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -864,7 +887,8 @@
 								<width>810</width>
 								<bottom>8</bottom>
 								<aligny>center</aligny>
-								<font>font27</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0">50_FanartList_FontPlot_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontPlot_Large</include>
 								<label>$VAR[RI_Plot]</label>
 								<textcolor>unfocused_text</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -944,7 +968,8 @@
 								<top>0</top>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
-								<font>font32</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">50_FanartList_FontUnfo_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontUnfo_Large</include>
 								<textcolor>lightgrey</textcolor>
 								<label>$VAR[ListLabelVar]$VAR[RI_EpisodeType]</label>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -1037,7 +1062,8 @@
 								<aligny>center</aligny>
 								<scroll>$PARAM[focused]</scroll>
 								<scrollspeed>300</scrollspeed>
-								<font>font23</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">50_FanartList_FontHeader_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontHeader_Large</include>
 								<label>$VAR[InfoPanelTop]</label>
 								<textcolor>$VAR[FocusColorTheme]</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -1046,9 +1072,10 @@
 								<top>85</top>
 								<left>33</left>
 								<width>830</width>
-								<bottom>10</bottom>
+								<bottom>9</bottom>
 								<aligny>center</aligny>
-								<font>font27</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0">50_FanartList_FontPlot_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontPlot_Large</include>
 								<label>$VAR[RI_Plot]</label>
 								<textcolor>unfocused_text</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -1128,7 +1155,8 @@
 								<top>0</top>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
-								<font>font32</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">50_FanartList_FontUnfo_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontUnfo_Large</include>
 								<textcolor>lightgrey</textcolor>
 								<label>$VAR[ListLabelVar]$VAR[RI_EpisodeType]</label>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -1224,7 +1252,8 @@
 								<aligny>center</aligny>
 								<scroll>$PARAM[focused]</scroll>
 								<scrollspeed>300</scrollspeed>
-								<font>font23</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">50_FanartList_FontHeader_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontHeader_Large</include>
 								<label>$VAR[InfoPanelTop]</label>
 								<textcolor>$VAR[FocusColorTheme]</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -1233,9 +1262,10 @@
 								<top>85</top>
 								<left>33</left>
 								<width>930</width>
-								<bottom>10</bottom>
+								<bottom>9</bottom>
 								<aligny>center</aligny>
-								<font>font27</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0">50_FanartList_FontPlot_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontPlot_Large</include>
 								<label>$VAR[RI_Plot]</label>
 								<textcolor>unfocused_text</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -1318,7 +1348,8 @@
 								<top>0</top>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
-								<font>font32</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">50_FanartList_FontUnfo_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontUnfo_Large</include>
 								<textcolor>lightgrey</textcolor>
 								<label>$VAR[ListLabelVar]$VAR[RI_EpisodeType]</label>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -1414,7 +1445,8 @@
 								<aligny>center</aligny>
 								<scroll>$PARAM[focused]</scroll>
 								<scrollspeed>300</scrollspeed>
-								<font>font23</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">50_FanartList_FontHeader_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontHeader_Large</include>
 								<label>$VAR[InfoPanelTop]</label>
 								<textcolor>$VAR[FocusColorTheme]</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -1423,9 +1455,10 @@
 								<top>85</top>
 								<left>33</left>
 								<width>1096</width>
-								<bottom>10</bottom>
+								<bottom>9</bottom>
 								<aligny>center</aligny>
-								<font>font27</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0">50_FanartList_FontPlot_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontPlot_Large</include>
 								<label>$VAR[RI_Plot]</label>
 								<textcolor>unfocused_text</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -1508,7 +1541,8 @@
 								<top>0</top>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
-								<font>font32</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">50_FanartList_FontUnfo_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontUnfo_Large</include>
 								<textcolor>lightgrey</textcolor>
 								<label>$VAR[ListLabelVar]$VAR[RI_EpisodeType]</label>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -1566,7 +1600,8 @@
 							<top>0</top>
 							<bottom>0</bottom>
 							<aligny>center</aligny>
-							<font>font32</font>
+							<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">50_FanartList_FontUnfo_Default</include>
+							<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontUnfo_Large</include>
 							<textcolor>lightgrey</textcolor>
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -1616,7 +1651,8 @@
 							<top>0</top>
 							<bottom>0</bottom>
 							<aligny>center</aligny>
-							<font>font32</font>
+							<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">50_FanartList_FontUnfo_Default</include>
+							<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontUnfo_Large</include>
 							<textcolor>lightgrey</textcolor>
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -1666,7 +1702,8 @@
 								<aligny>center</aligny>
 								<scroll>true</scroll>
 								<scrollspeed>300</scrollspeed>
-								<font>font23</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">50_FanartList_FontHeader_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontHeader_Large</include>
 								<label>$VAR[AddonsLabel2Var]</label>
 								<textcolor>$VAR[FocusColorTheme]</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -1689,7 +1726,8 @@
 								<width>900</width>
 								<bottom>10</bottom>
 								<aligny>center</aligny>
-								<font>font27</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0">50_FanartList_FontPlot_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontPlot_Large</include>
 								<label>$VAR[ListBoxInfoVar]</label>
 								<textcolor>unfocused_text</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -1755,7 +1793,8 @@
 								<top>0</top>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
-								<font>font32</font>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">50_FanartList_FontUnfo_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">50_FanartList_FontUnfo_Large</include>
 								<textcolor>lightgrey</textcolor>
 								<label>$VAR[unfocused_AddonsLabelVar]</label>
 								<shadowcolor>text_shadow</shadowcolor>

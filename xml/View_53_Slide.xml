@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	<include name="53_Font_Default">
+		<font>font27</font>
+	</include>
+	<include name="53_Font_Large">
+		<font>font32</font>
+	</include>
+	<include name="53_Header_Height_Default">
+		<height>55</height>
+	</include>
+	<include name="53_Header_Height_Large">
+		<height>60</height>
+	</include>
+	<include name="53_Plot_Height_Default">
+		<height max="151">auto</height>
+	</include>
+	<include name="53_Plot_Height_Large">
+		<height max="157">auto</height>
+	</include>
 	<include name="View_53_Slide">
 		<control type="button" id="20000">
 			<description>Dummy button to get animations right (hide focusedlayout on animations)</description>
@@ -175,9 +193,11 @@
               </control>
               <control type="label">
 								<align>left</align>
-                <height>55</height>
+                <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">53_Header_Height_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">53_Header_Height_Large</include>
+                <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">53_Font_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">53_Font_Large</include>
                 <label>$VAR[VideoInfoPanelTop]</label>
-                <font>font27</font>
                 <textcolor>$VAR[FocusColorTheme]</textcolor>
                 <scroll>true</scroll>
                 <scrollspeed>150</scrollspeed>
@@ -186,8 +206,10 @@
 								<param name="align" value="left"/>
 							</include>
               <control type="textbox">
-                <height max="150">auto</height>
-                <font>font27</font>
+                <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">53_Plot_Height_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">53_Plot_Height_Large</include>
+                <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">53_Font_Default</include>
+								<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">53_Font_Large</include>
                 <textcolor>unfocused_text</textcolor>
                 <align>left</align>
                 <label>$VAR[RI_Plot]</label>
