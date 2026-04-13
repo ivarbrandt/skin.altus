@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+	<variable name="HomeMenuIcon">
+		<value condition="String.IsEqual(ListItem.Property(id),weather)">$VAR[WeatherFanartCodeIcon]</value>
+		<value>$INFO[ListItem.Property(icon)]</value>
+	</variable>
+
 	<include name="SubmenuListCommon">
 		<left>0</left>
 		<top>0</top>
@@ -19,7 +24,7 @@
 					<top>19</top>
 					<width>47</width>
 					<height>47</height>
-					<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
+					<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[HomeMenuIcon]</texture>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 				</control>
@@ -65,7 +70,7 @@
 					<top>19</top>
 					<width>47</width>
 					<height>47</height>
-					<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
+					<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[HomeMenuIcon]</texture>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.Property(icon)) + !Control.HasFocus($PARAM[list_id])</visible>
 				</control>
@@ -75,7 +80,7 @@
 					<top>19</top>
 					<width>47</width>
 					<height>47</height>
-					<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Property(icon)]</texture>
+					<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$VAR[HomeMenuIcon]</texture>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus($PARAM[list_id])</visible>
 				</control>

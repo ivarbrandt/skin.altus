@@ -139,7 +139,7 @@
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
-							<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
+							<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 						</control>
@@ -195,7 +195,7 @@
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
-							<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
+							<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + !Control.HasFocus(3000)</visible>
 						</control>
@@ -204,7 +204,7 @@
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
-							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Property(icon)]</texture>
+							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(3000)</visible>
 						</control>
@@ -269,6 +269,7 @@
 							<param name="btn_top" value="10" />
 							<param name="list_id" value="3000" />
 							<param name="btn_prop" value="section_active_btn" />
+							<param name="btn_slide_weather" value="true" />
 						</include>
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="edit" />
@@ -277,6 +278,7 @@
 							<param name="btn_top" value="10" />
 							<param name="list_id" value="3000" />
 							<param name="btn_prop" value="section_active_btn" />
+							<param name="btn_hide" value="String.IsEqual(Window.Property(weather_section),true)" />
 						</include>
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="reorder" />

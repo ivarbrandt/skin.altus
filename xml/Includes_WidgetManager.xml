@@ -39,16 +39,24 @@
 		<value>40000000</value>
 	</variable>
 
+	<variable name="WidgetManagerItemIcon">
+		<value condition="!String.IsEmpty(ListItem.Property(is_weather))">$VAR[WeatherFanartCodeIcon]</value>
+		<value>$INFO[ListItem.Property(icon)]</value>
+	</variable>
+
 	<!-- Inline icon button for widget manager lists. Used inside focusedlayout. -->
 	<include name="WM_InlineBtn">
 		<param name="btn_color">$VAR[FocusColorTheme]</param>
+		<param name="btn_hide">false</param>
+		<param name="btn_slide_weather">false</param>
 		<definition>
 			<control type="group">
 				<left>$PARAM[btn_left]</left>
 				<top>$PARAM[btn_top]</top>
 				<width>45</width>
 				<height>45</height>
-				<visible>Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window.Property(edit_menu_open))</visible>
+				<animation effect="slide" start="0,0" end="47,0" time="0" condition="$PARAM[btn_slide_weather] + String.IsEqual(Window.Property(weather_section),true)">Conditional</animation>
+				<visible>Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window.Property(edit_menu_open)) + !$PARAM[btn_hide]</visible>
 				<!-- Icon - highlighted -->
 				<control type="image">
 					<visible>String.IsEqual(Window.Property($PARAM[btn_prop]),$PARAM[btn_id])</visible>

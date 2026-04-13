@@ -198,6 +198,7 @@
 				<label>Widget: $INFO[Window(Home).Property(FeatureWidgetFocused)]</label>
 				<label>$INFO[Window(Home).Property(fenlight.default_addon_fanart)]</label>
 				<label>$INFO[Window(home).Property(listitem_color)]</label>
+				<label>$INFO[Window(Weather).Property(Current.FanartCode)]</label>
 				<visible>true</visible>
 			</control> -->
 			<control type="group">

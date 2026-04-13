@@ -414,4 +414,55 @@
 	</include> -->
 
 
+	<variable name="WeatherFanartCodeIcon">
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),0)">iconpicker/monochrome/Weather/tornado-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),1)">iconpicker/monochrome/Weather/typhoon-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),2)">iconpicker/monochrome/Weather/typhoon-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),3)">iconpicker/monochrome/Weather/thunderstorms-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),4)">iconpicker/monochrome/Weather/thunderstorms-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),5)">iconpicker/monochrome/Weather/snowy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),6)">iconpicker/monochrome/Weather/hail-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),7)">iconpicker/monochrome/Weather/hail-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),8)">iconpicker/monochrome/Weather/drizzle-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),9)">iconpicker/monochrome/Weather/drizzle-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),10)">iconpicker/monochrome/Weather/rainy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),11)">iconpicker/monochrome/Weather/showers-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),12)">iconpicker/monochrome/Weather/showers-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),13)">iconpicker/monochrome/Weather/snowflake-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),14)">iconpicker/monochrome/Weather/snowflake-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),15)">iconpicker/monochrome/Weather/snowy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),16)">iconpicker/monochrome/Weather/snowy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),17)">iconpicker/monochrome/Weather/hail-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),18)">iconpicker/monochrome/Weather/hail-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),19)">iconpicker/monochrome/Weather/haze-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),20)">iconpicker/monochrome/Weather/foggy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),21)">iconpicker/monochrome/Weather/haze-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),22)">iconpicker/monochrome/Weather/haze-2-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),23)">iconpicker/monochrome/Weather/windy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),24)">iconpicker/monochrome/Weather/windy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),25)">iconpicker/monochrome/Weather/temp-cold-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),26)">iconpicker/monochrome/Weather/cloudy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),27)">iconpicker/monochrome/Weather/moon-cloudy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),28)">iconpicker/monochrome/Weather/sun-cloudy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),29)">iconpicker/monochrome/Weather/moon-cloudy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),30)">iconpicker/monochrome/Weather/sun-cloudy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),31)">iconpicker/monochrome/Weather/moon-clear-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),32)">iconpicker/monochrome/Weather/sun-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),33)">iconpicker/monochrome/Weather/moon-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),34)">iconpicker/monochrome/Weather/sun-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),35)">iconpicker/monochrome/Weather/hail-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),36)">iconpicker/monochrome/Weather/temp-hot-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),37)">iconpicker/monochrome/Weather/thunderstorms-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),38)">iconpicker/monochrome/Weather/thunderstorms-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),39)">iconpicker/monochrome/Weather/thunderstorms-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),40)">iconpicker/monochrome/Weather/showers-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),41)">iconpicker/monochrome/Weather/snowy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),42)">iconpicker/monochrome/Weather/snowflake-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),43)">iconpicker/monochrome/Weather/snowy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),44)">iconpicker/monochrome/Weather/cloudy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),45)">iconpicker/monochrome/Weather/thunderstorms-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),46)">iconpicker/monochrome/Weather/snowy-fill.png</value>
+		<value condition="String.IsEqual(Window(Weather).Property(Current.FanartCode),47)">iconpicker/monochrome/Weather/thunderstorms-fill.png</value>
+	</variable>
+
 </includes>
