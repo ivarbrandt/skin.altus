@@ -2013,6 +2013,22 @@
 	</include>
 
 	<include name="ZeroFadeBackground">
+		<control type="videowindow">
+			<depth>DepthBackground</depth>
+			<include>FullScreenDimensions</include>
+			<visible>Player.HasVideo</visible>
+			<visible>!Slideshow.IsActive</visible>
+		</control>
+		<control type="visualisation">
+			<include>FullScreenDimensions</include>
+			<visible>!Slideshow.IsActive</visible>
+			<visible>Player.HasAudio + String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + Visualisation.Enabled</visible>
+		</control>
+		<control type="image">
+			<include>FullScreenDimensions</include>
+			<texture colordiffuse="overlay_fade_color">colors/white.png</texture>
+			<visible>Player.HasVideo + String.IsEmpty(Skin.String(TrailerPlaying))</visible>
+		</control>
 		<control type="image" id="100000">
 			<include>FullScreenFanartDimensions</include>
 			<aspectratio>scale</aspectratio>

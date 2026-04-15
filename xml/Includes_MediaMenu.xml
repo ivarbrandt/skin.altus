@@ -55,9 +55,9 @@
 				<height>100%</height>
 				<onleft>9000</onleft>
 				<onup>9000</onup>
-				<onright>50</onright>
+				<onright>SetFocus(49)</onright>
 				<ondown>14100</ondown>
-				<onback>50</onback>
+				<onback>SetFocus(49)</onback>
 				<control type="group" id="60520">
 					<height>50</height>
 					<control type="label">
@@ -84,9 +84,9 @@
 						<left>0</left>
 						<height>120</height>
 						<onleft>6056</onleft>
-						<onright>50</onright>
+						<onright>49</onright>
 						<onup>14100</onup>
-						<ondown>6054</ondown>
+						<ondown>6060</ondown>
 						<width>1000</width>
 						<include content="PVRQuickNavItemsCommon">
 							<param name="control_id" value="100" />
@@ -131,13 +131,13 @@
 					<onclick>Container.NextViewMode</onclick>
 					<visible>Window.IsActive(MyPVRGuide.xml)</visible>
 				</control> -->
-				<control type="button" id="6054">
+				<!-- <control type="button" id="6054">
 					<include>MediaMenuItemsCommon</include>
 					<label>$LOCALIZE[19141]</label>
 					<label2>[B]$PARAM[group_label2][/B]</label2>
 					<onclick>SendClick(28)</onclick>
 					<visible>Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRGuide.xml)</visible>
-				</control>
+				</control> -->
 				<control type="radiobutton" id="6060">
 					<include>MediaMenuItemsCommon</include>
 					<label>$LOCALIZE[31127]</label>

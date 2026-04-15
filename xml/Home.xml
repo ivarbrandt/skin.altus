@@ -218,7 +218,7 @@
 						<left>70</left>
 						<top>180</top>
 						<width>378</width>
-						<height>832</height>
+						<height>850</height>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<!-- <onfocus>SetProperty(fenlight.default_addon_fanart,,home)</onfocus> -->
 						<!-- <onfocus>ClearProperty(FirstWidgetID,home)</onfocus>

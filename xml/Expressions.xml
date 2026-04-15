@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-  
+
   <expression name="isPlugin">String.StartsWith(Container.FolderPath,plugin://)</expression>
   <expression name="isContent">String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season)</expression>
   <expression name="isMovie">String.IsEqual(ListItem.DBType,movie)</expression>

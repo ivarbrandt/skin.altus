@@ -102,6 +102,7 @@
           <texture colordiffuse="$VAR[FocusColorTheme]">$PARAM[img_texture]</texture>
           <visible>Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
           <include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+          <!-- <animation effect="fade" start="100" end="50" time="40" condition="Window.IsVisible(tvchannels) + !Control.HasFocus(49)">Conditional</animation> -->
         </control>
         <!-- Section icon -->
         <control type="image">

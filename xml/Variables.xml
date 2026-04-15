@@ -497,8 +497,8 @@
 
 	<variable name="WallWatchedIconVar.All">
     <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
-    <value condition="ListItem.HasReminder">icons/pvr/timers/bell.png</value>
-    <value condition="ListItem.HasTimer">icons/pvr/timers/recording.png</value>
+    <value condition="ListItem.HasReminder | String.IsEqual(ListItem.Property(HasReminder),true)">iconpicker/monochrome/Media/notification-2-fill.png</value>
+    <value condition="ListItem.HasTimer | String.IsEqual(ListItem.Property(HasTimer),true)">iconpicker/monochrome/Media/record-circle-fill.png</value>
     <value condition="ListItem.IsCollection">overlays/set.png</value>
     <value condition="ListItem.IsPlaying">osd/fullscreen/buttons/play.png</value>
     <!-- TV Shows -->
@@ -796,6 +796,49 @@
 	<variable name="ActiveVideoPlayerSubtitleLanguage">
 		<value condition="VideoPlayer.SubtitlesEnabled">[B]$INFO[VideoPlayer.SubtitlesLanguage][/B]</value>
 		<value>[B]$LOCALIZE[1223][/B]</value>
+	</variable>
+	<variable name="SeasonEpisodeLabel50">
+		<value condition="!String.IsEmpty(Container(50).ListItem.Season) + !String.IsEmpty(Container(50).ListItem.Episode) + String.IsEmpty(Container(50).ListItem.EpisodeName) + !String.IsEmpty(Container(50).ListItem.EpisodePart)">$INFO[Container(50).ListItem.Season,S]$INFO[Container(50).ListItem.Episode,E]$INFO[Container(50).ListItem.EpisodePart,/]</value>
+		<value condition="!String.IsEmpty(Container(50).ListItem.Season) + !String.IsEmpty(Container(50).ListItem.Episode) + !String.IsEmpty(Container(50).ListItem.EpisodeName) + !String.IsEmpty(Container(50).ListItem.EpisodePart)">$INFO[Container(50).ListItem.Season,S]$INFO[Container(50).ListItem.Episode,E]$INFO[Container(50).ListItem.EpisodePart,/]</value>
+		<value condition="!String.IsEmpty(Container(50).ListItem.Season) + !String.IsEmpty(Container(50).ListItem.Episode)">$INFO[Container(50).ListItem.Season,S]$INFO[Container(50).ListItem.Episode,E]</value>
+		<value></value>
+	</variable>
+	<variable name="EpisodeNameLabel50">
+		<value condition="!String.IsEmpty(Container(50).ListItem.EpisodeName) + !String.IsEmpty(Container(50).ListItem.Season) + !String.IsEmpty(Container(50).ListItem.Episode)">: $INFO[Container(50).ListItem.EpisodeName]</value>
+		<value condition="!String.IsEmpty(Container(50).ListItem.EpisodeName)">$INFO[Container(50).ListItem.EpisodeName]</value>
+		<value condition="String.IsEmpty(Container(50).ListItem.Season) + String.IsEmpty(Container(50).ListItem.Episode) + String.IsEmpty(Container(50).ListItem.EpisodePart) + !String.IsEmpty(Container(50).ListItem.TitleExtraInfo)">$INFO[Container(50).ListItem.TitleExtraInfo]</value>
+		<value></value>
+	</variable>
+	<variable name="SeasonEpisodeAndNameLabel50">
+		<value>$VAR[SeasonEpisodeLabel50]$VAR[EpisodeNameLabel50]</value>
+	</variable>
+	<variable name="FlagLabel50">
+		<value condition="Container(50).ListItem.IsPremiere">[B][COLOR button_focus]$LOCALIZE[838][/COLOR][/B]</value>
+		<value condition="Container(50).ListItem.IsFinale">[B][COLOR button_focus]$LOCALIZE[849][/COLOR][/B]</value>
+		<value condition="Container(50).ListItem.IsLive">[B][COLOR button_focus]$LOCALIZE[839][/COLOR][/B]</value>
+		<value condition="Container(50).ListItem.IsNew">[B][COLOR button_focus]$LOCALIZE[842][/COLOR][/B]</value>
+	</variable>
+	<variable name="RecordingSizeLabel50">
+		<value condition="!String.IsEmpty(Container(50).ListItem.Size) + !String.IsEqual(Container(50).ListItem.Size,0.00 B)">$INFO[Container(50).ListItem.Size,[COLOR grey]$LOCALIZE[22031]:[/COLOR] ,[CR]]</value>
+	</variable>
+	<variable name="ExpirationDateTimeLabel50">
+		<value condition="!String.IsEmpty(Container(50).ListItem.ExpirationDate)">[COLOR grey]$LOCALIZE[19299]:[/COLOR] $INFO[Container(50).ListItem.ExpirationDate] $INFO[Container(50).ListItem.ExpirationTime][CR]</value>
+	</variable>
+	<variable name="PVRInfoPanelDateDurationLabel50">
+		<value condition="!String.IsEmpty(Container(50).ListItem.StartDate) + !String.IsEmpty(Container(50).ListItem.StartTime)">$INFO[Container(50).ListItem.StartDate,[COLOR grey]$LOCALIZE[552]:[/COLOR] ,[CR]]$INFO[Container(50).ListItem.StartTime,[COLOR grey]$LOCALIZE[555]:[/COLOR] ,[CR]]$INFO[Container(50).ListItem.Duration,[COLOR grey]$LOCALIZE[180]:[/COLOR] ]</value>
+		<value>$INFO[Container(50).ListItem.Date,[COLOR grey]$LOCALIZE[552]:[/COLOR] ,[CR]]$INFO[Container(50).ListItem.Duration,[COLOR grey]$LOCALIZE[180]:[/COLOR] ]</value>
+	</variable>
+	<variable name="ChannelListEPGIconVar50">
+		<value condition="!String.IsEmpty(Container(50).ListItem.EpgEventIcon)">$INFO[Container(50).ListItem.EpgEventIcon]</value>
+		<value>$INFO[Container(50).ListItem.Icon]</value>
+	</variable>
+	<variable name="UnfocusedPVRNextProgrammeLabel50">
+		<value condition="!String.IsEmpty(Container(50).ListItem.NextStartTime) + !String.IsEmpty(Container(50).ListItem.NextTitle)">[COLOR grey]$LOCALIZE[209]:[/COLOR] $INFO[Container(50).ListItem.NextStartTime]: $INFO[Container(50).ListItem.NextTitle]</value>
+		<value condition="!String.IsEmpty(Container(50).ListItem.NextTitle)">[COLOR grey]$LOCALIZE[209]:[/COLOR] $INFO[Container(50).ListItem.NextTitle]</value>
+	</variable>
+	<variable name="BreadcrumbsPVRChannelsVar50">
+		<value condition="Window.IsActive(TVChannels)">[COLOR unfocused_text]$LOCALIZE[19020][/COLOR] [B]»[/B] [COLOR unfocused_text]$LOCALIZE[19019][/COLOR] [B]»[/B] [COLOR unfocused_text]$INFO[Container(49).ListItem.Label][/COLOR]</value>
+		<value>[COLOR unfocused_text]$LOCALIZE[19021][/COLOR] [B]»[/B] [COLOR unfocused_text]$LOCALIZE[19019][/COLOR] [B]»[/B] [COLOR unfocused_text]$INFO[Control.GetLabel(29)][/COLOR]</value>
 	</variable>
 	
 </includes>

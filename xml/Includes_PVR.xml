@@ -3,15 +3,40 @@
 	<expression name="listitem_has_episode_info">!String.IsEmpty(ListItem.Episode) | !String.IsEmpty(ListItem.EpisodeName) | !String.IsEmpty(ListItem.Season)</expression>
 	<expression name="listitem_has_epg_event_info">!String.IsEmpty(ListItem.EpgEventTitle) | !String.IsEmpty(ListItem.TitleExtraInfo) | $EXP[listitem_has_episode_info]</expression>
 	<include name="PVRListItemLayout">
+		<param name="focused">false</param>
+		<param name="only_label_font_unfocused">font36_title</param>
+		<param name="only_label_font_focused">font36_title</param>
+		<param name="label0_font_unfocused">font32</param>
+		<param name="label0_font_focused">font32</param>
+		<param name="label2_font_unfocused">font32</param>
+		<param name="label2_font_focused">font32</param>
+		<param name="label3_font_unfocused">font27</param>
+		<param name="label3_font_focused">font27</param>
+		<param name="label4_font_unfocused">font12</param>
+		<param name="label4_font_focused">font12</param>
 		<definition>
+			<!-- only_label -->
 			<control type="label">
 				<left>30</left>
 				<top>0</top>
 				<right>30</right>
-				<font>font36_title</font>
+				<font>$PARAM[only_label_font_unfocused]</font>
 				<aligny>center</aligny>
-				<visible>$PARAM[only_label_condition]</visible>
+				<textcolor>unfocused_text</textcolor>
+				<visible>$PARAM[only_label_condition] + [![Control.HasFocus($PARAM[list_id]) | Control.HasFocus(52)] | !$PARAM[focused]]</visible>
 				<label>$PARAM[only_label]</label>
+			</control>
+			<control type="label">
+				<left>30</left>
+				<top>0</top>
+				<right>30</right>
+				<font>$PARAM[only_label_font_focused]</font>
+				<aligny>center</aligny>
+				<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+				<visible>$PARAM[only_label_condition] + [Control.HasFocus($PARAM[list_id]) | Control.HasFocus(52)] + $PARAM[focused]</visible>
+				<label>$PARAM[only_label]</label>
+				<scroll>$PARAM[focused]</scroll>
+				<scrollspeed>100</scrollspeed>
 			</control>
 			<control type="image">
 				<right>25</right>
@@ -36,58 +61,112 @@
 					<texture>$PARAM[info_icon]</texture>
 					<colordiffuse>$PARAM[info_icon_diffuse]</colordiffuse>
 				</control>
+				<!-- label0 -->
 				<control type="label">
-					<left>10</left>
-					<top>10</top>
-					<width>90</width>
-					<height>50</height>
-					<align>center</align>
-					<aligny>center</aligny>
-					<font>font32_title</font>
-					<visible>!$PARAM[has_info_icon]</visible>
-					<label>$PARAM[label0]</label>
-				</control>
-				<control type="label">
-					<left>105</left>
-					<right>180</right>
-					<top>10</top>
+					<left>116</left>
+					<right>66</right>
+					<top>15</top>
 					<height>30</height>
 					<aligny>top</aligny>
-					<label>$PARAM[label1]</label>
+					<font>$PARAM[label0_font_unfocused]</font>
+					<label>$PARAM[label0]</label>
+					<textcolor>unfocused_text</textcolor>
+					<visible>![Control.HasFocus($PARAM[list_id]) | Control.HasFocus(52)] | !$PARAM[focused]</visible>
 				</control>
 				<control type="label">
-					<left>105</left>
-					<right>180</right>
-					<top>10</top>
+					<left>116</left>
+					<right>66</right>
+					<top>15</top>
+					<height>30</height>
+					<aligny>top</aligny>
+					<font>$PARAM[label0_font_focused]</font>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<label>$PARAM[label0]</label>
+					<scroll>$PARAM[focused]</scroll>
+					<scrollspeed>100</scrollspeed>
+					<visible>[Control.HasFocus($PARAM[list_id]) | Control.HasFocus(52)] + $PARAM[focused]</visible>
+				</control>
+				<!-- label2 -->
+				<control type="label">
+					<left>116</left>
+					<right>26</right>
+					<top>15</top>
 					<height>30</height>
 					<align>right</align>
 					<aligny>top</aligny>
+					<font>$PARAM[label2_font_unfocused]</font>
 					<label>$PARAM[label2]</label>
+					<textcolor>unfocused_text</textcolor>
+					<visible>![Control.HasFocus($PARAM[list_id]) | Control.HasFocus(52)] | !$PARAM[focused]</visible>
+				</control>
+				<control type="label">
+					<left>116</left>
+					<right>26</right>
+					<top>15</top>
+					<height>30</height>
+					<align>right</align>
+					<aligny>top</aligny>
+					<font>$PARAM[label2_font_focused]</font>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<label>$PARAM[label2]</label>
+					<visible>[Control.HasFocus($PARAM[list_id]) | Control.HasFocus(52)] + $PARAM[focused]</visible>
 				</control>
 			</control>
 			<control type="group">
 				<top>-8</top>
 				<visible>!$PARAM[only_label_condition]</visible>
+				<!-- label3 -->
 				<control type="label">
-					<left>105</left>
-					<right>180</right>
-					<top>53</top>
+					<left>116</left>
+					<right>66</right>
+					<top>50</top>
 					<height>30</height>
-					<font>font12</font>
+					<font>$PARAM[label3_font_unfocused]</font>
 					<aligny>top</aligny>
 					<label>$PARAM[label3]</label>
+					<textcolor>99FFFFFF</textcolor>
+					<visible>![Control.HasFocus($PARAM[list_id]) | Control.HasFocus(52)] | !$PARAM[focused]</visible>
 				</control>
 				<control type="label">
-					<left>105</left>
-					<right>180</right>
+					<left>116</left>
+					<right>66</right>
+					<top>50</top>
+					<height>30</height>
+					<font>$PARAM[label3_font_focused]</font>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<aligny>top</aligny>
+					<label>$PARAM[label3]</label>
+					<scroll>$PARAM[focused]</scroll>
+					<scrollspeed>100</scrollspeed>
+					<visible>[Control.HasFocus($PARAM[list_id]) | Control.HasFocus(52)] + $PARAM[focused]</visible>
+				</control>
+				<!-- label4 -->
+				<control type="label">
+					<left>116</left>
+					<right>26</right>
 					<top>53</top>
 					<height>30</height>
-					<font>font12</font>
+					<font>$PARAM[label4_font_unfocused]</font>
 					<align>right</align>
 					<aligny>top</aligny>
 					<label>$PARAM[label4]</label>
+					<textcolor>unfocused_text</textcolor>
+					<visible>![Control.HasFocus($PARAM[list_id]) | Control.HasFocus(52)] | !$PARAM[focused]</visible>
+				</control>
+				<control type="label">
+					<left>116</left>
+					<right>26</right>
+					<top>53</top>
+					<height>30</height>
+					<font>$PARAM[label4_font_focused]</font>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<align>right</align>
+					<aligny>top</aligny>
+					<label>$PARAM[label4]</label>
+					<visible>[Control.HasFocus($PARAM[list_id]) | Control.HasFocus(52)] + $PARAM[focused]</visible>
 				</control>
 			</control>
+
 			<control type="image">
 				<right>110</right>
 				<top>0</top>
@@ -98,11 +177,10 @@
 				<visible>$PARAM[has_status_icon]</visible>
 			</control>
 			<control type="image">
-				<right>55</right>
-				<top>0</top>
-				<width>90</width>
-				<height>97</height>
-				<aligny>center</aligny>
+				<left>26</left>
+
+				<width>70</width>
+
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<visible>!$PARAM[only_label_condition] | ListItem.IsParentFolder</visible>
 				<texture colordiffuse="$PARAM[actual_icon_color_diffuse]">$INFO[ListItem.ActualIcon]</texture>
@@ -115,70 +193,126 @@
 		<param name="has_status_icon">false</param>
 		<param name="status_icon">$PARAM[status_icon]</param>
 		<param name="info_update">0</param>
+		<param name="only_label_font_unfocused">font36_title</param>
+		<param name="only_label_font_focused">font36_title</param>
+		<param name="label0_font_unfocused">font32</param>
+		<param name="label0_font_focused">font32</param>
+		<param name="label2_font_unfocused">font32</param>
+		<param name="label2_font_focused">font32</param>
+		<param name="label3_font_unfocused">font27</param>
+		<param name="label3_font_focused">font27</param>
+		<param name="label4_font_unfocused">font12</param>
+		<param name="label4_font_focused">font12</param>
 		<definition>
-			<itemlayout height="97.6"  infoupdate="$PARAM[info_update]">
+			<itemlayout height="117"  infoupdate="$PARAM[info_update]">
 				<control type="progress">
-					<left>20</left>
-					<top>66</top>
-					<width>70</width>
-					<height>7</height>
+					<left>116</left>
+					<top>91</top>
+					<right>26</right>
+					<height>3</height>
 					<align>center</align>
 					<aligny>center</aligny>
 					<visible>ListItem.HasEpg + !$PARAM[has_info_icon]</visible>
 					<info>ListItem.Progress</info>
 				</control>
 				<include content="PVRListItemLayout">
+					<param name="list_id" value="$PARAM[list_id]" />
+					<param name="focused" value="false" />
 					<param name="only_label_condition" value="$PARAM[only_label_condition]" />
-					<param name="only_label" value="[COLOR unfocused_text]$INFO[ListItem.Label][/COLOR]" />
+					<param name="only_label" value="$INFO[ListItem.Label]" />
 					<param name="info_icon" value="$PARAM[info_icon]" />
 					<param name="info_icon_diffuse" value="$VAR[FocusColorTheme]" />
 					<param name="has_info_icon" value="$PARAM[has_info_icon]" />
 					<param name="has_status_icon" value="$PARAM[has_status_icon]" />
-					<param name="status_icon" value=">[COLOR unfocused_text]$VAR[PVRStatusImageVar][/COLOR]" />
-					<param name="actual_icon_color_diffuse" value="unfocused_text" />
-					<param name="label0" value="[COLOR unfocused_text]$INFO[ListItem.ChannelNumberLabel][/COLOR]" />
-					<param name="label1" value="[COLOR unfocused_text]$PARAM[label1][/COLOR]" />
-					<param name="label2" value="[COLOR unfocused_text]$PARAM[label2][/COLOR]" />
-					<param name="label3" value="[COLOR unfocused_text]$VAR[PVRListItemSubLabel][/COLOR]" />
-					<param name="label4" value="[COLOR unfocused_text]$INFO[ListItem.Comment][/COLOR]" />
+					<param name="status_icon" value=">$VAR[PVRStatusImageVar]" />
+					<param name="actual_icon_color_diffuse" value="artwork_dim" />
+					<param name="label0" value="[B]$INFO[ListItem.ChannelNumberLabel] - $PARAM[label1][/B]" />
+					<param name="label1" value="$PARAM[label1]" />
+					<param name="label2" value="$PARAM[label2]" />
+					<param name="label3" value="$VAR[PVRListItemSubLabel]" />
+					<param name="label4" value="$INFO[ListItem.Comment]" />
+					<param name="only_label_font_unfocused" value="$PARAM[only_label_font_unfocused]" />
+					<param name="only_label_font_focused" value="$PARAM[only_label_font_focused]" />
+					<param name="label0_font_unfocused" value="$PARAM[label0_font_unfocused]" />
+					<param name="label0_font_focused" value="$PARAM[label0_font_focused]" />
+					<param name="label2_font_unfocused" value="$PARAM[label2_font_unfocused]" />
+					<param name="label2_font_focused" value="$PARAM[label2_font_focused]" />
+					<param name="label3_font_unfocused" value="$PARAM[label3_font_unfocused]" />
+					<param name="label3_font_focused" value="$PARAM[label3_font_focused]" />
+					<param name="label4_font_unfocused" value="$PARAM[label4_font_unfocused]" />
+					<param name="label4_font_focused" value="$PARAM[label4_font_focused]" />
 				</include>
 			</itemlayout>
-			<focusedlayout height="97.6"  infoupdate="$PARAM[info_update]">
+			<focusedlayout height="117"  infoupdate="$PARAM[info_update]">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
-					<right>25</right>
+					<right>0</right>
+					<bottom>0</bottom>
 					<!-- <animation effect="fade" start="100" end="0" time="0">UnFocus</animation> -->
-					<texture colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texture>
-					<!-- <visible>Control.HasFocus($PARAM[list_id])</visible> -->
-					<animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus($PARAM[list_id])">conditional</animation>
+					<texture colordiffuse="$VAR[FocusColorTheme]">lists/50_pvr.png</texture>
+					<visible>Control.HasFocus($PARAM[list_id]) | Control.HasFocus(52)</visible>
+					<animation effect="fade" start="100" end="70" time="0" condition="!Control.HasFocus($PARAM[list_id]) + Control.HasFocus(52)">conditional</animation>
 				</control>
+				<control type="image">
+					<right>20</right>
+					<width>35</width>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<visible>Control.HasFocus(50) + String.IsEqual(Window.Property(altus.pvr.epg_ready),true)</visible>
+					<texture colordiffuse="$VAR[FocusedTextColorVar]">overlays/arrowright.png</texture>
+					<animation effect="fade" time="400" tween="cubic" easing="out">Visible</animation>
+				</control>
+				<!-- unfocused progress -->
 				<control type="progress">
-					<left>20</left>
-					<top>66</top>
-					<width>70</width>
-					<height>7</height>
+					<left>116</left>
+					<top>91</top>
+					<right>26</right>
+					<height>3</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<visible>ListItem.HasEpg + !$PARAM[has_info_icon] + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus(52)]</visible>
+					<info>ListItem.Progress</info>
+				</control>
+				<!-- focused progress -->
+				<control type="progress">
+					<left>116</left>
+					<top>91</top>
+					<right>26</right>
+					<height>3</height>
 					<align>center</align>
 					<aligny>center</aligny>
 					<colordiffuse>$VAR[FocusedTextColorVar]</colordiffuse>
 					<midtexture colordiffuse="$VAR[FocusedTextColorVar]">colors/white.png</midtexture>
-					<visible>ListItem.HasEpg + !$PARAM[has_info_icon]</visible>
+					<texturebg colordiffuse="$VAR[FocusedTextColorVar]">colors/white_50.png</texturebg>
+					<visible>ListItem.HasEpg + !$PARAM[has_info_icon] + [Control.HasFocus($PARAM[list_id]) | Control.HasFocus(52)]</visible>
 					<info>ListItem.Progress</info>
 				</control>
 				<include content="PVRListItemLayout">
+					<param name="list_id" value="$PARAM[list_id]" />
+					<param name="focused" value="true" />
 					<param name="only_label_condition" value="$PARAM[only_label_condition]" />
-					<param name="only_label" value="[COLOR $VAR[FocusedTextColorVar]]$INFO[ListItem.Label][/COLOR]" />
+					<param name="only_label" value="$INFO[ListItem.Label]" />
 					<param name="info_icon" value="$PARAM[info_icon]" />
 					<param name="info_icon_diffuse" value="$VAR[FocusedTextColorVar]" />
 					<param name="has_info_icon" value="$PARAM[has_info_icon]" />
 					<param name="has_status_icon" value="$PARAM[has_status_icon]" />
-					<param name="status_icon" value="[COLOR $VAR[FocusedTextColorVar]]$VAR[PVRStatusImageVar][/COLOR]" />
+					<param name="status_icon" value="$VAR[PVRStatusImageVar]" />
 					<param name="actual_icon_color_diffuse" value="$VAR[PVRIconDiffuse]" />
-					<param name="label0" value="[COLOR $VAR[FocusedTextColorVar]]$INFO[ListItem.ChannelNumberLabel][/COLOR]" />
-					<param name="label1" value="[COLOR $VAR[FocusedTextColorVar]]$PARAM[label1][/COLOR]" />
-					<param name="label2" value="[COLOR $VAR[FocusedTextColorVar]]$PARAM[label2][/COLOR]" />
-					<param name="label3" value="[COLOR $VAR[FocusedTextColorVar]]$VAR[PVRListItemSubLabelFocused][/COLOR]" />
-					<param name="label4" value="[COLOR $VAR[FocusedTextColorVar]]$INFO[ListItem.Comment][/COLOR]" />
+					<param name="label0" value="[B]$INFO[ListItem.ChannelNumberLabel] - $PARAM[label1][/B]" />
+					<param name="label1" value="$PARAM[label1]" />
+					<param name="label2" value="$PARAM[label2]" />
+					<param name="label3" value="$VAR[PVRListItemSubLabelFocused]" />
+					<param name="label4" value="$INFO[ListItem.Comment]" />
+					<param name="only_label_font_unfocused" value="$PARAM[only_label_font_unfocused]" />
+					<param name="only_label_font_focused" value="$PARAM[only_label_font_focused]" />
+					<param name="label0_font_unfocused" value="$PARAM[label0_font_unfocused]" />
+					<param name="label0_font_focused" value="$PARAM[label0_font_focused]" />
+					<param name="label2_font_unfocused" value="$PARAM[label2_font_unfocused]" />
+					<param name="label2_font_focused" value="$PARAM[label2_font_focused]" />
+					<param name="label3_font_unfocused" value="$PARAM[label3_font_unfocused]" />
+					<param name="label3_font_focused" value="$PARAM[label3_font_focused]" />
+					<param name="label4_font_unfocused" value="$PARAM[label4_font_unfocused]" />
+					<param name="label4_font_focused" value="$PARAM[label4_font_focused]" />
 				</include>
 			</focusedlayout>
 		</definition>
@@ -596,83 +730,86 @@
 		</control>
 	</include>
 	<include name="PVRInfoPanel">
-		<param name="bottom">120</param>
+		<param name="bottom">40</param>
+		<param name="item">ListItem</param>
+		<param name="var_suffix"></param>
 		<definition>
 			<control type="group">
 				<top>200</top>
-				<visible>!ListItem.IsFolder</visible>
+				<visible>!$PARAM[item].IsFolder</visible>
 				<control type="image">
 					<top>-90</top>
 					<left>0</left>
 					<width>300</width>
 					<height>200</height>
 					<aspectratio align="left" aligny="center">keep</aspectratio>
-					<texture fallback="DefaultTVShows.png">$VAR[ChannelListEPGIconVar]</texture>
-					<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
+					<texture fallback="DefaultTVShows.png">$VAR[ChannelListEPGIconVar$PARAM[var_suffix]]</texture>
+					<visible>!String.IsEmpty($PARAM[item].ChannelName)</visible>
 					<fadetime>200</fadetime>
 				</control>
 				<control type="group">
 					<top>120</top>
 					<left>0</left>
-					<width>830</width>
+					<right>0</right>
 					<control type="label">
 						<height>262</height>
 						<font>font45</font>
-						<label>$INFO[ListItem.ChannelName]</label>
+						<label>$INFO[$PARAM[item].ChannelName]</label>
 					</control>
 					<control type="label">
 						<top>60</top>
 						<height>200</height>
-						<label>$VAR[PVRInfoPanelDateDurationLabel]</label>
+						<label>$VAR[PVRInfoPanelDateDurationLabel$PARAM[var_suffix]]</label>
+					</control>
+					<!-- <control type="progress">
+						<top>200</top>
+						<height>12</height>
+						<colordiffuse>88FFFFFF</colordiffuse>
+						<info>$PARAM[item].Progress</info>
+						<visible>Integer.IsGreater($PARAM[item].Progress,0)</visible>
 					</control>
 					<control type="progress">
 						<top>200</top>
 						<height>12</height>
 						<colordiffuse>88FFFFFF</colordiffuse>
-						<info>ListItem.Progress</info>
-						<visible>Integer.IsGreater(ListItem.Progress,0)</visible>
-					</control>
-					<control type="progress">
-						<top>200</top>
-						<height>12</height>
-						<colordiffuse>88FFFFFF</colordiffuse>
-						<info>ListItem.PercentPlayed</info>
-						<visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
-					</control>
+						<info>$PARAM[item].PercentPlayed</info>
+						<visible>Integer.IsGreater($PARAM[item].PercentPlayed,0)</visible>
+					</control> -->
 				</control>
 				<control type="label">
-					<top>277</top>
-					<width>830</width>
+					<top>200</top>
+					<right>0</right>
+					<right>0</right>
 					<height>262</height>
 					<font>font36_title</font>
-					<label>$INFO[ListItem.Title] $INFO[ListItem.Year,([COLOR grey],[/COLOR])]</label>
+					<label>$INFO[$PARAM[item].Title] $INFO[$PARAM[item].Year,([COLOR grey],[/COLOR])]</label>
 					<scroll>true</scroll>
-					<visible>!ListItem.HasEpg</visible>
+					<visible>!$PARAM[item].HasEpg</visible>
 				</control>
 				<control type="label">
-					<top>277</top>
-					<width>830</width>
+					<top>200</top>
+					<right>0</right>
 					<height>262</height>
 					<font>font36_title</font>
-					<label>$INFO[ListItem.EpgEventTitle] $INFO[ListItem.Year,([COLOR grey],[/COLOR])]</label>
+					<label>$INFO[$PARAM[item].EpgEventTitle] $INFO[$PARAM[item].Year,([COLOR grey],[/COLOR])]</label>
 					<aligny>center</aligny>
 					<wrapmultiline>true</wrapmultiline>
-					<visible>ListItem.HasEpg</visible>
+					<visible>$PARAM[item].HasEpg</visible>
 				</control>
 				<control type="label">
-					<top>410</top>
-					<width>830</width>
+					<top>313</top>
+					<right>0</right>
 					<height>70</height>
 					<scroll>true</scroll>
-					<label>[I]$VAR[SeasonEpisodeAndNameLabel][/I]</label>
+					<label>[I]$VAR[SeasonEpisodeAndNameLabel$PARAM[var_suffix]][/I]</label>
 				</control>
 				<control type="textbox">
-					<top>465</top>
-					<width>830</width>
+					<top>368</top>
+					<right>0</right>
 					<bottom>$PARAM[bottom]</bottom>
 					<font>font27</font>
-					<label>$VAR[PVRInstanceName,,[CR]]$VAR[FlagLabel,,[CR]]$INFO[ListItem.Genre,[COLOR grey]$LOCALIZE[515]:[/COLOR] ,[CR]]$INFO[ListItem.ParentalRatingCode,[COLOR grey]$LOCALIZE[31017]: [/COLOR],[CR]]$INFO[ListItem.TimerType,[COLOR grey]$LOCALIZE[803]:[/COLOR] ,[CR]]$VAR[RecordingSizeLabel]$VAR[ExpirationDateTimeLabel]$INFO[ListItem.Plot,[CR]]</label>
-					<!-- <label>$VAR[PVRInstanceName,,[CR]]$INFO[ListItem.MediaProviders,[COLOR grey]$LOCALIZE[19334]:[/COLOR] ,[CR]]$VAR[FlagLabel,,[CR]]$INFO[ListItem.Genre,[COLOR grey]$LOCALIZE[515]:[/COLOR] ,[CR]]$INFO[ListItem.ParentalRatingCode,[COLOR grey]$LOCALIZE[31017]: [/COLOR],[CR]]$INFO[ListItem.TimerType,[COLOR grey]$LOCALIZE[803]:[/COLOR] ,[CR]]$VAR[RecordingSizeLabel]$VAR[ExpirationDateTimeLabel]$INFO[ListItem.Plot,[CR]]</label> -->
+					<label>$VAR[PVRInstanceName$PARAM[var_suffix],,[CR]]$VAR[FlagLabel$PARAM[var_suffix],,[CR]]$INFO[$PARAM[item].Genre,[COLOR grey]$LOCALIZE[515]:[/COLOR] ,[CR]]$INFO[$PARAM[item].ParentalRatingCode,[COLOR grey]$LOCALIZE[31017]: [/COLOR],[CR]]$INFO[$PARAM[item].TimerType,[COLOR grey]$LOCALIZE[803]:[/COLOR] ,[CR]]$VAR[RecordingSizeLabel$PARAM[var_suffix]]$VAR[ExpirationDateTimeLabel$PARAM[var_suffix]]$INFO[$PARAM[item].Plot,[CR]]</label>
+					<!-- <label>$VAR[PVRInstanceName$PARAM[var_suffix],,[CR]]$INFO[$PARAM[item].MediaProviders,[COLOR grey]$LOCALIZE[19334]:[/COLOR] ,[CR]]$VAR[FlagLabel$PARAM[var_suffix],,[CR]]$INFO[$PARAM[item].Genre,[COLOR grey]$LOCALIZE[515]:[/COLOR] ,[CR]]$INFO[$PARAM[item].ParentalRatingCode,[COLOR grey]$LOCALIZE[31017]: [/COLOR],[CR]]$INFO[$PARAM[item].TimerType,[COLOR grey]$LOCALIZE[803]:[/COLOR] ,[CR]]$VAR[RecordingSizeLabel$PARAM[var_suffix]]$VAR[ExpirationDateTimeLabel$PARAM[var_suffix]]$INFO[$PARAM[item].Plot,[CR]]</label> -->
 					<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
 				</control>
 			</control>
@@ -681,7 +818,7 @@
 				<top>105</top>
 				<control type="label">
 					<top>10</top>
-					<width>830</width>
+					<right>0</right>
 					<height>262</height>
 					<label>$LOCALIZE[19076] ($INFO[Container(5000).NumItems,[B],[/B] $LOCALIZE[31036]]) $INFO[ListItem.Property(recordingsize),- $LOCALIZE[20161]: [B],[/B]]</label>
 					<font>font37</font>
@@ -693,7 +830,7 @@
 					<visible>!ListItem.IsParentFolder</visible>
 					<control type="panel" id="5000">
 						<top>20</top>
-						<width>830</width>
+						<right>0</right>
 						<bottom>$PARAM[bottom]</bottom>
 						<orientation>vertical</orientation>
 						<focusedlayout height="100" width="780">
@@ -701,7 +838,7 @@
 								<visible>!String.IsEqual(ListItem.ChannelName, ListItem.Label)</visible>
 								<left>10</left>
 								<height>90</height>
-								<width>830</width>
+								<right>0</right>
 								<aligny>center</aligny>
 								<label>$VAR[RecordingDateSizeLabel]$INFO[ListItem.Label]$VAR[SeasonEpisodeAndNameLabel, (,)]$INFO[ListItem.Property(totalcount), (, $LOCALIZE[31036])]</label>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -710,7 +847,7 @@
 								<visible>String.IsEqual(ListItem.ChannelName, ListItem.Label)</visible>
 								<left>10</left>
 								<height>90</height>
-								<width>830</width>
+								<right>0</right>
 								<aligny>center</aligny>
 								<label>[COLOR grey]$INFO[ListItem.ChannelName,,[CR]][/COLOR]$INFO[ListItem.EpgEventTitle]$VAR[SeasonEpisodeAndNameLabel, (,)]</label>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -721,7 +858,7 @@
 								<visible>!String.IsEqual(ListItem.ChannelName, ListItem.Label)</visible>
 								<left>10</left>
 								<height>90</height>
-								<width>830</width>
+								<right>0</right>
 								<aligny>center</aligny>
 								<label>$VAR[RecordingDateSizeLabel]$INFO[ListItem.Label]$VAR[SeasonEpisodeAndNameLabel, (,)]$INFO[ListItem.Property(totalcount), (, $LOCALIZE[31036])]</label>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -730,7 +867,7 @@
 								<visible>String.IsEqual(ListItem.ChannelName, ListItem.Label)</visible>
 								<left>10</left>
 								<height>90</height>
-								<width>830</width>
+								<right>0</right>
 								<aligny>center</aligny>
 								<label>[COLOR grey]$INFO[ListItem.ChannelName,,[CR]][/COLOR]$INFO[ListItem.EpgEventTitle]$VAR[SeasonEpisodeAndNameLabel, (,)]</label>
 								<shadowcolor>text_shadow</shadowcolor>

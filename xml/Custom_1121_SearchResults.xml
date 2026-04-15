@@ -102,7 +102,7 @@
 						<left>70</left>
 						<top>180</top>
 						<width>378</width>
-						<height>832</height>
+						<height>850</height>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onfocus>ClearProperty(altus_saved_list_id,Home)</onfocus>
 						<onfocus>ClearProperty(altus_stacked_linked_list_id,Home)</onfocus>
