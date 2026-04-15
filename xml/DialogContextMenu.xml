@@ -11,6 +11,8 @@
 			<width>498</width>
 			<top>0</top>
 			<bottom>0</bottom>
+			<!-- <animation effect="fade" start="100" end="0" time="500" condition="String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)">Conditional</animation> -->
+			<animation effect="slide" start="100" end="-500,0" time="0" condition="String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)">Conditional</animation>
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="$VAR[ContextMenuTitleVar]" />
 				<param name="header_id" value="1" />

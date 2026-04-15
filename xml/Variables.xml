@@ -497,8 +497,8 @@
 
 	<variable name="WallWatchedIconVar.All">
     <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
-    <value condition="ListItem.HasReminder | String.IsEqual(ListItem.Property(HasReminder),true)">iconpicker/monochrome/Media/notification-2-fill.png</value>
-    <value condition="ListItem.HasTimer | String.IsEqual(ListItem.Property(HasTimer),true)">iconpicker/monochrome/Media/record-circle-fill.png</value>
+    <value condition="ListItem.HasReminder">iconpicker/monochrome/Media/notification-2-fill.png</value>
+    <value condition="ListItem.HasTimer">iconpicker/monochrome/Media/record-circle-fill.png</value>
     <value condition="ListItem.IsCollection">overlays/set.png</value>
     <value condition="ListItem.IsPlaying">osd/fullscreen/buttons/play.png</value>
     <!-- TV Shows -->
@@ -837,6 +837,7 @@
 		<value condition="!String.IsEmpty(Container(50).ListItem.NextTitle)">[COLOR grey]$LOCALIZE[209]:[/COLOR] $INFO[Container(50).ListItem.NextTitle]</value>
 	</variable>
 	<variable name="BreadcrumbsPVRChannelsVar50">
+		<value condition="Window.IsVisible(pvrchannelguide)">[COLOR unfocused_text]$LOCALIZE[19069]$INFO[Container.ListItem.StartDate, - ][/COLOR]</value>
 		<value condition="Window.IsActive(TVChannels)">[COLOR unfocused_text]$LOCALIZE[19020][/COLOR] [B]»[/B] [COLOR unfocused_text]$LOCALIZE[19019][/COLOR] [B]»[/B] [COLOR unfocused_text]$INFO[Container(49).ListItem.Label][/COLOR]</value>
 		<value>[COLOR unfocused_text]$LOCALIZE[19021][/COLOR] [B]»[/B] [COLOR unfocused_text]$LOCALIZE[19019][/COLOR] [B]»[/B] [COLOR unfocused_text]$INFO[Control.GetLabel(29)][/COLOR]</value>
 	</variable>

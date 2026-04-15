@@ -1475,7 +1475,7 @@
 				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 				<texture colordiffuse="A6FFFFFF">colors/black.png</texture>
-				<visible>$PARAM[darken_bg]</visible>
+				<visible>$PARAM[darken_bg] + !String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)</visible>
 			</control>
 			<control type="button">
 				<left>-2000</left>

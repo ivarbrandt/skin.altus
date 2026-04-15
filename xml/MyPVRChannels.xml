@@ -34,9 +34,9 @@
 					<align>center</align>
 					<top>105</top>
 					<bottom>40</bottom>
-					<onfocus>RunScript(script.altus.helper,mode=pvr_channel_debounce&amp;container_id=50)</onfocus>
+					<!-- <onfocus>RunScript(script.altus.helper,mode=pvr_channel_debounce&amp;container_id=50)</onfocus> -->
 					<onleft>49</onleft>
-					<onright condition="String.IsEqual(Window.Property(altus.pvr.epg_ready),true)">SetFocus(52,$INFO[Window.Property(altus.pvr.epg_current_index)],absolute)</onright>
+					<onright>RunScript(script.altus.helper,mode=pvr_action&amp;act=open_channel_guide)</onright>
 					<onup>50</onup>
 					<ondown>50</ondown>
 					<movement>12</movement>
@@ -325,7 +325,7 @@
 				<include>OpenClose_Right</include>
 				<right>40</right>
 				<left>892</left>
-				<visible>Control.HasFocus(50)</visible>
+				<visible>Control.HasFocus(50) + !Window.IsVisible(pvrchannelguide)</visible>
 				<animation effect="fade" time="400" tween="cubic" easing="out">VisibleChange</animation>
 				<animation effect="slide" start="0,0" end="418,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(49)">Conditional</animation>
 				<control type="scrollbar" id="73">
@@ -361,7 +361,7 @@
 				<aligny>center</aligny>
 				<wrapmultiline>true</wrapmultiline>
 				<font>font27</font>
-				<visible>Control.HasFocus(50)</visible>
+				<visible>Control.HasFocus(50) + !Window.IsVisible(pvrchannelguide)</visible>
 				<animation effect="fade" time="400" tween="cubic" easing="out">VisibleChange</animation>
 			</control>
 			<include>PVRChannelNumberInput</include>
