@@ -11,17 +11,17 @@
 				<include>OpenClose_Left</include>
 				<include>Visible_Left</include>
 				<control type="fixedlist" id="50">
-					<left>0</left>
-					<right>918</right>
+					<left>40</left>
+					<right>768</right>
 					<align>center</align>
 					<top>105</top>
-					<bottom>0</bottom>
+					<bottom>40</bottom>
 					<onleft>9000</onleft>
 					<onright>73</onright>
 					<onup>50</onup>
 					<ondown>50</ondown>
 					<movement>12</movement>
-					<focusposition>4</focusposition>
+					<focusposition>3</focusposition>
 					<pagecontrol>73</pagecontrol>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<include content="PVRListItemLayouts">
@@ -37,13 +37,8 @@
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Right</include>
-				<width>870</width>
-				<right>0</right>
-				<include content="MenuContentPanel">
-					<param name="bg_left" value="-72"/>
-					<param name="width" value="970"/>
-					<param name="dividerleft" value="-72"/>
-				</include>
+				<left>1192</left>
+				<right>40</right>
 				<control type="scrollbar" id="73">
 					<left>-76</left>
 					<top>0</top>

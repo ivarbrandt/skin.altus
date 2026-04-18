@@ -37,7 +37,7 @@
 						<top>5</top>
 						<width>320</width>
 						<height>390</height>
-						<texture colordiffuse="66000000">masks/profile.png</texture>
+						<texture border="23" colordiffuse="66000000">masks/radius_23-unfo.png</texture>
 						<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 						<bordersize>20</bordersize>
 					</control>
@@ -90,7 +90,7 @@
 							<top>5</top>
 							<width>320</width>
 							<height>390</height>
-							<texture colordiffuse="66000000">masks/profile.png</texture>
+							<texture border="23" colordiffuse="66000000">masks/radius_23-unfo.png</texture>
 							<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 							<bordersize>20</bordersize>
 						</control>
@@ -98,7 +98,7 @@
 							<top>5</top>
 							<width>320</width>
 							<height>390</height>
-							<texture colordiffuse="$VAR[FocusColorTheme]">masks/profile.png</texture>
+							<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23-unfo.png</texture>
 							<bordersize>20</bordersize>
 							<include>Animation_FocusTextureFade</include>
 						</control>
@@ -199,7 +199,7 @@
 					<control type="image">
 						<right>0</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[FocusColorTheme]">lists/mainmenu-fo.png</texture>
+						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 					<control type="label">

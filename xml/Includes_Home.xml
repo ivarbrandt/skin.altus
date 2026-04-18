@@ -60,7 +60,7 @@
 					<right>0</right>
 					<top>0</top>
 					<bottom>0</bottom>
-					<texture colordiffuse="$VAR[FocusColorTheme]">lists/mainmenu-fo.png</texture>
+					<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 					<visible>Control.HasFocus($PARAM[list_id])</visible>
 					<include>Animation_FocusTextureFade</include>
 				</control>

@@ -44,6 +44,16 @@
 		<value>$INFO[ListItem.Property(icon)]</value>
 	</variable>
 
+	<!-- Icon diffuse colors that dim when item's hidden property is set, matching the dim label color (60FFFFFF). -->
+	<variable name="WM_ItemIconDiffuse">
+		<value condition="String.IsEqual(ListItem.Property(hidden),true)">60FFFFFF</value>
+		<value>unfocused_text</value>
+	</variable>
+	<variable name="WM_ItemIconDiffuseFocused">
+		<value condition="String.IsEqual(ListItem.Property(hidden),true)">60FFFFFF</value>
+		<value>$VAR[FocusedTextColorVar]</value>
+	</variable>
+
 	<!-- Inline icon button for widget manager lists. Used inside focusedlayout. -->
 	<include name="WM_InlineBtn">
 		<param name="btn_color">$VAR[FocusColorTheme]</param>

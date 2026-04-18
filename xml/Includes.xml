@@ -576,7 +576,7 @@
 						<top>0</top>
 						<right>0</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[FocusColorTheme]">lists/filemanager.png</texture>
+						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 						<animation effect="fade" start="100" end="0" time="40" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
 					</control>
 					<control type="image">
@@ -759,7 +759,7 @@
 						<control type="image">
 							<width>440</width>
 							<height>90</height>
-							<texture colordiffuse="66000000">lists/tieredaddonlauncherlist-unfo.png</texture>
+							<texture border="24" colordiffuse="66000000">masks/.png</texture>
 						</control>
 						<control type="image">
 							<left>30</left>
@@ -778,7 +778,7 @@
 						<control type="image">
 							<width>440</width>
 							<height>90</height>
-							<texture colordiffuse="$VAR[FocusColorTheme]">lists/tieredaddonlauncherlist-fo.png</texture>
+							<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 							<visible>ControlGroup(400).HasFocus</visible>
 						</control>
 						<control type="image">
@@ -875,7 +875,7 @@
 							<left>0</left>
 							<top>0</top>
 							<control type="image">
-								<texture colordiffuse="$VAR[FocusColorTheme]">lists/tieredaddonlauncherlist-fo.png</texture>
+								<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 								<animation effect="fade" start="100" end="50" time="40" condition="Control.HasFocus($PARAM[group_id]51) | Control.HasFocus($PARAM[group_id]52) | Control.HasFocus($PARAM[group_id]53)">Conditional</animation>
 								<visible>ControlGroup(400).HasFocus</visible>
 							</control>
@@ -948,7 +948,7 @@
 							<left>0</left>
 							<top>0</top>
 							<control type="image">
-								<texture colordiffuse="$VAR[FocusColorTheme]">lists/tieredaddonlauncherlist-fo.png</texture>
+								<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 								<animation effect="fade" start="100" end="50" time="40" condition="Control.HasFocus($PARAM[group_id]52) | Control.HasFocus($PARAM[group_id]53)">Conditional</animation>
 							</control>
 							<control type="image">
@@ -1020,7 +1020,7 @@
 							<left>0</left>
 							<top>0</top>
 							<control type="image">
-								<texture colordiffuse="$VAR[FocusColorTheme]">lists/tieredaddonlauncherlist-fo.png</texture>
+								<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 								<animation effect="fade" start="100" end="50" time="40" condition="Control.HasFocus($PARAM[group_id]53)">Conditional</animation>
 							</control>
 							<control type="image">
@@ -1091,7 +1091,7 @@
 							<left>0</left>
 							<top>0</top>
 							<control type="image">
-								<texture colordiffuse="$VAR[FocusColorTheme]">lists/tieredaddonlauncherlist-fo.png</texture>
+								<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 							</control>
 							<control type="image">
 								<left>30</left>
@@ -1660,40 +1660,39 @@
 
 				<visible>
 						[
-								String.IsEmpty(Window(Home).Property(FlixWidget)) + 
+								String.IsEmpty(Window(Home).Property(FlixWidget)) +
 								![
-										ControlGroup(15000).HasFocus | 
-										Control.IsVisible(51) | 
-										[Window.IsActive(videos) + Control.IsVisible(53)] | 
-										Control.IsVisible(54) | 
-										Control.IsVisible(55) | 
+										ControlGroup(15000).HasFocus |
+										[Window.IsActive(videos) + Control.IsVisible(53)] |
+										Control.IsVisible(54) |
+										Control.IsVisible(55) |
 										[
-												Control.IsVisible(50) + 
+												[Control.IsVisible(50) | Control.IsVisible(51)] +
 												[
-														Window.IsVisible(videos) | 
+														Window.IsVisible(videos) |
 														![
-																Window.IsVisible(tvchannels) | 
-																Window.IsVisible(tvguide) | 
-																Window.IsVisible(tvtimers) | 
+																Window.IsVisible(tvchannels) |
+																Window.IsVisible(tvguide) |
+																Window.IsVisible(tvtimers) |
 																Window.IsVisible(tvsearch)
 														]
-												] + 
+												] +
 												[
-														[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
-														[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
-														[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
-														[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | 
-														![Window.IsVisible(videos) + Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
-														![Window.IsVisible(videos) + Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
+														[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] |
+														[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] |
+														[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] |
+														[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] |
+														![Window.IsVisible(videos) + Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] |
+														![Window.IsVisible(videos) + Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] |
 														![Window.IsVisible(videos) + Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
 														![Window.IsVisible(videos) + Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
 												]
-										] | 
-										Control.IsVisible(56) | 
-										Control.IsVisible(57) | 
-										Control.IsVisible(500) | 
+										] |
+										Control.IsVisible(56) |
+										Control.IsVisible(57) |
+										Control.IsVisible(500) |
 										[Window.IsActive(videos) + Control.IsVisible(501)]
-								] | 
+								] |
 								Window.IsVisible(extendedprogressdialog)
 						]
 				</visible>
@@ -1917,42 +1916,41 @@
 		<!-- <visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)]</visible> -->
 		<visible>
 				[
-						String.IsEmpty(Window(Home).Property(FlixWidget)) + 
+						String.IsEmpty(Window(Home).Property(FlixWidget)) +
 						![
-								ControlGroup(15000).HasFocus | 
-								Control.IsVisible(51) | 
-								[Window.IsActive(videos) + Control.IsVisible(53)] | 
-								Control.IsVisible(54) | 
-								Control.IsVisible(55) | 
+								ControlGroup(15000).HasFocus |
+								[Window.IsActive(videos) + Control.IsVisible(53)] |
+								Control.IsVisible(54) |
+								Control.IsVisible(55) |
 								[
-										Control.IsVisible(50) + 
+										[Control.IsVisible(50) | Control.IsVisible(51)] +
 										[
-												Window.IsVisible(videos) | 
+												Window.IsVisible(videos) |
 												![
-														Window.IsVisible(tvchannels) | 
-														Window.IsVisible(tvguide) | 
-														Window.IsVisible(tvtimers) | 
+														Window.IsVisible(tvchannels) |
+														Window.IsVisible(tvguide) |
+														Window.IsVisible(tvtimers) |
 														Window.IsVisible(tvsearch)
 												]
-										] + 
+										] +
 										[
-												[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
-												[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
-												[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
-												[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | 
-												![Window.IsVisible(videos) + Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
-												![Window.IsVisible(videos) + Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
+												[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] |
+												[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] |
+												[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] |
+												[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] |
+												![Window.IsVisible(videos) + Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] |
+												![Window.IsVisible(videos) + Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] |
 												![Window.IsVisible(videos) + Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
 												![Window.IsVisible(videos) + Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
 										]
-								] | 
-								Control.IsVisible(56) | 
-								Control.IsVisible(57) | 
-								Control.IsVisible(500) | 
+								] |
+								Control.IsVisible(56) |
+								Control.IsVisible(57) |
+								Control.IsVisible(500) |
 								[Window.IsActive(videos) + Control.IsVisible(501)]
-						] | 
+						] |
 						Window.IsVisible(extendedprogressdialog)
-				] + 
+				] +
 				![
 						!Player.HasMedia + 
 						[
@@ -2011,7 +2009,6 @@
 		<height>100</height>
 		<width>auto</width>
 	</include>
-
 	<include name="ZeroFadeBackground">
 		<control type="videowindow">
 			<depth>DepthBackground</depth>
@@ -2633,7 +2630,7 @@
 			<control type="image">
 				<width>493</width>
 				<height>150</height>
-				<texture colordiffuse="66000000">masks/settings.png</texture>
+				<texture border="33" colordiffuse="66000000">masks/radius_33.png</texture>
 			</control>
 			<control type="image">
 				<centertop>40%</centertop>
@@ -2658,7 +2655,7 @@
 				<control type="image">
 					<width>493</width>
 					<height>150</height>
-					<texture colordiffuse="$VAR[FocusColorTheme]">masks/settings.png</texture>
+					<texture border="33" colordiffuse="$VAR[FocusColorTheme]">masks/radius_33.png</texture>
 					<include>Animation_FocusTextureFade</include>
 				</control>
 				<control type="image">

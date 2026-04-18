@@ -37,7 +37,7 @@
 		<param name="height">70</param>
 		<param name="right">0</param>
 		<param name="textoffsetx">40</param>
-		<param name="texture">lists/defaultsetting-fo.png</param>
+		<param name="texture">masks/radius_23.png</param>
 		<definition>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
 			<height>$PARAM[height]</height>
@@ -48,7 +48,7 @@
 			<font>font32</font>
 			<textcolor>unfocused_text</textcolor>
 			<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-			<texturefocus colordiffuse="$VAR[FocusColorTheme]">$PARAM[texture]</texturefocus>
+			<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">$PARAM[texture]</texturefocus>
 			<texturenofocus />
 		</definition>
 	</include>
@@ -85,7 +85,7 @@
 			<font>font37</font>
 			<invalidcolor>invalid</invalidcolor>
 			<selectedcolor>selected</selectedcolor>
-			<texturefocus colordiffuse="$VAR[FocusColorTheme]">lists/mainmenu-fo.png</texturefocus>
+			<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
 			<texturenofocus />
 		</definition>
 	</include>

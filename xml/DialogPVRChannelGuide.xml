@@ -7,7 +7,7 @@
 			<animation effect="fade" start="0" end="100" time="400" tween="cubic" easing="inout">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="400" tween="cubic" easing="inout">WindowClose</animation>
 			<!-- Shift left when called from tvchannels (embedded look). Tune the -500 to taste. -->
-			<animation effect="slide" start="0,0" end="892,0" time="0" condition="Window.IsVisible(tvchannels)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="852,0" time="0" condition="Window.IsVisible(tvchannels)">Conditional</animation>
 
 			<!-- OSD video backdrop: only show outside tvchannels -->
 			<control type="group">
@@ -36,16 +36,16 @@
 					<texture colordiffuse="$VAR[FocusColorTheme]">masks/mainmenupanel_divider.png</texture>
 				</control> -->
 				<control type="image">
-					<left>1000</left>
-					<top>450</top>
+					<left>1050</left>
+					<top>420</top>
 					<width>320</width>
 					<height>280</height>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<texture fallback="DefaultTVShows.png" >$INFO[Listitem.Icon]</texture>
+					<texture fallback="DefaultTVShows.png" >$INFO[ListItem.Icon]</texture>
 					<visible>Control.HasFocus(11) + !Window.IsVisible(tvchannels)</visible>
 				</control>
 				<control type="fixedlist" id="11">
-					<left>0</left>
+					<left>40</left>
 					<top>105</top>
 					<width>988</width>
 					<bottom>40</bottom>
@@ -62,8 +62,17 @@
 					<focusposition>5</focusposition>
 					<itemlayout height="72" width="988">
 						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<right>0</right>
+							<bottom>0</bottom>
+							<texture border="23" colordiffuse="66000000">masks/radius_23.png</texture>
+							<!-- <animation effect="fade" start="50" end="25" time="1733" tween="cubic" easing="in" pulse="true" condition="ListItem.HasTimer | ListItem.HasReminder">Conditional</animation> -->
+							<visible>ListItem.HasReminder | ListItem.HasTimer</visible>
+						</control>
+						<control type="image">
 							<width>30</width>
-							<right>40</right>
+							<right>20</right>
 							<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[WallWatchedIconVar]</texture>
 							<aspectratio aligny="center">keep</aspectratio>
 							<animation effect="fade" start="100" end="0" time="1733" tween="cubic" easing="in" pulse="true" condition="ListItem.HasTimer | ListItem.HasReminder">Conditional</animation>
@@ -79,10 +88,10 @@
 							<label>$INFO[ListItem.StartTime]</label>
 						</control>
 						<control type="label">
-							<left>180</left>
+							<left>200</left>
 							<top>0</top>
 							<bottom>0</bottom>
-							<right>90</right>
+							<right>70</right>
 							<aligny>center</aligny>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
@@ -101,29 +110,29 @@
 						</control> -->
 					</itemlayout>
 					<focusedlayout height="216" width="988">
-						<control type="image">
+						<!-- <control type="image">
 							<bottom>0</bottom>
 							<texture colordiffuse="99000000">colors/darkest.png</texture>
 							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(11)">Conditional</animation>
 							<visible>!Window.IsVisible(tvchannels)</visible>
-						</control>
+						</control> -->
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
-							<right>20</right>
+							<right>0</right>
 							<bottom>144</bottom>
-							<texture colordiffuse="$VAR[FocusColorTheme]">lists/52_pvr.png</texture>
+							<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(11)">Conditional</animation>
 						</control>
-						<control type="image">
+						<!-- <control type="image">
 							<height>1</height>
 							<bottom>0</bottom>
 							<texture colordiffuse="$VAR[FocusColorTheme]">masks/posterflowdivider.png</texture>
 							<visible>!Window.IsVisible(tvchannels)</visible>
-						</control>
+						</control> -->
 						<control type="image">
 							<width>30</width>
-							<right>40</right>
+							<right>20</right>
 							<bottom>144</bottom>
 							<texture colordiffuse="$VAR[FocusedTextColorVar]">$VAR[WallWatchedIconVar]</texture>
 							<aspectratio aligny="center">keep</aspectratio>
@@ -139,10 +148,10 @@
 							<label>$INFO[ListItem.StartTime]</label>
 						</control>
 						<control type="label">
-							<left>180</left>
+							<left>200</left>
 							<top>10</top>
 							<bottom>0</bottom>
-							<right>90</right>
+							<right>70</right>
 							<font>font27</font>
 							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 							<label>$VAR[PVRListItemSubLabelFocused]</label>

@@ -997,7 +997,7 @@
 					<control type="image">
 						<width>410</width>
 						<height>85</height>
-						<texture colordiffuse="$VAR[FocusColorTheme]">lists/mainmenu-fo.png</texture>
+						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 					<control type="label">

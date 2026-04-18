@@ -16,6 +16,7 @@
 		<font>font13</font>
 		<textcolor>white</textcolor>
 		<disabledcolor>disabled</disabledcolor>
+		<!-- <selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor> -->
 		<scroll>false</scroll>
 		<scrollspeed>40</scrollspeed>
 	</default>

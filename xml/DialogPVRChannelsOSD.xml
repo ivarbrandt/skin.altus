@@ -15,17 +15,17 @@
 					<param name="header_id" value="" />
 				</include>
 				<control type="fixedlist" id="11">
-					<left>0</left>
+					<left>40</left>
 					<top>105</top>
-					<width>970</width>
-					<bottom>0</bottom>
+					<width>812</width>
+					<bottom>40</bottom>
 					<onleft condition="Control.IsVisible(60)">60</onleft>
 					<onleft condition="!Control.IsVisible(60)">PreviousChannelGroup</onleft>
 					<onright>NextChannelGroup</onright>
 					<onup>11</onup>
 					<ondown>11</ondown>
-					<movement>5</movement>
-					<focusposition>4</focusposition>
+					<movement>12</movement>
+					<focusposition>3</focusposition>
 					<pagecontrol>60</pagecontrol>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<include content="PVRListItemLayouts">

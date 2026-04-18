@@ -115,7 +115,7 @@
 					<font>font32</font>
 					<textoffsetx>20</textoffsetx>
 					<textoffsety>4</textoffsety>
-					<texturefocus colordiffuse="$VAR[FocusColorTheme]">lists/wm-sections-fo.png</texturefocus>
+					<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
 					<texturenofocus />
 					<textcolor>unfocused_text</textcolor>
 					<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
@@ -139,7 +139,7 @@
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
-							<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[WidgetManagerItemIcon]</texture>
+							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuse]">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 						</control>
@@ -177,7 +177,7 @@
 							<top>0</top>
 							<right>0</right>
 							<height>65</height>
-							<texture colordiffuse="$VAR[FocusColorTheme]">lists/wm-sections-fo.png</texture>
+							<texture border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texture>
 							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(3000)">Conditional</animation>
 						</control>
 						<!-- <control type="image">
@@ -195,7 +195,7 @@
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
-							<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[WidgetManagerItemIcon]</texture>
+							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuse]">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + !Control.HasFocus(3000)</visible>
 						</control>
@@ -204,7 +204,7 @@
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
-							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$VAR[WidgetManagerItemIcon]</texture>
+							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuseFocused]">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(3000)</visible>
 						</control>
@@ -363,7 +363,7 @@
 					<font>font32</font>
 					<textoffsetx>20</textoffsetx>
 					<textoffsety>4</textoffsety>
-					<texturefocus colordiffuse="$VAR[FocusColorTheme]">lists/wm-sections-fo.png</texturefocus>
+					<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
 					<texturenofocus />
 					<textcolor>unfocused_text</textcolor>
 					<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
@@ -412,7 +412,7 @@
 							<top>0</top>
 							<right>0</right>
 							<height>90</height>
-							<texture colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texture>
+							<texture border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texture>
 							<visible>Control.HasFocus(4000) | ControlGroup(5001).HasFocus</visible>
 							<animation effect="fade" start="100" end="50" time="40" condition="ControlGroup(5001).HasFocus">Conditional</animation>
 						</control>
@@ -586,7 +586,7 @@
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
 						<texturenofocus />
 						<textcolor>unfocused_text</textcolor>
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
@@ -602,7 +602,7 @@
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
 						<texturenofocus />
 						<textcolor>unfocused_text</textcolor>
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
@@ -618,7 +618,7 @@
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
 						<texturenofocus />
 						<textcolor>unfocused_text</textcolor>
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
@@ -634,7 +634,7 @@
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
 						<texturenofocus />
 						<textcolor>unfocused_text</textcolor>
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
@@ -650,7 +650,7 @@
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
 						<texturenofocus />
 						<textcolor>unfocused_text</textcolor>
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
@@ -666,7 +666,7 @@
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
 						<texturenofocus />
 						<textcolor>unfocused_text</textcolor>
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
@@ -682,7 +682,7 @@
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
 						<texturenofocus />
 						<textcolor>unfocused_text</textcolor>
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
@@ -698,7 +698,7 @@
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>
 						<textoffsety>4</textoffsety>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
 						<texturenofocus />
 						<textcolor>unfocused_text</textcolor>
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>

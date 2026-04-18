@@ -87,6 +87,13 @@
 			<aspect>0.92</aspect>
 		</font>
 		<font>
+			<name>Font300</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>27</size>
+			<aspect>0.95</aspect>
+			<linespacing>1.03</linespacing>
+		</font>
+		<font>
 			<name>notification_header</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>30</size>
@@ -296,6 +303,13 @@
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>32</size>
 			<style>bold</style>
+		</font>
+		<font>
+			<name>font36_guide</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>32</size>
+			<style>bold</style>
+			<aspect>0.9</aspect>
 		</font>
 		<font>
 			<name>font37_title</name>

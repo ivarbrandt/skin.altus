@@ -118,7 +118,7 @@
               <width>135</width>
               <height>85</height>
               <control type="image">
-                <texture colordiffuse="60000000">masks/seasonbar.png</texture>
+                <texture border="20" colordiffuse="60000000">masks/radius_20.png</texture>
               </control>
               <!-- Unwatched / partially watched -->
               <control type="label">
@@ -154,7 +154,7 @@
               <width>135</width>
               <height>85</height>
               <control type="image">
-                <texture colordiffuse="$VAR[FocusColorTheme]">masks/seasonbar.png</texture>
+                <texture border="20" colordiffuse="$VAR[FocusColorTheme]">masks/radius_20.png</texture>
                 <animation effect="fade" start="100" end="60" time="40" condition="Control.HasFocus(5057) | Control.HasFocus(5157) | $EXP[sidebar_visible]">Conditional</animation>
               </control>
               <control type="label">

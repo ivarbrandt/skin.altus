@@ -327,7 +327,7 @@
 				<fadetime>200</fadetime>
 				<visible>Control.HasFocus(53)</visible>
 				<animation effect="fade" time="100">VisibleChange</animation>
-				<texture border="30" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-32.png</texture>
+				<texture border="32" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-32.png</texture>
 			</control>
 			<control type="group">
 				<left>216</left>

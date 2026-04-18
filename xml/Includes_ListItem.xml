@@ -81,6 +81,14 @@
     </definition>
   </include>
 
+  <!-- <animation effect="slide" end="0,85" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,6)">Conditional</animation>
+  <animation effect="slide" end="0,85" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,5)">Conditional</animation>
+  <animation effect="slide" end="0,85" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,4)">Conditional</animation>
+  <animation effect="slide" end="0,85" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,3)">Conditional</animation>
+  <animation effect="slide" end="0,85" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,2)">Conditional</animation>
+  <animation effect="slide" end="0,85" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,1)">Conditional</animation>
+  <animation effect="slide" end="0,85" time="300" tween="cubic" easing="inout" condition="Integer.IsGreater(Container(9000).Row,0)">Conditional</animation> -->
+
   <include name="ListItem">
     <param name="focused">false</param>
     <param name="img_top">0</param>
@@ -90,7 +98,7 @@
     <!-- <param name="img_left">47</param> -->
     <param name="focused_font">font37_title</param>
     <param name="unfocused_font">font37</param>
-    <param name="img_texture">lists/mainmenu-fo.png</param>
+    <param name="img_texture">masks/radius_23.png</param>
     <param name="focused_text">$VAR[FocusedTextColorVar]</param>
     <definition>
       <control type="group">
@@ -99,7 +107,7 @@
           <bottom>$PARAM[img_bottom]</bottom>
           <left>0</left>
           <right>0</right>
-          <texture colordiffuse="$VAR[FocusColorTheme]">$PARAM[img_texture]</texture>
+          <texture border="23" colordiffuse="$VAR[FocusColorTheme]">$PARAM[img_texture]</texture>
           <visible>Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
           <include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
           <!-- <animation effect="fade" start="100" end="50" time="40" condition="Window.IsVisible(tvchannels) + !Control.HasFocus(49)">Conditional</animation> -->
@@ -110,7 +118,7 @@
           <top>19</top>
           <width>47</width>
           <height>47</height>
-          <texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[HomeMenuIcon]</texture>
+          <texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[HomeMenuIcon]</texture>
           <aspectratio>keep</aspectratio>
           <visible>[!String.IsEmpty(ListItem.Property(icon)) | String.IsEqual(ListItem.Property(id),weather)] + [!Control.HasFocus($PARAM[id]) | !$PARAM[focused]] + ![String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched]</visible>
         </control>
@@ -119,7 +127,7 @@
           <top>19</top>
           <width>47</width>
           <height>47</height>
-          <texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$VAR[HomeMenuIcon]</texture>
+          <texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$VAR[HomeMenuIcon]</texture>
           <aspectratio>keep</aspectratio>
           <visible>[!String.IsEmpty(ListItem.Property(icon)) | String.IsEqual(ListItem.Property(id),weather)] + Control.HasFocus($PARAM[id]) + $PARAM[focused] + ![String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched]</visible>
         </control>
@@ -129,7 +137,7 @@
           <top>19</top>
           <width>47</width>
           <height>47</height>
-          <texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">iconpicker/monochrome/Weather/snowy-fill.png</texture>
+          <texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">iconpicker/monochrome/Weather/snowy-fill.png</texture>
           <aspectratio>keep</aspectratio>
           <visible>String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched + [!Control.HasFocus($PARAM[id]) | !$PARAM[focused]]</visible>
         </control>
@@ -138,7 +146,7 @@
           <top>19</top>
           <width>47</width>
           <height>47</height>
-          <texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">iconpicker/monochrome/Weather/snowy-fill.png</texture>
+          <texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">iconpicker/monochrome/Weather/snowy-fill.png</texture>
           <aspectratio>keep</aspectratio>
           <visible>String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched + Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
         </control>

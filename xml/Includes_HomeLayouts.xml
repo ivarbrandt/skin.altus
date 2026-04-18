@@ -485,7 +485,7 @@
 					<top>11</top>
 					<width>430</width>
 					<height>645</height>
-					<texture border="28" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-30.png</texture>
+					<texture border="30" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-30.png</texture>
 					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -619,7 +619,7 @@
 					<top>11</top>
 					<width>204</width>
 					<height>306</height>
-					<texture border="18" colordiffuse="$VAR[FocusColorTheme]" infill="false" >masks/bordertexture-20.png</texture>
+					<texture border="20" colordiffuse="$VAR[FocusColorTheme]" infill="false" >masks/bordertexture-20.png</texture>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(56) | Control.IsVisible(500)]]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -786,7 +786,7 @@
 					<top>11</top>
 					<width>430</width>
 					<height>242</height>
-					<texture border="22" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-24.png</texture>
+					<texture border="24" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-24.png</texture>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501) | Control.IsVisible(5057)]]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -958,7 +958,7 @@
 					<top>11</top>
 					<width>317</width>
 					<height>178</height>
-					<texture border="20" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-22.png</texture>
+					<texture border="22" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-22.png</texture>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -977,10 +977,10 @@
 				<width>317</width>
 				<height>139</height>
 				<control type="image">
-					<texture colordiffuse="66000000">masks/category.png</texture>
+					<texture border="20" colordiffuse="66000000">masks/radius_20.png</texture>
 				</control>
 				<control type="image">
-					<texture colordiffuse="$VAR[FocusColorTheme]">masks/category.png</texture>
+					<texture border="20" colordiffuse="$VAR[FocusColorTheme]">masks/radius_20.png</texture>
 					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -1056,10 +1056,10 @@
 				<width>249</width>
 				<height>87</height>
 				<control type="image">
-					<texture colordiffuse="66000000">masks/category-stacked.png</texture>
+					<texture border="20" colordiffuse="66000000">masks/radius_20.png</texture>
 				</control>
 				<control type="image">
-					<texture colordiffuse="$VAR[FocusColorTheme]">masks/category-stacked.png</texture>
+					<texture border="20" colordiffuse="$VAR[FocusColorTheme]">masks/radius_20.png</texture>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [[!Control.HasFocus($PARAM[list_id]) + [String.IsEqual(Window(Home).Property(altus.$PARAM[list_id].Label),ListItem.Label) | String.IsEqual(Window(1121).Property(altus.$PARAM[list_id].Label),ListItem.Label)]] + String.IsEqual(Window(Home).Property(altus_stacked_linked_list_id),$PARAM[list_id])]</visible>
 				</control>
 				<control type="textbox">
@@ -1122,7 +1122,7 @@
 					<visible>$EXP[isContent]</visible>
 				</control> -->
 				<control type="image">
-					<texture border="18" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-20.png</texture>
+					<texture border="20" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-20.png</texture>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -1188,10 +1188,10 @@
 				<width>430</width>
 				<height>300</height>
 				<control type="image">
-					<texture colordiffuse="66000000">masks/pvr.png</texture>
+					<texture border="20" colordiffuse="66000000">masks/radius_20.png</texture>
 				</control>
 				<control type="image">
-					<texture colordiffuse="$VAR[FocusColorTheme]">masks/pvr.png</texture>
+					<texture border="20" colordiffuse="$VAR[FocusColorTheme]">masks/radius_20.png</texture>
 					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>

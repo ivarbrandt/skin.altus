@@ -2,9 +2,8 @@
 <window>
 	<defaultcontrol always="true">49</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
-	<views>50</views>
+	<views>50,51</views>
 	<menucontrol>9000</menucontrol>
-	<onload>Container(52).Refresh</onload>
 	<controls>
 		<include>ZeroFadeBackground</include>
 		<control type="group">
@@ -22,7 +21,7 @@
 					<onback>700</onback>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<!-- <visible allowhiddenfocus="true">Control.HasFocus(49)</visible> -->
-					<animation effect="slide" start="0,0" end="-458,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(50) | Control.HasFocus(52)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-458,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(50) | Control.HasFocus(51)">Conditional</animation>
 					<include content="List">
 						<param name="id" value="49" />
 					</include>
@@ -39,10 +38,10 @@
 					<onup>50</onup>
 					<ondown>50</ondown>
 					<movement>12</movement>
-					<focusposition>3</focusposition>
+					<focusposition>0</focusposition>
 					<pagecontrol>73</pagecontrol>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<animation effect="slide" start="0,0" end="-418,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(50) | Control.HasFocus(52)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-418,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(50)">Conditional</animation>
 					<viewtype label="535">list</viewtype>
 					<include content="PVRListItemLayouts">
 						<param name="list_id" value="50" />
@@ -52,27 +51,29 @@
 					</include>
 					<content sortby="lastplayed" sortorder="descending">$INFO[Container(49).ListItem.FolderPath]</content>
 				</control>
-				<!-- <control type="fixedlist" id="51">
-					<left>0</left>
-					<top>list_top_offset</top>
-					<right>920</right>
-					<bottom>list_bottom_offset</bottom>
-					<movement>4</movement>
-					<focusposition>4</focusposition>
+				<control type="fixedlist" id="51">
+					<left>458</left>
+					<top>105</top>
+					<right>650</right>
+					<bottom>30</bottom>
+					<movement>12</movement>
+					<focusposition>0</focusposition>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<onleft>9000</onleft>
-					<onright>73</onright>
+					<animation effect="slide" start="0,0" end="-418,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(51)">Conditional</animation>
+					<onleft>49</onleft>
+					<onright>RunScript(script.altus.helper,mode=open_channel_guide)</onright>
 					<onup>51</onup>
 					<ondown>51</ondown>
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>73</pagecontrol>
-					<itemlayout height="70" infoupdate="5000">
+					<itemlayout height="86" infoupdate="5000">
 						<control type="progress">
-							<right>10</right>
-							<top>30</top>
-							<width>50</width>
-							<height>12</height>
-							<colordiffuse>88FFFFFF</colordiffuse>
+							<right>30</right>
+							<top>58</top>
+							<left>30</left>
+							<height>3</height>
+							<align>center</align>
+							<aligny>center</aligny>
 							<visible>ListItem.HasEpg + !ListItem.IsRecording</visible>
 							<info>ListItem.Progress</info>
 						</control>
@@ -84,55 +85,55 @@
 							<texture>$VAR[PVRStatusImageVar]</texture>
 						</control>
 						<control type="label">
-							<left>105</left>
-							<top>0</top>
-							<bottom>0</bottom>
+							<left>30</left>
+							<bottom>15</bottom>
 							<right>90</right>
 							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-							<shadowcolor>text_shadow</shadowcolor>
+							<font>Font300</font>
+							<label>[B]$VAR[ChannelNumDisplayVar]$INFO[ListItem.Label][/B]</label>
 						</control>
 						<control type="label">
-							<left>320</left>
-							<top>0</top>
-							<bottom>0</bottom>
-							<right>90</right>
+							<left>390</left>
+							<bottom>15</bottom>
+							<right>30</right>
 							<aligny>center</aligny>
+							<textcolor>grey</textcolor>
 							<align>right</align>
+							<font>Font300</font>
 							<label>$INFO[ListItem.Title]</label>
-							<shadowcolor>text_shadow</shadowcolor>
-							<textcolor>grey</textcolor>
-						</control>
-						<control type="label">
-							<left>10</left>
-							<top>0</top>
-							<bottom>0</bottom>
-							<width>82</width>
-							<align>center</align>
-							<aligny>center</aligny>
-							<font>font32_title</font>
-							<label>$INFO[ListItem.ChannelNumberLabel]</label>
-							<textcolor>grey</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</itemlayout>
-					<focusedlayout height="70" infoupdate="5000">
+					<focusedlayout height="86" infoupdate="5000">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
 							<right>0</right>
-							<height>70</height>
-							<texture colordiffuse="button_focus">colors/white.png</texture>
-							<visible>Control.HasFocus(52)</visible>
+							<bottom>0</bottom>
+							<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+							<visible>Control.HasFocus(51) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)</visible>
+							<animation effect="fade" start="100" end="70" time="300" condition="!Control.HasFocus(51) + [Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]" reversible="true">conditional</animation>
 						</control>
 						<control type="progress">
-							<right>10</right>
-							<top>30</top>
-							<width>50</width>
-							<height>12</height>
-							<colordiffuse>88FFFFFF</colordiffuse>
-							<midtexture border="3">progress/texturebg_white.png</midtexture>
-							<visible>ListItem.HasEpg + !ListItem.IsRecording</visible>
+							<right>30</right>
+							<top>58</top>
+							<left>30</left>
+							<height>3</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<visible>ListItem.HasEpg + !ListItem.IsRecording + ![Control.HasFocus(51) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
+							<info>ListItem.Progress</info>
+						</control>
+						<control type="progress">
+							<right>30</right>
+							<top>58</top>
+							<left>30</left>
+							<height>3</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<colordiffuse>$VAR[FocusedTextColorVar]</colordiffuse>
+							<midtexture colordiffuse="$VAR[FocusedTextColorVar]">colors/white.png</midtexture>
+							<texturebg colordiffuse="$VAR[FocusedTextColorVar]">colors/white_50.png</texturebg>
+							<visible>ListItem.HasEpg + !ListItem.IsRecording + [Control.HasFocus(51) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
 							<info>ListItem.Progress</info>
 						</control>
 						<control type="image">
@@ -143,42 +144,44 @@
 							<texture>$VAR[PVRStatusImageVar]</texture>
 						</control>
 						<control type="label">
-							<left>105</left>
-							<top>0</top>
-							<bottom>0</bottom>
+							<left>30</left>
+							<bottom>15</bottom>
 							<right>90</right>
 							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
+							<font>Font300</font>
+							<label>[B]$VAR[ChannelNumDisplayVar]$INFO[ListItem.Label][/B]</label>
 						</control>
 						<control type="label">
-							<left>320</left>
-							<top>0</top>
-							<bottom>0</bottom>
-							<right>90</right>
+							<left>390</left>
+							<bottom>15</bottom>
+							<right>30</right>
 							<aligny>center</aligny>
 							<align>right</align>
+							<font>Font300</font>
 							<label>$INFO[ListItem.Title]</label>
+							<visible>[Control.HasFocus(51) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
 						</control>
 						<control type="label">
-							<left>10</left>
-							<top>0</top>
-							<bottom>0</bottom>
-							<width>82</width>
-							<align>center</align>
+							<left>390</left>
+							<bottom>15</bottom>
+							<right>30</right>
 							<aligny>center</aligny>
-							<font>font32_title</font>
-							<label>$INFO[ListItem.ChannelNumberLabel]</label>
-							<shadowcolor>text_shadow</shadowcolor>
+							<textcolor>grey</textcolor>
+							<align>right</align>
+							<font>Font300</font>
+							<label>$INFO[ListItem.Title]</label>
+							<visible>![Control.HasFocus(51) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
 						</control>
 					</focusedlayout>
-				</control> -->
+					<content sortby="lastplayed" sortorder="descending">$INFO[Container(49).ListItem.FolderPath]</content>
+				</control>
 			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Right</include>
 				<right>40</right>
 				<left>892</left>
-				<visible>Control.HasFocus(50) + !Window.IsVisible(pvrchannelguide)</visible>
+				<visible>[Control.HasFocus(50) | Control.HasFocus(51)] + !Window.IsVisible(pvrchannelguide)</visible>
 				<animation effect="fade" time="400" tween="cubic" easing="out">VisibleChange</animation>
 				<animation effect="slide" start="0,0" end="418,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(49)">Conditional</animation>
 				<control type="scrollbar" id="73">
@@ -194,6 +197,12 @@
 				<include content="PVRInfoPanel">
 					<param name="item" value="Container(50).ListItem" />
 					<param name="var_suffix" value="50" />
+					<param name="visible" value="Control.HasFocus(50)" />
+				</include>
+				<include content="PVRInfoPanel">
+					<param name="item" value="Container(51).ListItem" />
+					<param name="var_suffix" value="51" />
+					<param name="visible" value="Control.HasFocus(51)" />
 				</include>
 			</control>
 			<include content="TopBar">

@@ -91,7 +91,7 @@
 				<aligny>center</aligny>
 				<align>left</align>
 				<font>font37</font>
-				<texturefocus colordiffuse="$VAR[FocusColorTheme]">lists/mainmenu-fo.png</texturefocus>
+				<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
 				<texturenofocus />
 			</control>
 		</control>
@@ -133,7 +133,7 @@
 				<onclick>SettingsLevelChange</onclick>
 				<textoffsetx>100</textoffsetx>
 				<textoffsety>0</textoffsety>
-				<texturefocus colordiffuse="$VAR[FocusColorTheme]">lists/mainmenu-fo.png</texturefocus>
+				<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
 				<texturenofocus />
 				<radioposx>40</radioposx>
 				<radioposy>0</radioposy>

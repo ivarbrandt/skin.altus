@@ -86,7 +86,8 @@
 						<onleft>6056</onleft>
 						<onright>49</onright>
 						<onup>14100</onup>
-						<ondown>6060</ondown>
+						<ondown condition="Window.IsVisible(tvchannels)">6060</ondown>
+						<ondown condition="!Window.IsVisible(tvchannels)">6054</ondown>
 						<width>1000</width>
 						<include content="PVRQuickNavItemsCommon">
 							<param name="control_id" value="100" />
@@ -131,13 +132,20 @@
 					<onclick>Container.NextViewMode</onclick>
 					<visible>Window.IsActive(MyPVRGuide.xml)</visible>
 				</control> -->
-				<!-- <control type="button" id="6054">
+				<control type="button" id="6054">
 					<include>MediaMenuItemsCommon</include>
 					<label>$LOCALIZE[19141]</label>
 					<label2>[B]$PARAM[group_label2][/B]</label2>
 					<onclick>SendClick(28)</onclick>
-					<visible>Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRGuide.xml)</visible>
-				</control> -->
+					<visible>Window.IsActive(MyPVRGuide.xml)</visible>
+				</control>
+				<control type="button" id="6053">
+					<include>MediaMenuItemsCommon</include>
+					<label>$LOCALIZE[31022]</label>
+					<label2>[B]$INFO[Container.SortMethod][/B]</label2>
+					<onclick>SendClick(3)</onclick>
+					<visible>!Window.IsActive(tvchannels)</visible>
+				</control>
 				<control type="radiobutton" id="6060">
 					<include>MediaMenuItemsCommon</include>
 					<label>$LOCALIZE[31127]</label>
@@ -145,17 +153,19 @@
 					<onclick>Container.NextViewMode</onclick>
 					<visible>Window.IsActive(MyPVRChannels.xml)</visible>
 				</control>
-				<control type="button" id="6053">
-					<include>MediaMenuItemsCommon</include>
-					<label>$LOCALIZE[31022]</label>
-					<label2>[B]$INFO[Container.SortMethod][/B]</label2>
-					<onclick>SendClick(3)</onclick>
-				</control>
 				<control type="button" id="6055">
 					<include>MediaMenuItemsCommon</include>
 					<label>$LOCALIZE[31032]</label>
 					<label2>[B]$INFO[Container.SortOrder][/B]</label2>
 					<onclick>Container.SetSortDirection</onclick>
+					<visible>!Window.IsActive(tvchannels)</visible>
+				</control>
+				<control type="radiobutton" id="6049">
+					<include>MediaMenuItemsCommon</include>
+					<label>Show channel number</label>
+					<selected>!Skin.HasSetting(Disable.ChannelNumber)</selected>
+					<onclick>Skin.ToggleSetting(Disable.ChannelNumber)</onclick>
+					<visible>Window.IsActive(tvchannels) | Window.IsActive(tvguide)</visible>
 				</control>
 				<control type="button" id="10">
 					<description>Watched Toggle</description>

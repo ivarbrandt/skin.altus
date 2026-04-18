@@ -389,11 +389,6 @@
     <value>FFC1C1C1</value>
 	</variable> -->
 
-	<variable name="EPGUnfocusedColorVar">
-    <value condition="String.IsEqual(Skin.String(BackgroundSetting),0)">primary_background</value>
-    <value>dialog_bg</value>
-	</variable>
-
 	<variable name="FocusedColorVar">
     <value condition="String.IsEqual(Skin.String(BackgroundSetting),0)">button_focus</value>
     <value>FFD9D9D9</value>
@@ -1042,8 +1037,8 @@
 		<value condition="Control.HasFocus(804) + String.IsEqual(Skin.String(SearchSetting),0)">Open search window</value>
 		<value condition="Control.HasFocus(804) + String.IsEqual(Skin.String(SearchSetting),1)">Open search dialog</value>
 		<value condition="Control.HasFocus(805) + Integer.IsEqual(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available update</value>
-		<value condition="Control.HasFocus(806) + Integer.IsGreater(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available updates</value>
-		<value condition="Control.HasFocus(807)">Toggle fullscreen</value>
+		<value condition="Control.HasFocus(805) + Integer.IsGreater(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available updates</value>
+		<value condition="Control.HasFocus(806)">Toggle fullscreen</value>
 	</variable>
 
 	<!-- ADDON LAUNCHER SUBMENU BUTTON LABELS -->
