@@ -363,8 +363,8 @@
 				<left>496</left>
 				<right>0</right>
 				<height>100%</height>
-				<onright>54</onright>
-				<onleft>532</onleft>
+				<onleft>9000</onleft>
+				<onright>532</onright>
 				<orientation>vertical</orientation>
 				<movement>6</movement>
 				<viewtype label="31101">icon</viewtype>

@@ -16,12 +16,12 @@
 					<top>105</top>
 					<width>378</width>
 					<height>936</height>
-					<onright>50</onright>
+					<onright condition="Control.IsVisible(50)">SetFocus(50,0,absolute)</onright>
+					<onright condition="Control.IsVisible(51)">SetFocus(51,0,absolute)</onright>
 					<onleft>9000</onleft>
 					<onback>700</onback>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<!-- <visible allowhiddenfocus="true">Control.HasFocus(49)</visible> -->
-					<animation effect="slide" start="0,0" end="-458,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(50) | Control.HasFocus(51)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-458,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(50) | Control.HasFocus(51) | Control.HasFocus(73) | Control.HasFocus(74)">Conditional</animation>
 					<include content="List">
 						<param name="id" value="49" />
 					</include>
@@ -32,16 +32,16 @@
 					<right>650</right>
 					<align>center</align>
 					<top>105</top>
-					<bottom>40</bottom>
-					<onleft>49</onleft>
+					<height>936</height>
+					<onleft>73</onleft>
 					<onright>RunScript(script.altus.helper,mode=open_channel_guide)</onright>
 					<onup>50</onup>
 					<ondown>50</ondown>
-					<movement>12</movement>
-					<focusposition>0</focusposition>
+					<movement>4</movement>
+					<focusposition>3</focusposition>
 					<pagecontrol>73</pagecontrol>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<animation effect="slide" start="0,0" end="-418,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(50)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-418,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(50) | Control.HasFocus(73)">Conditional</animation>
 					<viewtype label="535">list</viewtype>
 					<include content="PVRListItemLayouts">
 						<param name="list_id" value="50" />
@@ -55,17 +55,17 @@
 					<left>458</left>
 					<top>105</top>
 					<right>650</right>
-					<bottom>30</bottom>
-					<movement>12</movement>
-					<focusposition>0</focusposition>
+					<height>946</height>
+					<movement>6</movement>
+					<focusposition>4</focusposition>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<animation effect="slide" start="0,0" end="-418,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(51)">Conditional</animation>
-					<onleft>49</onleft>
+					<animation effect="slide" start="0,0" end="-418,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(51) | Control.HasFocus(74)">Conditional</animation>
+					<onleft>74</onleft>
 					<onright>RunScript(script.altus.helper,mode=open_channel_guide)</onright>
 					<onup>51</onup>
 					<ondown>51</ondown>
 					<viewtype label="535">list</viewtype>
-					<pagecontrol>73</pagecontrol>
+					<pagecontrol>74</pagecontrol>
 					<itemlayout height="86" infoupdate="5000">
 						<control type="progress">
 							<right>30</right>
@@ -175,35 +175,50 @@
 					</focusedlayout>
 					<content sortby="lastplayed" sortorder="descending">$INFO[Container(49).ListItem.FolderPath]</content>
 				</control>
+				<control type="scrollbar" id="73">
+					<visible>[Control.HasFocus(50) | Control.HasFocus(73)] + !Window.IsVisible(pvrchannelguide)</visible>
+					<animation effect="fade" time="400" tween="cubic" easing="out">VisibleChange</animation>
+					<left>0</left>
+					<top>105</top>
+					<width>8</width>
+					<height>936</height>
+					<onleft>49</onleft>
+					<onright>50</onright>
+					<orientation>vertical</orientation>
+					<animation effect="slide" start="0,0" end="-4,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(73)">conditional</animation>
+				</control>
+				<control type="scrollbar" id="74">
+					<visible>[Control.HasFocus(51) | Control.HasFocus(74)] + !Window.IsVisible(pvrchannelguide)</visible>
+					<animation effect="fade" time="400" tween="cubic" easing="out">VisibleChange</animation>
+					<left>0</left>
+					<top>105</top>
+					<width>8</width>
+					<height>946</height>
+					<onleft>49</onleft>
+					<onright>51</onright>
+					<orientation>vertical</orientation>
+					<animation effect="slide" start="0,0" end="-4,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(74)">conditional</animation>
+				</control>
 			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Right</include>
 				<right>40</right>
 				<left>892</left>
-				<visible>[Control.HasFocus(50) | Control.HasFocus(51)] + !Window.IsVisible(pvrchannelguide)</visible>
+				<visible>[Control.HasFocus(50) | Control.HasFocus(51) | Control.HasFocus(73) | Control.HasFocus(74)] + !Window.IsVisible(pvrchannelguide)</visible>
 				<animation effect="fade" time="400" tween="cubic" easing="out">VisibleChange</animation>
 				<animation effect="slide" start="0,0" end="418,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(49)">Conditional</animation>
-				<control type="scrollbar" id="73">
-					<left>-76</left>
-					<top>0</top>
-					<width>8</width>
-					<bottom>-15</bottom>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<orientation>vertical</orientation>
-					<animation effect="zoom" start="100,100" end="50,100" center="-50,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(73)">conditional</animation>
-				</control>
 				<include content="PVRInfoPanel">
 					<param name="item" value="Container(50).ListItem" />
 					<param name="var_suffix" value="50" />
-					<param name="visible" value="Control.HasFocus(50)" />
+					<param name="visible" value="Control.HasFocus(50) | Control.HasFocus(73)" />
 				</include>
 				<include content="PVRInfoPanel">
 					<param name="item" value="Container(51).ListItem" />
 					<param name="var_suffix" value="51" />
-					<param name="visible" value="Control.HasFocus(51)" />
+					<param name="visible" value="Control.HasFocus(51) | Control.HasFocus(74)" />
 				</include>
+				
 			</control>
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="$VAR[BreadcrumbsPVRChannelsVar50]" />

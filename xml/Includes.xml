@@ -91,7 +91,7 @@
 						<animation effect="zoom" end="50,100" time="300" tween="sine" center="35,0" easing="inout" condition="![Container.Scrolling | Control.HasFocus(530)]">conditional</animation>
 						<visible>Control.IsVisible(52)</visible>
 					</control>
-					<control type="scrollbar" id="531">
+					<!-- <control type="scrollbar" id="531">
 						<left>35</left>
 						<top>0</top>
 						<bottom>0</bottom>
@@ -106,22 +106,22 @@
 						<texturesliderbackground />
 						<animation effect="zoom" end="50,100" time="300" tween="sine" center="35,0" easing="inout" condition="![Container.Scrolling | Control.HasFocus(531)]">conditional</animation>
 						<visible>Control.IsVisible(500) | Control.IsVisible(501)</visible>
-					</control>
+					</control> -->
 					<control type="scrollbar" id="532">
-						<left>529.5</left>
+						<left>1961</left>
 						<top>0</top>
 						<bottom>0</bottom>
 						<width>8</width>
 						<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
 						<texturesliderbarfocus colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbarfocus>
-						<onleft condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">9000</onleft>
+						<onleft condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onleft>
 						<onleft condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">9000</onleft>
 						<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
-						<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">56</onright>
+						<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">50</onright>
 						<orientation>vertical</orientation>
 						<texturesliderbackground />
-						<animation effect="fade" time="300" start="0" end="100" tween="cubic" easing="inout">Visible</animation>
-						<visible>[Control.IsVisible(54) | Control.IsVisible(55)] + [Control.HasFocus(532) | Container.Scrolling]</visible>
+						<animation effect="slide" start="-4,0" end="0,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(532)">conditional</animation>
+						<visible>Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(500) | Control.IsVisible(501)</visible>
 					</control>
 					<!-- <control type="scrollbar" id="532">
 						<left>35</left>

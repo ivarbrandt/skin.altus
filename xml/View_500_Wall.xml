@@ -123,15 +123,14 @@
 			<left>-10</left>
       <height>100%</height>
 			<visible>Control.IsVisible(500)</visible>
-			<animation condition="Control.HasFocus(500) | Control.HasFocus(531) | ControlGroup(9000).HasFocus">
+			<animation condition="Control.HasFocus(500) | Control.HasFocus(532) | ControlGroup(9000).HasFocus">
 				<effect type="fade" start="0" end="100" time="300" tween="cubic" easing="in"/>
 				<effect type="slide" start="0,937" end="0,0" time="500" tween="cubic" easing="out" />
 			</animation>
 			<control type="panel" id="500">
 				<top>65</top>
-				<onleft>531</onleft>
-				<onright condition="Integer.IsGreater(Container.NumPages,1)">531</onright>
-				<onright condition="!Integer.IsGreater(Container.NumPages,1)">500</onright>
+				<onright>532</onright>
+				<onleft>9000</onleft>
 				<onup>500</onup>
 				<!-- <onup condition="!Integer.IsGreater(Container.NumPages,1)">9000</onup> -->
 				<ondown>500</ondown>
@@ -140,7 +139,7 @@
 				<onunfocus condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunfocus>
 				<viewtype label="311022">icon</viewtype>
 				<preloaditems>2</preloaditems>
-				<pagecontrol>531</pagecontrol>
+				<pagecontrol>532</pagecontrol>
 				<scrolltime tween="cubic" easing="out">600</scrolltime>
 				<visible>
 					[Container.Content(artists) + [String.IsEqual(Skin.String(Skin.ForcedView.artists),$LOCALIZE[311022]) | String.IsEmpty(Skin.String(Skin.ForcedView.artists))]] |
