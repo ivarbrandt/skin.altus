@@ -33,22 +33,22 @@
 	<!-- DEFAULT LAYOUT - Titles -->
 	<include name="View500_Default_Titles">
 		<definition>
-			<itemlayout  width="315" height="433" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+			<itemlayout  width="307" height="433" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
 				<control type="group">
 					<include content="ViewUnfocusedAnimations">
 						<param name="id" value="500"/>
 					</include>
 					<!-- <top>39</top> -->
-					<left>28</left>
+					<left>48</left>
 					<top>0</top>
 					<include>PosterLayout</include>
 				</control>
 			</itemlayout>
-			<focusedlayout  width="315" height="433" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+			<focusedlayout  width="307" height="433" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
 				<control type="group">
 					<depth>DepthContentPopout</depth>
 					<!-- <top>39</top> -->
-					<left>28</left>
+					<left>48</left>
 					<top>0</top>
 					<include content="PosterLayout">
 						<param name="focused" value="true" />
@@ -258,7 +258,7 @@
 				<param name="bottom" value="0"/>
 			</include>
 			<control type="label">
-				<left>45</left>
+				<left>65</left>
 				<right>video_header_right</right>
 				<top>20</top>
 				<label>$VAR[LeftVideoHeader]</label>
@@ -269,10 +269,11 @@
 				<scroll>true</scroll>
 				<scrollspeed>170</scrollspeed>
 				<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
-				<animation effect="slide" end="-17,0" condition="String.IsEqual(Skin.String(ArtworkSize500Setting),1)">Conditional</animation>
+				<animation effect="slide" end="-37,0" condition="String.IsEqual(Skin.String(ArtworkSize500Setting),1)">Conditional</animation>
+				<animation effect="slide" end="-17,0" condition="String.IsEqual(Skin.String(ArtworkSize500Setting),0) + !Skin.HasSetting(Enable.500Titles)">Conditional</animation>
 			</control>
 			<control type="label">
-				<right>45</right>
+				<right>65</right>
 				<top>20</top>
 				<width>1815</width>
 				<label>$VAR[RightVideoHeader]</label>
@@ -281,7 +282,8 @@
 				<shadowcolor>text_shadow</shadowcolor>
 				<align>right</align>
 				<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
-				<animation effect="slide" end="17,0" condition="String.IsEqual(Skin.String(ArtworkSize500Setting),1)">Conditional</animation>
+				<animation effect="slide" end="37,0" condition="String.IsEqual(Skin.String(ArtworkSize500Setting),1)">Conditional</animation>
+				<animation effect="slide" end="17,0" condition="String.IsEqual(Skin.String(ArtworkSize500Setting),0) + !Skin.HasSetting(Enable.500Titles)">Conditional</animation>
 			</control>
 			<control type="image">
         <bottom>0</bottom>
