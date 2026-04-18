@@ -123,7 +123,7 @@
 	<!-- SMALL LAYOUT - No Titles -->
 	<include name="View501_Small_NoTitles">
 		<definition>
-			<itemlayout width="358" height="213"  condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+			<itemlayout width="358" height="219"  condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
 				<control type="group">
 					<include content="ViewUnfocusedAnimations">
 						<param name="id" value="501"/>
@@ -134,7 +134,7 @@
 					<include>SmallLandscapeLayout</include>
 				</control>
 			</itemlayout>
-			<focusedlayout width="358" height="213"  condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+			<focusedlayout width="358" height="219"  condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
 				<control type="group">
 					<depth>DepthContentPopout</depth>
             <left>65</left>

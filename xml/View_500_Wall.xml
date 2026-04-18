@@ -3,20 +3,22 @@
 	<!-- DEFAULT LAYOUT - No Titles -->
 	<include name="View500_Default_NoTitles">
 		<definition>
-			<itemlayout width="275" height="401" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+			<itemlayout width="315" height="441" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
 				<control type="group">
 					<include content="ViewUnfocusedAnimations">
 						<param name="id" value="500"/>
 					</include>
 					<!-- <top>39</top> -->
+					<left>28</left>
 					<top>0</top>
 					<include>PosterLayout</include>
 				</control>
 			</itemlayout>
-			<focusedlayout width="275" height="401" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+			<focusedlayout width="315" height="441" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
 				<control type="group">
 					<depth>DepthContentPopout</depth>
 					<!-- <top>39</top> -->
+					<left>28</left>
 					<top>0</top>
 					<include content="PosterLayout">
 						<param name="focused" value="true" />
@@ -31,20 +33,22 @@
 	<!-- DEFAULT LAYOUT - Titles -->
 	<include name="View500_Default_Titles">
 		<definition>
-			<itemlayout  width="275" height="430" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+			<itemlayout  width="315" height="433" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
 				<control type="group">
 					<include content="ViewUnfocusedAnimations">
 						<param name="id" value="500"/>
 					</include>
 					<!-- <top>39</top> -->
+					<left>28</left>
 					<top>0</top>
 					<include>PosterLayout</include>
 				</control>
 			</itemlayout>
-			<focusedlayout  width="275" height="430" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
+			<focusedlayout  width="315" height="433" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
 				<control type="group">
 					<depth>DepthContentPopout</depth>
 					<!-- <top>39</top> -->
+					<left>28</left>
 					<top>0</top>
 					<include content="PosterLayout">
 						<param name="focused" value="true" />
@@ -66,7 +70,7 @@
 					</include>
 					<!-- <top>39</top> -->
 					<top>0</top>
-					<left>18</left>
+					<left>8</left>
 					<include>SmallPosterLayout</include>
 				</control>
 			</itemlayout>
@@ -75,7 +79,7 @@
 					<depth>DepthContentPopout</depth>
 					<!-- <top>39</top> -->
 					<top>0</top>
-					<left>18</left>
+					<left>8</left>
 					<include content="SmallPosterLayout">
 						<param name="focused" value="true" />
 					</include>
@@ -96,7 +100,7 @@
 					</include>
 					<!-- <top>39</top> -->
 					<top>0</top>
-					<left>18</left>
+					<left>8</left>
 					<include>SmallPosterLayout</include>
 				</control>
 			</itemlayout>
@@ -105,7 +109,7 @@
 					<depth>DepthContentPopout</depth>
 					<!-- <top>39</top> -->
 					<top>0</top>
-					<left>18</left>
+					<left>8</left>
 					<include content="SmallPosterLayout">
 						<param name="focused" value="true" />
 					</include>
@@ -120,7 +124,7 @@
 		<control type="group">
 			<!-- <include>OpenClose_Right</include>
 			<include>Visible_Right</include> -->
-			<left>-10</left>
+			<left>0</left>
       <height>100%</height>
 			<visible>Control.IsVisible(500)</visible>
 			<animation condition="Control.HasFocus(500) | Control.HasFocus(532) | ControlGroup(9000).HasFocus">
@@ -254,7 +258,7 @@
 				<param name="bottom" value="0"/>
 			</include>
 			<control type="label">
-				<left>20</left>
+				<left>45</left>
 				<right>video_header_right</right>
 				<top>20</top>
 				<label>$VAR[LeftVideoHeader]</label>
@@ -265,10 +269,10 @@
 				<scroll>true</scroll>
 				<scrollspeed>170</scrollspeed>
 				<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
-				<animation effect="slide" end="15,0" condition="String.IsEqual(Skin.String(ArtworkSize500Setting),1)">Conditional</animation>
+				<animation effect="slide" end="-17,0" condition="String.IsEqual(Skin.String(ArtworkSize500Setting),1)">Conditional</animation>
 			</control>
 			<control type="label">
-				<right>12</right>
+				<right>45</right>
 				<top>20</top>
 				<width>1815</width>
 				<label>$VAR[RightVideoHeader]</label>
@@ -277,7 +281,7 @@
 				<shadowcolor>text_shadow</shadowcolor>
 				<align>right</align>
 				<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
-				<animation effect="slide" end="-15,0" condition="String.IsEqual(Skin.String(ArtworkSize500Setting),1)">Conditional</animation>
+				<animation effect="slide" end="17,0" condition="String.IsEqual(Skin.String(ArtworkSize500Setting),1)">Conditional</animation>
 			</control>
 			<control type="image">
         <bottom>0</bottom>
