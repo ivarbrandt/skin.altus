@@ -4,7 +4,7 @@ RSYNC_OPTS := -avh --delete
 EXCLUDE_OPTS := --exclude='.git/' --exclude='.gitignore' --exclude='._*' --exclude='.DS_Store' --exclude='*.pyo' --exclude='*.pyc' --exclude='cache/' --exclude='Thumbs.db'
 m ?= ""
 SHELL := /bin/bash
-.PHONY: all sync sync-media sync-all test_sync status add commit push clean help check_dest
+.PHONY: all sync sync-media sync-all test_sync status add commit push clean help check_dest check_case
 all: help
 help:
 	@echo "Available targets:"
@@ -17,7 +17,9 @@ help:
 	@echo "  make push       - Git push from Mac repo"
 check_dest:
 	@if [ ! -d "$(DEST_DIR).git" ]; then echo "ERROR: Git repo not found at $(DEST_DIR)"; exit 1; fi
-sync: check_dest
+check_case:
+	@python3 scripts/check_case.py "$(SOURCE_DIR)xml"
+sync: check_dest check_case
 	@rsync $(RSYNC_OPTS) $(EXCLUDE_OPTS) --exclude='media/' --exclude='Textures.xbt' "$(SOURCE_DIR)" "$(DEST_DIR)"
 	@echo "Sync complete (non-media)."
 sync-media: check_dest
