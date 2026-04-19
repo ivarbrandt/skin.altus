@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="FocusableProgressBar">
+		<param name="width">100%</param>
+		<param name="onunfocus_id">200</param>
+		<definition>
+			<control type="progress">
+				<animation effect="fade" end="0" time="200">WindowClose</animation>
+				<left>0</left>
+				<width>$PARAM[width]</width>
+				<height>15</height>
+				<info>Player.ProgressCache</info>
+				<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
+				<midtexture>colors/white50.png</midtexture>
+				<animation effect="fade" start="100" end="80" time="0" condition="true">Conditional</animation>
+			</control>
+			<control type="progress" id="23">
+				<animation effect="fade" end="0" time="200">WindowClose</animation>
+				<left>0</left>
+				<width>$PARAM[width]</width>
+				<height>15</height>
+				<info>Player.Progress</info>
+				<texturebg border="3" colordiffuse="80FFFFFF">colors/white50.png</texturebg>
+				<midtexture colordiffuse="button_focus">colors/white.png</midtexture>
+			</control>
+			<control type="button" id="87">
+				<include>HiddenObject</include>
+				<onup>$PARAM[onunfocus_id]</onup>
+				<onunfocus condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</onunfocus>
+				<ondown>$PARAM[onunfocus_id]</ondown>
+				<onright condition="!Player.Forwarding32x">PlayerControl(Forward)</onright>
+				<onleft condition="!Player.Rewinding32x">PlayerControl(Rewind)</onleft>
+				<visible>Player.SeekEnabled</visible>
+				<onclick condition="Player.Forwarding | Player.Rewinding">PlayerControl(Play)</onclick>
+			</control>
+			<control type="slider">
+				<top>-5</top>
+				<left>0</left>
+				<width>$PARAM[width]</width>
+				<height>25</height>
+				<texturesliderbar colordiffuse="00FFFFFF">osd/progress/nub_leftright.png</texturesliderbar>
+				<textureslidernib>osd/progress/nub_leftright.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="button_focus">osd/progress/nub_leftright.png</textureslidernibfocus>
+				<info>Player.Progress</info>
+				<action>seek</action>
+				<visible>!Control.HasFocus(87) + Player.SeekEnabled</visible>
+			</control>
+			<control type="slider">
+				<top>-5</top>
+				<left>0</left>
+				<width>$PARAM[width]</width>
+				<height>25</height>
+				<texturesliderbar colordiffuse="00FFFFFF">osd/progress/nub_leftright.png</texturesliderbar>
+				<textureslidernib colordiffuse="button_focus">osd/progress/nub_leftright.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="button_focus">osd/progress/nub_leftright.png</textureslidernibfocus>
+				<info>Player.Progress</info>
+				<action>seek</action>
+				<visible>Control.HasFocus(87) + Player.SeekEnabled</visible>
+			</control>
+		</definition>
+	</include>
+
+  <include name="ProgressBar">
+		<param name="left">$PARAM[left]</param>
+		<param name="top">$PARAM[top]</param>
+		<param name="width">$PARAM[width]</param>
+		<param name="color">FF39FF14</param>
+		<param name="height">6</param>
+		<definition>
+			<control type="group">
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<width>$PARAM[width]</width>
+				<!-- <control type="image">
+					<top>-10</top>
+					<height>10</height>
+					<texture colordiffuse="B3000000" >overlays/overlay_bg_long.png</texture>
+				</control> -->
+				<control type="image">
+					<height>$PARAM[height]</height>
+					<texture colordiffuse="$PARAM[color]" >colors/white.png</texture>
+					<visible>Integer.IsGreater(ListItem.Playcount,0) + !Control.IsVisible(50) + 
+					[
+							[[$EXP[isTVShow] | $EXP[isSeason]] + 
+							String.IsEqual(ListItem.Property(WatchedEpisodes),ListItem.Property(TotalEpisodes)) + 
+							!Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)]
+							| 
+							[[$EXP[isMovie] | $EXP[isEpisode]] + 
+							Integer.IsEqual(ListItem.Property(WatchedProgress),0)]
+					]</visible>
+				</control>
+				<control type="progress">
+					<visible>[String.IsEqual(ListItem.DBtype,movie) + !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)] | [Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),0) + !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)] | [String.IsEqual(ListItem.DBtype,episode) + !String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)]</visible>
+					<height>$PARAM[height]</height>
+					<texturebg colordiffuse="$PARAM[color]">colors/greyer.png</texturebg>
+					<midtexture colordiffuse="$PARAM[color]">colors/white.png</midtexture>
+					<info>ListItem.Property(WatchedProgress)</info>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+</includes>

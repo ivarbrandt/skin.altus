@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="PosterFlowLayout">
+		<param name="focused">false</param>
+		<definition>
+			<control type="group">
+			<visible>String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(poster))</visible>
+				<control type="image">
+					<width>472</width>
+          <height>710</height>
+					<texture colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
+          <visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]]</visible>
+					<!-- <visible>!Container($PARAM[list_id]).IsUpdating</visible> -->
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control>
+				<control type="image">
+					<width>472</width>
+          <height>710</height>
+					<texture colordiffuse="FF333333">colors/dark.png</texture>
+          <visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
+          <visible>![$PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]]</visible>
+					<!-- <visible>!Container($PARAM[list_id]).IsUpdating</visible> -->
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control>
+				<control type="textbox">
+					<left>50</left>
+					<top>200</top>
+					<width>620</width>
+					<height>680</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+          <font>font_MainMenu</font>
+					<autoscroll time="2000" delay="1000" repeat="2000">$PARAM[focused] + Control.HasFocus($PARAM[list_id])</autoscroll>
+					<visible>!ListItem.IsParentFolder + [$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]]</visible>
+				</control>
+				<control type="textbox">
+					<left>12</left>
+					<top>100</top>
+					<width>180</width>
+					<height>880</height>
+					<font>font25_title</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>unfocused_text</textcolor>
+					<visible>!ListItem.IsParentFolder + [!$PARAM[focused] | [!Control.HasFocus($PARAM[list_id]) + ![Control.IsVisible(51) | Control.IsVisible(500)]]]</visible>
+				</control>
+				<!-- <control type="image">
+					<left>1</left>
+					<top>-7</top>
+					<width>270</width>
+					<height>270</height>
+					<texture fallback="DefaultMovies.png" background="true">$VAR[IconWallThumbVar]</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<bordersize>20</bordersize>
+					<visible>!ListItem.IsParentFolder + $PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
+				</control>
+				<control type="image">
+					<left>2.5</left>
+					<top>-7</top>
+					<width>270</width>
+					<height>270</height>
+					<texture colordiffuse="unfocused_text" fallback="DefaultMovies.png" background="true">$VAR[IconWallThumbVar]</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<bordersize>20</bordersize>
+					<visible>!ListItem.IsParentFolder + ![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
+				</control> -->
+			</control>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Art(fanart)) | !String.IsEmpty(ListItem.Art(poster))</visible>
+        <control type="group">
+          <animation type="UnFocus" condition="Container(51).OnNext" reversible="false">
+            <effect type="slide" start="200,0" end="0,0" time="700" tween="quadratic"/>
+          </animation>
+          <animation type="UnFocus" condition="Container(51).OnPrevious" reversible="false">
+            <effect type="slide" start="-200,0" end="0,0" time="700" tween="quadratic"/>
+          </animation>
+          <control type="image">
+            <width>472</width>
+            <height>710</height>
+            <texture colordiffuse="artwork_dim" fallback="DefaultMovies.png">$VAR[FlixPosterVar]</texture>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+            <visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]]</visible>
+          </control>
+          <control type="image">
+            <width>472</width>
+            <height>710</height>
+            <texture fallback="DefaultMovies.png" colordiffuse="$VAR[PosterFlowArtworkDiffuse]">$VAR[FlixPosterVar]</texture>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+            <visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
+            <visible>![$PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]]</visible>
+          </control>
+          <control type="group">
+            <width>387</width>
+            <height>150</height>
+            <centertop>40%</centertop>
+            <centerleft>50%</centerleft>
+            <animation effect="rotate" center="auto" end="90" time="0" condition="true">Conditional</animation>
+            <control type="image">
+              <animation effect="fade" start="0" end="100" time="1000" >Visible</animation>
+              <width>258</width>
+              <height>100</height>
+              <left>150</left>
+              <centertop>52%</centertop>
+              <texture background="true">$VAR[ClearlogoVar]</texture>
+              <aspectratio align="center" aligny="center">keep</aspectratio>
+              <visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])] + String.IsEmpty(Skin.String(TrailerPlaying))</visible>
+              <visible>![$PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]] + String.IsEmpty(Skin.String(TrailerPlaying))</visible>
+              <visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.SpineClearlogo) + !$EXP[sidebar_visible] + !$EXP[dialog_visible] + !Skin.HasSetting(Disable.51Dim)] + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isEpisode] | Container.Content(addons)]</visible>
+            </control>
+          </control>
+          <include content="InfoBadge">
+            <param name="left" value="75"/>
+            <param name="top" value="641"/>
+            <param name="height" value="51"/>
+            <param name="font" value="eps_51"/>
+            <param name="textoffsetx" value="13"/>
+            <param name="focused" value="$PARAM[focused]"/>
+						<param name="focus_extra" value="Control.IsVisible(51)"/>
+            <param name="label" value="$INFO[ListItem.Property(UnwatchedEpisodes),, remaining]"/>
+            <param name="vis" value="[$PARAM[focused] + Control.HasFocus(51)]"/>
+            <param name="vis2" value="Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + !String.IsEqual(ListItem.Property(WatchedEpisodes),ListItem.Property(TotalEpisodes)) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),-1)"/>
+          </include>
+          <include content="CollectionBadge">
+            <param name="left" value="52"/>
+            <param name="top" value="590"/>
+            <param name="icon_size" value="25"/>
+            <param name="back_size" value="44"/>
+            <param name="offset" value="9"/>
+            <param name="focused" value="$PARAM[focused]"/>
+						<param name="focus_extra" value="Control.IsVisible(51)"/>
+            <param name="animation_vis" value="!Skin.HasSetting(Disable.51Dim) + [$PARAM[focused] + Control.IsVisible(51)]"/>
+            <param name="animation_vis_51" value="Control.IsVisible(51) + !$EXP[hasWallWatchedIcon]"/>
+          </include>
+          <include content="ProgressBadge">
+            <param name="left" value="52"/>
+            <param name="top" value="645"/>
+            <param name="icon_size" value="29"/>
+            <param name="back_size" value="44"/>
+            <param name="offset" value="7"/>
+            <param name="focused" value="$PARAM[focused]"/>
+						<param name="focus_extra" value="Control.IsVisible(51)"/>
+            <param name="animation_vis" value="!Skin.HasSetting(Disable.51Dim) + [$PARAM[focused] + Control.IsVisible(51)]"/>
+          </include>
+        </control>
+			</control>
+		</definition>
+	</include>
+
+</includes>

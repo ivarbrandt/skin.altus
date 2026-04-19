@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="WidgetListPVR">
+		<param name="item_treshold">0</param>
+		<param name="item_limit">15</param>
+		<!-- <param name="icon_height">230</param> -->
+		<param name="icon">$PARAM[icon]</param>
+		<param name="info_update">300</param>
+		<param name="visible">true</param>
+		<definition>
+			<include content="CategoryLabel">
+				<param name="label">$PARAM[widget_header]</param>
+				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="item_treshold" value="$PARAM[item_treshold]"/>
+			</include>
+			<include content="BusyListSpinner">
+				<param name="list_id" value="$PARAM[list_id]"/>
+			</include>
+			<control type="fixedlist" id="$PARAM[list_id]">
+				<top>107</top>
+				<right>0</right>
+				<left>45</left>
+				<height>525</height>
+				<onright>$PARAM[list_id]</onright>
+				<movement>2</movement>
+				<include content="WidgetListCommon">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<!-- <include content="WidgetZoomAnimation">
+					<param name="list_id" value="$PARAM[list_id]" />
+					<param name="c2" value="303" />
+				</include> -->
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
+				<itemlayout width="452">
+					<control type="group">
+						<left>-20</left>
+						<top>55</top>
+						<include content="WidgetListPVRLayout">
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="452" infoupdate="30">
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<left>-20</left>
+						<top>55</top>
+						<include content="WidgetListPVRLayout">
+							<param name="list_id" value="$PARAM[list_id]" />
+							<param name="focused" value="true" />
+						</include>
+						<include>VideoTrailerControl</include>
+					</control>
+				</focusedlayout>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[item_limit]">$PARAM[content_path]</content>
+			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="170" />
+			</include>
+		</definition>
+	</include>
+
+</includes>

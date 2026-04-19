@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+
   <include name="BigWeatherLabel">
 		<control type="label">
 			<top>$PARAM[top]</top>
@@ -93,4 +94,276 @@
 			</control> -->
 		</control>
 	</include>
+
+	<include name="HourlyItems">
+		<content>
+			<item>
+				<icon>resource://resource.images.weathericons.white/na.png</icon>
+				<onclick>noop</onclick>
+				<visible>String.IsEmpty(Window(weather).Property(Hourly.IsFetched))</visible>
+			</item>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="1" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="2" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="3" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="4" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="5" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="6" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="7" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="8" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="9" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="10" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="11" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="12" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="13" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="14" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="15" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="16" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="17" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="18" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="19" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="20" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="21" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="22" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="23" />
+			</include>
+			<include content="WeatherHourlyItem">
+				<param name="item_index" value="24" />
+			</include>
+		</content>
+	</include>
+
+	<include name="DailyItems">
+		<content>
+			<item>
+				<icon>resource://resource.images.weathericons.white/na.png</icon>
+				<onclick>noop</onclick>
+				<visible>!Weather.IsFetched</visible>
+			</item>
+			<include content="WeatherDayItem">
+				<param name="item_index" value="0" />
+			</include>
+			<include content="WeatherDayItem">
+				<param name="item_index" value="1" />
+			</include>
+			<include content="WeatherDayItem">
+				<param name="item_index" value="2" />
+			</include>
+			<include content="WeatherDayItem">
+				<param name="item_index" value="3" />
+			</include>
+			<include content="WeatherDayItem">
+				<param name="item_index" value="4" />
+			</include>
+			<include content="WeatherDayItem">
+				<param name="item_index" value="5" />
+			</include>
+			<include content="WeatherDayItem">
+				<param name="item_index" value="6" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="1" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="2" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="3" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="4" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="5" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="6" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="7" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="8" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="9" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="10" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="11" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="12" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="13" />
+			</include>
+			<include content="WeatherDailyItem">
+				<param name="item_index" value="14" />
+			</include>
+		</content>
+	</include>
+
+	<include name="WeatherHourlyItem">
+		<item>
+			<label>[COLOR unfocused_text]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Time)][/COLOR]</label>
+			<label2>[COLOR unfocused_text][B]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)]  [COLOR unfocused_text]•[/B][/COLOR]  $INFO[Window(weather).Property(Hourly.$PARAM[item_index].Precipitation)][/COLOR]</label2>
+			<property name="Temperature">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)]</property>
+			<property name="Outlook">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Outlook)]</property>
+			<property name="Cloudiness">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Cloudiness)]</property>
+			<property name="ShortDate">[COLOR darkgrey]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].ShortDate)][/COLOR]</property>
+			<property name="FanartCode">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].FanartCode)]</property>
+			<thumb>resource://resource.images.weathericons.white/$INFO[Window(weather).Property(Hourly.$PARAM[item_index].OutlookIcon)]</thumb>
+			<onclick>noop</onclick>
+			<visible>!String.IsEmpty(Window(weather).Property(Hourly.$PARAM[item_index].Outlook))</visible>
+		</item>
+	</include>
+
+	<include name="WeatherDailyItem">
+		<item>
+			<label>$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDay)]</label>
+			<label2>[COLOR FFFF4C4C][B]$INFO[Window(weather).Property(Daily.$PARAM[item_index].HighTemperature)][/COLOR]  [COLOR unfocused_text]•[/COLOR]  [COLOR FF4C8CFF]$INFO[Window(weather).Property(Daily.$PARAM[item_index].LowTemperature)][/B][/COLOR]</label2>
+			<property name="LongDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDay)]</property>
+			<property name="TempDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].TempDay)]</property>
+			<property name="Cloudiness">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Cloudiness)]</property>
+			<property name="Outlook">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Outlook)]</property>
+			<property name="ShortDate">[COLOR darkgrey]$INFO[Window(weather).Property(Daily.$PARAM[item_index].ShortDate)][/COLOR]</property>
+			<property name="FanartCode">$INFO[Window(weather).Property(Daily.$PARAM[item_index].FanartCode)]</property>
+			<thumb>resource://resource.images.weathericons.white/$INFO[Window(weather).Property(Daily.$PARAM[item_index].OutlookIcon)]</thumb>
+			<onclick>noop</onclick>
+			<visible>!String.IsEmpty(Window(weather).Property(Daily.IsFetched)) + !String.IsEmpty(Window(weather).Property(Daily.$PARAM[item_index].Outlook))</visible>
+		</item>
+	</include>
+
+	<include name="WeatherDayItem">
+		<item>
+			<label>$INFO[Window(weather).Property(Day$PARAM[item_index].Title)]</label>
+			<label2>[COLOR blue]$INFO[Window(weather).Property(Day$PARAM[item_index].LowTemp)]$INFO[System.TemperatureUnits][/COLOR] ∙ [COLOR red]$INFO[Window(weather).Property(Day$PARAM[item_index].HighTemp)]$INFO[System.TemperatureUnits][/COLOR]</label2>
+			<property name="LongDay"></property>
+			<property name="TempDay"></property>
+			<property name="Cloudiness"></property>
+			<property name="Outlook"></property>
+			<property name="ShortDate"></property>
+			<property name="FanartCode">$INFO[Window(weather).Property(Day$PARAM[item_index].FanartCode)]</property>
+			<thumb>$INFO[Window(weather).Property(Day$PARAM[item_index].OutlookIcon)]</thumb>
+			<onclick>noop</onclick>
+			<visible>String.IsEmpty(Window(weather).Property(Daily.IsFetched)) + !String.IsEmpty(Window(weather).Property(Day$PARAM[item_index].Outlook))</visible>
+		</item>
+	</include>
+
+	<include name="WeatherMapItem">
+		<control type="group" id="700$PARAM[item_id]">
+			<height>1110</height>
+			<visible>Weather.IsFetched + !String.IsEmpty(Window(weather).Property(Map.$PARAM[item_id].Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+			<centerleft>50%</centerleft>
+			<width>1920</width>
+			<control type="button" id="700$PARAM[item_id]0">
+				<left>50</left>
+				<top>100</top>
+				<width>1820</width>
+				<height>920</height>
+				<onup>$PARAM[onup_id]</onup>
+				<ondown>$PARAM[ondown_id]</ondown>
+			</control>
+			<control type="image" id="700$PARAM[item_id]1">
+				<left>50</left>
+				<top>100</top>
+				<width>1820</width>
+				<height>920</height>
+				<texture>dialogs/dialog-bg-nobo.png</texture>
+				<bordertexture border="21" infill="false">overlays/shadow.png</bordertexture>
+				<bordersize>20</bordersize>
+			</control>
+			<control type="image" id="700$PARAM[item_id]2">
+				<left>120</left>
+				<top>160</top>
+				<width>1680</width>
+				<height>800</height>
+				<texture>$INFO[Window(weather).Property(Map.$PARAM[item_id].Area)]</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+			<control type="image" id="700$PARAM[item_id]3">
+				<left>120</left>
+				<top>160</top>
+				<width>1680</width>
+				<height>800</height>
+				<texture>$INFO[Window(weather).Property(Map.$PARAM[item_id].Layer)]</texture>
+				<aspectratio>scale</aspectratio>
+				<colordiffuse>B0FFFFFF</colordiffuse>
+			</control>
+			<control type="image" id="700$PARAM[item_id]4">
+				<left>1000</left>
+				<top>858</top>
+				<width>340</width>
+				<height>100</height>
+				<texture border="21">buttons/button-nofo.png</texture>
+			</control>
+			<control type="image" id="700$PARAM[item_id]5">
+				<left>1340</left>
+				<top>880</top>
+				<width>350</width>
+				<height>55</height>
+				<texture>$INFO[Window(weather).Property(Map.$PARAM[item_id].Legend)]</texture>
+			</control>
+		</control>
+		<control type="label" id="700$PARAM[item_id]9">
+			<left>1000</left>
+			<top>0</top>
+			<width>340</width>
+			<height>100</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<animation effect="slide" end="0,-92" time="0" condition="true">Conditional</animation>
+			<font>font30_title</font>
+			<label>$INFO[Window(weather).Property(Map.$PARAM[item_id].Heading)]</label>
+			<visible>Weather.IsFetched + !String.IsEmpty(Window(weather).Property(Map.$PARAM[item_id].Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+		</control>
+	</include>
+
 </includes>

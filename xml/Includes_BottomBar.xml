@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <includes>
+
+    <include name="BottomBar">
+		<param name="info_visible">False</param>
+		<definition>
+			<control type="group">
+				<animation effect="slide" end="0,112" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
+				<depth>DepthBars</depth>
+				<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(visualisation) | Window.Next(screencalibration)">WindowClose</animation>
+				<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(startup) | Window.Previous(visualisation)">WindowOpen</animation>
+				<!-- <visible>
+					[String.IsEmpty(Window(Home).Property(FlixWidget)) + 
+					![ControlGroup(15000).HasFocus | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(56) | Window.IsVisible(1100) | 
+						[Control.IsVisible(500) + Skin.HasSetting(Enable.500Dim)] | ![Control.IsVisible(500) + !Skin.HasSetting(Enable.500Dim)]
+						]
+					] | 
+					[String.IsEmpty(Window(Home).Property(FlixWidget)) + 
+					![ControlGroup(15000).HasFocus | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(56) | Window.IsVisible(1100) | 
+						[Control.IsVisible(501) + Skin.HasSetting(Enable.501Dim)] | ![Control.IsVisible(501) + !Skin.HasSetting(Enable.501Dim)]
+						]
+					] | 
+					[String.IsEmpty(Window(Home).Property(FlixWidget)) + 
+					![ControlGroup(15000).HasFocus | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(56) | Window.IsVisible(1100) | 
+						[Control.IsVisible(54) + Skin.HasSetting(Enable.54Dim)] | ![Control.IsVisible(54) + !Skin.HasSetting(Enable.54Dim)]
+						]
+					] | 
+					[String.IsEmpty(Window(Home).Property(FlixWidget)) + 
+					![ControlGroup(15000).HasFocus | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(56) | Window.IsVisible(1100) | 
+						[Control.IsVisible(55) + Skin.HasSetting(Enable.55Dim)] | ![Control.IsVisible(55) + !Skin.HasSetting(Enable.55Dim)]
+						]
+					]
+				</visible> -->
+				<visible>String.IsEmpty(Window(Home).Property(FlixWidget)) + !Window.IsVisible(videos) + ![ControlGroup(15000).HasFocus | Window.IsVisible(1100)]</visible>
+				<animation effect="fade" time="300" tween="cubic" easing="out">VisibleChange</animation>
+				<bottom>0</bottom>
+				<control type="image">
+					<left>0</left>
+					<bottom>0</bottom>
+					<width>110%</width>
+					<height>115</height>
+					<texture flipy="true">frame/InfoBar.png</texture>
+				</control>
+				<control type="group">
+					<visible>$PARAM[info_visible]</visible>
+					<visible>!System.HasActiveModalDialog</visible>
+					<visible>!Skin.HasSetting(touchmode)</visible>
+					<animation effect="fade" time="400">VisibleChange</animation>
+					<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+					<!-- <control type="button">
+						<bottom>20</bottom>
+						<left>12</left>
+						<width>36</width>
+						<height>36</height>
+						<animation effect="rotate" end="-90" center="auto" time="200" reversible="true" condition="Control.IsVisible(51) | Control.IsVisible(53)">Conditional</animation>
+						<texturefocus colordiffuse="button_focus">frame/menu-nofo.png</texturefocus>
+						<texturenofocus colordiffuse="unfocused_text">frame/menu-nofo.png</texturenofocus>
+						<animation effect="fade" time="200">VisibleChange</animation>
+						<onclick>SetFocus(9000)</onclick>
+						<visible>!Control.IsVisible(6160)</visible>
+					</control> -->
+					<control type="button" id="6160">
+						<bottom>20</bottom>
+						<left>12</left>
+						<width>36</width>
+						<height>36</height>
+						<texturefocus colordiffuse="button_focus">icons/menu.png</texturefocus>
+						<texturenofocus colordiffuse="unfocused_text">icons/menu.png</texturenofocus>
+						<animation effect="fade" time="200">VisibleChange</animation>
+						<onclick>SetFocus(9000)</onclick>
+						<visible>Window.IsActive(MyPVRGuide.xml)</visible>
+					</control>
+					<!-- <control type="button">
+						<bottom>16</bottom>
+						<left>64</left>
+						<width>300</width>
+						<height>44</height>
+						<shadowcolor>text_shadow</shadowcolor>
+						<label>$LOCALIZE[33063]</label>
+						<onclick>SetFocus(9000)</onclick>
+						<texturefocus />
+						<texturenofocus />
+					</control> -->
+				</control>
+				<include>TouchButtons</include>
+			</control>
+		</definition>
+	</include>
+
+	<include name="BottomBarTwoListInfo">
+		<control type="group">
+			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+			<control type="grouplist">
+				<orientation>horizontal</orientation>
+				<align>right</align>
+				<bottom>0</bottom>
+				<height>65</height>
+				<itemgap>10</itemgap>
+				<right>24</right>
+				<width>1200</width>
+				<control type="label">
+					<width>auto</width>
+					<height>48</height>
+					<aligny>center</aligny>
+					<align>right</align>
+					<shadowcolor>text_shadow</shadowcolor>
+					<label>$INFO[Container($PARAM[right_container_id]).CurrentItem,, / ]$INFO[Container($PARAM[right_container_id]).NumItems]</label>
+				</control>
+				<control type="image">
+					<width>54</width>
+					<height>44</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="button_focus">frame/item-count.png</texture>
+				</control>
+			</control>
+			<control type="grouplist">
+				<orientation>horizontal</orientation>
+				<bottom>0</bottom>
+				<height>65</height>
+				<left>24</left>
+				<width>1200</width>
+				<itemgap>10</itemgap>
+				<control type="image">
+					<width>54</width>
+					<height>44</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="button_focus">frame/item-count.png</texture>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>48</height>
+					<aligny>center</aligny>
+					<align>right</align>
+					<shadowcolor>text_shadow</shadowcolor>
+					<label>$INFO[Container($PARAM[left_container_id]).CurrentItem,, / ]$INFO[Container($PARAM[left_container_id]).NumItems]</label>
+				</control>
+			</control>
+		</control>
+	</include>
+
+</includes>

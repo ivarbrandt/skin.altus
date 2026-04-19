@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="FeaturePosterLayout">
+		<param name="focused">false</param>
+		<definition>
+			<control type="group">
+			<visible>String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(poster))</visible>
+				<control type="image">
+					<left>20</left>
+					<top>11</top>
+					<width>236</width>
+					<height>354</height>
+					<texture colordiffuse="$VAR[FocusColorTheme]">masks/poster.png</texture>
+					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))] | [[$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
+					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control>
+				<control type="textbox">
+					<left>27</left>
+					<top>237</top>
+					<width>222</width>
+					<height>120</height>
+					<font>font25</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<autoscroll time="2000" delay="1000" repeat="2000">$PARAM[focused] + Control.HasFocus($PARAM[list_id])</autoscroll>
+					<visible>!ListItem.IsParentFolder + [$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
+				</control>
+				<control type="textbox">
+					<left>27</left>
+					<top>237</top>
+					<width>222</width>
+					<height>120</height>
+					<font>font25</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>unfocused_text</textcolor>
+					<visible>!ListItem.IsParentFolder + [!$PARAM[focused] | [!Control.HasFocus($PARAM[list_id]) + ![Control.IsVisible(54) | Control.IsVisible(500)]]]</visible>
+				</control>
+				<control type="image">
+					<left>1</left>
+					<top>-7</top>
+					<width>270</width>
+					<height>270</height>
+					<texture fallback="DefaultMovies.png" background="true">$VAR[IconWallThumbVar]</texture>
+					<bordersize>20</bordersize>
+					<visible>!ListItem.IsParentFolder + $PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
+				</control>
+				<control type="image">
+					<left>2.5</left>
+					<top>-7</top>
+					<width>270</width>
+					<height>270</height>
+					<texture colordiffuse="unfocused_text" fallback="DefaultMovies.png" background="true">$VAR[IconWallThumbVar]</texture>
+					<bordersize>20</bordersize>
+					<visible>!ListItem.IsParentFolder + ![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Art(fanart)) | !String.IsEmpty(ListItem.Art(poster))</visible>
+				<control type="image">
+					<left>20</left>
+					<top>11</top>
+					<width>430</width>
+					<height>645</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture diffuse="masks/featureposter.png" colordiffuse="artwork_dim" background="true">$VAR[FlixPosterVar]</texture>
+				</control>
+				<control type="group">
+					<visible>$EXP[isTVShow] | $EXP[isSeason]</visible>
+					<top>587.5</top>
+					<include content="InfoBadge">
+						<param name="left" value="90"/>
+						<param name="top" value="0"/>
+						<param name="height" value="51"/>
+						<param name="font" value="eps_51"/>
+						<param name="textoffsetx" value="13"/>
+						<param name="focused" value="$PARAM[focused]"/>
+						<param name="list_id" value="$PARAM[list_id]"/>
+						<param name="label" value="$INFO[ListItem.Property(UnwatchedEpisodes),, remaining]"/>
+						<param name="vis" value="[$PARAM[focused] + Control.HasFocus($PARAM[list_id])]"/>
+						<param name="vis2" value="Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + !String.IsEqual(ListItem.Property(WatchedEpisodes),ListItem.Property(TotalEpisodes)) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),-1)"/>
+					</include>
+				</control>
+				<include content="CollectionBadge">
+					<param name="left" value="97"/>
+					<param name="top" value="591"/>
+					<param name="icon_size" value="25"/>
+					<param name="back_size" value="44"/>
+					<param name="offset" value="9"/>
+					<param name="focused" value="$PARAM[focused]"/>
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="vis" value="$EXP[hasWallWatchedIcon]"/>
+				</include>
+				<include content="CollectionBadge">
+					<param name="left" value="41"/>
+					<param name="top" value="591"/>
+					<param name="icon_size" value="25"/>
+					<param name="back_size" value="44"/>
+					<param name="offset" value="9"/>
+					<param name="focused" value="$PARAM[focused]"/>
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="vis" value="!$EXP[hasWallWatchedIcon]"/>
+				</include>
+				<include content="ProgressBadge">
+					<param name="left" value="41"/>
+					<param name="top" value="591"/>
+					<param name="icon_size" value="29"/>
+					<param name="back_size" value="44"/>
+					<param name="offset" value="7"/>
+					<param name="focused" value="$PARAM[focused]"/>
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<control type="image">
+					<left>20</left>
+					<top>11</top>
+					<width>430</width>
+					<height>645</height>
+					<texture border="30" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-30.png</texture>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+</includes>

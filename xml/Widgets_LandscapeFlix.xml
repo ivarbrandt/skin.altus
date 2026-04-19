@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="WidgetListLandscapeFlix">
+		<param name="onclick_condition">false</param>
+		<definition>
+			<include content="CategoryLabel">
+				<param name="label">$PARAM[widget_header]</param>
+				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="flix_slide" value="563"/>
+			</include>
+			<include content="BusyListSpinner">
+				<param name="list_id" value="$PARAM[list_id]"/>
+			</include>
+			<control type="fixedlist" id="$PARAM[list_id]">
+				<top>107</top>
+				<right>0</right>
+				<left>45</left>
+				<height>971</height>
+				<focusposition>0</focusposition>
+				<movement>2</movement>
+				<onright>$PARAM[list_id]</onright>
+				<orientation>horizontal</orientation>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<onfocus>SetProperty(FlixWidget,true,Home)</onfocus>
+				<onfocus>SetProperty(altus_flix_linked_list_id,$PARAM[parent_id],home)</onfocus>
+				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
+				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
+				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
+				<animation effect="slide" start="0,0" end="0,563" time="400" tween="quadratic" condition="Control.HasFocus($PARAM[list_id])">Conditional</animation>
+				<include content="WidgetListCommon">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<itemlayout width="452" >
+					<control type="image">
+						<left>0</left>
+						<top>322</top>
+						<width>430</width>
+						<height>242</height>
+						<texture flipy="true" diffuse="masks/small-landscape.png" colordiffuse="4DFFFFFF" background="true">$VAR[SmallLandscapeVar]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<visible>!Control.HasFocus($PARAM[list_id]) + ![$EXP[dialog_visible] + !String.IsEmpty(Window(Home).Property(FlixWidget))]</visible>
+					</control>
+					<control type="group">
+						<left>-20</left>
+						<top>70</top>
+						<include content="LandscapeLayout">
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="452" infoupdate="30">
+					<control type="image">
+						<left>0</left>
+						<top>322</top>
+						<width>430</width>
+						<height>242</height>
+						<texture flipy="true" diffuse="masks/small-landscape.png" colordiffuse="4DFFFFFF" background="true">$VAR[SmallLandscapeVar]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<visible>!Control.HasFocus($PARAM[list_id]) + ![$EXP[dialog_visible] + !String.IsEmpty(Window(Home).Property(FlixWidget))]</visible>
+					</control>
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<left>-20</left>
+						<top>70</top>
+						<include content="LandscapeLayout">
+							<param name="focused" value="true" />
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+						<include>VideoTrailerControl</include>
+					</control>
+				</focusedlayout>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
+			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="visible" value="Control.HasFocus($PARAM[list_id]) | String.IsEmpty(Window(Home).Property(FlixWidget))" />
+				<param name="posy" value="-315" />
+				<param name="slide_end" value="565" />
+			</include>
+			<include content="LabelSpacer">
+        <param name="label"></param>
+        <param name="list_id" value="$PARAM[list_id]"/>
+        <param name="visible" value="Control.HasFocus($PARAM[list_id]) + String.EndsWith(Window(Home).Property(altus_saved_list_id),11)"/>
+			</include>
+			<include content="LabelSpacer2">
+        <param name="label"></param>
+        <param name="list_id" value="$PARAM[list_id]"/>
+        <param name="visible" value="Control.HasFocus($PARAM[list_id]) + !String.EndsWith(Window(Home).Property(altus_saved_list_id),11)"/>
+			</include>
+		</definition>
+	</include>
+
+	<include name="WidgetListLandscapeFlixStacked">
+		<param name="onclick_condition">false</param>
+		<definition>
+			<include content="BusyListWidgetSpinner">
+				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="posy" value="97"/>
+			</include>
+			<include content="CategoryLabelFlix">
+				<param name="widget_header">$PARAM[widget_header]</param>
+				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="flix_slide" value="565"/>
+			</include>
+			<control type="fixedlist" id="$PARAM[list_id]">
+				<top>17</top>
+				<right>0</right>
+				<left>45</left>
+				<height>1062</height>
+				<focusposition>0</focusposition>
+				<movement>2</movement>
+				<onright>$PARAM[list_id]</onright>
+				<orientation>horizontal</orientation>
+				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
+				<onfocus>SetProperty(FlixWidget,true,Home)</onfocus>
+				<onfocus>SetProperty(altus_flix_linked_list_id,$PARAM[parent_id],home)</onfocus>
+				<onfocus>SetProperty(altus_stacked_linked_list_id,$PARAM[parent_id],home)</onfocus>
+				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
+				<animation effect="slide" start="0,0" end="0,600" time="400" tween="quadratic" condition="Control.HasFocus($PARAM[list_id])" reversible="true">Conditional</animation>
+				<include content="WidgetListCommonStacked">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<itemlayout width="452" >
+					<control type="image">
+						<left>0</left>
+						<top>377</top>
+						<width>430</width>
+						<height>242</height>
+						<texture flipy="true" diffuse="masks/small-landscape.png" colordiffuse="4DFFFFFF" background="true">$VAR[SmallLandscapeVar]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<visible>!Control.HasFocus($PARAM[list_id]) + ![$EXP[dialog_visible] + !String.IsEmpty(Window(Home).Property(FlixWidget))]</visible>
+					</control>
+					<control type="group">
+						<left>-20</left>
+						<top>125</top>
+						<include content="LandscapeLayout">
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="452" infoupdate="30">
+					<control type="image">
+						<left>0</left>
+						<top>377</top>
+						<width>430</width>
+						<height>242</height>
+						<texture flipy="true" diffuse="masks/small-landscape.png" colordiffuse="4DFFFFFF" background="true">$VAR[SmallLandscapeVar]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<visible>!Control.HasFocus($PARAM[list_id]) + ![$EXP[dialog_visible] + !String.IsEmpty(Window(Home).Property(FlixWidget))]</visible>
+					</control>
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<left>-20</left>
+						<top>125</top>
+						<include content="LandscapeLayout">
+							<param name="focused" value="true" />
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+						<include>VideoTrailerControl</include>
+					</control>
+				</focusedlayout>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
+			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="-345" />
+				<param name="slide_end" value="595" />
+			</include>
+			<include content="LabelSpacer">
+        <param name="label"></param>
+        <param name="spacer_height">167</param>
+        <param name="list_id" value="$PARAM[list_id]"/>
+        <param name="visible" value="Control.HasFocus($PARAM[list_id])"/>
+			</include>
+		</definition>
+	</include>
+
+</includes>

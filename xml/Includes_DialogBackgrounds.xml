@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="DialogBackgroundCommons">
+		<param name="width">1220</param>
+		<param name="height">100%</param>
+		<param name="shade_visible">true</param>
+		<param name="darken_bg">true</param>
+		<param name="shade_right">290</param>
+		<param name="divider_left">930</param>
+		<param name="left_divider_visible">true</param>
+		<param name="right_divider_visible">true</param>
+		<definition>
+			<control type="image">
+				<left>-2000</left>
+				<top>-2000</top>
+				<width>6000</width>
+				<height>6000</height>
+				<animation effect="fade" time="300">VisibleChange</animation>
+				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<texture colordiffuse="A6FFFFFF">colors/black.png</texture>
+				<visible>$PARAM[darken_bg] + !String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)</visible>
+			</control>
+			<control type="button">
+				<left>-2000</left>
+				<top>-2000</top>
+				<width>6000</width>
+				<height>6000</height>
+				<texturefocus />
+				<texturenofocus />
+				<onclick>Action(close)</onclick>
+			</control>
+			<control type="group">
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<top>0</top>
+				<!-- <control type="image">
+					<left>0</left>
+					<top>0</top>
+					<right>0</right>
+					<height>70</height>
+					<texture colordiffuse="dialog_header_tint">colors/white.png</texture>
+				</control> -->
+				
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<right>0</right>
+					<bottom>0</bottom>
+					<texture colordiffuse="$VAR[DialogBackgroundDiffuse]">$VAR[DialogBackgroundTexture]</texture>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<right>$PARAM[shade_right]</right>
+					<bottom>0</bottom>
+					<texture colordiffuse="4D000000">colors/dark.png</texture>
+					<visible>$PARAM[shade_visible]</visible>
+				</control>
+				<control type="image">
+					<left>-1</left>
+					<top>0</top>
+					<width>1</width>
+					<bottom>0</bottom>
+					<texture colordiffuse="$VAR[FocusColorTheme]">masks/mainmenupanel_divider.png</texture>
+					<visible>$PARAM[left_divider_visible]</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[divider_left]</left>
+					<top>0</top>
+					<width>1</width>
+					<bottom>0</bottom>
+					<texture colordiffuse="$VAR[FocusColorTheme]">masks/mainmenupanel_divider.png</texture>
+					<visible>$PARAM[right_divider_visible]</visible>
+				</control>
+				<control type="label" id="$PARAM[header_id]">
+					<!-- <posx>30</posx> -->
+					<left>30</left>
+					<right>30</right>
+					<top>17</top>
+					<height>70</height>
+					<label>$PARAM[header_label]</label>
+					<align>left</align> 
+					<aligny>center</aligny>
+					<font>font36_title</font>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<scroll>true</scroll>
+					<scrollspeed>100</scrollspeed>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="DialogBackgroundConfirm">
+		<param name="width">1220</param>
+		<param name="height">100%</param>
+		<param name="shade_bottom">130</param>
+		<param name="divider_left">930</param>
+		<param name="divider_visible">true</param>
+		<definition>
+			<control type="image">
+				<left>-2000</left>
+				<top>-2000</top>
+				<width>6000</width>
+				<height>6000</height>
+				<animation effect="fade" time="300">VisibleChange</animation>
+				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<texture colordiffuse="BFFFFFFF">colors/black.png</texture>
+				<visible>$PARAM[darken_bg]</visible>
+			</control>
+			<control type="button">
+				<left>-2000</left>
+				<top>-2000</top>
+				<width>6000</width>
+				<height>6000</height>
+				<texturefocus />
+				<texturenofocus />
+				<onclick>Action(close)</onclick>
+			</control>
+			<control type="group">
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<top>0</top>
+				<!-- <control type="image">
+					<left>0</left>
+					<top>0</top>
+					<right>0</right>
+					<height>70</height>
+					<texture colordiffuse="dialog_header_tint">colors/white.png</texture>
+				</control> -->
+				
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<right>0</right>
+					<bottom>0</bottom>
+					<texture colordiffuse="$VAR[DialogBackgroundDiffuse]">$VAR[DialogBackgroundTexture]</texture>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<bottom>$PARAM[shade_bottom]</bottom>
+					<right>0</right>
+					<bottom>0</bottom>
+					<texture colordiffuse="4D000000">colors/dark.png</texture>
+				</control>
+				<!-- <control type="image">
+					<left>0</left>
+					<top>105</top>
+					<width>$PARAM[width]</width>
+					<bottom>0</bottom>
+					<height>1</height>
+					<texture colordiffuse="$VAR[FocusColorTheme]">masks/posterflowdivider.png</texture>
+					<visible>$PARAM[divider_visible]</visible>
+				</control> -->
+				<control type="image">
+					<left>0</left>
+					<bottom>$PARAM[shade_bottom]</bottom>
+					<width>$PARAM[width]</width>
+					<bottom>0</bottom>
+					<height>1</height>
+					<texture colordiffuse="$VAR[FocusColorTheme]">masks/posterflowdivider.png</texture>
+					<visible>$PARAM[divider_visible]</visible>
+				</control>
+				<control type="label" id="$PARAM[header_id]">
+					<posx>30</posx> 
+					<top>20</top>
+					<height>70</height>
+					<label>$PARAM[header_label]</label>
+					<align>left</align> 
+					<aligny>center</aligny>
+					<font>font36_title</font>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+</includes>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="TieredAddonLauncherList">
+    <param name="fallback_image">DefaultFolder.png</param>
+    <definition>
+			<control type="group" id="$PARAM[group_id]">
+				<left>40</left>
+				<control type="label">
+					<top>-860</top>
+					<left>0</left>
+					<aligny>center</aligny>
+					<width>1920</width>
+					<font>font36_title</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>[LIGHT]$PARAM[id][/LIGHT]</label>
+					<visible>ControlGroup(400).HasFocus + [Control.HasFocus($PARAM[group_id]50) | Control.HasFocus($PARAM[group_id]51) | Control.HasFocus($PARAM[group_id]52) | Control.HasFocus($PARAM[group_id]53)]</visible>
+					<animation effect="fade" time="200" tween="cubic" easing="out">VisibleChange</animation>
+				</control>
+				<!-- First Level List - Repositories -->
+				<control type="list" id="$PARAM[group_id]50">
+					<left>0</left>
+					<top>150</top>
+					<width>460</width>
+					<height>810</height>
+					<onleft>9000</onleft>
+					<onright>$PARAM[group_id]51</onright>
+					<pagecontrol>$PARAM[group_id]30</pagecontrol>
+					<onclick condition="String.StartsWith(ListItem.Property(Addon.ID),repository)">ActivateWindow(addonbrowser,addons://$INFO[ListItem.Property(Addon.ID)]/,return)</onclick>
+					<onclick condition="!String.StartsWith(ListItem.Property(Addon.ID),repository) + !ListItem.IsFolder">info</onclick>
+					<onclick condition="ListItem.IsFolder">ActivateWindow(addonbrowser,$INFO[ListItem.FolderPath],return)</onclick>
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),$PARAM[id])</visible>
+					<scrolltime tween="cubic" easing="out">700</scrolltime>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="$PARAM[id]"/>
+					</include>
+					<itemlayout height="90" infoupdate="30">
+						<control type="group">
+							<left>0</left>
+							<top>0</top>
+							<control type="image">
+								<left>30</left>
+								<centertop>50%</centertop>
+								<width>50</width>
+								<height>50</height>
+								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+							<control type="textbox">
+								<left>100</left>
+								<aligny>center</aligny>
+								<width>335</width>
+								<font>font27</font>
+								<textcolor>unfocused_text</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="90" infoupdate="30">
+						<control type="group">
+							<left>0</left>
+							<top>0</top>
+							<control type="image">
+								<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+								<animation effect="fade" start="100" end="50" time="40" condition="Control.HasFocus($PARAM[group_id]51) | Control.HasFocus($PARAM[group_id]52) | Control.HasFocus($PARAM[group_id]53)">Conditional</animation>
+								<visible>ControlGroup(400).HasFocus</visible>
+							</control>
+							<control type="image">
+								<left>405</left>
+								<top>25</top>
+								<width>40</width>
+								<height>40</height>
+								<texture colordiffuse="$VAR[FocusedTextColorVar]">overlays/arrowright.png</texture>
+								<visible>Control.HasFocus($PARAM[group_id]50) + Integer.IsGreater(Container($PARAM[group_id]51).NumItems,0)</visible>
+							</control>
+							<control type="image">
+								<left>30</left>
+								<centertop>50%</centertop>
+								<width>50</width>
+								<height>50</height>
+								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>!Control.HasFocus($PARAM[group_id]50) | !String.IsEmpty(ListItem.Property(Addon.ID))</visible>
+							</control>
+							<control type="image">
+								<left>30</left>
+								<centertop>50%</centertop>
+								<width>50</width>
+								<height>50</height>
+								<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>Control.HasFocus($PARAM[group_id]50) + [String.IsEmpty(ListItem.Property(Addon.ID)) | String.IsEqual(ListItem.Icon,DefaultAddon.png)]</visible>
+							</control>
+							<include content="AddonLauncherListFocusedLabels">
+								<param name="focused_id" value="$PARAM[group_id]50"/>
+							</include>
+						</control>
+					</focusedlayout>
+					<content sortby="label" sortorder="ascending" target="$PARAM[container_target]">$PARAM[container_path]</content>
+				</control>
+				<!-- Second Level List - Categories -->
+				<control type="list" id="$PARAM[group_id]51">
+					<left>460</left>
+					<top>150</top>
+					<width>460</width>
+					<height>810</height>
+					<onleft>SetFocus($PARAM[group_id]51,0,absolute),$PARAM[group_id]50</onleft>
+					<onleft>$PARAM[group_id]50</onleft>
+					<onright>$PARAM[group_id]52</onright>
+					<pagecontrol>$PARAM[group_id]31</pagecontrol>
+					<onclick condition="String.StartsWith(ListItem.Property(Addon.ID),repository)">ActivateWindow(addonbrowser,addons://$INFO[ListItem.Property(Addon.ID)]/,return)</onclick>
+					<onclick condition="!String.StartsWith(ListItem.Property(Addon.ID),repository) + !ListItem.IsFolder">info</onclick>
+					<onclick condition="ListItem.IsFolder">ActivateWindow(addonbrowser,$INFO[ListItem.FolderPath],return)</onclick>
+					<visible allowhiddenfocus="true">[Control.HasFocus($PARAM[group_id]51) | Control.HasFocus($PARAM[group_id]52) | Control.HasFocus($PARAM[group_id]53)] + !String.IsEmpty(Container($PARAM[group_id]50).ListItem.FolderPath)</visible>
+					<animation effect="fade" time="400" tween="cubic" easing="out">VisibleChange</animation>
+					<scrolltime tween="cubic" easing="out">700</scrolltime>
+					<itemlayout height="90" infoupdate="30">
+						<control type="group">
+							<left>0</left>
+							<top>0</top>
+							<control type="image">
+								<left>30</left>
+								<centertop>50%</centertop>
+								<width>50</width>
+								<height>50</height>
+								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+							<include>AddonLauncherListUnfocusedLabels</include>
+						</control>
+					</itemlayout>
+					<focusedlayout height="90" infoupdate="30">
+						<control type="group">
+							<left>0</left>
+							<top>0</top>
+							<control type="image">
+								<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+								<animation effect="fade" start="100" end="50" time="40" condition="Control.HasFocus($PARAM[group_id]52) | Control.HasFocus($PARAM[group_id]53)">Conditional</animation>
+							</control>
+							<control type="image">
+								<left>405</left>
+								<top>25</top>
+								<width>40</width>
+								<height>40</height>
+								<texture colordiffuse="$VAR[FocusedTextColorVar]">overlays/arrowright.png</texture>
+								<visible>Control.HasFocus($PARAM[group_id]51) + Integer.IsGreater(Container($PARAM[group_id]52).NumItems,0)</visible>
+							</control>
+							<control type="image">
+								<left>30</left>
+								<centertop>50%</centertop>
+								<width>50</width>
+								<height>50</height>
+								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>!Control.HasFocus($PARAM[group_id]51) | !String.IsEmpty(ListItem.Property(Addon.ID))</visible>
+							</control>
+							<control type="image">
+								<left>30</left>
+								<centertop>50%</centertop>
+								<width>50</width>
+								<height>50</height>
+								<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>Control.HasFocus($PARAM[group_id]51) + [String.IsEmpty(ListItem.Property(Addon.ID)) | String.IsEqual(ListItem.Icon,DefaultAddon.png)]</visible>
+							</control>
+							<include content="AddonLauncherListFocusedLabels">
+								<param name="focused_id" value="$PARAM[group_id]51"/>
+							</include>
+						</control>
+					</focusedlayout>
+					<content sortby="label" sortorder="ascending">$INFO[Container($PARAM[group_id]50).ListItem.FolderPath]</content>
+				</control>
+				<!-- Third Level List - Items -->
+				<control type="list" id="$PARAM[group_id]52">
+					<left>920</left>
+					<top>150</top>
+					<width>460</width>
+					<height>810</height>
+					<onleft>SetFocus($PARAM[group_id]52,0,absolute),$PARAM[group_id]51</onleft>
+					<onleft>$PARAM[group_id]51</onleft>
+					<onright>$PARAM[group_id]53</onright>
+					<pagecontrol>$PARAM[group_id]32</pagecontrol>
+					<onclick condition="String.StartsWith(ListItem.Property(Addon.ID),repository)">ActivateWindow(addonbrowser,addons://$INFO[ListItem.Property(Addon.ID)]/,return)</onclick>
+					<onclick condition="!String.StartsWith(ListItem.Property(Addon.ID),repository) + !ListItem.IsFolder">info</onclick>
+					<onclick condition="ListItem.IsFolder">ActivateWindow(addonbrowser,$INFO[ListItem.FolderPath],return)</onclick>
+					<visible allowhiddenfocus="true">[Control.HasFocus($PARAM[group_id]52) | Control.HasFocus($PARAM[group_id]53)] + !String.IsEmpty(Container($PARAM[group_id]51).ListItem.FolderPath)</visible>
+					<animation effect="fade" time="400" tween="cubic" easing="out">VisibleChange</animation>
+					<scrolltime tween="cubic" easing="out">700</scrolltime>
+					<itemlayout height="90" infoupdate="30">
+						<control type="group">
+							<left>0</left>
+							<top>0</top>
+							<control type="image">
+								<left>30</left>
+								<centertop>50%</centertop>
+								<width>50</width>
+								<height>50</height>
+								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+							<include>AddonLauncherListUnfocusedLabels</include>
+						</control>
+					</itemlayout>
+					<focusedlayout height="90" infoupdate="30">
+						<control type="group">
+							<left>0</left>
+							<top>0</top>
+							<control type="image">
+								<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+								<animation effect="fade" start="100" end="50" time="40" condition="Control.HasFocus($PARAM[group_id]53)">Conditional</animation>
+							</control>
+							<control type="image">
+								<left>405</left>
+								<top>25</top>
+								<width>40</width>
+								<height>40</height>
+								<texture colordiffuse="$VAR[FocusedTextColorVar]">overlays/arrowright.png</texture>
+								<visible>Control.HasFocus($PARAM[group_id]52) + Integer.IsGreater(Container($PARAM[group_id]53).NumItems,0)</visible>
+							</control>
+							<control type="image">
+								<left>30</left>
+								<centertop>50%</centertop>
+								<width>50</width>
+								<height>50</height>
+								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>!Control.HasFocus($PARAM[group_id]52) | !String.IsEmpty(ListItem.Property(Addon.ID))</visible>
+							</control>
+							<control type="image">
+								<left>30</left>
+								<centertop>50%</centertop>
+								<width>50</width>
+								<height>50</height>
+								<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>Control.HasFocus($PARAM[group_id]52) + [String.IsEmpty(ListItem.Property(Addon.ID)) | String.IsEqual(ListItem.Icon,DefaultAddon.png)]</visible>
+							</control>
+							<include content="AddonLauncherListFocusedLabels">
+								<param name="focused_id" value="$PARAM[group_id]52"/>
+							</include>
+						</control>
+					</focusedlayout>
+					<content sortby="label" sortorder="ascending">$INFO[Container($PARAM[group_id]51).ListItem.FolderPath]</content>
+				</control>
+				<control type="list" id="$PARAM[group_id]53">
+					<left>1380</left>
+					<top>150</top>
+					<width>460</width>
+					<height>810</height>
+					<onleft>SetFocus($PARAM[group_id]53,0,absolute),$PARAM[group_id]52</onleft>
+					<onleft>$PARAM[group_id]52</onleft>
+					<onright>noop</onright>
+					<pagecontrol>$PARAM[group_id]33</pagecontrol>
+					<onclick condition="String.StartsWith(ListItem.Property(Addon.ID),repository)">ActivateWindow(addonbrowser,addons://$INFO[ListItem.Property(Addon.ID)]/,return)</onclick>
+					<onclick condition="!String.StartsWith(ListItem.Property(Addon.ID),repository) + !ListItem.IsFolder">info</onclick>
+					<onclick condition="ListItem.IsFolder">ActivateWindow(addonbrowser,$INFO[ListItem.FolderPath],return)</onclick>
+					<visible allowhiddenfocus="true">Control.HasFocus($PARAM[group_id]53) + !String.IsEmpty(Container($PARAM[group_id]52).ListItem.FolderPath)</visible>
+					<animation effect="fade" time="400" tween="cubic" easing="out">VisibleChange</animation>
+					<scrolltime tween="cubic" easing="out">700</scrolltime>
+					<itemlayout height="90" infoupdate="30">
+						<control type="group">
+							<left>0</left>
+							<top>0</top>
+							<control type="image">
+								<left>30</left>
+								<centertop>50%</centertop>
+								<width>50</width>
+								<height>50</height>
+								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+							<include>AddonLauncherListUnfocusedLabels</include>
+						</control>
+					</itemlayout>
+					<focusedlayout height="90" infoupdate="30">
+						<control type="group">
+							<left>0</left>
+							<top>0</top>
+							<control type="image">
+								<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+							</control>
+							<control type="image">
+								<left>30</left>
+								<centertop>50%</centertop>
+								<width>50</width>
+								<height>50</height>
+								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>!Control.HasFocus($PARAM[group_id]53) | !String.IsEmpty(ListItem.Property(Addon.ID))</visible>
+							</control>
+							<control type="image">
+								<left>30</left>
+								<centertop>50%</centertop>
+								<width>50</width>
+								<height>50</height>
+								<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+								<visible>Control.HasFocus($PARAM[group_id]53) + [String.IsEmpty(ListItem.Property(Addon.ID)) | String.IsEqual(ListItem.Icon,DefaultAddon.png)]</visible>
+							</control>
+							<include content="AddonLauncherListFocusedLabels">
+								<param name="focused_id" value="$PARAM[group_id]53"/>
+							</include>
+						</control>
+					</focusedlayout>
+					<content sortby="label" sortorder="ascending">$INFO[Container($PARAM[group_id]52).ListItem.FolderPath]</content>
+				</control>
+        <include content="AddonsListScrollBar">
+          <param name="scrollbar_panel_id" value="$PARAM[group_id]30"/>
+          <param name="scrollbar_panel_id2" value=""/>
+          <param name="visible" value="Control.HasFocus($PARAM[group_id]50)"/>
+        </include>
+        <include content="AddonsListScrollBar">
+          <param name="scrollbar_panel_id" value="$PARAM[group_id]31"/>
+          <param name="scrollbar_panel_id2" value=""/>
+          <param name="visible" value="Control.HasFocus($PARAM[group_id]51)"/>
+        </include>
+        <include content="AddonsListScrollBar">
+          <param name="scrollbar_panel_id" value="$PARAM[group_id]32"/>
+          <param name="scrollbar_panel_id2" value=""/>
+          <param name="visible" value="Control.HasFocus($PARAM[group_id]52)"/>
+        </include>
+        <include content="AddonsListScrollBar">
+          <param name="scrollbar_panel_id" value="$PARAM[group_id]33"/>
+          <param name="scrollbar_panel_id2" value=""/>
+          <param name="visible" value="Control.HasFocus($PARAM[group_id]53)"/>
+        </include>
+			</control>
+		</definition>
+	</include>
+
+</includes>

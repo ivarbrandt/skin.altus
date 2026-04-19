@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="SettingsPanel">
+		<itemlayout height="190" width="533">
+			<control type="image">
+				<width>493</width>
+				<height>150</height>
+				<texture border="33" colordiffuse="66000000">masks/radius_33.png</texture>
+			</control>
+			<control type="image">
+				<centertop>40%</centertop>
+				<centerleft>15%</centerleft>
+				<width>80</width>
+				<texture colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+			<control type="textbox">
+				<left>150</left>
+				<width>50%</width>
+				<centertop>40%</centertop>
+				<label>$INFO[ListItem.Label]</label>
+				<font>font40_settings</font>
+				<textcolor>unfocused_text</textcolor>
+				<aligny>center</aligny>
+			</control>
+		</itemlayout>
+		<focusedlayout height="190" width="533" infoupdate="300">
+			<control type="group">
+				<depth>DepthContentPopout</depth>
+				<control type="image">
+					<width>493</width>
+					<height>150</height>
+					<texture border="33" colordiffuse="$VAR[FocusColorTheme]">masks/radius_33.png</texture>
+					<include>Animation_FocusTextureFade</include>
+				</control>
+				<control type="image">
+					<centertop>40%</centertop>
+					<centerleft>15%</centerleft>
+					<width>80</width>
+					<texture colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="textbox">
+					<left>150</left>
+					<width>50%</width>
+					<centertop>40%</centertop>
+					<label>$INFO[ListItem.Label]</label>
+					<font>font40_settings</font>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<aligny>center</aligny>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+
+</includes>

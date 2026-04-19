@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="FileManagerPanel">
+		<param name="width"></param>
+		<param name="right"></param>
+		<param name="left">40</param>
+		<definition>
+			<control type="panel" id="$PARAM[list_id]">
+				<left>$PARAM[left]</left>
+				<top>150</top>
+				<bottom>list_bottom_offset</bottom>
+				<right>$PARAM[right]</right>
+				<width>$PARAM[width]</width>
+				<height>840</height>
+				<focusposition>4</focusposition>
+				<movement>3</movement>
+				<onleft>$PARAM[onleft_id]</onleft>
+				<onright>$PARAM[onright_id]</onright>
+				<onup>$PARAM[list_id]</onup>
+				<ondown>$PARAM[list_id]</ondown>
+				<pagecontrol>$PARAM[scrollbar_id]</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<focusedlayout height="list_item_height">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<right>0</right>
+						<bottom>0</bottom>
+						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+						<animation effect="fade" start="100" end="0" time="40" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
+					</control>
+					<control type="image">
+						<left>25</left>
+						<top>0</top>
+						<width>32</width>
+						<bottom>0</bottom>
+						<aspectratio aligny="center">keep</aspectratio>
+						<texture colordiffuse="$VAR[FocusedTextColorVar]">$VAR[ListWatchedIconVar]</texture>
+					</control>
+					<control type="label">
+						<left>75</left>
+						<top>0</top>
+						<bottom>0</bottom>
+						<right>20</right>
+						<aligny>center</aligny>
+						<textoffsety>11</textoffsety>
+						<scroll>true</scroll>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<textoffsetx>30</textoffsetx>
+						<top>0</top>
+						<bottom>0</bottom>
+						<right>0</right>
+						<align>right</align>
+						<aligny>center</aligny>
+						<!-- <textoffsety>11</textoffsety> -->
+						<label>$INFO[ListItem.Label2]</label>
+						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+					</control>
+				</focusedlayout>
+				<itemlayout height="list_item_height">
+					<control type="image">
+						<left>25</left>
+						<top>0</top>
+						<width>32</width>
+						<bottom>0</bottom>
+						<aspectratio aligny="center">keep</aspectratio>
+						<texture colordiffuse="unfocused_text">$VAR[ListWatchedIconVar]</texture>
+					</control>
+					<control type="label">
+						<left>75</left>
+						<top>0</top>
+						<bottom>0</bottom>
+						<right>20</right>
+						<aligny>center</aligny>
+						<!-- <textoffsety>11</textoffsety> -->
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>unfocused_text</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<textoffsetx>30</textoffsetx>
+						<top>0</top>
+						<bottom>0</bottom>
+						<right>0</right>
+						<align>right</align>
+						<aligny>center</aligny>
+						<!-- <textoffsety>11</textoffsety> -->
+						<label>$INFO[ListItem.Label2]</label>
+						<textcolor>unfocused_text</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+					</control>
+				</itemlayout>
+			</control>
+		</definition>
+	</include>
+
+</includes>

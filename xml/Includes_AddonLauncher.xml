@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="AddonsListScrollBar">
+		<param name="scrollbar_panel_id">$PARAM[scrollbar_panel_id]</param>
+		<param name="scrollbar_panel_id2">$PARAM[scrollbar_panel_id2]</param>
+		<param name="visible">true</param>
+		<definition>
+			<control type="scrollbar" id="$PARAM[scrollbar_panel_id]">
+        <right>0</right>
+        <top>80</top>
+        <width>12</width>
+        <height>1000</height>
+        <orientation>vertical</orientation>
+        <texturesliderbackground />
+        <animation effect="slide" end="6,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus($PARAM[scrollbar_panel_id])">conditional</animation>
+        <onright>noop</onright>
+        <onleft>$PARAM[scrollbar_panel_id2]</onleft>
+        <visible>$PARAM[visible]</visible>
+      </control>
+		</definition>
+	</include>
+
+	<include name="AddonLauncherListUnfocusedLabels">
+		<param name="width">335</param>
+		<param name="top">0</param>
+    <definition>
+			<control type="textbox">
+				<top>$PARAM[top]</top>
+				<left>100</left>
+				<aligny>center</aligny>
+				<width>335</width>
+				<font>font27</font>
+				<textcolor>unfocused_text</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(ListItem.Property(Addon.Status)) | String.StartsWith(ListItem.Property(Addon.ID),repository) | ListItem.IsFolder</visible>
+			</control>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Property(Addon.Status)) + !String.StartsWith(ListItem.Property(Addon.ID),repository) + !ListItem.IsFolder</visible>
+				<control type="label">
+					<left>100</left>
+					<top>4</top>
+					<width>$PARAM[width]</width>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<left>100</left>
+					<top>40</top>
+					<width>335</width>
+					<font>font10</font>
+					<textcolor>darkgrey</textcolor>
+					<label>$INFO[ListItem.Property(Addon.Status)]</label>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="AddonLauncherListFocusedLabels">
+    <param name="focused_id">$PARAM[focused_id]</param>
+    <param name="width">335</param>
+    <param name="top">0</param>
+    <definition>
+      <!-- First label - Single line for repos/folders -->
+      <control type="textbox">
+        <left>100</left>
+        <aligny>center</aligny>
+        <width>335</width>
+        <font>font27</font>
+        <textcolor>unfocused_text</textcolor>
+        <label>$INFO[ListItem.Label]</label>
+        <visible>!Control.HasFocus($PARAM[focused_id]) + [String.IsEmpty(ListItem.Property(Addon.Status)) | String.StartsWith(ListItem.Property(Addon.ID),repository) | ListItem.IsFolder]</visible>
+      </control>
+      <control type="textbox">
+				<top>$PARAM[top]</top>
+        <left>100</left>
+        <aligny>center</aligny>
+        <width>335</width>
+        <font>font27</font>
+        <textcolor>$VAR[FocusedTextColorVar]</textcolor>
+        <scroll>$PARAM[focused]</scroll>
+        <scrollspeed>130</scrollspeed>
+        <label>$INFO[ListItem.Label]</label>
+        <visible>Control.HasFocus($PARAM[focused_id]) + [String.IsEmpty(ListItem.Property(Addon.Status)) | String.StartsWith(ListItem.Property(Addon.ID),repository) | ListItem.IsFolder]</visible>
+      </control>
+      <!-- Second label - Top line for addons -->
+      <control type="label">
+        <left>100</left>
+        <top>4</top>
+        <width>335</width>
+        <font>font27</font>
+        <textcolor>unfocused_text</textcolor>
+        <label>$INFO[ListItem.Label]</label>
+        <visible>!Control.HasFocus($PARAM[focused_id]) + [!String.IsEmpty(ListItem.Property(Addon.Status)) + !String.StartsWith(ListItem.Property(Addon.ID),repository) + !ListItem.IsFolder]</visible>
+      </control>
+      <control type="label">
+        <left>100</left>
+        <top>4</top>
+        <width>$PARAM[width]</width>
+        <font>font27</font>
+        <textcolor>$VAR[FocusedTextColorVar]</textcolor>
+        <scroll>$PARAM[focused]</scroll>
+        <scrollspeed>130</scrollspeed>
+        <label>$INFO[ListItem.Label]</label>
+        <visible>Control.HasFocus($PARAM[focused_id]) + [!String.IsEmpty(ListItem.Property(Addon.Status)) + !String.StartsWith(ListItem.Property(Addon.ID),repository) + !ListItem.IsFolder]</visible>
+      </control>
+      <!-- Third label - Status line -->
+      <control type="label">
+        <left>100</left>
+        <top>40</top>
+        <width>335</width>
+        <font>font10</font>
+        <textcolor>darkgrey</textcolor>
+        <label>$INFO[ListItem.Property(Addon.Status)]</label>
+        <visible>!Control.HasFocus($PARAM[focused_id]) + [!String.IsEmpty(ListItem.Property(Addon.Status)) + !String.StartsWith(ListItem.Property(Addon.ID),repository) + !ListItem.IsFolder]</visible>
+      </control>
+      <control type="label">
+        <left>100</left>
+        <top>40</top>
+        <width>335</width>
+        <font>font10</font>
+        <textcolor>$VAR[FocusedTextColorVar]</textcolor>
+        <scroll>$PARAM[focused]</scroll>
+        <scrollspeed>130</scrollspeed>
+        <label>$INFO[ListItem.Property(Addon.Status)]</label>
+        <visible>Control.HasFocus($PARAM[focused_id]) + [!String.IsEmpty(ListItem.Property(Addon.Status)) + !String.StartsWith(ListItem.Property(Addon.ID),repository) + !ListItem.IsFolder]</visible>
+      </control>
+    </definition>
+	</include>
+
+</includes>

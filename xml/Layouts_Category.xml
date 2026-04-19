@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="WidgetListCategoryLayout">
+		<!-- <param name="item_limit">30</param> -->
+		<param name="icon">$INFO[ListItem.Icon]</param>
+		<param name="focused">false</param>
+		<definition>
+			<control type="group">
+        <top>26</top>
+        <left>20</left>
+				<width>317</width>
+				<height>139</height>
+				<control type="image">
+					<texture border="20" colordiffuse="66000000">masks/radius_20.png</texture>
+				</control>
+				<control type="image">
+					<texture border="20" colordiffuse="$VAR[FocusColorTheme]">masks/radius_20.png</texture>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control>
+				<control type="group">
+					<centertop>37%</centertop>
+					<centerleft>50%</centerleft>
+					<width>90</width>
+					<height>90</height>
+					<visible>!$EXP[isContent]</visible>
+					<control type="image">
+						<texture colordiffuse="$VAR[IconDiffuse]" background="true">$PARAM[icon]</texture>
+						<aspectratio aligny="bottom" align="center">scale</aspectratio>
+						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
+					</control>
+					<control type="image">
+						<texture colordiffuse="unfocused_text" background="true">$PARAM[icon]</texture>
+						<aspectratio aligny="bottom" align="center">scale</aspectratio>
+						<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
+					</control>
+				</control>
+				<control type="image">
+					<centertop>50%</centertop>
+					<centerleft>50%</centerleft>
+					<texture colordiffuse="artwork_dim" background="true">$PARAM[icon]</texture>
+					<!-- <aspectratio scalediffuse="false">scale</aspectratio> -->
+					<visible>$EXP[isContent]</visible>
+				</control>
+				<control type="label">
+					<centerleft>50%</centerleft>
+					<!-- 145 -->
+					<top>75</top>
+					<width>280</width>
+					<height>65</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$VAR[AddonsTitleVar]</label>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<font>font25</font>
+					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
+					<scrollspeed>50</scrollspeed>
+					<visible>!$EXP[isContent]</visible>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
+				</control>
+				<control type="label">
+					<centerleft>50%</centerleft>
+					<!-- 145 -->
+					<top>75</top>
+					<width>280</width>
+					<height>65</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$VAR[AddonsTitleVar]</label>
+					<textcolor>unfocused_text</textcolor>
+					<font>font25</font>
+					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
+					<scrollspeed>50</scrollspeed>
+					<visible>!$EXP[isContent]</visible>
+					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+  <include name="WidgetListCategoryStackedLayout">
+		<!-- <param name="item_limit">30</param> -->
+		<param name="icon">$INFO[ListItem.Icon]</param>
+		<param name="focused">false</param>
+		<definition>
+			<control type="group">
+        <top>26</top>
+        <left>20</left>
+				<!-- 139 -->
+				<width>249</width>
+				<height>87</height>
+				<control type="image">
+					<texture border="20" colordiffuse="66000000">masks/radius_20.png</texture>
+				</control>
+				<control type="image">
+					<texture border="20" colordiffuse="$VAR[FocusColorTheme]">masks/radius_20.png</texture>
+					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [[!Control.HasFocus($PARAM[list_id]) + [String.IsEqual(Window(Home).Property(altus.$PARAM[list_id].Label),ListItem.Label) | String.IsEqual(Window(1121).Property(altus.$PARAM[list_id].Label),ListItem.Label)]] + String.IsEqual(Window(Home).Property(altus_stacked_linked_list_id),$PARAM[list_id])]</visible>
+				</control>
+				<control type="textbox">
+					<centertop>50%</centertop>
+					<left>20</left>
+					<right>20</right>
+					<height>87</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<font>font23_stacked_widgets_fo</font>
+					<autoscroll delay="2000" time="3000" repeat="2000">$PARAM[focused]</autoscroll>
+					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [[!Control.HasFocus($PARAM[list_id]) + [String.IsEqual(Window(Home).Property(altus.$PARAM[list_id].Label),ListItem.Label) | String.IsEqual(Window(1121).Property(altus.$PARAM[list_id].Label),ListItem.Label)]] + String.IsEqual(Window(Home).Property(altus_stacked_linked_list_id),$PARAM[list_id])]</visible>
+				</control>
+				<control type="textbox">
+					<centertop>50%</centertop>
+					<left>20</left>
+					<right>20</right>
+					<height>87</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>unfocused_text</textcolor>
+					<font>font23_stacked_widgets_unfo</font>
+					<visible>![[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [[!Control.HasFocus($PARAM[list_id]) + [String.IsEqual(Window(Home).Property(altus.$PARAM[list_id].Label),ListItem.Label) | String.IsEqual(Window(1121).Property(altus.$PARAM[list_id].Label),ListItem.Label)]] + String.IsEqual(Window(Home).Property(altus_stacked_linked_list_id),$PARAM[list_id])]]</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+</includes>

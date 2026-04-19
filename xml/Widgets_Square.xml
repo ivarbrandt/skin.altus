@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="WidgetListSquare">
+		<param name="visible">true</param>
+		<param name="sub_label">$INFO[ListItem.Label]</param>
+		<param name="fallback_icon">DefaultFolder.png</param>
+		<param name="onclick_condition">false</param>
+		<definition>
+			<include content="CategoryLabel">
+				<param name="label">$PARAM[widget_header]</param>
+				<param name="list_id" value="$PARAM[list_id]"/>
+			</include>
+			<include content="BusyListSpinner">
+				<param name="list_id" value="$PARAM[list_id]"/>
+			</include>
+			<control type="fixedlist" id="$PARAM[list_id]">
+				<top>107</top>
+				<left>45</left>
+				<right>0</right>
+				<height>496</height>
+				<onright>$PARAM[list_id]</onright>
+				<focusposition>0</focusposition>
+				<movement>4</movement>
+				<include content="WidgetListCommon">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<itemlayout width="271">
+					<control type="group">
+						<top>80</top>
+						<left>-20</left>
+						<include content="SmallSquareLayout">
+							<param name="main_label" value="$PARAM[main_label]" />
+							<param name="single_label" value="$PARAM[single_label]" />
+							<param name="sub_label" value="$PARAM[sub_label]" />
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="271" infoupdate="30">
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<top>80</top>
+						<left>-20</left>
+						<include content="SmallSquareLayout">
+							<param name="main_label" value="$PARAM[main_label]" />
+							<param name="single_label" value="$PARAM[single_label]" />
+							<param name="sub_label" value="$PARAM[sub_label]" />
+							<param name="list_id" value="$PARAM[list_id]" />
+							<param name="focused" value="true" />
+						</include>
+						<include>VideoTrailerControl</include>
+					</control>
+				</focusedlayout>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[item_limit]">$PARAM[content_path]</content>
+				<include>$PARAM[content_include]</include>
+			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="175" />
+			</include>
+		</definition>
+	</include>
+
+</includes>

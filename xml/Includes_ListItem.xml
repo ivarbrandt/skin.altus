@@ -298,4 +298,134 @@
     </definition>
   </include>
 
+  <include name="SubmenuListCommon">
+		<left>0</left>
+		<top>0</top>
+		<width>378</width>
+		<bottom>0</bottom>
+		<orientation>vertical</orientation>
+		<scrolltime tween="cubic" easing="out">300</scrolltime>
+		<onright>9000</onright>
+		<onleft>9000</onleft>
+		<onback>9000</onback>
+		<itemlayout height="85">
+			<control type="group">
+				<!-- Icon -->
+				<control type="image">
+					<left>25</left>
+					<top>19</top>
+					<width>47</width>
+					<height>47</height>
+					<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[HomeMenuIcon]</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
+				</control>
+				<!-- Label (no icon) -->
+				<control type="label">
+					<left>30</left>
+					<right>30</right>
+					<aligny>center</aligny>
+					<font>font37</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>$VAR[MenuCaseVar]</label>
+					<shadowcolor>text_shadow</shadowcolor>
+					<visible>String.IsEmpty(ListItem.Property(icon))</visible>
+				</control>
+				<!-- Label (with icon) -->
+				<control type="label">
+					<left>87</left>
+					<right>27</right>
+					<aligny>center</aligny>
+					<font>font37</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>$VAR[MenuCaseVar]</label>
+					<shadowcolor>text_shadow</shadowcolor>
+					<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
+				</control>
+			</control>
+		</itemlayout>
+		<focusedlayout height="85">
+			<control type="group">
+				<!-- Focus background -->
+				<control type="image">
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<bottom>0</bottom>
+					<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+					<visible>Control.HasFocus($PARAM[list_id])</visible>
+					<include>Animation_FocusTextureFade</include>
+				</control>
+				<!-- Icon - unfocused -->
+				<control type="image">
+					<left>25</left>
+					<top>19</top>
+					<width>47</width>
+					<height>47</height>
+					<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[HomeMenuIcon]</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<visible>!String.IsEmpty(ListItem.Property(icon)) + !Control.HasFocus($PARAM[list_id])</visible>
+				</control>
+				<!-- Icon - focused -->
+				<control type="image">
+					<left>25</left>
+					<top>19</top>
+					<width>47</width>
+					<height>47</height>
+					<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$VAR[HomeMenuIcon]</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus($PARAM[list_id])</visible>
+				</control>
+				<!-- Label - unfocused (no icon) -->
+				<control type="label">
+					<left>30</left>
+					<right>30</right>
+					<aligny>center</aligny>
+					<font>font37</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>$VAR[MenuCaseVar]</label>
+					<shadowcolor>text_shadow</shadowcolor>
+					<visible>!Control.HasFocus($PARAM[list_id]) + String.IsEmpty(ListItem.Property(icon))</visible>
+				</control>
+				<!-- Label - unfocused (with icon) -->
+				<control type="label">
+					<left>87</left>
+					<right>27</right>
+					<aligny>center</aligny>
+					<font>font37</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>$VAR[MenuCaseVar]</label>
+					<shadowcolor>text_shadow</shadowcolor>
+					<visible>!Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(ListItem.Property(icon))</visible>
+				</control>
+				<!-- Label - focused (no icon) -->
+				<control type="label">
+					<left>30</left>
+					<right>30</right>
+					<aligny>center</aligny>
+					<font>font37_title</font>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<label>$VAR[MenuCaseVar]</label>
+					<shadowcolor>text_shadow</shadowcolor>
+					<scroll>true</scroll>
+					<scrollspeed>150</scrollspeed>
+					<visible>Control.HasFocus($PARAM[list_id]) + String.IsEmpty(ListItem.Property(icon))</visible>
+				</control>
+				<!-- Label - focused (with icon) -->
+				<control type="label">
+					<left>87</left>
+					<right>27</right>
+					<aligny>center</aligny>
+					<font>font37_title</font>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<label>$VAR[MenuCaseVar]</label>
+					<shadowcolor>text_shadow</shadowcolor>
+					<scroll>true</scroll>
+					<scrollspeed>150</scrollspeed>
+					<visible>Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(ListItem.Property(icon))</visible>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+
 </includes>

@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="ProgressBadge">
+		<param name="left">31</param>
+		<param name="top">149</param>
+		<param name="icon_size">19</param>
+		<param name="back_size">29</param>
+		<param name="offset">5</param>
+		<param name="animation_vis">false</param>
+		<param name="focused">false</param>
+		<param name="list_id">9999</param>
+		<param name="focus_extra">false</param>
+		<param name="force_theme">false</param>
+		<definition>
+			<control type="group">
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<animation condition="$PARAM[animation_vis]" reversible="true">
+					<effect type="slide" start="0,0" end="-30,0" time="0" tween="cubic" easing="inout" />
+				</animation>
+				<!-- Unfocused -->
+				<control type="group">
+					<visible>![[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | $PARAM[focus_extra]]] | $PARAM[force_theme]]</visible>
+					<control type="image">
+						<width>$PARAM[back_size]</width>
+						<height>$PARAM[back_size]</height>
+						<texture colordiffuse="$VAR[BadgeBackgroundColorVar]">progress/pie-back.png</texture>
+						<visible>$EXP[hasWallWatchedIcon]</visible>
+					</control>
+					<control type="image">
+						<left>$PARAM[offset]</left>
+						<top>$PARAM[offset]</top>
+						<width>$PARAM[icon_size]</width>
+						<height>$PARAM[icon_size]</height>
+						<texture colordiffuse="$VAR[BadgeColorVar]">$VAR[WallWatchedIconVar]</texture>
+					</control>
+				</control>
+				<!-- Focused -->
+				<control type="group">
+					<visible>[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | $PARAM[focus_extra]]] | $PARAM[force_theme]</visible>
+					<control type="image">
+						<width>$PARAM[back_size]</width>
+						<height>$PARAM[back_size]</height>
+						<texture colordiffuse="$VAR[BadgeBackgroundColorVarFocused]">progress/pie-back.png</texture>
+						<visible>$EXP[hasWallWatchedIcon]</visible>
+					</control>
+					<control type="image">
+						<left>$PARAM[offset]</left>
+						<top>$PARAM[offset]</top>
+						<width>$PARAM[icon_size]</width>
+						<height>$PARAM[icon_size]</height>
+						<texture colordiffuse="$VAR[BadgeColorVarFocused]">$VAR[WallWatchedIconVar]</texture>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="CollectionBadge">
+		<param name="left">31</param>
+		<param name="top">149</param>
+		<param name="icon_size">15</param>
+		<param name="back_size">29</param>
+		<param name="offset">7</param>
+		<param name="animation_vis">false</param>
+		<param name="animation_vis_51">false</param>
+		<param name="vis">true</param>
+		<param name="focused">false</param>
+		<param name="list_id">9999</param>
+		<param name="focus_extra">false</param>
+		<param name="force_theme">false</param>
+		<definition>
+			<control type="group">
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<animation condition="$PARAM[animation_vis]" reversible="true">
+					<effect type="slide" start="0,0" end="-30,0" time="0" tween="cubic" easing="inout" />
+				</animation>
+				<animation condition="$PARAM[animation_vis_51]" reversible="true">
+					<effect type="slide" start="0,0" end="0,55" time="0" tween="cubic" easing="inout" />
+				</animation>
+				<visible>String.IsEqual(Container.ListItem.Property(belongs_to_collection),true) + !String.EndsWith(Container.PluginCategory,Collection)</visible>
+				<visible>$PARAM[vis]</visible>
+				<!-- Unfocused -->
+				<control type="group">
+					<visible>![[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | $PARAM[focus_extra]]] | $PARAM[force_theme]]</visible>
+					<control type="image">
+						<width>$PARAM[back_size]</width>
+						<height>$PARAM[back_size]</height>
+						<texture colordiffuse="$VAR[BadgeBackgroundColorVar]">progress/pie-back.png</texture>
+					</control>
+					<control type="image">
+						<left>$PARAM[offset]</left>
+						<top>$PARAM[offset]</top>
+						<width>$PARAM[icon_size]</width>
+						<height>$PARAM[icon_size]</height>
+						<texture colordiffuse="$VAR[BadgeColorVar]">icons/collection.png</texture>
+					</control>
+				</control>
+				<!-- Focused -->
+				<control type="group">
+					<visible>[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | $PARAM[focus_extra]]] | $PARAM[force_theme]</visible>
+					<control type="image">
+						<width>$PARAM[back_size]</width>
+						<height>$PARAM[back_size]</height>
+						<texture colordiffuse="$VAR[BadgeBackgroundColorVarFocused]">progress/pie-back.png</texture>
+					</control>
+					<control type="image">
+						<left>$PARAM[offset]</left>
+						<top>$PARAM[offset]</top>
+						<width>$PARAM[icon_size]</width>
+						<height>$PARAM[icon_size]</height>
+						<texture colordiffuse="$VAR[BadgeColorVarFocused]">icons/collection.png</texture>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="SeasonEpisodeBadge">
+		<param name="left">0</param>
+		<param name="top">0</param>
+		<param name="text_color">$VAR[BadgeColorVar]</param>
+		<param name="badge_color">$VAR[BadgeBackgroundColorVar]</param>
+		<param name="text_color_focused">$VAR[BadgeColorVarFocused]</param>
+		<param name="badge_color_focused">$VAR[BadgeBackgroundColorVarFocused]</param>
+		<param name="list_id"></param>
+		<param name="focused">false</param>
+		<param name="focus_extra">false</param>
+		<param name="force_theme">false</param>
+		<param name="vis">$EXP[isEpisode]</param>
+		<definition>
+			<control type="group">
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<visible>$PARAM[vis]</visible>
+				<!-- Unfocused -->
+				<control type="group">
+					<visible>![[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | $PARAM[focus_extra]]] | $PARAM[force_theme]]</visible>
+				<!-- Background images sized per digit combination -->
+				<!-- 1x1 (e.g. 2x5) -->
+				<control type="image">
+					<width>58</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>!Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Episode,9)</visible>
+				</control>
+				<!-- 1x2 (e.g. 2x15) -->
+				<control type="image">
+					<width>70</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>!Integer.IsGreater(ListItem.Season,9) + Integer.IsGreater(ListItem.Episode,9) + !Integer.IsGreater(ListItem.Episode,99)</visible>
+				</control>
+				<!-- 1x3 (e.g. 2x150) -->
+				<control type="image">
+					<width>82</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>!Integer.IsGreater(ListItem.Season,9) + Integer.IsGreater(ListItem.Episode,99) + !Integer.IsGreater(ListItem.Episode,999)</visible>
+				</control>
+				<!-- 1x4 (e.g. 2x1500) -->
+				<control type="image">
+					<width>94</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>!Integer.IsGreater(ListItem.Season,9) + Integer.IsGreater(ListItem.Episode,999)</visible>
+				</control>
+				<!-- 2x1 (e.g. 12x5) -->
+				<control type="image">
+					<width>70</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Season,99) + !Integer.IsGreater(ListItem.Episode,9)</visible>
+				</control>
+				<!-- 2x2 (e.g. 12x15) -->
+				<control type="image">
+					<width>82</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Season,99) + Integer.IsGreater(ListItem.Episode,9) + !Integer.IsGreater(ListItem.Episode,99)</visible>
+				</control>
+				<!-- 2x3 (e.g. 12x150) -->
+				<control type="image">
+					<width>93</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Season,99) + Integer.IsGreater(ListItem.Episode,99) + !Integer.IsGreater(ListItem.Episode,999)</visible>
+				</control>
+				<!-- 2x4 (e.g. 12x1500) -->
+				<control type="image">
+					<width>105</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Season,99) + Integer.IsGreater(ListItem.Episode,999)</visible>
+				</control>
+				<!-- 3x1 (e.g. 120x5) -->
+				<control type="image">
+					<width>81</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>Integer.IsGreater(ListItem.Season,99) + !Integer.IsGreater(ListItem.Season,999) + !Integer.IsGreater(ListItem.Episode,9)</visible>
+				</control>
+				<!-- 3x2 (e.g. 120x15) -->
+				<control type="image">
+					<width>93</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>Integer.IsGreater(ListItem.Season,99) + !Integer.IsGreater(ListItem.Season,999) + Integer.IsGreater(ListItem.Episode,9) + !Integer.IsGreater(ListItem.Episode,99)</visible>
+				</control>
+				<!-- 3x3 (e.g. 120x150) -->
+				<control type="image">
+					<width>106</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>Integer.IsGreater(ListItem.Season,99) + !Integer.IsGreater(ListItem.Season,999) + Integer.IsGreater(ListItem.Episode,99) + !Integer.IsGreater(ListItem.Episode,999)</visible>
+				</control>
+				<!-- 3x4 (e.g. 120x1500) -->
+				<control type="image">
+					<width>118</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>Integer.IsGreater(ListItem.Season,99) + !Integer.IsGreater(ListItem.Season,999) + Integer.IsGreater(ListItem.Episode,999)</visible>
+				</control>
+				<!-- 4x1 (e.g. 1200x5) -->
+				<control type="image">
+					<width>93</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>Integer.IsGreater(ListItem.Season,999) + !Integer.IsGreater(ListItem.Episode,9)</visible>
+				</control>
+				<!-- 4x2 (e.g. 1200x15) -->
+				<control type="image">
+					<width>105</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>Integer.IsGreater(ListItem.Season,999) + Integer.IsGreater(ListItem.Episode,9) + !Integer.IsGreater(ListItem.Episode,99)</visible>
+				</control>
+				<!-- 4x3 (e.g. 1200x150) -->
+				<control type="image">
+					<width>118</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>Integer.IsGreater(ListItem.Season,999) + Integer.IsGreater(ListItem.Episode,99) + !Integer.IsGreater(ListItem.Episode,999)</visible>
+				</control>
+				<!-- 4x4 (e.g. 1200x1500) -->
+				<control type="image">
+					<width>130</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+					<visible>Integer.IsGreater(ListItem.Season,999) + Integer.IsGreater(ListItem.Episode,999)</visible>
+				</control>
+
+				<!-- Single shared label -->
+				<control type="label">
+					<top>-1</top>
+					<left>10</left>
+					<width>120</width>
+					<height>36</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>eps</font>
+					<textcolor>$PARAM[text_color]</textcolor>
+					<label>$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]</label>
+				</control>
+				</control>
+				<!-- Focused -->
+				<control type="group">
+					<visible>[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | $PARAM[focus_extra]]] | $PARAM[force_theme]</visible>
+					<!-- 1x1 -->
+					<control type="image">
+						<width>58</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>!Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Episode,9)</visible>
+					</control>
+					<!-- 1x2 -->
+					<control type="image">
+						<width>70</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>!Integer.IsGreater(ListItem.Season,9) + Integer.IsGreater(ListItem.Episode,9) + !Integer.IsGreater(ListItem.Episode,99)</visible>
+					</control>
+					<!-- 1x3 -->
+					<control type="image">
+						<width>82</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>!Integer.IsGreater(ListItem.Season,9) + Integer.IsGreater(ListItem.Episode,99) + !Integer.IsGreater(ListItem.Episode,999)</visible>
+					</control>
+					<!-- 1x4 -->
+					<control type="image">
+						<width>94</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>!Integer.IsGreater(ListItem.Season,9) + Integer.IsGreater(ListItem.Episode,999)</visible>
+					</control>
+					<!-- 2x1 -->
+					<control type="image">
+						<width>70</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Season,99) + !Integer.IsGreater(ListItem.Episode,9)</visible>
+					</control>
+					<!-- 2x2 -->
+					<control type="image">
+						<width>82</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Season,99) + Integer.IsGreater(ListItem.Episode,9) + !Integer.IsGreater(ListItem.Episode,99)</visible>
+					</control>
+					<!-- 2x3 -->
+					<control type="image">
+						<width>93</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Season,99) + Integer.IsGreater(ListItem.Episode,99) + !Integer.IsGreater(ListItem.Episode,999)</visible>
+					</control>
+					<!-- 2x4 -->
+					<control type="image">
+						<width>105</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Season,99) + Integer.IsGreater(ListItem.Episode,999)</visible>
+					</control>
+					<!-- 3x1 -->
+					<control type="image">
+						<width>81</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>Integer.IsGreater(ListItem.Season,99) + !Integer.IsGreater(ListItem.Season,999) + !Integer.IsGreater(ListItem.Episode,9)</visible>
+					</control>
+					<!-- 3x2 -->
+					<control type="image">
+						<width>93</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>Integer.IsGreater(ListItem.Season,99) + !Integer.IsGreater(ListItem.Season,999) + Integer.IsGreater(ListItem.Episode,9) + !Integer.IsGreater(ListItem.Episode,99)</visible>
+					</control>
+					<!-- 3x3 -->
+					<control type="image">
+						<width>106</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>Integer.IsGreater(ListItem.Season,99) + !Integer.IsGreater(ListItem.Season,999) + Integer.IsGreater(ListItem.Episode,99) + !Integer.IsGreater(ListItem.Episode,999)</visible>
+					</control>
+					<!-- 3x4 -->
+					<control type="image">
+						<width>118</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>Integer.IsGreater(ListItem.Season,99) + !Integer.IsGreater(ListItem.Season,999) + Integer.IsGreater(ListItem.Episode,999)</visible>
+					</control>
+					<!-- 4x1 -->
+					<control type="image">
+						<width>93</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>Integer.IsGreater(ListItem.Season,999) + !Integer.IsGreater(ListItem.Episode,9)</visible>
+					</control>
+					<!-- 4x2 -->
+					<control type="image">
+						<width>105</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>Integer.IsGreater(ListItem.Season,999) + Integer.IsGreater(ListItem.Episode,9) + !Integer.IsGreater(ListItem.Episode,99)</visible>
+					</control>
+					<!-- 4x3 -->
+					<control type="image">
+						<width>118</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>Integer.IsGreater(ListItem.Season,999) + Integer.IsGreater(ListItem.Episode,99) + !Integer.IsGreater(ListItem.Episode,999)</visible>
+					</control>
+					<!-- 4x4 -->
+					<control type="image">
+						<width>130</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>Integer.IsGreater(ListItem.Season,999) + Integer.IsGreater(ListItem.Episode,999)</visible>
+					</control>
+					<control type="label">
+						<top>-1</top>
+						<left>10</left>
+						<width>120</width>
+						<height>36</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>eps</font>
+						<textcolor>$PARAM[text_color_focused]</textcolor>
+						<label>$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]</label>
+					</control>
+				</control>
+
+			</control>
+		</definition>
+	</include>
+
+	<include name="EpisodeTypeBadge">
+		<param name="right">0</param>
+		<param name="top">0</param>
+		<param name="vis">!String.IsEmpty(ListItem.Property(episode_type)) + $EXP[ET_Artwork]</param>
+		<param name="focused">false</param>
+		<param name="list_id">9999</param>
+		<param name="focus_extra">false</param>
+		<param name="force_theme">false</param>
+		<definition>
+			<control type="group">
+				<top>$PARAM[top]</top>
+				<align>right</align>
+				<right>$PARAM[right]</right>
+				<visible>$PARAM[vis]</visible>
+				<!-- Backgrounds (shared between focused and unfocused — bg never changes on focus) -->
+				<control type="image">
+					<align>right</align>
+					<right>0</right>
+					<width>190</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$VAR[EpisodeTypeBadgeBg]">masks/flixicon-filled.png</texture>
+					<visible>String.IsEqual(ListItem.Property(episode_type),series_premiere)</visible>
+				</control>
+				<control type="image">
+					<align>right</align>
+					<right>0</right>
+					<width>205</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$VAR[EpisodeTypeBadgeBg]">masks/flixicon-filled.png</texture>
+					<visible>String.IsEqual(ListItem.Property(episode_type),season_premiere)</visible>
+				</control>
+				<control type="image">
+					<align>right</align>
+					<right>0</right>
+					<width>254</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$VAR[EpisodeTypeBadgeBg]">masks/flixicon-filled.png</texture>
+					<visible>String.IsEqual(ListItem.Property(episode_type),mid_season_premiere)</visible>
+				</control>
+				<control type="image">
+					<align>right</align>
+					<right>0</right>
+					<width>164</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$VAR[EpisodeTypeBadgeBg]">masks/flixicon-filled.png</texture>
+					<visible>String.IsEqual(ListItem.Property(episode_type),series_finale)</visible>
+				</control>
+				<control type="image">
+					<align>right</align>
+					<right>0</right>
+					<width>177</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$VAR[EpisodeTypeBadgeBg]">masks/flixicon-filled.png</texture>
+					<visible>String.IsEqual(ListItem.Property(episode_type),season_finale)</visible>
+				</control>
+				<control type="image">
+					<align>right</align>
+					<right>0</right>
+					<width>225</width>
+					<height>36</height>
+					<texture border="13" colordiffuse="$VAR[EpisodeTypeBadgeBg]">masks/flixicon-filled.png</texture>
+					<visible>String.IsEqual(ListItem.Property(episode_type),mid_season_finale)</visible>
+				</control>
+				<!-- Default label: per-episode-type color via inline [COLOR] tags -->
+				<control type="label">
+					<top>-1</top>
+					<align>right</align>
+					<right>10</right>
+					<width>250</width>
+					<height>36</height>
+					<aligny>center</aligny>
+					<font>eps</font>
+					<label>[UPPERCASE]$VAR[EpisodeTypeBadgeLabel][/UPPERCASE]</label>
+					<visible>![[[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | $PARAM[focus_extra]]] | $PARAM[force_theme]] + String.IsEqual(Skin.String(EpisodeTypeFocusColorThemeSetting),1) + [String.IsEqual(Skin.String(BadgeBackgroundSetting),0) | String.IsEqual(Skin.String(BadgeBackgroundSetting),1)]]</visible>
+				</control>
+				<!-- Focused label: FocusColorTheme, only when EpisodeType focus setting is on AND bg is dark -->
+				<control type="label">
+					<top>-1</top>
+					<align>right</align>
+					<right>10</right>
+					<width>250</width>
+					<height>36</height>
+					<aligny>center</aligny>
+					<font>eps</font>
+					<textcolor>$VAR[FocusColorTheme]</textcolor>
+					<label>[UPPERCASE]$VAR[EpisodeTypeName][/UPPERCASE]</label>
+					<visible>[[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | $PARAM[focus_extra]]] | $PARAM[force_theme]] + String.IsEqual(Skin.String(EpisodeTypeFocusColorThemeSetting),1) + [String.IsEqual(Skin.String(BadgeBackgroundSetting),0) | String.IsEqual(Skin.String(BadgeBackgroundSetting),1)]</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="InfoBadge">
+		<param name="left">63</param>
+		<param name="top">7</param>
+		<param name="height">36</param>
+		<param name="font">eps</param>
+		<param name="textoffsetx">10</param>
+		<param name="max_width">378</param>
+		<param name="list_id"></param>
+		<param name="label"></param>
+		<param name="vis">true</param>
+		<param name="vis2">true</param>
+		<param name="focused">false</param>
+		<param name="focus_extra">false</param>
+		<param name="force_theme">false</param>
+		<definition>
+			<control type="group">
+				<visible>$PARAM[vis]</visible>
+				<visible>$PARAM[vis2]</visible>
+				<!-- Unfocused -->
+				<control type="togglebutton">
+					<left>$PARAM[left]</left>
+					<width max="$PARAM[max_width]">auto</width>
+					<top>$PARAM[top]</top>
+					<height>$PARAM[height]</height>
+					<align>left</align>
+					<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
+					<textoffsety>2</textoffsety>
+					<font>$PARAM[font]</font>
+					<textcolor>$VAR[BadgeColorVar]</textcolor>
+					<texturefocus border="13" colordiffuse="$VAR[BadgeBackgroundColorVar]">masks/flixicon-filled.png</texturefocus>
+					<texturenofocus border="13" colordiffuse="$VAR[BadgeBackgroundColorVar]">masks/flixicon-filled.png</texturenofocus>
+					<label>$PARAM[label]</label>
+					<visible>![[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | $PARAM[focus_extra]]] | $PARAM[force_theme]]</visible>
+				</control>
+				<!-- Focused -->
+				<control type="togglebutton">
+					<left>$PARAM[left]</left>
+					<width max="$PARAM[max_width]">auto</width>
+					<top>$PARAM[top]</top>
+					<height>$PARAM[height]</height>
+					<align>left</align>
+					<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
+					<textoffsety>2</textoffsety>
+					<font>$PARAM[font]</font>
+					<textcolor>$VAR[BadgeColorVarFocused]</textcolor>
+					<texturefocus border="13" colordiffuse="$VAR[BadgeBackgroundColorVarFocused]">masks/flixicon-filled.png</texturefocus>
+					<texturenofocus border="13" colordiffuse="$VAR[BadgeBackgroundColorVarFocused]">masks/flixicon-filled.png</texturenofocus>
+					<label>$PARAM[label]</label>
+					<visible>[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | $PARAM[focus_extra]]] | $PARAM[force_theme]</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="EpisodesRemainingBadge">
+		<param name="left">0</param>
+		<param name="top">0</param>
+		<param name="text_color">$VAR[BadgeColorVar]</param>
+		<param name="badge_color">$VAR[BadgeBackgroundColorVar]</param>
+		<param name="text_color_focused">$VAR[BadgeColorVarFocused]</param>
+		<param name="badge_color_focused">$VAR[BadgeBackgroundColorVarFocused]</param>
+		<param name="list_id"></param>
+		<param name="visible"></param>
+		<param name="focused">false</param>
+		<param name="focus_extra">false</param>
+		<param name="force_theme">false</param>
+		<definition>
+			<control type="group">
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<visible>$PARAM[visible]</visible>
+				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				<!-- Unfocused -->
+				<control type="group">
+					<visible>![[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | $PARAM[focus_extra]]] | $PARAM[force_theme]]</visible>
+					<control type="image">
+						<width>151</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+						<visible>!Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),9)</visible>
+					</control>
+					<control type="image">
+						<width>164</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+						<visible>!Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),99) + Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),9)</visible>
+					</control>
+					<control type="image">
+						<width>177</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+						<visible>!Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),999) + Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),99)</visible>
+					</control>
+					<control type="image">
+						<width>190</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color]">masks/flixicon-filled.png</texture>
+						<visible>!Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),9999) + Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),999)</visible>
+					</control>
+					<control type="label">
+						<top>-1</top>
+						<left>10</left>
+						<width>300</width>
+						<height>36</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>eps</font>
+						<textcolor>$PARAM[text_color]</textcolor>
+						<label>$INFO[ListItem.Property(UnwatchedEpisodes),, remaining]</label>
+					</control>
+				</control>
+				<!-- Focused -->
+				<control type="group">
+					<visible>[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | $PARAM[focus_extra]]] | $PARAM[force_theme]</visible>
+					<control type="image">
+						<width>151</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>!Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),9)</visible>
+					</control>
+					<control type="image">
+						<width>164</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>!Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),99) + Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),9)</visible>
+					</control>
+					<control type="image">
+						<width>177</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>!Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),999) + Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),99)</visible>
+					</control>
+					<control type="image">
+						<width>190</width>
+						<height>36</height>
+						<texture border="13" colordiffuse="$PARAM[badge_color_focused]">masks/flixicon-filled.png</texture>
+						<visible>!Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),9999) + Integer.IsGreater(ListItem.Property(UnwatchedEpisodes),999)</visible>
+					</control>
+					<control type="label">
+						<top>-1</top>
+						<left>10</left>
+						<width>300</width>
+						<height>36</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>eps</font>
+						<textcolor>$PARAM[text_color_focused]</textcolor>
+						<label>$INFO[ListItem.Property(UnwatchedEpisodes),, remaining]</label>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+</includes>

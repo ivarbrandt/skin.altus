@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="WidgetListLandscape">
+		<param name="onclick_condition">false</param>
+		<definition>
+			<include content="CategoryLabel">
+				<param name="label">$PARAM[widget_header]</param>
+				<param name="list_id" value="$PARAM[list_id]"/>
+			</include>
+			<include content="BusyListSpinner">
+				<param name="list_id" value="$PARAM[list_id]"/>
+			</include>
+			<control type="fixedlist" id="$PARAM[list_id]">
+				<top>107</top>
+				<right>0</right>
+				<left>45</left>
+				<height>471</height>
+				<focusposition>0</focusposition>
+				<movement>2</movement>
+				<onright>$PARAM[list_id]</onright>
+				<orientation>horizontal</orientation>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
+				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
+				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
+				<include content="WidgetListCommon">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<itemlayout width="452" height="393" >
+					<control type="group">
+						<left>-20</left>
+						<top>70</top>
+						<include content="LandscapeLayout">
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="452" height="393" infoupdate="30">
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<left>-20</left>
+						<top>70</top>
+						<include content="LandscapeLayout">
+							<param name="focused" value="true" />
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+						<include>VideoTrailerControl</include>
+					</control>
+				</focusedlayout>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
+			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="185" />
+			</include>
+		</definition>
+	</include>
+
+	<include name="WidgetListLandscapeStacked">
+		<param name="onclick_condition">false</param>
+		<definition>
+			<include content="CategoryLabelWidget">
+				<param name="label">$PARAM[widget_header]</param>
+				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="visible" value="false"/>
+			</include>
+			<include content="BusyListWidgetSpinner">
+				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="posy" value="97"/>
+			</include>
+			<control type="fixedlist" id="$PARAM[list_id]">
+				<top>17</top>
+				<right>0</right>
+				<left>45</left>
+				<height>471</height>
+				<focusposition>0</focusposition>
+				<movement>2</movement>
+				<onright>$PARAM[list_id]</onright>
+				<orientation>horizontal</orientation>
+				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
+				<include content="FlixAnimations_Stacked">
+				</include>
+				<onfocus>SetProperty(altus_stacked_linked_list_id,$PARAM[parent_id],home)</onfocus>
+				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
+				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
+				<onfocus>ClearProperty(altus_flix_linked_list_id,home)</onfocus>
+				<include content="WidgetListCommonStacked">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<itemlayout width="452" height="393" >
+					<control type="group">
+						<left>-20</left>
+						<top>70</top>
+						<include content="LandscapeLayout">
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="452" height="393" infoupdate="30">
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<left>-20</left>
+						<top>70</top>
+						<include content="LandscapeLayout">
+							<param name="focused" value="true" />
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+						<include>VideoTrailerControl</include>
+					</control>
+				</focusedlayout>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
+			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="185" />
+			</include>
+		</definition>
+	</include>
+
+</includes>

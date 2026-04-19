@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="TopBottomBars">
+		<control type="group">
+			<width>100%</width>
+			<control type="image">
+				<top>$PARAM[top]</top>
+				<height>115</height>
+				<texture>frame/InfoBar.png</texture>
+				<visible>$PARAM[top_visible]</visible>
+				<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
+			</control>
+			<control type="image">
+				<bottom>$PARAM[bottom]</bottom>
+				<height>115</height>
+				<texture flipy="true">frame/InfoBar.png</texture>
+				<visible>$PARAM[bottom_visible]</visible>
+				<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
+			</control>
+		</control>
+	</include>
+
+  <include name="TopBar">
+		<!-- <param name="sublabel">$INFO[Container.SortMethod,$LOCALIZE[31022]: ,  ∙  ]$INFO[Container.CurrentItem,, / ]$INFO[Container.NumItems]</param> -->
+		<definition>
+			<control type="group">
+				<animation effect="slide" end="0,-112" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
+				<depth>DepthBars</depth>
+				<!-- <animation effect="fade" start="0" end="100" time="300" condition="!Container.Scrolling">Conditional</animation> -->
+				<animation effect="fade" start="0" end="100" time="300" condition="[Window.Previous(fullscreenvideo) | Window.Previous(startup)] + !Window.IsVisible(1109)">WindowOpen</animation>
+				
+				<!-- <visible>[String.IsEmpty(Window(Home).Property(FlixWidget)) + ![ControlGroup(15000).HasFocus | Control.IsVisible(51) | [Window.IsActive(videos) + Control.IsVisible(53)] | Control.IsVisible(54) | Control.IsVisible(55) | [Control.IsVisible(50) + ![Window.IsVisible(tvguide) | Window.IsVisible(tvchannels) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)]] | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(500) | [Window.IsActive(videos) + Control.IsVisible(501)]] | Window.IsVisible(extendedprogressdialog)] + ![!Player.HasMedia + [[Window.IsVisible(home) | Window.IsVisible(1121)] + ControlGroup(2000).HasFocus]]</visible> -->
+
+				<visible>
+						[
+								String.IsEmpty(Window(Home).Property(FlixWidget)) +
+								![
+										ControlGroup(15000).HasFocus |
+										[Window.IsActive(videos) + Control.IsVisible(53)] |
+										Control.IsVisible(54) |
+										Control.IsVisible(55) |
+										[
+												[Control.IsVisible(50) | Control.IsVisible(51)] +
+												[
+														Window.IsVisible(videos) |
+														![
+																Window.IsVisible(tvchannels) |
+																Window.IsVisible(tvguide) |
+																Window.IsVisible(tvtimers) |
+																Window.IsVisible(tvsearch)
+														]
+												] +
+												[
+														[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] |
+														[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] |
+														[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] |
+														[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] |
+														![Window.IsVisible(videos) + Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] |
+														![Window.IsVisible(videos) + Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] |
+														![Window.IsVisible(videos) + Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
+														![Window.IsVisible(videos) + Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
+												]
+										] |
+										Control.IsVisible(56) |
+										Control.IsVisible(57) |
+										Control.IsVisible(500) |
+										[Window.IsActive(videos) + Control.IsVisible(501)]
+								] |
+								Window.IsVisible(extendedprogressdialog)
+						]
+				</visible>
+				
+				<animation effect="fade" time="300" tween="cubic" easing="out">VisibleChange</animation>
+				<control type="image">
+					<!-- <visible>Window.IsVisible(extendedprogressdialog)</visible> -->
+					<left>0</left>
+					<top>0</top>
+					<width>110%</width>
+					<height>115</height>
+					<texture>frame/InfoBar.png</texture>
+					<animation effect="fade" start="0" end="100" time="700">VisibleChange</animation>
+					<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
+				</control>
+				<control type="group">
+				<visible>![[Window.IsVisible(home) | Window.IsVisible(1121)] + ControlGroup(2000).HasFocus]</visible>
+				<control type="grouplist">
+					<width>900</width>
+					<include content="TopBarLabels">
+						<param name="breadcrumbs_label" value="$PARAM[breadcrumbs_label]" />
+					</include>
+					<visible>Player.HasMedia</visible>
+				</control>
+				<control type="grouplist">
+					<!-- <animation condition="$EXP[sidebar_visible]" effect="slide" start="0,0" end="520,0" time="500" tween="cubic" easing="inout">Conditional</animation> -->
+					<width>1800</width>
+					<include content="TopBarLabels">
+						<param name="breadcrumbs_label" value="$PARAM[breadcrumbs_label]" />
+					</include>
+					<visible>!Player.HasMedia</visible>
+				</control>
+				<control type="button">
+					<top>0</top>
+					<width>200</width>
+					<height>100</height>
+					<label></label>
+					<onclick>Action(Back)</onclick>
+					<visible>!Window.IsActive(home)</visible>
+					<texturefocus />
+					<texturenofocus />
+				</control>
+				<!-- <control type="label" id="18900">
+					<top>50</top>
+					<label>$PARAM[sublabel]</label>
+					<left>35</left>
+					<shadowcolor>text_shadow</shadowcolor>
+					<height>100</height>
+					<width>900</width>
+					<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+					<animation effect="slide" end="70,0" time="200" reversible="true" condition="Control.IsVisible(799)">Conditional</animation>
+				</control> -->
+				<control type="grouplist">
+					<top>0</top>
+					<align>right</align>
+					<right>28</right>
+					<height>200</height>
+					<orientation>horizontal</orientation>
+					<width>1100</width>
+					<itemgap>10</itemgap>
+					<!-- <visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56)]</visible> -->
+					<visible>![Control.IsVisible(500) | [Window.IsActive(videos) + Control.IsVisible(501)] | Window.IsVisible(extendedprogressdialog) | Window.IsActive(fullscreenvideo) | !String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
+					<animation effect="fade" time="500" tween="cubic" easing="out">VisibleChange</animation>
+					<control type="group">
+						<width>600</width>
+						<visible>!Control.IsVisible(503) + Player.HasMedia + String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))</visible>
+						<animation effect="fade" time="300" tween="cubic" easing="out">VisibleChange</animation>
+						<control type="grouplist">
+							<left>-75</left>
+							<orientation>horizontal</orientation>
+							<height>46</height>
+							<top>14</top>
+							<align>right</align>
+							<width>660</width>
+							<itemgap>5</itemgap>
+							<usecontrolcoords>true</usecontrolcoords>
+							<control type="image">
+								<top>10</top>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[NowPlayingIconVar]</texture>
+							</control>
+							<control type="label">
+								<label>$INFO[Player.Title]</label>
+								<textcolor>unfocused_text</textcolor>
+								<font>font27</font>
+								<shadowcolor>text_shadow</shadowcolor>
+								<height>35</height>
+								<width min="1" max="602">auto</width>
+							</control>
+						</control>
+						<control type="label" id="7700">
+							<label>$VAR[NowPlayingSublabelVar]</label>
+							<left>-44</left>
+							<top>44</top>
+							<font>font12</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+							<height>25</height>
+							<width>630</width>
+							<align>right</align>
+							<scroll>true</scroll>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Integer.IsGreater(System.ProfileCount,1) + !Player.HasMedia</visible>
+						<control type="image">
+							<visible>Skin.HasSetting(show_profileavatar)</visible>
+							<top>25</top>
+							<left>-70</left>
+							<width>50</width>
+							<height>50</height>
+							<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
+							<texture>$INFO[System.ProfileThumb]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
+						<control type="label">
+							<visible>Skin.HasSetting(show_profilename)</visible>
+							<font>font45</font>
+							<align>right</align>
+							<left>-630</left>
+							<shadowcolor>text_shadow</shadowcolor>
+							<aligny>center</aligny>
+							<height>110</height>
+							<width max="600">auto</width>
+							<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
+							<label>$INFO[System.ProfileName]</label>
+							<textcolor>unfocused_text</textcolor>
+						</control>
+					</control>
+					<control type="image">
+						<width>60</width>
+						<height>97</height>
+						<fadetime>300</fadetime>
+						<aspectratio aligny="center" align="left">keep</aspectratio>
+						<texture colordiffuse="unfocused_text">$INFO[Weather.FanartCode,weather/small/,.png]</texture>
+						<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na)]</visible>
+					</control>
+					<control type="label">
+						<font>font45</font>
+						<height>92</height>
+						<width>auto</width>
+						<aligny>center</aligny>
+						<align>right</align>
+						<label>[COLOR unfocused_text]$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits][/COLOR]  • </label>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na)]</visible>
+					</control>
+					<control type="label">
+						<font>font45</font>
+						<textcolor>unfocused_text</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<aligny>center</aligny>
+						<height>92</height>
+						<width>auto</width>
+						<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
+						<label>$INFO[System.Time]</label>
+					</control>
+				</control>
+				<control type="grouplist">
+					<right>10</right>
+					<top>70</top>
+					<width>800</width>
+					<height>100</height>
+					<align>right</align>
+					<itemgap>5</itemgap>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="label">
+						<height>50</height>
+						<width>auto</width>
+						<aligny>center</aligny>
+						<textoffsetx>-8</textoffsetx>
+						<label>$INFO[System.AlarmPos]</label>
+						<visible>System.HasAlarm(shutdowntimer)</visible>
+					</control>
+					<control type="image">
+						<top>16</top>
+						<width>40</width>
+						<height>22</height>
+						<fadetime>300</fadetime>
+						<aspectratio aligny="center" align="left">keep</aspectratio>
+						<texture>icons/power.png</texture>
+						<visible>System.HasAlarm(shutdowntimer)</visible>
+					</control>
+					<control type="image">
+						<top>8</top>
+						<left>-20</left>
+						<width>74</width>
+						<height>40</height>
+						<fadetime>300</fadetime>
+						<aspectratio aligny="center" align="center">keep</aspectratio>
+						<texture>dialogs/volume/mute.png</texture>
+						<visible>Player.Muted</visible>
+					</control>
+				</control>
+				<control type="label" id="23000">
+					<top>0</top>
+					<left>0</left>
+					<label>$INFO[ListItem.SortLetter]</label>
+					<font>font_MainMenu</font>
+					<width>100%</width>
+					<height>80</height>
+					<align>center</align>
+					<visible>!System.HasActiveModalDialog</visible>
+					<visible>Container.Scrolling</visible>
+					<visible>!Container.Content(seasons)</visible>
+					<visible>Container.SortMethod(1) | Container.SortMethod(4) | Container.SortMethod(12) | Container.SortMethod(10) | Container.SortMethod(7) | Container.SortMethod(29) | Container.SortMethod(17)</visible>
+					<animation effect="fade" start="0" end="100" time="200" reversible="true">VisibleChange</animation>
+					<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				</control>
+				</control>
+			</control>
+			<include condition="Skin.HasSetting(touchmode) + !Window.IsActive(home)">TouchBackButton</include>
+		</definition>
+	</include>
+
+	<include name="TopBarLabels">
+		<!-- <visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)]</visible> -->
+		<visible>
+				[
+						String.IsEmpty(Window(Home).Property(FlixWidget)) +
+						![
+								ControlGroup(15000).HasFocus |
+								[Window.IsActive(videos) + Control.IsVisible(53)] |
+								Control.IsVisible(54) |
+								Control.IsVisible(55) |
+								[
+										[Control.IsVisible(50) | Control.IsVisible(51)] +
+										[
+												Window.IsVisible(videos) |
+												![
+														Window.IsVisible(tvchannels) |
+														Window.IsVisible(tvguide) |
+														Window.IsVisible(tvtimers) |
+														Window.IsVisible(tvsearch)
+												]
+										] +
+										[
+												[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] |
+												[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] |
+												[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] |
+												[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] |
+												![Window.IsVisible(videos) + Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] |
+												![Window.IsVisible(videos) + Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] |
+												![Window.IsVisible(videos) + Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
+												![Window.IsVisible(videos) + Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
+										]
+								] |
+								Control.IsVisible(56) |
+								Control.IsVisible(57) |
+								Control.IsVisible(500) |
+								[Window.IsActive(videos) + Control.IsVisible(501)]
+						] |
+						Window.IsVisible(extendedprogressdialog)
+				] +
+				![
+						!Player.HasMedia + 
+						[
+								[Window.IsVisible(home) | Window.IsVisible(1121)] + 
+								ControlGroup(2000).HasFocus
+						]
+				]
+		</visible>
+		<left>32</left>
+		<description>Left side of top bar</description>
+		<top>-15</top>
+		<height>100</height>
+		<orientation>horizontal</orientation>
+		<usecontrolcoords>true</usecontrolcoords>
+		<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+		<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+		<animation effect="slide" end="0,16" time="200" reversible="true" condition="String.IsEmpty(Control.GetLabel(18900))">Conditional</animation>
+		<animation effect="slide" end="70,0" time="200" reversible="true" condition="Control.IsVisible(799)">Conditional</animation>
+		<control type="label">
+			<label>$PARAM[breadcrumbs_label]</label>
+			<include>BreadcrumbsLabel</include>
+		</control>
+		<control type="label">
+			<label>$INFO[Container.ShowTitle, / ]</label>
+			<include>BreadcrumbsLabel</include>
+			<visible>!String.IsEmpty(Container.ShowTitle) + !String.IsEqual(Container.ShowTitle,Container.FolderName)</visible>
+		</control>
+		<control type="label">
+			<label> [B]»[/B] [COLOR unfocused_text]$INFO[Container.FolderName][/COLOR]</label>
+			<include>BreadcrumbsLabel</include>
+			<visible>![Container.Content()]</visible>
+			<visible>!String.IsEmpty(Container.FolderName) + ![Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRTimers.xml) | Window.IsActive(MyPVRRecordings.xml) | Window.IsActive(MyPVRSearch.xml) | Window.IsActive(MyVideoNav.xml)]</visible>
+		</control>
+		<control type="label">
+			<label> [B]»[/B] [COLOR unfocused_text]$INFO[Container.PluginCategory][/COLOR]</label>
+			<include>BreadcrumbsLabel</include>
+			<visible>!String.IsEmpty(Container.PluginCategory)</visible>
+		</control>
+		<control type="label">
+			<label>$INFO[Control.GetLabel(10),: ]</label>
+			<include>BreadcrumbsLabel</include>
+			<visible>!String.IsEqual(Control.GetLabel(10),$LOCALIZE[16100]) + Window.IsActive(videos)</visible>
+		</control>
+		<control type="label">
+			<left>10</left>
+			<label>($LOCALIZE[31052])</label>
+			<include>BreadcrumbsLabel</include>
+			<visible>Container.Filtered</visible>
+		</control>
+	</include>
+
+</includes>

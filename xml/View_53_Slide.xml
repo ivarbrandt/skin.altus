@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+
 	<include name="53_Font_Default">
 		<font>font27</font>
 	</include>
@@ -18,6 +19,13 @@
 	<include name="53_Plot_Height_Large">
 		<height max="157">auto</height>
 	</include>
+	<include name="53InfoWidth_StudioEnabled">
+		<right>310</right>
+	</include>
+	<include name="53InfoWidth_StudioDisabled">
+		<right>70</right>
+	</include>
+
 	<include name="View_53_Slide">
 		<control type="button" id="20000">
 			<description>Dummy button to get animations right (hide focusedlayout on animations)</description>
@@ -358,4 +366,5 @@
       </control>
 		</control>
 	</include>
+
 </includes>

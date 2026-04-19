@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="WeatherWidget">
+		<param name="visible">true</param>
+		<definition>
+			<include content="CategoryLabel">
+				<param name="label">$PARAM[widget_header]</param>
+				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="visible" value="$PARAM[visible]"/>
+			</include>
+			<include content="BusyListSpinner">
+				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="visible" value="$PARAM[visible]"/>
+			</include>
+			<control type="fixedlist" id="$PARAM[list_id]">
+				<top>157</top>
+				<right>0</right>
+				<left>45</left>
+				<height>488</height>
+				<onright>$PARAM[list_id]</onright>
+				<movement>6</movement>
+				<include content="WidgetListCommon">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<!-- <animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation> -->
+				<visible>$PARAM[visible]</visible>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<itemlayout width="265">
+					<control type="group">
+						<left>-20</left>
+						<include content="WeatherWidgetLayout">
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="265" infoupdate="30">
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<left>-20</left>
+						<include content="WeatherWidgetLayout">
+							<param name="list_id" value="$PARAM[list_id]" />
+							<param name="focused" value="true" />
+						</include>
+						<include>VideoTrailerControl</include>
+					</control>
+				</focusedlayout>
+				<include>$PARAM[content_include]</include>
+				<!-- <content target="$PARAM[widget_target]" limit="$PARAM[item_limit]">$PARAM[content_path]</content> -->
+			</control>
+			<include content="WidgetLeftRightArrows">
+				<param name="list_id" value="$PARAM[list_id]" />
+				<param name="posy" value="128" />
+			</include>
+		</definition>
+	</include>
+
+</includes>

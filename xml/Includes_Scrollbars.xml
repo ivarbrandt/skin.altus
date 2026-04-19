@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="CommonScrollbars">
+		<param name="bottom_offset">list_bottom_offset</param>
+		<definition>
+			<control type="group">
+				<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
+				<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="System.HasActiveModalDialog">Conditional</animation>
+				<animation effect="fade" start="0" end="100" delay="300" time="320">WindowOpen</animation>
+				<control type="group">
+					<left>-41</left>
+					<top>0</top>
+					<width>60</width>
+					<bottom>0</bottom>
+					<control type="scrollbar" id="530">
+						<left>35</left>
+						<top>-492</top>
+						<bottom>72</bottom>
+						<width>12</width>
+						<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
+						<texturesliderbarfocus colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbarfocus>
+						<onleft condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">9000</onleft>
+						<onleft condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">9000</onleft>
+						<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">52</onright>
+						<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">52</onright>
+						<orientation>vertical</orientation>
+						<texturesliderbackground />
+						<animation effect="zoom" end="50,100" time="300" tween="sine" center="35,0" easing="inout" condition="![Container.Scrolling | Control.HasFocus(530)]">conditional</animation>
+						<visible>Control.IsVisible(52)</visible>
+					</control>
+					<!-- <control type="scrollbar" id="531">
+						<left>35</left>
+						<top>0</top>
+						<bottom>0</bottom>
+						<width>12</width>
+						<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
+						<texturesliderbarfocus colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbarfocus>
+						<onleft condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">9000</onleft>
+						<onleft condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">9000</onleft>
+						<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
+						<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">56</onright>
+						<orientation>vertical</orientation>
+						<texturesliderbackground />
+						<animation effect="zoom" end="50,100" time="300" tween="sine" center="35,0" easing="inout" condition="![Container.Scrolling | Control.HasFocus(531)]">conditional</animation>
+						<visible>Control.IsVisible(500) | Control.IsVisible(501)</visible>
+					</control> -->
+					<control type="scrollbar" id="532">
+						<left>1961</left>
+						<top>0</top>
+						<bottom>0</bottom>
+						<width>8</width>
+						<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
+						<texturesliderbarfocus colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbarfocus>
+						<onleft condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onleft>
+						<onleft condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">9000</onleft>
+						<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
+						<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">50</onright>
+						<orientation>vertical</orientation>
+						<texturesliderbackground />
+						<animation effect="slide" start="-4,0" end="0,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(532)">conditional</animation>
+						<visible>Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(500) | Control.IsVisible(501)</visible>
+					</control>
+					<!-- <control type="scrollbar" id="532">
+						<left>35</left>
+						<top>-542</top>
+						<bottom>155</bottom>
+						<width>12</width>
+						<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
+						<texturesliderbarfocus colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbarfocus>
+						<onleft condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">9000</onleft>
+						<onleft condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">9000</onleft>
+						<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
+						<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">56</onright>
+						<orientation>vertical</orientation>
+						<texturesliderbackground />
+						<animation effect="zoom" end="50,100" time="300" tween="sine" center="35,0" easing="inout" condition="![Container.Scrolling | Control.HasFocus(532)]">conditional</animation>
+						<visible>Control.IsVisible(500) | Control.IsVisible(501)</visible>
+					</control> -->
+				</control>
+				<control type="group">
+					<left>0</left>
+					<right>0</right>
+					<bottom>-7</bottom>
+					<width>100%</width>
+					<height>60</height>
+					<control type="scrollbar" id="5199">
+						<left>0</left>
+						<bottom>0</bottom>
+						<width>100%</width>
+						<height>12</height>
+						<texturesliderbackground />
+						<onup>50</onup>
+						<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
+						<texturesliderbarfocus colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbarfocus>
+						<ondown condition="Control.IsVisible(51)">51</ondown>
+						<ondown condition="Control.IsVisible(53)">53</ondown>
+						<!-- <ondown condition="Control.IsVisible(51) | Control.IsVisible(54)">Container.SetViewMode(500)</ondown>
+						<ondown condition="Control.IsVisible(55)">Container.SetViewMode(501)</ondown> -->
+						<orientation>horizontal</orientation>
+						<visible>Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(56) |  Control.IsVisible(57)</visible>
+						<animation effect="slide" end="0,6" time="300" tween="sine" easing="inout" condition="![Control.HasFocus(5199) | Container.Scrolling]">conditional</animation>
+						<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
+						<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+						<animation effect="slide" end="0,90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
+						<hitrect x="0" y="20" w="100%" h="40" />
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+</includes>
