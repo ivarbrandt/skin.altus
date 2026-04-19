@@ -1,7 +1,7 @@
 SOURCE_DIR := ./
 DEST_DIR := $(HOME)/DEV/repo/skin.altus/
 RSYNC_OPTS := -avh --delete
-EXCLUDE_OPTS := --exclude='.git/' --exclude='.gitignore' --exclude='._*' --exclude='.DS_Store' --exclude='*.pyo' --exclude='*.pyc' --exclude='cache/' --exclude='Thumbs.db'
+EXCLUDE_OPTS := --exclude='.git/' --exclude='.gitignore' --exclude='._*' --exclude='.!*' --exclude='.DS_Store' --exclude='*.pyo' --exclude='*.pyc' --exclude='cache/' --exclude='Thumbs.db'
 m ?= ""
 SHELL := /bin/bash
 .PHONY: all sync sync-media sync-all test_sync status add commit push clean help check_dest check_case
