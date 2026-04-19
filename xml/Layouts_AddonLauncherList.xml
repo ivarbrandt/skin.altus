@@ -38,7 +38,7 @@
 						<control type="image">
 							<width>440</width>
 							<height>90</height>
-							<texture border="24" colordiffuse="66000000">masks/.png</texture>
+							<texture border="24" colordiffuse="66000000">masks/radius_23.png</texture>
 						</control>
 						<control type="image">
 							<left>30</left>
