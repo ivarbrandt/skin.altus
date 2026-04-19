@@ -118,6 +118,8 @@
             <param name="height" value="51"/>
             <param name="font" value="eps_51"/>
             <param name="textoffsetx" value="13"/>
+            <param name="focused" value="$PARAM[focused]"/>
+						<param name="focus_extra" value="Control.IsVisible(51)"/>
             <param name="label" value="$INFO[ListItem.Property(UnwatchedEpisodes),, remaining]"/>
             <param name="vis" value="[$PARAM[focused] + Control.HasFocus(51)]"/>
             <param name="vis2" value="Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + !String.IsEqual(ListItem.Property(WatchedEpisodes),ListItem.Property(TotalEpisodes)) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),-1)"/>
@@ -128,6 +130,8 @@
             <param name="icon_size" value="25"/>
             <param name="back_size" value="44"/>
             <param name="offset" value="9"/>
+            <param name="focused" value="$PARAM[focused]"/>
+						<param name="focus_extra" value="Control.IsVisible(51)"/>
             <param name="animation_vis" value="!Skin.HasSetting(Disable.51Dim) + [$PARAM[focused] + Control.IsVisible(51)]"/>
             <param name="animation_vis_51" value="Control.IsVisible(51) + !$EXP[hasWallWatchedIcon]"/>
           </include>
@@ -137,6 +141,8 @@
             <param name="icon_size" value="29"/>
             <param name="back_size" value="44"/>
             <param name="offset" value="7"/>
+            <param name="focused" value="$PARAM[focused]"/>
+						<param name="focus_extra" value="Control.IsVisible(51)"/>
             <param name="animation_vis" value="!Skin.HasSetting(Disable.51Dim) + [$PARAM[focused] + Control.IsVisible(51)]"/>
           </include>
         </control>

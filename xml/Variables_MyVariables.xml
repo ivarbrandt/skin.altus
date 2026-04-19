@@ -201,6 +201,16 @@
 		<value>CC111111</value>
 	</variable>
 
+	<variable name="BadgeColorVarFocused">
+		<value condition="String.IsEqual(Skin.String(BadgeFocusColorThemeSetting),1)">$VAR[FocusColorTheme]</value>
+		<value>$VAR[BadgeColorVar]</value>
+	</variable>
+
+	<variable name="BadgeBackgroundColorVarFocused">
+		<value condition="String.IsEqual(Skin.String(BadgeFocusColorThemeSetting),1) + [String.IsEqual(Skin.String(BadgeBackgroundSetting),2) | String.IsEqual(Skin.String(BadgeBackgroundSetting),3) | String.IsEqual(Skin.String(BadgeBackgroundSetting),4)]">CC111111</value>
+		<value>$VAR[BadgeBackgroundColorVar]</value>
+	</variable>
+
 	<variable name="BadgeColorSettingVar">
 		<value condition="String.IsEqual(Skin.String(BadgeColorSetting),1)">Neon Green</value>
 		<value condition="String.IsEqual(Skin.String(BadgeColorSetting),2)">White</value>

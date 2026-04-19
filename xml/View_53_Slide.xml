@@ -270,6 +270,7 @@
 				<param name="height" value="51"/>
 				<param name="font" value="eps_51"/>
 				<param name="textoffsetx" value="13"/>
+				<param name="force_theme" value="Control.IsVisible(53)"/>
 				<param name="label" value="$INFO[ListItem.Property(UnwatchedEpisodes),, remaining]"/>
 				<param name="vis" value="Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + !String.IsEqual(ListItem.Property(WatchedEpisodes),ListItem.Property(TotalEpisodes)) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),-1)"/>
 			</include>
@@ -279,6 +280,7 @@
 				<param name="icon_size" value="25"/>
 				<param name="back_size" value="44"/>
 				<param name="offset" value="9"/>
+				<param name="force_theme" value="Control.IsVisible(53)"/>
 				<param name="vis" value="$EXP[hasWallWatchedIcon]"/>
 			</include>
 			<include content="CollectionBadge">
@@ -287,6 +289,7 @@
 				<param name="icon_size" value="25"/>
 				<param name="back_size" value="44"/>
 				<param name="offset" value="9"/>
+				<param name="force_theme" value="Control.IsVisible(53)"/>
 				<param name="vis" value="!$EXP[hasWallWatchedIcon]"/>
 			</include>
 			<include content="ProgressBadge">
@@ -295,6 +298,7 @@
 				<param name="icon_size" value="29"/>
 				<param name="back_size" value="44"/>
 				<param name="offset" value="7"/>
+				<param name="force_theme" value="Control.IsVisible(53)"/>
 			</include>
 			<control type="group">
 				<visible>String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBType,season) | ListItem.IsRecording | ListItem.HasReminder | ListItem.HasTimer | ListItem.IsCollection | ListItem.HasVideoVersions | ListItem.IsPlaying | ListItem.IsResumable | ListItem.HasVideoExtras | ListItem.HasArchive | Integer.IsGreater(ListItem.Playcount,0)</visible>
