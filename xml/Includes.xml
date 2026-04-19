@@ -34,7 +34,6 @@
 	<include file="Widgets_Weather.xml" />
 	<include file="Widgets_Square.xml" />
 	<include file="Widgets_Category.xml" />
-	<include file="Widgets_Common.xml" />
 	<include file="Widgets_Favourites.xml" />
 	<include file="Widgets_PVR.xml" />
 	<include file="Widgets_SmallPosterFlix.xml" />

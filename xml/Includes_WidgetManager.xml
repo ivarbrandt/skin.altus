@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+
 	<!-- Detail panel variables: frozen during widget reorder, live otherwise -->
 	<variable name="WM_DetailLabel">
 		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_widget_label)]</value>
@@ -90,4 +91,5 @@
 			</control>
 		</definition>
 	</include>
+
 </includes>
