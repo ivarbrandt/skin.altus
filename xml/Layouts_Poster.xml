@@ -77,8 +77,6 @@
 					<top>336</top>
 					<include content="InfoBadge">
 						<param name="top" value="6"/>
-						<param name="focused" value="$PARAM[focused]"/>
-						<param name="focus_extra" value="Control.IsVisible(54) | Control.IsVisible(500)"/>
 						<param name="label" value="[UPPERCASE][LIGHT]$INFO[ListItem.Property(UnwatchedEpisodes),, remaining][/LIGHT][/UPPERCASE]"/>
 						<param name="vis" value="[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]"/>
 						<param name="vis2" value="Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + !String.IsEqual(ListItem.Property(WatchedEpisodes),ListItem.Property(TotalEpisodes)) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),-1)"/>
@@ -87,22 +85,16 @@
 				<include content="CollectionBadge">
 					<param name="left" value="68"/>
 					<param name="top" value="346"/>
-					<param name="focused" value="$PARAM[focused]"/>
-					<param name="focus_extra" value="Control.IsVisible(54) | Control.IsVisible(500)"/>
 					<param name="vis" value="$EXP[hasWallWatchedIcon]"/>
 				</include>
 				<include content="CollectionBadge">
 					<param name="left" value="31"/>
 					<param name="top" value="346"/>
-					<param name="focused" value="$PARAM[focused]"/>
-					<param name="focus_extra" value="Control.IsVisible(54) | Control.IsVisible(500)"/>
 					<param name="vis" value="!$EXP[hasWallWatchedIcon]"/>
 				</include>
 				<include content="ProgressBadge">
 					<param name="left" value="31"/>
 					<param name="top" value="346"/>
-					<param name="focused" value="$PARAM[focused]"/>
-					<param name="focus_extra" value="Control.IsVisible(54) | Control.IsVisible(500)"/>
 				</include>
 				<control type="label">
 					<left>30</left>

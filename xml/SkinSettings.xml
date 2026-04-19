@@ -127,23 +127,6 @@
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[BadgeBackgroundToggleVar]</onclick>
 				</control>
-				<!-- BADGE FOCUS COLOR THEME -->
-				<control type="radiobutton" id="63713">
-					<label>Badge uses focus color when focused</label>
-					<include>DefaultSettingButton</include>
-					<selected>String.IsEqual(Skin.String(BadgeFocusColorThemeSetting),1)</selected>
-					<onclick condition="!String.IsEqual(Skin.String(BadgeFocusColorThemeSetting),1)">Skin.SetString(BadgeFocusColorThemeSetting,1)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(BadgeFocusColorThemeSetting),1)">Skin.SetString(BadgeFocusColorThemeSetting,0)</onclick>
-				</control>
-				<!-- EPISODE TYPE BADGE FOCUS COLOR THEME -->
-				<control type="radiobutton" id="63714">
-					<label>Episode type badge uses focus color when focused</label>
-					<include>DefaultSettingButton</include>
-					<selected>String.IsEqual(Skin.String(EpisodeTypeFocusColorThemeSetting),1)</selected>
-					<onclick condition="!String.IsEqual(Skin.String(EpisodeTypeFocusColorThemeSetting),1)">Skin.SetString(EpisodeTypeFocusColorThemeSetting,1)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(EpisodeTypeFocusColorThemeSetting),1)">Skin.SetString(EpisodeTypeFocusColorThemeSetting,0)</onclick>
-					<visible>String.IsEqual(Skin.String(BadgeBackgroundSetting),0) | String.IsEqual(Skin.String(BadgeBackgroundSetting),1)</visible>
-				</control>
 				<!-- CLOCK -->
 				<!-- <control type="radiobutton" id="63706">
 					<label>Show current time in InfoLine</label>

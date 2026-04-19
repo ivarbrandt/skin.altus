@@ -77,8 +77,6 @@
 					<top>204</top>
 					<include content="InfoBadge">
 						<param name="top" value="5.5"/>
-						<param name="focused" value="$PARAM[focused]"/>
-						<param name="list_id" value="$PARAM[list_id]"/>
 						<param name="focus_extra" value="Control.IsVisible(55) | Control.IsVisible(501)"/>
 						<param name="label" value="[UPPERCASE][LIGHT]$INFO[ListItem.Property(UnwatchedEpisodes),, remaining][/LIGHT][/UPPERCASE]"/>
 						<param name="vis" value="[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]"/>
@@ -91,32 +89,20 @@
 					<include content="EpisodeTypeBadge">
 						<param name="right" value="30"/>
 						<param name="top" value="-187"/>
-						<param name="focused" value="$PARAM[focused]"/>
-						<param name="list_id" value="$PARAM[list_id]"/>
-						<param name="focus_extra" value="Control.IsVisible(55) | Control.IsVisible(501)"/>
 					</include>
 					<include content="SeasonEpisodeBadge">
 						<param name="left" value="63"/>
 						<param name="top" value="6"/>
-						<param name="focused" value="$PARAM[focused]"/>
-						<param name="list_id" value="$PARAM[list_id]"/>
-						<param name="focus_extra" value="Control.IsVisible(55) | Control.IsVisible(501)"/>
 						<param name="vis" value="$EXP[hasWallWatchedIcon] + [[Window.IsVisible(videos) + ![$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]] | [!Window.IsVisible(videos) + ![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]]]"/>
 					</include>
 					<include content="SeasonEpisodeBadge">
 						<param name="left" value="30"/>
 						<param name="top" value="6"/>
-						<param name="focused" value="$PARAM[focused]"/>
-						<param name="list_id" value="$PARAM[list_id]"/>
-						<param name="focus_extra" value="Control.IsVisible(55) | Control.IsVisible(501)"/>
 						<param name="vis" value="!$EXP[hasWallWatchedIcon] + [[Window.IsVisible(videos) + ![$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]] | [!Window.IsVisible(videos) + ![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]]]"/>
 					</include>
 					<!-- Episode badge: non-season view (with watched icon) -->
 					<include content="InfoBadge">
 						<param name="left" value="63"/>
-						<param name="focused" value="$PARAM[focused]"/>
-						<param name="list_id" value="$PARAM[list_id]"/>
-						<param name="focus_extra" value="Control.IsVisible(55) | Control.IsVisible(501)"/>
 						<param name="label" value="[UPPERCASE][LIGHT]$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,] | $INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/UPPERCASE][/LIGHT]"/>
 						<param name="vis" value="$EXP[hasWallWatchedIcon] + !String.StartsWith(Container($PARAM[list_id]).PluginCategory,Season)"/>
 						<param name="vis2" value="[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]"/>
@@ -124,9 +110,6 @@
 					<!-- Episode badge: non-season view (no watched icon, shifted left) -->
 					<include content="InfoBadge">
 						<param name="left" value="30"/>
-						<param name="focused" value="$PARAM[focused]"/>
-						<param name="list_id" value="$PARAM[list_id]"/>
-						<param name="focus_extra" value="Control.IsVisible(55) | Control.IsVisible(501)"/>
 						<param name="label" value="[UPPERCASE][LIGHT]$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,] | $INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/UPPERCASE][/LIGHT]"/>
 						<param name="vis" value="!$EXP[hasWallWatchedIcon] + !String.StartsWith(Container($PARAM[list_id]).PluginCategory,Season)"/>
 						<param name="vis2" value="[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]"/>
@@ -134,9 +117,6 @@
 					<!-- Episode badge: season view (with watched icon) -->
 					<include content="InfoBadge">
 						<param name="left" value="63"/>
-						<param name="focused" value="$PARAM[focused]"/>
-						<param name="list_id" value="$PARAM[list_id]"/>
-						<param name="focus_extra" value="Control.IsVisible(55) | Control.IsVisible(501)"/>
 						<param name="label" value="$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,] | $INFO[Container($PARAM[list_id]).ListItem.Title]"/>
 						<param name="vis" value="$EXP[hasWallWatchedIcon] + String.StartsWith(Container($PARAM[list_id]).PluginCategory,Season)"/>
 						<param name="vis2" value="[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]"/>
@@ -144,9 +124,6 @@
 					<!-- Episode badge: season view (no watched icon, shifted left) -->
 					<include content="InfoBadge">
 						<param name="left" value="30"/>
-						<param name="focused" value="$PARAM[focused]"/>
-						<param name="list_id" value="$PARAM[list_id]"/>
-						<param name="focus_extra" value="Control.IsVisible(55) | Control.IsVisible(501)"/>
 						<param name="label" value="$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,] | $INFO[Container($PARAM[list_id]).ListItem.Title]"/>
 						<param name="vis" value="!$EXP[hasWallWatchedIcon] + String.StartsWith(Container($PARAM[list_id]).PluginCategory,Season)"/>
 						<param name="vis2" value="[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]"/>
@@ -156,24 +133,15 @@
 					<param name="left" value="68"/>
 					<param name="top" value="213"/>
 					<param name="vis" value="$EXP[hasWallWatchedIcon]"/>
-					<param name="focused" value="$PARAM[focused]"/>
-					<param name="list_id" value="$PARAM[list_id]"/>
-					<param name="focus_extra" value="Control.IsVisible(55) | Control.IsVisible(501)"/>
 				</include>
 				<include content="CollectionBadge">
 					<param name="left" value="31"/>
 					<param name="top" value="213"/>
 					<param name="vis" value="!$EXP[hasWallWatchedIcon]"/>
-					<param name="focused" value="$PARAM[focused]"/>
-					<param name="list_id" value="$PARAM[list_id]"/>
-					<param name="focus_extra" value="Control.IsVisible(55) | Control.IsVisible(501)"/>
 				</include>
 				<include content="ProgressBadge">
 					<param name="left" value="31"/>
 					<param name="top" value="213"/>
-					<param name="focused" value="$PARAM[focused]"/>
-					<param name="list_id" value="$PARAM[list_id]"/>
-					<param name="focus_extra" value="Control.IsVisible(55) | Control.IsVisible(501)"/>
 				</include>
 				<control type="label">
 					<left>30</left>
