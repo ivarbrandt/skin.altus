@@ -59,7 +59,7 @@
 				<scroll>$PARAM[focused]</scroll>
 				<scrollspeed>100</scrollspeed>
 			</control>
-			<!-- <control type="image">
+			<control type="image">
 				<right>20</right>
 				<width>35</width>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
@@ -72,7 +72,7 @@
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture colordiffuse="$VAR[FocusedTextColorVar]">iconpicker/monochrome/Media/play-fill.png</texture>
 				<visible>ListItem.IsPlaying + [Control.HasFocus($PARAM[list_id]) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)] + $PARAM[focused]</visible>
-			</control> -->
+			</control>
 			<control type="group">
 				<visible>!$PARAM[only_label_condition]</visible>
 				<top>-8</top>
@@ -351,7 +351,142 @@
 			</focusedlayout>
 		</definition>
 	</include>
-	
+	<include name="PVRListItemLayouts_NoIcons">
+		<param name="has_status_icon">true</param>
+		<param name="info_update">0</param>
+		<definition>
+			<itemlayout height="86" infoupdate="$PARAM[info_update]">
+				<control type="progress">
+					<right>30</right>
+					<top>58</top>
+					<left>30</left>
+					<height>3</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<visible>ListItem.HasEpg + !ListItem.IsRecording</visible>
+					<info>ListItem.Progress</info>
+				</control>
+				<control type="image">
+					<right>15</right>
+					<top>9</top>
+					<width>40</width>
+					<height>40</height>
+					<texture>$VAR[PVRStatusImageVar]</texture>
+					<visible>$PARAM[has_status_icon]</visible>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<bottom>15</bottom>
+					<right>90</right>
+					<aligny>center</aligny>
+					<textcolor>unfocused_text</textcolor>
+					<selectedcolor>unfocused_text</selectedcolor>
+					<font>Font300</font>
+					<label>[B]$VAR[ChannelNumDisplayVar]$PARAM[label1][/B]</label>
+				</control>
+				<control type="label">
+					<left>390</left>
+					<bottom>15</bottom>
+					<right>30</right>
+					<aligny>center</aligny>
+					<textcolor>grey</textcolor>
+					<selectedcolor>grey</selectedcolor>
+					<align>right</align>
+					<font>Font300</font>
+					<label>$INFO[ListItem.Title]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="86" infoupdate="$PARAM[info_update]">
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<right>0</right>
+					<bottom>0</bottom>
+					<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+					<visible>Control.HasFocus($PARAM[list_id]) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)</visible>
+					<animation effect="fade" start="100" end="70" time="300" condition="!Control.HasFocus($PARAM[list_id]) + [Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]" reversible="true">conditional</animation>
+				</control>
+				<control type="progress">
+					<right>30</right>
+					<top>58</top>
+					<left>30</left>
+					<height>3</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<visible>ListItem.HasEpg + !ListItem.IsRecording + ![Control.HasFocus($PARAM[list_id]) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
+					<info>ListItem.Progress</info>
+				</control>
+				<control type="progress">
+					<right>30</right>
+					<top>58</top>
+					<left>30</left>
+					<height>3</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<colordiffuse>$VAR[FocusedTextColorVar]</colordiffuse>
+					<midtexture colordiffuse="$VAR[FocusedTextColorVar]">colors/white.png</midtexture>
+					<texturebg colordiffuse="$VAR[FocusedTextColorVar]">colors/white_50.png</texturebg>
+					<visible>ListItem.HasEpg + !ListItem.IsRecording + [Control.HasFocus($PARAM[list_id]) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
+					<info>ListItem.Progress</info>
+				</control>
+				<control type="image">
+					<right>15</right>
+					<top>9</top>
+					<width>40</width>
+					<height>40</height>
+					<texture>$VAR[PVRStatusImageVar]</texture>
+					<visible>$PARAM[has_status_icon]</visible>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<bottom>15</bottom>
+					<right>90</right>
+					<aligny>center</aligny>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
+					<font>Font300</font>
+					<label>[B]$VAR[ChannelNumDisplayVar]$PARAM[label1][/B]</label>
+					<visible>[Control.HasFocus($PARAM[list_id]) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<bottom>15</bottom>
+					<right>90</right>
+					<aligny>center</aligny>
+					<textcolor>unfocused_text</textcolor>
+					<selectedcolor>unfocused_text</selectedcolor>
+					<font>Font300</font>
+					<label>[B]$VAR[ChannelNumDisplayVar]$PARAM[label1][/B]</label>
+					<visible>![Control.HasFocus($PARAM[list_id]) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
+				</control>
+				<control type="label">
+					<left>390</left>
+					<bottom>15</bottom>
+					<right>30</right>
+					<aligny>center</aligny>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
+					<align>right</align>
+					<font>Font300</font>
+					<label>$INFO[ListItem.Title]</label>
+					<visible>[Control.HasFocus($PARAM[list_id]) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
+				</control>
+				<control type="label">
+					<left>390</left>
+					<bottom>15</bottom>
+					<right>30</right>
+					<aligny>center</aligny>
+					<textcolor>grey</textcolor>
+					<selectedcolor>grey</selectedcolor>
+					<align>right</align>
+					<font>Font300</font>
+					<label>$INFO[ListItem.Title]</label>
+					<visible>![Control.HasFocus($PARAM[list_id]) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
+				</control>
+			</focusedlayout>
+		</definition>
+	</include>
+
 	<!-- <include name="PVRListItemLayouts">
     <param name="only_label_condition">false</param>
     <param name="has_info_icon">false</param>
