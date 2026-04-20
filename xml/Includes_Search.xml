@@ -2,101 +2,101 @@
 <includes>
 
   <include name="SearchWidgets">
-    <include content="SmallWidgetListPoster" condition="!Skin.HasSetting(HideMovieResults)">
+    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HideMovieResults)">
       <param name="content_path" value="$VAR[SearchProviderMoviesVar]"/>
       <param name="widget_header" value="$LOCALIZE[342]"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="26011"/>
+      <param name="list_id" value="3011"/>
     </include>
-    <include content="SmallWidgetListPoster" condition="!Skin.HasSetting(HideTVShowResults)">
+    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HideTVShowResults)">
       <param name="content_path" value="$VAR[SearchProviderTVShowsVar]"/>
       <param name="widget_header" value="TV Shows"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="26012"/>
+      <param name="list_id" value="3012"/>
     </include>
-    <include content="SmallWidgetListPoster" condition="!Skin.HasSetting(HideAnimeResults) + String.IsEqual(Skin.String(current_search_provider),1)">
+    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HideAnimeResults) + String.IsEqual(Skin.String(current_search_provider),1)">
       <param name="content_path" value="$VAR[SearchProviderAnimeVar]"/>
       <param name="widget_header" value="Anime"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="26013"/>
+      <param name="list_id" value="3013"/>
     </include>
-    <include content="SmallWidgetListPoster" condition="!Skin.HasSetting(HideCollectionsResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),3)]">
+    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HideCollectionsResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),3)]">
       <param name="content_path" value="$VAR[SearchProviderCollectionsVar]"/>
       <param name="widget_header" value="Collections"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="26014"/>
+      <param name="list_id" value="3014"/>
     </include>
-    <include content="SmallWidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
+    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HidePeopleResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
       <param name="content_path" value="$VAR[SearchProviderPeopleVar]"/>
       <param name="widget_header" value="Actors/Actresses"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="26015"/>
+      <param name="list_id" value="3015"/>
     </include>
-    <include content="SmallWidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
+    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
       <param name="content_path" value="$VAR[SearchProviderActors/ActressesMoviesVar]"/>
       <param name="widget_header" value="Actors/Actresses (Movies)"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="26016"/>
+      <param name="list_id" value="3016"/>
     </include>
-    <include content="SmallWidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
+    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
       <param name="content_path" value="$VAR[SearchProviderActors/ActressesTVShowsVar]"/>
       <param name="widget_header" value="Actors/Actresses (TV Shows)"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="26017"/>
+      <param name="list_id" value="3017"/>
     </include>
-    <include content="SmallWidgetListPoster" condition="!Skin.HasSetting(HideMovieKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
+    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HideMovieKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
       <param name="content_path" value="$VAR[SearchProviderKeywordMoviesVar]"/>
       <param name="widget_header" value="$VAR[KeywordMoviesLabelVar]"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="26018"/>
+      <param name="list_id" value="3018"/>
     </include>
-    <include content="SmallWidgetListPoster" condition="!Skin.HasSetting(HideTVShowKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
+    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HideTVShowKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
       <param name="content_path" value="$VAR[SearchProviderKeywordTVShowsVar]"/>
       <param name="widget_header" value="$VAR[KeywordTVShowsLabelVar]"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="26019"/>
+      <param name="list_id" value="3019"/>
     </include>
     <include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
       <param name="content_path" value="$VAR[SearchProviderTRAKTListsVar]"/>
       <param name="widget_header" value="TRAKT Lists"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="26020"/>
-      <param name="child_id" value="260201"/>
+      <param name="list_id" value="3020"/>
+      <param name="child_id" value="30201"/>
     </include>
     <include content="WidgetListLandscapeStacked" condition="!Skin.HasSetting(HideTraktResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
-      <param name="content_path" value="$INFO[Window(1121).Property(altus.26020.path)]"/>
-      <param name="widget_header" value="$INFO[Window(1121).Property(altus.26020.label)]"/>
+      <param name="content_path" value="$INFO[Window(1121).Property(altus.3020.path)]"/>
+      <param name="widget_header" value="$INFO[Window(1121).Property(altus.3020.label)]"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="260201"/>
-      <param name="parent_id" value="26020"/>
+      <param name="list_id" value="30201"/>
+      <param name="parent_id" value="3020"/>
     </include>
     <include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
       <param name="content_path" value="$VAR[SearchProviderTRAKTListsMoviesVar]"/>
       <param name="widget_header" value="TRAKT Lists (Movies)"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="26021"/>
-      <param name="child_id" value="260211"/>
+      <param name="list_id" value="3021"/>
+      <param name="child_id" value="30211"/>
     </include>
     <include content="WidgetListLandscapeStacked" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-      <param name="content_path" value="$INFO[Window(1121).Property(altus.26021.path)]"/>
-      <param name="widget_header" value="$INFO[Window(1121).Property(altus.26021.label)]"/>
+      <param name="content_path" value="$INFO[Window(1121).Property(altus.3021.path)]"/>
+      <param name="widget_header" value="$INFO[Window(1121).Property(altus.3021.label)]"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="260211"/>
-      <param name="parent_id" value="26021"/>
+      <param name="list_id" value="30211"/>
+      <param name="parent_id" value="3021"/>
     </include>
     <include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
       <param name="content_path" value="$VAR[SearchProviderTRAKTListsTVShowsVar]"/>
       <param name="widget_header" value="TRAKT Lists (TV Shows)"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="26022"/>
-      <param name="child_id" value="260221"/>
+      <param name="list_id" value="3022"/>
+      <param name="child_id" value="30221"/>
     </include>
     <include content="WidgetListLandscapeStacked" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-      <param name="content_path" value="$INFO[Window(1121).Property(altus.26022.path)]"/>
-      <param name="widget_header" value="$INFO[Window(1121).Property(altus.26022.label)]"/>
+      <param name="content_path" value="$INFO[Window(1121).Property(altus.3022.path)]"/>
+      <param name="widget_header" value="$INFO[Window(1121).Property(altus.3022.label)]"/>
       <param name="widget_target" value="videos"/>
-      <param name="list_id" value="260221"/>
-      <param name="parent_id" value="26022"/>
+      <param name="list_id" value="30221"/>
+      <param name="parent_id" value="3022"/>
     </include>
   </include>
 

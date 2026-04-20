@@ -46,18 +46,18 @@
 					</control>
 				</control>
 				<!-- SEARCH RESULTS -->
-				<control type="group" id="26000">
+				<control type="group" id="3000">
 					<include content="Visible_Right_Delayed">
 						<param name="id" value="movies"/>
 					</include>
-					<control type="grouplist" id="26001">
+					<control type="grouplist" id="3001">
 						<visible>!String.IsEmpty(Window(home).Property(altus.search.input)) + !String.IsEqual(Window(home).Property(altus.search.history.count),0)</visible>
 						<include>WidgetGroupListCommon</include>
-						<pagecontrol>26099</pagecontrol>
+						<pagecontrol>3099</pagecontrol>
 						<include content="SearchWidgets"/>
 					</control>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
-						<param name="scrollbar_id" value="26099"/>
+						<param name="scrollbar_id" value="3099"/>
 					</include>
 				</control>
 			</control>

@@ -48,7 +48,7 @@
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
 				<!-- <top>-50</top> -->
-				<left>-1</left>
+				<left>497</left>
 				<!-- <top>-20</top>
 				<width>200%</width> -->
 				<animation condition="Skin.HasSetting(Enable.MainMenuWidgetDimming) + String.IsEqual(Skin.String(BackgroundSetting),1) + !ControlGroup(2000).HasFocus" reversible="true">
@@ -59,7 +59,7 @@
 					<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="300" />
 				</animation>
 				<!-- <animation effect="slide" condition="!String.IsEmpty(Window(Home).Property(FlixWidget))" time="0" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation> -->
-				<animation effect="slide" condition="!ControlGroup(15000).HasFocus" time="500" start="0,0" end="498,0" tween="cubic" easing="inout">Conditional</animation>
+				<!-- <animation effect="slide" condition="!ControlGroup(15000).HasFocus" time="500" start="0,0" end="498,0" tween="cubic" easing="inout">Conditional</animation> -->
 				<!-- <animation type="Conditional" condition="Control.IsVisible(20000)" reversible="false">
 					<effect type="slide" end="0,20" time="60" tween="sine" />
 					<effect type="slide" end="0,-20" time="180" tween="sine" delay="80" />
@@ -121,7 +121,7 @@
 							<param name="widget_header" value="$LOCALIZE[33036]"/>
 							<param name="visible" value="!String.IsEmpty(Window(weather).Property(Hourly.IsFetched))" />
 						</include>
-						<!-- <include content="WeatherMapItem">
+						<include content="WeatherMapItem">
 							<param name="item_id" value="1" />
 							<param name="onup_id" value="15200" />
 							<param name="ondown_id" value="70020" />
@@ -145,7 +145,7 @@
 							<param name="item_id" value="5" />
 							<param name="onup_id" value="70040" />
 							<param name="ondown_id" value="20001" />
-						</include> -->
+						</include>
 					</control>
 					<include content="ImageWidget" condition="String.IsEmpty(Weather.plugin)">
 						<param name="text_label" value="$LOCALIZE[31120]" />
@@ -211,7 +211,7 @@
 				<control type="group">
 					<!-- <visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus + !Control.HasFocus(20000) + !Control.HasFocus(20001)</visible> -->
 					<visible allowhiddenfocus="true">!$EXP[isContent]</visible>
-					<animation effect="fade" condition="!$EXP[isContent]" time="300" end="100" tween="sine" easing="inout">Conditional</animation>
+					<animation effect="fade" time="300">VisibleChange</animation>
 					<width>498</width>
 					<control type="list" id="9000">
 						<animation effect="slide" condition="!ControlGroup(2000).HasFocus + ![Control.HasFocus(9000) | ControlGroup(700).HasFocus]" time="300" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation>
@@ -221,8 +221,6 @@
 						<height>850</height>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<!-- <onfocus>SetProperty(fenlight.default_addon_fanart,,home)</onfocus> -->
-						<!-- <onfocus>ClearProperty(FirstWidgetID,home)</onfocus>
-						<onfocus>ClearProperty(LastWidgetID,home)</onfocus> -->
 						<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
 						<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
 						<onfocus>ClearProperty(altus_stacked_linked_list_id,Home)</onfocus>

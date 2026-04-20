@@ -87,6 +87,7 @@
 				<focusposition>0</focusposition>
 				<movement>4</movement>
 				<onright>$PARAM[list_id]</onright>
+				<onfocus>RunScript(script.altus.helper,mode=widget_monitor&amp;list_id=$PARAM[list_id])</onfocus>
 				<onfocus>SetProperty(altus_saved_list_id,$PARAM[list_id],home)</onfocus>
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
 				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>

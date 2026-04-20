@@ -40,7 +40,6 @@
 				</itemlayout>
 				<focusedlayout width="271" infoupdate="30">
 					<control type="group">
-						<depth>DepthContentPopout</depth>
 						<top>80</top>
 						<left>-20</left>
 						<include content="SmallSquareLayout">

@@ -139,7 +139,7 @@
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
-							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuse]">$VAR[WidgetManagerItemIcon]</texture>
+							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuse]">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 						</control>
@@ -185,7 +185,7 @@
 							<width>40</width>
 							<top>12</top>
 							<left>14</left>
-							<texture colordiffuse="4D000000">lists/mainmenu-img.png</texture>
+							<texture colordiffuse="4D000000">masks/mainmenu-img.png</texture>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(3000)</visible>
 						</control> -->
 
@@ -195,7 +195,7 @@
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
-							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuse]">$VAR[WidgetManagerItemIcon]</texture>
+							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuse]">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + !Control.HasFocus(3000)</visible>
 						</control>
@@ -204,7 +204,7 @@
 							<top>17</top>
 							<width>30</width>
 							<height>30</height>
-							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuseFocused]">$VAR[WidgetManagerItemIcon]</texture>
+							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuseFocused]">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(3000)</visible>
 						</control>

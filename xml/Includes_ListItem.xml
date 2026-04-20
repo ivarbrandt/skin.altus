@@ -293,7 +293,7 @@
           <top>19</top>
           <width>47</width>
           <height>47</height>
-          <texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
+          <texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
           <aspectratio>keep</aspectratio>
           <visible>!String.IsEmpty(ListItem.Property(icon)) + [!Control.HasFocus($PARAM[id]) | !$PARAM[focused]]</visible>
         </control>
@@ -302,7 +302,7 @@
           <top>19</top>
           <width>47</width>
           <height>47</height>
-          <texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Property(icon)]</texture>
+          <texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Property(icon)]</texture>
           <aspectratio>keep</aspectratio>
           <visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
         </control>
@@ -472,7 +472,7 @@
 					<top>19</top>
 					<width>47</width>
 					<height>47</height>
-					<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[HomeMenuIcon]</texture>
+					<texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[HomeMenuIcon]</texture>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 				</control>
@@ -518,7 +518,7 @@
 					<top>19</top>
 					<width>47</width>
 					<height>47</height>
-					<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[HomeMenuIcon]</texture>
+					<texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[HomeMenuIcon]</texture>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.Property(icon)) + !Control.HasFocus($PARAM[list_id])</visible>
 				</control>
@@ -528,7 +528,7 @@
 					<top>19</top>
 					<width>47</width>
 					<height>47</height>
-					<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$VAR[HomeMenuIcon]</texture>
+					<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$VAR[HomeMenuIcon]</texture>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus($PARAM[list_id])</visible>
 				</control>

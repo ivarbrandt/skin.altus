@@ -135,7 +135,6 @@
 		<scrolltime tween="cubic" easing="out">400</scrolltime>
 		<orientation>horizontal</orientation>
 		<onfocus>SetProperty(altus_saved_list_id,$PARAM[list_id],home)</onfocus>
-		<!-- <onfocus condition="String.IsEmpty(Window(Home).Property(FirstWidgetID)) + String.IsEmpty(Window(Home).Property(LastWidgetID))">RunScript(script.altus.helper,mode=set_widget_boundaries,$PARAM[list_id])</onfocus> -->
 		<onunfocus>SetProperty(Widget_$PARAM[list_id]_Position,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
 		<onfocus>ClearProperty(altus_child_id,home)</onfocus>
 		<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
@@ -160,8 +159,6 @@
 	<include name="WidgetListCommonStacked">
 		<scrolltime tween="cubic" easing="out">400</scrolltime>
 		<orientation>horizontal</orientation>
-		<onfocus>RunScript(script.altus.helper,mode=widget_monitor&amp;list_id=$PARAM[list_id])</onfocus>
-		<!-- <onfocus condition="String.IsEmpty(Window(Home).Property(FirstWidgetID)) + String.IsEmpty(Window(Home).Property(LastWidgetID))">RunScript(script.altus.helper,mode=set_widget_boundaries,$PARAM[list_id])</onfocus> -->
 		<onunfocus>SetProperty(Widget_$PARAM[list_id]_Position,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
 		<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 		<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(Widget_$PARAM[list_id]_Position)])</onfocus>
