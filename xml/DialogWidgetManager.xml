@@ -4,73 +4,28 @@
 	<depth>DepthDialog</depth>
 	<include>Animation_DialogPopupOpenClose</include>
 	<controls>
-		<!-- Backdrop darken + close on click -->
-		<control type="image">
-			<left>-2000</left>
-			<top>-2000</top>
-			<width>6000</width>
-			<height>6000</height>
-			<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-			<texture colordiffuse="A6FFFFFF">colors/black.png</texture>
-		</control>
-		<control type="button">
-			<left>-2000</left>
-			<top>-2000</top>
-			<width>6000</width>
-			<height>6000</height>
-			<texturefocus />
-			<texturenofocus />
-			<onclick>Action(close)</onclick>
-		</control>
-
 		<!-- Main dialog container -->
 		<control type="group">
-			<left>77</left>
+			<left>40</left>
 			<top>77</top>
-			<right>77</right>
+			<right>40</right>
 			<bottom>77</bottom>
 
-			<!-- Background -->
-			<control type="image">
-				<left>0</left>
-				<top>0</top>
-				<right>0</right>
-				<bottom>0</bottom>
-				<texture colordiffuse="$VAR[DialogBackgroundDiffuse]">$VAR[DialogBackgroundTexture]</texture>
-				<aspectratio>scale</aspectratio>
-			</control>
-
-			<!-- Header -->
-			<control type="label">
-				<left>30</left>
-				<right>30</right>
-				<top>12</top>
-				<height>70</height>
-				<label>Widget Manager</label>
-				<align>left</align>
-				<aligny>center</aligny>
-				<font>font36_title</font>
-				<textcolor>unfocused_text</textcolor>
-			</control>
+			<include content="DialogBackgroundCommons">
+				<param name="header_label" value="Widget Manager" />
+				<param name="header_id" value="1" />
+				<param name="header_top" value="15" />
+				<param name="divider_top" value="90" />
+			</include>
 
 			<!-- ═══════════════════════════════════════ -->
 			<!-- LEFT PANEL: Sections (width 520)        -->
 			<!-- ═══════════════════════════════════════ -->
 			<control type="group">
-				<left>0</left>
-				<top>90</top>
+				<left>40</left>
+				<top>100</top>
 				<width>520</width>
-				<bottom>0</bottom>
-
-				<!-- Shade overlay -->
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<right>0</right>
-					<bottom>0</bottom>
-					<texture colordiffuse="4D000000">colors/dark.png</texture>
-				</control>
+				<height>760</height>
 
 				<!-- Section label (normal mode) -->
 				<control type="label">
@@ -127,7 +82,7 @@
 					<left>20</left>
 					<top>65</top>
 					<right>20</right>
-					<bottom>10</bottom>
+					<height>715</height>
 					<scrolltime tween="cubic" easing="out">300</scrolltime>
 					<pagecontrol>3001</pagecontrol>
 
@@ -300,12 +255,21 @@
 					</focusedlayout>
 				</control>
 
+				<!-- Right divider -->
+				<control type="image">
+					<left>528</left>
+					<top>20</top>
+					<width>1</width>
+					<height>760</height>
+					<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
+				</control>
+
 				<!-- Scrollbar -->
 				<control type="scrollbar" id="3001">
 					<left>518</left>
-					<top>0</top>
-					<width>4</width>
-					<bottom>0</bottom>
+					<top>20</top>
+					<width>1</width>
+					<height>760</height>
 					<orientation>vertical</orientation>
 					<texturesliderbackground/>
 					<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
@@ -313,24 +277,16 @@
 					<showonepage>false</showonepage>
 				</control>
 
-				<!-- Right divider -->
-				<control type="image">
-					<left>520</left>
-					<top>0</top>
-					<width>1</width>
-					<bottom>0</bottom>
-					<texture colordiffuse="$VAR[FocusColorTheme]">masks/mainmenupanel_divider.png</texture>
-				</control>
 			</control>
 
 			<!-- ═══════════════════════════════════════ -->
-			<!-- MIDDLE PANEL: Widgets (521 to 1130)      -->
+			<!-- MIDDLE PANEL: Widgets (581 to 1211)      -->
 			<!-- ═══════════════════════════════════════ -->
 			<control type="group">
-				<left>521</left>
-				<top>90</top>
+				<left>581</left>
+				<top>100</top>
 				<width>609</width>
-				<bottom>0</bottom>
+				<height>760</height>
 
 				<!-- Widget label -->
 				<control type="label">
@@ -376,12 +332,12 @@
 					<left>20</left>
 					<top>65</top>
 					<right>20</right>
-					<bottom>10</bottom>
+					<height>715</height>
 					<scrolltime tween="cubic" easing="out">300</scrolltime>
 					<pagecontrol>4001</pagecontrol>
 
 					<!-- Non-focused item -->
-					<itemlayout width="569" height="90">
+					<itemlayout width="569" height="89">
 						<control type="label">
 							<left>20</left>
 							<top>-2</top>
@@ -405,7 +361,7 @@
 					</itemlayout>
 
 					<!-- Focused item: expanded with inline buttons -->
-					<focusedlayout width="569" height="90">
+					<focusedlayout width="569" height="89">
 						<!-- Focus background -->
 						<control type="image">
 							<left>0</left>
@@ -421,7 +377,7 @@
 						<control type="label">
 							<visible>!Control.HasFocus(4000)</visible>
 							<left>20</left>
-							<top>-2</top>
+							<top>-3</top>
 							<right>10</right>
 							<height>34</height>
 							<font>font32</font>
@@ -433,7 +389,7 @@
 						<control type="label">
 							<visible>Control.HasFocus(4000)</visible>
 							<left>20</left>
-							<top>-2</top>
+							<top>-3</top>
 							<right>160</right>
 							<height>34</height>
 							<font>font32</font>
@@ -448,7 +404,7 @@
 						<control type="label">
 							<visible>!Control.HasFocus(4000)</visible>
 							<left>20</left>
-							<top>36</top>
+							<top>35</top>
 							<right>10</right>
 							<height>25</height>
 							<font>font27</font>
@@ -460,7 +416,7 @@
 						<control type="label">
 							<visible>Control.HasFocus(4000)</visible>
 							<left>20</left>
-							<top>36</top>
+							<top>35</top>
 							<right>160</right>
 							<height>25</height>
 							<font>font27</font>
@@ -499,37 +455,38 @@
 					</focusedlayout>
 				</control>
 
+				<!-- Right divider -->
+				<control type="image">
+					<left>619</left>
+					<top>20</top>
+					<width>1</width>
+					<height>760</height>
+					<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
+				</control>
+
 				<!-- Scrollbar -->
 				<control type="scrollbar" id="4001">
-					<right>0</right>
-					<top>55</top>
-					<width>5</width>
-					<bottom>10</bottom>
+					<right>-1</right>
+					<top>20</top>
+					<width>1</width>
+					<height>760</height>
 					<orientation>vertical</orientation>
-					<texturesliderbackground colordiffuse="26FFFFFF">colors/white.png</texturesliderbackground>
+					<texturesliderbackground/>
 					<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
 					<texturesliderbarfocus colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbarfocus>
 					<showonepage>false</showonepage>
 				</control>
 
-				<!-- Right divider -->
-				<control type="image">
-					<left>609</left>
-					<top>0</top>
-					<width>1</width>
-					<bottom>0</bottom>
-					<texture colordiffuse="$VAR[FocusColorTheme]">masks/mainmenupanel_divider.png</texture>
-				</control>
 			</control>
 
 			<!-- ═══════════════════════════════════════ -->
-			<!-- RIGHT PANEL: Widget Detail/Edit (1131+)  -->
+			<!-- RIGHT PANEL: Widget Detail/Edit (1211+)  -->
 			<!-- ═══════════════════════════════════════ -->
 			<control type="group">
-				<left>1131</left>
-				<top>90</top>
-				<right>0</right>
-				<bottom>0</bottom>
+				<left>1211</left>
+				<top>100</top>
+				<right>40</right>
+				<height>790</height>
 
 				<!-- Detail label -->
 				<control type="label">

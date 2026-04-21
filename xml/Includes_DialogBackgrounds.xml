@@ -29,6 +29,8 @@
 		<param name="border_value">46</param>
 		<param name="visible">true</param>
 		<param name="divider_visible">true</param>
+		<param name="header_top">60</param>
+		<param name="divider_top">135</param>
 		<definition>
 			<control type="image">
 				<left>-2000</left>
@@ -66,7 +68,7 @@
 				<control type="image">
 					<left>40</left>
 					<right>40</right>
-					<top>135</top>
+					<top>$PARAM[divider_top]</top>
 					<height>1</height>
 					<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
 					<visible>$PARAM[divider_visible]</visible>
@@ -74,7 +76,7 @@
 				<control type="label" id="$PARAM[header_id]">
 					<left>40</left>
 					<right>40</right>
-					<top>60</top>
+					<top>$PARAM[header_top]</top>
 					<height>70</height>
 					<label>[UPPERCASE]$PARAM[header_label][/UPPERCASE]</label>
 					<align>left</align> 
