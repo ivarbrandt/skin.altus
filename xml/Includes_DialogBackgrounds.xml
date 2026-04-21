@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+	<variable name="DialogBackgroundTexture">
+		<value condition="!Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">$INFO[Window(home).Property(listitem_blurred)]</value>
+		<value condition="Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">colors/darker.png</value>
+		<value>colors/darker.png</value>
+	</variable>
+
+  <variable name="DialogBackgroundDiffuse">
+		<value condition="!Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">E6888888</value>
+		<value condition="Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + String.IsEqual(Skin.String(FocusColorThemeSetting),0)">$INFO[Window(Home).Property(listitem_logo_color_video)]</value>
+		<value condition="!Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + String.IsEmpty(Window(home).Property(listitem_blurred))">CC000000</value>
+		<value>accent_color</value>
+	</variable>
+
   <include name="DialogBackgroundCommons">
-		<param name="width">1220</param>
+		<param name="left">0</param>
+		<param name="top">0</param>
+		<param name="right">0</param>
+		<param name="bottom">0</param>
+		<param name="width">100%</param>
 		<param name="height">100%</param>
-		<param name="shade_visible">true</param>
 		<param name="darken_bg">true</param>
-		<param name="shade_right">290</param>
-		<param name="divider_left">930</param>
-		<param name="left_divider_visible">true</param>
-		<param name="right_divider_visible">true</param>
+		<param name="colordiffuse">$VAR[FocusColorTheme]</param>
+		<param name="border_colordiffuse">$VAR[FocusColorTheme]</param>
+		<param name="diffuse_texture">masks/radius_46.png</param>
+		<param name="border_texture">masks/bordertexture-46-thin.png</param>
+		<param name="border_value">46</param>
+		<param name="visible">true</param>
+		<param name="divider_visible">true</param>
 		<definition>
 			<control type="image">
 				<left>-2000</left>
@@ -20,7 +39,7 @@
 				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 				<texture colordiffuse="A6FFFFFF">colors/black.png</texture>
-				<visible>$PARAM[darken_bg] + !String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)</visible>
+				<visible>$PARAM[darken_bg]</visible>
 			</control>
 			<control type="button">
 				<left>-2000</left>
@@ -34,54 +53,30 @@
 			<control type="group">
 				<width>$PARAM[width]</width>
 				<height>$PARAM[height]</height>
-				<top>0</top>
-				<!-- <control type="image">
-					<left>0</left>
-					<top>0</top>
-					<right>0</right>
-					<height>70</height>
-					<texture colordiffuse="dialog_header_tint">colors/white.png</texture>
-				</control> -->
-				
 				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<right>0</right>
-					<bottom>0</bottom>
-					<texture colordiffuse="$VAR[DialogBackgroundDiffuse]">$VAR[DialogBackgroundTexture]</texture>
-					<aspectratio>scale</aspectratio>
+					<left>$PARAM[left]</left>
+					<top>$PARAM[top]</top>
+					<right>$PARAM[right]</right>
+					<bottom>$PARAM[bottom]</bottom>
+					<visible>$PARAM[visible]</visible>
+					<bordersize>2</bordersize>
+					<texture border="$PARAM[border_value]" colordiffuse="$PARAM[colordiffuse]">$PARAM[diffuse_texture]</texture>
+					<bordertexture border="$PARAM[border_value]" colordiffuse="$PARAM[border_colordiffuse]" infill="false">$PARAM[border_texture]</bordertexture>
 				</control>
 				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<right>$PARAM[shade_right]</right>
-					<bottom>0</bottom>
-					<texture colordiffuse="4D000000">colors/dark.png</texture>
-					<visible>$PARAM[shade_visible]</visible>
-				</control>
-				<control type="image">
-					<left>-1</left>
-					<top>0</top>
-					<width>1</width>
-					<bottom>0</bottom>
-					<texture colordiffuse="$VAR[FocusColorTheme]">masks/mainmenupanel_divider.png</texture>
-					<visible>$PARAM[left_divider_visible]</visible>
-				</control>
-				<control type="image">
-					<left>$PARAM[divider_left]</left>
-					<top>0</top>
-					<width>1</width>
-					<bottom>0</bottom>
-					<texture colordiffuse="$VAR[FocusColorTheme]">masks/mainmenupanel_divider.png</texture>
-					<visible>$PARAM[right_divider_visible]</visible>
+					<left>40</left>
+					<right>40</right>
+					<top>135</top>
+					<height>1</height>
+					<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
+					<visible>$PARAM[divider_visible]</visible>
 				</control>
 				<control type="label" id="$PARAM[header_id]">
-					<!-- <posx>30</posx> -->
-					<left>30</left>
-					<right>30</right>
-					<top>17</top>
+					<left>40</left>
+					<right>40</right>
+					<top>60</top>
 					<height>70</height>
-					<label>$PARAM[header_label]</label>
+					<label>[UPPERCASE]$PARAM[header_label][/UPPERCASE]</label>
 					<align>left</align> 
 					<aligny>center</aligny>
 					<font>font36_title</font>

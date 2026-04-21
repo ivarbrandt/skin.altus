@@ -8,18 +8,18 @@
 	</coordinates>
 	<controls>
 		<control type="group">
-			<width>498</width>
+			<width>578</width>
 			<top>0</top>
 			<bottom>0</bottom>
+			<left>40</left>
 			<!-- <animation effect="fade" start="100" end="0" time="500" condition="String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)">Conditional</animation> -->
-			<animation effect="slide" start="100" end="-500,0" time="0" condition="String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)">Conditional</animation>
+			<animation effect="slide" start="100" end="-600,0" time="0" condition="String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)">Conditional</animation>
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="$VAR[ContextMenuTitleVar]" />
 				<param name="header_id" value="1" />
-				<param name="width" value="498" />
-				<param name="left_divider_visible" value="false" />
-				<param name="divider_left" value="498" />
-				<param name="shade_right" value="0" />
+				<param name="width" value="578" />
+				<param name="top" value="40" />
+				<param name="bottom" value="40" />
 			</include>
 			<control type="button">
 				<left>-1920</left>
@@ -40,20 +40,22 @@
 			</control> -->
 			<control type="grouplist" id="996">
 				<description>grouplist for context buttons</description>
-				<left>0</left>
-				<top>105</top>
+				<left>40</left>
+				<top>170</top>
+				<height>825</height>
 				<onright>Action(close)</onright>
 				<usecontrolcoords>true</usecontrolcoords>
 				<control type="button" id="8001">
-					<height>65</height>
+					<height>75</height>
 					<align>left</align>
+					<width>498</width>
 					<aligny>center</aligny>
-					<textoffsetx>45</textoffsetx>
+					<textoffsetx>35</textoffsetx>
 					<label>[I][B]Play Trailer (Altus)[/B][/I]</label>
 					<font>font32</font>
 					<textcolor>unfocused_text</textcolor>
 					<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-					<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+					<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
 					<texturenofocus />
 					<onclick>RunScript(script.altus.helper, mode=play_trailer)</onclick>
 					<visible>!String.IsEmpty(Window(Home).Property(CurrentDBType)) + !String.IsEqual(Window(Home).Property(CurrentDBType),season) + !String.IsEqual(Window(Home).Property(CurrentDBType),episode)</visible>
@@ -64,14 +66,14 @@
 				<left>0</left>
 				<top></top>
 				<width>498</width>
-				<height>65</height>
+				<height>75</height>
 				<align>left</align>
 				<aligny>center</aligny>
-				<textoffsetx>45</textoffsetx>
+				<textoffsetx>35</textoffsetx>
 				<font>font32</font>
 				<textcolor>unfocused_text</textcolor>
 				<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-				<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+				<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
 				<texturenofocus />
 			</control>
 		</control>

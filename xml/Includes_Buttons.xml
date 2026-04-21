@@ -354,27 +354,26 @@
 		</definition>
 	</include>
 	<include name="ButtonMenuList">
-		<left>0</left>
-		<top>105</top>
+		<left>40</left>
+		<top>170</top>
 		<width>498</width>
-		<bottom>0</bottom>
+		<height>825</height>
 		<onleft>9000</onleft>
 		<onright>Action(close)</onright>
 		<onup>9000</onup>
 		<ondown>9000</ondown>
 		<orientation>vertical</orientation>
-		<itemlayout height="65" width="498">
-			<!-- <control type="image">
-				<left>0</left>
-				<top>0</top>
-				<width>498</width>
-				<height>65</height>
-				<texture colordiffuse="$VAR[FocusColorTheme]">colors/commons.png</texture>
-			</control> -->
+		<itemlayout height="75" width="498">
+			<control type="image">
+				<left>25</left>
+				<width>41</width>
+				<texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
+			</control>
 			<control type="label">
-				<textoffsetx>45</textoffsetx>
+				<left>85</left>
 				<width>498</width>
-				<height>65</height>
 				<align>left</align>
 				<aligny>center</aligny>
 				<textcolor>unfocused_text</textcolor>
@@ -382,17 +381,24 @@
 				<font>font32</font>
 			</control>
 		</itemlayout>
-		<focusedlayout height="65" width="498">
+		<focusedlayout height="75" width="498">
 			<control type="image">
-				<top></top>
-				<width>498</width>
-				<height>65</height>
-				<texture colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texture>
+				<top>0</top>
+				<bottom>0</bottom>
+				<left>0</left>
+				<right>0</right>
+				<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+			</control>
+			<control type="image">
+				<left>25</left>
+				<width>41</width>
+				<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Property(icon)]</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 			</control>
 			<control type="label">
-				<textoffsetx>45</textoffsetx>
+				<left>85</left>
 				<width>498</width>
-				<height>65</height>
 				<align>left</align>
 				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
