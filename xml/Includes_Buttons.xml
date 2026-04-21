@@ -169,7 +169,7 @@
 				<textcolor>unfocused_text</textcolor>
 				<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 				<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">$PARAM[texture]</texturefocus>
-				<texturenofocus border="23" colordiffuse="4D000000">$PARAM[texture]</texturenofocus>
+				<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darker.png</texturenofocus>
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>

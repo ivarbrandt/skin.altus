@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>10</defaultcontrol>
-	<include>OpenClose_Right</include>
+	<include content="OpenClose_Slide_Right">
+		<param name="distance" value="1220" />
+	</include>
 	<controls>
 		<control type="group">
 			<top>0</top>
@@ -11,11 +13,17 @@
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="$LOCALIZE[13406]" />
 				<param name="header_id" value="2" />
+				<param name="top" value="40" />
+				<param name="bottom" value="40" />
+				<param name="right" value="-42" />
+				<param name="border_texture" value="masks/bordertexture-46-thin_left.png" />
+				<param name="diffuse_texture" value="masks/radius_46_left.png" />
+				<param name="border_value" value="46,46,0,46" />
 			</include>
 			<control type="label">
 				<description>path label</description>
-				<left>30</left>
-				<top>90</top>
+				<left>40</left>
+				<top>170</top>
 				<width>930</width>
 				<height>30</height>
 				<align>left</align>
@@ -25,9 +33,9 @@
 				<textcolor>unfocused_text</textcolor>
 			</control>
 			<control type="panel" id="10">
-				<left>0</left>
-				<top>155</top>
-				<width>930</width>
+				<left>40</left>
+				<top>220</top>
+				<width>850</width>
 				<height>245</height>
 				<onup>9001</onup>
 				<onleft>9000</onleft>
@@ -35,7 +43,10 @@
 				<ondown>12</ondown>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime>200</scrolltime>
-				<itemlayout height="70" width="980">
+				<itemlayout height="70" width="850">
+					<control type="image">
+						<texture border="23"  colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_dark.png</texture>
+					</control>
 					<control type="label">
 						<left>30</left>
 						<right>30</right>
@@ -45,11 +56,10 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</itemlayout>
-				<focusedlayout height="70" width="980">
+				<focusedlayout height="70" width="850">
 					<control type="image">
-						<right>25</right>
 						<visible>Control.HasFocus(10)</visible>
-						<texture colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texture>
+						<texture border="23"  colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 					</control>
 					<control type="label">
 						<left>30</left>
@@ -64,10 +74,10 @@
 			
 			<control type="label">
 				<description>Name label</description>
-				<left>30</left>
+				<left>40</left>
 				<right>30</right>
-				<top>300</top>
-				<width>930</width>
+				<top>350</top>
+				<width>890</width>
 				<height>30</height>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -77,23 +87,23 @@
 			</control>
 			<control type="edit" id="12">
 				<description>Name Button</description>
-				<left>0</left>
-				<top>350</top>
-				<width>930</width>
+				<left>40</left>
+				<top>400</top>
+				<width>850</width>
 				<height>60</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<label></label>
 				<onup>10</onup>
 				<ondown>9001</ondown>
-				<texturefocus  colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
-				<texturenofocus colordiffuse="$VAR[FocusColorTheme]">colors/darker.png</texturenofocus>
+				<texturefocus border="23"  colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
+				<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_dark.png</texturenofocus>
 			</control>
 			<control type="grouplist" id="9001">
-				<left>0</left>
-				<bottom>500</bottom>
+				<left>40</left>
+				<bottom>440</bottom>
 				<height>100</height>
-				<width>930</width>
+				<width>890</width>
 				<align>center</align>
 				<itemgap>dialogbuttons_itemgap</itemgap>
 				<orientation>horizontal</orientation>
@@ -126,8 +136,8 @@
 				<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
 				<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
 			</animation> -->
-			<left>1670</left>
-			<top>155</top>
+			<left>1662</left>
+			<top>160</top>
 			<orientation>vertical</orientation>
 			<onleft>10</onleft>
 			<onright>10</onright>
