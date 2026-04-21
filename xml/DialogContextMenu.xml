@@ -2,7 +2,7 @@
 <window>
 	<defaultcontrol>996</defaultcontrol>
 	<include content="OpenClose_Slide_Left">
-		<param name="distance" value="578" />
+		<param name="distance" value="498" />
 	</include>
 	<onload condition="!String.IsEmpty(Window(Home).Property(CurrentDBType)) + !String.IsEqual(Window(Home).Property(CurrentDBType),season) + !String.IsEqual(Window(Home).Property(CurrentDBType),episode)">SetFocus(8001)</onload>
 	<coordinates>
@@ -10,16 +10,15 @@
 	</coordinates>
 	<controls>
 		<control type="group">
-			<width>578</width>
+			<width>498</width>
 			<top>0</top>
 			<bottom>0</bottom>
 			<left>0</left>
-			<!-- <animation effect="fade" start="100" end="0" time="500" condition="String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)">Conditional</animation> -->
 			<animation effect="slide" start="100" end="-600,0" time="0" condition="String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)">Conditional</animation>
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="$VAR[ContextMenuTitleVar]" />
 				<param name="header_id" value="1" />
-				<param name="width" value="578" />
+				<param name="width" value="498" />
 				<param name="top" value="40" />
 				<param name="bottom" value="40" />
 				<param name="left" value="-42" />
@@ -54,7 +53,7 @@
 				<control type="button" id="8001">
 					<height>75</height>
 					<align>left</align>
-					<width>498</width>
+					<width>418</width>
 					<aligny>center</aligny>
 					<textoffsetx>35</textoffsetx>
 					<label>[I][B]Play Trailer (Altus)[/B][/I]</label>
@@ -71,7 +70,7 @@
 				<description>button template</description>
 				<left>0</left>
 				<top></top>
-				<width>498</width>
+				<width>418</width>
 				<height>75</height>
 				<align>left</align>
 				<aligny>center</aligny>

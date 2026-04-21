@@ -151,27 +151,21 @@
 	</include>
 
 	<include name="OpenClose_Slide_Left">
-		<param name="distance">320</param>
-		<definition>
-			<animation type="WindowOpen">
-				<effect type="slide" start="-$PARAM[distance]" end="0" time="400" tween="cubic" easing="out" />
-			</animation>
-			<animation type="WindowClose">
-				<effect type="slide" start="0" end="-$PARAM[distance]" time="300" tween="cubic" easing="out" />
-			</animation>
-		</definition>
+		<animation type="WindowOpen">
+			<effect type="slide" start="-$PARAM[distance]" end="0" time="300" tween="cubic" easing="out" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="slide" start="0" end="-$PARAM[distance]" time="300" tween="cubic" easing="out" />
+		</animation>
 	</include>
 
 	<include name="OpenClose_Slide_Right">
-		<param name="distance">320</param>
-		<definition>
-			<animation type="WindowOpen">
-				<effect type="slide" start="$PARAM[distance]" end="0" time="400" tween="cubic" easing="out" />
-			</animation>
-			<animation type="WindowClose">
-				<effect type="slide" start="0" end="$PARAM[distance]" time="300" tween="cubic" easing="out" />
-			</animation>
-		</definition>
+		<animation type="WindowOpen">
+			<effect type="slide" start="$PARAM[distance]" end="0" time="300" tween="cubic" easing="inout" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="slide" start="0" end="$PARAM[distance]" time="300" tween="cubic" easing="inout" />
+		</animation>
 	</include>
 
 	<include name="OpenClose_Right">
@@ -405,8 +399,8 @@
 	</include> -->
 
 	<include name="MainMenuAnimations">
-		<animation condition="!ControlGroup(2000).HasFocus + !Control.IsVisible(20000) + !Control.IsVisible(20001)" reversible="true">
-			<effect type="slide" start="0,0" end="498,0" time="400" tween="cubic" easing="inout" />
+		<animation condition="$EXP[dialog_visible]" reversible="true">
+			<effect type="slide" start="0,0" end="578,0" time="300" tween="cubic" easing="inout" />
 		</animation>
 	</include>
 

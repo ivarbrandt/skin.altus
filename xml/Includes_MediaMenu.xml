@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 	<include name="MediaMenuItemsCommon">
-		<width>492</width>
+		<width>418</width>
 		<textoffsetx>20</textoffsetx>
 		<top>0</top>
 		<height>71</height>
-		<radioposx>385</radioposx>
+		<radioposx>310</radioposx>
 		<aligny>center</aligny>
 		<textcolor>unfocused_text</textcolor>
 		<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 		<invalidcolor>invalid</invalidcolor>
-		<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+		<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
 		<texturenofocus />
-		<alttexturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</alttexturefocus>
+		<alttexturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</alttexturefocus>
 		<alttexturenofocus></alttexturenofocus>
 	</include>
 	<include name="PVRQuickNavItemsCommon">
@@ -49,9 +49,9 @@
 				<include>HiddenObject</include>
 			</control>
 			<control type="grouplist" id="9000">
-				<top>50</top>
-				<left>0</left>
-				<width>492</width>
+				<top>70</top>
+				<left>40</left>
+				<width>418</width>
 				<height>100%</height>
 				<onleft>9000</onleft>
 				<onup>9000</onup>
@@ -65,8 +65,8 @@
 						<label>$LOCALIZE[31148]</label>
 					</control>
 					<control type="label">
-						<width>492</width>
-						<textoffsetx>20</textoffsetx>
+						<width>418</width>
+						<textoffsetx>0</textoffsetx>
 						<textoffsety>15</textoffsety>
 						<height>50</height>
 						<font>font12</font>
@@ -80,11 +80,12 @@
 					<height>95</height>
 					<control type="grouplist" id="6056">
 						<orientation>horizontal</orientation>
-						<itemgap>-13</itemgap>
-						<left>0</left>
+						<itemgap>-21</itemgap>
+						<left>-15</left>
 						<height>120</height>
 						<onleft>6056</onleft>
-						<onright>49</onright>
+						<onright condition="Window.IsVisible(tvchannels)">49</onright>
+						<onright condition="!Window.IsVisible(tvchannels)">50</onright>
 						<onup>14100</onup>
 						<ondown condition="Window.IsVisible(tvchannels)">6060</ondown>
 						<ondown condition="!Window.IsVisible(tvchannels)">6054</ondown>
@@ -264,21 +265,21 @@
 		</definition>
 	</include>
 	<include name="MediaMenuLabelCommon">
-		<width>492</width>
-		<textoffsetx>20</textoffsetx>
+		<width>418</width>
+		<textoffsetx>0</textoffsetx>
 		<textoffsety>2</textoffsety>
-		<height>50</height>
+		<height>60</height>
 		<radioposx>300</radioposx>
-		<font>font25_title</font>
+		<font>font27_title</font>
 		<aligny>top</aligny>
 		<textcolor>$VAR[FocusColorTheme]</textcolor>
 	</include>
 	<include name="MediaMenuCommon">
 		<include>OpenClose_Left</include>
 		<depth>DepthSideBlade</depth>
-		<left>-493</left>
+		<left>-501</left>
 		<animation type="Conditional" condition="$EXP[sidebar_visible]" reversible="true">
-			<effect type="slide" start="0" end="492" time="400" tween="cubic" easing="inout" />
+			<effect type="slide" start="0" end="500" time="300" tween="cubic" easing="out" />
 		</animation>
 		<!-- <control type="image">
 			<width>4000</width>
@@ -291,11 +292,15 @@
 		<include content="DialogBackgroundCommons">
 			<param name="header_label" value="" />
 			<param name="header_id" value="1" />
-			<param name="width" value="492" />
-			<param name="left_divider_visible" value="false" />
-			<param name="divider_left" value="492" />
-			<param name="shade_right" value="0" />
+			<param name="width" value="500" />
+			<param name="left" value="-9" />
+			<param name="top" value="40" />
+			<param name="bottom" value="40" /> 
+			<param name="divider_visible" value="false" /> 
 			<param name="darken_bg" value="$EXP[sidebar_visible]" />
+			<param name="border_texture" value="masks/bordertexture-46-thin_right.png" />
+			<param name="diffuse_texture" value="masks/radius_46_right.png" />
+			<param name="border_value" value="0,46,46,46" />
 		</include>
 		<control type="button" id="6131">
 			<left>0</left>
@@ -359,9 +364,9 @@
 	</include>
 	<include name="MediaMenuListCommon">
 		<definition>
-			<left>0</left>
+			<left>40</left>
 			<top>100</top>
-			<width>492</width>
+			<width>418</width>
 			<height>970</height>
 			<onleft>9000</onleft>
 			<onup>9000</onup>

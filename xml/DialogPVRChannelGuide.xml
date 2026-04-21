@@ -31,7 +31,7 @@
 					<param name="visible" value="!Window.IsVisible(tvchannels)" />
 					<param name="divider_visible" value="false" />
 					<param name="colordiffuse" value="66FFFFFF" />
-					<param name="border_texture"></param>
+					<param name="border_texture"/>
 					<param name="diffuse_texture" value="lists/contentpanel-fade.png" />
 				</include>
 				<!-- <control type="image">

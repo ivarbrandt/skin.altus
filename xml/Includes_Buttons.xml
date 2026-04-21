@@ -356,14 +356,14 @@
 	<include name="ButtonMenuList">
 		<left>40</left>
 		<top>170</top>
-		<width>498</width>
+		<width>418</width>
 		<height>825</height>
 		<onleft>9000</onleft>
 		<onright>Action(close)</onright>
 		<onup>9000</onup>
 		<ondown>9000</ondown>
 		<orientation>vertical</orientation>
-		<itemlayout height="75" width="498">
+		<itemlayout height="75" width="418">
 			<control type="image">
 				<left>25</left>
 				<width>41</width>
@@ -373,7 +373,7 @@
 			</control>
 			<control type="label">
 				<left>85</left>
-				<width>498</width>
+				<width>418</width>
 				<align>left</align>
 				<aligny>center</aligny>
 				<textcolor>unfocused_text</textcolor>
@@ -381,7 +381,7 @@
 				<font>font32</font>
 			</control>
 		</itemlayout>
-		<focusedlayout height="75" width="498">
+		<focusedlayout height="75" width="418">
 			<control type="image">
 				<top>0</top>
 				<bottom>0</bottom>
@@ -398,7 +398,7 @@
 			</control>
 			<control type="label">
 				<left>85</left>
-				<width>498</width>
+				<width>418</width>
 				<align>left</align>
 				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
