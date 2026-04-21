@@ -7,6 +7,7 @@
 		<param name="font">font32</param>
 		<param name="fontcolor">unfocused_text</param>
 		<param name="diffuse">$PARAM[diffuse]</param>
+		<param name="border">23</param>
 		<definition>
 			<itemlayout width="$PARAM[width]" height="$PARAM[height]">
 				<control type="group">
@@ -55,13 +56,20 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="image">
-						<left>20</left>
-						<top>15</top>
-						<width>6</width>
-						<height>45</height>
+						<right>40</right>
+						<width>35</width>
 						<aligny>center</aligny>
-						<texture colordiffuse="FF39FF14">colors/white.png</texture>
+						<texture colordiffuse="unfocused_text">iconpicker/monochrome/System/checkbox-circle-line.png</texture>
 						<visible>ListItem.IsSelected</visible>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image">
+						<right>40</right>
+						<width>35</width>
+						<aligny>center</aligny>
+						<texture colordiffuse="unfocused_text">iconpicker/monochrome/System/checkbox-blank-circle-line.png</texture>
+						<visible>!ListItem.IsSelected</visible>
+						<aspectratio>keep</aspectratio>
 					</control>
 				</control>
 			</itemlayout>
@@ -71,7 +79,7 @@
 					<top>0</top>
 					<right>0</right>
 					<bottom>0</bottom>
-					<texture colordiffuse="$VAR[FocusColorTheme]">$PARAM[diffuse]</texture>
+					<texture border="$PARAM[border]" colordiffuse="$VAR[FocusColorTheme]">$PARAM[diffuse]</texture>
 					<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
 				</control>
 				<control type="group">
@@ -122,13 +130,20 @@
 						<scroll>true</scroll>
 					</control>
 					<control type="image">
-						<left>20</left>
-						<top>15</top>
-						<width>6</width>
-						<height>45</height>
+						<right>40</right>
+						<width>35</width>
 						<aligny>center</aligny>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">colors/white.png</texture>
+						<texture colordiffuse="$VAR[FocusedTextColorVar]">iconpicker/monochrome/System/checkbox-circle-line.png</texture>
 						<visible>ListItem.IsSelected</visible>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image">
+						<right>40</right>
+						<width>35</width>
+						<aligny>center</aligny>
+						<texture colordiffuse="$VAR[FocusedTextColorVar]">iconpicker/monochrome/System/checkbox-blank-circle-line.png</texture>
+						<visible>!ListItem.IsSelected</visible>
+						<aspectratio>keep</aspectratio>
 					</control>
 				</control>
 			</focusedlayout>

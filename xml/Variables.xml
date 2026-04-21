@@ -135,24 +135,24 @@
 		<value>$VAR[SelectLabel.Blur]</value>
 	</variable>
 	<variable name="SelectLabel.NoBlur">
-		<value condition="Control.IsVisible(3)">[COLOR button_focus]$INFO[Container(3).NumItems][/COLOR] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - [COLOR unfocused_text]$INFO[Container(3).CurrentPage]/$INFO[Container(3).NumPages][/COLOR]</value>
-		<value>[COLOR button_focus]$INFO[Container(6).NumItems][/COLOR] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - [COLOR unfocused_text]$INFO[Container(6).CurrentPage]/$INFO[Container(6).NumPages][/COLOR]</value>
+		<value condition="Control.IsVisible(3)">[COLOR button_focus]$INFO[Container(3).NumItems][/COLOR] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - [COLOR unfocused_text]$INFO[Container(3).CurrentItem]/$INFO[Container(3).NumItems][/COLOR]</value>
+		<value>[COLOR button_focus]$INFO[Container(6).NumItems][/COLOR] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - [COLOR unfocused_text]$INFO[Container(6).CurrentItem]/$INFO[Container(6).NumItems][/COLOR]</value>
 	</variable>
 	<variable name="SelectLabel.Blur">
-		<value condition="Control.IsVisible(3)">$INFO[Container(3).NumItems] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - [COLOR unfocused_text]$INFO[Container(3).CurrentPage]/$INFO[Container(3).NumPages][/COLOR]</value>
-		<value>$INFO[Container(6).NumItems] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - [COLOR unfocused_text]$INFO[Container(6).CurrentPage]/$INFO[Container(6).NumPages][/COLOR]</value>
+		<value condition="Control.IsVisible(3)">$INFO[Container(3).NumItems] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - [COLOR unfocused_text]$INFO[Container(3).CurrentItem]/$INFO[Container(3).NumItems][/COLOR]</value>
+		<value>$INFO[Container(6).NumItems] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - [COLOR unfocused_text]$INFO[Container(6).CurrentItem]/$INFO[Container(6).NumItems][/COLOR]</value>
 	</variable>
 	<variable name="FileBrowserSelectLabel">
 		<value condition="String.IsEqual(Skin.String(BackgroundSetting),0)">$VAR[FileBrowserSelectLabel.NoBlur]</value>
 		<value>$VAR[FileBrowserSelectLabel.Blur]</value>
 	</variable>
 	<variable name="FileBrowserSelectLabel.NoBlur">
-		<value condition="Control.IsVisible(450)">[COLOR button_focus]$INFO[Container(450).NumItems][/COLOR] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - $INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages]</value>
-		<value>[COLOR button_focus]$INFO[Container(451).NumItems][/COLOR] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - $INFO[Container(451).CurrentPage]/$INFO[Container(451).NumPages]</value>
+		<value condition="Control.IsVisible(450)">[COLOR button_focus]$INFO[Container(450).NumItems][/COLOR] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - $INFO[Container(450).CurrentItem]/$INFO[Container(450).NumItems]</value>
+		<value>[COLOR button_focus]$INFO[Container(451).NumItems][/COLOR] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - $INFO[Container(451).CurrentItem]/$INFO[Container(451).NumItems]</value>
 	</variable>
 	<variable name="FileBrowserSelectLabel.Blur">
-		<value condition="Control.IsVisible(450)">$INFO[Container(450).NumItems] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - [COLOR unfocused_text]$INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages][/COLOR]</value>
-		<value>$INFO[Container(451).NumItems] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - [COLOR unfocused_text]$INFO[Container(451).CurrentPage]/$INFO[Container(451).NumPages][/COLOR]</value>
+		<value condition="Control.IsVisible(450)">$INFO[Container(450).NumItems] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - [COLOR unfocused_text]$INFO[Container(450).CurrentItem]/$INFO[Container(450).NumItems][/COLOR]</value>
+		<value>$INFO[Container(451).NumItems] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR] - [COLOR unfocused_text]$INFO[Container(451).CurrentItem]/$INFO[Container(451).NumItems][/COLOR]</value>
 	</variable>
 	<!-- <variable name="BannerArtVar">
 		<value condition="ListItem.IsParentFolder">DefaultBackBanner.png</value>

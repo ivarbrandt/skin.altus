@@ -305,6 +305,12 @@
 			<style>bold</style>
 		</font>
 		<font>
+			<name>font36_title_uppercase</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>32</size>
+			<style>bold uppercase</style>
+		</font>
+		<font>
 			<name>font36_guide</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>32</size>

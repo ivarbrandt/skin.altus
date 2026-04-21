@@ -79,10 +79,10 @@
 					<right>40</right>
 					<top>$PARAM[header_top]</top>
 					<height>70</height>
-					<label>[UPPERCASE]$PARAM[header_label][/UPPERCASE]</label>
+					<label>$PARAM[header_label]</label>
 					<align>left</align> 
 					<aligny>center</aligny>
-					<font>font36_title</font>
+					<font>font36_title_uppercase</font>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<scroll>true</scroll>

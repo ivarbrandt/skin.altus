@@ -147,16 +147,15 @@
 		<textcolor>$VAR[FocusColorTheme]</textcolor>
 	</include>
 	<include name="DefaultDialogButton">
-		<param name="width">210</param>
+		<param name="width">219</param>
 		<param name="height">70</param>
 		<param name="wrapmultiline">false</param>
 		<param name="font">font27_title</param>
 		<param name="onclick"></param>
 		<param name="visible">true</param>
-		<param name="texture">colors/white.png</param>
+		<param name="texture">masks/radius_23.png</param>
 		<definition>
 			<control type="button" id="$PARAM[id]">
-				<include>FocusBounce</include>
 				<width>$PARAM[width]</width>
 				<height>$PARAM[height]</height>
 				<label>$PARAM[label]</label>
@@ -169,8 +168,8 @@
 				<!-- <textoffsety>15</textoffsety> -->
 				<textcolor>unfocused_text</textcolor>
 				<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-				<texturefocus colordiffuse="$VAR[FocusColorTheme]">$PARAM[texture]</texturefocus>
-				<texturenofocus colordiffuse="4D000000">colors/dark.png</texturenofocus>
+				<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">$PARAM[texture]</texturefocus>
+				<texturenofocus border="23" colordiffuse="4D000000">$PARAM[texture]</texturenofocus>
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>

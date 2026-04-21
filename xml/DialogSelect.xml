@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">3</defaultcontrol>
-	<include>OpenClose_Right</include>
+	<include content="OpenClose_Slide_Right">
+		<param name="distance" value="1220" />
+	</include>
 	<depth>DepthOSD</depth>
 	<controls>
 		<include condition="![Window.IsActive(gamesaves) | Window.IsActive(gamestretchmode) | Window.IsActive(gamevideofilter) | Window.IsActive(gamevideorotation) | Window.IsActive(ingamesaves)]">DefaultDialogSelectLayout</include>

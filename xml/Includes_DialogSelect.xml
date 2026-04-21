@@ -9,14 +9,20 @@
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="" />
 				<param name="header_id" value="1" />
+				<param name="top" value="40" />
+				<param name="bottom" value="40" />
+				<param name="right" value="-42" />
+				<param name="border_texture" value="masks/bordertexture-46-thin_left.png" />
+				<param name="diffuse_texture" value="masks/radius_46_left.png" />
+				<param name="border_value" value="46,46,0,46" />
 			</include>
 			<control type="list" id="3">
-				<!-- <left>140</left> -->
+				<left>40</left>
 				<!-- <focusposition>6</focusposition>
 				<movement>7</movement> -->
-				<top>105</top>
-				<width>930</width>
-				<bottom>0</bottom>
+				<top>170</top>
+				<width>850</width>
+				<height>825</height>
 				<onup>3</onup>
 				<ondown>3</ondown>
 				<onleft>9001</onleft>
@@ -24,29 +30,28 @@
 				<pagecontrol>61</pagecontrol>
 				<scrolltime>200</scrolltime>
 				<include content="DefaultSimpleListLayout">
-					<param name="width" value="980" />
+					<param name="width" value="850" />
 					<param name="list_id" value="3" />
-					<param name="diffuse" value="colors/grey.png" />
+					<param name="diffuse" value="masks/radius_23.png" />
 				</include>
 			</control>
 			<control type="list" id="6">
-				<!-- <left>140</left> -->
-				<top>105</top>
-				<width>930</width>
-				<bottom>0</bottom>
+				<left>40</left>
+				<top>170</top>
+				<width>850</width>
+				<height>825</height>
 				<onup>6</onup>
 				<ondown>6</ondown>
 				<onleft>9001</onleft>
 				<onright>61</onright>
 				<pagecontrol>61</pagecontrol>
 				<scrolltime>200</scrolltime>
-				<itemlayout height="121.8" width="930">
+				<itemlayout height="117.85" width="850">
 					<control type="image">
-						<left>35</left>
-						<top>10.5</top>
-						<width>100</width>
-						<height>100</height>
-						<texture>$VAR[FlixThumbVar]</texture>
+						<left>25</left>
+						<width>90</width>
+						<aligny>center</aligny>
+						<texture diffuse="masks/dialogselect_img.png">$VAR[FlixThumbVar]</texture>
 						<aspectratio>keep</aspectratio>
 						<visible>!ListItem.Property(PVR.IsRecordingTimer) + !ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>
@@ -71,9 +76,9 @@
 						<visible>ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>
 					<control type="label">
-						<left>165</left>
-						<top>9</top>
-						<right>20</right>
+						<left>145</left>
+						<top>10</top>
+						<right>110</right>
 						<height>60</height>
 						<font>font14</font>
 						<aligny>center</aligny>
@@ -82,9 +87,9 @@
 						<selectedcolor>unfocused_text</selectedcolor>
 					</control>
 					<control type="label">
-						<left>165</left>
-						<top>59</top>
-						<right>20</right>
+						<left>145</left>
+						<top>60</top>
+						<right>110</right>
 						<height>67</height>
 						<font>font12</font>
 						<textcolor>unfocused_text</textcolor>
@@ -92,31 +97,37 @@
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
 					<control type="image">
-						<left>20</left>
-						<top>10.5</top>
-						<width>6</width>
-						<height>100</height>
+						<right>40</right>
+						<width>35</width>
 						<aligny>center</aligny>
-						<texture colordiffuse="FF39FF14">colors/white.png</texture>
+						<texture colordiffuse="unfocused_text">iconpicker/monochrome/System/checkbox-circle-line.png</texture>
 						<visible>ListItem.IsSelected</visible>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image">
+						<right>40</right>
+						<width>35</width>
+						<aligny>center</aligny>
+						<texture colordiffuse="unfocused_text">iconpicker/monochrome/System/checkbox-blank-circle-line.png</texture>
+						<visible>!ListItem.IsSelected</visible>
+						<aspectratio>keep</aspectratio>
 					</control>
 				</itemlayout>
-				<focusedlayout height="121.8" width="930">
+				<focusedlayout height="117.85" width="850">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<right>0</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texture>
+						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 						<!-- <visible>Control.HasFocus(6)</visible> -->
 						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(6)">Conditional</animation>
 					</control>
 					<control type="image">
-						<left>35</left>
-						<top>10.5</top>
-						<width>100</width>
-						<height>100</height>
-						<texture>$VAR[FlixThumbVar]</texture>
+						<left>25</left>
+						<width>90</width>
+						<aligny>center</aligny>
+						<texture diffuse="masks/dialogselect_img.png">$VAR[FlixThumbVar]</texture>
 						<aspectratio>keep</aspectratio>
 						<visible>!ListItem.Property(PVR.IsRecordingTimer) + !ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>
@@ -141,9 +152,9 @@
 						<visible>ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>
 					<control type="label">
-						<left>165</left>
-						<top>9</top>
-						<right>20</right>
+						<left>145</left>
+						<top>10</top>
+						<right>110</right>
 						<height>60</height>
 						<font>font14</font>
 						<aligny>center</aligny>
@@ -153,9 +164,9 @@
 						<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
 					</control>
 					<control type="label">
-						<left>165</left>
-						<top>59</top>
-						<right>20</right>
+						<left>145</left>
+						<top>60</top>
+						<right>110</right>
 						<height>67</height>
 						<font>font12</font>
 						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
@@ -165,21 +176,35 @@
 						<scrollspeed>150</scrollspeed>
 					</control>
 					<control type="image">
-						<left>20</left>
-						<top>10.5</top>
-						<width>6</width>
-						<height>100</height>
+						<right>40</right>
+						<width>35</width>
 						<aligny>center</aligny>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">colors/white.png</texture>
+						<texture colordiffuse="$VAR[FocusedTextColorVar]">iconpicker/monochrome/System/checkbox-circle-line.png</texture>
 						<visible>ListItem.IsSelected</visible>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image">
+						<right>40</right>
+						<width>35</width>
+						<aligny>center</aligny>
+						<texture colordiffuse="$VAR[FocusedTextColorVar]">iconpicker/monochrome/System/checkbox-blank-circle-line.png</texture>
+						<visible>!ListItem.IsSelected</visible>
+						<aspectratio>keep</aspectratio>
 					</control>
 				</focusedlayout>
 			</control>
+			<control type="image">
+				<left>925</left>
+				<top>170</top>
+				<width>1</width>
+				<height>825</height>
+				<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
+			</control>
 			<control type="scrollbar" id="61">
-				<left>926</left>
-				<top>0</top>
-				<width>8</width>
-				<bottom>0</bottom>
+				<left>925</left>
+				<top>170</top>
+				<width>1</width>
+				<height>825</height>
 				<onleft condition="Control.IsVisible(3)">3</onleft>
 				<onleft condition="Control.IsVisible(6)">6</onleft>
 				<onright>9001</onright>
@@ -190,19 +215,19 @@
 				</animation> -->
 			</control>
 			<control type="label">
-				<left>990</left>
-				<bottom>38</bottom>
+				<left>940</left>
+				<bottom>90</bottom>
 				<width>275</width>
 				<height>35</height>
 				<font>font13</font>
-				<align>left</align>
+				<align>center</align>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
 				<label>$VAR[SelectLabel]</label>
 			</control>
 		</control>
 		<control type="grouplist" id="9001">
-			<left>1670</left>
-			<top>105</top>
+			<left>1662</left>
+			<top>170</top>
 			<onleft>61</onleft>
 			<itemgap>dialogbuttons_itemgap</itemgap>
 			<onright>3</onright>
