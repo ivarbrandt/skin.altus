@@ -12,7 +12,7 @@
 
   <variable name="AltusCustomBackgroundImage">
 		<value condition="!String.IsEmpty(Skin.String(AltusCustomBackground))">$INFO[Skin.String(AltusCustomBackground)]</value>
-		<value condition="String.IsEmpty(Skin.String(AltusCustomBackground))">special://skin/resources/wave.jpg</value>
+		<value condition="String.IsEmpty(Skin.String(AltusCustomBackground))">special://skin/resources/polygon.jpg</value>
 	</variable>
 
 

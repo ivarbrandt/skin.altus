@@ -95,6 +95,7 @@
 				<aligny>center</aligny>
 				<label></label>
 				<onup>10</onup>
+				<onright>9000</onright>
 				<ondown>9001</ondown>
 				<texturefocus border="23"  colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
 				<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_dark.png</texturenofocus>
@@ -108,6 +109,7 @@
 				<itemgap>dialogbuttons_itemgap</itemgap>
 				<orientation>horizontal</orientation>
 				<onup>12</onup>
+				<onright>9000</onright>
 				<!-- <onleft condition="!Control.IsVisible(60)">9000</onleft>
 				<onleft condition="Control.IsVisible(60)">60</onleft>
 				<onright condition="!Control.IsVisible(60)">9000</onright>

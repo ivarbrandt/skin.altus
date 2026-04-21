@@ -9,39 +9,19 @@
 			<width>1820</width>
 			<include>Animation_DialogPopupVisible</include>
 			<include content="DialogBackgroundCommons">
-				<param name="width" value="1820" />
-				<param name="height" value="980" />
-				<param name="divider_left" value="1530" />
 				<param name="header_label" value="" />
 				<param name="header_id" value="2" />
+				<param name="width" value="1820" />
+				<param name="height" value="980" />
+				<param name="header_top" value="15" />
+				<param name="divider_top" value="90" />
 			</include>
-			<control type="image">
-				<left>374</left>
-				<top>0</top>
-				<width>1</width>
-				<bottom>50</bottom>
-				<texture colordiffuse="$VAR[FocusColorTheme]">masks/mainmenupanel_divider.png</texture>
-			</control>
-			<control type="image">
-				<left>1820</left>
-				<top>0</top>
-				<width>1</width>
-				<bottom>50</bottom>
-				<texture colordiffuse="$VAR[FocusColorTheme]">masks/mainmenupanel_divider.png</texture>
-			</control>
-			<control type="image">
-				<left>0</left>
-				<top>105</top>
-				<width>374</width>
-				<bottom>50</bottom>
-				<texture colordiffuse="4D000000">colors/dark.png</texture>
-			</control>
 			<control type="grouplist" id="3">
 				<description>Categories Area</description>
-				<left>0</left>
-				<top>105</top>
-				<width>374</width>
-				<height>787.5</height>
+				<left>40</left>
+				<top>130</top>
+				<width>334</width>
+				<height>720</height>
 				<itemgap>0</itemgap>
 				<orientation>vertical</orientation>
 				<onleft>9000</onleft>
@@ -51,24 +31,24 @@
 			</control>
 			<control type="button" id="10">
 				<description>Default Category Button</description>
-				<height>87.5</height>
-				<width>374</width>
-				<textoffsetx>20</textoffsetx>
+				<height>80</height>
+				<width>334</width>
+				<textoffsetx>30</textoffsetx>
 				<textcolor>unfocused_text</textcolor>
 				<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-				<align>center</align>
+				<align>left</align>
 				<aligny>center</aligny>
-				<font>font27_title</font>
-				<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+				<font>font32</font>
+				<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
 				<texturenofocus/>
 			</control>
 			<control type="grouplist" id="5">
 				<description>control area</description>
-				<left>374</left>
-				<top>105</top>
+				<left>414</left>
+				<top>130</top>
 				<!-- 1060 -->
-				<width>1156</width>
-				<height>720</height>
+				<width>1056</width>
+				<height>717</height>
 				<pagecontrol>60</pagecontrol>
 				<onleft>3</onleft>
 				<onright>60</onright>
@@ -77,12 +57,12 @@
 			</control>
 			<control type="textbox" id="6">
 				<description>description area</description>
-				<left>414</left>
-				<top>825</top>
-				<width>1076</width>
-				<height>70</height>
-				<font>font12</font>
-				<align>justify</align>
+				<left>1550</left>
+				<top>400</top>
+				<width>219</width>
+				<height>520</height>
+				<font>font27</font>
+				<align>left</align>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
 				<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
 			</control>
@@ -125,8 +105,8 @@
 					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
 					<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
 				</animation> -->
-				<left>1570</left>
-				<top>105</top>
+				<left>1550</left>
+				<top>130</top>
 				<orientation>vertical</orientation>
 				<width>300</width>
 				<height>300</height>
@@ -151,20 +131,20 @@
 					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
 					<effect type="slide" start="0,0" end="-200,0" time="300" tween="cubic" easing="in" />
 				</animation> -->
-				<left>0</left>
+				<left>40</left>
 				<!-- 825 -->
-				<top>892.5</top>
-				<width>374</width>
-				<height>87.5</height>
-				<font>font27_title</font>
+				<top>860</top>
+				<width>334</width>
+				<height>80</height>
+				<font>font32</font>
 				<!-- <aligny>left</aligny> -->
-				<align>center</align>
+				<align>left</align>
 				<onclick>SettingsLevelChange</onclick>
-				<textoffsetx>0</textoffsetx>
+				<textoffsetx>30</textoffsetx>
 				<textoffsety>17</textoffsety>
 				<textcolor>unfocused_text</textcolor>
 				<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-				<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+				<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
 				<texturenofocus/>
 				<radioposx>40</radioposx>
 				<radioposy>0</radioposy>
@@ -179,15 +159,22 @@
 				<textureradioofffocus/>
 				<textureradiooffnofocus/>
 			</control>
+			<control type="image">
+				<left>1506</left>
+				<top>130</top>
+				<width>1</width>
+				<height>717</height>
+				<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
+			</control>
 			<control type="scrollbar" id="60">
 				<!-- <animation condition="ControlGroup(5).HasFocus">
 					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
 					<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
 				</animation> -->
-				<left>1526</left>
-				<top>0</top>
-				<width>8</width>
-				<bottom>50</bottom>
+				<left>1506</left>
+				<top>130</top>
+				<width>1</width>
+				<height>717</height>
 				<orientation>vertical</orientation>
 				<onleft>5</onleft>
 				<onright>9000</onright>

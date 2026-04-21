@@ -8,11 +8,13 @@
 				<depth>DepthOSD</depth>
 				<include>OpenClose_Left</include>
 				<include content="DialogBackgroundCommons">
-					<param name="width" value="945" />
-					<param name="shade_right" value="945" />
-					<param name="divider_left" value="945" />
 					<param name="header_label" value="" />
 					<param name="header_id" value="" />
+					<param name="right" value="645" />
+					<param name="divider_visible" value="false" />
+					<param name="colordiffuse" value="66FFFFFF" />
+					<param name="border_texture"/>
+					<param name="diffuse_texture" value="lists/contentpanel-fade.png" />
 				</include>
 				<control type="fixedlist" id="11">
 					<left>40</left>

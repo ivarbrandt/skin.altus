@@ -66,7 +66,7 @@
 			<font>font32</font>
 			<textcolor>unfocused_text</textcolor>
 			<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-			<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+			<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
 			<texturenofocus />
 		</definition>
 	</include>
