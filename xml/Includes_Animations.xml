@@ -150,6 +150,30 @@
 		</animation>
 	</include>
 
+	<include name="OpenClose_Slide_Left">
+		<param name="distance">320</param>
+		<definition>
+			<animation type="WindowOpen">
+				<effect type="slide" start="-$PARAM[distance]" end="0" time="400" tween="cubic" easing="out" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-$PARAM[distance]" time="300" tween="cubic" easing="out" />
+			</animation>
+		</definition>
+	</include>
+
+	<include name="OpenClose_Slide_Right">
+		<param name="distance">320</param>
+		<definition>
+			<animation type="WindowOpen">
+				<effect type="slide" start="$PARAM[distance]" end="0" time="400" tween="cubic" easing="out" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="$PARAM[distance]" time="300" tween="cubic" easing="out" />
+			</animation>
+		</definition>
+	</include>
+
 	<include name="OpenClose_Right">
 		<include condition="Skin.HasSetting(no_slide_animations)">OpenClose_Fade</include>
 		<include condition="!Skin.HasSetting(no_slide_animations)">OpenClose_FadeSlide_Right</include>

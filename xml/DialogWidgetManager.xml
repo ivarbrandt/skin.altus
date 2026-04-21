@@ -4,7 +4,6 @@
 	<depth>DepthDialog</depth>
 	<include>Animation_DialogPopupOpenClose</include>
 	<controls>
-		<!-- Main dialog container -->
 		<control type="group">
 			<left>40</left>
 			<top>77</top>
@@ -27,37 +26,50 @@
 				<width>520</width>
 				<height>760</height>
 
-				<!-- Section label (normal mode) -->
-				<control type="label">
+				<!-- Header: label + reorder indicator -->
+				<control type="grouplist">
 					<left>20</left>
 					<top>10</top>
-					<height>40</height>
-					<label>Sections</label>
-					<font>font27_title</font>
-					<textcolor>$VAR[FocusColorTheme]</textcolor>
-					<visible>String.IsEmpty(Window.Property(submenu_mode))</visible>
-				</control>
-				<!-- Section label (submenu mode) -->
-				<control type="label">
-					<left>20</left>
-					<top>10</top>
-					<right>20</right>
-					<height>40</height>
-					<label>$INFO[Window.Property(submenu_header)]</label>
-					<font>font27_title</font>
-					<textcolor>$VAR[FocusColorTheme]</textcolor>
-					<visible>!String.IsEmpty(Window.Property(submenu_mode))</visible>
-				</control>
+					<width>480</width>
+					<height>43</height>
+					<orientation>horizontal</orientation>
+					<itemgap>2</itemgap>
+					<align>left</align>
 
-				<!-- Reorder indicator icon -->
-				<control type="image">
-					<left>135</left>
-					<top>24</top>
-					<width>26</width>
-					<height>26</height>
-					<texture colordiffuse="$VAR[FocusColorTheme]">buttons/widget_manager/reorder.png</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>!String.IsEmpty(Window.Property(reorder_sections))</visible>
+					<!-- Section label (normal mode) -->
+					<control type="label">
+						<width>auto</width>
+						<height>43</height>
+						<label>Sections</label>
+						<font>font27_title</font>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<visible>String.IsEmpty(Window.Property(submenu_mode))</visible>
+					</control>
+
+					<!-- Section label (submenu mode) -->
+					<control type="label">
+						<width>auto</width>
+						<height>43</height>
+						<label>$INFO[Window.Property(submenu_header)]</label>
+						<font>font27_title</font>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<visible>!String.IsEmpty(Window.Property(submenu_mode))</visible>
+					</control>
+
+					<!-- Reorder indicator icon -->
+					<control type="group">
+						<width>30</width>
+						<height>43</height>
+						<visible>!String.IsEmpty(Window.Property(reorder_sections))</visible>
+						<animation effect="fade" time="200">VisibleChange</animation>
+						<control type="image">
+							<top>11</top>
+							<width>26</width>
+							<width>26</width>
+							<texture colordiffuse="$VAR[FocusColorTheme]">buttons/widget_manager/reorder.png</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+					</control>
 				</control>
 
 				<!-- Add Section button (visible when list is empty, normal mode) -->
@@ -85,8 +97,6 @@
 					<height>715</height>
 					<scrolltime tween="cubic" easing="out">300</scrolltime>
 					<pagecontrol>3001</pagecontrol>
-
-					<!-- Non-focused item: compact -->
 					<itemlayout width="480" height="65">
 						<!-- Icon -->
 						<control type="image">
@@ -123,8 +133,6 @@
 							<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 						</control>
 					</itemlayout>
-
-					<!-- Focused item: expanded with inline buttons -->
 					<focusedlayout width="480" height="65">
 						<!-- Focus background -->
 						<control type="image">
@@ -135,15 +143,6 @@
 							<texture border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texture>
 							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(3000)">Conditional</animation>
 						</control>
-						<!-- <control type="image">
-							<height>40</height>
-							<width>40</width>
-							<top>12</top>
-							<left>14</left>
-							<texture colordiffuse="4D000000">masks/mainmenu-img.png</texture>
-							<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(3000)</visible>
-						</control> -->
-
 						<!-- Icon -->
 						<control type="image">
 							<left>25</left>
@@ -257,7 +256,7 @@
 
 				<!-- Right divider -->
 				<control type="image">
-					<left>528</left>
+					<left>530</left>
 					<top>20</top>
 					<width>1</width>
 					<height>760</height>
@@ -266,7 +265,7 @@
 
 				<!-- Scrollbar -->
 				<control type="scrollbar" id="3001">
-					<left>518</left>
+					<left>530</left>
 					<top>20</top>
 					<width>1</width>
 					<height>760</height>
@@ -288,25 +287,39 @@
 				<width>609</width>
 				<height>760</height>
 
-				<!-- Widget label -->
-				<control type="label">
+				<!-- Header: label + reorder indicator -->
+				<control type="grouplist">
 					<left>20</left>
 					<top>10</top>
-					<height>40</height>
-					<label>Widgets</label>
-					<font>font27_title</font>
-					<textcolor>$VAR[FocusColorTheme]</textcolor>
-				</control>
+					<width>569</width>
+					<height>43</height>
+					<orientation>horizontal</orientation>
+					<itemgap>2</itemgap>
+					<align>left</align>
 
-				<!-- Reorder indicator icon -->
-				<control type="image">
-					<left>125</left>
-					<top>24</top>
-					<width>26</width>
-					<height>26</height>
-					<texture colordiffuse="$VAR[FocusColorTheme]">buttons/widget_manager/reorder.png</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>!String.IsEmpty(Window.Property(reorder_widgets))</visible>
+					<!-- Widget label -->
+					<control type="label">
+						<width>auto</width>
+						<height>43</height>
+						<label>Widgets</label>
+						<font>font27_title</font>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+					</control>
+
+					<!-- Reorder indicator icon -->
+					<control type="group">
+						<width>30</width>
+						<height>43</height>
+						<visible>!String.IsEmpty(Window.Property(reorder_widgets))</visible>
+						<animation effect="fade" time="200">VisibleChange</animation>
+						<control type="image">
+							<top>11</top>
+							<width>26</width>
+							<width>26</width>
+							<texture colordiffuse="$VAR[FocusColorTheme]">buttons/widget_manager/reorder.png</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+					</control>
 				</control>
 
 				<!-- Add Widget button (visible when list is empty) -->
@@ -335,12 +348,10 @@
 					<height>715</height>
 					<scrolltime tween="cubic" easing="out">300</scrolltime>
 					<pagecontrol>4001</pagecontrol>
-
-					<!-- Non-focused item -->
 					<itemlayout width="569" height="89">
 						<control type="label">
 							<left>20</left>
-							<top>-2</top>
+							<top>-3</top>
 							<right>10</right>
 							<height>34</height>
 							<font>font32</font>
@@ -350,7 +361,7 @@
 						</control>
 						<control type="label">
 							<left>20</left>
-							<top>36</top>
+							<top>35</top>
 							<right>10</right>
 							<height>25</height>
 							<font>font27</font>
@@ -359,8 +370,6 @@
 							<aligny>top</aligny>
 						</control>
 					</itemlayout>
-
-					<!-- Focused item: expanded with inline buttons -->
 					<focusedlayout width="569" height="89">
 						<!-- Focus background -->
 						<control type="image">
@@ -372,7 +381,6 @@
 							<visible>Control.HasFocus(4000) | ControlGroup(5001).HasFocus</visible>
 							<animation effect="fade" start="100" end="50" time="40" condition="ControlGroup(5001).HasFocus">Conditional</animation>
 						</control>
-
 						<!-- Main label - unfocused -->
 						<control type="label">
 							<visible>!Control.HasFocus(4000)</visible>
@@ -399,7 +407,6 @@
 							<scroll>true</scroll>
 							<scrollspeed>75</scrollspeed>
 						</control>
-
 						<!-- Sub label - unfocused -->
 						<control type="label">
 							<visible>!Control.HasFocus(4000)</visible>
@@ -466,7 +473,7 @@
 
 				<!-- Scrollbar -->
 				<control type="scrollbar" id="4001">
-					<right>-1</right>
+					<left>619</left>
 					<top>20</top>
 					<width>1</width>
 					<height>760</height>
@@ -492,7 +499,7 @@
 				<control type="label">
 					<left>20</left>
 					<top>10</top>
-					<height>40</height>
+					<height>43</height>
 					<label>Details</label>
 					<font>font27_title</font>
 					<textcolor>$VAR[FocusColorTheme]</textcolor>
@@ -503,7 +510,7 @@
 					<left>20</left>
 					<top>65</top>
 					<right>20</right>
-					<height>40</height>
+					<height>43</height>
 					<label>Select a widget to edit</label>
 					<font>font27</font>
 					<textcolor>60FFFFFF</textcolor>
@@ -514,7 +521,7 @@
 					<left>20</left>
 					<top>65</top>
 					<right>20</right>
-					<height>40</height>
+					<height>43</height>
 					<label>Weather widgets are built-in</label>
 					<font>font27</font>
 					<textcolor>60FFFFFF</textcolor>
@@ -533,7 +540,6 @@
 					<onleft>4000</onleft>
 					<scrolltime tween="cubic" easing="out">300</scrolltime>
 					<visible>Integer.IsGreater(Container(4000).NumItems,0)</visible>
-
 					<!-- Label -->
 					<control type="button" id="5100">
 						<width>max</width>
@@ -549,7 +555,6 @@
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						<onleft>4000</onleft>
 					</control>
-
 					<!-- Display Type -->
 					<control type="button" id="5101">
 						<width>max</width>
@@ -565,7 +570,6 @@
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						<onleft>4000</onleft>
 					</control>
-
 					<!-- Path -->
 					<control type="button" id="5102">
 						<width>max</width>
@@ -581,7 +585,6 @@
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						<onleft>4000</onleft>
 					</control>
-
 					<!-- Target -->
 					<control type="button" id="5103">
 						<width>max</width>
@@ -597,7 +600,6 @@
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						<onleft>4000</onleft>
 					</control>
-
 					<!-- Stacked -->
 					<control type="button" id="5104">
 						<width>max</width>
@@ -613,8 +615,7 @@
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						<onleft>4000</onleft>
 					</control>
-
-		<!-- Limit -->
+					<!-- Limit -->
 					<control type="button" id="5106">
 						<width>max</width>
 						<height>65</height>
@@ -629,7 +630,6 @@
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						<onleft>4000</onleft>
 					</control>
-
 					<!-- Sort By -->
 					<control type="button" id="5107">
 						<width>max</width>
@@ -645,7 +645,6 @@
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						<onleft>4000</onleft>
 					</control>
-
 					<!-- Sort Order -->
 					<control type="button" id="5108">
 						<width>max</width>
