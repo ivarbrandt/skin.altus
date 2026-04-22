@@ -37,7 +37,7 @@
 				<top>-2000</top>
 				<width>6000</width>
 				<height>6000</height>
-				<animation effect="slide" end="-20000,-20000" time="0" condition="Window.IsVisible(tvchannels) + $EXP[dialog_visible]">Conditional</animation>
+				<animation effect="slide" end="-20000,-20000" time="0" condition="String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)">Conditional</animation>
 				<animation effect="fade" time="400">VisibleChange</animation>
 				<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>

@@ -22,23 +22,29 @@
 
 			<control type="group">
 				<include condition="!Window.IsVisible(tvchannels)">OpenClose_Left</include>
-				<include content="DialogBackgroundCommons">
+				<!-- <include content="DialogBackgroundCommons">
 					<param name="left" value="0" />
 					<param name="right" value="645" />
 					<param name="header_label" value="" />
 					<param name="header_id" value="" />
-					<param name="darken_bg" value="!Window.IsVisible(tvchannels) + [$EXP[dialog_visible] | Control.IsVisible(11)]" />
+					<param name="darken_bg" value="!Window.IsVisible(tvchannels)" />
 					<param name="visible" value="!Window.IsVisible(tvchannels)" />
 					<param name="divider_visible" value="false" />
 					<param name="colordiffuse" value="66FFFFFF" />
 					<param name="border_texture"/>
 					<param name="diffuse_texture" value="lists/contentpanel-fade.png" />
-				</include>
-				<!-- <control type="image">
-					<left>1375</left>
-					<width>1</width>
-					<texture colordiffuse="$VAR[FocusColorTheme]">masks/mainmenupanel_divider.png</texture>
-				</control> -->
+				</include> -->
+				<control type="image">
+					<left>-2000</left>
+					<top>-2000</top>
+					<width>6000</width>
+					<height>6000</height>
+					<animation effect="fade" time="400">VisibleChange</animation>
+					<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+					<texture colordiffuse="A6FFFFFF">colors/black.png</texture>
+					<visible>!Window.IsVisible(tvchannels)</visible>
+				</control>
 				<control type="image">
 					<left>1080</left>
 					<top>440</top>
