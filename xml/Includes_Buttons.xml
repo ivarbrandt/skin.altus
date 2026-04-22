@@ -116,27 +116,27 @@
 	</include>
 	<include name="SettingsItemCommon">
 		<texturenofocus />
-		<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
+		<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
 		<height>70</height>
 		<aligny>center</aligny>
 		<textoffsetx>20</textoffsetx>
 		<radioposy>0</radioposy>
 		<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 		<textcolor>unfocused_text</textcolor>
-		<alttexturefocus  colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</alttexturefocus>
+		<alttexturefocus border="23"  colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</alttexturefocus>
 		<alttexturenofocus />
 	</include>
 	<include name="SettingsItemCommon1">
 		<include>FocusBounce</include>
-		<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
-		<texturenofocus colordiffuse="4D000000">colors/dark.png</texturenofocus>
+		<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
+		<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_dark.png</texturenofocus>
 		<height>60</height>
 		<aligny>center</aligny>
 		<textoffsetx>20</textoffsetx>
 		<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 		<textcolor>unfocused_text</textcolor>
 		<radioposy>0</radioposy>
-		<alttexturefocus  colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</alttexturefocus>
+		<alttexturefocus border="23"  colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</alttexturefocus>
 		<alttexturenofocus />
 	</include>
 	<include name="SettingsLabelCommon">
