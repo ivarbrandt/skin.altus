@@ -243,36 +243,38 @@
           <visible>!Integer.IsEqual(ListItem.Progress,0) + ![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
           <control type="progress">
             <centerleft>50%</centerleft>
-            <top>222</top>
+            <top>223</top>
             <width>140</width>
-            <height>7</height>
+            <height>6</height>
             <info>ListItem.PercentPlayed</info>
           </control>
           <control type="progress">
             <centerleft>50%</centerleft>
-            <top>222</top>
+            <top>223</top>
             <width>140</width>
-            <height>7</height>
+            <height>6</height>
             <info>ListItem.Progress</info>
           </control>
         </control>
         <control type="group">
           <visible>!Integer.IsEqual(ListItem.Progress,0) + [$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
           <control type="progress">
-            <centerleft>50%</centerleft>
-            <top>222</top>
+						<centerleft>50%</centerleft>
+						<midtexture colordiffuse="$VAR[FocusedTextColorVar]">colors/white.png</midtexture>
+						<texturebg colordiffuse="$VAR[FocusedTextColorVar]">colors/white_50.png</texturebg>
+            <top>223</top>
             <width>140</width>
-            <height>7</height>
+            <height>6</height>
             <info>ListItem.PercentPlayed</info>
-					<midtexture colordiffuse="$VAR[FocusedTextColorVar]">colors/white.png</midtexture>
           </control>
           <control type="progress">
             <centerleft>50%</centerleft>
-            <top>222</top>
-            <width>140</width>
-            <height>7</height>
-            <info>ListItem.Progress</info>
 						<midtexture colordiffuse="$VAR[FocusedTextColorVar]">colors/white.png</midtexture>
+						<texturebg colordiffuse="$VAR[FocusedTextColorVar]">colors/white_50.png</texturebg>
+            <top>223</top>
+            <width>140</width>
+            <height>6</height>
+            <info>ListItem.Progress</info>
           </control>
         </control>
 			</control>

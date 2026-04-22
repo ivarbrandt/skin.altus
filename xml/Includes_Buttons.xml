@@ -107,12 +107,12 @@
 	<include name="DefaultSettingLabel">
 		<left>0</left>
 		<top>0</top>
-		<height>75</height>
+		<height>68</height>
 		<label></label>
-		<align>center</align>
+		<align>left</align>
 		<aligny>center</aligny>
-		<font>font25_title</font>
-		<textcolor>unfocused_text</textcolor>
+		<font>font32_title</font>
+		<textcolor>$VAR[FocusColorTheme]</textcolor>
 	</include>
 	<include name="SettingsItemCommon">
 		<texturenofocus />

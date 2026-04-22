@@ -92,7 +92,7 @@
 			<control type="group">
 				<left>20</left>
 				<height>78</height>
-				<bottom>50</bottom>
+				<bottom>90</bottom>
 				<visible>$EXP[sidebar_visible]</visible>
 				<animation effect="fade" time="300">VisibleChange</animation>
 				<include content="LeftAlignedInfo">

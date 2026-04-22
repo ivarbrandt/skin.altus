@@ -37,7 +37,7 @@
 			<!-- only_label -->
 			<control type="label">
 				<left>30</left>
-				<top>0</top>
+				<top>-1</top>
 				<right>30</right>
 				<font>$PARAM[only_label_font_unfocused]</font>
 				<aligny>center</aligny>
@@ -48,7 +48,7 @@
 			</control>
 			<control type="label">
 				<left>30</left>
-				<top>0</top>
+				<top>-1</top>
 				<right>30</right>
 				<font>$PARAM[only_label_font_focused]</font>
 				<aligny>center</aligny>
@@ -91,7 +91,7 @@
 				<control type="label">
 					<left>116</left>
 					<right>66</right>
-					<top>15</top>
+					<top>14</top>
 					<height>30</height>
 					<aligny>top</aligny>
 					<font>$PARAM[label0_font_unfocused]</font>
@@ -103,7 +103,7 @@
 				<control type="label">
 					<left>116</left>
 					<right>66</right>
-					<top>15</top>
+					<top>14</top>
 					<height>30</height>
 					<aligny>top</aligny>
 					<font>$PARAM[label0_font_focused]</font>
@@ -118,7 +118,7 @@
 				<control type="label">
 					<left>116</left>
 					<right>26</right>
-					<top>15</top>
+					<top>14</top>
 					<height>30</height>
 					<align>right</align>
 					<aligny>top</aligny>
@@ -131,7 +131,7 @@
 				<control type="label">
 					<left>116</left>
 					<right>26</right>
-					<top>15</top>
+					<top>14</top>
 					<height>30</height>
 					<align>right</align>
 					<aligny>top</aligny>
@@ -149,7 +149,7 @@
 				<control type="label">
 					<left>116</left>
 					<right>66</right>
-					<top>50</top>
+					<top>49</top>
 					<height>30</height>
 					<font>$PARAM[label3_font_unfocused]</font>
 					<aligny>top</aligny>
@@ -161,7 +161,7 @@
 				<control type="label">
 					<left>116</left>
 					<right>66</right>
-					<top>50</top>
+					<top>49</top>
 					<height>30</height>
 					<font>$PARAM[label3_font_focused]</font>
 					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
@@ -176,7 +176,7 @@
 				<control type="label">
 					<left>116</left>
 					<right>26</right>
-					<top>53</top>
+					<top>52</top>
 					<height>30</height>
 					<font>$PARAM[label4_font_unfocused]</font>
 					<align>right</align>
@@ -189,7 +189,7 @@
 				<control type="label">
 					<left>116</left>
 					<right>26</right>
-					<top>53</top>
+					<top>52</top>
 					<height>30</height>
 					<font>$PARAM[label4_font_focused]</font>
 					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
@@ -241,9 +241,9 @@
 			<itemlayout height="117"  infoupdate="$PARAM[info_update]">
 				<control type="progress">
 					<left>116</left>
-					<top>91</top>
+					<top>90</top>
 					<right>26</right>
-					<height>3</height>
+					<height>4</height>
 					<align>center</align>
 					<aligny>center</aligny>
 					<visible>ListItem.HasEpg + !$PARAM[has_info_icon]</visible>
@@ -299,9 +299,9 @@
 				<!-- unfocused progress -->
 				<control type="progress">
 					<left>116</left>
-					<top>91</top>
+					<top>90</top>
 					<right>26</right>
-					<height>3</height>
+					<height>4</height>
 					<align>center</align>
 					<aligny>center</aligny>
 					<visible>ListItem.HasEpg + !$PARAM[has_info_icon] + ![Control.HasFocus($PARAM[list_id]) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
@@ -310,12 +310,11 @@
 				<!-- focused progress -->
 				<control type="progress">
 					<left>116</left>
-					<top>91</top>
+					<top>90</top>
 					<right>26</right>
-					<height>3</height>
+					<height>4</height>
 					<align>center</align>
 					<aligny>center</aligny>
-					<colordiffuse>$VAR[FocusedTextColorVar]</colordiffuse>
 					<midtexture colordiffuse="$VAR[FocusedTextColorVar]">colors/white.png</midtexture>
 					<texturebg colordiffuse="$VAR[FocusedTextColorVar]">colors/white_50.png</texturebg>
 					<visible>ListItem.HasEpg + !$PARAM[has_info_icon] + [Control.HasFocus($PARAM[list_id]) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>

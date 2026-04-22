@@ -4,42 +4,45 @@
 	<include>Animation_DialogPopupOpenClose</include>
 	<depth>DepthDialog+</depth>
 	<controls>
+		<include>ZeroFadeBackground</include>
 		<control type="group">
-			<height>1000</height>
+			<height>700</height>
 			<centertop>50%</centertop>
 			<centerleft>50%</centerleft>
-			<width>1100</width>
+			<width>1300</width>
 			<include content="DialogBackgroundCommons">
-				<param name="header_label" value="Altus" />
+				<param name="header_label" value="Welcome to Altus" />
 				<param name="header_id" value="1" />
+				<param name="header_top" value="15" />
+				<param name="divider_top" value="90" />
+				<param name="darken_bg" value="false" />
 			</include>
 			<control type="textbox" id="9">
-				<left>0</left>
+				<left>40</left>
 				<top>100</top>
-				<width>1100</width>
+				<width>1220</width>
 				<height>1000</height>
 				<textcolor>unfocused_text</textcolor>
-				<font>font32_title</font>
-				<label>Welcome to Altus![CR][CR]Pressing OK will set up your home screen.[CR][CR]If you're coming from a previous version of Altus, your existing widget configuration will be migrated automatically.[CR][CR]If this is a fresh install, a default set of sections and widgets will be created for you.[CR][CR]Coming from Nimbus or FENtastic? You can import your widget configuration from Skin Settings > Import from Other Skin.[CR][CR]You can customize everything from Skin Settings > Widget Manager.</label>
+				<font>font32</font>
+				<label>Pressing OK will set up your home screen.[CR][CR]If you're coming from a previous version of Altus, your existing widget configuration will be migrated automatically.[CR][CR]If this is a fresh install, a default set of sections and widgets will be created for you.[CR][CR]Coming from Nimbus or FENtastic? You can import your widget configuration from Skin Settings > Import from Other Skin.[CR][CR]You can customize everything from Skin Settings > Widget Manager.</label>
 				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 			</control>
 			<control type="button" id="100">
 				<visible>!Skin.HasSetting(firsttimerun)</visible>
 				<centerleft>50%</centerleft>
-				<top>870</top>
-				<width>300</width>
-				<height>100</height>
+				<top>570</top>
+				<width>219</width>
+				<height>70</height>
 				<label>OK</label>
 				<font>font25_title</font>
 				<textoffsetx>20</textoffsetx>
-				<textoffsety>33</textoffsety>
 				<onclick>Skin.Setbool(firsttimerun)</onclick>
 				<onclick>back</onclick>
 				<onclick>RunScript(script.altus.helper,mode=migrate_and_generate)</onclick>
 				<align>center</align>
-				<aligny>left</aligny>
-				<texturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">buttons/dialogbutton-fo.png</texturefocus>
-				<texturenofocus border="40" colordiffuse="button_focus2">buttons/dialogbutton-nofo.png</texturenofocus>
+				<aligny>center</aligny>
+				<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
+				<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_dark.png</texturenofocus>
 			</control>
 		</control>
 	</controls>

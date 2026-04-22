@@ -48,7 +48,7 @@
 				<top>130</top>
 				<!-- 1060 -->
 				<width>1056</width>
-				<height>717</height>
+				<height>785</height>
 				<pagecontrol>60</pagecontrol>
 				<onleft>3</onleft>
 				<onright>60</onright>
@@ -81,8 +81,8 @@
 			</control>
 			<control type="image" id="11">
 				<description>separator image</description>
-				<height>3</height>
-				<texture colordiffuse="$VAR[FocusColorTheme]" border="3">dialogs/separator-grey.png</texture>
+				<height>11</height>
+				<texture colordiffuse="$VAR[FocusColorTheme]" border="3"></texture>
 			</control>
 			<control type="edit" id="12">
 				<include>DefaultAddonSettingsButton</include>
@@ -163,7 +163,7 @@
 				<left>1506</left>
 				<top>130</top>
 				<width>1</width>
-				<height>717</height>
+				<height>785</height>
 				<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
 			</control>
 			<control type="scrollbar" id="60">
@@ -174,7 +174,7 @@
 				<left>1506</left>
 				<top>130</top>
 				<width>1</width>
-				<height>717</height>
+				<height>785</height>
 				<orientation>vertical</orientation>
 				<onleft>5</onleft>
 				<onright>9000</onright>
