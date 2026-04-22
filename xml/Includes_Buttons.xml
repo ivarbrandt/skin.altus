@@ -100,8 +100,8 @@
 			<font>font14</font>
 			<invalidcolor>invalid</invalidcolor>
 			<selectedcolor>selected</selectedcolor>
-			<texturefocus colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texturefocus>
-			<texturenofocus colordiffuse="00FFFFFF">colors/white.png</texturenofocus>
+			<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
+			<texturenofocus/>
 		</definition>
 	</include>
 	<include name="DefaultSettingLabel">

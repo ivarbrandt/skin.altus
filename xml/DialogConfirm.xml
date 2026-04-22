@@ -4,22 +4,23 @@
 	<depth>DepthDialog+</depth>
 	<controls>
 		<control type="group">
-			<height>500</height>
+			<height>430</height>
 			<centertop>50%</centertop>
 			<centerleft>50%</centerleft>
 			<width>1144</width>
-			<include content="DialogBackgroundConfirm">
+			<include content="DialogBackgroundCommons">
 				<param name="width" value="1144" />
-				<param name="height" value="500" />
+				<param name="height" value="430" />
 				<param name="header_label" value="" />
 				<param name="header_id" value="1" />
+				<param name="header_top" value="15" />
+				<param name="divider_top" value="90" />
 			</include>
 			<control type="textbox" id="9">
-				<left>30</left>
+				<left>40</left>
 				<top>105</top>
-				<left>50</left>
-				<right>50</right>
-				<height>165</height>
+				<right>40</right>
+				<height>190</height>
 				<align>center</align>
 				<label/>
 				<font>font32</font>
@@ -27,16 +28,17 @@
 				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 			</control>
 			<control type="progress" id="20">
-				<top>310</top>
-				<left>50</left>
-				<right>50</right>
-				<height>12</height>
+				<top>90</top>
+				<left>40</left>
+				<right>40</right>
+				<height>1</height>
+				<texturebg colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texturebg>
 				<info>System.Progressbar</info>
 			</control>
 			<control type="grouplist" id="9000">
 				<orientation>horizontal</orientation>
 				<left>0</left>
-				<top>400</top>
+				<top>330</top>
 				<width>1144</width>
 				<align>center</align>
 				<itemgap>dialogbuttons_itemgap</itemgap>
