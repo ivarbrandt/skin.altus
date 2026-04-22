@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
   <defaultcontrol always="true">20000</defaultcontrol>
+  <onload>SetProperty(infobackground,$ESCINFO[ListItem.Art(fanart)],home)</onload>
+  <onunload>ClearProperty(infobackground,home)</onunload>
   <!-- <onload>ClearProperty(FlixWidget,Home)</onload> -->
   <controls>
     <control type="button" id="6">
@@ -21,14 +23,6 @@
       <texturefocus/>
       <texturenofocus/>
     </control>
-    <control type="image">
-      <include>FullScreenDimensions</include>
-      <aspectratio>stretch</aspectratio>
-      <fadetime>500</fadetime>
-      <animation effect="fade" time="400">VisibleChange</animation>
-      <texture background="true" colordiffuse="FF333333">$INFO[ListItem.Art(fanart)]</texture>
-      <visible>String.IsEqual(Skin.String(BackgroundSetting),1)</visible>
-    </control>
     <control type="group">
       <animation type="WindowOpen">
         <effect type="fade" start="0" end="100" time="400" tween="sine" easing="inout" />
@@ -37,16 +31,13 @@
         <effect type="fade" start="100" end="0" time="400" tween="sine" easing="inout" />
       </animation>
       <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(DialogSelect.xml) | Window.IsActive(FileBrowser.xml)">Conditional</animation>
-      <include content="MenuContentPanel">
-        <param name="width" value="310"/>
-        <param name="dividerleft" value="310"/>
-      </include>
       <control type="group">
         <control type="list" id="20000">
           <include content="CenterList72">
             <param name="id" value="20000" />
           </include>
-          <left>0</left>
+          <centertop>50%</centertop>
+          <left>60</left>
           <width>310</width>
           <onleft>back</onleft>
           <onright condition="String.IsEqual(Container(20000).ListItem.Property(id),cast)">SetFocus(50,0)</onright>
@@ -59,6 +50,7 @@
               <visible>Control.IsVisible(8)</visible>
               <label>$VAR[VideoInfoPlayButtonLabelVar]</label>
               <onclick>SendClick(8)</onclick>
+              <property name="icon">iconpicker/monochrome/Media/play-fill.png</property>
             </item>
             <item>
               <visible>Control.IsVisible(11)</visible>
@@ -66,23 +58,28 @@
               <onclick>RunScript(script.altus.helper, mode=play_trailer)</onclick>
               <onclick>Dialog.Close(all)</onclick>
               <visible>!String.IsEmpty(Skin.String(valid_api_key)) + !String.IsEqual(Window(Home).Property(CurrentDBType),season) + !String.IsEqual(Window(Home).Property(CurrentDBType),episode)</visible>
+              <property name="icon">iconpicker/monochrome/Media/film-fill.png</property>
             </item>
             <item>
               <label>206</label>
               <property name="id">cast</property>
+              <property name="icon">iconpicker/monochrome/User &amp; Faces/group-fill.png</property>
             </item>
             <item>
               <label>Info</label>
               <property name="id">moreinfo</property>
+              <property name="icon">iconpicker/monochrome/System/information-fill.png</property>
             </item>
             <item>
               <label>Art</label>
               <!-- <label>31001</label> -->
               <onclick>SendClick(10)</onclick>
+              <property name="icon">iconpicker/monochrome/Media/image-fill.png</property>
             </item>
             <item>
               <label>184</label>
               <onclick>SendClick(6)</onclick>
+              <property name="icon">iconpicker/monochrome/System/refresh-fill.png</property>
             </item>
           </content>
         </control>
@@ -105,7 +102,7 @@
           <animation effect="fade" start="0" end="100" time="300" delay="300">Visible</animation>
           <animation effect="fade" start="100" end="0" time="300">Hidden</animation>
           <top>160</top>
-          <left>345</left>
+          <left>405</left>
           <bottom>160</bottom>
           <right>625</right>
           <control type="grouplist">

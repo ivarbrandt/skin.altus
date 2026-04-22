@@ -81,8 +81,8 @@
 			<visible>Player.HasVideo + String.IsEmpty(Skin.String(TrailerPlaying))</visible>
 		</control>
 		<control type="image" id="100000">
-			<include>FullScreenFanartDimensions</include>
-			<aspectratio>scale</aspectratio>
+			<include>FullScreenDimensions</include>
+			<aspectratio>stretch</aspectratio>
 			<animation effect="fade" start="100" end="100" time="0">WindowOpen</animation>
 			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 			<texture background="true" colordiffuse="$VAR[MainFanartDiffuse]" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[ImageTextureSourceVar]</texture>
@@ -97,8 +97,8 @@
 			</visible>
 		</control>
 		<control type="image">
-			<include>FullScreenFanartDimensions</include>
-			<aspectratio>scale</aspectratio>
+			<include>FullScreenDimensions</include>
+			<aspectratio>stretch</aspectratio>
 			<animation effect="fade" start="100" end="100" time="0">WindowOpen</animation>
 			<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 			<texture colordiffuse="$VAR[MainBlurDiffuse]" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[MainBlurTextureVar]</texture>
@@ -110,8 +110,8 @@
 			</visible>
 		</control>
 		<control type="image">
-			<include>FullScreenFanartDimensions</include>
-			<aspectratio>scale</aspectratio>
+			<include>FullScreenDimensions</include>
+			<aspectratio>stretch</aspectratio>
 			<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
 			<visible>!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEmpty(Skin.String(TrailerPlaying)) + 
 			![Control.IsVisible(50) + [Window.IsVisible(videos) | ![Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)]] + 
@@ -132,9 +132,9 @@
 	<include name="ColoredBackgroundImages">
 		<control type="group">
 			<depth>DepthBackground</depth>
-			<include>FullScreenFanartDimensions</include>
+			<include>FullScreenDimensions</include>
 			<control type="image" id="100000">
-				<aspectratio>scale</aspectratio>
+				<aspectratio>stretch</aspectratio>
 				<fadetime>400</fadetime>
 				<animation effect="fade" start="100" end="100" time="0">WindowOpen</animation>
 				<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
@@ -159,7 +159,8 @@
 			</control>
 			<control type="image">
 				<fadetime>400</fadetime>
-				<aspectratio>scale</aspectratio>
+				<aspectratio>stretch</aspectratio>
+				<include>FullScreenDimensions</include>
 				<animation effect="fade" start="100" end="100" time="0">WindowOpen</animation>
 				<animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
 				<texture colordiffuse="$VAR[MainBlurDiffuse]" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[MainBlurTextureVar]</texture>
@@ -172,7 +173,8 @@
 				</visible>
 			</control>
 			<control type="image">
-				<aspectratio>scale</aspectratio>
+				<aspectratio>stretch</aspectratio>
+				<include>FullScreenDimensions</include>
 				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
 				<visible>!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEmpty(Skin.String(TrailerPlaying)) + 
 				![Control.IsVisible(50) + [Window.IsVisible(videos) | ![Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)]] + 

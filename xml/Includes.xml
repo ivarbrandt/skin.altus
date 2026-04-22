@@ -426,42 +426,6 @@
 		<width>auto</width>
 	</include>
 
-	<include name="MenuContentPanel">
-    <param name="width">492</param>
-    <param name="height">100%</param>
-    <param name="bg_left">0</param>
-		<param name="dividerleft">492</param>
-    <param name="right"></param>
-    <param name="top">0</param>
-    <param name="bottom">0</param>
-    <param name="color">$VAR[MenuBackgroundDiffuse]</param>
-    <param name="visible">true</param>
-    <param name="divider_visible">true</param>
-    <definition>
-			<control type="group">
-				<visible>$PARAM[visible]</visible>
-				<control type="image">
-					<left>$PARAM[bg_left]</left>
-					<top>$PARAM[top]</top>
-					<height>$PARAM[height]</height>
-					<width>$PARAM[width]</width>
-					<right>$PARAM[right]</right>
-					<texture colordiffuse="$PARAM[color]">$VAR[MenuBackgroundTexture]</texture>
-					<aspectratio>scale</aspectratio>
-					<fadetime>400</fadetime>
-				</control>
-				<control type="image">
-					<top>$PARAM[top]</top>
-					<bottom>$PARAM[bottom]</bottom>
-					<left>$PARAM[dividerleft]</left>
-					<width>1</width>
-					<texture colordiffuse="$VAR[FocusColorTheme]">masks/mainmenupanel_divider.png</texture>
-					<visible>$PARAM[divider_visible]</visible>
-				</control>
-			</control>
-    </definition>
-	</include>
-
 	<include name="ContentPanel">
 		<param name="width">500</param>
 		<param name="left">-40</param>

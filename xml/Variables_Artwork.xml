@@ -84,30 +84,6 @@
 		<value condition="!String.IsEmpty(Player.Art(tvshow.clearlogo))">$INFO[Player.Art(tvshow.clearlogo)]</value>
 	</variable>
 
-  <variable name="MenuBackgroundTexture">
-		<value condition="!Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">$INFO[Window(home).Property(listitem_blurred)]</value>
-		<value condition="Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),2) + !String.IsEmpty(Window(home).Property(listitem_blurred))">colors/darkest.png</value>
-		<value>colors/dark.png</value>
-	</variable>
-
-  <!-- <variable name="MenuBackgroundDiffuse">
-    <value condition="!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),2) + !String.IsEmpty(Window(home).Property(listitem_blurred))">FF888888</value>
-    <value condition="!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),1) + !String.IsEmpty(Window(home).Property(listitem_blurred))">D9999999</value>
-    <value condition="Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">CC000000</value>
-    <value condition="!Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + String.IsEmpty(Window(home).Property(listitem_blurred))">CC000000</value>
-    <value condition="String.IsEqual(Skin.String(BackgroundSetting),0)">80000000</value>
-    <value>80000000</value>
-  </variable> -->
-
-  <variable name="MenuBackgroundDiffuse">
-		<value condition="!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),2) + !String.IsEmpty(Window(home).Property(listitem_blurred))">FF888888</value>
-		<value condition="Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">CC000000</value>
-		<value condition="!Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + String.IsEmpty(Window(home).Property(listitem_blurred))">CC000000</value>
-    <value condition="!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),1) + ![Window.IsVisible(Home) | Window.IsVisible(1121)] +  [!String.IsEmpty(Window(Home).Property(FlixWidget)) | String.IsEqual(Container.ViewMode,$LOCALIZE[31107]) | Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">D9999999</value>
-    <value condition="!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),1) + !String.IsEqual(Container.ViewMode,$LOCALIZE[31107]) + !String.IsEmpty(Window(home).Property(listitem_blurred))">99999999</value>
-		<value condition="String.IsEqual(Skin.String(BackgroundSetting),0)">80000000</value>
-	</variable>
-
   <variable name="IconDiffuse">
     <value condition="!$EXP[isContent] + 
     [Window.IsVisible(videos) + 
