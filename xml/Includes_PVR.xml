@@ -713,7 +713,7 @@
 			<orientation>horizontal</orientation>
 			<left>0</left>
 			<align>center</align>
-			<width>510</width>
+			<width>480</width>
 			<control type="label" id="$PARAM[header_id]">
 				<width>auto</width>
 				<height>70</height>
@@ -733,55 +733,51 @@
 		<control type="list" id="$PARAM[list_id]">
 			<left>0</left>
 			<top>70</top>
-			<width>515</width>
-			<height>855</height>
+			<width>480</width>
+			<height>836</height>
 			<onup>$PARAM[list_id]</onup>
 			<ondown>$PARAM[list_id]</ondown>
 			<onleft>$PARAM[onleft]</onleft>
 			<onright>$PARAM[scrollbar_id]</onright>
 			<pagecontrol>$PARAM[scrollbar_id]</pagecontrol>
 			<scrolltime>200</scrolltime>
-			<itemlayout height="71" width="515">
+			<itemlayout height="76" width="480">
 				<control type="image">
 					<width>60</width>
-					<height>60</height>
 					<right>20</right>
-					<top>5</top>
 					<texture>$INFO[ListItem.ActualIcon]</texture>
 					<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
 					<bordersize>2</bordersize>
-					<aspectratio>keep</aspectratio>
+					<aspectratio aligny="center">keep</aspectratio>
 				</control>
 				<control type="label">
 					<left>20</left>
 					<right>85</right>
-					<height>70</height>
+					<height>76</height>
 					<aligny>center</aligny>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 					<label>$INFO[ListItem.ChannelNumberLabel,[B],[/B] - ]$INFO[ListItem.ChannelName]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout height="71" width="515">
+			<focusedlayout height="76" width="480">
 				<control type="image">
-					<texture colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texture>
+					<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 					<!-- <visible>Control.HasFocus($PARAM[list_id])</visible> -->
 					<animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus($PARAM[list_id])">conditional</animation>
 				</control>
 				<control type="image">
 					<width>60</width>
-					<height>60</height>
 					<right>20</right>
-					<top>5</top>
 					<texture>$INFO[ListItem.ActualIcon]</texture>
 					<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
 					<bordersize>2</bordersize>
-					<aspectratio>keep</aspectratio>
+					<aspectratio aligny="center">keep</aspectratio>
 				</control>
 				<control type="label">
 					<left>20</left>
 					<right>85</right>
-					<height>70</height>
+					<height>76</height>
 					<font>font27</font>
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.ChannelNumberLabel,[B],[/B] - ]$INFO[ListItem.ChannelName]</label>

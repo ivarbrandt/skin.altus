@@ -47,10 +47,7 @@
 			<animation effect="fade" start="100" end="0" time="500" tween="sine" condition="Player.HasVideo + !String.IsEmpty(Skin.String(TrailerPlaying))">Conditional</animation>
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
-				<!-- <top>-50</top> -->
-				<left>497</left>
-				<!-- <top>-20</top>
-				<width>200%</width> -->
+				<left>-1</left>
 				<animation condition="Skin.HasSetting(Enable.MainMenuWidgetDimming) + String.IsEqual(Skin.String(BackgroundSetting),1) + !ControlGroup(2000).HasFocus" reversible="true">
 					<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="300" />
 				</animation>
@@ -59,7 +56,7 @@
 					<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="300" />
 				</animation>
 				<!-- <animation effect="slide" condition="!String.IsEmpty(Window(Home).Property(FlixWidget))" time="0" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation> -->
-				<!-- <animation effect="slide" condition="!ControlGroup(15000).HasFocus" time="500" start="0,0" end="498,0" tween="cubic" easing="inout">Conditional</animation> -->
+				<animation effect="slide" condition="!ControlGroup(15000).HasFocus" time="500" start="0,0" end="498,0" tween="cubic" easing="inout">Conditional</animation>
 				<!-- <animation type="Conditional" condition="Control.IsVisible(20000)" reversible="false">
 					<effect type="slide" end="0,20" time="60" tween="sine" />
 					<effect type="slide" end="0,-20" time="180" tween="sine" delay="80" />
