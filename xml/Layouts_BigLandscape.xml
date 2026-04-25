@@ -85,23 +85,12 @@
 						<param name="vis" value="![$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) | Control.IsVisible(55) | Control.IsVisible(501)]]"/>
 						<param name="slide_condition" value="$EXP[hasWallWatchedIcon]"/>
 					</include>
-					<!-- Episode badge: non-season view (slides right when watched icon is present) -->
+					<!-- Episode badge: label switches season vs non-season via variable; slides right when watched icon is present -->
 					<include content="InfoBadge">
 						<param name="left" value="31"/>
 						<param name="top" value="1"/>
 						<param name="max_width" value="530"/>
-						<param name="label" value="[UPPERCASE][LIGHT]$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,] | $VAR[InfoBadgeSeasonTitle][/UPPERCASE][/LIGHT]"/>
-						<param name="vis" value="!String.StartsWith(Container($PARAM[list_id]).PluginCategory,Season)"/>
-						<param name="vis2" value="[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]"/>
-						<param name="slide_condition" value="$EXP[hasWallWatchedIcon]"/>
-					</include>
-					<!-- Episode badge: season view (slides right when watched icon is present) -->
-					<include content="InfoBadge">
-						<param name="left" value="31"/>
-						<param name="top" value="1"/>
-						<param name="max_width" value="530"/>
-						<param name="label" value="$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,] | $INFO[Container($PARAM[list_id]).ListItem.Title]"/>
-						<param name="vis" value="String.StartsWith(Container($PARAM[list_id]).PluginCategory,Season)"/>
+						<param name="label" value="$VAR[InfoBadgeEpisodeLabelBigVar]"/>
 						<param name="vis2" value="[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]"/>
 						<param name="slide_condition" value="$EXP[hasWallWatchedIcon]"/>
 					</include>

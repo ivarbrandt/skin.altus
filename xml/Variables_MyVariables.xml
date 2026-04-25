@@ -41,6 +41,21 @@
 		<value>$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle]</value>
 	</variable>
 
+	<variable name="InfoBadgeEpisodeLabelVar">
+		<value condition="String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Season]$INFO[ListItem.Episode,x,] | $INFO[ListItem.Title]</value>
+		<value>[UPPERCASE][LIGHT]$INFO[ListItem.Season]$INFO[ListItem.Episode,x,] | $INFO[ListItem.TVShowTitle][/UPPERCASE][/LIGHT]</value>
+	</variable>
+
+	<!-- BigLandscape variant: on View 57 the layout is rendered inside the seasons list (57)
+	but data must come from the focused episodes list (5057). Outside View 57, bare refs
+	(current container/item) are correct. -->
+	<variable name="InfoBadgeEpisodeLabelBigVar">
+		<value condition="Control.IsVisible(57) + String.StartsWith(Container(5057).PluginCategory,Season)">$INFO[Container(5057).ListItem.Season]$INFO[Container(5057).ListItem.Episode,x,] | $INFO[Container(5057).ListItem.Title]</value>
+		<value condition="Control.IsVisible(57)">[UPPERCASE][LIGHT]$INFO[Container(5057).ListItem.Season]$INFO[Container(5057).ListItem.Episode,x,] | $INFO[Container(5057).ListItem.Title][/UPPERCASE][/LIGHT]</value>
+		<value condition="String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Season]$INFO[ListItem.Episode,x,] | $INFO[ListItem.Title]</value>
+		<value>[UPPERCASE][LIGHT]$INFO[ListItem.Season]$INFO[ListItem.Episode,x,] | $INFO[ListItem.TVShowTitle][/UPPERCASE][/LIGHT]</value>
+	</variable>
+
 	<!-- Return a single genre -->
   <variable name="GenreVar">
 		<!-- Specific Genre Combinations -->
