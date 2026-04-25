@@ -152,6 +152,7 @@
 		<param name="wrapmultiline">false</param>
 		<param name="font">font27_title</param>
 		<param name="onclick"></param>
+		<param name="onclick2"></param>
 		<param name="visible">true</param>
 		<param name="texture">masks/radius_23.png</param>
 		<definition>
@@ -162,6 +163,7 @@
 				<font>$PARAM[font]</font>
 				<textoffsetx>20</textoffsetx>
 				<onclick>$PARAM[onclick]</onclick>
+				<onclick>$PARAM[onclick2]</onclick>
 				<wrapmultiline>$PARAM[wrapmultiline]</wrapmultiline>
 				<align>center</align>
 				<aligny>center</aligny>

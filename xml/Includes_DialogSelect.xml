@@ -244,6 +244,13 @@
 				<param name="label" value="" />
 			</include>
 			<include content="DefaultDialogButton">
+				<param name="id" value="9" />
+				<param name="label" value="Multi-select" />
+				<param name="onclick" value="SetProperty(altus.pathbrowser.do_multi,true,Home)" />
+				<param name="onclick2" value="Action(Close)" />
+				<param name="visible" value="String.IsEqual(Window(Home).Property(altus.pathbrowser.allow_multi),true)" />
+			</include>
+			<include content="DefaultDialogButton">
 				<param name="id" value="7" />
 				<param name="label" value="$LOCALIZE[222]" />
 			</include>
