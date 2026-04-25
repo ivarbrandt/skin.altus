@@ -53,9 +53,7 @@
 							<top>40</top>
 							<width>360</width>
 							<height>210</height>
-							<bordersize>1</bordersize>
-							<texture colordiffuse="66000000">colors/white.png</texture>
-							<bordertexture border="1" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture2.png</bordertexture>
+							<texture border="23" colordiffuse="66000000">masks/radius_23.png</texture>
 						</control>
 						<!-- IMAGE CONTROL -->
 						<control type="image">
@@ -89,7 +87,7 @@
 							<top>40</top>
 							<width>360</width>
 							<height>210</height>
-							<texture colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
+							<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 							<include>Animation_FocusTextureFade</include>
 						</control>
 						<control type="image">

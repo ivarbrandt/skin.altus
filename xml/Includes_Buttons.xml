@@ -129,7 +129,7 @@
 	<include name="SettingsItemCommon1">
 		<include>FocusBounce</include>
 		<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
-		<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_dark.png</texturenofocus>
+		<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darker.png</texturenofocus>
 		<height>60</height>
 		<aligny>center</aligny>
 		<textoffsetx>20</textoffsetx>

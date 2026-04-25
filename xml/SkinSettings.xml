@@ -1084,7 +1084,7 @@
 			</control>
 		</control>
 		<include content="TopBar">
-			<param name="breadcrumbs_label" value="[COLOR unfocused_text]$LOCALIZE[5][/COLOR] [B]»[/B] [COLOR unfocused_text]$LOCALIZE[20077][/COLOR]" />
+			<param name="breadcrumbs_label" value="[COLOR unfocused_text]$LOCALIZE[5][/COLOR] » [COLOR unfocused_text]$LOCALIZE[20077][/COLOR]" />
 		</include>
 		<!-- <include>BottomBar</include> -->
 		<control type="textbox" id="6">

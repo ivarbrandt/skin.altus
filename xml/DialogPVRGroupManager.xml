@@ -9,12 +9,12 @@
 			<centerleft>50%</centerleft>
 			<width>1820</width>
 			<include content="DialogBackgroundCommons">
-				<param name="width" value="1820" />
-				<param name="height" value="995" />
-				<param name="divider_left" value="1430" />
-				<param name="shade_right" value="390" />
 				<param name="header_label" value="$VAR[PVRGroupMgrHeader]$INFO[Container(13).NumItems, (,)]" />
 				<param name="header_id" value="1" />
+				<param name="width" value="1820" />
+				<param name="height" value="995" />
+				<param name="header_top" value="15" />
+				<param name="divider_top" value="90" />
 			</include>
 			<control type="image">
 				<left>400</left>
@@ -51,6 +51,7 @@
 					<aligny>center</aligny>
 					<textcolor>$VAR[FocusColorTheme]</textcolor>
 				</control>
+				<!-- LEFT -->
 				<control type="list" id="13">
 					<left>0</left>
 					<top>70</top>
@@ -112,6 +113,7 @@
 				</control>
 				
 			</control>
+			<!-- MIDDLE -->
 			<control type="group">
 				<description>Channels list</description>
 				<left>400</left>
@@ -124,6 +126,7 @@
 					<param name="onleft" value="73" />
 				</include>
 			</control>
+			<!-- RIGHT -->
 			<control type="group">
 				<description>Grouped Channels list</description>
 				<left>915</left>
@@ -136,6 +139,7 @@
 					<param name="onleft" value="71" />
 				</include>
 			</control>
+			<!-- LEFT -->
 			<control type="scrollbar" id="73">
 				<left>396</left>
 				<top>140</top>
@@ -147,6 +151,7 @@
 				<onup>73</onup>
 				<orientation>vertical</orientation>
 			</control>
+			<!-- MIDDLE -->
 			<control type="scrollbar" id="71">
 				<left>911</left>
 				<top>140</top>
@@ -158,6 +163,7 @@
 				<onup>71</onup>
 				<orientation>vertical</orientation>
 			</control>
+			<!-- RIGHT -->
 			<control type="scrollbar" id="72">
 				<left>1426</left>
 				<top>140</top>

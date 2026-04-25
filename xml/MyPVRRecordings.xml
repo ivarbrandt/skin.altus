@@ -16,7 +16,7 @@
 					<align>center</align>
 					<top>105</top>
 					<bottom>40</bottom>
-					<onleft>9000</onleft>
+					<onleft>73</onleft>
 					<onright>73</onright>
 					<onup>50</onup>
 					<ondown>50</ondown>
@@ -33,21 +33,22 @@
 					</include>
 				</control>
 			</control>
+			<control type="scrollbar" id="73">
+				<animation effect="fade" time="400" tween="cubic" easing="out">VisibleChange</animation>
+				<left>0</left>
+				<top>105</top>
+				<width>8</width>
+				<height>936</height>
+				<onleft>9000</onleft>
+				<onright>50</onright>
+				<orientation>vertical</orientation>
+				<animation effect="slide" start="0,0" end="-4,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(73)">conditional</animation>
+			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Right</include>
 				<left>1192</left>
 				<right>40</right>
-				<control type="scrollbar" id="73">
-					<left>-76</left>
-					<top>0</top>
-					<width>8</width>
-					<bottom>-15</bottom>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<orientation>vertical</orientation>
-					<!-- <animation effect="zoom" start="100,100" end="50,100" center="-50,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(73)">conditional</animation> -->
-				</control>
 				<include content="PVRInfoPanel">
 					<param name="folder_sortorder" value="descending" />
 				</include>

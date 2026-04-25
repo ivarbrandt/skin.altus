@@ -60,11 +60,10 @@
 					<textoffsetx>40</textoffsetx>
 					<width>970</width>
 					<height>70</height>
-					<font>font45</font>
+					<font>topbar_chrome</font>
 					<aligny>center</aligny>
 					<label>$VAR[BreadcrumbsPVRChannelsOSDVar]</label>
 					<textcolor>$VAR[PlayerProgressColor]</textcolor>
-					<shadowcolor>black</shadowcolor>
 				</control>
 			</control>
 		</control>

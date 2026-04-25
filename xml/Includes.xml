@@ -418,9 +418,8 @@
 	</include>
 
 	<include name="BreadcrumbsLabel">
-		<font>font45</font>
+		<font>topbar_chrome</font>
 		<textcolor>$VAR[FocusColorTheme]</textcolor>
-		<shadowcolor>text_shadow</shadowcolor>
 		<top>7</top>
 		<height>100</height>
 		<width>auto</width>

@@ -214,7 +214,7 @@
 					<textoffsetx>40</textoffsetx>
 					<width>1300</width>
 					<height>70</height>
-					<font>font45</font>
+					<font>topbar_chrome</font>
 					<aligny>center</aligny>
 					<label>$LOCALIZE[19069]$INFO[Container(11).ListItem.StartDate, - ]</label>
 					<textcolor>unfocused_text</textcolor>

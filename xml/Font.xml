@@ -349,6 +349,13 @@
 			<style>bold</style>
 		</font>
 		<font>
+			<name>topbar_chrome</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>37</size>
+			<style>bold uppercase</style>
+			<aspect>0.92</aspect>
+		</font>
+		<font>
 			<name>font52_title</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>50</size>
