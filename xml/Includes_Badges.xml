@@ -41,6 +41,8 @@
 		<param name="animation_vis">false</param>
 		<param name="animation_vis_51">false</param>
 		<param name="vis">true</param>
+		<param name="slide_condition">false</param>
+		<param name="slide_x">37</param>
 		<definition>
 			<control type="group">
 				<left>$PARAM[left]</left>
@@ -51,6 +53,7 @@
 				<animation condition="$PARAM[animation_vis_51]" reversible="true">
 					<effect type="slide" start="0,0" end="0,55" time="0" tween="cubic" easing="inout" />
 				</animation>
+				<animation effect="slide" start="0,0" end="$PARAM[slide_x],0" time="0" condition="$PARAM[slide_condition]">Conditional</animation>
 				<visible>String.IsEqual(Container.ListItem.Property(belongs_to_collection),true) + !String.EndsWith(Container.PluginCategory,Collection)</visible>
 				<visible>$PARAM[vis]</visible>
 				<control type="image">
@@ -76,11 +79,14 @@
 		<param name="badge_color">$VAR[BadgeBackgroundColorVar]</param>
 		<param name="list_id"></param>
 		<param name="vis">$EXP[isEpisode]</param>
+		<param name="slide_condition">false</param>
+		<param name="slide_x">33</param>
 		<definition>
 			<control type="group">
 				<left>$PARAM[left]</left>
 				<top>$PARAM[top]</top>
 				<visible>$PARAM[vis]</visible>
+				<animation effect="slide" start="0,0" end="$PARAM[slide_x],0" time="0" condition="$PARAM[slide_condition]">Conditional</animation>
 				<!-- Background images sized per digit combination -->
 				<!-- 1x1 (e.g. 2x5) -->
 				<control type="image">
@@ -302,6 +308,8 @@
 		<param name="label"></param>
 		<param name="vis">true</param>
 		<param name="vis2">true</param>
+		<param name="slide_condition">false</param>
+		<param name="slide_x">33</param>
 		<definition>
 			<control type="togglebutton">
 				<left>$PARAM[left]</left>
@@ -318,6 +326,7 @@
 				<label>$PARAM[label]</label>
 				<visible>$PARAM[vis]</visible>
 				<visible>$PARAM[vis2]</visible>
+				<animation effect="slide" start="0,0" end="$PARAM[slide_x],0" time="0" condition="$PARAM[slide_condition]">Conditional</animation>
 			</control>
 		</definition>
 	</include>

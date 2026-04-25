@@ -85,20 +85,13 @@
 					</include>
 				</control>
 				<include content="CollectionBadge">
-					<param name="left" value="97"/>
-					<param name="top" value="591"/>
-					<param name="icon_size" value="25"/>
-					<param name="back_size" value="44"/>
-					<param name="offset" value="9"/>
-					<param name="vis" value="$EXP[hasWallWatchedIcon]"/>
-				</include>
-				<include content="CollectionBadge">
 					<param name="left" value="41"/>
 					<param name="top" value="591"/>
 					<param name="icon_size" value="25"/>
 					<param name="back_size" value="44"/>
 					<param name="offset" value="9"/>
-					<param name="vis" value="!$EXP[hasWallWatchedIcon]"/>
+					<param name="slide_condition" value="$EXP[hasWallWatchedIcon]"/>
+					<param name="slide_x" value="56"/>
 				</include>
 				<include content="ProgressBadge">
 					<param name="left" value="41"/>

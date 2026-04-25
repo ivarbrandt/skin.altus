@@ -83,14 +83,9 @@
 					</include>
 				</control>
 				<include content="CollectionBadge">
-					<param name="left" value="68"/>
-					<param name="top" value="346"/>
-					<param name="vis" value="$EXP[hasWallWatchedIcon]"/>
-				</include>
-				<include content="CollectionBadge">
 					<param name="left" value="31"/>
 					<param name="top" value="346"/>
-					<param name="vis" value="!$EXP[hasWallWatchedIcon]"/>
+					<param name="slide_condition" value="$EXP[hasWallWatchedIcon]"/>
 				</include>
 				<include content="ProgressBadge">
 					<param name="left" value="31"/>
