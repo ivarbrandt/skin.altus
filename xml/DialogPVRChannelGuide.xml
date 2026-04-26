@@ -81,7 +81,7 @@
 							<visible>ListItem.HasReminder | ListItem.HasTimer</visible>
 						</control>
 						<control type="image">
-							<width>30</width>
+							<width>41</width>
 							<right>20</right>
 							<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[WallWatchedIconVar]</texture>
 							<aspectratio aligny="center">keep</aspectratio>
@@ -141,7 +141,7 @@
 							<visible>!Window.IsVisible(tvchannels)</visible>
 						</control> -->
 						<control type="image">
-							<width>30</width>
+							<width>41</width>
 							<right>20</right>
 							<bottom>144</bottom>
 							<texture colordiffuse="$VAR[FocusedTextColorVar]">$VAR[WallWatchedIconVar]</texture>

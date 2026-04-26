@@ -221,10 +221,10 @@
 				<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>
 				<texturenofocus colordiffuse="33000000">buttons/roundbutton-fo.png</texturenofocus>
 				<!-- <texturenofocus/> -->
-				<radioposx>30</radioposx>
+				<radioposx>21</radioposx>
 				<radioposy>0</radioposy>
-				<radiowidth>40</radiowidth>
-				<radioheight>40</radioheight>
+				<radiowidth>60</radiowidth>
+				<radioheight>60</radioheight>
 				<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon]</textureradioonfocus>
 				<textureradioonnofocus colordiffuse="unfocused_text">$PARAM[icon]</textureradioonnofocus>
 				<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon]</textureradioofffocus>
@@ -366,8 +366,8 @@
 		<orientation>vertical</orientation>
 		<itemlayout height="75" width="418">
 			<control type="image">
-				<left>25</left>
-				<width>41</width>
+				<left>20</left>
+				<width>56</width>
 				<texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
 				<aspectratio>keep</aspectratio>
 				<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
@@ -391,8 +391,8 @@
 				<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 			</control>
 			<control type="image">
-				<left>25</left>
-				<width>41</width>
+				<left>20</left>
+				<width>56</width>
 				<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Property(icon)]</texture>
 				<aspectratio>keep</aspectratio>
 				<visible>!String.IsEmpty(ListItem.Property(icon))</visible>

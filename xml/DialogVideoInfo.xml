@@ -50,7 +50,7 @@
               <visible>Control.IsVisible(8)</visible>
               <label>$VAR[VideoInfoPlayButtonLabelVar]</label>
               <onclick>SendClick(8)</onclick>
-              <property name="icon">iconpicker/monochrome/Media/play-fill.png</property>
+              <property name="icon">icons/dialog/play.png</property>
             </item>
             <item>
               <visible>Control.IsVisible(11)</visible>
@@ -58,28 +58,28 @@
               <onclick>RunScript(script.altus.helper, mode=play_trailer)</onclick>
               <onclick>Dialog.Close(all)</onclick>
               <visible>!String.IsEmpty(Skin.String(valid_api_key)) + !String.IsEqual(Window(Home).Property(CurrentDBType),season) + !String.IsEqual(Window(Home).Property(CurrentDBType),episode)</visible>
-              <property name="icon">iconpicker/monochrome/Media/film-fill.png</property>
+              <property name="icon">icons/dialog/trailer.png</property>
             </item>
             <item>
               <label>206</label>
               <property name="id">cast</property>
-              <property name="icon">iconpicker/monochrome/User &amp; Faces/group-fill.png</property>
+              <property name="icon">icons/dialog/cast.png</property>
             </item>
             <item>
               <label>Info</label>
               <property name="id">moreinfo</property>
-              <property name="icon">iconpicker/monochrome/System/information-fill.png</property>
+              <property name="icon">icons/dialog/info.png</property>
             </item>
             <item>
               <label>Art</label>
               <!-- <label>31001</label> -->
               <onclick>SendClick(10)</onclick>
-              <property name="icon">iconpicker/monochrome/Media/image-fill.png</property>
+              <property name="icon">icons/dialog/art.png</property>
             </item>
             <item>
               <label>184</label>
               <onclick>SendClick(6)</onclick>
-              <property name="icon">iconpicker/monochrome/System/refresh-fill.png</property>
+              <property name="icon">icons/dialog/reload.png</property>
             </item>
           </content>
         </control>

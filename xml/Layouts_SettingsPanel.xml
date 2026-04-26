@@ -11,7 +11,7 @@
 			<control type="image">
 				<centertop>40%</centertop>
 				<centerleft>15%</centerleft>
-				<width>80</width>
+				<width>110</width>
 				<texture colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
 				<aspectratio>keep</aspectratio>
 			</control>
@@ -37,7 +37,7 @@
 				<control type="image">
 					<centertop>40%</centertop>
 					<centerleft>15%</centerleft>
-					<width>80</width>
+					<width>110</width>
 					<texture colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>

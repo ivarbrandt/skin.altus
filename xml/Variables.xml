@@ -196,6 +196,10 @@
 		<value condition="MusicPlayer.IsMultiDisc + Window.IsActive(visualisation)">$INFO[MusicPlayer.DiscNumber, - [$LOCALIZE[427] ,] ]$INFO[MusicPlayer.DiscTitle]</value>
 		<value condition="MusicPlayer.IsMultiDisc">$INFO[MusicPlayer.DiscNumber]$INFO[MusicPlayer.DiscTitle, - ]</value>
 	</variable>
+	<variable name="WidgetPlaylistIconVar">
+		<value condition="String.IsEqual(ListItem.Property(node.type),target_folder)">$INFO[ListItem.Icon]</value>
+		<value>DefaultPlaylist.png</value>
+	</variable>
 	<variable name="WidgetGenreIconVar">
 		<value condition="System.AddonIsEnabled(resource.images.moviegenreicons.transparent)">$INFO[ListItem.Label,resource://resource.images.moviegenreicons.transparent/,.png]</value>
 		<value>DefaultGenre.png</value>
@@ -497,10 +501,10 @@
 
 	<variable name="WallWatchedIconVar.All">
     <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
-    <value condition="ListItem.HasReminder">iconpicker/monochrome/Media/notification-2-fill.png</value>
-    <value condition="ListItem.HasTimer">iconpicker/monochrome/Media/record-circle-fill.png</value>
+    <value condition="ListItem.HasReminder">icons/pvr/timers/bell.png</value>
+    <value condition="ListItem.HasTimer">icons/pvr/timers/recording.png</value>
     <value condition="ListItem.IsCollection">icons/collection.png</value>
-    <value condition="ListItem.IsPlaying">iconpicker/monochrome/Media/play-fill.png</value>
+    <value condition="ListItem.IsPlaying">icons/dialog/play.png</value>
     <!-- TV Shows -->
     <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
     <!-- Movies -->
@@ -516,7 +520,7 @@
     <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
     <value condition="ListItem.HasReminder">icons/pvr/timers/bell.png</value>
     <value condition="ListItem.HasTimer">icons/pvr/timers/recording.png</value>
-    <value condition="ListItem.IsPlaying">iconpicker/monochrome/Media/play-fill.png</value>
+    <value condition="ListItem.IsPlaying">icons/dialog/play.png</value>
     <value condition="!Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
     <value condition="ListItem.IsCollection">icons/collection.png</value>
     <value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
@@ -534,15 +538,15 @@
 		<value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 	</variable> -->
 	<variable name="ListPVRRecordingsIconVar">
-		<value condition="ListItem.IsRecording">iconpicker/monochrome/Media/record-circle-fill.png</value>
-		<value condition="ListItem.IsResumable">iconpicker/monochrome/Media/play-fill.png</value>
+		<value condition="ListItem.IsRecording">icons/pvr/timers/recording.png</value>
+		<value condition="ListItem.IsResumable">icons/dialog/play.png</value>
 		<value condition="!String.IsEmpty(ListItem.Overlay)">OverlayWatched.png</value>
 		<value condition="!ListItem.IsParentFolder">OverlayUnwatched.png</value>
 	</variable>
 	<variable name="ListPVRTimersIconVar">
-		<value condition="ListItem.IsRecording">iconpicker/monochrome/Media/record-circle-fill.png</value>
-		<value condition="ListItem.HasReminder">iconpicker/monochrome/Media/notification-2-fill.png</value>
-		<value>iconpicker/monochrome/Media/tape-fill.png</value>
+		<value condition="ListItem.IsRecording">icons/pvr/timers/recording.png</value>
+		<value condition="ListItem.HasReminder">icons/pvr/timers/bell.png</value>
+		<value>icons/pvr/timers/tape.png</value>
   </variable>
 	<!-- Breadcrumbs -->
 	<variable name="BreadcrumbsVideoVar">

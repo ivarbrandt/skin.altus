@@ -4,7 +4,7 @@
   <include name="WidgetListCategory">
 		<!-- <param name="item_limit">30</param> -->
 		<!-- <param name="icon_height">230</param> -->
-		<param name="icon">$PARAM[icon]</param>
+		<param name="icon">$INFO[ListItem.Icon]</param>
 		<param name="visible">true</param>
 		<definition>
 			<include content="CategoryLabel">
@@ -40,6 +40,7 @@
 						<top>55</top>
 						<include content="WidgetListCategoryLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
+							<param name="icon" value="$PARAM[icon]" />
 						</include>
 					</control>
 				</itemlayout>
@@ -50,6 +51,7 @@
 						<top>55</top>
 						<include content="WidgetListCategoryLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
+							<param name="icon" value="$PARAM[icon]" />
 							<param name="focused" value="true" />
 						</include>
 						<include>VideoTrailerControl</include>

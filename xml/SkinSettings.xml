@@ -1101,5 +1101,17 @@
 			<label>$VAR[SkinSettingsHelpTextVar]</label>
 			<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
 		</control>
+		<control type="label">
+			<include>OpenClose_Right</include>
+			<description>description area</description>
+			<top>630</top>
+			<right>530</right>
+			<font>font32</font>
+			<align>right</align>
+			<textcolor>grey</textcolor>
+			<label>Icons by Icons8 (icons8.com)</label>
+			<visible>Container(9000).HasFocus(10) | ControlGroup(641).HasFocus</visible>
+			<animation effect="fade" time="300">Visible</animation>
+		</control>
 	</controls>
 </window>

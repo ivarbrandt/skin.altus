@@ -28,21 +28,30 @@
 		<control type="group">
 			<centerleft>50%</centerleft>
 			<centertop>50%</centertop>
-			<width>945</width>
-			<height>680</height>
+			<width>1085</width>
+			<height>730</height>
+
+			<include content="DialogBackgroundCommons">
+				<param name="header_label" value="Choose icon" />
+				<param name="header_id" value="1" />
+				<param name="width" value="1085" />
+				<param name="height" value="730" />
+				<param name="header_top" value="15" />
+				<param name="divider_top" value="90" />
+			</include>
 
 			<!-- Background -->
-			<control type="image">
+			<!-- <control type="image">
 				<left>0</left>
 				<top>0</top>
 				<right>0</right>
 				<bottom>0</bottom>
 				<texture colordiffuse="$VAR[DialogBackgroundDiffuse]">$VAR[DialogBackgroundTexture]</texture>
 				<aspectratio>scale</aspectratio>
-			</control>
+			</control> -->
 
 			<!-- Header label -->
-			<control type="label" id="1">
+			<!-- <control type="label" id="1">
 				<left>30</left>
 				<right>30</right>
 				<top>17</top>
@@ -52,47 +61,44 @@
 				<aligny>center</aligny>
 				<font>font36_title</font>
 				<textcolor>unfocused_text</textcolor>
-			</control>
+			</control> -->
 
 			<!-- Folder list (left side) -->
 			<control type="list" id="3001">
-				<left>20</left>
-				<top>80</top>
-				<width>230</width>
-				<bottom>20</bottom>
+				<left>40</left>
+				<top>130</top>
+				<width>270</width>
+				<height>560</height>
 				<onup>3001</onup>
 				<ondown>3001</ondown>
 				<onleft>3001</onleft>
 				<onright>3000</onright>
+				<pagecontrol>33</pagecontrol>
 				<onfocus>RunScript(script.altus.helper,mode=icon_folder_debounce)</onfocus>
 				<scrolltime tween="cubic" easing="out">300</scrolltime>
-				<itemlayout width="230" height="59">
+				<itemlayout width="270" height="70">
 					<control type="label">
-						<left>15</left>
-						<top>0</top>
+						<left>25</left>
 						<right>10</right>
-						<height>59</height>
-						<font>font27</font>
+						<font>font32</font>
 						<textcolor>unfocused_text</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<aligny>center</aligny>
 					</control>
 				</itemlayout>
-				<focusedlayout width="230" height="59">
+				<focusedlayout width="270" height="70">
 					<control type="image">
 						<left>0</left>
-						<top>5</top>
+						<top>0</top>
 						<right>0</right>
-						<bottom>5</bottom>
-						<texture colordiffuse="$VAR[FocusColorTheme]">colors/grey.png</texture>
+						<bottom>0</bottom>
+						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(3001)">Conditional</animation>
 					</control>
 					<control type="label">
-						<left>15</left>
-						<top>0</top>
+						<left>25</left>
 						<right>10</right>
-						<height>59</height>
-						<font>font27</font>
+						<font>font32</font>
 						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<aligny>center</aligny>
@@ -102,17 +108,29 @@
 
 			<!-- Separator -->
 			<control type="image">
-				<left>260</left>
-				<top>85</top>
+				<height>560</height>
+				<left>350</left>
+				<top>130</top>
 				<width>1</width>
-				<bottom>25</bottom>
-				<texture colordiffuse="26FFFFFF">colors/white.png</texture>
+				<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
+			</control>
+
+			<control type="scrollbar" id="33">
+				<height>560</height>
+				<left>350</left>
+				<top>130</top>
+				<width>1</width>
+				<orientation>vertical</orientation>
+				<texturesliderbackground/>
+				<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbarfocus>
+				<showonepage>false</showonepage>
 			</control>
 
 			<!-- Icon grid panel -->
 			<control type="panel" id="3000">
-				<left>270</left>
-				<top>80</top>
+				<left>390</left>
+				<top>130</top>
 				<width>740</width>
 				<bottom>45</bottom>
 				<onup>3000</onup>
@@ -127,20 +145,11 @@
 						<width>100</width>
 						<height>100</height>
 						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>100</width>
-							<height>100</height>
-							<texture diffuse="lists/mainmenu-img.png">colors/white.png</texture>
-							<colordiffuse>1A000000</colordiffuse>
-							<aspectratio>stretch</aspectratio>
-						</control>
-						<control type="image">
-							<left>25</left>
-							<top>25</top>
-							<width>50</width>
-							<height>50</height>
-							<texture diffuse="lists/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
+							<left>16</left>
+							<top>16</top>
+							<width>68</width>
+							<height>68</height>
+							<texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
 					</control>
@@ -156,15 +165,15 @@
 							<top>0</top>
 							<width>100</width>
 							<height>100</height>
-							<texture colordiffuse="$VAR[FocusColorTheme]">lists/iconpicker-bg.png</texture>
+							<texture colordiffuse="$VAR[FocusColorTheme]">masks/mainmenu-img.png</texture>
 							<aspectratio>stretch</aspectratio>
 						</control>
 						<control type="image">
-							<left>25</left>
-							<top>25</top>
-							<width>50</width>
-							<height>50</height>
-							<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Icon]</texture>
+							<left>16</left>
+							<top>16</top>
+							<width>68</width>
+							<height>68</height>
+							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
 					</control>
@@ -173,8 +182,8 @@
 
 			<!-- Selected icon name -->
 			<control type="label">
-				<right>30</right>
-				<bottom>20</bottom>
+				<right>40</right>
+				<bottom>25</bottom>
 				<right>30</right>
 				<height>30</height>
 				<font>font12</font>

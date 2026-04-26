@@ -57,17 +57,17 @@
 					</control>
 					<control type="image">
 						<right>40</right>
-						<width>35</width>
+						<width>48</width>
 						<aligny>center</aligny>
-						<texture colordiffuse="unfocused_text">iconpicker/monochrome/System/checkbox-circle-line.png</texture>
+						<texture colordiffuse="unfocused_text">icons/dialog/radio-checked.png</texture>
 						<visible>ListItem.IsSelected</visible>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="image">
 						<right>40</right>
-						<width>35</width>
+						<width>48</width>
 						<aligny>center</aligny>
-						<texture colordiffuse="unfocused_text">iconpicker/monochrome/System/checkbox-blank-circle-line.png</texture>
+						<texture colordiffuse="unfocused_text">icons/dialog/radio-blank.png</texture>
 						<visible>!ListItem.IsSelected</visible>
 						<aspectratio>keep</aspectratio>
 					</control>
@@ -131,17 +131,17 @@
 					</control>
 					<control type="image">
 						<right>40</right>
-						<width>35</width>
+						<width>48</width>
 						<aligny>center</aligny>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">iconpicker/monochrome/System/checkbox-circle-line.png</texture>
+						<texture colordiffuse="$VAR[FocusedTextColorVar]">icons/dialog/radio-checked.png</texture>
 						<visible>ListItem.IsSelected</visible>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="image">
 						<right>40</right>
-						<width>35</width>
+						<width>48</width>
 						<aligny>center</aligny>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">iconpicker/monochrome/System/checkbox-blank-circle-line.png</texture>
+						<texture colordiffuse="$VAR[FocusedTextColorVar]">icons/dialog/radio-blank.png</texture>
 						<visible>!ListItem.IsSelected</visible>
 						<aspectratio>keep</aspectratio>
 					</control>

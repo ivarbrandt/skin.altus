@@ -28,26 +28,25 @@
       <visible>String.IsEmpty(Window(home).Property(LanguageNotification))</visible>
       <top>80</top>
       <right>30</right>
-      <height>100</height>
+      <height>120</height>
       <width>650</width>
       <control type="image">
-        <aspectratio>scale</aspectratio>
         <bordersize>1</bordersize>
-        <texture colordiffuse="$VAR[DialogBackgroundDiffuse]">$VAR[DialogBackgroundTexture]</texture>
-        <bordertexture border="1" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture1.png</bordertexture>
+        <texture border="46" colordiffuse="$VAR[FocusColorTheme]">masks/radius_46.png</texture>
+        <bordertexture border="46" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46-dark.png</bordertexture>
       </control>
       <control type="image" id="400">
 				<description>avatar</description>
-				<left>1</left>
-				<top>1</top>
+				<left>10</left>
+				<top>10</top>
 				<width>98</width>
 				<height>98</height>
-				<aspectratio aligny="center" align="center">stretch</aspectratio>
-        <texture />
+				<aspectratio aligny="center" align="center">keep</aspectratio>
+        <texture diffuse="masks/radius_46_unfo_left.png" />
 			</control>
       <control type="fadelabel" id="401">
-        <top>1</top>
-        <left>113</left>
+        <top>11</top>
+        <left>123</left>
         <right>25</right>
         <height>34</height>
         <textcolor>$VAR[FocusColorTheme]</textcolor>
@@ -57,8 +56,8 @@
 				<pauseatend>2000</pauseatend>
       </control>
       <control type="fadelabel" id="402">
-        <bottom>25</bottom>
-        <left>113</left>
+        <bottom>30</bottom>
+        <left>123</left>
         <right>25</right>
         <height>34</height>
         <textcolor>unfocused_text</textcolor>

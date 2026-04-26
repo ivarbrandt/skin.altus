@@ -39,11 +39,11 @@
 							<left>0</left>
 							<top>0</top>
 							<control type="image">
-								<left>30</left>
+								<left>25</left>
 								<centertop>50%</centertop>
-								<width>50</width>
-								<height>50</height>
-								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<width>60</width>
+								<height>60</height>
+								<texture diffuse="masks/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 							</control>
 							<control type="textbox">
@@ -74,20 +74,20 @@
 								<visible>Control.HasFocus($PARAM[group_id]50) + Integer.IsGreater(Container($PARAM[group_id]51).NumItems,0)</visible>
 							</control>
 							<control type="image">
-								<left>30</left>
+								<left>25</left>
 								<centertop>50%</centertop>
-								<width>50</width>
-								<height>50</height>
-								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<width>60</width>
+								<height>60</height>
+								<texture diffuse="masks/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 								<visible>!Control.HasFocus($PARAM[group_id]50) | !String.IsEmpty(ListItem.Property(Addon.ID))</visible>
 							</control>
 							<control type="image">
-								<left>30</left>
+								<left>25</left>
 								<centertop>50%</centertop>
-								<width>50</width>
-								<height>50</height>
-								<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<width>60</width>
+								<height>60</height>
+								<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 								<visible>Control.HasFocus($PARAM[group_id]50) + [String.IsEmpty(ListItem.Property(Addon.ID)) | String.IsEqual(ListItem.Icon,DefaultAddon.png)]</visible>
 							</control>
@@ -119,11 +119,11 @@
 							<left>0</left>
 							<top>0</top>
 							<control type="image">
-								<left>30</left>
+								<left>25</left>
 								<centertop>50%</centertop>
-								<width>50</width>
-								<height>50</height>
-								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<width>60</width>
+								<height>60</height>
+								<texture diffuse="masks/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 							</control>
 							<include>AddonLauncherListUnfocusedLabels</include>
@@ -146,20 +146,20 @@
 								<visible>Control.HasFocus($PARAM[group_id]51) + Integer.IsGreater(Container($PARAM[group_id]52).NumItems,0)</visible>
 							</control>
 							<control type="image">
-								<left>30</left>
+								<left>25</left>
 								<centertop>50%</centertop>
-								<width>50</width>
-								<height>50</height>
-								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<width>60</width>
+								<height>60</height>
+								<texture diffuse="masks/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 								<visible>!Control.HasFocus($PARAM[group_id]51) | !String.IsEmpty(ListItem.Property(Addon.ID))</visible>
 							</control>
 							<control type="image">
-								<left>30</left>
+								<left>25</left>
 								<centertop>50%</centertop>
-								<width>50</width>
-								<height>50</height>
-								<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<width>60</width>
+								<height>60</height>
+								<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 								<visible>Control.HasFocus($PARAM[group_id]51) + [String.IsEmpty(ListItem.Property(Addon.ID)) | String.IsEqual(ListItem.Icon,DefaultAddon.png)]</visible>
 							</control>
@@ -191,11 +191,11 @@
 							<left>0</left>
 							<top>0</top>
 							<control type="image">
-								<left>30</left>
+								<left>25</left>
 								<centertop>50%</centertop>
-								<width>50</width>
-								<height>50</height>
-								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<width>60</width>
+								<height>60</height>
+								<texture diffuse="masks/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 							</control>
 							<include>AddonLauncherListUnfocusedLabels</include>
@@ -218,20 +218,20 @@
 								<visible>Control.HasFocus($PARAM[group_id]52) + Integer.IsGreater(Container($PARAM[group_id]53).NumItems,0)</visible>
 							</control>
 							<control type="image">
-								<left>30</left>
+								<left>25</left>
 								<centertop>50%</centertop>
-								<width>50</width>
-								<height>50</height>
-								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<width>60</width>
+								<height>60</height>
+								<texture diffuse="masks/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 								<visible>!Control.HasFocus($PARAM[group_id]52) | !String.IsEmpty(ListItem.Property(Addon.ID))</visible>
 							</control>
 							<control type="image">
-								<left>30</left>
+								<left>25</left>
 								<centertop>50%</centertop>
-								<width>50</width>
-								<height>50</height>
-								<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<width>60</width>
+								<height>60</height>
+								<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 								<visible>Control.HasFocus($PARAM[group_id]52) + [String.IsEmpty(ListItem.Property(Addon.ID)) | String.IsEqual(ListItem.Icon,DefaultAddon.png)]</visible>
 							</control>
@@ -262,11 +262,11 @@
 							<left>0</left>
 							<top>0</top>
 							<control type="image">
-								<left>30</left>
+								<left>25</left>
 								<centertop>50%</centertop>
-								<width>50</width>
-								<height>50</height>
-								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<width>60</width>
+								<height>60</height>
+								<texture diffuse="masks/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 							</control>
 							<include>AddonLauncherListUnfocusedLabels</include>
@@ -280,20 +280,20 @@
 								<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 							</control>
 							<control type="image">
-								<left>30</left>
+								<left>25</left>
 								<centertop>50%</centertop>
-								<width>50</width>
-								<height>50</height>
-								<texture diffuse="lists/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<width>60</width>
+								<height>60</height>
+								<texture diffuse="masks/mainmenu-img.png" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 								<visible>!Control.HasFocus($PARAM[group_id]53) | !String.IsEmpty(ListItem.Property(Addon.ID))</visible>
 							</control>
 							<control type="image">
-								<left>30</left>
+								<left>25</left>
 								<centertop>50%</centertop>
-								<width>50</width>
-								<height>50</height>
-								<texture diffuse="lists/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
+								<width>60</width>
+								<height>60</height>
+								<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]" fallback="DefaultAddon.png">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 								<visible>Control.HasFocus($PARAM[group_id]53) + [String.IsEmpty(ListItem.Property(Addon.ID)) | String.IsEqual(ListItem.Icon,DefaultAddon.png)]</visible>
 							</control>

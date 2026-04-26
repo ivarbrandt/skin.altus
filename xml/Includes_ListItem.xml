@@ -148,40 +148,32 @@
         </control>
         <!-- Section icon -->
         <control type="image">
-          <left>25</left>
-          <top>19</top>
-          <width>47</width>
-          <height>47</height>
+          <left>17</left>
+          <width>64</width>
           <texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[HomeMenuIcon]</texture>
-          <aspectratio>keep</aspectratio>
+          <aspectratio aligny="center">keep</aspectratio>
           <visible>[!String.IsEmpty(ListItem.Property(icon)) | String.IsEqual(ListItem.Property(id),weather)] + [!Control.HasFocus($PARAM[id]) | !$PARAM[focused]] + ![String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched]</visible>
         </control>
         <control type="image">
-          <left>25</left>
-          <top>19</top>
-          <width>47</width>
-          <height>47</height>
+          <left>17</left>
+          <width>64</width>
           <texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$VAR[HomeMenuIcon]</texture>
-          <aspectratio>keep</aspectratio>
+          <aspectratio aligny="center">keep</aspectratio>
           <visible>[!String.IsEmpty(ListItem.Property(icon)) | String.IsEqual(ListItem.Property(id),weather)] + Control.HasFocus($PARAM[id]) + $PARAM[focused] + ![String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched]</visible>
         </control>
         <!-- Weather placeholder icon (before weather fetched) -->
         <control type="image">
-          <left>25</left>
-          <top>19</top>
-          <width>47</width>
-          <height>47</height>
-          <texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">iconpicker/monochrome/Weather/snowy-fill.png</texture>
-          <aspectratio>keep</aspectratio>
+          <left>17</left>
+          <width>64</width>
+          <texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">icons/weather/cloudy.png</texture>
+          <aspectratio aligny="center">keep</aspectratio>
           <visible>String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched + [!Control.HasFocus($PARAM[id]) | !$PARAM[focused]]</visible>
         </control>
         <control type="image">
-          <left>25</left>
-          <top>19</top>
-          <width>47</width>
-          <height>47</height>
-          <texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">iconpicker/monochrome/Weather/snowy-fill.png</texture>
-          <aspectratio>keep</aspectratio>
+          <left>17</left>
+          <width>64</width>
+          <texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">icons/weather/cloudy.png</texture>
+          <aspectratio aligny="center">keep</aspectratio>
           <visible>String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched + Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
         </control>
         <control type="group">
@@ -289,21 +281,17 @@
         </control>
         <!-- Section icon -->
         <control type="image">
-          <left>25</left>
-          <top>19</top>
-          <width>47</width>
-          <height>47</height>
+          <left>17</left>
+          <width>64</width>
           <texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
-          <aspectratio>keep</aspectratio>
+          <aspectratio aligny="center">keep</aspectratio>
           <visible>!String.IsEmpty(ListItem.Property(icon)) + [!Control.HasFocus($PARAM[id]) | !$PARAM[focused]]</visible>
         </control>
         <control type="image">
-          <left>25</left>
-          <top>19</top>
-          <width>47</width>
-          <height>47</height>
+          <left>17</left>
+          <width>64</width>
           <texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Property(icon)]</texture>
-          <aspectratio>keep</aspectratio>
+          <aspectratio aligny="center">keep</aspectratio>
           <visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
         </control>
         <control type="group">

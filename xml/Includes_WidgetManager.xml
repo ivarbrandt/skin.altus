@@ -64,17 +64,16 @@
 			<control type="group">
 				<left>$PARAM[btn_left]</left>
 				<top>$PARAM[btn_top]</top>
-				<width>45</width>
-				<height>45</height>
+				<width>62</width>
+				<height>62</height>
 				<animation effect="slide" start="0,0" end="47,0" time="0" condition="$PARAM[btn_slide_weather] + String.IsEqual(Window.Property(weather_section),true)">Conditional</animation>
 				<visible>Control.HasFocus($PARAM[list_id]) + String.IsEmpty(Window.Property(edit_menu_open)) + !$PARAM[btn_hide]</visible>
 				<!-- Icon - highlighted -->
 				<control type="image">
 					<visible>String.IsEqual(Window.Property($PARAM[btn_prop]),$PARAM[btn_id])</visible>
 					<left>7</left>
-					<top>7</top>
-					<width>31</width>
-					<height>31</height>
+					<width>42</width>
+					<height>42</height>
 					<texture colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[btn_icon]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
@@ -82,9 +81,8 @@
 				<control type="image">
 					<visible>!String.IsEqual(Window.Property($PARAM[btn_prop]),$PARAM[btn_id])</visible>
 					<left>7</left>
-					<top>7</top>
-					<width>31</width>
-					<height>31</height>
+					<width>42</width>
+					<height>42</height>
 					<texture colordiffuse="$VAR[WM_UnfocusedBtnClr]">$PARAM[btn_icon]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>

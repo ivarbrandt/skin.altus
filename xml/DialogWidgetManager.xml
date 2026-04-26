@@ -58,14 +58,14 @@
 
 					<!-- Reorder indicator icon -->
 					<control type="group">
-						<width>30</width>
-						<height>43</height>
+						<width>40</width>
+						<height>50</height>
 						<visible>!String.IsEmpty(Window.Property(reorder_sections))</visible>
 						<animation effect="fade" time="200">VisibleChange</animation>
 						<control type="image">
-							<top>11</top>
-							<width>26</width>
-							<width>26</width>
+							<top>4</top>
+							<width>35</width>
+							<width>35</width>
 							<texture colordiffuse="$VAR[FocusColorTheme]">buttons/widget_manager/reorder.png</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
@@ -100,12 +100,10 @@
 					<itemlayout width="480" height="65">
 						<!-- Icon -->
 						<control type="image">
-							<left>25</left>
-							<top>17</top>
-							<width>30</width>
-							<height>30</height>
+							<left>18</left>
+							<width>41</width>
 							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuse]">$VAR[WidgetManagerItemIcon]</texture>
-							<aspectratio>keep</aspectratio>
+							<aspectratio aligny="center">keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 						</control>
 						<!-- Label (no icon) -->
@@ -145,21 +143,17 @@
 						</control>
 						<!-- Icon -->
 						<control type="image">
-							<left>25</left>
-							<top>17</top>
-							<width>30</width>
-							<height>30</height>
+							<left>18</left>
+							<width>41</width>
 							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuse]">$VAR[WidgetManagerItemIcon]</texture>
-							<aspectratio>keep</aspectratio>
+							<aspectratio aligny="center">keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + !Control.HasFocus(3000)</visible>
 						</control>
 						<control type="image">
-							<left>25</left>
-							<top>17</top>
-							<width>30</width>
-							<height>30</height>
+							<left>18</left>
+							<width>41</width>
 							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuseFocused]">$VAR[WidgetManagerItemIcon]</texture>
-							<aspectratio>keep</aspectratio>
+							<aspectratio aligny="center">keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(3000)</visible>
 						</control>
 						<!-- Label - unfocused (no icon) -->
@@ -218,7 +212,7 @@
 						<!-- Inline icon buttons row (right-aligned) -->
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="add" />
-							<param name="btn_icon" value="buttons/widget_manager/addlarge.png" />
+							<param name="btn_icon" value="buttons/widget_manager/add.png" />
 							<param name="btn_left" value="280" />
 							<param name="btn_top" value="10" />
 							<param name="list_id" value="3000" />
@@ -308,14 +302,14 @@
 
 					<!-- Reorder indicator icon -->
 					<control type="group">
-						<width>30</width>
-						<height>43</height>
+						<width>40</width>
+						<height>50</height>
 						<visible>!String.IsEmpty(Window.Property(reorder_widgets))</visible>
 						<animation effect="fade" time="200">VisibleChange</animation>
 						<control type="image">
-							<top>11</top>
-							<width>26</width>
-							<width>26</width>
+							<top>4</top>
+							<width>35</width>
+							<width>35</width>
 							<texture colordiffuse="$VAR[FocusColorTheme]">buttons/widget_manager/reorder.png</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
@@ -437,7 +431,7 @@
 						<!-- Inline buttons row (right-aligned) -->
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="add" />
-							<param name="btn_icon" value="buttons/widget_manager/addlarge.png" />
+							<param name="btn_icon" value="buttons/widget_manager/add.png" />
 							<param name="btn_left" value="415" />
 							<param name="btn_top" value="23" />
 							<param name="list_id" value="4000" />

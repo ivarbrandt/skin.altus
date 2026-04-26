@@ -98,6 +98,7 @@
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>30</size>
 			<aspect>0.92</aspect>
+			<style>uppercase</style>
 		</font>
 		<font>
 			<name>notification_footer</name>
