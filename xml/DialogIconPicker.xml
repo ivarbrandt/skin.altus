@@ -145,10 +145,10 @@
 						<width>100</width>
 						<height>100</height>
 						<control type="image">
-							<left>16</left>
-							<top>16</top>
-							<width>68</width>
-							<height>68</height>
+							<left>25</left>
+							<top>25</top>
+							<width>50</width>
+							<height>50</height>
 							<texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
@@ -169,10 +169,10 @@
 							<aspectratio>stretch</aspectratio>
 						</control>
 						<control type="image">
-							<left>16</left>
-							<top>16</top>
-							<width>68</width>
-							<height>68</height>
+							<left>25</left>
+							<top>25</top>
+							<width>50</width>
+							<height>50</height>
 							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>

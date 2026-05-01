@@ -61,14 +61,14 @@
 			</control>
 			<control type="image">
 				<right>20</right>
-				<width>48</width>
+				<width>35</width>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture colordiffuse="$VAR[FocusColorTheme]">icons/dialog/play.png</texture>
 				<visible>ListItem.IsPlaying</visible>
 			</control>
 			<control type="image">
 				<right>20</right>
-				<width>48</width>
+				<width>35</width>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture colordiffuse="$VAR[FocusedTextColorVar]">icons/dialog/play.png</texture>
 				<visible>ListItem.IsPlaying + [Control.HasFocus($PARAM[list_id]) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)] + $PARAM[focused]</visible>
@@ -78,10 +78,10 @@
 				<top>-8</top>
 				<animation effect="slide" start="0,0" end="0,16" time="0" condition="!$EXP[listitem_has_epg_event_info]">Conditional</animation>
 				<control type="image">
-					<right>20</right>
-					<bottom>23</bottom>
-					<width>34</width>
-					<height>34</height>
+					<right>26</right>
+					<bottom>27</bottom>
+					<width>27</width>
+					<height>27</height>
 					<aspectratio aligny="center" align="right">keep</aspectratio>
 					<visible>$PARAM[has_info_icon]</visible>
 					<texture>$PARAM[info_icon]</texture>

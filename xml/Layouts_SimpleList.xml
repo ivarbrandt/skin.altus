@@ -57,7 +57,7 @@
 					</control>
 					<control type="image">
 						<right>40</right>
-						<width>48</width>
+						<width>35</width>
 						<aligny>center</aligny>
 						<texture colordiffuse="unfocused_text">icons/dialog/radio-checked.png</texture>
 						<visible>ListItem.IsSelected</visible>
@@ -65,7 +65,7 @@
 					</control>
 					<control type="image">
 						<right>40</right>
-						<width>48</width>
+						<width>35</width>
 						<aligny>center</aligny>
 						<texture colordiffuse="unfocused_text">icons/dialog/radio-blank.png</texture>
 						<visible>!ListItem.IsSelected</visible>
@@ -131,7 +131,7 @@
 					</control>
 					<control type="image">
 						<right>40</right>
-						<width>48</width>
+						<width>35</width>
 						<aligny>center</aligny>
 						<texture colordiffuse="$VAR[FocusedTextColorVar]">icons/dialog/radio-checked.png</texture>
 						<visible>ListItem.IsSelected</visible>
@@ -139,7 +139,7 @@
 					</control>
 					<control type="image">
 						<right>40</right>
-						<width>48</width>
+						<width>35</width>
 						<aligny>center</aligny>
 						<texture colordiffuse="$VAR[FocusedTextColorVar]">icons/dialog/radio-blank.png</texture>
 						<visible>!ListItem.IsSelected</visible>

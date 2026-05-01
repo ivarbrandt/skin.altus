@@ -26,10 +26,10 @@
 				<font></font>
 				<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>
 				<texturenofocus />
-				<radioposx>18</radioposx>
+				<radioposx>26</radioposx>
 				<radioposy>0</radioposy>
-				<radiowidth>55</radiowidth>
-				<radioheight>55</radioheight>
+				<radiowidth>40</radiowidth>
+				<radioheight>40</radioheight>
 				<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon]</textureradioonfocus>
 				<textureradioonnofocus colordiffuse="unfocused_text">$PARAM[icon]</textureradioonnofocus>
 				<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon]</textureradioofffocus>

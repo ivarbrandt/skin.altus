@@ -100,8 +100,8 @@
 					<itemlayout width="480" height="65">
 						<!-- Icon -->
 						<control type="image">
-							<left>18</left>
-							<width>41</width>
+							<left>25</left>
+							<width>30</width>
 							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuse]">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio aligny="center">keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
@@ -143,15 +143,15 @@
 						</control>
 						<!-- Icon -->
 						<control type="image">
-							<left>18</left>
-							<width>41</width>
+							<left>25</left>
+							<width>30</width>
 							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuse]">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio aligny="center">keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + !Control.HasFocus(3000)</visible>
 						</control>
 						<control type="image">
-							<left>18</left>
-							<width>41</width>
+							<left>25</left>
+							<width>30</width>
 							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuseFocused]">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio aligny="center">keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(3000)</visible>

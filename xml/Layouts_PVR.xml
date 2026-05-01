@@ -36,8 +36,8 @@
 					<control type="image">
 						<right>20</right>
 						<top>20</top>
-						<width>45</width>
-						<height>45</height>
+						<width>35</width>
+						<height>35</height>
 						<texture colordiffuse="$VAR[FocusedTextColorVar]">$VAR[WallWatchedIconVar]</texture>
 					</control>
 					<control type="label">
@@ -146,8 +146,8 @@
 					<control type="image">
 						<right>20</right>
 						<top>20</top>
-						<width>45</width>
-						<height>45</height>
+						<width>35</width>
+						<height>35</height>
 						<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[WallWatchedIconVar]</texture>
 					</control>
 					<control type="label">
