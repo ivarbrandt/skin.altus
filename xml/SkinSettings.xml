@@ -23,6 +23,11 @@
 				<pagecontrol>60</pagecontrol>
 				<ondown>610</ondown>
 				<visible>Container(9000).HasFocus(1)</visible>
+				<!-- <control type="button" id="6247">
+					<label>Test</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Notification(Altus, Test notification, 7000, special://skin/resources/icon.jpg)</onclick>
+				</control> -->
 				<control type="button" id="624">
 					<label>Widget Manager</label>
 					<label2>$VAR[ActiveWidgetConfigVar]</label2>
@@ -1094,7 +1099,7 @@
 			<top>105</top>
 			<right>40</right>
 			<height>940</height>
-			<font>font27_plot</font>
+			<font>font27</font>
 			<align>left</align>
 			<aligny>center</aligny>
 			<textcolor>unfocused_text</textcolor>
