@@ -605,24 +605,6 @@
 		</control>
 	</include>
 
-	<include name="OSD_FlixInfoIcon">
-		<control type="togglebutton">
-			<left>50</left>
-			<width>auto</width>
-			<top>56</top>
-			<height>42</height>
-			<align>center</align>
-			<!-- <aligny>center</aligny> -->
-			<textoffsetx>13</textoffsetx>
-			<textoffsety>4.3</textoffsety>
-			<font>PlayerCodecs</font>
-			<textcolor>CC080808</textcolor>
-			<texturenofocus border="13" colordiffuse="osd_light">masks/flixicon-filled.png</texturenofocus>
-			<label>[UPPERCASE][LIGHT]$PARAM[flixlabel][/LIGHT][/UPPERCASE]</label>
-			<visible>$PARAM[visible]</visible>
-		</control>
-	</include>
-
 	<include name="TestManual">
 		<control type="button">
 			<include>HiddenObject</include>

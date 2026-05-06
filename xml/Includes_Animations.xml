@@ -197,7 +197,7 @@
 
 	<include name="GlowPulse">
 		<animation type="Conditional" condition="true" pulse="true">
-			<effect type="zoom" time="1733" start="97" end="100" center="$PARAM[pos_x],$PARAM[pos_y]" tween="cubic" easing="in"/>
+			<effect type="zoom" time="1733" start="100" end="115" center="auto" tween="cubic" easing="in"/>
 		</animation>
 	</include>
 

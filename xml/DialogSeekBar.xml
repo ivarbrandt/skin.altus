@@ -19,11 +19,15 @@
     !Window.IsVisible(subtitlesearch) + 
     !Window.IsVisible(MusicOSD)
   </visible>
+  <animation effect="fade" start="0" end="100" time="300" condition="!Window.IsVisible(videoosd) + String.IsEmpty(Window(home).Property(osd_just_closed))">WindowOpen</animation>
+  <animation effect="fade" start="100" end="0" time="300" condition="!Window.IsActive(videoosd)">WindowClose</animation>
+  <onunload>ClearProperty(osd_just_closed,home)</onunload>
   <controls>
     <include content="OSDBackground"/>
     <control type="group">
-      <top>860</top>
+      <top>852</top>
       <include>Seekbar</include>
     </control>
+    <include>PausedBadge</include>
   </controls>
 </window>

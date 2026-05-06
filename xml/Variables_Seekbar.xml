@@ -26,24 +26,24 @@
 	<variable name="SeekLabel">
 		<value condition="!String.IsEmpty(Player.SeekStepSize)">[COLOR $VAR[PlayerProgressColor]]$LOCALIZE[773][/COLOR] $INFO[Player.SeekStepSize]</value>
 		<value condition="!String.IsEmpty(Player.SeekOffset) + Player.HasPerformedSeek(3)">[COLOR $VAR[PlayerProgressColor]]$LOCALIZE[773][/COLOR] $INFO[Player.SeekOffset]</value>
-		<value condition="Player.Paused">$LOCALIZE[112]</value>
+		<!-- <value condition="Player.Paused">$LOCALIZE[112]</value> -->
 		<value condition="Player.Forwarding">$LOCALIZE[31039] $VAR[VideoPlayerForwardRewindVar]</value>
 		<value condition="Player.Rewinding">$LOCALIZE[31038] $VAR[VideoPlayerForwardRewindVar]</value>
 		<value condition="Player.IsTempo">$LOCALIZE[31142]: $INFO[Player.PlaySpeed]</value>
 	</variable>
 	
 	<variable name="PlayerElapsedTimeVar">
-		<value condition="!VideoPlayer.Content(livetv) + String.IsEqual(Player.Time(h), 0)">$INFO[Player.Time(mm:ss)]</value>
-		<value condition="!VideoPlayer.Content(livetv) + !String.IsEqual(Player.Time(h), 0)">$INFO[Player.Time(h:mm:ss)]</value>
-		<value condition="VideoPlayer.Content(livetv) + String.IsEqual(Player.Time(h), 0)">$INFO[PVR.EpgEventElapsedTime]</value>
-		<value condition="VideoPlayer.Content(livetv) + !String.IsEqual(Player.Time(h), 0)">$INFO[PVR.EpgEventElapsedTime]</value>
+		<value condition="!VideoPlayer.Content(livetv) + String.IsEqual(Player.Time(h), 0)">[COLOR osd_light]$INFO[Player.Time(mm:ss)][/COLOR]</value>
+		<value condition="!VideoPlayer.Content(livetv) + !String.IsEqual(Player.Time(h), 0)">[COLOR osd_light]$INFO[Player.Time(h:mm:ss)][/COLOR]</value>
+		<value condition="VideoPlayer.Content(livetv) + String.IsEqual(Player.Time(h), 0)">[COLOR osd_light]$INFO[PVR.EpgEventElapsedTime][/COLOR]</value>
+		<value condition="VideoPlayer.Content(livetv) + !String.IsEqual(Player.Time(h), 0)">[COLOR osd_light]$INFO[PVR.EpgEventElapsedTime][/COLOR]</value>
 	</variable>
 
 	<variable name="PlayerTimeRemainingVar">
-		<value condition="!VideoPlayer.Content(livetv) + String.IsEqual(Player.TimeRemaining(h), 0)">$INFO[Player.TimeRemaining(mm:ss), -]</value>
-		<value condition="!VideoPlayer.Content(livetv) + !String.IsEqual(Player.TimeRemaining(h), 0)">$INFO[Player.TimeRemaining(h:mm:ss), -]</value>
-		<value condition="VideoPlayer.Content(livetv) + String.IsEqual(Player.TimeRemaining(h), 0)">$INFO[PVR.EpgEventRemainingTime, -]</value>
-		<value condition="VideoPlayer.Content(livetv) + !String.IsEqual(Player.TimeRemaining(h), 0)">$INFO[PVR.EpgEventRemainingTime, -]</value>
+		<value condition="!VideoPlayer.Content(livetv) + String.IsEqual(Player.TimeRemaining(h), 0)">[COLOR osd_light]$INFO[Player.TimeRemaining(mm:ss), -][/COLOR]</value>
+		<value condition="!VideoPlayer.Content(livetv) + !String.IsEqual(Player.TimeRemaining(h), 0)">[COLOR osd_light]$INFO[Player.TimeRemaining(h:mm:ss), -][/COLOR]</value>
+		<value condition="VideoPlayer.Content(livetv) + String.IsEqual(Player.TimeRemaining(h), 0)">[COLOR osd_light]$INFO[PVR.EpgEventRemainingTime, -][/COLOR]</value>
+		<value condition="VideoPlayer.Content(livetv) + !String.IsEqual(Player.TimeRemaining(h), 0)">[COLOR osd_light]$INFO[PVR.EpgEventRemainingTime, -][/COLOR]</value>
 	</variable>
 
 	<variable name="PlayerDurationVar">
@@ -116,6 +116,40 @@
     <value condition="String.StartsWith(VideoPlayer.VideoResolution,540)">SD</value>
     <value condition="String.StartsWith(VideoPlayer.VideoResolution,480)">SD</value>
     <value condition="!String.IsEmpty(VideoPlayer.VideoResolution)">$INFO[VideoPlayer.VideoResolution]</value>
+	</variable>
+
+	<variable name="PlayerCacheColor">
+		<value condition="String.IsEmpty(Window(Home).Property(listitem_logo_color_alt_video))">osd_light</value>
+		<value>$INFO[Window(Home).Property(listitem_logo_color_alt_video)]</value>
+	</variable>
+
+	<variable name="OSDPausedTexture">
+		<value condition="Player.Paused">osd/pause.png</value>
+		<value>osd/play.png</value>
+	</variable>
+
+  <variable name="PlayerProgressColor">
+    <value condition="String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEqual(Skin.String(FocusColorThemeSetting),0)">accent_color</value>
+    <value condition="!String.IsEmpty(Window(Home).Property(listitem_logo_color_video)) + String.IsEqual(Skin.String(FocusColorThemeSetting),0) + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)]">$INFO[Window(Home).Property(listitem_logo_color_video)]</value>
+    <value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),1)">FFA3A3A3</value>
+    <value>FFA3A3A3</value>
+  </variable>
+
+  <variable name="PlayerProgressTextColor">
+    <value condition="String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEqual(Skin.String(FocusColorThemeSetting),0)">focused_text</value>
+    <value condition="!String.IsEmpty(Window(Home).Property(listitem_logo_text_color_video)) + String.IsEqual(Skin.String(FocusColorThemeSetting),0) + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)]">$INFO[Window(Home).Property(listitem_logo_text_color_video)]</value>
+    <value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),1)">FF141415</value>
+    <value>FF141415</value>
+  </variable>
+
+  <variable name="PlayerClearlogoVar">
+		<value condition="!String.IsEmpty(Player.Art(clearlogo))">$INFO[Player.Art(clearlogo)]</value>
+		<value condition="!String.IsEmpty(Player.Art(tvshow.clearlogo))">$INFO[Player.Art(tvshow.clearlogo)]</value>
+	</variable>
+
+	<variable name="PVRGuideIconColor">
+		<value condition="Control.HasFocus(713)">$VAR[PlayerProgressTextColor]</value>
+		<value>ccfafafa</value>
 	</variable>
 
 </includes>

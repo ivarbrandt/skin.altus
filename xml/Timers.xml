@@ -14,6 +14,12 @@
         <stop>!Player.Paused | Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(1110_topbaroverlay),5)</stop>
     </timer> -->
     <timer>
+        <name>reset_osd_just_closed</name>
+        <description>Clears the osd_just_closed flag ~1 second after VideoOSD closes, so a later pause gets a proper DialogSeekBar fade-in.</description>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(reset_osd_just_closed),1)</stop>
+        <onstop>ClearProperty(osd_just_closed,home)</onstop>
+    </timer>
+    <timer>
         <name>autolock_view_timer</name>
         <start reset="true">Control.HasFocus($PARAM[list_id])</start>
         <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(autolock_view_timer),1)</stop>

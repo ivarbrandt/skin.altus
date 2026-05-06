@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<!-- <zorder>3</zorder> -->
+	<zorder>3</zorder>
 	<controls>
-    <control type="label" id="402">
+    <!-- <control type="label" id="402">
       <top>-100</top>
       <height>34</height>
       <textcolor>00ffffff</textcolor>
@@ -21,10 +21,13 @@
         <align>center</align>
         <label>$INFO[Control.GetLabel(402)]</label>
       </control>
-    </control>
+    </control> -->
     <control type="group">
       <include>OpenClose_Right</include>
-      <include>Visible_Fade</include>
+      <!-- <include>Visible_Fade</include> -->
+      <!-- <include content="OpenClose_Slide_Right">
+        <param name="distance" value="650" />
+      </include> -->
       <visible>String.IsEmpty(Window(home).Property(LanguageNotification))</visible>
       <top>80</top>
       <right>30</right>
@@ -32,21 +35,21 @@
       <width>650</width>
       <control type="image">
         <bordersize>1</bordersize>
-        <texture border="46" colordiffuse="$VAR[FocusColorTheme]">masks/radius_46.png</texture>
-        <bordertexture border="46" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46-dark.png</bordertexture>
+        <texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darkest.png</texture>
+        <bordertexture border="23" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-23-thin.png</bordertexture>
       </control>
       <control type="image" id="400">
 				<description>avatar</description>
-				<left>10</left>
-				<top>10</top>
-				<width>98</width>
-				<height>98</height>
+				<left>20</left>
+				<top>20</top>
+				<width>80</width>
+				<height>80</height>
 				<aspectratio aligny="center" align="center">keep</aspectratio>
-        <texture diffuse="masks/radius_46_unfo_left.png" />
+        <texture diffuse="masks/dialogselect_img.png" />
 			</control>
       <control type="fadelabel" id="401">
-        <top>11</top>
-        <left>123</left>
+        <top>8</top>
+        <left>120</left>
         <right>25</right>
         <height>34</height>
         <textcolor>$VAR[FocusColorTheme]</textcolor>
@@ -56,14 +59,14 @@
 				<pauseatend>2000</pauseatend>
       </control>
       <control type="fadelabel" id="402">
-        <bottom>30</bottom>
-        <left>123</left>
+        <bottom>33</bottom>
+        <left>120</left>
         <right>25</right>
         <height>34</height>
         <textcolor>unfocused_text</textcolor>
         <font>notification_footer</font>
         <align>top</align>
-        <label>$INFO[Control.GetLabel(402)]</label>
+        <!-- <label>$INFO[Control.GetLabel(402)]</label> -->
         <scrollout>false</scrollout>
 				<pauseatend>2000</pauseatend>
       </control>

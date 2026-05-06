@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
+	<zorder>3</zorder>
 	<depth>DepthOSD</depth>
 	<defaultcontrol always="true">5553</defaultcontrol>
 	<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
@@ -8,15 +9,14 @@
 	<controls>
 		<!-- <include>PlayerLogoProcessor</include> -->
 		<control type="group">
-			<bottom>0</bottom>
+			<bottom>610</bottom>
 			<height>250</height>
-			<animation effect="slide" end="0,-20" time="150" condition="VideoPlayer.Content(LiveTV)">conditional</animation>
 			<control type="image">
-				<left>30</left>
+				<left>0</left>
 				<top>-220</top>
-				<right>30</right>
-				<height>330</height>
-				<texture border="40">dialogs/dialog-bg-nobo.png</texture>
+				<right>0</right>
+				<height>750</height>
+				<texture flipy="true" colordiffuse="e0080808">osd/osdoverlay.png</texture>
 			</control>
 			<control type="grouplist">
 				<left>50</left>
@@ -26,7 +26,7 @@
 					<width>1200</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[PVR.ActStreamServiceName,[COLOR button_focus]$LOCALIZE[19099]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[19099]:[/B][/COLOR] $INFO[PVR.ActStreamServiceName]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
@@ -34,7 +34,7 @@
 					<width>1200</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[PVR.ActStreamProviderName,[COLOR button_focus]$LOCALIZE[19101]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[19101]:[/B][/COLOR] $INFO[PVR.ActStreamProviderName]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
@@ -42,7 +42,7 @@
 					<width>1200</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[PVR.ActStreamClient,[COLOR button_focus]$LOCALIZE[19012]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[19012]:[/B][/COLOR] $INFO[PVR.ActStreamClient]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
@@ -50,7 +50,7 @@
 					<width>1200</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[PVR.ActStreamDevice,[COLOR button_focus]$LOCALIZE[19006]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[19006]:[/B][/COLOR] $INFO[PVR.ActStreamDevice]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
@@ -58,7 +58,7 @@
 					<width>1200</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[PVR.ActStreamStatus,[COLOR button_focus]$LOCALIZE[19007]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[19007]:[/B][/COLOR] $INFO[PVR.ActStreamStatus]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
@@ -66,7 +66,7 @@
 					<width>1200</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[PVR.ActStreamEncryptionName,[COLOR button_focus]$LOCALIZE[19015]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[19015]:[/B][/COLOR] $INFO[PVR.ActStreamEncryptionName]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
@@ -80,7 +80,7 @@
 					<width>600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[PVR.ActStreamBer,[COLOR button_focus]$LOCALIZE[19010]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[19010]:[/B][/COLOR] $INFO[PVR.ActStreamBer]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
@@ -88,7 +88,7 @@
 					<width>600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[PVR.ActStreamUnc,[COLOR button_focus]$LOCALIZE[19011]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[19011]:[/B][/COLOR] $INFO[PVR.ActStreamUnc]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
@@ -96,7 +96,7 @@
 					<width>600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[PVR.ActStreamMux,[COLOR button_focus]$LOCALIZE[19100]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[19100]:[/B][/COLOR] $INFO[PVR.ActStreamMux]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
@@ -104,14 +104,16 @@
 					<width>600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[PVR.ActStreamSignal,[COLOR button_focus]$LOCALIZE[19008]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[19008]:[/B][/COLOR] $INFO[PVR.ActStreamSignal]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="progress">
 					<top>5</top>
 					<width>600</width>
-					<height>18</height>
+					<height>12</height>
+					<texturebg border="6" colordiffuse="$VAR[PlayerProgressColor]">special://skin/resources/progressbackosd_small.png</texturebg>
+					<midtexture border="6" colordiffuse="$VAR[PlayerProgressColor]">special://skin/resources/progressosd_small.png</midtexture>
 					<info>PVR.ActStreamProgrSignal</info>
 				</control>
 				<control type="label">
@@ -119,14 +121,16 @@
 					<width>1600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[PVR.ActStreamSNR,[COLOR button_focus]$LOCALIZE[19009]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[19009]:[/B][/COLOR] $INFO[PVR.ActStreamSNR]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="progress">
 					<top>0</top>
 					<width>600</width>
-					<height>18</height>
+					<height>12</height>
+					<texturebg border="6" colordiffuse="$VAR[PlayerProgressColor]">special://skin/resources/progressbackosd_small.png</texturebg>
+					<midtexture border="6" colordiffuse="$VAR[PlayerProgressColor]">special://skin/resources/progressosd_small.png</midtexture>
 					<info>PVR.ActStreamProgrSNR</info>
 				</control>
 			</control>
@@ -138,7 +142,7 @@
 					<width>830</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[VideoPlayer.VideoCodec,[COLOR button_focus]$LOCALIZE[31600]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31600]:[/B][/COLOR] $INFO[VideoPlayer.VideoCodec]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>Player.HasVideo</visible>
@@ -147,7 +151,7 @@
 					<width>830</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[VideoPlayer.VideoResolution,[COLOR button_focus]$LOCALIZE[31601]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31601]:[/B][/COLOR] $INFO[VideoPlayer.VideoResolution]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>Player.HasVideo</visible>
@@ -156,7 +160,7 @@
 					<width>830</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[VideoPlayer.VideoAspect,[COLOR button_focus]$LOCALIZE[31602]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31602]:[/B][/COLOR] $INFO[VideoPlayer.VideoAspect]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>Player.HasVideo</visible>
@@ -165,7 +169,7 @@
 					<width>830</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[VideoPlayer.VideoBitrate,[COLOR button_focus]$LOCALIZE[31603]:[/COLOR] , kb/s]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31603]:[/B][/COLOR] $INFO[VideoPlayer.VideoBitrate,, kb/s]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>Player.HasVideo</visible>
@@ -179,7 +183,7 @@
 					<width>830</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[VideoPlayer.AudioCodec,[COLOR button_focus]$LOCALIZE[31604]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31604]:[/B][/COLOR] $INFO[VideoPlayer.AudioCodec]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>Player.HasVideo</visible>
@@ -188,7 +192,7 @@
 					<width>830</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[VideoPlayer.AudioChannels,[COLOR button_focus]$LOCALIZE[31605]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31605]:[/B][/COLOR] $INFO[VideoPlayer.AudioChannels]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>Player.HasVideo</visible>
@@ -197,7 +201,7 @@
 					<width>830</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[VideoPlayer.AudioBitrate,[COLOR button_focus]$LOCALIZE[31606]:[/COLOR] , kb/s]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31606]:[/B][/COLOR] $INFO[VideoPlayer.AudioBitrate,, kb/s]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>Player.HasVideo</visible>
@@ -211,7 +215,7 @@
 					<width>1600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[Player.Process(videodecoder),[COLOR button_focus]$LOCALIZE[31139]:[/COLOR] ]$VAR[VideoHWDecoder, (,)]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31139]:[/B][/COLOR] $INFO[Player.Process(videodecoder)]$VAR[VideoHWDecoder, (,)]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>Player.HasVideo</visible>
@@ -220,7 +224,7 @@
 					<width>1600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[Player.Process(pixformat),[COLOR button_focus]$LOCALIZE[31140]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31140]:[/B][/COLOR] $INFO[Player.Process(pixformat)]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>Player.HasVideo</visible>
@@ -229,7 +233,7 @@
 					<width>1600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[Player.Process(deintmethod),[COLOR button_focus]$LOCALIZE[16038]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[16038]:[/B][/COLOR] $INFO[Player.Process(deintmethod)]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>Player.HasVideo</visible>
@@ -238,7 +242,7 @@
 					<width>1600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[Player.Process(videowidth),[COLOR button_focus]$LOCALIZE[38031]:[/COLOR] ,x]$INFO[Player.Process(videoheight)]$INFO[Player.Process(videoscantype)]$INFO[Player.Process(videodar),$COMMA , AR]$INFO[Player.Process(videofps),$COMMA , FPS]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[38031]:[/B][/COLOR] $INFO[Player.Process(videowidth),,x]$INFO[Player.Process(videoheight)]$INFO[Player.Process(videoscantype)]$INFO[Player.Process(videodar),$COMMA , AR]$INFO[Player.Process(videofps),$COMMA , FPS]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>Player.HasVideo</visible>
@@ -247,7 +251,7 @@
 					<width>1600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>[COLOR button_focus]$LOCALIZE[460]:[/COLOR] $INFO[Player.Process(audiochannels),,$COMMA ]$INFO[Player.Process(audiodecoder)]$INFO[Player.Process(audiobitspersample),$COMMA , bits]$INFO[Player.Process(audiosamplerate),$COMMA , Hz]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[460]:[/B][/COLOR] $INFO[Player.Process(audiochannels),,$COMMA ]$INFO[Player.Process(audiodecoder)]$INFO[Player.Process(audiobitspersample),$COMMA , bits]$INFO[Player.Process(audiosamplerate),$COMMA , Hz]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
@@ -260,7 +264,7 @@
 					<width>1600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[System.ScreenResolution,[COLOR button_focus]$LOCALIZE[31607]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31607]:[/B][/COLOR] $INFO[System.ScreenResolution]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
@@ -268,7 +272,7 @@
 					<width>1600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[System.FPS,[COLOR button_focus]$LOCALIZE[31608]:[/COLOR] , fps]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31608]:[/B][/COLOR] $INFO[System.FPS,, fps]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
@@ -276,16 +280,7 @@
 					<width>1600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[System.Memory(used.percent),[COLOR button_focus]$LOCALIZE[31030]:[/COLOR] ]</label>
-					<font>font14</font>
-					<shadowcolor>black</shadowcolor>
-					<visible>System.SupportsCPUUsage</visible>
-				</control>
-				<control type="label">
-					<width>1600</width>
-					<height>50</height>
-					<aligny>bottom</aligny>
-					<label>$INFO[System.CpuUsage,[COLOR button_focus]$LOCALIZE[31609]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31030]:[/B][/COLOR] $INFO[System.Memory(used.percent)]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>System.SupportsCPUUsage</visible>
@@ -294,49 +289,70 @@
 					<width>1600</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
-					<label>$INFO[System.Memory(used.percent),[COLOR button_focus]$LOCALIZE[31030]:[/COLOR] ]</label>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31609]:[/B][/COLOR] $INFO[System.CpuUsage]</label>
+					<font>font14</font>
+					<shadowcolor>black</shadowcolor>
+					<visible>System.SupportsCPUUsage</visible>
+				</control>
+				<control type="label">
+					<width>1600</width>
+					<height>50</height>
+					<aligny>bottom</aligny>
+					<label>[COLOR $VAR[FocusColorTheme]][B]$LOCALIZE[31030]:[/B][/COLOR] $INFO[System.Memory(used.percent)]</label>
 					<font>font14</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>!System.SupportsCPUUsage</visible>
 				</control>
 			</control>
 			<control type="grouplist" id="5550">
-				<right>15</right>
-				<top>-310</top>
+				<left>50</left>
+				<top>120</top>
 				<width>1000</width>
-				<height>100</height>
-				<align>right</align>
+				<height>70</height>
+				<align>left</align>
 				<orientation>horizontal</orientation>
-				<itemgap>-10</itemgap>
+				<itemgap>20</itemgap>
 				<onup>Close</onup>
 				<ondown>Close</ondown>
 				<usecontrolcoords>true</usecontrolcoords>
 				<control type="button" id="5551">
 					<width>auto</width>
-					<height>100</height>
+					<height>70</height>
 					<textoffsetx>40</textoffsetx>
+					<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
+					<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darker.png</texturenofocus>
+					<aligny>center</aligny>
 					<label>$LOCALIZE[31137]</label>
 					<visible>VideoPlayer.Content(livetv)</visible>
 					<onfocus>SetProperty(PlayerInfoDialogFocus,5551,Home)</onfocus>
 				</control>
 				<control type="button" id="5552">
 					<width>auto</width>
-					<height>100</height>
+					<height>70</height>
 					<textoffsetx>40</textoffsetx>
+					<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
+					<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darker.png</texturenofocus>
+					<aligny>center</aligny>
 					<label>$LOCALIZE[31610]</label>
 					<onfocus>SetProperty(PlayerInfoDialogFocus,5552,Home)</onfocus>
 				</control>
 				<control type="button" id="5553">
 					<width>auto</width>
-					<height>100</height>
+					<height>70</height>
 					<textoffsetx>40</textoffsetx>
+					<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
+					<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darker.png</texturenofocus>
+					<aligny>center</aligny>
 					<label>$LOCALIZE[31138]</label>
 					<onfocus>SetProperty(PlayerInfoDialogFocus,5553,Home)</onfocus>
 				</control>
 				<control type="button" id="5554">
 					<width>auto</width>
-					<height>100</height>
+					<height>70</height>
 					<textoffsetx>40</textoffsetx>
+					<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
+					<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darker.png</texturenofocus>
+					<aligny>center</aligny>
 					<label>$LOCALIZE[31611]</label>
 					<onfocus>SetProperty(PlayerInfoDialogFocus,5554,Home)</onfocus>
 				</control>

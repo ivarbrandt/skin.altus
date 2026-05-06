@@ -96,15 +96,15 @@
 		<font>
 			<name>notification_header</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
-			<size>30</size>
+			<size>32</size>
 			<aspect>0.92</aspect>
-			<style>uppercase</style>
+			<style>bold uppercase</style>
 		</font>
 		<font>
 			<name>notification_footer</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
-			<size>27</size>
-			<aspect>0.92</aspect>
+			<size>29</size>
+			<aspect>0.95</aspect>
 		</font>
 		<font>
 			<name>Font22</name>
@@ -163,6 +163,11 @@
 			<name>font45</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>40</size>
+		</font>
+		<font>
+			<name>font47</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>45</size>
 		</font>
 		<font>
 			<name>font60</name>

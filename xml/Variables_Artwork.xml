@@ -60,30 +60,6 @@
 		<value>$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
 
-  <variable name="PlayerCacheColor">
-		<value condition="String.IsEmpty(Window(Home).Property(listitem_logo_color_alt_video))">osd_light</value>
-		<value>$INFO[Window(Home).Property(listitem_logo_color_alt_video)]</value>
-	</variable>
-
-  <variable name="PlayerProgressColor">
-    <value condition="String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEqual(Skin.String(FocusColorThemeSetting),0)">accent_color</value>
-    <value condition="!String.IsEmpty(Window(Home).Property(listitem_logo_color_video)) + String.IsEqual(Skin.String(FocusColorThemeSetting),0) + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)]">$INFO[Window(Home).Property(listitem_logo_color_video)]</value>
-    <value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),1)">FFA3A3A3</value>
-    <value>FFA3A3A3</value>
-  </variable>
-
-  <variable name="PlayerProgressTextColor">
-    <value condition="String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEqual(Skin.String(FocusColorThemeSetting),0)">focused_text</value>
-    <value condition="!String.IsEmpty(Window(Home).Property(listitem_logo_text_color_video)) + String.IsEqual(Skin.String(FocusColorThemeSetting),0) + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)]">$INFO[Window(Home).Property(listitem_logo_text_color_video)]</value>
-    <value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),1)">FF141415</value>
-    <value>FF141415</value>
-  </variable>
-
-  <variable name="PlayerClearlogoVar">
-		<value condition="!String.IsEmpty(Player.Art(clearlogo))">$INFO[Player.Art(clearlogo)]</value>
-		<value condition="!String.IsEmpty(Player.Art(tvshow.clearlogo))">$INFO[Player.Art(tvshow.clearlogo)]</value>
-	</variable>
-
   <variable name="IconDiffuse">
     <value condition="!$EXP[isContent] + 
     [Window.IsVisible(videos) + 

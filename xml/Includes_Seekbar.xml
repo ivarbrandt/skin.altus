@@ -3,31 +3,30 @@
 
   <include name="Seekbar">
 		<control type="group">
-			<animation effect="fade" time="500">VisibleChange</animation>
 			<top>-6</top>
 			<control type="group">
 				<left>120</left>
 				<right>120</right>
 				<top>100</top>
-				<height>12</height>
+				<height>20</height>
 				<control type="group">
 					<visible>!VideoPlayer.HasEPG</visible>
 					<control type="progress">
-						<texturebg colordiffuse="4DA0A0A0">special://skin/resources/ProgressBack.png</texturebg>
-						<midtexture colordiffuse="$VAR[PlayerCacheColor]">special://skin/resources/Progress.png</midtexture>
+						<texturebg border="10" colordiffuse="$VAR[PlayerProgressColor]">special://skin/resources/progressbackosd.png</texturebg>
+						<midtexture border="10" colordiffuse="$VAR[PlayerCacheColor]">special://skin/resources/progressosd.png</midtexture>
 						<info>Player.ProgressCache</info>
 					</control>
 					<control type="progress">
-						<texturebg colordiffuse="00FFFFFF">special://skin/resources/ProgressBack.png</texturebg>
-						<midtexture colordiffuse="$VAR[PlayerProgressColor]">special://skin/resources/Progress.png</midtexture>
+						<texturebg border="10" colordiffuse="00FFFFFF">special://skin/resources/progressosd.png</texturebg>
+						<midtexture border="10" colordiffuse="$VAR[PlayerProgressColor]">special://skin/resources/progressosd.png</midtexture>
 						<info>Player.Progress</info>
 					</control>
 				</control>
 				<control type="group">
 					<visible>VideoPlayer.HasEPG</visible>
 					<control type="progress">
-						<texturebg colordiffuse="4DA0A0A0">special://skin/resources/ProgressBack.png</texturebg>
-						<midtexture colordiffuse="$VAR[PlayerProgressColor]">special://skin/resources/Progress.png</midtexture>
+						<texturebg border="10" colordiffuse="$VAR[PlayerProgressColor]">special://skin/resources/progressbackosd.png</texturebg>
+						<midtexture border="10" colordiffuse="$VAR[PlayerProgressColor]">special://skin/resources/progressosd.png</midtexture>
 						<info>PVR.TimeshiftProgressPlayPos</info>
 						<info2>PVR.TimeshiftProgressEpgStart</info2>
 					</control>
@@ -41,18 +40,18 @@
 			</control>
 			<control type="ranges">
 				<left>120</left>
-				<top>100.3</top>
+				<top>110.3</top>
 				<width>1680</width>
-				<height>12</height>
+				<height>10</height>
 				<texturebg border="2" colordiffuse="00FFFFFF">special://skin/resources/ProgressBack.png</texturebg>
-				<righttexture colordiffuse="unfocused_text" border="1">special://skin/resources/Progress.png</righttexture>
+				<righttexture colordiffuse="osd_light" border="1">special://skin/resources/Progress.png</righttexture>
 				<info>Player.Chapters</info>
 			</control>
 			<control type="slider" id="401">
 				<left>120</left>
 				<top>100</top>
 				<width>1680</width>
-				<height>12</height>
+				<height>10</height>
 				<orientation>horizontal</orientation>
 				<texturesliderbar colordiffuse="00FFFFFF">special://skin/resources/ProgressBack.png</texturesliderbar>
 				<textureslidernib colordiffuse="unfocused_text">special://skin/resources/Progress.png</textureslidernib>
@@ -61,7 +60,7 @@
 			</control>
 			<control type="label">
 				<visible>!Window.IsActive(VideoOSD.xml)</visible>
-				<top>119</top>
+				<top>33</top>
 				<height>40</height>
 				<font>font32</font>
 				<textcolor>osd_light</textcolor>
@@ -78,7 +77,7 @@
 				<label>$LOCALIZE[31142]: $INFO[Player.PlaySpeed]</label>
 			</control>
 			<control type="label">
-				<top>-58</top>
+				<top>0</top>
 				<left>123</left>
 				<width>1680</width>
 				<height>40</height>
@@ -89,7 +88,7 @@
 				<animation effect="fade" time="500">VisibleChange</animation>
 			</control>
 			<control type="image">
-				<top>-100</top>
+				<top>-42</top>
 				<left>120</left>
 				<width>570</width>
 				<height>120</height>
@@ -100,7 +99,7 @@
 			</control>
 			<control type="image">
 				<left>120</left>
-				<top>-99</top>
+				<top>-41</top>
 				<width>363</width>
 				<height>120</height>
 				<texture>$INFO[Window(Home).Property(listitem_clearlogo_cropped_video)]</texture>
@@ -108,7 +107,7 @@
 				<visible>VideoPlayer.Content(livetv) + !Skin.HasSetting(Disable.OSDClearlogo) + !String.IsEmpty(Window(Home).Property(listitem_clearlogo_cropped_video))</visible>
 			</control>
 			<control type="grouplist">
-				<top>40</top>
+				<top>134</top>
 				<left>115</left>
 				<height>54</height>
 				<width>1375</width>
@@ -142,15 +141,6 @@
 				</control>
 			</control>
 			<control type="label">
-				<top>119</top>
-				<left>120</left>
-				<width>auto</width>
-				<height>40</height>
-				<font>font32</font>
-				<textcolor>osd_light</textcolor>
-				<label>$VAR[PlayerElapsedTimeVar]</label>
-			</control>
-			<control type="label">
 				<visible>String.IsEmpty(Window(home).Property(LanguageNotification)) + !Control.IsVisible(33000)</visible>
 				<top>33</top>
 				<right>120</right>
@@ -162,15 +152,55 @@
 				<label>$VAR[PlayerEndTimeVar]</label>
 			</control>
 			<control type="label">
-				<top>119</top>
+				<top>127</top>
 				<right>120</right>
-				<width>200</width>
+				<width>300</width>
 				<height>40</height>
 				<font>font32</font>
-				<textcolor>osd_light</textcolor>
+				<textcolor>$VAR[FocusColorTheme]</textcolor>
 				<align>right</align>
-				<label>$VAR[PlayerTimeRemainingVar]</label>
+				<label>$VAR[PlayerElapsedTimeVar] [B]|[/B] $VAR[PlayerTimeRemainingVar]</label>
 			</control>
+		</control>
+	</include>
+
+	<include name="PausedBadge">
+		<control type="group">
+      <visible>Player.Paused</visible>
+      <animation effect="fade" time="400">VisibleChange</animation>
+      <animation effect="zoom" center="auto" end="200,200" time="400" condition="Player.Playing" reversible="false">Conditional</animation>
+      <control type="image">
+        <centertop>50%</centertop>
+        <centerleft>50%</centerleft>
+				<include>GlowPulse</include>
+        <width>150</width>
+        <height>150</height>
+        <texture colordiffuse="$VAR[FocusColorTheme]">osd/pausebackground.png</texture>
+        <aspectratio>keep</aspectratio>
+      </control>
+      <control type="image">
+        <centertop>50%</centertop>
+        <centerleft>50%</centerleft>
+        <width>100</width>
+        <height>100</height>
+        <texture colordiffuse="$VAR[PlayerCacheColor]">$VAR[OSDPausedTexture]</texture>
+        <aspectratio>keep</aspectratio>
+      </control>
+    </control>
+	</include>
+
+	<include name="OSD_FlixInfoIcon">
+		<control type="togglebutton">
+			<width>auto</width>
+			<height>42</height>
+			<align>left</align>
+			<textoffsetx>13</textoffsetx>
+			<textoffsety>4.3</textoffsety>
+			<font>PlayerCodecs</font>
+			<textcolor>CC080808</textcolor>
+			<texturenofocus border="13" colordiffuse="osd_light">masks/flixicon-filled.png</texturenofocus>
+			<label>[UPPERCASE][LIGHT]$PARAM[flixlabel][/LIGHT][/UPPERCASE]</label>
+			<visible>$PARAM[visible]</visible>
 		</control>
 	</include>
 

@@ -10,14 +10,14 @@
     <texturefocus colordiffuse="$VAR[PlayerProgressColor]">osd/fullscreen/buttons/button-fo.png</texturefocus>
     <texturenofocus/>
     <alttexturefocus border="3" colordiffuse="$VAR[PlayerProgressColor]">osd/Button.png</alttexturefocus>
-    <width>64</width>
-    <height>64</height>
-    <radiowidth>40</radiowidth>
-    <radioheight>40</radioheight>
+    <width>70</width>
+    <height>70</height>
+    <radiowidth>44</radiowidth>
+    <radioheight>44</radioheight>
     <font></font>
-    <radioposx>12</radioposx>
-    <radioposy>12</radioposy>
-    <animation center="32,31" effect="zoom" end="100" reversible="false" start="90" time="480" tween="back">Focus</animation>
+    <radioposx>13</radioposx>
+    <radioposy>13</radioposy>
+    <animation center="35,34" effect="zoom" end="100" reversible="false" start="90" time="480" tween="back">Focus</animation>
 	</include>
 	<include name="PlayerButton">
 		<width>48</width>
@@ -177,15 +177,15 @@
 		</definition>
 	</include>
 	<include name="KeyboardButton">
-    <width>120</width>
-    <height>120</height>
-    <texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>
-    <texturenofocus colordiffuse="4D000000">buttons/roundbutton-fo.png</texturenofocus>
+    <width>100</width>
+    <height>100</height>
+    <texturefocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-fo.png</texturefocus>
+    <texturenofocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-unfo.png</texturenofocus>
     <textcolor>unfocused_text</textcolor>
     <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
     <align>center</align>
-    <aligny>center</aligny>
-    <font>font45</font>
+    <textoffsety>12</textoffsety>
+    <font>font37</font>
 	</include>
 	<include name="PlaylistWindowButton">
 		<param name="width">100%</param>
