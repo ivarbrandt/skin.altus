@@ -45,19 +45,10 @@
 					<texture colordiffuse="CCFFFFFF">colors/black.png</texture>
 					<visible>!Window.IsVisible(tvchannels)</visible>
 				</control>
-				<control type="image">
-					<left>1080</left>
-					<top>440</top>
-					<width>320</width>
-					<height>280</height>
-					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<texture fallback="DefaultTVShows.png" >$INFO[ListItem.Icon]</texture>
-					<visible>Control.HasFocus(11) + !Window.IsVisible(tvchannels)</visible>
-				</control>
 				<control type="fixedlist" id="11">
 					<left>40</left>
 					<top>105</top>
-					<width>988</width>
+					<width>1400</width>
 					<height>936</height>
 					<onleft>60</onleft>
 					<onleft condition="Window.IsVisible(tvchannels)">close</onleft>
@@ -70,7 +61,7 @@
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<movement>5</movement>
 					<focusposition>5</focusposition>
-					<itemlayout height="72" width="988">
+					<itemlayout height="72" width="1400">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -101,7 +92,7 @@
 							<left>200</left>
 							<top>0</top>
 							<bottom>0</bottom>
-							<right>70</right>
+							<right>482</right>
 							<aligny>center</aligny>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
@@ -119,7 +110,7 @@
 							<label>$INFO[ListItem.Duration, ,m]</label>
 						</control> -->
 					</itemlayout>
-					<focusedlayout height="216" width="988">
+					<focusedlayout height="216" width="1400">
 						<!-- <control type="image">
 							<bottom>0</bottom>
 							<texture colordiffuse="99000000">colors/darkest.png</texture>
@@ -129,7 +120,7 @@
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
-							<right>0</right>
+							<width>988</width>
 							<bottom>0</bottom>
 							<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
 							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(11)">Conditional</animation>
@@ -161,7 +152,7 @@
 							<left>200</left>
 							<top>10</top>
 							<bottom>0</bottom>
-							<right>70</right>
+							<right>482</right>
 							<font>font27_title</font>
 							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 							<label>$VAR[PVRListItemSubLabelFocused]</label>
@@ -181,13 +172,22 @@
 						<control type="textbox">
 							<left>20</left>
 							<top>53</top>
-							<right>20</right>
+							<right>432</right>
 							<bottom>20</bottom>
 							<font>font27_plot</font>
 							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 							<label>$INFO[ListItem.Plot]</label>
 							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
 							<visible>!String.IsEmpty(ListItem.Plot)</visible>
+						</control>
+						<control type="image">
+							<top>-30</top>
+							<left>1040</left>
+							<width>320</width>
+							<height>280</height>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<texture fallback="DefaultTVShows.png" >$INFO[ListItem.Icon]</texture>
+							<visible>!Window.IsVisible(tvchannels)</visible>
 						</control>
 					</focusedlayout>
 				</control>
@@ -207,8 +207,8 @@
 
 			<control type="group">
 				<include>Animation_TopSlide</include>
-				<visible>!Window.IsVisible(tvchannels)</visible>
-				<top>15</top>
+				<top>13</top>
+				<animation effect="slide" start="0,0" end="-860,0" time="0" condition="Window.IsVisible(tvchannels)">conditional</animation>
 				<control type="label" id="2">
 					<description>header label</description>
 					<textoffsetx>40</textoffsetx>
