@@ -13,19 +13,19 @@
 			<texturenofocus />
 			<onclick>Action(close)</onclick>
 		</control>
+		<control type="image">
+			<top>0</top>
+			<left>0</left>
+			<width>100%</width>
+			<height>700</height>
+			<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+			<texture flipy="true" colordiffuse="ed080808">osd/osdoverlay.png</texture>
+		</control>
 		<control type="group">
 			<top>30</top>
 			<bottom>0</bottom>
 			<height>550</height>
-			<control type="image">
-				<top>-30</top>
-				<left>0</left>
-				<width>100%</width>
-				<height>900</height>
-				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-				<texture flipy="true" colordiffuse="ed080808">osd/osdoverlay.png</texture>
-			</control>
 			<control type="textbox">
 				<left>0</left>
 				<top>1</top>
@@ -82,10 +82,7 @@
 							<top>5</top>
 							<width>330</width>
 							<height>250</height>
-							<!-- <aspectratio>scale</aspectratio> -->
-							<texture fallback="DefaultVideo.png">$INFO[ListItem.Art(thumb)]</texture>
-							<!-- <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture> -->
-							<bordersize>4</bordersize>
+							<texture diffuse="osd/bookmarks.png" fallback="DefaultVideo.png">$INFO[ListItem.Art(thumb)]</texture>
 						</control>
 						<control type="label">
 							<left>20</left>
@@ -107,18 +104,7 @@
 							<top>5</top>
 							<width>330</width>
 							<height>250</height>
-							<texture border="3" colordiffuse="button_focus">colors/grey.png</texture>
-							<visible>Control.HasFocus(11)</visible>
-						</control>
-						<control type="image">
-							<left>0</left>
-							<top>5</top>
-							<width>330</width>
-							<height>250</height>
-							<!-- <aspectratio>scale</aspectratio> -->
-							<texture fallback="DefaultVideo.png">$INFO[ListItem.Art(thumb)]</texture>
-							<!-- <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture> -->
-							<bordersize>4</bordersize>
+							<texture diffuse="osd/bookmarks.png" fallback="DefaultVideo.png">$INFO[ListItem.Art(thumb)]</texture>
 						</control>
 						<control type="label">
 							<left>20</left>
@@ -129,6 +115,15 @@
 							<font>font12</font>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>5</top>
+							<width>330</width>
+							<height>250</height>
+							<texture border="26" colordiffuse="$VAR[FocusColorTheme]" infill="false" >masks/bordertexture-26.png</texture>
+							<visible>Control.HasFocus(11)</visible>
+							<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 						</control>
 					</control>
 				</focusedlayout>
