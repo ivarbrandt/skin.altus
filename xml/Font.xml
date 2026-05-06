@@ -184,25 +184,6 @@
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>38</size>
 		</font>
-		<!-- ICON FONTS -->
-		<font>
-			<name>PlayerIcon</name>
-			<filename>remixicon.ttf</filename>
-			<size>38</size>
-			<style>symbol</style>
-		</font>
-		<font>
-			<name>PlayerIconSmall</name>
-			<filename>remixicon.ttf</filename>
-			<size>32</size>
-			<style>symbol</style>
-		</font>
-		<font>
-			<name>SmallIcon</name>
-			<filename>remixicon.ttf</filename>
-			<size>22</size>
-			<style>symbol</style>
-		</font>
 		<!-- Title Fonts -->
 		<font>
 			<name>font10_title</name>
@@ -498,7 +479,6 @@
 			<name>font60</name>
 			<filename>arial.ttf</filename>
 			<size>58</size>
-			
 		</font>
 		<font>
 			<name>font_clock</name>
@@ -510,26 +490,6 @@
 			<filename>arial.ttf</filename>
 			<size>38</size>
 		</font>
-		
-		<font>
-			<name>PlayerIcon</name>
-			<filename>remixicon.ttf</filename>
-			<size>38</size>
-			<style>symbol</style>
-		</font>
-		<font>
-			<name>PlayerIconSmall</name>
-			<filename>remixicon.ttf</filename>
-			<size>32</size>
-			<style>symbol</style>
-		</font>
-		<font>
-			<name>SmallIcon</name>
-			<filename>remixicon.ttf</filename>
-			<size>22</size>
-			<style>symbol</style>
-		</font>
-		
 		<font>
 			<name>font10_title</name>
 			<filename>arial.ttf</filename>

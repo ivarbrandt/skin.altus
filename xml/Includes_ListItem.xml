@@ -171,7 +171,7 @@
           <top>19</top>
           <width>47</width>
           <height>47</height>
-          <texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">iconpicker/monochrome/Weather/clouds.png</texture>
+          <texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">icons/weather/cloudy.png</texture>
           <aspectratio>keep</aspectratio>
           <visible>String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched + [!Control.HasFocus($PARAM[id]) | !$PARAM[focused]]</visible>
         </control>
@@ -180,7 +180,7 @@
           <top>19</top>
           <width>47</width>
           <height>47</height>
-          <texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">iconpicker/monochrome/Weather/clouds.png</texture>
+          <texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">icons/weather/cloudy.png</texture>
           <aspectratio>keep</aspectratio>
           <visible>String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched + Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
         </control>

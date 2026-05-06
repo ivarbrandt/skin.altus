@@ -19,20 +19,6 @@
     <radioposy>13</radioposy>
     <animation center="35,34" effect="zoom" end="100" reversible="false" start="90" time="480" tween="back">Focus</animation>
 	</include>
-	<include name="PlayerButton">
-		<width>48</width>
-		<height>48</height>
-		<textcolor>osd_grey</textcolor>
-		<focusedcolor>osd_light</focusedcolor>
-		<disabledcolor>osd_dark</disabledcolor>
-		<font>PlayerIcon</font>
-		<align>left</align>
-		<aligny>top</aligny>
-		<textoffsetx>3</textoffsetx>
-		<textoffsety>6</textoffsety>
-		<texturefocus border="3" colordiffuse="accent_color">osd/Button.png</texturefocus>
-		<alttexturefocus border="3" colordiffuse="accent_color">osd/Button.png</alttexturefocus>
-	</include>
 	<include name="DefaultSettingButton">
 		<param name="height">70</param>
 		<param name="right">0</param>
