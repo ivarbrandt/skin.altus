@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="window" id="1121">
-	<defaultcontrol>9000</defaultcontrol>
+	<defaultcontrol>9101</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
 	<onload>RunScript(script.altus.helper,mode=refresh_search_history)</onload>
+	<onload condition="String.IsEmpty(Window(home).Property(altus.search.mode))">SetProperty(altus.search.mode,live,home)</onload>
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">
@@ -86,6 +87,817 @@
 				<control type="group">
 					<visible allowhiddenfocus="true">!$EXP[isContent]</visible>
 					<animation effect="fade" condition="!$EXP[isContent]" time="300" end="100" tween="sine" easing="inout">Conditional</animation>
+					<!-- Live / History mode toggle (P8a) -->
+					<control type="grouplist" id="850">
+						<top>10</top>
+						<left>53</left>
+						<width>415</width>
+						<height>56</height>
+						<orientation>horizontal</orientation>
+						<itemgap>4</itemgap>
+						<align>left</align>
+						<onleft>850</onleft>
+						<ondown condition="String.IsEqual(Window(home).Property(altus.search.mode),live)">9101</ondown>
+						<ondown condition="String.IsEqual(Window(home).Property(altus.search.mode),history) + !String.IsEqual(Window(home).Property(altus.search.history.count),0)">SetFocus(9000,0,absolute)</ondown>
+						<ondown condition="String.IsEqual(Window(home).Property(altus.search.mode),history) + String.IsEqual(Window(home).Property(altus.search.history.count),0)">700</ondown>
+						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<control type="button" id="851">
+							<width>120</width>
+							<height>56</height>
+							<label>Live</label>
+							<font>font25</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onfocus>SetProperty(altus.search.mode,live,home)</onfocus>
+							<onclick condition="!String.IsEmpty(Window(home).Property(altus.search.input))">SetFocus(9101)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<texturenofocus border="15" colordiffuse="55FFFFFF">masks/radius_15.png</texturenofocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="852">
+							<width>120</width>
+							<height>56</height>
+							<label>History</label>
+							<font>font25</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onfocus>SetProperty(altus.search.mode,history,home)</onfocus>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<texturenofocus border="15" colordiffuse="55FFFFFF">masks/radius_15.png</texturenofocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+					</control>
+
+					<!-- Live mode input display (P8d). Edit control removed:
+					     bidirectional sync from RunScript helper crashes Kodi,
+					     and the QWERTY's focus-on-keys model wants a virtual
+					     cursor anyway. Background image carries the textbox
+					     visual; the property altus.search.input.display holds
+					     the typed text with a cursor glyph (U+2502) inserted
+					     at the current position. -->
+					<control type="image">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
+						<left>40</left>
+						<top>180</top>
+						<width>428</width>
+						<height>70</height>
+						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darkest.png</texture>
+					</control>
+
+					<control type="label">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live) + String.IsEmpty(Window(home).Property(altus.search.input))</visible>
+						<left>40</left>
+						<top>180</top>
+						<width>428</width>
+						<height>70</height>
+						<font>font32</font>
+						<textcolor>unfocused_text</textcolor>
+						<aligny>center</aligny>
+						<align>center</align>
+						<label>Type to search...</label>
+					</control>
+
+					<!-- Stacked display labels for the live input. Label A keeps
+					     the cursor character at full width but transparent, so
+					     it reserves layout. Label B's cursor is opaque and the
+					     label has a fade pulse animation. The cursor character
+					     occupies the same horizontal space in both labels, so
+					     the surrounding text never jitters as B's opacity
+					     cycles. Property split (before/after) lets us insert
+					     differently-styled cursors at the same position. -->
+					<control type="label">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live) + !String.IsEmpty(Window(home).Property(altus.search.input))</visible>
+						<left>40</left>
+						<top>180</top>
+						<width>428</width>
+						<height>70</height>
+						<font>font32</font>
+						<textcolor>unfocused_text</textcolor>
+						<aligny>center</aligny>
+						<align>center</align>
+						<label>$INFO[Window(home).Property(altus.search.input.before)][COLOR 00FFFFFF][B]|[/B][/COLOR]$INFO[Window(home).Property(altus.search.input.after)]</label>
+					</control>
+					<control type="label">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live) + !String.IsEmpty(Window(home).Property(altus.search.input))</visible>
+						<animation effect="fade" start="100" end="0" time="700" pulse="true" reversible="true" condition="String.IsEqual(Window(home).Property(altus.search.mode),live) + !String.IsEmpty(Window(home).Property(altus.search.input))">Conditional</animation>
+						<left>40</left>
+						<top>180</top>
+						<width>428</width>
+						<height>70</height>
+						<font>font32</font>
+						<textcolor>unfocused_text</textcolor>
+						<aligny>center</aligny>
+						<align>center</align>
+						<label>$INFO[Window(home).Property(altus.search.input.before)][B]|[/B]$INFO[Window(home).Property(altus.search.input.after)]</label>
+					</control>
+
+					<control type="button" id="9101">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
+						<left>40</left>
+						<top>260</top>
+						<width>428</width>
+						<height>60</height>
+						<font>font27</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>Search</label>
+						<onclick>RunScript(script.altus.helper,mode=live_search_commit)</onclick>
+						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+						<texturenofocus border="15" colordiffuse="55FFFFFF">masks/radius_15.png</texturenofocus>
+						<textcolor>unfocused_text</textcolor>
+						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						<onup>851</onup>
+						<ondown>9200</ondown>
+						<onleft>9101</onleft>
+						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+					</control>
+
+					<!-- P8d full QWERTY (5 rows): numbers / qwerty / asdf / zxcv+
+					     punctuation / space + cursor + delete controls. No
+					     resting-state texture; only focused key shows the
+					     filled radius_15 background. Number labels wrapped in
+					     [B][/B] so Kodi parses them as literal text rather than
+					     localization string IDs (1->Pictures, 2->Music, ...). -->
+					<control type="grouplist" id="9200">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
+						<left>40</left>
+						<top>330</top>
+						<width>428</width>
+						<height>46</height>
+						<orientation>horizontal</orientation>
+						<itemgap>2</itemgap>
+						<align>center</align>
+						<onup>9101</onup>
+						<ondown>9300</ondown>
+						<onleft>9200</onleft>
+						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<control type="button" id="9201">
+							<ondown>9301</ondown>
+							<width>41</width>
+							<height>46</height>
+							<label>$NUMBER[1]</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=1)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9202">
+							<ondown>9302</ondown>
+							<width>41</width>
+							<height>46</height>
+							<label>$NUMBER[2]</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=2)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9203">
+							<ondown>9303</ondown>
+							<width>41</width>
+							<height>46</height>
+							<label>$NUMBER[3]</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=3)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9204">
+							<ondown>9304</ondown>
+							<width>41</width>
+							<height>46</height>
+							<label>$NUMBER[4]</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=4)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9205">
+							<ondown>9305</ondown>
+							<width>41</width>
+							<height>46</height>
+							<label>$NUMBER[5]</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=5)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9206">
+							<ondown>9306</ondown>
+							<width>41</width>
+							<height>46</height>
+							<label>$NUMBER[6]</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=6)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9207">
+							<ondown>9307</ondown>
+							<width>41</width>
+							<height>46</height>
+							<label>$NUMBER[7]</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=7)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9208">
+							<ondown>9308</ondown>
+							<width>41</width>
+							<height>46</height>
+							<label>$NUMBER[8]</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=8)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9209">
+							<ondown>9309</ondown>
+							<width>41</width>
+							<height>46</height>
+							<label>$NUMBER[9]</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=9)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9210">
+							<ondown>9310</ondown>
+							<width>41</width>
+							<height>46</height>
+							<label>$NUMBER[0]</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=0)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+					</control>
+					<control type="grouplist" id="9300">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
+						<left>40</left>
+						<top>380</top>
+						<width>428</width>
+						<height>46</height>
+						<orientation>horizontal</orientation>
+						<itemgap>2</itemgap>
+						<align>center</align>
+						<onup>9200</onup>
+						<ondown>9400</ondown>
+						<onleft>9300</onleft>
+						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<control type="button" id="9301">
+							<ondown>9401</ondown>
+							<onup>9201</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>q</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=q)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9302">
+							<ondown>9402</ondown>
+							<onup>9202</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>w</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=w)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9303">
+							<ondown>9403</ondown>
+							<onup>9203</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>e</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=e)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9304">
+							<ondown>9404</ondown>
+							<onup>9204</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>r</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=r)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9305">
+							<ondown>9405</ondown>
+							<onup>9205</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>t</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=t)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9306">
+							<ondown>9406</ondown>
+							<onup>9206</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>y</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=y)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9307">
+							<ondown>9407</ondown>
+							<onup>9207</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>u</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=u)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9308">
+							<ondown>9408</ondown>
+							<onup>9208</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>i</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=i)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9309">
+							<ondown>9409</ondown>
+							<onup>9209</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>o</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=o)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9310">
+							<ondown>9409</ondown>
+							<onup>9210</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>p</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=p)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+					</control>
+					<control type="grouplist" id="9400">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
+						<left>40</left>
+						<top>430</top>
+						<width>428</width>
+						<height>46</height>
+						<orientation>horizontal</orientation>
+						<itemgap>2</itemgap>
+						<align>center</align>
+						<onup>9300</onup>
+						<ondown>9500</ondown>
+						<onleft>9400</onleft>
+						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<control type="button" id="9401">
+							<ondown>9501</ondown>
+							<onup>9301</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>a</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=a)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9402">
+							<ondown>9502</ondown>
+							<onup>9302</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>s</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=s)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9403">
+							<ondown>9503</ondown>
+							<onup>9303</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>d</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=d)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9404">
+							<ondown>9504</ondown>
+							<onup>9304</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>f</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=f)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9405">
+							<ondown>9505</ondown>
+							<onup>9305</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>g</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=g)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9406">
+							<ondown>9506</ondown>
+							<onup>9306</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>h</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=h)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9407">
+							<ondown>9507</ondown>
+							<onup>9307</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>j</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=j)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9408">
+							<ondown>9508</ondown>
+							<onup>9308</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>k</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=k)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9409">
+							<ondown>9509</ondown>
+							<onup>9309</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>l</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=l)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+					</control>
+					<control type="grouplist" id="9500">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
+						<left>40</left>
+						<top>480</top>
+						<width>428</width>
+						<height>46</height>
+						<orientation>horizontal</orientation>
+						<itemgap>2</itemgap>
+						<align>center</align>
+						<onup>9400</onup>
+						<ondown>9600</ondown>
+						<onleft>9500</onleft>
+						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<control type="button" id="9501">
+							<ondown>9601</ondown>
+							<onup>9401</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>z</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=z)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9502">
+							<ondown>9601</ondown>
+							<onup>9402</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>x</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=x)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9503">
+							<ondown>9601</ondown>
+							<onup>9403</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>c</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=c)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9504">
+							<ondown>9602</ondown>
+							<onup>9404</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>v</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=v)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9505">
+							<ondown>9602</ondown>
+							<onup>9405</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>b</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=b)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9506">
+							<ondown>9603</ondown>
+							<onup>9406</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>n</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=n)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9507">
+							<ondown>9603</ondown>
+							<onup>9407</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>m</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=m)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9508">
+							<ondown>9604</ondown>
+							<onup>9408</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>'</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=')</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9509">
+							<ondown>9605</ondown>
+							<onup>9409</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>-</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=-)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="button" id="9510">
+							<ondown>9605</ondown>
+							<onup>9409</onup>
+							<width>41</width>
+							<height>46</height>
+							<label>.</label>
+							<font>font14</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=append&amp;char=.)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+					</control>
+					<control type="grouplist" id="9600">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
+						<left>40</left>
+						<top>530</top>
+						<width>428</width>
+						<height>46</height>
+						<orientation>horizontal</orientation>
+						<itemgap>2</itemgap>
+						<align>center</align>
+						<onup>9500</onup>
+						<ondown>700</ondown>
+						<onleft>9600</onleft>
+						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<control type="button" id="9601">
+							<width>140</width>
+							<height>46</height>
+							<label>Space</label>
+							<font>font24</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=space)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<textcolor>unfocused_text</textcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						</control>
+						<control type="radiobutton" id="9602">
+							<width>70</width>
+							<height>46</height>
+							<label></label>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=left)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<texturenofocus/>
+							<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowleft.png</textureradioonfocus>
+							<textureradioonnofocus colordiffuse="white">icons/keyboard/arrowleft.png</textureradioonnofocus>
+							<radiowidth>24</radiowidth>
+							<radioheight>24</radioheight>
+							<radioposx>23</radioposx>
+							<radioposy>11</radioposy>
+							<selected>true</selected>
+						</control>
+						<control type="radiobutton" id="9603">
+							<width>70</width>
+							<height>46</height>
+							<label></label>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=right)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<texturenofocus/>
+							<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowright.png</textureradioonfocus>
+							<textureradioonnofocus colordiffuse="white">icons/keyboard/arrowright.png</textureradioonnofocus>
+							<radiowidth>24</radiowidth>
+							<radioheight>24</radioheight>
+							<radioposx>23</radioposx>
+							<radioposy>11</radioposy>
+							<selected>true</selected>
+						</control>
+						<control type="radiobutton" id="9604">
+							<width>70</width>
+							<height>46</height>
+							<label></label>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=backspace)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<texturenofocus/>
+							<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/backspace.png</textureradioonfocus>
+							<textureradioonnofocus colordiffuse="white">icons/keyboard/backspace.png</textureradioonnofocus>
+							<radiowidth>32</radiowidth>
+							<radioheight>32</radioheight>
+							<radioposx>19</radioposx>
+							<radioposy>7</radioposy>
+							<selected>true</selected>
+						</control>
+						<control type="radiobutton" id="9605">
+							<width>70</width>
+							<height>46</height>
+							<label></label>
+							<onclick>RunScript(script.altus.helper,mode=search_key&amp;action=clear)</onclick>
+							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+							<texturenofocus/>
+							<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">dialogs/close.png</textureradioonfocus>
+							<textureradioonnofocus colordiffuse="white">dialogs/close.png</textureradioonnofocus>
+							<radiowidth>32</radiowidth>
+							<radioheight>32</radioheight>
+							<radioposx>19</radioposx>
+							<radioposy>7</radioposy>
+							<selected>true</selected>
+						</control>
+					</control>
 					<control type="textbox">
 						<top>145</top>
 						<left>40</left>
@@ -96,10 +908,10 @@
 						<font>font27</font>
 						<label>$INFO[Window(home).Property(altus.search.history.empty)]</label>
 						<textcolor>unfocused_text</textcolor>
-						<visible>String.IsEqual(Window(home).Property(altus.search.history.count),0)</visible>
+						<visible>String.IsEqual(Window(home).Property(altus.search.history.count),0) + String.IsEqual(Window(home).Property(altus.search.mode),history)</visible>
 					</control>
 					<control type="list" id="9000">
-						<visible>!String.IsEqual(Window(home).Property(altus.search.history.count),0)</visible>
+						<visible>!String.IsEqual(Window(home).Property(altus.search.history.count),0) + String.IsEqual(Window(home).Property(altus.search.mode),history)</visible>
 						<left>70</left>
 						<top>180</top>
 						<width>378</width>
@@ -130,7 +942,7 @@
 							<itemgap>4</itemgap>
 							<width>415</width>
 							<height>100</height>
-							<onup condition="!String.IsEqual(Window(home).Property(altus.search.history.count),0)">SetFocus(9000,99,absolute)</onup>
+							<onup condition="!String.IsEqual(Window(home).Property(altus.search.history.count),0)">852</onup>
 							<onup condition="String.IsEqual(Window(home).Property(altus.search.history.count),0)">700</onup>
 							<ondown condition="!String.IsEqual(Window(home).Property(altus.search.history.count),0)">SetFocus(9000,0,absolute)</ondown>
 							<ondown condition="String.IsEqual(Window(home).Property(altus.search.history.count),0)">700</ondown>
