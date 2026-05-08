@@ -298,11 +298,11 @@
 						<onleft>3000</onleft>
 					</control>
 
-					<!-- URL Template -->
+					<!-- Path Template -->
 					<control type="button" id="5102">
 						<width>max</width>
 						<height>65</height>
-						<label>URL:</label>
+						<label>Path:</label>
 						<label2>$VAR[SM_DetailUrl]</label2>
 						<font>font32</font>
 						<textoffsetx>20</textoffsetx>

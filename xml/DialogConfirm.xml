@@ -17,11 +17,11 @@
 				<param name="divider_top" value="90" />
 			</include>
 			<control type="textbox" id="9">
-				<left>40</left>
+				<left>60</left>
 				<top>105</top>
-				<right>40</right>
+				<right>60</right>
 				<height>190</height>
-				<align>center</align>
+				<align>left</align>
 				<label/>
 				<font>font32</font>
 				<textcolor>unfocused_text</textcolor>
