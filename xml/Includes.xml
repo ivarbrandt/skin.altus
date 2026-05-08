@@ -20,6 +20,7 @@
 	<include file="Includes_PVR.xml" />
 	<include file="Includes_Scrollbars.xml" />
 	<include file="Includes_Search.xml" />
+	<include file="Includes_SearchManager.xml" />
 	<include file="Includes_Seekbar.xml" />
 	<include file="Includes_TopBar.xml" />
 	<include file="Includes_BottomBar.xml" />

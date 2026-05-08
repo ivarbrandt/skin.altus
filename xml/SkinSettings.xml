@@ -182,6 +182,11 @@
 				<ondown>647</ondown>
 				<visible>Container(9000).HasFocus(3)</visible>
 				<!-- SEARCH OPTIONS -->
+				<control type="button" id="64714">
+					<label>Search Manager</label>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.altus.helper,mode=open_search_manager)</onclick>
+				</control>
 				<control type="button" id="64700">
 					<label>Set Search Provider</label>
 					<label2>$VAR[CurrentSearchProviderVar]</label2>

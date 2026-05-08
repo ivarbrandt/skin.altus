@@ -35,6 +35,73 @@
     </definition>
   </include>
 
+  <include name="SearchList">
+    <!-- Smoke-test layout for search-history rows. Reads:
+         ListItem.Label                     the search term
+         ListItem.Property(count)           cumulative search count
+         ListItem.Property(last)            humanized "X ago" timestamp
+         The main label sits in the upper half of the row; the sublabel
+         shows "<count> · <last>" in a smaller font below it. -->
+    <param name="height">85</param>
+    <definition>
+      <focusedlayout height="$PARAM[height]" infoupdate="30">
+        <control type="image">
+          <top>5</top>
+          <bottom>5</bottom>
+          <left>0</left>
+          <right>0</right>
+          <texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+          <visible>Control.HasFocus($PARAM[id])</visible>
+          <include>Animation_FocusTextureFade</include>
+        </control>
+        <control type="label">
+          <left>30</left>
+          <right>30</right>
+          <top>14</top>
+          <height>32</height>
+          <aligny>center</aligny>
+          <font>font37_title</font>
+          <textcolor>$VAR[FocusedTextColorVar]</textcolor>
+          <label>$INFO[ListItem.Label]</label>
+          <scroll>true</scroll>
+          <scrollspeed>150</scrollspeed>
+        </control>
+        <control type="label">
+          <left>30</left>
+          <right>30</right>
+          <top>48</top>
+          <height>22</height>
+          <aligny>center</aligny>
+          <font>font12</font>
+          <textcolor>$VAR[FocusedTextColorVar]</textcolor>
+          <label>$INFO[ListItem.Property(count),searches: ,  ·  ]$INFO[ListItem.Property(last)]</label>
+        </control>
+      </focusedlayout>
+      <itemlayout height="$PARAM[height]">
+        <control type="label">
+          <left>30</left>
+          <right>30</right>
+          <top>14</top>
+          <height>32</height>
+          <aligny>center</aligny>
+          <font>font37</font>
+          <textcolor>unfocused_text</textcolor>
+          <label>$INFO[ListItem.Label]</label>
+        </control>
+        <control type="label">
+          <left>30</left>
+          <right>30</right>
+          <top>48</top>
+          <height>22</height>
+          <aligny>center</aligny>
+          <font>font12</font>
+          <textcolor>unfocused_text</textcolor>
+          <label>$INFO[ListItem.Property(count),searches: ,  ·  ]$INFO[ListItem.Property(last)]</label>
+        </control>
+      </itemlayout>
+    </definition>
+  </include>
+
   <include name="MainMenuList">
     <param name="height">85</param>
     <definition>

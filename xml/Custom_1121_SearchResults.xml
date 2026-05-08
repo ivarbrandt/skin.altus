@@ -2,6 +2,7 @@
 <window type="window" id="1121">
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
+	<onload>RunScript(script.altus.helper,mode=refresh_search_history)</onload>
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">
@@ -111,7 +112,7 @@
 						<onup>700</onup>
 						<ondown>9000</ondown>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
-						<include content="List">
+						<include content="SearchList">
 							<param name="id" value="9000" />
 						</include>
 						<content>

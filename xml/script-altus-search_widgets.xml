@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <include name="SearchWidgets">
+    <include content="WidgetListPoster">
+      <param name="content_path" value="plugin://script.altus.helper/?mode=library_search&amp;type=movies&amp;query=$INFO[Window(home).Property(altus.search.input.encoded)]"/>
+      <param name="widget_header" value="[LIBRARY] Movies"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="3010"/>
+    </include>
+    <include content="WidgetListSmallPoster">
+      <param name="content_path" value="plugin://plugin.video.fenlight/?mode=build_movie_list&amp;action=tmdb_movies_search&amp;query=$INFO[Window(home).Property(altus.search.input.encoded)]"/>
+      <param name="widget_header" value="[FEN LIGHT] Movies"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="3011"/>
+    </include>
+    <include content="WidgetListPoster">
+      <param name="content_path" value="plugin://$INFO[Window(home).Property(altus.search.input.trakt.encoded)]"/>
+      <param name="widget_header" value="[TV SHOWS] kill"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="3012"/>
+    </include>
+    <include content="WidgetListPoster">
+      <param name="content_path" value="plugin://script.altus.helper/?mode=library_search&amp;type=tvshows&amp;query=$INFO[Window(home).Property(altus.search.input.encoded)]"/>
+      <param name="widget_header" value="[LIBRARY] TV Shows"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="3013"/>
+    </include>
+  </include>
+</includes>
