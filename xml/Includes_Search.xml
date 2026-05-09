@@ -805,4 +805,32 @@
 
   </include>
 
+  <!-- Pill button for the live-mode kind filter panel below the QWERTY
+       keyboard in Custom_1121_SearchResults.xml. Generated XML
+       (script-altus-search_kind_filter.xml) emits one of these per distinct
+       kind plus an "All" pill. Selected indicator is property-driven so the
+       active filter stays visible regardless of focus. -->
+  <include name="SearchKindFilterButton">
+    <definition>
+      <control type="radiobutton" id="$PARAM[control_id]">
+        <width>428</width>
+        <height>60</height>
+        <align>left</align>
+        <textoffsetx>30</textoffsetx>
+        <aligny>center</aligny>
+        <font>font14</font>
+        <label>$PARAM[label]</label>
+        <onclick>$PARAM[onclick_action]</onclick>
+        <selected>$PARAM[selected_condition]</selected>
+        <texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
+        <texturenofocus />
+        <radioposx>310</radioposx>
+        <alttexturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</alttexturefocus>
+        <alttexturenofocus></alttexturenofocus>
+        <textcolor>unfocused_text</textcolor>
+        <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+      </control>
+    </definition>
+  </include>
+
 </includes>

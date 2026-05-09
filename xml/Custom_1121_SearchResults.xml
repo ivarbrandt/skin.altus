@@ -4,6 +4,7 @@
 	<backgroundcolor>background</backgroundcolor>
 	<onload>RunScript(script.altus.helper,mode=refresh_search_history)</onload>
 	<onload condition="String.IsEmpty(Window(home).Property(altus.search.mode))">SetProperty(altus.search.mode,live,home)</onload>
+	<onload condition="String.IsEmpty(Window(home).Property(altus.search.filter.kind))">SetProperty(altus.search.filter.kind,all,home)</onload>
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">
@@ -806,7 +807,7 @@
 						<itemgap>2</itemgap>
 						<align>center</align>
 						<onup>9500</onup>
-						<ondown>801</ondown>
+						<ondown>9700</ondown>
 						<onleft>9600</onleft>
 						<onback>801</onback>
 						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
@@ -891,6 +892,40 @@
 							<selected>true</selected>
 						</control>
 					</control>
+					<!-- P8c kind-filter pill panel. Generated content lives in
+					     script-altus-search_kind_filter.xml; Includes_Search.xml
+					     defines the SearchKindFilterButton style. Active filter is
+					     property-driven so the selected pill stays highlighted
+					     even when focus has moved off the panel. -->
+					<control type="label">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
+						<left>40</left>
+						<top>555</top>
+						<width>428</width>
+						<height>75</height>
+						<font>font32</font>
+						<textcolor>unfocused_text</textcolor>
+						<aligny>center</aligny>
+						<align>left</align>
+						<label>Filter by...</label>
+					</control>
+					<control type="grouplist" id="9700">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
+						<left>40</left>
+						<top>630</top>
+						<width>428</width>
+						<height>360</height>
+						<orientation>vertical</orientation>
+						<itemgap>0</itemgap>
+						<align>center</align>
+						<onup>9601</onup>
+						<ondown>9700</ondown>
+						<onleft>9700</onleft>
+						<onback>801</onback>
+						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9700</onright>
+						<include content="SearchKindFilter"/>
+					</control>
 					<control type="textbox">
 						<top>145</top>
 						<left>40</left>
@@ -952,7 +987,8 @@
 							</include>
 							<include content="IconButton">
 								<param name="control_id" value="802" />
-								<param name="onfocus_action" value="" />
+								<param name="onfocus_action" value="SetProperty(altus.search.mode,live,home)" />
+								<param name="onclick" value="SetFocus(9700)" />
 								<param name="icon" value="icons/submenu/filter.png" />
 							</include>
 							<include content="IconButton">

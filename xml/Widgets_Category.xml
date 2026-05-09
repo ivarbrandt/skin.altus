@@ -6,10 +6,12 @@
 		<!-- <param name="icon_height">230</param> -->
 		<param name="icon">$INFO[ListItem.Icon]</param>
 		<param name="visible">true</param>
+		<param name="filter_visible">true</param>
 		<definition>
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="filter_visible" value="$PARAM[filter_visible]"/>
 			</include>
 			<include content="BusyListSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
@@ -33,7 +35,7 @@
 					<param name="list_id" value="$PARAM[list_id]" />
 					<param name="c2" value="282" />
 				</include> -->
-				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<visible>[Container($PARAM[list_id]).IsUpdating | Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | String.IsEqual(Window(Home).Property(altus.search.refreshing),true)] + [$PARAM[filter_visible]]</visible>
 				<itemlayout width="339">
 					<control type="group">
 						<left>-20</left>
@@ -71,10 +73,12 @@
 		<!-- <param name="icon_height">230</param> -->
 		<param name="icon">$PARAM[icon]</param>
 		<param name="visible">true</param>
+		<param name="filter_visible">true</param>
 		<definition>
 			<include content="CategoryLabelWidget">
 				<param name="label">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="filter_visible" value="$PARAM[filter_visible]"/>
 			</include>
 			<include content="BusyListWidgetSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
@@ -89,6 +93,7 @@
 				<focusposition>0</focusposition>
 				<movement>4</movement>
 				<onright>$PARAM[list_id]</onright>
+				<visible>$PARAM[filter_visible]</visible>
 				<onfocus>RunScript(script.altus.helper,mode=widget_monitor&amp;list_id=$PARAM[list_id])</onfocus>
 				<onfocus>SetProperty(altus_saved_list_id,$PARAM[list_id],home)</onfocus>
 				<onfocus>SetProperty(altus_child_id,$PARAM[child_id],home)</onfocus>
@@ -104,6 +109,7 @@
 					<effect type="fade" start="100" end="0" time="400" />
 				</animation>
 				<!-- <visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible> -->
+				<visible>$PARAM[filter_visible]</visible>
 				<itemlayout width="271" height="393" infoupdate="30">
 					<control type="group">
 						<left>-20</left>

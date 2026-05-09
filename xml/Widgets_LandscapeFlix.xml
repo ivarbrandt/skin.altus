@@ -3,11 +3,13 @@
 
   <include name="WidgetListLandscapeFlix">
 		<param name="onclick_condition">false</param>
+		<param name="filter_visible">true</param>
 		<definition>
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
 				<param name="flix_slide" value="563"/>
+				<param name="filter_visible" value="$PARAM[filter_visible]"/>
 			</include>
 			<include content="BusyListSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
@@ -21,7 +23,7 @@
 				<movement>2</movement>
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
-				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<visible>[Container($PARAM[list_id]).IsUpdating | Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | String.IsEqual(Window(Home).Property(altus.search.refreshing),true)] + [$PARAM[filter_visible]]</visible>
 				<onfocus>SetProperty(FlixWidget,true,Home)</onfocus>
 				<onfocus>SetProperty(altus_flix_linked_list_id,$PARAM[parent_id],home)</onfocus>
 				<onfocus>ClearProperty(altus_stacked_linked_list_id,home)</onfocus>
@@ -93,6 +95,7 @@
 
 	<include name="WidgetListLandscapeFlixStacked">
 		<param name="onclick_condition">false</param>
+		<param name="filter_visible">true</param>
 		<definition>
 			<include content="BusyListWidgetSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
@@ -102,6 +105,7 @@
 				<param name="widget_header">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
 				<param name="flix_slide" value="565"/>
+				<param name="filter_visible" value="$PARAM[filter_visible]"/>
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<top>17</top>
@@ -121,6 +125,7 @@
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
+				<visible>$PARAM[filter_visible]</visible>
 				<itemlayout width="452" >
 					<control type="image">
 						<left>0</left>
