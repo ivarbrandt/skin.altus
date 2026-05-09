@@ -42,7 +42,7 @@
          ListItem.Property(last)            humanized "X ago" timestamp
          The main label sits in the upper half of the row; the sublabel
          shows "<count> · <last>" in a smaller font below it. -->
-    <param name="height">85</param>
+    <param name="height">105</param>
     <definition>
       <focusedlayout height="$PARAM[height]" infoupdate="30">
         <control type="image">
@@ -57,7 +57,7 @@
         <control type="label">
           <left>30</left>
           <right>30</right>
-          <top>14</top>
+          <top>20</top>
           <height>32</height>
           <aligny>center</aligny>
           <font>font37_title</font>
@@ -69,19 +69,19 @@
         <control type="label">
           <left>30</left>
           <right>30</right>
-          <top>48</top>
+          <bottom>22</bottom>
           <height>22</height>
           <aligny>center</aligny>
-          <font>font12</font>
+          <font>font23</font>
           <textcolor>$VAR[FocusedTextColorVar]</textcolor>
-          <label>$INFO[ListItem.Property(count),searches: ,  ·  ]$INFO[ListItem.Property(last)]</label>
+          <label>$INFO[ListItem.Property(count),Searches: ,  •  ]$INFO[ListItem.Property(last)]</label>
         </control>
       </focusedlayout>
       <itemlayout height="$PARAM[height]">
         <control type="label">
           <left>30</left>
           <right>30</right>
-          <top>14</top>
+          <top>20</top>
           <height>32</height>
           <aligny>center</aligny>
           <font>font37</font>
@@ -91,12 +91,12 @@
         <control type="label">
           <left>30</left>
           <right>30</right>
-          <top>48</top>
+          <bottom>22</bottom>
           <height>22</height>
           <aligny>center</aligny>
-          <font>font12</font>
+          <font>font23</font>
           <textcolor>unfocused_text</textcolor>
-          <label>$INFO[ListItem.Property(count),searches: ,  ·  ]$INFO[ListItem.Property(last)]</label>
+          <label>$INFO[ListItem.Property(count),Searches: ,  •  ]$INFO[ListItem.Property(last)]</label>
         </control>
       </itemlayout>
     </definition>
