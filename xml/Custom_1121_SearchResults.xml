@@ -87,48 +87,6 @@
 				<control type="group">
 					<visible allowhiddenfocus="true">!$EXP[isContent]</visible>
 					<animation effect="fade" condition="!$EXP[isContent]" time="300" end="100" tween="sine" easing="inout">Conditional</animation>
-					<!-- Live / History mode toggle (P8a) -->
-					<control type="grouplist" id="850">
-						<top>10</top>
-						<left>53</left>
-						<width>415</width>
-						<height>56</height>
-						<orientation>horizontal</orientation>
-						<itemgap>4</itemgap>
-						<align>left</align>
-						<onleft>850</onleft>
-						<ondown condition="String.IsEqual(Window(home).Property(altus.search.mode),live)">9101</ondown>
-						<ondown condition="String.IsEqual(Window(home).Property(altus.search.mode),history) + !String.IsEqual(Window(home).Property(altus.search.history.count),0)">SetFocus(9000,0,absolute)</ondown>
-						<ondown condition="String.IsEqual(Window(home).Property(altus.search.mode),history) + String.IsEqual(Window(home).Property(altus.search.history.count),0)">700</ondown>
-						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
-						<control type="button" id="851">
-							<width>120</width>
-							<height>56</height>
-							<label>Live</label>
-							<font>font25</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onfocus>SetProperty(altus.search.mode,live,home)</onfocus>
-							<onclick condition="!String.IsEmpty(Window(home).Property(altus.search.input))">SetFocus(9101)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<texturenofocus border="15" colordiffuse="55FFFFFF">masks/radius_15.png</texturenofocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="852">
-							<width>120</width>
-							<height>56</height>
-							<label>History</label>
-							<font>font25</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onfocus>SetProperty(altus.search.mode,history,home)</onfocus>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<texturenofocus border="15" colordiffuse="55FFFFFF">masks/radius_15.png</texturenofocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-					</control>
 
 					<!-- Live mode input display (P8d). Edit control removed:
 					     bidirectional sync from RunScript helper crashes Kodi,
@@ -142,8 +100,10 @@
 						<left>40</left>
 						<top>180</top>
 						<width>428</width>
-						<height>70</height>
-						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darkest.png</texture>
+						<height>75</height>
+						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darker.png</texture>
+						<bordertexture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/bordertexture-23-thin.png</bordertexture>
+						<bordersize>1</bordersize>
 					</control>
 
 					<control type="label">
@@ -151,7 +111,7 @@
 						<left>40</left>
 						<top>180</top>
 						<width>428</width>
-						<height>70</height>
+						<height>75</height>
 						<font>font32</font>
 						<textcolor>unfocused_text</textcolor>
 						<aligny>center</aligny>
@@ -172,7 +132,7 @@
 						<left>40</left>
 						<top>180</top>
 						<width>428</width>
-						<height>70</height>
+						<height>75</height>
 						<font>font32</font>
 						<textcolor>unfocused_text</textcolor>
 						<aligny>center</aligny>
@@ -185,7 +145,7 @@
 						<left>40</left>
 						<top>180</top>
 						<width>428</width>
-						<height>70</height>
+						<height>75</height>
 						<font>font32</font>
 						<textcolor>unfocused_text</textcolor>
 						<aligny>center</aligny>
@@ -193,7 +153,7 @@
 						<label>$INFO[Window(home).Property(altus.search.input.before)][B]|[/B]$INFO[Window(home).Property(altus.search.input.after)]</label>
 					</control>
 
-					<control type="button" id="9101">
+					<!-- <control type="button" id="9101">
 						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
 						<left>40</left>
 						<top>260</top>
@@ -212,7 +172,7 @@
 						<ondown>9200</ondown>
 						<onleft>9101</onleft>
 						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
-					</control>
+					</control> -->
 
 					<!-- P8d full QWERTY (5 rows): numbers / qwerty / asdf / zxcv+
 					     punctuation / space + cursor + delete controls. No
@@ -223,17 +183,20 @@
 					<control type="grouplist" id="9200">
 						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
 						<left>40</left>
-						<top>330</top>
+						<top>295</top>
 						<width>428</width>
 						<height>46</height>
 						<orientation>horizontal</orientation>
 						<itemgap>2</itemgap>
 						<align>center</align>
-						<onup>9101</onup>
+						<onup>801</onup>
+						<onback>801</onback>
 						<ondown>9300</ondown>
 						<onleft>9200</onleft>
 						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9201</onright>
 						<control type="button" id="9201">
+							<onup>801</onup>
 							<ondown>9301</ondown>
 							<width>41</width>
 							<height>46</height>
@@ -247,6 +210,7 @@
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						</control>
 						<control type="button" id="9202">
+							<onup>801</onup>
 							<ondown>9302</ondown>
 							<width>41</width>
 							<height>46</height>
@@ -260,6 +224,7 @@
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						</control>
 						<control type="button" id="9203">
+							<onup>801</onup>
 							<ondown>9303</ondown>
 							<width>41</width>
 							<height>46</height>
@@ -273,6 +238,7 @@
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						</control>
 						<control type="button" id="9204">
+							<onup>801</onup>
 							<ondown>9304</ondown>
 							<width>41</width>
 							<height>46</height>
@@ -286,6 +252,7 @@
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						</control>
 						<control type="button" id="9205">
+							<onup>801</onup>
 							<ondown>9305</ondown>
 							<width>41</width>
 							<height>46</height>
@@ -299,6 +266,7 @@
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						</control>
 						<control type="button" id="9206">
+							<onup>801</onup>
 							<ondown>9306</ondown>
 							<width>41</width>
 							<height>46</height>
@@ -312,6 +280,7 @@
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						</control>
 						<control type="button" id="9207">
+							<onup>801</onup>
 							<ondown>9307</ondown>
 							<width>41</width>
 							<height>46</height>
@@ -325,6 +294,7 @@
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						</control>
 						<control type="button" id="9208">
+							<onup>801</onup>
 							<ondown>9308</ondown>
 							<width>41</width>
 							<height>46</height>
@@ -338,6 +308,7 @@
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						</control>
 						<control type="button" id="9209">
+							<onup>801</onup>
 							<ondown>9309</ondown>
 							<width>41</width>
 							<height>46</height>
@@ -351,6 +322,7 @@
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						</control>
 						<control type="button" id="9210">
+							<onup>801</onup>
 							<ondown>9310</ondown>
 							<width>41</width>
 							<height>46</height>
@@ -367,7 +339,7 @@
 					<control type="grouplist" id="9300">
 						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
 						<left>40</left>
-						<top>380</top>
+						<top>345</top>
 						<width>428</width>
 						<height>46</height>
 						<orientation>horizontal</orientation>
@@ -376,7 +348,9 @@
 						<onup>9200</onup>
 						<ondown>9400</ondown>
 						<onleft>9300</onleft>
+						<onback>801</onback>
 						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9301</onright>
 						<control type="button" id="9301">
 							<ondown>9401</ondown>
 							<onup>9201</onup>
@@ -504,6 +478,8 @@
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						</control>
 						<control type="button" id="9310">
+							<onleft condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onleft>
+							<onleft condition="String.IsEmpty(Window(home).Property(altus.search.input))">9301</onleft>
 							<ondown>9409</ondown>
 							<onup>9210</onup>
 							<width>41</width>
@@ -521,7 +497,7 @@
 					<control type="grouplist" id="9400">
 						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
 						<left>40</left>
-						<top>430</top>
+						<top>395</top>
 						<width>428</width>
 						<height>46</height>
 						<orientation>horizontal</orientation>
@@ -530,7 +506,9 @@
 						<onup>9300</onup>
 						<ondown>9500</ondown>
 						<onleft>9400</onleft>
+						<onback>801</onback>
 						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9401</onright>
 						<control type="button" id="9401">
 							<ondown>9501</ondown>
 							<onup>9301</onup>
@@ -644,6 +622,8 @@
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						</control>
 						<control type="button" id="9409">
+							<onleft condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onleft>
+							<onleft condition="String.IsEmpty(Window(home).Property(altus.search.input))">9401</onleft>
 							<ondown>9509</ondown>
 							<onup>9309</onup>
 							<width>41</width>
@@ -661,7 +641,7 @@
 					<control type="grouplist" id="9500">
 						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
 						<left>40</left>
-						<top>480</top>
+						<top>445</top>
 						<width>428</width>
 						<height>46</height>
 						<orientation>horizontal</orientation>
@@ -670,7 +650,9 @@
 						<onup>9400</onup>
 						<ondown>9600</ondown>
 						<onleft>9500</onleft>
+						<onback>801</onback>
 						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9501</onright>
 						<control type="button" id="9501">
 							<ondown>9601</ondown>
 							<onup>9401</onup>
@@ -798,6 +780,8 @@
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						</control>
 						<control type="button" id="9510">
+							<onleft condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onleft>
+							<onleft condition="String.IsEmpty(Window(home).Property(altus.search.input))">9501</onleft>
 							<ondown>9605</ondown>
 							<onup>9409</onup>
 							<width>41</width>
@@ -815,17 +799,20 @@
 					<control type="grouplist" id="9600">
 						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
 						<left>40</left>
-						<top>530</top>
+						<top>495</top>
 						<width>428</width>
 						<height>46</height>
 						<orientation>horizontal</orientation>
 						<itemgap>2</itemgap>
 						<align>center</align>
 						<onup>9500</onup>
-						<ondown>700</ondown>
+						<ondown>801</ondown>
 						<onleft>9600</onleft>
+						<onback>801</onback>
 						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9601</onright>
 						<control type="button" id="9601">
+							<onup>9502</onup>
 							<width>140</width>
 							<height>46</height>
 							<label>Space</label>
@@ -838,6 +825,7 @@
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						</control>
 						<control type="radiobutton" id="9602">
+							<onup>9504</onup>
 							<width>70</width>
 							<height>46</height>
 							<label></label>
@@ -853,6 +841,7 @@
 							<selected>true</selected>
 						</control>
 						<control type="radiobutton" id="9603">
+							<onup>9506</onup>
 							<width>70</width>
 							<height>46</height>
 							<label></label>
@@ -868,6 +857,7 @@
 							<selected>true</selected>
 						</control>
 						<control type="radiobutton" id="9604">
+							<onup>9508</onup>
 							<width>70</width>
 							<height>46</height>
 							<label></label>
@@ -883,6 +873,9 @@
 							<selected>true</selected>
 						</control>
 						<control type="radiobutton" id="9605">
+							<onleft condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onleft>
+							<onleft condition="String.IsEmpty(Window(home).Property(altus.search.input))">9601</onleft>
+							<onup>9509</onup>
 							<width>70</width>
 							<height>46</height>
 							<label></label>
@@ -912,9 +905,9 @@
 					</control>
 					<control type="list" id="9000">
 						<visible>!String.IsEqual(Window(home).Property(altus.search.history.count),0) + String.IsEqual(Window(home).Property(altus.search.mode),history)</visible>
-						<left>70</left>
+						<left>40</left>
 						<top>180</top>
-						<width>378</width>
+						<width>428</width>
 						<height>850</height>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onfocus>ClearProperty(altus_saved_list_id,Home)</onfocus>
@@ -933,7 +926,7 @@
 						</content>
 					</control>
 					<control type="group">
-						<left>53</left>
+						<left>23</left>
 						<top>70</top>
 						<width>415</width>
 						<height>140</height>
@@ -942,30 +935,33 @@
 							<itemgap>4</itemgap>
 							<width>415</width>
 							<height>100</height>
-							<onup condition="!String.IsEqual(Window(home).Property(altus.search.history.count),0)">852</onup>
-							<onup condition="String.IsEqual(Window(home).Property(altus.search.history.count),0)">700</onup>
-							<ondown condition="!String.IsEqual(Window(home).Property(altus.search.history.count),0)">SetFocus(9000,0,absolute)</ondown>
-							<ondown condition="String.IsEqual(Window(home).Property(altus.search.history.count),0)">700</ondown>
+							<!-- <onup condition="!String.IsEqual(Window(home).Property(altus.search.history.count),0)">852</onup>
+							<onup condition="String.IsEqual(Window(home).Property(altus.search.history.count),0)">700</onup> -->
+							<ondown condition="String.IsEqual(Window(home).Property(altus.search.mode),history) + !String.IsEqual(Window(home).Property(altus.search.history.count),0)">SetFocus(9000,0,absolute)</ondown>
+							<ondown condition="String.IsEqual(Window(home).Property(altus.search.mode),history) + String.IsEqual(Window(home).Property(altus.search.history.count),0)">noop</ondown>
+							<ondown condition="String.IsEqual(Window(home).Property(altus.search.mode),live)">SetFocus(9201)</ondown>
 							<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">801</onright>
 							<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
 							<onback>9000</onback>
 							<align>left</align>
 							<include content="IconButton">
 								<param name="control_id" value="801" />
-								<param name="onclick" value="RunScript(script.altus.helper,mode=toggle_search_provider)" />
-								<param name="icon" value="icons/submenu/cycleproviders.png" />
-							</include>
-							<include content="IconButton">
-								<param name="control_id" value="802" />
-								<param name="onclick" value="RunScript(script.altus.helper,mode=search_input)" />
+								<param name="onfocus_action" value="SetProperty(altus.search.mode,live,home)" />
+								<param name="onclick" value="SetFocus(9201)" />
 								<param name="icon" value="icons/submenu/search.png" />
 							</include>
 							<include content="IconButton">
-								<param name="control_id" value="803" />
-								<param name="onclick" value="$VAR[TRAKTButtonActionsVar]" />
-								<param name="icon" value="icons/submenu/trakt.png" />
+								<param name="control_id" value="802" />
+								<param name="onfocus_action" value="" />
+								<param name="icon" value="icons/submenu/filter.png" />
 							</include>
 							<include content="IconButton">
+								<param name="control_id" value="803" />
+								<param name="onfocus_action" value="SetProperty(altus.search.mode,history,home)" />
+								<param name="onclick" value="SetFocus(9000)" />
+								<param name="icon" value="icons/submenu/history.png" />
+							</include>
+							<!-- <include content="IconButton">
 								<param name="control_id" value="804" />
 								<param name="onclick" value="RunScript(script.altus.helper,mode=remove_all_spaths)" />
 								<param name="icon" value="icons/submenu/trash.png" />
@@ -975,7 +971,7 @@
 								<param name="onclick" value="Fullscreen" />
 								<param name="icon" value="icons/submenu/fullscreen.png" />
 								<param name="visible" value="Player.HasMedia" />
-							</include>
+							</include> -->
 						</control>
 						<control type="label">
 							<left>20</left>

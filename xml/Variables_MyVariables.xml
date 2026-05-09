@@ -1067,11 +1067,9 @@
 
 	<!-- SEARCH WINDOW SUBMENU BUTTON LABELS -->
 	<variable name="SearchSubmenuButtonLabelsVar">
-		<value condition="Control.HasFocus(801)">Search provider: [B]$VAR[CurrentSearchProviderVar][/B]</value>
-		<value condition="Control.HasFocus(802)">Perform a new search</value>
-		<value condition="Control.HasFocus(803)">Open TRAKT lists</value>
-		<value condition="Control.HasFocus(804)">Clear search history</value>
-		<value condition="Control.HasFocus(805)">Toggle fullscreen</value>
+		<value condition="Control.HasFocus(801)">New search</value>
+		<value condition="Control.HasFocus(802)">Filter by...</value>
+		<value condition="Control.HasFocus(803)">Search history</value>
 	</variable>
 
 	<variable name="ContextMenuTitleVar">

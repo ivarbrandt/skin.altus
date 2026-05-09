@@ -143,7 +143,7 @@
 		<onunfocus condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onunfocus>
 		<onunfocus condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunfocus>
 		<onleft condition="Window.IsVisible(Home) + String.IsEqual(Skin.String(onLeftSetting),0)">9000</onleft>
-		<onleft condition="Window.IsVisible(1121) + String.IsEqual(Window(home).Property(altus.search.mode),live)">9101</onleft>
+		<onleft condition="Window.IsVisible(1121) + String.IsEqual(Window(home).Property(altus.search.mode),live)">9210</onleft>
 		<onleft condition="Window.IsVisible(1121) + String.IsEqual(Window(home).Property(altus.search.mode),history)">9000</onleft>
 		<onleft condition="String.IsEqual(Skin.String(onLeftSetting),1)">$PARAM[list_id]</onleft>
 		<onright>$PARAM[list_id]</onright>
@@ -168,7 +168,7 @@
 		<onunfocus condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onunfocus>
 		<onunfocus condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunfocus>
 		<onleft condition="Window.IsVisible(Home) + String.IsEqual(Skin.String(onLeftSetting),0)">9000</onleft>
-		<onleft condition="Window.IsVisible(1121) + String.IsEqual(Window(home).Property(altus.search.mode),live)">9101</onleft>
+		<onleft condition="Window.IsVisible(1121) + String.IsEqual(Window(home).Property(altus.search.mode),live)">9210</onleft>
 		<onleft condition="Window.IsVisible(1121) + String.IsEqual(Window(home).Property(altus.search.mode),history)">9000</onleft>
 		<onleft condition="String.IsEqual(Skin.String(onLeftSetting),1)">$PARAM[list_id]</onleft>
 		<onright>$PARAM[list_id]</onright>
