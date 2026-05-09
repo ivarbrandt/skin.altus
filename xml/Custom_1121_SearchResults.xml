@@ -2,7 +2,7 @@
 <window type="window" id="1121">
 	<defaultcontrol>9101</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
-	<onload>RunScript(script.altus.helper,mode=refresh_search_history)</onload>
+	<onload>RunScript(script.altus.helper,mode=refresh_history_timestamps)</onload>
 	<onload condition="String.IsEmpty(Window(home).Property(altus.search.mode))">SetProperty(altus.search.mode,live,home)</onload>
 	<onload condition="String.IsEmpty(Window(home).Property(altus.search.filter.kind))">SetProperty(altus.search.filter.kind,all,home)</onload>
 	<controls>
@@ -917,7 +917,7 @@
 						<height>360</height>
 						<orientation>vertical</orientation>
 						<itemgap>0</itemgap>
-						<align>center</align>
+						<align>top</align>
 						<onup>9601</onup>
 						<ondown>9700</ondown>
 						<onleft>9700</onleft>
