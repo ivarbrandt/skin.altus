@@ -54,7 +54,7 @@
 						<param name="id" value="movies"/>
 					</include>
 					<control type="grouplist" id="3001">
-						<visible>!String.IsEmpty(Window(home).Property(altus.search.input)) + !String.IsEqual(Window(home).Property(altus.search.history.count),0)</visible>
+						<visible>!String.IsEqual(Window(home).Property(altus.search.history.count),0)</visible>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>3099</pagecontrol>
 						<include content="SearchWidgets"/>
