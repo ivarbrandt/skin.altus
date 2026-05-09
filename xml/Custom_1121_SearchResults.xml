@@ -54,7 +54,6 @@
 						<param name="id" value="movies"/>
 					</include>
 					<control type="grouplist" id="3001">
-						<visible>!String.IsEqual(Window(home).Property(altus.search.history.count),0)</visible>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>3099</pagecontrol>
 						<include content="SearchWidgets"/>
@@ -69,8 +68,8 @@
 			</include>
 			<include>BottomBar</include>
 			<control type="label">
-				<visible>!String.IsEmpty(Window(home).Property(altus.search.input)) + Control.HasFocus(26011) + !String.IsEqual(Window(home).Property(altus.search.history.count),0) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
-				<top>35</top>
+				<visible>!String.IsEmpty(Window(home).Property(altus.search.input)) + Control.HasFocus(3010) + !String.IsEqual(Window(home).Property(altus.search.history.count),0) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
+				<top>33</top>
 				<left>540</left>
 				<width>1400</width>
 				<aligny>center</aligny>
