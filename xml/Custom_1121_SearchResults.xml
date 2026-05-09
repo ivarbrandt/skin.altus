@@ -997,17 +997,6 @@
 								<param name="onclick" value="SetFocus(9000)" />
 								<param name="icon" value="icons/submenu/history.png" />
 							</include>
-							<!-- <include content="IconButton">
-								<param name="control_id" value="804" />
-								<param name="onclick" value="RunScript(script.altus.helper,mode=remove_all_spaths)" />
-								<param name="icon" value="icons/submenu/trash.png" />
-							</include>
-							<include content="IconButton">
-								<param name="control_id" value="805" />
-								<param name="onclick" value="Fullscreen" />
-								<param name="icon" value="icons/submenu/fullscreen.png" />
-								<param name="visible" value="Player.HasMedia" />
-							</include> -->
 						</control>
 						<control type="label">
 							<left>20</left>

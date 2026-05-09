@@ -269,7 +269,6 @@
 		<onload condition="String.IsEmpty(Skin.String(EpisodeTypeSetting))">Skin.SetString(EpisodeTypeSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(altus_category_widget_delay))">Skin.SetString(altus_category_widget_delay,750)</onload>
 		<onload condition="String.IsEmpty(Skin.String(TrailerSource))">Skin.SetString(TrailerSource,0)</onload>
-		<onload condition="String.IsEmpty(Skin.String(current_search_provider))">Skin.SetString(current_search_provider,1)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDAudioButtonSetting))">Skin.SetString(OSDAudioButtonSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(altus_digital_release_window))">Skin.SetString(altus_digital_release_window,7)</onload>
 		<onload condition="String.IsEmpty(Skin.String(altus_digital_expired_window))">Skin.SetString(altus_digital_expired_window,21)</onload>
@@ -283,7 +282,6 @@
 		<onload condition="String.IsEmpty(Skin.String(RatingSlot6))">Skin.SetString(RatingSlot6,none)</onload>
 		<onload condition="String.IsEmpty(Skin.String(RatingSlot7))">Skin.SetString(RatingSlot7,none)</onload>
 
-		<onload condition="String.IsEmpty(Skin.String(SearchSetting))">Skin.SetString(SearchSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(BackgroundSetting))">Skin.SetString(BackgroundSetting,1)</onload>
 		<onload condition="String.IsEmpty(Skin.String(BackgroundOpacity))">Skin.SetString(BackgroundOpacity,2)</onload>
 		<onload condition="String.IsEmpty(Skin.String(BlurBrightness))">Skin.SetString(BlurBrightness,2)</onload>
