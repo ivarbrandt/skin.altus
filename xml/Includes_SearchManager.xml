@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<!-- Detail panel variables: frozen during widget reorder, live otherwise.
+	     Live source reads from the widget list's selected ListItem
+	     (Container 3000); frozen source reads from window properties
+	     snapshot at reorder-mode entry. Mirrors WidgetManager pattern. -->
+
+	<variable name="SM_DetailLabel">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_widget_label)]</value>
+		<value>$INFO[Container(3000).ListItem.Property(widget_label)]</value>
+	</variable>
+
+	<variable name="SM_DetailKind">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_kind)]</value>
+		<value>$INFO[Container(3000).ListItem.Property(kind)]</value>
+	</variable>
+
+	<variable name="SM_DetailUrl">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_url_display)]</value>
+		<value>$INFO[Container(3000).ListItem.Property(url_display)]</value>
+	</variable>
+
+	<variable name="SM_DetailDisplayType">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_display_type)]</value>
+		<value>$INFO[Container(3000).ListItem.Property(display_type)]</value>
+	</variable>
+
+	<variable name="SM_DetailTarget">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_target)]</value>
+		<value>$INFO[Container(3000).ListItem.Property(target)]</value>
+	</variable>
+
+	<variable name="SM_DetailStacked">
+		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_is_stacked)]</value>
+		<value>$INFO[Container(3000).ListItem.Property(is_stacked)]</value>
+	</variable>
+
+</includes>

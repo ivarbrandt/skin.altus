@@ -3,18 +3,18 @@
 
 	<variable name="DialogBackgroundTexture">
 		<value condition="!Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">$INFO[Window(home).Property(listitem_blurred)]</value>
-		<value condition="Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">colors/darker.png</value>
-		<value>colors/darker.png</value>
+		<value condition="Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">colors/darkk.png</value>
+		<value>colors/darkk.png</value>
 	</variable>
 
   <variable name="DialogBackgroundDiffuse">
-		<value condition="!Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">E6888888</value>
+		<value condition="!Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">E6575757</value>
 		<value condition="Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + String.IsEqual(Skin.String(FocusColorThemeSetting),0)">$INFO[Window(Home).Property(listitem_logo_color_video)]</value>
 		<value condition="!Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + String.IsEmpty(Window(home).Property(listitem_blurred))">CC000000</value>
 		<value>accent_color</value>
 	</variable>
 
-  <include name="DialogBackgroundCommons">
+	<include name="DialogBackgroundCommons">
 		<param name="left">0</param>
 		<param name="top">0</param>
 		<param name="right">0</param>
@@ -84,7 +84,6 @@
 					<aligny>center</aligny>
 					<font>font36_title_uppercase</font>
 					<textcolor>unfocused_text</textcolor>
-					<shadowcolor>black</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
 				</control>

@@ -1,707 +1,906 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-  <include name="SearchWidgets">
-    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HideMovieResults)">
-      <param name="content_path" value="$VAR[SearchProviderMoviesVar]"/>
-      <param name="widget_header" value="$LOCALIZE[342]"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="3011"/>
-    </include>
-    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HideTVShowResults)">
-      <param name="content_path" value="$VAR[SearchProviderTVShowsVar]"/>
-      <param name="widget_header" value="TV Shows"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="3012"/>
-    </include>
-    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HideAnimeResults) + String.IsEqual(Skin.String(current_search_provider),1)">
-      <param name="content_path" value="$VAR[SearchProviderAnimeVar]"/>
-      <param name="widget_header" value="Anime"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="3013"/>
-    </include>
-    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HideCollectionsResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),3)]">
-      <param name="content_path" value="$VAR[SearchProviderCollectionsVar]"/>
-      <param name="widget_header" value="Collections"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="3014"/>
-    </include>
-    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HidePeopleResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
-      <param name="content_path" value="$VAR[SearchProviderPeopleVar]"/>
-      <param name="widget_header" value="Actors/Actresses"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="3015"/>
-    </include>
-    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-      <param name="content_path" value="$VAR[SearchProviderActors/ActressesMoviesVar]"/>
-      <param name="widget_header" value="Actors/Actresses (Movies)"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="3016"/>
-    </include>
-    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-      <param name="content_path" value="$VAR[SearchProviderActors/ActressesTVShowsVar]"/>
-      <param name="widget_header" value="Actors/Actresses (TV Shows)"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="3017"/>
-    </include>
-    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HideMovieKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
-      <param name="content_path" value="$VAR[SearchProviderKeywordMoviesVar]"/>
-      <param name="widget_header" value="$VAR[KeywordMoviesLabelVar]"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="3018"/>
-    </include>
-    <include content="WidgetListSmallPoster" condition="!Skin.HasSetting(HideTVShowKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
-      <param name="content_path" value="$VAR[SearchProviderKeywordTVShowsVar]"/>
-      <param name="widget_header" value="$VAR[KeywordTVShowsLabelVar]"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="3019"/>
-    </include>
-    <include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
-      <param name="content_path" value="$VAR[SearchProviderTRAKTListsVar]"/>
-      <param name="widget_header" value="TRAKT Lists"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="3020"/>
-      <param name="child_id" value="30201"/>
-    </include>
-    <include content="WidgetListLandscapeStacked" condition="!Skin.HasSetting(HideTraktResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
-      <param name="content_path" value="$INFO[Window(1121).Property(altus.3020.path)]"/>
-      <param name="widget_header" value="$INFO[Window(1121).Property(altus.3020.label)]"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="30201"/>
-      <param name="parent_id" value="3020"/>
-    </include>
-    <include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-      <param name="content_path" value="$VAR[SearchProviderTRAKTListsMoviesVar]"/>
-      <param name="widget_header" value="TRAKT Lists (Movies)"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="3021"/>
-      <param name="child_id" value="30211"/>
-    </include>
-    <include content="WidgetListLandscapeStacked" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-      <param name="content_path" value="$INFO[Window(1121).Property(altus.3021.path)]"/>
-      <param name="widget_header" value="$INFO[Window(1121).Property(altus.3021.label)]"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="30211"/>
-      <param name="parent_id" value="3021"/>
-    </include>
-    <include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-      <param name="content_path" value="$VAR[SearchProviderTRAKTListsTVShowsVar]"/>
-      <param name="widget_header" value="TRAKT Lists (TV Shows)"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="3022"/>
-      <param name="child_id" value="30221"/>
-    </include>
-    <include content="WidgetListLandscapeStacked" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-      <param name="content_path" value="$INFO[Window(1121).Property(altus.3022.path)]"/>
-      <param name="widget_header" value="$INFO[Window(1121).Property(altus.3022.label)]"/>
-      <param name="widget_target" value="videos"/>
-      <param name="list_id" value="30221"/>
-      <param name="parent_id" value="3022"/>
-    </include>
-  </include>
-
   <include name="SearchHistory">
     <!-- Search History Items 1-100 -->
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.1)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.1.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.1.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.1)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.1))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.2)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.2.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.2.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.2)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.2))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.3)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.3.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.3.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.3)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.3))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.4)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.4.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.4.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.4)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.4))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.5)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.5.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.5.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.5)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.5))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.6)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.6.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.6.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.6)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.6))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.7)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.7.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.7.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.7)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.7))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.8)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.8.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.8.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.8)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.8))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.9)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.9.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.9.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.9)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.9))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.10)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.10.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.10.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.10)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.10))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.11)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.11.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.11.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.11)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.11))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.12)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.12.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.12.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.12)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.12))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.13)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.13.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.13.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.13)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.13))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.14)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.14.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.14.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.14)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.14))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.15)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.15.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.15.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.15)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.15))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.16)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.16.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.16.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.16)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.16))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.17)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.17.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.17.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.17)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.17))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.18)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.18.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.18.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.18)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.18))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.19)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.19.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.19.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.19)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.19))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.20)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.20.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.20.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.20)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.20))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.21)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.21.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.21.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.21)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.21))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.22)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.22.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.22.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.22)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.22))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.23)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.23.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.23.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.23)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.23))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.24)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.24.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.24.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.24)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.24))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.25)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.25.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.25.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.25)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.25))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.26)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.26.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.26.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.26)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.26))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.27)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.27.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.27.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.27)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.27))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.28)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.28.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.28.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.28)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.28))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.29)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.29.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.29.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.29)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.29))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.30)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.30.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.30.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.30)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.30))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.31)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.31.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.31.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.31)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.31))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.32)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.32.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.32.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.32)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.32))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.33)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.33.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.33.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.33)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.33))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.34)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.34.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.34.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.34)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.34))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.35)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.35.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.35.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.35)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.35))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.36)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.36.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.36.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.36)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.36))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.37)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.37.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.37.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.37)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.37))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.38)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.38.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.38.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.38)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.38))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.39)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.39.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.39.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.39)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.39))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.40)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.40.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.40.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.40)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.40))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.41)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.41.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.41.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.41)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.41))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.42)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.42.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.42.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.42)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.42))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.43)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.43.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.43.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.43)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.43))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.44)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.44.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.44.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.44)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.44))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.45)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.45.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.45.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.45)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.45))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.46)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.46.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.46.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.46)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.46))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.47)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.47.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.47.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.47)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.47))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.48)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.48.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.48.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.48)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.48))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.49)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.49.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.49.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.49)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.49))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.50)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.50.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.50.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.50)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.50))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.51)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.51.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.51.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.51)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.51))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.52)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.52.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.52.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.52)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.52))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.53)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.53.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.53.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.53)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.53))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.54)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.54.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.54.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.54)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.54))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.55)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.55.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.55.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.55)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.55))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.56)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.56.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.56.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.56)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.56))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.57)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.57.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.57.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.57)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.57))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.58)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.58.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.58.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.58)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.58))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.59)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.59.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.59.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.59)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.59))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.60)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.60.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.60.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.60)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.60))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.61)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.61.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.61.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.61)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.61))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.62)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.62.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.62.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.62)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.62))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.63)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.63.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.63.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.63)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.63))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.64)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.64.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.64.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.64)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.64))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.65)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.65.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.65.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.65)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.65))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.66)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.66.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.66.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.66)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.66))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.67)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.67.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.67.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.67)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.67))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.68)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.68.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.68.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.68)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.68))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.69)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.69.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.69.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.69)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.69))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.70)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.70.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.70.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.70)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.70))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.71)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.71.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.71.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.71)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.71))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.72)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.72.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.72.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.72)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.72))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.73)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.73.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.73.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.73)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.73))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.74)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.74.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.74.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.74)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.74))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.75)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.75.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.75.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.75)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.75))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.76)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.76.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.76.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.76)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.76))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.77)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.77.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.77.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.77)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.77))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.78)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.78.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.78.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.78)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.78))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.79)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.79.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.79.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.79)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.79))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.80)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.80.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.80.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.80)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.80))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.81)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.81.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.81.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.81)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.81))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.82)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.82.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.82.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.82)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.82))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.83)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.83.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.83.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.83)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.83))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.84)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.84.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.84.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.84)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.84))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.85)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.85.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.85.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.85)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.85))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.86)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.86.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.86.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.86)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.86))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.87)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.87.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.87.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.87)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.87))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.88)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.88.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.88.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.88)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.88))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.89)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.89.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.89.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.89)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.89))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.90)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.90.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.90.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.90)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.90))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.91)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.91.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.91.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.91)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.91))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.92)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.92.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.92.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.92)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.92))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.93)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.93.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.93.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.93)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.93))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.94)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.94.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.94.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.94)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.94))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.95)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.95.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.95.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.95)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.95))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.96)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.96.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.96.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.96)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.96))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.97)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.97.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.97.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.97)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.97))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.98)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.98.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.98.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.98)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.98))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.99)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.99.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.99.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.99)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.99))</visible>
     </item>
 
     <item>
       <label>$INFO[Window(home).Property(altus.search.history.100)]</label>
+      <property name="count">$INFO[Window(home).Property(altus.search.history.100.count)]</property>
+      <property name="last">$INFO[Window(home).Property(altus.search.history.100.last)]</property>
       <onclick>RunScript(script.altus.helper,mode=re_search,$INFO[Window(home).Property(altus.search.history.100)])</onclick>
       <visible>!String.IsEmpty(Window(home).Property(altus.search.history.100))</visible>
     </item>
 
   </include>
+
+  <!-- Pill button for the live-mode kind filter panel below the QWERTY
+       keyboard in Custom_1121_SearchResults.xml. Generated XML
+       (script-altus-search_kind_filter.xml) emits one of these per distinct
+       kind plus an "All" pill. Selected indicator is property-driven so the
+       active filter stays visible regardless of focus. -->
+  <include name="SearchKindFilterButton">
+    <definition>
+      <control type="radiobutton" id="$PARAM[control_id]">
+        <width>428</width>
+        <height>60</height>
+        <align>left</align>
+        <textoffsetx>30</textoffsetx>
+        <aligny>center</aligny>
+        <font>flixinfo_header</font>
+        <label>$PARAM[label]</label>
+        <onclick>$PARAM[onclick_action]</onclick>
+        <selected>$PARAM[selected_condition]</selected>
+        <texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
+        <texturenofocus />
+        <radioposx>310</radioposx>
+        <alttexturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</alttexturefocus>
+        <alttexturenofocus></alttexturenofocus>
+        <textcolor>unfocused_text</textcolor>
+        <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+      </control>
+    </definition>
+  </include>
+
+  <include name="ClearEdit">
+    <onload>SetFocus(9100)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>SetFocus(801)</onload>
+  </include>
+
 
 </includes>

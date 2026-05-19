@@ -20,6 +20,8 @@
 	<include file="Includes_PVR.xml" />
 	<include file="Includes_Scrollbars.xml" />
 	<include file="Includes_Search.xml" />
+	<include file="Includes_SearchKeyboard.xml" />
+	<include file="Includes_SearchManager.xml" />
 	<include file="Includes_Seekbar.xml" />
 	<include file="Includes_TopBar.xml" />
 	<include file="Includes_BottomBar.xml" />
@@ -59,6 +61,8 @@
 	<include file="script-altus-submenus.xml" />
 	<include file="script-altus-widgets.xml" />
 	<include file="script-altus-home_groups.xml" />
+	<include file="script-altus-search_widgets.xml" />
+	<include file="script-altus-search_kind_filter.xml" />
 	<include file="View_50_Includes.xml" />
 	<include file="View_50_List.xml" />
 	<include file="View_51_PosterFlow.xml" />
@@ -77,7 +81,6 @@
 	<include file="Variables_MyVariables.xml" />
 	<include file="Variables_HelpTexts.xml" />
 	<include file="Variables_Ratings.xml" />
-	<include file="Variables_Search.xml" />
 	<include file="Variables_Seekbar.xml" />
 	<include file="Variables_Trailers.xml" />
 	<constant name="DepthDialog">0.50</constant>

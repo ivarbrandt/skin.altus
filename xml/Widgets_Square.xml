@@ -6,10 +6,12 @@
 		<param name="sub_label">$INFO[ListItem.Label]</param>
 		<param name="fallback_icon">DefaultFolder.png</param>
 		<param name="onclick_condition">false</param>
+		<param name="filter_visible">true</param>
 		<definition>
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="filter_visible" value="$PARAM[filter_visible]"/>
 			</include>
 			<include content="BusyListSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
@@ -25,7 +27,7 @@
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
-				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<visible>[Container($PARAM[list_id]).IsUpdating | Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | String.IsEqual(Window(Home).Property(altus.search.refreshing),true)] + [$PARAM[filter_visible]]</visible>
 				<itemlayout width="271">
 					<control type="group">
 						<top>80</top>

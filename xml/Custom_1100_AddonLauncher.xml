@@ -76,9 +76,9 @@
 				<animation effect="slide" time="400" start="-442,0" end="0,0" tween="cubic" easing="inout">VisibleChange</animation>
 				<visible allowhiddenfocus="true">!ControlGroup(400).HasFocus</visible>
 				<control type="fixedlist" id="9000">
-					<left>45</left>
+					<left>40</left>
 					<top>250</top>
-					<width>378</width>
+					<width>388</width>
 					<height>850</height>
 					<pagecontrol>70</pagecontrol>
 					<movement>9</movement>

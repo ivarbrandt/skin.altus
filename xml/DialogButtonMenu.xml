@@ -15,9 +15,9 @@
 				<param name="width" value="498" />
 				<param name="top" value="40" />
 				<param name="left" value="-42" />
-				<param name="bottom" value="40" /> 
-				<param name="border_texture" value="masks/bordertexture-46-thin_right.png" />
+				<param name="bottom" value="40" />
 				<param name="diffuse_texture" value="masks/radius_46_right.png" />
+				<param name="border_texture" value="masks/bordertexture-46-thin_right.png" />
 				<param name="border_value" value="0,46,46,46" />
 			</include>
 			<left>0</left>

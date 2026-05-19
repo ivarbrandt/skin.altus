@@ -87,6 +87,7 @@
 		<param name="item_treshold">0</param>
 		<param name="label_focus">$VAR[HomeFlixCrumbsVar]</param>
 		<param name="flix_slide">0</param>
+		<param name="filter_visible">true</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]665">
 				<animation effect="fade" start="100" end="45" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus">Conditional</animation>
@@ -102,6 +103,7 @@
 				<width>1180</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<visible>$PARAM[visible]</visible>
+				<visible>$PARAM[filter_visible]</visible>
 				<include content="FocusedCategoryLabel">
 					<param name="id" value=""/>
 					<param name="label" value="$VAR[HomescreenFlixCrumbs][COLOR unfocused_text]$PARAM[label][/COLOR]$PARAM[label_focus]"/>
@@ -138,6 +140,7 @@
 		<param name="visible">true</param>
 		<param name="item_treshold">0</param>
 		<param name="label_focus">$VAR[HomeFlixCrumbsVar]</param>
+		<param name="filter_visible">true</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]665">
 				<animation effect="fade" start="100" end="45" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus">Conditional</animation>
@@ -150,6 +153,7 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<!-- <visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible> -->
 				<visible>$PARAM[visible]</visible>
+				<visible>$PARAM[filter_visible]</visible>
 				<control type="label" id="$PARAM[list_id]999">
 					<top>0</top>
 					<label></label>
@@ -263,6 +267,7 @@
 		<param name="item_treshold">0</param>
 		<param name="label_focus">$VAR[HomeFlixCrumbsVar]</param>
 		<param name="flix_slide">0</param>
+		<param name="filter_visible">true</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]665">
 				<animation effect="fade" start="100" end="45" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus">Conditional</animation>
@@ -273,6 +278,7 @@
 				<height>50</height>
 				<width>1180</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<visible>$PARAM[filter_visible]</visible>
 				<include content="FocusedCategoryLabel">
 					<param name="id" value="$PARAM[list_id]667"/>
 					<param name="label" value="$VAR[HomescreenFlixCrumbs][COLOR unfocused_text]$PARAM[widget_header][/COLOR]$PARAM[label_focus]"/>
