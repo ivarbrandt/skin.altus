@@ -818,7 +818,7 @@
         <align>left</align>
         <textoffsetx>30</textoffsetx>
         <aligny>center</aligny>
-        <font>font14</font>
+        <font>flixinfo_header</font>
         <label>$PARAM[label]</label>
         <onclick>$PARAM[onclick_action]</onclick>
         <selected>$PARAM[selected_condition]</selected>
@@ -831,6 +831,75 @@
         <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
       </control>
     </definition>
+  </include>
+
+  <include name="ClearEdit">
+    <onload>SetFocus(9100)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>Action(Backspace)</onload>
+    <onload>SetFocus(801)</onload>
   </include>
 
 

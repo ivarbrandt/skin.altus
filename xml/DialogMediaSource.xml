@@ -16,8 +16,8 @@
 				<param name="top" value="40" />
 				<param name="bottom" value="40" />
 				<param name="right" value="-42" />
-				<param name="border_texture" value="masks/bordertexture-46-thin_left.png" />
 				<param name="diffuse_texture" value="masks/radius_46_left.png" />
+				<param name="border_texture" value="masks/bordertexture-46-thin_left.png" />
 				<param name="border_value" value="46,46,0,46" />
 			</include>
 			<control type="label">
@@ -139,7 +139,7 @@
 				<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
 			</animation> -->
 			<left>1662</left>
-			<top>160</top>
+			<top>170</top>
 			<orientation>vertical</orientation>
 			<onleft>10</onleft>
 			<onright>10</onright>

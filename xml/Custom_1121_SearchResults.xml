@@ -5,9 +5,23 @@
 	<onload>RunScript(script.altus.helper,mode=refresh_history_timestamps)</onload>
 	<onload condition="String.IsEmpty(Window(home).Property(altus.search.mode))">SetProperty(altus.search.mode,live,home)</onload>
 	<onload condition="String.IsEmpty(Window(home).Property(altus.search.filter.kind))">SetProperty(altus.search.filter.kind,all,home)</onload>
+	<include>ClearEdit</include>
 	<onload>ClearProperty(altus.search.from,home)</onload>
 	<controls>
 		<include>DefaultBackground</include>
+		<!-- <control type="image" id="100000">
+			<top>-2</top>
+			<right>-2</right>
+			<width>1427</width>
+			<height>803</height>
+			<fadetime>500</fadetime>
+			<bordersize>2</bordersize>
+			<texture border="2" colordiffuse="artwork_dim" background="true" diffuse="overlays/flixinfo-fanartdiffuse.png" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[MediaFanartVar]</texture>
+			<aspectratio align="right" aligny="top">stretch</aspectratio>
+			<bordertexture colordiffuse="$VAR[FocusColorTheme]" infill="false">overlays/flixinfo-fanartdiffuse_border.png</bordertexture>
+			<include>ArtworkAnimations</include>
+			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + !Window.IsVisible(movieinformation) + !String.IsEmpty(Window(Home).Property(FlixWidget))</visible>
+		</control> -->
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<!-- WIDGETS GROUP -->
@@ -55,6 +69,9 @@
 						<param name="id" value="movies"/>
 					</include>
 					<control type="grouplist" id="3001">
+						<visible>!String.IsEmpty(Window(home).Property(altus.search.input))</visible>
+						<animation effect="fade" time="300" delay="2000">Hidden</animation>
+						<!-- <animation effect="fade" time="300">Visible</animation> -->
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>3099</pagecontrol>
 						<include content="SearchWidgets"/>
@@ -80,7 +97,7 @@
 				<label>Search results for: [B]$INFO[Window(home).Property(altus.search.input)][/B]</label>
 				<scroll>true</scroll>
 				<scrollspeed>160</scrollspeed>
-				<animation effect="fade" time="300">VisibleChange</animation>
+				<animation effect="fade" time="200">VisibleChange</animation>
 			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
@@ -88,1057 +105,28 @@
 				<control type="group">
 					<visible allowhiddenfocus="true">!$EXP[isContent]</visible>
 					<animation effect="fade" condition="!$EXP[isContent]" time="300" end="100" tween="sine" easing="inout">Conditional</animation>
-
-					<!-- Live mode input. Background image carries the textbox
-					     visual; the native edit control (id 9100) holds the
-					     typed text. QWERTY buttons drive it via T9 Action(NumberX)
-					     chains; see feedback_kodi_native_edit_t9_input.md.
-					     LiveSearchMonitor reads via Control.GetLabel(9100).index(1)
-					     and mirrors to altus.search.input so downstream readers
-					     keep working unchanged. -->
-					<!-- <control type="image">
-						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
-						<left>40</left>
-						<top>180</top>
-						<width>428</width>
-						<height>75</height>
-						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darker.png</texture>
-						<bordertexture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/bordertexture-23-thin.png</bordertexture>
-						<bordersize>1</bordersize>
-					</control> -->
-
-					<!-- <control type="label">
-						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live) + String.IsEmpty(Window(home).Property(altus.search.input))</visible>
-						<left>40</left>
-						<top>180</top>
-						<width>428</width>
-						<height>75</height>
-						<font>font32</font>
-						<textcolor>unfocused_text</textcolor>
-						<aligny>center</aligny>
-						<align>center</align>
-						<label>Type to search...</label>
-					</control> -->
-
-					<!-- <control type="image">
-						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live) + !Control.HasFocus(9100)</visible>
-						<left>40</left>
-						<top>180</top>
-						<width>428</width>
-						<height>75</height>
-						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darker.png</texture>
-						<bordertexture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/bordertexture-23-thin.png</bordertexture>
-						<bordersize>1</bordersize>
-					</control> -->
 					<control type="edit" id="9100">
 						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
+						<animation effect="fade" time="200">VisibleChange</animation>
 						<left>40</left>
 						<top>180</top>
-						<onup>801</onup>
+						<onup>700</onup>
 						<width>428</width>
 						<height>75</height>
 						<font>font32</font>
 						<ondown>9200</ondown>
+						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9100</onright>
 						<hinttext>Type to search...</hinttext>
 						<textcolor>unfocused_text</textcolor>
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 						<aligny>center</aligny>
-						<align>center</align>
+						<align>left</align>
+						<textoffsetx>30</textoffsetx>
 						<texturefocus border="23"  colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
 						<texturenofocus border="23"  colordiffuse="33000000">masks/radius_23.png</texturenofocus>
-						<bordertexture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/bordertexture-23-thin.png</bordertexture>
-						<bordersize>1</bordersize>
 					</control>
-
-					<!-- <control type="button" id="9101">
-						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
-						<left>40</left>
-						<top>260</top>
-						<width>428</width>
-						<height>60</height>
-						<font>font27</font>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>Search</label>
-						<onclick>RunScript(script.altus.helper,mode=live_search_commit)</onclick>
-						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-						<texturenofocus border="15" colordiffuse="55FFFFFF">masks/radius_15.png</texturenofocus>
-						<textcolor>unfocused_text</textcolor>
-						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						<onup>851</onup>
-						<ondown>9200</ondown>
-						<onleft>9101</onleft>
-						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
-					</control> -->
-
-					<!-- P8d full QWERTY (5 rows): numbers / qwerty / asdf / zxcv+
-					     punctuation / space + cursor + delete controls. No
-					     resting-state texture; only focused key shows the
-					     filled radius_15 background. Number labels wrapped in
-					     [B][/B] so Kodi parses them as literal text rather than
-					     localization string IDs (1->Pictures, 2->Music, ...). -->
-					<control type="grouplist" id="9200">
-						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
-						<left>40</left>
-						<top>285</top>
-						<width>428</width>
-						<height>46</height>
-						<orientation>horizontal</orientation>
-						<itemgap>2</itemgap>
-						<align>center</align>
-						<onup>9100</onup>
-						<onback>801</onback>
-						<ondown>9300</ondown>
-						<onleft>9200</onleft>
-						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
-						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9201</onright>
-						<onright>9998</onright>
-						<control type="button" id="9201">
-							<onup>9100</onup>
-							<ondown>9301</ondown>
-							<width>41</width>
-							<height>46</height>
-							<label>$NUMBER[1]</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>SetFocus(9201)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9202">
-							<onup>9100</onup>
-							<ondown>9302</ondown>
-							<width>41</width>
-							<height>46</height>
-							<label>$NUMBER[2]</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number2</onclick>
-							<onclick>Number2</onclick>
-							<onclick>Number2</onclick>
-							<onclick>Number2</onclick>
-							<onclick>SetFocus(9202)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9203">
-							<onup>9100</onup>
-							<ondown>9303</ondown>
-							<width>41</width>
-							<height>46</height>
-							<label>$NUMBER[3]</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number3</onclick>
-							<onclick>Number3</onclick>
-							<onclick>Number3</onclick>
-							<onclick>Number3</onclick>
-							<onclick>SetFocus(9203)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9204">
-							<onup>9100</onup>
-							<ondown>9304</ondown>
-							<width>41</width>
-							<height>46</height>
-							<label>$NUMBER[4]</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number4</onclick>
-							<onclick>Number4</onclick>
-							<onclick>Number4</onclick>
-							<onclick>Number4</onclick>
-							<onclick>SetFocus(9204)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9205">
-							<onup>9100</onup>
-							<ondown>9305</ondown>
-							<width>41</width>
-							<height>46</height>
-							<label>$NUMBER[5]</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number5</onclick>
-							<onclick>Number5</onclick>
-							<onclick>Number5</onclick>
-							<onclick>Number5</onclick>
-							<onclick>SetFocus(9205)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9206">
-							<onup>9100</onup>
-							<ondown>9306</ondown>
-							<width>41</width>
-							<height>46</height>
-							<label>$NUMBER[6]</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number6</onclick>
-							<onclick>Number6</onclick>
-							<onclick>Number6</onclick>
-							<onclick>Number6</onclick>
-							<onclick>SetFocus(9206)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9207">
-							<onup>9100</onup>
-							<ondown>9307</ondown>
-							<width>41</width>
-							<height>46</height>
-							<label>$NUMBER[7]</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number7</onclick>
-							<onclick>Number7</onclick>
-							<onclick>Number7</onclick>
-							<onclick>Number7</onclick>
-							<onclick>Number7</onclick>
-							<onclick>SetFocus(9207)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9208">
-							<onup>9100</onup>
-							<ondown>9308</ondown>
-							<width>41</width>
-							<height>46</height>
-							<label>$NUMBER[8]</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number8</onclick>
-							<onclick>Number8</onclick>
-							<onclick>Number8</onclick>
-							<onclick>Number8</onclick>
-							<onclick>SetFocus(9208)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9209">
-							<onup>9100</onup>
-							<ondown>9309</ondown>
-							<width>41</width>
-							<height>46</height>
-							<label>$NUMBER[9]</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number9</onclick>
-							<onclick>Number9</onclick>
-							<onclick>Number9</onclick>
-							<onclick>Number9</onclick>
-							<onclick>Number9</onclick>
-							<onclick>SetFocus(9209)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9210">
-							<onup>9100</onup>
-							<ondown>9310</ondown>
-							<width>41</width>
-							<height>46</height>
-							<label>$NUMBER[0]</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>Number0</onclick>
-							<onclick>SetFocus(9210)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-					</control>
-					<control type="grouplist" id="9300">
-						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
-						<left>40</left>
-						<top>335</top>
-						<width>428</width>
-						<height>46</height>
-						<orientation>horizontal</orientation>
-						<itemgap>2</itemgap>
-						<align>center</align>
-						<onup>9200</onup>
-						<ondown>9400</ondown>
-						<onleft>9300</onleft>
-						<onback>801</onback>
-						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
-						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9301</onright>
-						<control type="button" id="9301">
-							<ondown>9401</ondown>
-							<onup>9201</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>q</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number7</onclick>
-							<onclick>Number7</onclick>
-							<onclick>SetFocus(9301)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9302">
-							<ondown>9402</ondown>
-							<onup>9202</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>w</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number9</onclick>
-							<onclick>SetFocus(9302)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9303">
-							<ondown>9403</ondown>
-							<onup>9203</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>e</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number3</onclick>
-							<onclick>Number3</onclick>
-							<onclick>SetFocus(9303)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9304">
-							<ondown>9404</ondown>
-							<onup>9204</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>r</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number7</onclick>
-							<onclick>Number7</onclick>
-							<onclick>Number7</onclick>
-							<onclick>SetFocus(9304)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9305">
-							<ondown>9405</ondown>
-							<onup>9205</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>t</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number8</onclick>
-							<onclick>SetFocus(9305)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9306">
-							<ondown>9406</ondown>
-							<onup>9206</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>y</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number9</onclick>
-							<onclick>Number9</onclick>
-							<onclick>Number9</onclick>
-							<onclick>SetFocus(9306)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9307">
-							<ondown>9407</ondown>
-							<onup>9207</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>u</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number8</onclick>
-							<onclick>Number8</onclick>
-							<onclick>SetFocus(9307)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9308">
-							<ondown>9408</ondown>
-							<onup>9208</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>i</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number4</onclick>
-							<onclick>Number4</onclick>
-							<onclick>Number4</onclick>
-							<onclick>SetFocus(9308)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9309">
-							<ondown>9409</ondown>
-							<onup>9209</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>o</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number6</onclick>
-							<onclick>Number6</onclick>
-							<onclick>Number6</onclick>
-							<onclick>SetFocus(9309)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9310">
-							<onleft condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onleft>
-							<onleft condition="String.IsEmpty(Window(home).Property(altus.search.input))">9301</onleft>
-							<ondown>9409</ondown>
-							<onup>9210</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>p</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number7</onclick>
-							<onclick>SetFocus(9310)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-					</control>
-					<control type="grouplist" id="9400">
-						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
-						<left>40</left>
-						<top>385</top>
-						<width>428</width>
-						<height>46</height>
-						<orientation>horizontal</orientation>
-						<itemgap>2</itemgap>
-						<align>center</align>
-						<onup>9300</onup>
-						<ondown>9500</ondown>
-						<onleft>9400</onleft>
-						<onback>801</onback>
-						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
-						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9401</onright>
-						<control type="button" id="9401">
-							<ondown>9501</ondown>
-							<onup>9301</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>a</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number2</onclick>
-							<onclick>SetFocus(9401)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9402">
-							<ondown>9502</ondown>
-							<onup>9302</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>s</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number7</onclick>
-							<onclick>Number7</onclick>
-							<onclick>Number7</onclick>
-							<onclick>Number7</onclick>
-							<onclick>SetFocus(9402)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9403">
-							<ondown>9503</ondown>
-							<onup>9303</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>d</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number3</onclick>
-							<onclick>SetFocus(9403)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9404">
-							<ondown>9504</ondown>
-							<onup>9304</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>f</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number3</onclick>
-							<onclick>Number3</onclick>
-							<onclick>Number3</onclick>
-							<onclick>SetFocus(9404)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9405">
-							<ondown>9505</ondown>
-							<onup>9305</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>g</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number4</onclick>
-							<onclick>SetFocus(9405)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9406">
-							<ondown>9506</ondown>
-							<onup>9306</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>h</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number4</onclick>
-							<onclick>Number4</onclick>
-							<onclick>SetFocus(9406)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9407">
-							<ondown>9507</ondown>
-							<onup>9307</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>j</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number5</onclick>
-							<onclick>SetFocus(9407)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9408">
-							<ondown>9508</ondown>
-							<onup>9308</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>k</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number5</onclick>
-							<onclick>Number5</onclick>
-							<onclick>SetFocus(9408)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9409">
-							<onleft condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onleft>
-							<onleft condition="String.IsEmpty(Window(home).Property(altus.search.input))">9401</onleft>
-							<ondown>9509</ondown>
-							<onup>9309</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>l</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number5</onclick>
-							<onclick>Number5</onclick>
-							<onclick>Number5</onclick>
-							<onclick>SetFocus(9409)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-					</control>
-					<control type="grouplist" id="9500">
-						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
-						<left>40</left>
-						<top>435</top>
-						<width>428</width>
-						<height>46</height>
-						<orientation>horizontal</orientation>
-						<itemgap>2</itemgap>
-						<align>center</align>
-						<onup>9400</onup>
-						<ondown>9600</ondown>
-						<onleft>9500</onleft>
-						<onback>801</onback>
-						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
-						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9501</onright>
-						<control type="button" id="9501">
-							<ondown>9601</ondown>
-							<onup>9401</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>z</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number9</onclick>
-							<onclick>Number9</onclick>
-							<onclick>Number9</onclick>
-							<onclick>Number9</onclick>
-							<onclick>SetFocus(9501)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9502">
-							<ondown>9601</ondown>
-							<onup>9402</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>x</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number9</onclick>
-							<onclick>Number9</onclick>
-							<onclick>SetFocus(9502)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9503">
-							<ondown>9601</ondown>
-							<onup>9403</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>c</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number2</onclick>
-							<onclick>Number2</onclick>
-							<onclick>Number2</onclick>
-							<onclick>SetFocus(9503)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9504">
-							<ondown>9602</ondown>
-							<onup>9404</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>v</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number8</onclick>
-							<onclick>Number8</onclick>
-							<onclick>Number8</onclick>
-							<onclick>SetFocus(9504)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9505">
-							<ondown>9602</ondown>
-							<onup>9405</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>b</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number2</onclick>
-							<onclick>Number2</onclick>
-							<onclick>SetFocus(9505)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9506">
-							<ondown>9603</ondown>
-							<onup>9406</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>n</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number6</onclick>
-							<onclick>Number6</onclick>
-							<onclick>SetFocus(9506)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9507">
-							<ondown>9603</ondown>
-							<onup>9407</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>m</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number6</onclick>
-							<onclick>SetFocus(9507)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9508">
-							<ondown>9604</ondown>
-							<onup>9408</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>'</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>SetFocus(9508)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9509">
-							<ondown>9605</ondown>
-							<onup>9409</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>-</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>Number1</onclick>
-							<onclick>SetFocus(9509)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="button" id="9510">
-							<onleft condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onleft>
-							<onleft condition="String.IsEmpty(Window(home).Property(altus.search.input))">9501</onleft>
-							<ondown>9605</ondown>
-							<onup>9409</onup>
-							<width>41</width>
-							<height>46</height>
-							<label>.</label>
-							<font>font14</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number1</onclick>
-							<onclick>SetFocus(9510)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-					</control>
-					<control type="grouplist" id="9600">
-						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
-						<left>40</left>
-						<top>485</top>
-						<width>428</width>
-						<height>46</height>
-						<orientation>horizontal</orientation>
-						<itemgap>2</itemgap>
-						<align>center</align>
-						<onup>9500</onup>
-						<ondown>9700</ondown>
-						<onleft>9600</onleft>
-						<onback>801</onback>
-						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
-						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9601</onright>
-						<control type="button" id="9601">
-							<onup>9502</onup>
-							<width>140</width>
-							<height>46</height>
-							<label>Space</label>
-							<font>font24</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Number0</onclick>
-							<onclick>SetFocus(9601)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<textcolor>unfocused_text</textcolor>
-							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						</control>
-						<control type="radiobutton" id="9602">
-							<onup>9504</onup>
-							<width>70</width>
-							<height>46</height>
-							<label></label>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Action(MoveLeft)</onclick>
-							<onclick>SetFocus(9602)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<texturenofocus/>
-							<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowleft.png</textureradioonfocus>
-							<textureradioonnofocus colordiffuse="white">icons/keyboard/arrowleft.png</textureradioonnofocus>
-							<radiowidth>24</radiowidth>
-							<radioheight>24</radioheight>
-							<radioposx>23</radioposx>
-							<radioposy>11</radioposy>
-							<selected>true</selected>
-						</control>
-						<control type="radiobutton" id="9603">
-							<onup>9506</onup>
-							<width>70</width>
-							<height>46</height>
-							<label></label>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Action(MoveRight)</onclick>
-							<onclick>SetFocus(9603)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<texturenofocus/>
-							<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowright.png</textureradioonfocus>
-							<textureradioonnofocus colordiffuse="white">icons/keyboard/arrowright.png</textureradioonnofocus>
-							<radiowidth>24</radiowidth>
-							<radioheight>24</radioheight>
-							<radioposx>23</radioposx>
-							<radioposy>11</radioposy>
-							<selected>true</selected>
-						</control>
-						<control type="radiobutton" id="9604">
-							<onup>9508</onup>
-							<width>70</width>
-							<height>46</height>
-							<label></label>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>SetFocus(9604)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<texturenofocus/>
-							<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/backspace.png</textureradioonfocus>
-							<textureradioonnofocus colordiffuse="white">icons/keyboard/backspace.png</textureradioonnofocus>
-							<radiowidth>32</radiowidth>
-							<radioheight>32</radioheight>
-							<radioposx>19</radioposx>
-							<radioposy>7</radioposy>
-							<selected>true</selected>
-						</control>
-						<control type="radiobutton" id="9605">
-							<onleft condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onleft>
-							<onleft condition="String.IsEmpty(Window(home).Property(altus.search.input))">9601</onleft>
-							<onup>9509</onup>
-							<width>70</width>
-							<height>46</height>
-							<label></label>
-							<onclick>SetFocus(9100)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>Action(Backspace)</onclick>
-							<onclick>SetFocus(9605)</onclick>
-							<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-							<texturenofocus/>
-							<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">dialogs/close.png</textureradioonfocus>
-							<textureradioonnofocus colordiffuse="white">dialogs/close.png</textureradioonnofocus>
-							<radiowidth>32</radiowidth>
-							<radioheight>32</radioheight>
-							<radioposx>19</radioposx>
-							<radioposy>7</radioposy>
-							<selected>true</selected>
-						</control>
-					</control>
+					<include>MiniQWERTY</include>
 					<!-- P8c kind-filter pill panel. Generated content lives in
 					     script-altus-search_kind_filter.xml; Includes_Search.xml
 					     defines the SearchKindFilterButton style. Active filter is
@@ -1146,22 +134,45 @@
 					     even when focus has moved off the panel. -->
 					<control type="label">
 						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
+						<animation effect="fade" time="200">VisibleChange</animation>
+						<animation effect="slide" condition="Skin.HasSetting(Disable.MiniQwerty)" time="300" start="0,0" end="0,-265" tween="cubic" easing="inout">Conditional</animation>
 						<left>40</left>
-						<top>545</top>
+						<top>555</top>
 						<width>428</width>
 						<height>75</height>
-						<font>font32</font>
+						<font>font27</font>
 						<textcolor>unfocused_text</textcolor>
 						<aligny>center</aligny>
 						<align>left</align>
-						<label>Filter by...</label>
+						<label>[UPPERCASE][B]Filter by...[/B][/UPPERCASE]</label>
 					</control>
 					<control type="grouplist" id="9700">
-						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live) + !Skin.HasSetting(Disable.MiniQwerty)</visible>
+						<animation effect="slide" condition="Skin.HasSetting(Disable.MiniQwerty)" time="300" start="0,0" end="0,-265" tween="cubic" easing="inout">Conditional</animation>
+						<animation effect="fade" time="200">VisibleChange</animation>
 						<left>40</left>
-						<top>620</top>
+						<top>630</top>
 						<width>428</width>
 						<height>360</height>
+						<orientation>vertical</orientation>
+						<itemgap>0</itemgap>
+						<align>top</align>
+						<onup>9600</onup>
+						<ondown>9700</ondown>
+						<onleft>9700</onleft>
+						<onback>801</onback>
+						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9700</onright>
+						<include content="SearchKindFilter"/>
+					</control>
+					<control type="grouplist" id="9700">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live) + Skin.HasSetting(Disable.MiniQwerty)</visible>
+						<animation effect="slide" condition="Skin.HasSetting(Disable.MiniQwerty)" time="300" start="0,0" end="0,-265" tween="cubic" easing="inout">Conditional</animation>
+						<animation effect="fade" time="200">VisibleChange</animation>
+						<left>40</left>
+						<top>630</top>
+						<width>428</width>
+						<height>600</height>
 						<orientation>vertical</orientation>
 						<itemgap>0</itemgap>
 						<align>top</align>
@@ -1187,10 +198,12 @@
 					</control>
 					<control type="list" id="9000">
 						<visible>!String.IsEqual(Window(home).Property(altus.search.history.count),0) + String.IsEqual(Window(home).Property(altus.search.mode),history)</visible>
+						<animation effect="fade" time="200">VisibleChange</animation>
 						<left>40</left>
 						<top>180</top>
 						<width>428</width>
 						<height>840</height>
+						<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onfocus>ClearProperty(altus_saved_list_id,Home)</onfocus>
 						<onfocus>ClearProperty(altus_stacked_linked_list_id,Home)</onfocus>
@@ -1210,12 +223,11 @@
 					<control type="group">
 						<left>23</left>
 						<top>70</top>
-						<width>415</width>
+						<width>460</width>
 						<height>140</height>
 						<control type="grouplist" id="700">
 							<orientation>horizontal</orientation>
-							<itemgap>4</itemgap>
-							<width>415</width>
+							<itemgap>20</itemgap>
 							<height>100</height>
 							<!-- <onup condition="!String.IsEqual(Window(home).Property(altus.search.history.count),0)">852</onup>
 							<onup condition="String.IsEqual(Window(home).Property(altus.search.history.count),0)">700</onup> -->
@@ -1236,8 +248,6 @@
 							</include>
 							<include content="IconButton">
 								<param name="control_id" value="802" />
-								<param name="onfocus_condition" value="String.IsEqual(Window(home).Property(altus.search.from),history)" />
-								<param name="onfocus_action_conditional" value="RunScript(script.altus.helper,mode=clear_widget_paths)" />
 								<param name="onfocus_action" value="SetProperty(altus.search.mode,live,home)" />
 								<param name="onfocus_action3" value="ClearProperty(altus.search.from,home)" />
 								<param name="onclick" value="SetFocus(9700)" />
@@ -1245,6 +255,15 @@
 							</include>
 							<include content="IconButton">
 								<param name="control_id" value="803" />
+								<param name="onfocus_condition" value="String.IsEqual(Window(home).Property(altus.search.from),history)" />
+								<param name="onfocus_action_conditional" value="RunScript(script.altus.helper,mode=clear_widget_paths)" />
+								<param name="onfocus_action" value="SetProperty(altus.search.mode,live,home)" />
+								<param name="onfocus_action3" value="ClearProperty(altus.search.from,home)" />
+								<param name="onclick" value="Skin.ToggleSetting(Disable.MiniQwerty)" />
+								<param name="icon" value="icons/submenu/keyboard.png" />
+							</include>
+							<include content="IconButton">
+								<param name="control_id" value="804" />
 								<param name="onfocus_action" value="SetProperty(altus.search.mode,history,home)" />
 								<param name="onclick" value="SetFocus(9000)" />
 								<param name="icon" value="icons/submenu/history.png" />

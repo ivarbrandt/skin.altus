@@ -461,6 +461,10 @@
 		</animation>
 	</include>
 
+	<!-- <animation condition="![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + Integer.IsGreater($PARAM[list_id],Window(Home).Property(altus_saved_list_id)) + ControlGroup(2000).HasFocus" reversible="true">
+			<effect type="slide" start="0" end="0,300" time="300" />
+    </animation> -->
+
 	<include name="StackedWidgetAnimations">
 		<animation condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEqual(Skin.String(BackgroundSetting),1) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus" reversible="true">
 			<effect type="fadediffuse" start="FFFFFFFF" end="FF777777" time="300" />

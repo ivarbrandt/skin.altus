@@ -182,7 +182,7 @@
 				<ondown>647</ondown>
 				<visible>Container(9000).HasFocus(3)</visible>
 				<!-- SEARCH OPTIONS -->
-				<control type="button" id="64714">
+				<control type="button" id="64701">
 					<label>Search Manager</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.altus.helper,mode=open_search_manager)</onclick>
@@ -742,7 +742,7 @@
 				<pagecontrol>60</pagecontrol>
 				<ondown>641</ondown>
 				<visible>Container(9000).HasFocus(10)</visible>
-				<!-- <control type="button" id="64101">
+				<control type="button" id="64101">
 					<label>View changelog</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.altus.helper,mode=show_changelog)</onclick>
@@ -751,7 +751,7 @@
 					<label>View welcome screen</label>
 					<include>DefaultSettingButton</include>
 					<onclick>ActivateWindow(1112)</onclick>
-				</control> -->
+				</control>
 				<!-- RESET FORCED VIEWS -->
 				<control type="button" id="64103">
 					<label>Reset forced views</label>

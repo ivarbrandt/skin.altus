@@ -408,7 +408,7 @@
 							<top>35</top>
 							<right>10</right>
 							<height>25</height>
-							<font>font27</font>
+							<font>font23</font>
 							<textcolor>60FFFFFF</textcolor>
 							<label>$INFO[ListItem.Label2]</label>
 							<aligny>top</aligny>
@@ -420,7 +420,7 @@
 							<top>35</top>
 							<right>160</right>
 							<height>25</height>
-							<font>font27</font>
+							<font>font23</font>
 							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 							<label>$INFO[ListItem.Label2]</label>
 							<aligny>top</aligny>

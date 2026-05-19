@@ -2,5 +2,50 @@
 <window>
 	<controls>
 		<include>PlayerLogoProcessor</include>
+		<control type="group" id="1">
+			<depth>DepthOSD+</depth>
+			<visible>Player.Caching + Integer.IsGreater(Player.CacheLevel,0)</visible>
+			<animation effect="fade" delay="300" time="200">Visible</animation>
+			<animation effect="fade" delay="200" time="150">Hidden</animation>
+			<centerleft>50%</centerleft>
+			<width>200</width>
+			<centertop>50%</centertop>
+			<height>200</height>
+			<control type="image" id="1">
+				<centertop>50%</centertop>
+				<centerleft>50%</centerleft>
+				<include>GlowPulse</include>
+				<width>200</width>
+				<height>200</height>
+				<texture colordiffuse="$VAR[FocusColorTheme]">osd/pausebackground.png</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+			<control type="image" id="1">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>92</width>
+				<height>92</height>
+				<texture colordiffuse="$VAR[PlayerCacheColor]">dialogs/extendedprogress/loading-back.png</texture>
+			</control>
+			<control type="image" id="1">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>92</width>
+				<height>92</height>
+				<texture colordiffuse="$VAR[PlayerCacheColor]">$INFO[Player.CacheLevel,dialogs/volume/progress/p,.png]</texture>
+			</control>
+			<control type="label" id="1">
+				<description>buffering value</description>
+				<label>$INFO[Player.CacheLevel]</label>
+				<textcolor>$VAR[PlayerProgressTextColor]</textcolor>
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>200</width>
+				<height>200</height>
+				<aligny>center</aligny>
+				<align>center</align>
+				<font>p_cache</font>
+			</control>
+		</control>
 	</controls>
 </window>

@@ -1057,7 +1057,9 @@
 	<variable name="SearchSubmenuButtonLabelsVar">
 		<value condition="Control.HasFocus(801)">New search</value>
 		<value condition="Control.HasFocus(802)">Filter by...</value>
-		<value condition="Control.HasFocus(803)">Search history</value>
+		<value condition="Control.HasFocus(803) + !Skin.HasSetting(Disable.MiniQwerty)">Hide QWERTY keyboard</value>
+		<value condition="Control.HasFocus(803) + Skin.HasSetting(Disable.MiniQwerty)">Show QWERTY keyboard</value>
+		<value condition="Control.HasFocus(804)">Search history</value>
 	</variable>
 
 	<variable name="ContextMenuTitleVar">

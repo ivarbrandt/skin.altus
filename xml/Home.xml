@@ -212,9 +212,9 @@
 					<width>498</width>
 					<control type="list" id="9000">
 						<animation effect="slide" condition="!ControlGroup(2000).HasFocus + ![Control.HasFocus(9000) | ControlGroup(700).HasFocus]" time="300" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation>
-						<left>70</left>
+						<left>40</left>
 						<top>180</top>
-						<width>378</width>
+						<width>428</width>
 						<height>850</height>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<!-- <onfocus>SetProperty(fenlight.default_addon_fanart,,home)</onfocus> -->
@@ -246,21 +246,20 @@
 					<!-- Section submenus (positioned right of main menu) -->
 					<control type="group">
 						<animation effect="slide" condition="ControlGroup(2000).HasFocus | Control.HasFocus(9000) | ControlGroup(700).HasFocus" time="300" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation>
-						<left>70</left>
+						<left>40</left>
 						<top>180</top>
-						<width>378</width>
+						<width>428</width>
 						<height>832</height>
 						<include>HomeSubmenus</include>
 					</control>
 					<control type="group">
-						<left>53</left>
+						<left>23</left>
 						<top>70</top>
-						<width>415</width>
+						<width>460</width>
 						<height>140</height>
 						<control type="label">
 							<left>20</left>
 							<top>-38</top>
-							<width>415</width>
 							<height>30</height>
 							<font>font12</font>
 							<align>left</align>
@@ -271,8 +270,7 @@
 						</control>
 						<control type="grouplist" id="700">
 							<orientation>horizontal</orientation>
-							<itemgap>4</itemgap>
-							<width>415</width>
+							<itemgap>20</itemgap>
 							<height>100</height>
 							<onup>SetFocus(9000,99,absolute)</onup>
 							<ondown>SetFocus(9000,0,absolute)</ondown>
@@ -305,12 +303,6 @@
 								<param name="onclick" value="ActivateWindow(addonbrowser,addons://outdated/,return)" />
 								<param name="icon" value="icons/submenu/updates.png" />
 								<param name="visible" value="Integer.IsGreater(System.AddonUpdateCount,0)" />
-							</include>
-							<include content="IconButton">
-								<param name="control_id" value="806" />
-								<param name="onclick" value="Fullscreen" />
-								<param name="icon" value="icons/submenu/fullscreen.png" />
-								<param name="visible" value="Player.HasMedia" />
 							</include>
 						</control>
 					</control>

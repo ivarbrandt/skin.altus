@@ -17,7 +17,7 @@
 				<param name="divider_top" value="90" />
 			</include>
 			<control type="textbox" id="9">
-				<left>60</left>
+				<left>40</left>
 				<top>105</top>
 				<right>60</right>
 				<height>190</height>
