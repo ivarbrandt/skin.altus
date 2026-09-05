@@ -343,7 +343,7 @@
 	</variable>
 	<!-- Network -->
 	<variable name="RI_Network">
-		<value condition="!String.IsEmpty(ListItem.Studio) + [!Control.IsVisible(53) | [Control.IsVisible(53) + Skin.HasSetting(Disable.53StudioLogo)]]"> • [COLOR unfocused_text]$INFO[ListItem.Studio][/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Studio) + [!$EXP[isSlide] | [$EXP[isSlide] + Skin.HasSetting(Disable.53StudioLogo)]]"> • [COLOR unfocused_text]$INFO[ListItem.Studio][/COLOR]</value>
 	</variable>
 	<!-- Movie Collection -->
 	<!-- <variable name="RI_MovieCollection">
@@ -596,14 +596,14 @@
 
 	<variable name="VideoInfoPanelTop">
 		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + $EXP[isMovie] + !Control.IsVisible(53)">$VAR[RI_Digital]$VAR[RI_Mpaa]$VAR[RI_Genre]$VAR[RI_Rating_Other]$VAR[RI_Runtime]$VAR[RI_Endsat]</value>
-		<value condition="!ListItem.IsCollection + $EXP[isMovie] + Control.IsVisible(53)">$VAR[RI_Digital]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Rating_Other]$VAR[RI_Runtime]$VAR[RI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isMovie] + !$EXP[isSlide]">$VAR[RI_Digital]$VAR[RI_Mpaa]$VAR[RI_Genre]$VAR[RI_Rating_Other]$VAR[RI_Runtime]$VAR[RI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isMovie] + $EXP[isSlide]">$VAR[RI_Digital]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Rating_Other]$VAR[RI_Runtime]$VAR[RI_Endsat]</value>
 		<!-- SHOWS -->
-		<value condition="!ListItem.IsCollection + $EXP[isTVShow] + !Control.IsVisible(53)">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Genre]$VAR[RI_TotalSeasons]$VAR[RI_Rating_Other]$VAR[RI_Runtime]$VAR[RI_Network]$VAR[Alt_Status]</value>
-		<value condition="!ListItem.IsCollection + $EXP[isTVShow] + Control.IsVisible(53)">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_TotalSeasons]$VAR[RI_Rating_Other]$VAR[RI_Runtime]$VAR[RI_Network]$VAR[Alt_Status]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isTVShow] + !$EXP[isSlide]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Genre]$VAR[RI_TotalSeasons]$VAR[RI_Rating_Other]$VAR[RI_Runtime]$VAR[RI_Network]$VAR[Alt_Status]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isTVShow] + $EXP[isSlide]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_TotalSeasons]$VAR[RI_Rating_Other]$VAR[RI_Runtime]$VAR[RI_Network]$VAR[Alt_Status]</value>
 		<!-- SEASONS -->
-		<value condition="!ListItem.IsCollection + $EXP[isSeason] + !Control.IsVisible(53)">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Genre]$VAR[RI_Runtime]$VAR[RI_Rating_Other]$VAR[RI_Network]$VAR[RI_Endsat]</value>
-		<value condition="!ListItem.IsCollection + $EXP[isSeason] + Control.IsVisible(53)">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Runtime]$VAR[RI_Rating_Other]$VAR[RI_Network]$VAR[RI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isSeason] + !$EXP[isSlide]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Genre]$VAR[RI_Runtime]$VAR[RI_Rating_Other]$VAR[RI_Network]$VAR[RI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isSeason] + $EXP[isSlide]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Runtime]$VAR[RI_Rating_Other]$VAR[RI_Network]$VAR[RI_Endsat]</value>
 		<!-- EPISODES -->
 		<value condition="!ListItem.IsCollection + $EXP[isEpisode]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Rating]$VAR[RI_Runtime]$VAR[RI_Network]$VAR[RI_Endsat]$VAR[RI_EpisodeType]</value>
 	</variable>

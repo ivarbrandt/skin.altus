@@ -83,7 +83,7 @@
             <height>710</height>
             <texture colordiffuse="artwork_dim" fallback="DefaultMovies.png">$VAR[FlixPosterVar]</texture>
             <aspectratio scalediffuse="false">scale</aspectratio>
-            <visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]]</visible>
+            <visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + $EXP[isPosterFlow]]</visible>
           </control>
           <control type="image">
             <width>472</width>
@@ -91,7 +91,7 @@
             <texture fallback="DefaultMovies.png" colordiffuse="$VAR[PosterFlowArtworkDiffuse]">$VAR[FlixPosterVar]</texture>
             <aspectratio scalediffuse="false">scale</aspectratio>
             <visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
-            <visible>![$PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]]</visible>
+            <visible>![$PARAM[focused] + $EXP[isPosterFlow]]</visible>
           </control>
           <control type="group">
             <width>387</width>
@@ -108,8 +108,8 @@
               <texture background="true">$VAR[ClearlogoVar]</texture>
               <aspectratio align="center" aligny="center">keep</aspectratio>
               <visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])] + String.IsEmpty(Skin.String(TrailerPlaying))</visible>
-              <visible>![$PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]] + String.IsEmpty(Skin.String(TrailerPlaying))</visible>
-              <visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.SpineClearlogo) + !$EXP[sidebar_visible] + !$EXP[dialog_visible] + !Skin.HasSetting(Disable.51Dim)] + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isEpisode] | Container.Content(addons)]</visible>
+              <visible>![$PARAM[focused] + $EXP[isPosterFlow]] + String.IsEmpty(Skin.String(TrailerPlaying))</visible>
+              <visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.SpineClearlogo) + !Skin.HasSetting(Disable.51Dim)] + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isEpisode] | Container.Content(addons)]</visible>
             </control>
           </control>
           <include content="InfoBadge">
@@ -119,7 +119,7 @@
             <param name="font" value="eps_51"/>
             <param name="textoffsetx" value="13"/>
             <param name="label" value="$INFO[ListItem.Property(UnwatchedEpisodes),, remaining]"/>
-            <param name="vis" value="[$PARAM[focused] + Control.HasFocus(51)]"/>
+            <param name="vis" value="[$PARAM[focused] + $EXP[isPosterFlow]]"/>
             <param name="vis2" value="Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + !String.IsEqual(ListItem.Property(WatchedEpisodes),ListItem.Property(TotalEpisodes)) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),-1)"/>
           </include>
           <include content="CollectionBadge">
@@ -128,8 +128,8 @@
             <param name="icon_size" value="25"/>
             <param name="back_size" value="44"/>
             <param name="offset" value="9"/>
-            <param name="animation_vis" value="!Skin.HasSetting(Disable.51Dim) + [$PARAM[focused] + Control.IsVisible(51)]"/>
-            <param name="animation_vis_51" value="Control.IsVisible(51) + !$EXP[hasWallWatchedIcon]"/>
+            <param name="animation_vis" value="!Skin.HasSetting(Disable.51Dim) + [$PARAM[focused] + $EXP[isPosterFlow]]"/>
+            <param name="animation_vis_51" value="$EXP[isPosterFlow] + !$EXP[hasWallWatchedIcon]"/>
           </include>
           <include content="ProgressBadge">
             <param name="left" value="52"/>
@@ -137,7 +137,7 @@
             <param name="icon_size" value="29"/>
             <param name="back_size" value="44"/>
             <param name="offset" value="7"/>
-            <param name="animation_vis" value="!Skin.HasSetting(Disable.51Dim) + [$PARAM[focused] + Control.IsVisible(51)]"/>
+            <param name="animation_vis" value="!Skin.HasSetting(Disable.51Dim) + [$PARAM[focused] + $EXP[isPosterFlow]]"/>
           </include>
         </control>
 			</control>

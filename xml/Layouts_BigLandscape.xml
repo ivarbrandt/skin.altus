@@ -88,7 +88,7 @@
 					<!-- Episode badge: label switches season vs non-season via variable; slides right when watched icon is present -->
 					<include content="InfoBadge">
 						<param name="left" value="31"/>
-						<param name="top" value="1"/>
+						<param name="top" value="0"/>
 						<param name="max_width" value="530"/>
 						<param name="label" value="$VAR[InfoBadgeEpisodeLabelBigVar]"/>
 						<param name="vis2" value="[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]"/>

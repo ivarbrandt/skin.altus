@@ -37,7 +37,7 @@
   </variable>
 
 	<variable name="InfoBadgeSeasonTitle">
-		<value condition="Control.IsVisible(57)">$INFO[Container(5057).ListItem.Title]</value>
+		<value condition="$EXP[isSeasonView]">$INFO[Container(5057).ListItem.Title]</value>
 		<value>$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle]</value>
 	</variable>
 
@@ -52,8 +52,8 @@
 	but data must come from the focused episodes list (5057). Outside View 57, bare refs
 	(current container/item) are correct. -->
 	<variable name="InfoBadgeEpisodeLabelBigVar">
-		<value condition="Control.IsVisible(57) + String.IsEmpty(Container(5057).ListItem.Season)">$INFO[Container(5057).ListItem.Title]</value>
-		<value condition="Control.IsVisible(57)">$INFO[Container(5057).ListItem.Season]$INFO[Container(5057).ListItem.Episode,x,] | $INFO[Container(5057).ListItem.Title]</value>
+		<value condition="$EXP[isSeasonView] + String.IsEmpty(Container(5057).ListItem.Season)">$INFO[Container(5057).ListItem.Title]</value>
+		<value condition="$EXP[isSeasonView]">$INFO[Container(5057).ListItem.Season]$INFO[Container(5057).ListItem.Episode,x,] | $INFO[Container(5057).ListItem.Title]</value>
 		<value condition="String.IsEmpty(ListItem.Season) + String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Title]</value>
 		<value condition="String.IsEmpty(ListItem.Season)">[UPPERCASE][LIGHT]$INFO[ListItem.TVShowTitle][/UPPERCASE][/LIGHT]</value>
 		<value condition="String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Season]$INFO[ListItem.Episode,x,] | $INFO[ListItem.Title]</value>
@@ -453,7 +453,7 @@
     <!-- Blur enabled -->
     <value condition="String.IsEqual(Skin.String(BackgroundSetting),1)">80000000</value>
 		<!-- Blur disabled -->
-    <value condition="String.IsEqual(Skin.String(BackgroundSetting),0) + [Control.IsVisible(51) | Control.IsVisible(52) | Control.IsVisible(500) | Control.IsVisible(501)]">80050505</value>
+    <value condition="String.IsEqual(Skin.String(BackgroundSetting),0) + [$EXP[isPosterFlow] | $EXP[isIconWall] | $EXP[isWall] | $EXP[isLandscapeWall]]">80050505</value>
 		<value condition="String.IsEqual(Skin.String(BackgroundSetting),0) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + String.IsEqual(Skin.String(ListArtworkChoice.),2)">FF101010</value>
     <value condition="String.IsEqual(Skin.String(BackgroundSetting),0) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !String.IsEqual(Skin.String(ListArtworkChoice.),2)">80050505</value>
     <!-- Movies -->
