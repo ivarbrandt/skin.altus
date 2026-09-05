@@ -410,8 +410,8 @@
 					</animation>
 					<width>150</width>
 					<left>40</left>
-					<bottom>55</bottom>
-					<height>915</height>
+					<bottom>65</bottom>
+					<height>955</height>
 					<orientation>vertical</orientation>
 					<itemgap>36</itemgap>
 					<aligny>center</aligny>
@@ -869,7 +869,7 @@
 							<control type="label">
 								<left>33</left>
 								<width>810</width>
-								<centertop>32%</centertop>
+								<centertop>33%</centertop>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<scroll>$PARAM[focused]</scroll>
