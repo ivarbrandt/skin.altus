@@ -31,6 +31,7 @@
 		<param name="divider_visible">true</param>
 		<param name="header_top">60</param>
 		<param name="divider_top">135</param>
+		<param name="header_label_color">unfocused_text</param>
 		<definition>
 			<control type="image">
 				<left>-2000</left>
@@ -83,7 +84,7 @@
 					<align>left</align> 
 					<aligny>center</aligny>
 					<font>font36_title_uppercase</font>
-					<textcolor>unfocused_text</textcolor>
+					<textcolor>$PARAM[header_label_color]</textcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
 				</control>

@@ -42,6 +42,8 @@
 	</variable>
 
 	<variable name="InfoBadgeEpisodeLabelVar">
+		<value condition="String.IsEmpty(ListItem.Season) + String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Title]</value>
+		<value condition="String.IsEmpty(ListItem.Season)">[UPPERCASE][LIGHT]$INFO[ListItem.TVShowTitle][/UPPERCASE][/LIGHT]</value>
 		<value condition="String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Season]$INFO[ListItem.Episode,x,] | $INFO[ListItem.Title]</value>
 		<value>[UPPERCASE][LIGHT]$INFO[ListItem.Season]$INFO[ListItem.Episode,x,] | $INFO[ListItem.TVShowTitle][/UPPERCASE][/LIGHT]</value>
 	</variable>
@@ -50,8 +52,10 @@
 	but data must come from the focused episodes list (5057). Outside View 57, bare refs
 	(current container/item) are correct. -->
 	<variable name="InfoBadgeEpisodeLabelBigVar">
-		<value condition="Control.IsVisible(57) + String.StartsWith(Container(5057).PluginCategory,Season)">$INFO[Container(5057).ListItem.Season]$INFO[Container(5057).ListItem.Episode,x,] | $INFO[Container(5057).ListItem.Title]</value>
-		<value condition="Control.IsVisible(57)">[UPPERCASE][LIGHT]$INFO[Container(5057).ListItem.Season]$INFO[Container(5057).ListItem.Episode,x,] | $INFO[Container(5057).ListItem.Title][/UPPERCASE][/LIGHT]</value>
+		<value condition="Control.IsVisible(57) + String.IsEmpty(Container(5057).ListItem.Season)">$INFO[Container(5057).ListItem.Title]</value>
+		<value condition="Control.IsVisible(57)">$INFO[Container(5057).ListItem.Season]$INFO[Container(5057).ListItem.Episode,x,] | $INFO[Container(5057).ListItem.Title]</value>
+		<value condition="String.IsEmpty(ListItem.Season) + String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Title]</value>
+		<value condition="String.IsEmpty(ListItem.Season)">[UPPERCASE][LIGHT]$INFO[ListItem.TVShowTitle][/UPPERCASE][/LIGHT]</value>
 		<value condition="String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Season]$INFO[ListItem.Episode,x,] | $INFO[ListItem.Title]</value>
 		<value>[UPPERCASE][LIGHT]$INFO[ListItem.Season]$INFO[ListItem.Episode,x,] | $INFO[ListItem.TVShowTitle][/UPPERCASE][/LIGHT]</value>
 	</variable>
@@ -282,15 +286,18 @@
 	</variable>
 
 	<variable name="EpisodeLabelVar">
-		<value condition="!String.StartsWith(Container($PARAM[list_id]).PluginCategory,Season)">$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, | ,]</value>
-		<value>INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.Title, | ,]</value>
+		<value condition="[String.IsEmpty(ListItem.Season) | String.IsEmpty(ListItem.Episode)] + !String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.TVShowTitle]</value>
+		<value condition="[String.IsEmpty(ListItem.Season) | String.IsEmpty(ListItem.Episode)]">$INFO[ListItem.Title]</value>
+		<value condition="!String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Season]$INFO[ListItem.Episode,x,]$INFO[ListItem.TVShowTitle, | ,]</value>
+		<value>$INFO[ListItem.Season]$INFO[ListItem.Episode,x,]$INFO[ListItem.Title, | ,]</value>
 	</variable>
 
 	<variable name="VideoFlixCrumbsVar">
 		<!-- Other windows -->
-		<value condition="$EXP[isEpisode] + Control.IsVisible(501) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Title][/COLOR]</value>
-		<value condition="$EXP[isEpisode] + ![Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(501)] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Title][/COLOR]</value>
-		<value condition="$EXP[isEpisode] + Control.IsVisible(56) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + Control.IsVisible(501) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[ListItem.Title][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + ![Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(501)] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre) + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)"> | [COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Season]$INFO[ListItem.Episode,x,][/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Title][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + ![Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(501)] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Title][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + Control.IsVisible(56) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR]</value>
 		<value condition="
 			[
 				[String.IsEqual(Container.ViewMode,$LOCALIZE[31101]) + !Skin.HasSetting(Enable.54Titles)] | 
@@ -1065,7 +1072,8 @@
 	<variable name="ContextMenuTitleVar">
 		<value condition="$EXP[isMovie] | $EXP[isTVShow]">[COLOR unfocused_text]$INFO[ListItem.Title][/COLOR]</value>
 		<value condition="$EXP[isSeason]">[COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Title][/COLOR]</value>
-		<value condition="$EXP[isEpisode]">[COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Season]x$INFO[ListItem.Episode][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + [String.IsEmpty(ListItem.Season) | String.IsEmpty(ListItem.Episode)]">[COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR]</value>
+		<value condition="$EXP[isEpisode]">[COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Season]$INFO[ListItem.Episode,x,][/COLOR]</value>
 		<value>[COLOR unfocused_text]Context menu[/COLOR]</value>
 	</variable>
 

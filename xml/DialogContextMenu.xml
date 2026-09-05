@@ -17,6 +17,7 @@
 			<animation effect="slide" start="100" end="-600,0" time="0" condition="String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)">Conditional</animation>
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="$VAR[ContextMenuTitleVar]" />
+				<param name="header_label_color" value="$VAR[FocusColorTheme]" />
 				<param name="header_id" value="1" />
 				<param name="width" value="498" />
 				<param name="top" value="40" />

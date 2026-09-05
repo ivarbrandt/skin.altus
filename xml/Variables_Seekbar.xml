@@ -58,6 +58,7 @@
 	</variable>
 
 	<variable name="MiniNowPlayingLabelVar">
+		<value condition="VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv) + [String.IsEmpty(VideoPlayer.Season) | String.IsEmpty(VideoPlayer.Episode)]">$INFO[VideoPlayer.Title]</value>
 		<value condition="VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,x,] $VAR[Altus_Video_Divider] $INFO[VideoPlayer.Title]</value>
 		<value condition="VideoPlayer.Content(livetv) + Skin.HasSetting(Disable.OSDClearlogo)">$INFO[VideoPlayer.ChannelName]</value>
 		<value condition="VideoPlayer.Content(livetv) + !Skin.HasSetting(Disable.OSDClearlogo)">$INFO[VideoPlayer.Title] $VAR[Altus_Video_Divider] $INFO[VideoPlayer.ChannelName]</value>
