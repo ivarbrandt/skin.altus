@@ -4,14 +4,14 @@
   <variable name="SkinSettingsHelpTextVar">
 		<!-- MAIN MENU ITEMS SECTION -->
 		<value condition="Control.HasFocus(624)">Open the Widget Manager to add, remove, reorder, and configure sections and widgets for the home screen.</value>
-		<value condition="Control.HasFocus(6247)">Open the Search Manager to add, remove, reorder, and configure widgets for the search window.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Each widget config profile carries its own search widgets and its own search history.</value>
-		<value condition="Control.HasFocus(6240)">Regenerate the home screen from the current widget configuration.[CR][CR]Use this if the home screen looks out of sync with your config.</value>
+		<value condition="Control.HasFocus(6247)">Open the Search Manager to add, remove, reorder, and configure widgets for the search window.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Each Altus profile carries its own search widgets and its own search history.</value>
+		<value condition="Control.HasFocus(6240)">Regenerate the home screen from the current widget configuration.[CR][CR]Use this if the home screen looks out of sync with your profile.</value>
 		<value condition="Control.HasFocus(6241)">Import a widget configuration from Nimbus or FENtastic.[CR][CR]Display types are automatically mapped to their Altus equivalents.</value>
-		<value condition="Control.HasFocus(6242)">Create a new config profile starting from the default sections and widgets.[CR][CR]Your current config is automatically saved before switching.[CR][CR]The new profile also starts with the default search widgets and an empty search history.</value>
-		<value condition="Control.HasFocus(6243)">Switch to a different saved config profile.[CR][CR]Your current config is automatically saved before switching.[CR][CR]The profile's search widgets and search history are loaded with it.</value>
+		<value condition="Control.HasFocus(6242)">Create a new Altus profile starting from the default sections and widgets.[CR][CR]Your current profile is automatically saved before switching.[CR][CR]The new profile also starts with the default search widgets and an empty search history.</value>
+		<value condition="Control.HasFocus(6243)">Switch to a different saved Altus profile.[CR][CR]Your current profile is automatically saved before switching.[CR][CR]The profile's search widgets and search history are loaded with it.</value>
 		<value condition="Control.HasFocus(6246)">Reset the home screen and search window to their default widgets.[CR][CR]This clears the active profile and reverts to a fresh default setup.[CR][CR]Your search history is kept.</value>
-		<value condition="Control.HasFocus(6244)">Rename the currently active config profile.</value>
-		<value condition="Control.HasFocus(6245)">Delete a saved config profile.[CR][CR]The active profile cannot be deleted. Switch to another profile first.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] The profile's search widgets and search history are deleted with it.</value>
+		<value condition="Control.HasFocus(6244)">Rename the currently active Altus profile.</value>
+		<value condition="Control.HasFocus(6245)">Delete a saved Altus profile.[CR][CR]The active profile cannot be deleted. Switch to another profile first.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] The profile's search widgets and search history are deleted with it.</value>
 		<value condition="Container(9000).HasFocus(1)">$LOCALIZE[31130]</value>
 
 		<!-- GENERAL CONFIGURATION SECTION -->
