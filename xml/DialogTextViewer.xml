@@ -7,7 +7,7 @@
 			<width>1220</width>
 			<centertop>50%</centertop>
 			<centerleft>50%</centerleft>
-			<height>1000</height>
+			<height>1050</height>
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="$LOCALIZE[13406]" />
 				<param name="header_id" value="1" />
@@ -16,9 +16,9 @@
 			</include>
 			<control type="textbox" id="5">
 				<centerleft>50%</centerleft>
-				<top>170</top>
+				<top>135</top>
 				<width>1120</width>
-				<height>824</height>
+				<height>787</height>
 				<shadowcolor>black</shadowcolor>
 				<pagecontrol>3000</pagecontrol>
 				<font>font32</font>
@@ -58,7 +58,7 @@
 		</control> -->
 		<control type="label">
 			<left>1192</left>
-			<top>980</top>
+			<top>955</top>
 			<width>330</width>
 			<height>35</height>
 			<font>font12</font>
