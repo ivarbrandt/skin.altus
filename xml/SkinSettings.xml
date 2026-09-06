@@ -29,10 +29,16 @@
 					<onclick>Notification(Altus, Test notification, 7000, special://skin/resources/icon.jpg)</onclick>
 				</control> -->
 				<control type="button" id="624">
-					<label>Widget Manager</label>
+					<label>Customize widgets</label>
 					<label2>$VAR[ActiveWidgetConfigVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.altus.helper,mode=open_widget_manager)</onclick>
+				</control>
+				<control type="button" id="6247">
+					<label>Customize search</label>
+					<label2>$VAR[ActiveWidgetConfigVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.altus.helper,mode=open_search_manager)</onclick>
 				</control>
 				<control type="button" id="6240">
 					<label>    - Rebuild</label>
@@ -167,25 +173,6 @@
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.PVRAnimations)</selected>
 					<onclick>Skin.ToggleSetting(Disable.PVRAnimations)</onclick>
-				</control>
-			</control>
-
-			<control type="grouplist" id="647">
-				<top>133</top>
-				<left>20</left>
-				<right>490</right>
-				<bottom>37</bottom>
-				<onleft>9000</onleft>
-				<onright>60</onright>
-				<onup>647</onup>
-				<pagecontrol>60</pagecontrol>
-				<ondown>647</ondown>
-				<visible>Container(9000).HasFocus(3)</visible>
-				<!-- SEARCH OPTIONS -->
-				<control type="button" id="64701">
-					<label>Search Manager</label>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.altus.helper,mode=open_search_manager)</onclick>
 				</control>
 			</control>
 
@@ -952,10 +939,6 @@
 					</item>
 					<item id="4">
 						<label>API features</label>
-						<onclick>noop</onclick>
-					</item>
-					<item id="3">
-						<label>Search options</label>
 						<onclick>noop</onclick>
 					</item>
 					<item id="7">

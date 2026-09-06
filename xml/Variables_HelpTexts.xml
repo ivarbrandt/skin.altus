@@ -4,13 +4,14 @@
   <variable name="SkinSettingsHelpTextVar">
 		<!-- MAIN MENU ITEMS SECTION -->
 		<value condition="Control.HasFocus(624)">Open the Widget Manager to add, remove, reorder, and configure sections and widgets for the home screen.</value>
+		<value condition="Control.HasFocus(6247)">Open the Search Manager to add, remove, reorder, and configure widgets for the search window.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Each widget config profile carries its own search widgets and its own search history.</value>
 		<value condition="Control.HasFocus(6240)">Regenerate the home screen from the current widget configuration.[CR][CR]Use this if the home screen looks out of sync with your config.</value>
 		<value condition="Control.HasFocus(6241)">Import a widget configuration from Nimbus or FENtastic.[CR][CR]Display types are automatically mapped to their Altus equivalents.</value>
-		<value condition="Control.HasFocus(6242)">Create a new config profile starting from the default sections and widgets.[CR][CR]Your current config is automatically saved before switching.</value>
-		<value condition="Control.HasFocus(6243)">Switch to a different saved config profile.[CR][CR]Your current config is automatically saved before switching.</value>
-		<value condition="Control.HasFocus(6246)">Reset the home screen to the default sections and widgets.[CR][CR]This clears the active profile and reverts to a fresh default setup.</value>
+		<value condition="Control.HasFocus(6242)">Create a new config profile starting from the default sections and widgets.[CR][CR]Your current config is automatically saved before switching.[CR][CR]The new profile also starts with the default search widgets and an empty search history.</value>
+		<value condition="Control.HasFocus(6243)">Switch to a different saved config profile.[CR][CR]Your current config is automatically saved before switching.[CR][CR]The profile's search widgets and search history are loaded with it.</value>
+		<value condition="Control.HasFocus(6246)">Reset the home screen and search window to their default widgets.[CR][CR]This clears the active profile and reverts to a fresh default setup.[CR][CR]Your search history is kept.</value>
 		<value condition="Control.HasFocus(6244)">Rename the currently active config profile.</value>
-		<value condition="Control.HasFocus(6245)">Delete a saved config profile.[CR][CR]The active profile cannot be deleted. Switch to another profile first.</value>
+		<value condition="Control.HasFocus(6245)">Delete a saved config profile.[CR][CR]The active profile cannot be deleted. Switch to another profile first.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] The profile's search widgets and search history are deleted with it.</value>
 		<value condition="Container(9000).HasFocus(1)">$LOCALIZE[31130]</value>
 
 		<!-- GENERAL CONFIGURATION SECTION -->
@@ -86,12 +87,6 @@
 		<value condition="Control.HasFocus(6490)">Set the digital release recent window.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Changing this value will automatically clear the ratings cache.[CR][CR]All changes take effect immediately without requiring a restart.</value>
 		<value condition="Control.HasFocus(6491)">Set the digital release expiry window.[CR][CR]Movies with digital release dates older than this window will display their original release date.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Changing this value will automatically clear the ratings cache.[CR][CR]All changes take effect immediately without requiring a restart.</value>
 		<value condition="Control.HasFocus(6492)">Choose trailer source.[CR][CR]DEFAULT uses Kodi's built-in trailer method.[CR][CR]MDBLIST plays trailers from the MDbList API when available.[CR][CR]Trailers can be played via one click in the context menu.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] Only MDBLIST option requires an API key.</value>
-
-		<!-- SEARCH SECTION -->
-		<value condition="Container(9000).HasFocus(3) + !ControlGroup(10000).HasFocus">Search settings</value>
-		<value condition="Control.HasFocus(64700)">Choose your default search provider.[CR][CR]The selected addon will be used for all searches in both the search window and search dialog.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] This can be changed on the fly through the search window button menu.</value>
-		<value condition="Control.HasFocus(64701)">Select search interface style.[CR][CR]SEARCH DIALOG opens a panel with shortcuts to search sections (movies/TV shows/etc.) in the selected addon.[CR][CR]SEARCH WINDOW opens a full search interface with search history, TRAKT lists, and more.[CR][CR][COLOR red][B]NOTE:[/B][/COLOR] The search window allows searching multiple categories simultaneously (movies, TV shows, keywords, etc.).[CR][CR]It also includes a dedicated stacked widget for viewing TRAKT lists directly.</value>
-		<value condition="Control.HasFocus(64702) | Control.HasFocus(64703) | Control.HasFocus(64704) | Control.HasFocus(64705) | Control.HasFocus(64706) | Control.HasFocus(64707) | Control.HasFocus(64708) | Control.HasFocus(64709) | Control.HasFocus(64710) | Control.HasFocus(64711) | Control.HasFocus(64712) | Control.HasFocus(64713)">Enabling or disable the showing of specific search widgets.</value>
 
 		<!-- OSD SECTION -->
 		<value condition="Container(9000).HasFocus(7) + !ControlGroup(10000).HasFocus">$LOCALIZE[31171]</value>

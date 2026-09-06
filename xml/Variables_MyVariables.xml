@@ -1136,8 +1136,8 @@
 	</variable>
 
 	<variable name="ActiveWidgetConfigVar">
-		<value condition="!String.IsEmpty(Skin.String(altus_active_widget_config))">Active config: [B]$INFO[Skin.String(altus_active_widget_config)][/B]</value>
-		<value>Active config: [B]NONE[/B]</value>
+		<value condition="!String.IsEmpty(Skin.String(altus_active_widget_config))">Active profile: [B]$INFO[Skin.String(altus_active_widget_config)][/B]</value>
+		<value>Active profile: [B]NONE[/B]</value>
 	</variable>
 
 </includes>
