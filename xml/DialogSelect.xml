@@ -4,6 +4,7 @@
 	<include content="OpenClose_Slide_Right">
 		<param name="distance" value="1220" />
 	</include>
+	<include>OpenClose_Right</include>
 	<depth>DepthOSD</depth>
 	<controls>
 		<include condition="![Window.IsActive(gamesaves) | Window.IsActive(gamestretchmode) | Window.IsActive(gamevideofilter) | Window.IsActive(gamevideorotation) | Window.IsActive(ingamesaves)]">DefaultDialogSelectLayout</include>

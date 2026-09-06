@@ -85,7 +85,7 @@
 			<control type="group">
 				<left>$PARAM[left]</left>
 				<top>$PARAM[top]</top>
-				<visible>$PARAM[vis]</visible>
+				<visible>[$PARAM[vis]] + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
 				<animation effect="slide" start="0,0" end="$PARAM[slide_x],0" time="0" condition="$PARAM[slide_condition]">Conditional</animation>
 				<!-- Background images sized per digit combination -->
 				<!-- 1x1 (e.g. 2x5) -->

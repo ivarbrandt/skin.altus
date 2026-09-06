@@ -149,22 +149,25 @@
 			<effect type="slide" start="0" end="-320" time="300" tween="cubic" easing="out" />
 		</animation>
 	</include>
-
 	<include name="OpenClose_Slide_Left">
 		<animation type="WindowOpen">
-			<effect type="slide" start="-$PARAM[distance]" end="0" time="300" tween="cubic" easing="out" />
+			<!-- <effect type="fade" start="0" end="100" time="375" tween="sine" easing="out" /> -->
+			<effect type="slide" start="-$PARAM[distance]" end="0" time="500" tween="cubic" easing="out" />
 		</animation>
 		<animation type="WindowClose">
-			<effect type="slide" start="0" end="-$PARAM[distance]" time="300" tween="cubic" easing="out" />
+			<!-- <effect type="fade" start="100" end="0" time="375" tween="sine" easing="out" /> -->
+			<effect type="slide" start="0" end="-$PARAM[distance]" time="500" tween="cubic" easing="out" />
 		</animation>
 	</include>
 
 	<include name="OpenClose_Slide_Right">
 		<animation type="WindowOpen">
-			<effect type="slide" start="$PARAM[distance]" end="0" time="300" tween="cubic" easing="inout" />
+			<!-- <effect type="fade" start="0" end="100" time="375" tween="sine" easing="out" /> -->
+			<effect type="slide" start="$PARAM[distance]" end="0" time="500" tween="cubic" easing="out" />
 		</animation>
 		<animation type="WindowClose">
-			<effect type="slide" start="0" end="$PARAM[distance]" time="300" tween="cubic" easing="inout" />
+			<!-- <effect type="fade" start="100" end="0" time="375" tween="sine" easing="out" /> -->
+			<effect type="slide" start="0" end="$PARAM[distance]" time="500" tween="cubic" easing="out" />
 		</animation>
 	</include>
 
@@ -460,6 +463,10 @@
 			<effect type="fadediffuse" start="FFFFFFFF" end="FF777777" time="700" />
 		</animation>
 	</include>
+
+	<!-- <animation condition="![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + Integer.IsGreater($PARAM[list_id],Window(Home).Property(altus_saved_list_id)) + ControlGroup(2000).HasFocus" reversible="true">
+			<effect type="slide" start="0" end="0,300" time="300" />
+    </animation> -->
 
 	<include name="StackedWidgetAnimations">
 		<animation condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEqual(Skin.String(BackgroundSetting),1) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus" reversible="true">

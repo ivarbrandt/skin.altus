@@ -3,10 +3,12 @@
 
   <include name="WidgetListBigPoster">
 		<param name="onclick_condition">false</param>
+		<param name="filter_visible">true</param>
 		<definition>
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="filter_visible" value="$PARAM[filter_visible]"/>
 			</include>
 			<include content="BusyListSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
@@ -20,7 +22,7 @@
 				<movement>2</movement>
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
-				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<visible>[Container($PARAM[list_id]).IsUpdating | Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | String.IsEqual(Window(Home).Property(altus.search.refreshing),true)] + [$PARAM[filter_visible]]</visible>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
 				<onfocus>SetProperty(FeatureWidgetFocused,true,Home)</onfocus>
 				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
@@ -60,11 +62,13 @@
 
 	<include name="WidgetListBigPosterStacked">
 		<param name="onclick_condition">false</param>
+		<param name="filter_visible">true</param>
 		<definition>
 			<include content="CategoryLabelWidget">
 				<param name="label">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
 				<param name="visible" value="false"/>
+				<param name="filter_visible" value="$PARAM[filter_visible]"/>
 			</include>
 			<include content="BusyListWidgetSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
@@ -90,6 +94,7 @@
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
+				<visible>$PARAM[filter_visible]</visible>
 				<itemlayout width="452" >
 					<control type="group">
 						<left>-20</left>

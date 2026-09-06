@@ -279,7 +279,7 @@
 		<depth>DepthSideBlade</depth>
 		<left>-501</left>
 		<animation type="Conditional" condition="$EXP[sidebar_visible]" reversible="true">
-			<effect type="slide" start="0" end="500" time="300" tween="cubic" easing="out" />
+			<effect type="slide" start="0" end="500" time="500" tween="cubic" easing="out" />
 		</animation>
 		<!-- <control type="image">
 			<width>4000</width>

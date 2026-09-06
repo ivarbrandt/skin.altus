@@ -113,7 +113,6 @@
 		<alttexturenofocus />
 	</include>
 	<include name="SettingsItemCommon1">
-		<include>FocusBounce</include>
 		<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
 		<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darker.png</texturenofocus>
 		<height>60</height>
@@ -194,6 +193,7 @@
 	<include name="IconButton">
     <param name="height">100</param>
     <param name="visible">true</param>
+    <param name="onfocus_condition">false</param>
     <definition>
 			<control type="radiobutton" id="$PARAM[control_id]">
 				<width>100</width>
@@ -202,6 +202,10 @@
 				<aligny>center</aligny>
 				<onclick>$PARAM[onclick]</onclick>
 				<onclick>$PARAM[onclick_2]</onclick>
+				<onfocus condition="$PARAM[onfocus_condition]">$PARAM[onfocus_action_conditional]</onfocus>
+				<onfocus>$PARAM[onfocus_action]</onfocus>
+				<onfocus>$PARAM[onfocus_action2]</onfocus>
+				<onfocus>$PARAM[onfocus_action3]</onfocus>
 				<font></font>
 				<label>$PARAM[label]</label>
 				<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>

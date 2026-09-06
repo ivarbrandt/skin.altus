@@ -139,6 +139,13 @@
 			<style>light uppercase</style>
 		</font>
 		<font>
+			<name>p_cache</name>
+			<filename>Nick-Titling.ttf</filename>
+			<size>33</size>
+			<aspect>0.85</aspect>
+			<style>light uppercase</style>
+		</font>
+		<font>
 			<name>font32</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>30</size>
@@ -147,6 +154,11 @@
 			<name>font33</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>32</size>
+		</font>
+		<font>
+			<name>font34</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>33</size>
 		</font>
 		<font>
 			<name>font32_eps</name>

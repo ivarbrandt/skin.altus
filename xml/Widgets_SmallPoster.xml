@@ -3,10 +3,12 @@
 
   <include name="WidgetListSmallPoster">
 		<param name="onclick_condition">false</param>
+		<param name="filter_visible">true</param>
 		<definition>
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="filter_visible" value="$PARAM[filter_visible]"/>
 			</include>
 			<include content="BusyListSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
@@ -24,7 +26,7 @@
 					<effect type="fade" start="100" end="80" time="700" tween="sine" easing="inout" />
 					<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="700" />
 				</animation>
-				<visible>Container($PARAM[list_id]).IsUpdating | Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | String.IsEqual(Window(Home).Property(altus.search.refreshing),true)</visible>
+				<visible>[Container($PARAM[list_id]).IsUpdating | Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | String.IsEqual(Window(Home).Property(altus.search.refreshing),true)] + [$PARAM[filter_visible]]</visible>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
 				<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
 				<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
@@ -64,11 +66,13 @@
 
 	<include name="WidgetListSmallPosterStacked">
 		<param name="onclick_condition">false</param>
+		<param name="filter_visible">true</param>
 		<definition>
 			<include content="CategoryLabelWidget">
 				<param name="label">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
 				<param name="visible" value="false"/>
+				<param name="filter_visible" value="$PARAM[filter_visible]"/>
 			</include>
 			<include content="BusyListWidgetSpinner">
 				<param name="list_id" value="$PARAM[list_id]"/>
@@ -94,6 +98,7 @@
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
+				<visible>$PARAM[filter_visible]</visible>
 				<itemlayout width="226" >
 					<control type="group">
 						<left>-20</left>

@@ -329,8 +329,6 @@
             <include content="OSDButton">
               <param name="texture" value="osd/fullscreen/buttons/info.png"/>
             </include>
-            <!-- <onclick>$VAR[OSDStyleToggleVar]</onclick> -->
-            <!-- <onclick condition="!Skin.HasSetting(Enable.DetailedOSD)">Notification(OSD, Detailed OSD enabled, 1000)</onclick> -->
             <onclick>playerprocessinfo</onclick>
             <onleft>714</onleft>
             <onright>716</onright>

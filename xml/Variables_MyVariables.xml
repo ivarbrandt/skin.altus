@@ -37,11 +37,13 @@
   </variable>
 
 	<variable name="InfoBadgeSeasonTitle">
-		<value condition="Control.IsVisible(57)">$INFO[Container(5057).ListItem.Title]</value>
+		<value condition="$EXP[isSeasonView]">$INFO[Container(5057).ListItem.Title]</value>
 		<value>$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle]</value>
 	</variable>
 
 	<variable name="InfoBadgeEpisodeLabelVar">
+		<value condition="String.IsEmpty(ListItem.Season) + String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Title]</value>
+		<value condition="String.IsEmpty(ListItem.Season)">[UPPERCASE][LIGHT]$INFO[ListItem.TVShowTitle][/UPPERCASE][/LIGHT]</value>
 		<value condition="String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Season]$INFO[ListItem.Episode,x,] | $INFO[ListItem.Title]</value>
 		<value>[UPPERCASE][LIGHT]$INFO[ListItem.Season]$INFO[ListItem.Episode,x,] | $INFO[ListItem.TVShowTitle][/UPPERCASE][/LIGHT]</value>
 	</variable>
@@ -50,8 +52,10 @@
 	but data must come from the focused episodes list (5057). Outside View 57, bare refs
 	(current container/item) are correct. -->
 	<variable name="InfoBadgeEpisodeLabelBigVar">
-		<value condition="Control.IsVisible(57) + String.StartsWith(Container(5057).PluginCategory,Season)">$INFO[Container(5057).ListItem.Season]$INFO[Container(5057).ListItem.Episode,x,] | $INFO[Container(5057).ListItem.Title]</value>
-		<value condition="Control.IsVisible(57)">[UPPERCASE][LIGHT]$INFO[Container(5057).ListItem.Season]$INFO[Container(5057).ListItem.Episode,x,] | $INFO[Container(5057).ListItem.Title][/UPPERCASE][/LIGHT]</value>
+		<value condition="$EXP[isSeasonView] + String.IsEmpty(Container(5057).ListItem.Season)">$INFO[Container(5057).ListItem.Title]</value>
+		<value condition="$EXP[isSeasonView]">$INFO[Container(5057).ListItem.Season]$INFO[Container(5057).ListItem.Episode,x,] | $INFO[Container(5057).ListItem.Title]</value>
+		<value condition="String.IsEmpty(ListItem.Season) + String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Title]</value>
+		<value condition="String.IsEmpty(ListItem.Season)">[UPPERCASE][LIGHT]$INFO[ListItem.TVShowTitle][/UPPERCASE][/LIGHT]</value>
 		<value condition="String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Season]$INFO[ListItem.Episode,x,] | $INFO[ListItem.Title]</value>
 		<value>[UPPERCASE][LIGHT]$INFO[ListItem.Season]$INFO[ListItem.Episode,x,] | $INFO[ListItem.TVShowTitle][/UPPERCASE][/LIGHT]</value>
 	</variable>
@@ -282,29 +286,32 @@
 	</variable>
 
 	<variable name="EpisodeLabelVar">
-		<value condition="!String.StartsWith(Container($PARAM[list_id]).PluginCategory,Season)">$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, | ,]</value>
-		<value>INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.Title, | ,]</value>
+		<value condition="[String.IsEmpty(ListItem.Season) | String.IsEmpty(ListItem.Episode)] + !String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.TVShowTitle]</value>
+		<value condition="[String.IsEmpty(ListItem.Season) | String.IsEmpty(ListItem.Episode)]">$INFO[ListItem.Title]</value>
+		<value condition="!String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Season]$INFO[ListItem.Episode,x,]$INFO[ListItem.TVShowTitle, | ,]</value>
+		<value>$INFO[ListItem.Season]$INFO[ListItem.Episode,x,]$INFO[ListItem.Title, | ,]</value>
 	</variable>
 
 	<variable name="VideoFlixCrumbsVar">
 		<!-- Other windows -->
-		<value condition="$EXP[isEpisode] + Control.IsVisible(501) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Title][/COLOR]</value>
-		<value condition="$EXP[isEpisode] + ![Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(501)] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,][/COLOR] | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.Title][/COLOR]</value>
-		<value condition="$EXP[isEpisode] + Control.IsVisible(56) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + $EXP[isLandscapeWall] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[ListItem.Title][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + ![$EXP[isLandscapeInfo] | $EXP[isFlixInfo] | $EXP[isLandscapeWall]] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre) + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)"> | [COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Season]$INFO[ListItem.Episode,x,][/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Title][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + ![$EXP[isLandscapeInfo] | $EXP[isFlixInfo] | $EXP[isLandscapeWall]] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Title][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + $EXP[isFlixInfo] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)"> | [COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR]</value>
 		<value condition="
 			[
-				[String.IsEqual(Container.ViewMode,$LOCALIZE[31101]) + !Skin.HasSetting(Enable.54Titles)] | 
-				[String.IsEqual(Container.ViewMode,$LOCALIZE[311012]) + !Skin.HasSetting(Enable.55Titles)] | 
-				[String.IsEqual(Container.ViewMode,$LOCALIZE[31107]) + !Skin.HasSetting(Enable.56Titles)] | 
-				[String.IsEqual(Container.ViewMode,$LOCALIZE[311022]) + !Skin.HasSetting(Enable.500Titles)] | 
-				[String.IsEqual(Container.ViewMode,$LOCALIZE[311023]) + !Skin.HasSetting(Enable.501Titles)] | 
+				[$EXP[isPosterInfo] + !Skin.HasSetting(Enable.54Titles)] |
+				[$EXP[isLandscapeInfo] + !Skin.HasSetting(Enable.55Titles)] |
+				[$EXP[isFlixInfo] + !Skin.HasSetting(Enable.56Titles)] |
+				[$EXP[isWall] + !Skin.HasSetting(Enable.500Titles)] |
+				[$EXP[isLandscapeWall] + !Skin.HasSetting(Enable.501Titles)] |
 				!
 					[
-						String.IsEqual(Container.ViewMode,$LOCALIZE[31101]) | 
-						String.IsEqual(Container.ViewMode,$LOCALIZE[311012]) | 
-						String.IsEqual(Container.ViewMode,$LOCALIZE[31107]) | 
-						String.IsEqual(Container.ViewMode,$LOCALIZE[311022]) | 
-						String.IsEqual(Container.ViewMode,$LOCALIZE[311023])
+						$EXP[isPosterInfo] |
+						$EXP[isLandscapeInfo] |
+						$EXP[isFlixInfo] |
+						$EXP[isWall] |
+						$EXP[isLandscapeWall]
 					]
 			] + 
 			!$EXP[isEpisode] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre)
@@ -446,7 +453,7 @@
     <!-- Blur enabled -->
     <value condition="String.IsEqual(Skin.String(BackgroundSetting),1)">80000000</value>
 		<!-- Blur disabled -->
-    <value condition="String.IsEqual(Skin.String(BackgroundSetting),0) + [Control.IsVisible(51) | Control.IsVisible(52) | Control.IsVisible(500) | Control.IsVisible(501)]">80050505</value>
+    <value condition="String.IsEqual(Skin.String(BackgroundSetting),0) + [$EXP[isPosterFlow] | $EXP[isIconWall] | $EXP[isWall] | $EXP[isLandscapeWall]]">80050505</value>
 		<value condition="String.IsEqual(Skin.String(BackgroundSetting),0) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + String.IsEqual(Skin.String(ListArtworkChoice.),2)">FF101010</value>
     <value condition="String.IsEqual(Skin.String(BackgroundSetting),0) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !String.IsEqual(Skin.String(ListArtworkChoice.),2)">80050505</value>
     <!-- Movies -->
@@ -1022,16 +1029,6 @@
 		<value>brightness</value>
 	</variable>
 	
-	<variable name="SearchSettingVar">
-		<value condition="String.IsEqual(Skin.String(SearchSetting),0)">Search window</value>
-		<value condition="String.IsEqual(Skin.String(SearchSetting),1)">Search dialog</value>
-	</variable>
-
-	<variable name="SearchToggleVar">
-		<value condition="String.IsEqual(Skin.String(SearchSetting),0)">Skin.SetString(SearchSetting,1)</value>
-		<value condition="String.IsEqual(Skin.String(SearchSetting),1)">Skin.SetString(SearchSetting,0)</value>
-	</variable>
-
 	<!-- MAIN MENU SUBMENU BUTTONS -->
 	<variable name="HomePowerButtonActionVar">
 		<value condition="Skin.HasSetting(OneClickClose)">Quit()</value>
@@ -1039,8 +1036,7 @@
 	</variable>
 
 	<variable name="HomeSearchButtonActionVar">
-		<value condition="String.IsEqual(Skin.String(SearchSetting),0)">RunScript(script.altus.helper,mode=open_search_window)</value>
-		<value condition="String.IsEqual(Skin.String(SearchSetting),1)">ActivateWindow(1107)</value>
+		<value>RunScript(script.altus.helper,mode=open_search_window)</value>
 	</variable>
 
 	<!-- MAIN MENU SUBMENU BUTTON LABELS -->
@@ -1049,8 +1045,7 @@
 		<value condition="Control.HasFocus(801) + !Skin.HasSetting(OneClickClose)">Open shutdownmenu</value>
 		<value condition="Control.HasFocus(802)">Open settings</value>
 		<value condition="Control.HasFocus(803)">Open widget manager</value>
-		<value condition="Control.HasFocus(804) + String.IsEqual(Skin.String(SearchSetting),0)">Open search window</value>
-		<value condition="Control.HasFocus(804) + String.IsEqual(Skin.String(SearchSetting),1)">Open search dialog</value>
+		<value condition="Control.HasFocus(804)">Open search window</value>
 		<value condition="Control.HasFocus(805) + Integer.IsEqual(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available update</value>
 		<value condition="Control.HasFocus(805) + Integer.IsGreater(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available updates</value>
 		<value condition="Control.HasFocus(806)">Toggle fullscreen</value>
@@ -1067,17 +1062,18 @@
 
 	<!-- SEARCH WINDOW SUBMENU BUTTON LABELS -->
 	<variable name="SearchSubmenuButtonLabelsVar">
-		<value condition="Control.HasFocus(801)">Search provider: [B]$VAR[CurrentSearchProviderVar][/B]</value>
-		<value condition="Control.HasFocus(802)">Perform a new search</value>
-		<value condition="Control.HasFocus(803)">Open TRAKT lists</value>
-		<value condition="Control.HasFocus(804)">Clear search history</value>
-		<value condition="Control.HasFocus(805)">Toggle fullscreen</value>
+		<value condition="Control.HasFocus(801)">New search</value>
+		<value condition="Control.HasFocus(802)">Filter by...</value>
+		<value condition="Control.HasFocus(803) + !Skin.HasSetting(Disable.MiniQwerty)">Hide QWERTY keyboard</value>
+		<value condition="Control.HasFocus(803) + Skin.HasSetting(Disable.MiniQwerty)">Show QWERTY keyboard</value>
+		<value condition="Control.HasFocus(804)">Search history</value>
 	</variable>
 
 	<variable name="ContextMenuTitleVar">
 		<value condition="$EXP[isMovie] | $EXP[isTVShow]">[COLOR unfocused_text]$INFO[ListItem.Title][/COLOR]</value>
 		<value condition="$EXP[isSeason]">[COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Title][/COLOR]</value>
-		<value condition="$EXP[isEpisode]">[COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Season]x$INFO[ListItem.Episode][/COLOR]</value>
+		<value condition="$EXP[isEpisode] + [String.IsEmpty(ListItem.Season) | String.IsEmpty(ListItem.Episode)]">[COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR]</value>
+		<value condition="$EXP[isEpisode]">[COLOR unfocused_text]$INFO[ListItem.TVShowTitle][/COLOR] | [COLOR unfocused_text]$INFO[ListItem.Season]$INFO[ListItem.Episode,x,][/COLOR]</value>
 		<value>[COLOR unfocused_text]Context menu[/COLOR]</value>
 	</variable>
 
@@ -1140,8 +1136,8 @@
 	</variable>
 
 	<variable name="ActiveWidgetConfigVar">
-		<value condition="!String.IsEmpty(Skin.String(altus_active_widget_config))">Active config: [B]$INFO[Skin.String(altus_active_widget_config)][/B]</value>
-		<value>Active config: [B]NONE[/B]</value>
+		<value condition="!String.IsEmpty(Skin.String(altus_active_widget_config))">Active profile: [B]$INFO[Skin.String(altus_active_widget_config)][/B]</value>
+		<value>Active profile: [B]NONE[/B]</value>
 	</variable>
 
 </includes>
