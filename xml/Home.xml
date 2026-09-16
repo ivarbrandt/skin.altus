@@ -100,6 +100,7 @@
 						<include content="HomeWallTabRow">
 							<param name="row_id" value="15002"/>
 							<param name="walls_id" value="15003"/>
+							<param name="fallback" value="![[String.IsEqual(Window(Home).Property(altus_wall_15002),15011) + [Weather.IsFetched | !String.IsEmpty(Window(weather).Property(Daily.IsFetched))]] | [String.IsEqual(Window(Home).Property(altus_wall_15002),15012) + [!String.IsEmpty(Window(weather).Property(Hourly.IsFetched))]] | [String.IsEqual(Window(Home).Property(altus_wall_15002),15013) + [!String.IsEmpty(Window(weather).Property(Map.1.Area)) | !String.IsEmpty(Window(weather).Property(Map.2.Area)) | !String.IsEmpty(Window(weather).Property(Map.3.Area)) | !String.IsEmpty(Window(weather).Property(Map.4.Area)) | !String.IsEmpty(Window(weather).Property(Map.5.Area))]]]"/>
 						</include>
 						<content>
 							<item id="1">
@@ -131,18 +132,18 @@
 							<param name="list_id" value="15011"/>
 							<param name="row_id" value="15002"/>
 							<param name="content_include" value="DailyItems"/>
-							<param name="visible" value="[!Skin.HasSetting(HomeWalls.ManualLoading) + Container(15002).HasFocus(1)] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_15002),15011) | [String.IsEmpty(Window(Home).Property(altus_wall_15002)) + String.IsEqual(Container(15002).ListItemAbsolute(0).Property(wall_id),15011)]]]"/>
+							<param name="visible" value="[!Skin.HasSetting(HomeWalls.ManualLoading) + Container(15002).HasFocus(1)] | [Skin.HasSetting(HomeWalls.ManualLoading) + [[String.IsEqual(Window(Home).Property(altus_wall_15002),15011) + [Weather.IsFetched | !String.IsEmpty(Window(weather).Property(Daily.IsFetched))]] | [![[String.IsEqual(Window(Home).Property(altus_wall_15002),15011) + [Weather.IsFetched | !String.IsEmpty(Window(weather).Property(Daily.IsFetched))]] | [String.IsEqual(Window(Home).Property(altus_wall_15002),15012) + [!String.IsEmpty(Window(weather).Property(Hourly.IsFetched))]] | [String.IsEqual(Window(Home).Property(altus_wall_15002),15013) + [!String.IsEmpty(Window(weather).Property(Map.1.Area)) | !String.IsEmpty(Window(weather).Property(Map.2.Area)) | !String.IsEmpty(Window(weather).Property(Map.3.Area)) | !String.IsEmpty(Window(weather).Property(Map.4.Area)) | !String.IsEmpty(Window(weather).Property(Map.5.Area))]]] + String.IsEqual(Container(15002).ListItemAbsolute(0).Property(wall_id),15011)]]]"/>
 						</include>
 						<include content="HomeWallWeather">
 							<param name="list_id" value="15012"/>
 							<param name="row_id" value="15002"/>
 							<param name="content_include" value="HourlyItems"/>
-							<param name="visible" value="[!Skin.HasSetting(HomeWalls.ManualLoading) + Container(15002).HasFocus(2)] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_15002),15012) | [String.IsEmpty(Window(Home).Property(altus_wall_15002)) + String.IsEqual(Container(15002).ListItemAbsolute(0).Property(wall_id),15012)]]]"/>
+							<param name="visible" value="[!Skin.HasSetting(HomeWalls.ManualLoading) + Container(15002).HasFocus(2)] | [Skin.HasSetting(HomeWalls.ManualLoading) + [[String.IsEqual(Window(Home).Property(altus_wall_15002),15012) + [!String.IsEmpty(Window(weather).Property(Hourly.IsFetched))]] | [![[String.IsEqual(Window(Home).Property(altus_wall_15002),15011) + [Weather.IsFetched | !String.IsEmpty(Window(weather).Property(Daily.IsFetched))]] | [String.IsEqual(Window(Home).Property(altus_wall_15002),15012) + [!String.IsEmpty(Window(weather).Property(Hourly.IsFetched))]] | [String.IsEqual(Window(Home).Property(altus_wall_15002),15013) + [!String.IsEmpty(Window(weather).Property(Map.1.Area)) | !String.IsEmpty(Window(weather).Property(Map.2.Area)) | !String.IsEmpty(Window(weather).Property(Map.3.Area)) | !String.IsEmpty(Window(weather).Property(Map.4.Area)) | !String.IsEmpty(Window(weather).Property(Map.5.Area))]]] + String.IsEqual(Container(15002).ListItemAbsolute(0).Property(wall_id),15012)]]]"/>
 						</include>
 						<include content="HomeWallWeatherMaps">
 							<param name="list_id" value="15013"/>
 							<param name="row_id" value="15002"/>
-							<param name="visible" value="[!Skin.HasSetting(HomeWalls.ManualLoading) + Container(15002).HasFocus(3)] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_15002),15013) | [String.IsEmpty(Window(Home).Property(altus_wall_15002)) + String.IsEqual(Container(15002).ListItemAbsolute(0).Property(wall_id),15013)]]]"/>
+							<param name="visible" value="[!Skin.HasSetting(HomeWalls.ManualLoading) + Container(15002).HasFocus(3)] | [Skin.HasSetting(HomeWalls.ManualLoading) + [[String.IsEqual(Window(Home).Property(altus_wall_15002),15013) + [!String.IsEmpty(Window(weather).Property(Map.1.Area)) | !String.IsEmpty(Window(weather).Property(Map.2.Area)) | !String.IsEmpty(Window(weather).Property(Map.3.Area)) | !String.IsEmpty(Window(weather).Property(Map.4.Area)) | !String.IsEmpty(Window(weather).Property(Map.5.Area))]] | [![[String.IsEqual(Window(Home).Property(altus_wall_15002),15011) + [Weather.IsFetched | !String.IsEmpty(Window(weather).Property(Daily.IsFetched))]] | [String.IsEqual(Window(Home).Property(altus_wall_15002),15012) + [!String.IsEmpty(Window(weather).Property(Hourly.IsFetched))]] | [String.IsEqual(Window(Home).Property(altus_wall_15002),15013) + [!String.IsEmpty(Window(weather).Property(Map.1.Area)) | !String.IsEmpty(Window(weather).Property(Map.2.Area)) | !String.IsEmpty(Window(weather).Property(Map.3.Area)) | !String.IsEmpty(Window(weather).Property(Map.4.Area)) | !String.IsEmpty(Window(weather).Property(Map.5.Area))]]] + String.IsEqual(Container(15002).ListItemAbsolute(0).Property(wall_id),15013)]]]"/>
 						</include>
 					</control>
 					<include content="ImageWidget" condition="String.IsEmpty(Weather.plugin)">

@@ -31,7 +31,7 @@
 				<control type="image">
 					<texture border="20" colordiffuse="80000000">masks/radius_20.png</texture>
 					<visible>!ControlGroup($PARAM[walls_id]).HasFocus + ![$PARAM[focused] + Control.HasFocus($PARAM[row_id])]</visible>
-					<visible>[!Skin.HasSetting(HomeWalls.ManualLoading) + $PARAM[focused]] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),ListItem.Property(wall_id)) | [String.IsEmpty(Window(Home).Property(altus_wall_$PARAM[row_id])) + Integer.IsEqual(ListItem.CurrentItem,1)]]]</visible>
+					<visible>[!Skin.HasSetting(HomeWalls.ManualLoading) + $PARAM[focused]] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),ListItem.Property(wall_id)) | [$PARAM[fallback] + Integer.IsEqual(ListItem.CurrentItem,1)]]]</visible>
 				</control>
 				<control type="image">
 					<texture border="20" colordiffuse="$VAR[FocusColorTheme]">masks/radius_20.png</texture>
@@ -68,6 +68,7 @@
 	</include>
 
 	<include name="HomeWallTabRow">
+		<visible allowhiddenfocus="true">!Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)</visible>
 		<top>57</top>
 		<width>1424</width>
 		<height>140</height>
@@ -76,6 +77,7 @@
 		<movement>4</movement>
 		<scrolltime tween="cubic" easing="out">400</scrolltime>
 		<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
+		<onfocus condition="Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)">SetFocus($INFO[Container($PARAM[row_id]).ListItem.Property(wall_id)],0,absolute)</onfocus>
 		<onleft>9000</onleft>
 		<onright>$PARAM[row_id]</onright>
 		<onup>$PARAM[row_id]</onup>
@@ -86,12 +88,14 @@
 			<include content="HomeWallTabLayout">
 				<param name="row_id" value="$PARAM[row_id]"/>
 				<param name="walls_id" value="$PARAM[walls_id]"/>
+				<param name="fallback" value="$PARAM[fallback]"/>
 			</include>
 		</itemlayout>
 		<focusedlayout width="283" height="140" infoupdate="30">
 			<include content="HomeWallTabLayout">
 				<param name="row_id" value="$PARAM[row_id]"/>
 				<param name="walls_id" value="$PARAM[walls_id]"/>
+				<param name="fallback" value="$PARAM[fallback]"/>
 				<param name="focused" value="true"/>
 			</include>
 		</focusedlayout>
@@ -99,7 +103,7 @@
 
 	<include name="HomeWallsGroup">
 		<top>193</top>
-		<animation effect="slide" start="0,0" end="0,-121" time="400" tween="cubic" easing="inout" condition="ControlGroup($PARAM[walls_id]).HasFocus" reversible="true">Conditional</animation>
+		<animation effect="slide" start="0,0" end="0,-121" time="400" tween="cubic" easing="inout" condition="ControlGroup($PARAM[walls_id]).HasFocus | Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)" reversible="true">Conditional</animation>
 		<animation condition="Skin.HasSetting(HomeWalls.ManualLoading) + Control.HasFocus($PARAM[row_id]) + [[String.IsEmpty(Window(Home).Property(altus_wall_$PARAM[row_id])) + !String.IsEqual(Container($PARAM[row_id]).ListItemAbsolute(0).Property(wall_id),Container($PARAM[row_id]).ListItem.Property(wall_id))] | [!String.IsEmpty(Window(Home).Property(altus_wall_$PARAM[row_id])) + !String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),Container($PARAM[row_id]).ListItem.Property(wall_id))]] + String.IsEqual(Skin.String(BackgroundSetting),1)" reversible="true">
 			<effect type="fadediffuse" start="FFFFFFFF" end="FF777777" time="300" />
 		</animation>
@@ -119,14 +123,16 @@
 		<scrolltime tween="cubic" easing="out">600</scrolltime>
 		<preloaditems>1</preloaditems>
 		<onup>SetFocus($PARAM[list_id],0,absolute)</onup>
-		<onup>SetFocus($PARAM[row_id])</onup>
+		<onup condition="!Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)">SetFocus($PARAM[row_id])</onup>
+		<onup condition="Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)">9000</onup>
 		<onleft condition="!String.IsEqual(Skin.String(onLeftSetting.Home),1)">9000</onleft>
 		<onleft condition="String.IsEqual(Skin.String(onLeftSetting.Home),1)">$PARAM[list_id]</onleft>
 		<onright>$PARAM[list_id]</onright>
 		<onback condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onback>
 		<onback>SetFocus($PARAM[list_id],0,absolute)</onback>
-		<onback condition="!String.IsEqual(Skin.String(onBackSetting.Home),1)">$PARAM[row_id]</onback>
-		<onback condition="String.IsEqual(Skin.String(onBackSetting.Home),1)">9000</onback>
+		<onback condition="!String.IsEqual(Skin.String(onBackSetting.Home),1) + !Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)">$PARAM[row_id]</onback>
+		<onback condition="String.IsEqual(Skin.String(onBackSetting.Home),1) | Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)">9000</onback>
+		<onfocus condition="Skin.HasSetting(HomeWalls.ManualLoading)">SetProperty(altus_wall_$PARAM[row_id],$PARAM[list_id],home)</onfocus>
 		<onunfocus condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onunfocus>
 		<onunfocus condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunfocus>
 	</include>

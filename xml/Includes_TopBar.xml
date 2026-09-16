@@ -145,7 +145,7 @@
 							<width>600</width>
 							<visible>!Control.IsVisible(503) + Player.HasMedia + String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))</visible>
 							<visible>!$EXP[isHomeWallFocused]</visible>
-							<animation effect="fade" time="300" tween="cubic" easing="out">VisibleChange</animation>
+							<animation effect="fade" time="300" tween="cubic" easing="out" condition="!$EXP[isHomeWallFocused]">VisibleChange</animation>
 							<control type="grouplist">
 								<left>-75</left>
 								<orientation>horizontal</orientation>
