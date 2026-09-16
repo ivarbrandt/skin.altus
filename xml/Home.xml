@@ -91,47 +91,58 @@
 					<include content="Visible_Right_Delayed">
 						<param name="id" value="weather"/>
 					</include>
-					<include>WeatherPanel</include>
-					<control type="grouplist" id="15001">
-						<top>170</top>
-						<include>WidgetGroupListCommon</include>
-						<pagecontrol>15010</pagecontrol>
-						<include content="WeatherWidget" condition="!String.IsEmpty(Weather.Plugin)">
-							<param name="content_include" value="DailyItems" />
-							<param name="list_id" value="15200" />
-							<param name="widget_header" value="$LOCALIZE[31019]"/>
-							<param name="visible" value="!String.IsEmpty(Window(weather).Property(Daily.IsFetched))" />
+					<defaultcontrol>15002</defaultcontrol>
+					<include content="HomeWallHeader">
+						<param name="section_id" value="15000"/>
+						<param name="row_id" value="15002"/>
+					</include>
+					<control type="fixedlist" id="15002">
+						<include content="HomeWallTabRow">
+							<param name="row_id" value="15002"/>
+							<param name="walls_id" value="15003"/>
 						</include>
-						<include content="WeatherWidget" condition="!String.IsEmpty(Weather.Plugin)">
-							<param name="content_include" value="HourlyItems" />
-							<param name="list_id" value="15100" />
-							<param name="widget_header" value="$LOCALIZE[33036]"/>
-							<param name="visible" value="!String.IsEmpty(Window(weather).Property(Hourly.IsFetched))" />
+						<content>
+							<item id="1">
+								<label>$LOCALIZE[31019]</label>
+								<onclick>noop</onclick>
+								<property name="wall_id">$NUMBER[15011]</property>
+								<visible>Weather.IsFetched | !String.IsEmpty(Window(weather).Property(Daily.IsFetched))</visible>
+							</item>
+							<item id="2">
+								<label>$LOCALIZE[33036]</label>
+								<onclick>noop</onclick>
+								<property name="wall_id">$NUMBER[15012]</property>
+								<visible>!String.IsEmpty(Window(weather).Property(Hourly.IsFetched))</visible>
+							</item>
+							<item id="3">
+								<label>$LOCALIZE[31612]</label>
+								<onclick>noop</onclick>
+								<property name="wall_id">$NUMBER[15013]</property>
+								<visible>!String.IsEmpty(Window(weather).Property(Map.1.Area)) | !String.IsEmpty(Window(weather).Property(Map.2.Area)) | !String.IsEmpty(Window(weather).Property(Map.3.Area)) | !String.IsEmpty(Window(weather).Property(Map.4.Area)) | !String.IsEmpty(Window(weather).Property(Map.5.Area))</visible>
+							</item>
+						</content>
+					</control>
+					<control type="group" id="15003">
+						<include content="HomeWallsGroup">
+							<param name="walls_id" value="15003"/>
+							<param name="row_id" value="15002"/>
 						</include>
-						<include content="WeatherMapItem">
-							<param name="item_id" value="1" />
-							<param name="onup_id" value="15200" />
-							<param name="ondown_id" value="70020" />
+						<include content="HomeWallWeather">
+							<param name="list_id" value="15011"/>
+							<param name="row_id" value="15002"/>
+							<param name="content_include" value="DailyItems"/>
+							<param name="visible" value="[!Skin.HasSetting(HomeWalls.ManualLoading) + Container(15002).HasFocus(1)] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_15002),15011) | [String.IsEmpty(Window(Home).Property(altus_wall_15002)) + String.IsEqual(Container(15002).ListItemAbsolute(0).Property(wall_id),15011)]]]"/>
 						</include>
-						<include content="WeatherMapItem">
-							<param name="item_id" value="2" />
-							<param name="onup_id" value="70010" />
-							<param name="ondown_id" value="70030" />
+						<include content="HomeWallWeather">
+							<param name="list_id" value="15012"/>
+							<param name="row_id" value="15002"/>
+							<param name="content_include" value="HourlyItems"/>
+							<param name="visible" value="[!Skin.HasSetting(HomeWalls.ManualLoading) + Container(15002).HasFocus(2)] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_15002),15012) | [String.IsEmpty(Window(Home).Property(altus_wall_15002)) + String.IsEqual(Container(15002).ListItemAbsolute(0).Property(wall_id),15012)]]]"/>
 						</include>
-						<include content="WeatherMapItem">
-							<param name="item_id" value="3" />
-							<param name="onup_id" value="70020" />
-							<param name="ondown_id" value="70040" />
-						</include>
-						<include content="WeatherMapItem">
-							<param name="item_id" value="4" />
-							<param name="onup_id" value="70030" />
-							<param name="ondown_id" value="70050" />
-						</include>
-						<include content="WeatherMapItem">
-							<param name="item_id" value="5" />
-							<param name="onup_id" value="70040" />
-							<param name="ondown_id" value="20001" />
+						<include content="HomeWallWeatherMaps">
+							<param name="list_id" value="15013"/>
+							<param name="row_id" value="15002"/>
+							<param name="visible" value="[!Skin.HasSetting(HomeWalls.ManualLoading) + Container(15002).HasFocus(3)] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_15002),15013) | [String.IsEmpty(Window(Home).Property(altus_wall_15002)) + String.IsEqual(Container(15002).ListItemAbsolute(0).Property(wall_id),15013)]]]"/>
 						</include>
 					</control>
 					<include content="ImageWidget" condition="String.IsEmpty(Weather.plugin)">
@@ -141,9 +152,6 @@
 						<param name="button_onclick" value="ActivateWindow(servicesettings,weather)"/>
 						<param name="button_id" value="15300"/>
 						<param name="button2_onclick" value="Skin.SetBool(HomeMenuNoWeatherButton)"/>
-					</include>
-					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
-						<param name="scrollbar_id" value="15010"/>
 					</include>
 				</control>
 				<control type="group" id="21000">
@@ -189,12 +197,12 @@
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
 				<!-- <animation effect="slide" condition="ControlGroup(2000).HasFocus + ![ControlGroup(19000).HasFocus | ControlGroup(22000).HasFocus | ControlGroup(23000).HasFocus | ControlGroup(24000).HasFocus | ControlGroup(25000).HasFocus]" time="500" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation> -->
-				<animation effect="slide" condition="ControlGroup(15000).HasFocus" time="500" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation>
 				<!-- <animation effect="slide" condition="ControlGroup(2000).HasFocus + !Control.HasFocus(9000) + !ControlGroup(15000).HasFocus" time="500" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation> -->
 				<include>VerticalInfoPanel</include>
+				<include>WeatherInfoPanel</include>
 				<control type="group">
 					<!-- <visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus + !Control.HasFocus(20000) + !Control.HasFocus(20001)</visible> -->
-					<visible allowhiddenfocus="true">!$EXP[isContent]</visible>
+					<visible allowhiddenfocus="true">!$EXP[isContent] + !ControlGroup(15000).HasFocus</visible>
 					<animation effect="fade" time="300">VisibleChange</animation>
 					<width>498</width>
 					<control type="list" id="9000">

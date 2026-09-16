@@ -35,7 +35,6 @@
 				<visible>
 						[
 								![
-										ControlGroup(15000).HasFocus |
 										[Window.IsActive(videos) + Control.IsVisible(53)] |
 										Control.IsVisible(54) |
 										Control.IsVisible(55) |
@@ -308,7 +307,6 @@
 		<visible>
 				[
 						![
-								ControlGroup(15000).HasFocus |
 								[Window.IsActive(videos) + Control.IsVisible(53)] |
 								Control.IsVisible(54) |
 								Control.IsVisible(55) |
