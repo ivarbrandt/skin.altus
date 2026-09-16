@@ -33,7 +33,7 @@
       <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(DialogSelect.xml) | Window.IsActive(FileBrowser.xml)">Conditional</animation>
       <control type="group">
         <control type="list" id="20000">
-          <include content="CenterList72">
+          <include content="VideoInfoMenuCentering">
             <param name="id" value="20000" />
           </include>
           <centertop>50%</centertop>
@@ -42,9 +42,12 @@
           <onleft>back</onleft>
           <onright condition="String.IsEqual(Container(20000).ListItem.Property(id),cast)">SetFocus(50,0)</onright>
           <onright condition="String.IsEqual(Container(20000).ListItem.Property(id),moreinfo)">SetFocus(53,0)</onright>
-          <include content="List">
+          <include content="MainMenuList">
             <param name="id" value="20000" />
-          </include>
+            <param name="height" value="135" />
+            <param name="img_top" value="16" />
+            <param name="img_bottom" value="16" />
+            <param name="active" value="[Control.HasFocus(50) | Control.HasFocus(53)]" />          </include>
           <content>
             <item>
               <visible>Control.IsVisible(8)</visible>
@@ -90,7 +93,7 @@
           <height>780</height>
           <top>160</top>
           <bottom>0</bottom>
-          <right>60</right>
+          <left>430</left>
           <!-- <aspectratio scalediffuse="false">scale</aspectratio> -->
           <texture diffuse="masks/poster-videoinfo.png" >$VAR[FlixPosterVar]</texture>
           <bordersize>3</bordersize>
@@ -102,13 +105,13 @@
           <animation effect="fade" start="0" end="100" time="300" delay="300">Visible</animation>
           <animation effect="fade" start="100" end="0" time="300">Hidden</animation>
           <top>160</top>
-          <left>405</left>
-          <bottom>160</bottom>
-          <right>625</right>
+          <left>1010</left>
+          <bottom>140</bottom>
+          <right>60</right>
           <control type="grouplist">
-            <left>12.5</left>
+            <left>0</left>
             <!-- <width>815</width> -->
-            <top>-30</top>
+            <top>0</top>
             <bottom>0</bottom>
             <orientation>vertical</orientation>
             <align>center</align>
@@ -117,7 +120,7 @@
               <!-- <width>780</width> -->
               <height>175</height>
               <texture background="true" aligny="bottom">$VAR[ClearlogoVar]</texture>
-              <aspectratio align="center">keep</aspectratio>
+              <aspectratio align="left">keep</aspectratio>
               <visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode] | Container.Content(addons)]</visible>
             </control>
             <control type="textbox">
@@ -127,7 +130,7 @@
               <height>auto</height>
               <font>font_MainMenu</font>
               <textcolor>unfocused_text</textcolor>
-              <align>center</align>
+              <align>left</align>
               <aligny>center</aligny>
               <label>[B]$VAR[DialogInfoTitle][/B]</label>
               <visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
@@ -138,7 +141,7 @@
               <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">Flix_Font_Default</include>
 							<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">Flix_Font_Large</include>
               <textcolor>unfocused_text</textcolor>
-              <align>center</align>
+              <align>left</align>
               <aligny>center</aligny>
               <label>$INFO[ListItem.TagLine]</label>
             </control>
@@ -147,22 +150,22 @@
               <height>50</height>
               <font>Font30</font>
               <textcolor>unfocused_text</textcolor>
-              <align>center</align>
+              <align>left</align>
               <aligny>center</aligny>
               <label>[I]$INFO[ListItem.Genre][/I]</label>
             </control>
             <include condition="!String.IsEmpty(Skin.String(valid_api_key))" content="HorizontalRatings">
-              <param name="align" value="center"/>
+              <param name="align" value="left"/>
             </include>
             <control type="textbox">
               <visible>!String.IsEmpty(ListItem.Plot)</visible>
-              <height max="370">auto</height>
+              <height max="470">auto</height>
               <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">Flix_Font_Default</include>
 							<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">Flix_Font_Large</include>
               <textcolor>unfocused_text</textcolor>
-              <align>center</align>
+              <align>left</align>
               <label>$INFO[ListItem.Plot]</label>
-              <autoscroll delay="10000" time="4700" repeat="10000">$PARAM[focused]</autoscroll>
+              <autoscroll delay="10000" time="4700" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
             </control>
           </control>
         </control>
@@ -170,14 +173,14 @@
           <visible>String.IsEqual(Container(20000).ListItem.Property(id),cast)</visible>
           <animation effect="fade" start="0" end="100" time="300" delay="300">Visible</animation>
           <animation effect="fade" start="100" end="0" time="300">Hidden</animation>
-          <left>620</left>
-          <width>1160</width>
+          <left>430</left>
+          <width>1430</width>
           <control type="image">
             <width>520</width>
             <height>780</height>
             <top>160</top>
             <bottom>160</bottom>
-            <right>-20</right>
+            <left>0</left>
             <!-- <aspectratio scalediffuse="false">scale</aspectratio> -->
             <texture diffuse="masks/poster-videoinfo.png">$INFO[Container(50).ListItem.Art(thumb)]</texture>
             <bordersize>3</bordersize>
@@ -196,11 +199,12 @@
             <onright condition="System.HasAddon(script.embuary.info) + !System.AddonIsEnabled(script.embuary.info) + !$EXP[isSet]">EnableAddon(script.embuary.info)</onright>
             <onright condition="!System.HasAddon(script.embuary.info) + !$EXP[isSet]">InstallAddon(script.embuary.info)</onright>
             <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-            <include content="CenterList104">
+            <include content="VideoInfoListCentering">
               <param name="id" value="50" />
             </include>
-            <top>67</top>
-            <height>940</height>
+            <left>580</left>
+            <top>145</top>
+            <height>810</height>
             <!-- <height>850</height> -->
             <onleft>20000</onleft>
             <include content="CastItem">
@@ -209,19 +213,22 @@
               <param name="SubLabel" value="$INFO[ListItem.Label2]" />
             </include>
           </control>
-          <include content="UpDownArrows">
-            <param name="container_id" value="50" />
-            <param name="posx" value="222" />
-            <param name="up_posy" value="30" />
-            <param name="down_posy" value="1000" />
-          </include>
+          <control type="group">
+            <left>580</left>
+            <include content="MenuScrollIndicators">
+              <param name="list_id" value="50" />
+              <param name="width" value="540" />
+              <param name="top" value="159" />
+              <param name="bottom" value="838" />
+            </include>
+          </control>
         </control>
         <control type="group">
           <visible>String.IsEqual(Container(20000).ListItem.Property(id),moreinfo)</visible>
           <animation effect="fade" start="0" end="100" time="300" delay="300">Visible</animation>
           <animation effect="fade" start="100" end="0" time="300">Hidden</animation>
-          <left>620</left>
-          <width>1160</width>
+          <left>1010</left>
+          <width>850</width>
           <!-- <control type="image">
             <visible>Container(53).IsUpdating</visible>
             <animation effect="fade" start="0" end="100" time="100" delay="2000" reversible="false">Visible</animation>
@@ -231,20 +238,20 @@
           </control> -->
           <control type="list" id="53">
             <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
-            <include content="CenterList104">
+            <include content="VideoInfoListCentering">
               <param name="id" value="53" />
             </include>
-            <top>67</top>
-            <height>940</height>
+            <top>145</top>
+            <height>810</height>
             <onleft>20000</onleft>
-            <itemlayout width="540" height="104">
+            <itemlayout width="540" height="135">
               <include content="ListItemTwoLine">
                 <param name="id" value="53" />
                 <param name="MainLabel" value="$INFO[ListItem.Label]" />
                 <param name="SubLabel" value="$INFO[ListItem.Label2]" />
               </include>
             </itemlayout>
-            <focusedlayout width="540" height="104">
+            <focusedlayout width="540" height="135">
               <include content="ListItemTwoLine">
                 <param name="id" value="53" />
                 <param name="focused" value="true" />
@@ -336,11 +343,11 @@
               </item>
             </content>
           </control>
-          <include content="UpDownArrows">
-            <param name="container_id" value="53" />
-            <param name="posx" value="222" />
-            <param name="up_posy" value="30" />
-            <param name="down_posy" value="1000" />
+          <include content="MenuScrollIndicators">
+            <param name="list_id" value="53" />
+            <param name="width" value="540" />
+            <param name="top" value="159" />
+            <param name="bottom" value="838" />
           </include>
         </control>
       </control>

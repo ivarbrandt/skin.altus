@@ -6,21 +6,10 @@
     <definition>
 			<control type="group" id="$PARAM[group_id]">
 				<left>40</left>
-				<control type="label">
-					<top>-860</top>
-					<left>0</left>
-					<aligny>center</aligny>
-					<width>1920</width>
-					<font>font36_title</font>
-					<textcolor>unfocused_text</textcolor>
-					<label>[LIGHT]$PARAM[id][/LIGHT]</label>
-					<visible>ControlGroup(400).HasFocus + [Control.HasFocus($PARAM[group_id]50) | Control.HasFocus($PARAM[group_id]51) | Control.HasFocus($PARAM[group_id]52) | Control.HasFocus($PARAM[group_id]53)]</visible>
-					<animation effect="fade" time="200" tween="cubic" easing="out">VisibleChange</animation>
-				</control>
 				<!-- First Level List - Repositories -->
 				<control type="list" id="$PARAM[group_id]50">
 					<left>0</left>
-					<top>150</top>
+					<top>100</top>
 					<width>460</width>
 					<height>810</height>
 					<onleft>9000</onleft>
@@ -101,7 +90,7 @@
 				<!-- Second Level List - Categories -->
 				<control type="list" id="$PARAM[group_id]51">
 					<left>460</left>
-					<top>150</top>
+					<top>100</top>
 					<width>460</width>
 					<height>810</height>
 					<onleft>SetFocus($PARAM[group_id]51,0,absolute),$PARAM[group_id]50</onleft>
@@ -173,7 +162,7 @@
 				<!-- Third Level List - Items -->
 				<control type="list" id="$PARAM[group_id]52">
 					<left>920</left>
-					<top>150</top>
+					<top>100</top>
 					<width>460</width>
 					<height>810</height>
 					<onleft>SetFocus($PARAM[group_id]52,0,absolute),$PARAM[group_id]51</onleft>
@@ -244,7 +233,7 @@
 				</control>
 				<control type="list" id="$PARAM[group_id]53">
 					<left>1380</left>
-					<top>150</top>
+					<top>100</top>
 					<width>460</width>
 					<height>810</height>
 					<onleft>SetFocus($PARAM[group_id]53,0,absolute),$PARAM[group_id]52</onleft>

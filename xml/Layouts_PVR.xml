@@ -2,7 +2,6 @@
 <includes>
 
   <include name="WidgetListPVRLayout">
-		<!-- <param name="item_limit">30</param> -->
 		<param name="icon">$INFO[ListItem.Icon]</param>
     <param name="label">$INFO[ListItem.ChannelName]</param>
 		<param name="label2">$INFO[ListItem.Title]</param>
@@ -19,11 +18,6 @@
 					<texture border="20" colordiffuse="4D000000">masks/radius_20.png</texture>
 				</control>
 				<control type="image">
-					<texture border="20" colordiffuse="$VAR[FocusColorTheme]">masks/radius_20.png</texture>
-					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control>
-				<control type="image">
           <centertop>25%</centertop>
           <centerleft>50%</centerleft>
           <width>129</width>
@@ -31,216 +25,106 @@
 					<texture align="center" aligny="top" fallback="DefaultTVShows.png" background="true">$PARAM[icon]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="group">
-					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
-					<control type="image">
-						<right>20</right>
-						<top>20</top>
-						<width>35</width>
-						<height>35</height>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">$VAR[WallWatchedIconVar]</texture>
-					</control>
-					<control type="label">
-						<centerleft>50%</centerleft>
-						<top>120</top>
-						<width>360</width>
-						<height>75</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>[LIGHT]$PARAM[label][/LIGHT]</label>
-						<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
-						<scrollspeed>125</scrollspeed>
-						<font>font25_title</font>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
-					</control>
-					<control type="label">
-						<centerleft>50%</centerleft>
-						<top>150</top>
-						<width>360</width>
-						<height>75</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$PARAM[label2]</label>
-						<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
-						<scrollspeed>125</scrollspeed>
-						<font>font25</font>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
-					</control>
-					<control type="label">
-						<centerleft>-13%</centerleft>
-						<top>187</top>
-						<width>360</width>
-						<height>75</height>
-						<align>right</align>
-						<aligny>center</aligny>
-						<label>$PARAM[label3]</label>
-						<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
-						<scrollspeed>125</scrollspeed>
-						<font>font25</font>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
-						<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
-					</control>
-					<control type="label">
-						<centerleft>113%</centerleft>
-						<top>187</top>
-						<width>360</width>
-						<height>75</height>
-						<align>left</align>
-						<aligny>center</aligny>
-						<label>$PARAM[label4]</label>
-						<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
-						<scrollspeed>125</scrollspeed>
-						<font>font25</font>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
-						<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
-					</control>
-					<control type="label">
-						<centerleft>50%</centerleft>
-						<top>187</top>
-						<width>360</width>
-						<height>75</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime]</label>
-						<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
-						<scrollspeed>125</scrollspeed>
-						<font>font25</font>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
-						<visible>Integer.IsEqual(ListItem.Progress,0)</visible>
-					</control>
-					<control type="label">
-						<centerleft>50%</centerleft>
-						<top>224</top>
-						<width>365</width>
-						<height>75</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$VAR[WidgetFocusedPVRNextProgrammeLabel]</label>
-						<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
-						<scrollspeed>125</scrollspeed>
-						<font>font25</font>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
-					</control>
-					<!-- <control type="label">
-						<centerleft>50%</centerleft>
-						<top>320</top>
-						<width>240</width>
-						<height>75</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$PARAM[label4]</label>
-						<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
-						<font>font25</font>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
-					</control> -->
+				<include content="FocusBorder">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="focused" value="$PARAM[focused]"/>
+				</include>
+				<control type="image">
+					<right>20</right>
+					<top>20</top>
+					<width>35</width>
+					<height>35</height>
+					<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[WallWatchedIconVar]</texture>
 				</control>
-				<control type="group">
-					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</visible>
-					<control type="image">
-						<right>20</right>
-						<top>20</top>
-						<width>35</width>
-						<height>35</height>
-						<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[WallWatchedIconVar]</texture>
-					</control>
-					<control type="label">
-						<centerleft>50%</centerleft>
-						<top>120</top>
-						<width>360</width>
-						<height>75</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>[LIGHT]$PARAM[label][/LIGHT]</label>
-						<font>font25_title</font>
-						<textcolor>unfocused_text</textcolor>
-						<selectedcolor>unfocused_text</selectedcolor>
-					</control>
-					<control type="label">
-						<centerleft>50%</centerleft>
-						<top>150</top>
-						<width>360</width>
-						<height>75</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$PARAM[label2]</label>
-						<font>font25</font>
-						<textcolor>unfocused_text</textcolor>
-						<selectedcolor>unfocused_text</selectedcolor>
-					</control>
-					<control type="label">
-						<centerleft>-13%</centerleft>
-						<top>187</top>
-						<width>360</width>
-						<height>75</height>
-						<align>right</align>
-						<aligny>center</aligny>
-						<label>$PARAM[label3]</label>
-						<font>font25</font>
-						<textcolor>unfocused_text</textcolor>
-						<selectedcolor>unfocused_text</selectedcolor>
-						<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
-					</control>
-					<control type="label">
-						<centerleft>113%</centerleft>
-						<top>187</top>
-						<width>360</width>
-						<height>75</height>
-						<align>left</align>
-						<aligny>center</aligny>
-						<label>$PARAM[label4]</label>
-						<font>font25</font>
-						<textcolor>unfocused_text</textcolor>
-						<selectedcolor>unfocused_text</selectedcolor>
-						<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
-					</control>
-					<control type="label">
-						<centerleft>50%</centerleft>
-						<top>187</top>
-						<width>360</width>
-						<height>75</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime]</label>
-						<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
-						<font>font25</font>
-						<textcolor>unfocused_text</textcolor>
-						<selectedcolor>unfocused_text</selectedcolor>
-						<visible>Integer.IsEqual(ListItem.Progress,0)</visible>
-					</control>
-					<control type="label">
-						<centerleft>50%</centerleft>
-						<top>224</top>
-						<width>365</width>
-						<height>75</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$VAR[WidgetUnfocusedPVRNextProgrammeLabel]</label>
-						<font>font25</font>
-						<textcolor>unfocused_text</textcolor>
-						<selectedcolor>unfocused_text</selectedcolor>
-					</control>
-					<!-- <control type="label">
-						<centerleft>50%</centerleft>
-						<top>320</top>
-						<width>240</width>
-						<height>75</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$PARAM[label4]</label>
-						<font>font25</font>
-						<textcolor>unfocused_text</textcolor>
-						<selectedcolor>unfocused_text</selectedcolor>
-					</control> -->
+				<control type="label">
+					<centerleft>50%</centerleft>
+					<top>120</top>
+					<width>360</width>
+					<height>75</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>[LIGHT]$PARAM[label][/LIGHT]</label>
+					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
+					<scrollspeed>125</scrollspeed>
+					<font>font25_title</font>
+					<textcolor>unfocused_text</textcolor>
+					<selectedcolor>unfocused_text</selectedcolor>
+				</control>
+				<control type="label">
+					<centerleft>50%</centerleft>
+					<top>150</top>
+					<width>360</width>
+					<height>75</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$PARAM[label2]</label>
+					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
+					<scrollspeed>125</scrollspeed>
+					<font>font25</font>
+					<textcolor>unfocused_text</textcolor>
+					<selectedcolor>unfocused_text</selectedcolor>
+				</control>
+				<control type="label">
+					<centerleft>-13%</centerleft>
+					<top>187</top>
+					<width>360</width>
+					<height>75</height>
+					<align>right</align>
+					<aligny>center</aligny>
+					<label>$PARAM[label3]</label>
+					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
+					<scrollspeed>125</scrollspeed>
+					<font>font25</font>
+					<textcolor>unfocused_text</textcolor>
+					<selectedcolor>unfocused_text</selectedcolor>
+					<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
+				</control>
+				<control type="label">
+					<centerleft>113%</centerleft>
+					<top>187</top>
+					<width>360</width>
+					<height>75</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$PARAM[label4]</label>
+					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
+					<scrollspeed>125</scrollspeed>
+					<font>font25</font>
+					<textcolor>unfocused_text</textcolor>
+					<selectedcolor>unfocused_text</selectedcolor>
+					<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
+				</control>
+				<control type="label">
+					<centerleft>50%</centerleft>
+					<top>187</top>
+					<width>360</width>
+					<height>75</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime]</label>
+					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
+					<scrollspeed>125</scrollspeed>
+					<font>font25</font>
+					<textcolor>unfocused_text</textcolor>
+					<selectedcolor>unfocused_text</selectedcolor>
+					<visible>Integer.IsEqual(ListItem.Progress,0)</visible>
+				</control>
+				<control type="label">
+					<centerleft>50%</centerleft>
+					<top>224</top>
+					<width>365</width>
+					<height>75</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$VAR[WidgetUnfocusedPVRNextProgrammeLabel]</label>
+					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</scroll>
+					<scrollspeed>125</scrollspeed>
+					<font>font25</font>
+					<textcolor>unfocused_text</textcolor>
+					<selectedcolor>unfocused_text</selectedcolor>
 				</control>
         <control type="group">
-          <visible>!Integer.IsEqual(ListItem.Progress,0) + ![$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</visible>
+          <visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
           <control type="progress">
             <centerleft>50%</centerleft>
             <top>223</top>
@@ -250,27 +134,6 @@
           </control>
           <control type="progress">
             <centerleft>50%</centerleft>
-            <top>223</top>
-            <width>140</width>
-            <height>6</height>
-            <info>ListItem.Progress</info>
-          </control>
-        </control>
-        <control type="group">
-          <visible>!Integer.IsEqual(ListItem.Progress,0) + [$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</visible>
-          <control type="progress">
-						<centerleft>50%</centerleft>
-						<midtexture colordiffuse="$VAR[FocusedTextColorVar]">colors/white.png</midtexture>
-						<texturebg colordiffuse="$VAR[FocusedTextColorVar]">colors/white_50.png</texturebg>
-            <top>223</top>
-            <width>140</width>
-            <height>6</height>
-            <info>ListItem.PercentPlayed</info>
-          </control>
-          <control type="progress">
-            <centerleft>50%</centerleft>
-						<midtexture colordiffuse="$VAR[FocusedTextColorVar]">colors/white.png</midtexture>
-						<texturebg colordiffuse="$VAR[FocusedTextColorVar]">colors/white_50.png</texturebg>
             <top>223</top>
             <width>140</width>
             <height>6</height>

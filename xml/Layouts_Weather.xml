@@ -14,11 +14,10 @@
 				<control type="image">
 					<texture colordiffuse="4D000000">masks/small-square.png</texture>
 				</control>
-				<control type="image">
-					<texture border="20" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-20.png</texture>
-					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control>
+				<include content="FocusBorder">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="focused" value="$PARAM[focused]"/>
+				</include>
 				<control type="image">
 					<centerleft>50%</centerleft>
 					<top>14</top>

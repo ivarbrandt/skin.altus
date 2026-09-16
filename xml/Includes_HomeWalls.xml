@@ -15,6 +15,43 @@
 				<param name="visible" value="true"/>
 			</include>
 		</control>
+		<include content="HomeWallTabIndicators">
+			<param name="section_id" value="$PARAM[section_id]"/>
+			<param name="row_id" value="$PARAM[row_id]"/>
+		</include>
+	</include>
+
+	<include name="HomeWallTabIndicators">
+		<param name="top">83</param>
+		<param name="left">18</param>
+		<param name="right">1333</param>
+		<definition>
+			<control type="group">
+				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="ControlGroup($PARAM[section_id]).HasFocus + !Control.HasFocus($PARAM[row_id])">Conditional</animation>
+				<control type="image">
+					<left>$PARAM[left]</left>
+					<top>$PARAM[top]</top>
+					<width>70</width>
+					<height>87</height>
+					<texture border="0,33,0,33" colordiffuse="$VAR[FocusColorTheme]">masks/tabrow_divider.png</texture>
+					<animation effect="zoom" start="100,0" end="100,100" center="auto" delay="100" time="300">Visible</animation>
+					<animation effect="fade" start="0" end="100" delay="100" time="300">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+					<visible>Container($PARAM[row_id]).HasPrevious + !Container($PARAM[row_id]).OnScrollNext + !Container($PARAM[row_id]).OnScrollPrevious</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[right]</left>
+					<top>$PARAM[top]</top>
+					<width>70</width>
+					<height>87</height>
+					<texture flipx="true" border="0,33,0,33" colordiffuse="$VAR[FocusColorTheme]">masks/tabrow_divider.png</texture>
+					<animation effect="zoom" start="100,0" end="100,100" center="auto" delay="100" time="300">Visible</animation>
+					<animation effect="fade" start="0" end="100" delay="100" time="300">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+					<visible>Container($PARAM[row_id]).HasNext + !Container($PARAM[row_id]).OnScrollNext + !Container($PARAM[row_id]).OnScrollPrevious</visible>
+				</control>
+			</control>
+		</definition>
 	</include>
 
 	<include name="HomeWallTabLayout">
@@ -26,18 +63,24 @@
 				<width>249</width>
 				<height>87</height>
 				<control type="image">
-					<texture border="20" colordiffuse="4D000000">masks/radius_20.png</texture>
+					<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
 				</control>
 				<control type="image">
-					<texture border="20" colordiffuse="80000000">masks/radius_20.png</texture>
-					<visible>!ControlGroup($PARAM[walls_id]).HasFocus + ![$PARAM[focused] + Control.HasFocus($PARAM[row_id])]</visible>
+					<texture border="33" colordiffuse="80000000">masks/radius_33.png</texture>
+					<visible>!ControlGroup($PARAM[walls_id]).HasFocus + ![$PARAM[focused] + Control.HasFocus($PARAM[row_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)]</visible>
 					<visible>[!Skin.HasSetting(HomeWalls.ManualLoading) + $PARAM[focused]] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),ListItem.Property(wall_id)) | [$PARAM[fallback] + Integer.IsEqual(ListItem.CurrentItem,1)]]]</visible>
 				</control>
 				<control type="image">
-					<texture border="20" colordiffuse="$VAR[FocusColorTheme]">masks/radius_20.png</texture>
-					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[row_id])] | [$PARAM[focused] + ControlGroup($PARAM[walls_id]).HasFocus]</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+					<texture border="33" colordiffuse="80000000">masks/radius_33.png</texture>
+					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[row_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)] | [$PARAM[focused] + ControlGroup($PARAM[walls_id]).HasFocus]</visible>
 				</control>
+				<include content="FocusBorder">
+					<param name="list_id" value="$PARAM[row_id]"/>
+					<param name="focused" value="$PARAM[focused]"/>
+					<param name="radius" value="33_alt"/>
+					<param name="border" value="33"/>
+					<param name="extra" value="ControlGroup($PARAM[walls_id]).HasFocus"/>
+				</include>
 				<control type="textbox">
 					<centertop>50%</centertop>
 					<left>20</left>
@@ -46,10 +89,10 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<textcolor>$VAR[FocusColorTheme]</textcolor>
 					<font>font23_stacked_widgets_fo</font>
 					<autoscroll delay="2000" time="3000" repeat="2000">Control.HasFocus($PARAM[row_id])</autoscroll>
-					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[row_id])] | [$PARAM[focused] + ControlGroup($PARAM[walls_id]).HasFocus]</visible>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[row_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)</visible>
 				</control>
 				<control type="textbox">
 					<centertop>50%</centertop>
@@ -60,8 +103,8 @@
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>unfocused_text</textcolor>
-					<font>font23_stacked_widgets_unfo</font>
-					<visible>![[$PARAM[focused] + Control.HasFocus($PARAM[row_id])] | [$PARAM[focused] + ControlGroup($PARAM[walls_id]).HasFocus]]</visible>
+					<font>font23_stacked_widgets_fo</font>
+					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[row_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)]</visible>
 				</control>
 			</control>
 		</definition>
@@ -453,7 +496,7 @@
 						<param name="row_id" value="$PARAM[row_id]"/>
 						<param name="visible" value="$PARAM[visible]"/>
 					</include>
-					<itemlayout width="354" height="178">
+					<itemlayout width="354" height="194">
 						<control type="group">
 							<include content="HomeWallUnfocusedAnimations">
 								<param name="list_id" value="$PARAM[list_id]"/>
@@ -465,7 +508,7 @@
 							</include>
 						</control>
 					</itemlayout>
-					<focusedlayout width="354" height="178" infoupdate="30">
+					<focusedlayout width="354" height="194" infoupdate="30">
 						<control type="group">
 							<depth>DepthContentPopout</depth>
 							<top>-15</top>

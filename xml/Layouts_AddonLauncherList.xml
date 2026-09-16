@@ -8,24 +8,13 @@
     <definition>
 			<control type="group" id="$PARAM[group_id]">
 				<left>0</left>
-				<control type="label">
-					<top>-860</top>
-					<left>35</left>
-					<aligny>center</aligny>
-					<align>left</align>
-					<font>font36_title</font>
-					<textcolor>unfocused_text</textcolor>
-					<label>[LIGHT]$PARAM[id][/LIGHT]</label>
-					<visible>ControlGroup(400).HasFocus</visible>
-					<animation effect="fade" time="200" tween="cubic" easing="out">VisibleChange</animation>
-				</control>
 				<include content="Visible_Right_Delayed">
 					<param name="id" value="$PARAM[id]"/>
 				</include>
 				<visible>String.IsEqual(Container(9000).ListItem.Property(id),$PARAM[id])</visible>
 				<control type="panel" id="$PARAM[group_id]50">
 					<left>35</left>
-					<top>150</top>
+					<top>100</top>
 					<width>1920</width>
 					<height>810</height>
 					<onleft>9000</onleft>

@@ -31,11 +31,11 @@
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<visible>$EXP[isContent]</visible>
 				</control> -->
-				<control type="image">
-					<texture border="20" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-20.png</texture>
-					<visible>[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]] | [$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control>
+				<include content="FocusBorder">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="focused" value="$PARAM[focused]"/>
+					<param name="extra" value="ControlGroup(400).HasFocus"/>
+				</include>
 				<control type="label">
 					<centerleft>50%</centerleft>
 					<!-- <left>10</left> -->

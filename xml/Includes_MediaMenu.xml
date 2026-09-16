@@ -865,6 +865,15 @@
 				<visible>Control.IsVisible(501) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 			</control>
 
+			<!-- 52 -->
+			<control type="radiobutton" id="6132">
+				<label>$VAR[Capitalize_DimorFadeLabel] unfocused items</label>
+				<include>MediaMenuItemsCommon</include>
+				<onclick>Skin.ToggleSetting(Enable.52Dim)</onclick>
+				<selected>Skin.HasSetting(Enable.52Dim)</selected>
+				<visible>Control.IsVisible(52)</visible>
+			</control>
+
 			<control type="button" id="6097">
 				<include>MediaMenuItemsCommon</include>
 				<label>$LOCALIZE[31022]</label>

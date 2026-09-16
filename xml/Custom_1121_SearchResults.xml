@@ -221,6 +221,13 @@
 						</content>
 					</control>
 					<control type="group">
+						<left>40</left>
+						<visible>!String.IsEqual(Window(home).Property(altus.search.history.count),0) + String.IsEqual(Window(home).Property(altus.search.mode),history)</visible>
+						<include content="MenuScrollIndicators">
+							<param name="list_id" value="9000"/>
+						</include>
+					</control>
+					<control type="group">
 						<left>23</left>
 						<top>70</top>
 						<width>460</width>

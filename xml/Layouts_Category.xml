@@ -11,15 +11,9 @@
         <top>26</top>
         <left>20</left>
 				<width>317</width>
-				<height>139</height>
+				<height>155</height>
 				<control type="image">
 					<texture border="20" colordiffuse="4D000000">masks/radius_20.png</texture>
-				</control>
-				<control type="image">
-					<texture border="20" colordiffuse="$VAR[FocusColorTheme]">masks/radius_20.png</texture>
-					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
-					<visible>!$EXP[isContent]</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 				<control type="group">
 					<centertop>37%</centertop>
@@ -28,14 +22,8 @@
 					<height>90</height>
 					<visible>!$EXP[isContent]</visible>
 					<control type="image">
-						<texture colordiffuse="$VAR[IconDiffuse]" fallback="$PARAM[fallback_icon]" background="true">$PARAM[icon]</texture>
-						<aspectratio aligny="bottom" align="center">scale</aspectratio>
-						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
-					</control>
-					<control type="image">
 						<texture colordiffuse="unfocused_text" fallback="$PARAM[fallback_icon]" background="true">$PARAM[icon]</texture>
-						<aspectratio aligny="bottom" align="center">scale</aspectratio>
-						<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</visible>
+						<aspectratio aligny="center" align="center">keep</aspectratio>
 					</control>
 				</control>
 				<control type="image">
@@ -59,32 +47,14 @@
 					<scrollspeed>50</scrollspeed>
 					<visible>$EXP[isContent] + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
 				</control>
-				<control type="image">
-					<texture border="20" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-20.png</texture>
-					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
-					<visible>$EXP[isContent]</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control>
+				<include content="FocusBorder">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="focused" value="$PARAM[focused]"/>
+				</include>
 				<control type="label">
 					<centerleft>50%</centerleft>
 					<!-- 145 -->
-					<top>75</top>
-					<width>280</width>
-					<height>65</height>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$VAR[AddonsTitleVar]</label>
-					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-					<font>font25</font>
-					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
-					<scrollspeed>50</scrollspeed>
-					<visible>!$EXP[isContent]</visible>
-					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
-				</control>
-				<control type="label">
-					<centerleft>50%</centerleft>
-					<!-- 145 -->
-					<top>75</top>
+					<top>82</top>
 					<width>280</width>
 					<height>65</height>
 					<align>center</align>
@@ -95,7 +65,6 @@
 					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
 					<scrollspeed>50</scrollspeed>
 					<visible>!$EXP[isContent]</visible>
-					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</visible>
 				</control>
 			</control>
 		</definition>

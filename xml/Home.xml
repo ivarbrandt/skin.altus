@@ -211,7 +211,7 @@
 						<left>30</left>
 						<top>180</top>
 						<width>428</width>
-						<height>850</height>
+						<height>840</height>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<!-- <onfocus>SetProperty(fenlight.default_addon_fanart,,home)</onfocus> -->
 						<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
@@ -237,13 +237,20 @@
 							</item>
 						</content>
 					</control>
+					<control type="group">
+						<animation effect="slide" condition="!ControlGroup(2000).HasFocus + ![Control.HasFocus(9000) | ControlGroup(700).HasFocus]" time="300" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation>
+						<left>30</left>
+						<include content="MenuScrollIndicators">
+							<param name="list_id" value="9000"/>
+						</include>
+					</control>
 					<!-- Section submenus (positioned right of main menu) -->
 					<control type="group">
 						<animation effect="slide" condition="ControlGroup(2000).HasFocus | Control.HasFocus(9000) | ControlGroup(700).HasFocus" time="300" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation>
 						<left>30</left>
 						<top>180</top>
 						<width>428</width>
-						<height>832</height>
+						<height>840</height>
 						<include>HomeSubmenus</include>
 					</control>
 					<control type="group">

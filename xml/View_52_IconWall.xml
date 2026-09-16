@@ -47,6 +47,9 @@
 				<viewtype label="31099">icon</viewtype>
 				<itemlayout height="290" width="440" condition="Container.Content() | Container.Content(files) | Container.Content(tags) | Container.Content(playlists) | [Container.Content(studios) + System.AddonIsEnabled(resource.images.studios.white)]">
 					<control type="group">
+						<include content="ViewUnfocusedAnimations">
+							<param name="id" value="52"/>
+						</include>
 						<top>0</top>
 						<control type="image">
 							<left>40</left>
@@ -81,23 +84,38 @@
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<include>VideoTrailerControl</include>
+						<include content="ViewFocusAnimations">
+							<param name="id" value="52"/>
+							<param name="list_id" value="52"/>
+						</include>
 						<top>0</top>
 						<control type="image">
 							<left>40</left>
 							<top>40</top>
 							<width>360</width>
 							<height>210</height>
-							<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
-							<include>Animation_FocusTextureFade</include>
+							<texture border="23" colordiffuse="4D000000">masks/radius_23.png</texture>
 						</control>
 						<control type="image">
 							<left>160</left>
 							<top>60</top>
 							<width>120</width>
 							<height>120</height>
-							<texture colordiffuse="$VAR[IconDiffuse]" fallback="DefaultStudios.png">$INFO[ListItem.Icon]</texture>
+							<texture fallback="DefaultStudios.png">$INFO[ListItem.Icon]</texture>
 							<aspectratio>keep</aspectratio>
 							<align>center</align>
+						</control>
+						<control type="group">
+							<left>40</left>
+							<top>40</top>
+							<width>360</width>
+							<height>210</height>
+							<include content="FocusBorder">
+								<param name="list_id" value="52"/>
+								<param name="focused" value="true"/>
+								<param name="radius" value="23"/>
+								<param name="border" value="23"/>
+							</include>
 						</control>
 						<control type="label">
 							<left>77</left>
@@ -106,7 +124,7 @@
 							<height>40</height>
 							<font>font23</font>
 							<label>$INFO[ListItem.Label]</label>
-							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+							<textcolor>unfocused_text</textcolor>
 							<align>center</align>
 							<aligny>center</aligny>
 							<scroll>true</scroll>
@@ -117,6 +135,9 @@
 				</focusedlayout>
 				<itemlayout height="181" width="348" condition="Container.Content(genres) | Container.Content(sources) | Container.Content(years) | Container.Content(roles) | Container.Content(countries) | [Container.Content(studios) + !System.AddonIsEnabled(resource.images.studios.white)]">
 					<control type="group">
+						<include content="ViewUnfocusedAnimations">
+							<param name="id" value="52"/>
+						</include>
 						<top>120</top>
 						<control type="image">
 							<width>330</width>
@@ -139,6 +160,10 @@
 				<focusedlayout height="181" width="348" condition="Container.Content(genres) | Container.Content(sources) | Container.Content(years) | Container.Content(roles) | Container.Content(countries) | [Container.Content(studios) + !System.AddonIsEnabled(resource.images.studios.white)]">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
+						<include content="ViewFocusAnimations">
+							<param name="id" value="52"/>
+							<param name="list_id" value="52"/>
+						</include>
 						<top>120</top>
 						<control type="image">
 							<width>330</width>

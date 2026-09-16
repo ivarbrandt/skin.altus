@@ -6,7 +6,7 @@
 			<control type="image">
 				<width>493</width>
 				<height>150</height>
-				<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
+				<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
 			</control>
 			<control type="image">
 				<centertop>40%</centertop>
@@ -31,15 +31,38 @@
 				<control type="image">
 					<width>493</width>
 					<height>150</height>
-					<texture border="33" colordiffuse="$VAR[FocusColorTheme]">masks/radius_33.png</texture>
-					<include>Animation_FocusTextureFade</include>
+					<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+					<visible>![Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)]</visible>
+				</control>
+				<control type="image">
+					<width>493</width>
+					<height>150</height>
+					<texture border="46" colordiffuse="A6000000">masks/radius_46.png</texture>
+					<visible>Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)</visible>
+				</control>
+				<include content="FocusBorder">
+					<param name="list_id" value="9000"/>
+					<param name="focused" value="true"/>
+					<param name="radius" value="46"/>
+					<param name="border" value="46"/>
+					<param name="right" value="40"/>
+					<param name="bottom" value="40"/>
+				</include>
+				<control type="image">
+					<centertop>40%</centertop>
+					<centerleft>15%</centerleft>
+					<width>80</width>
+					<texture colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>![Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)]</visible>
 				</control>
 				<control type="image">
 					<centertop>40%</centertop>
 					<centerleft>15%</centerleft>
 					<width>80</width>
-					<texture colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Icon]</texture>
+					<texture colordiffuse="$VAR[FocusColorTheme]">$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
+					<visible>Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)</visible>
 				</control>
 				<control type="textbox">
 					<left>150</left>
@@ -47,8 +70,19 @@
 					<centertop>40%</centertop>
 					<label>$INFO[ListItem.Label]</label>
 					<font>font40_settings</font>
-					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<textcolor>unfocused_text</textcolor>
 					<aligny>center</aligny>
+					<visible>![Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)]</visible>
+				</control>
+				<control type="textbox">
+					<left>150</left>
+					<width>50%</width>
+					<centertop>40%</centertop>
+					<label>$INFO[ListItem.Label]</label>
+					<font>font40_settings</font>
+					<textcolor>$VAR[FocusColorTheme]</textcolor>
+					<aligny>center</aligny>
+					<visible>Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)</visible>
 				</control>
 			</control>
 		</focusedlayout>

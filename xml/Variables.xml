@@ -557,6 +557,10 @@
 		<value condition="Container.Content(episodes)">[COLOR unfocused_text]TV Shows[/COLOR]</value>
 		<value>[COLOR unfocused_text]$LOCALIZE[3][/COLOR]</value>
 	</variable>
+	<variable name="BreadcrumbsAddonLauncherVar">
+		<value condition="ControlGroup(400).HasFocus">[COLOR unfocused_text]$LOCALIZE[24001][/COLOR] » [COLOR unfocused_text]$INFO[Container(9000).ListItem.Label][/COLOR]</value>
+		<value>[COLOR unfocused_text]$LOCALIZE[24001][/COLOR]</value>
+	</variable>
 	<variable name="BreadcrumbsPVRChannelsVar">
 		<value condition="Window.IsActive(TVChannels)">[COLOR unfocused_text]$LOCALIZE[19020][/COLOR] » [COLOR unfocused_text]$LOCALIZE[19019][/COLOR] » [COLOR unfocused_text]$INFO[Control.GetLabel(29)][/COLOR]</value>
 		<value>[COLOR unfocused_text]$LOCALIZE[19021][/COLOR] » [COLOR unfocused_text]$LOCALIZE[19019][/COLOR] » [COLOR unfocused_text]$INFO[Control.GetLabel(29)][/COLOR]</value>
