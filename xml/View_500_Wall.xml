@@ -20,9 +20,15 @@
 					<!-- <top>39</top> -->
 					<left>28</left>
 					<top>0</top>
-					<include content="PosterLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="500"/>
+							<param name="list_id" value="500"/>
+						</include>
+						<include content="PosterLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -50,9 +56,15 @@
 					<!-- <top>39</top> -->
 					<left>48</left>
 					<top>0</top>
-					<include content="PosterLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="500"/>
+							<param name="list_id" value="500"/>
+						</include>
+						<include content="PosterLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -80,9 +92,15 @@
 					<!-- <top>39</top> -->
 					<top>0</top>
 					<left>8</left>
-					<include content="SmallPosterLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="500"/>
+							<param name="list_id" value="500"/>
+						</include>
+						<include content="SmallPosterLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -110,9 +128,15 @@
 					<!-- <top>39</top> -->
 					<top>0</top>
 					<left>8</left>
-					<include content="SmallPosterLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="500"/>
+							<param name="list_id" value="500"/>
+						</include>
+						<include content="SmallPosterLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>

@@ -3,8 +3,7 @@
 media/*
 !media/Textures.xbt
 xml/script-altus-main_menu.xml
-xml/script-altus-widgets.xml
-xml/script-altus-home_groups.xml
+xml/script-altus-home_walls.xml
 xml/script-altus-submenus.xml
 xml/script-altus-search_widgets.xml
 xml/script-altus-search_kind_filter.xml

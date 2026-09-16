@@ -113,9 +113,15 @@
 						<depth>DepthContentPopout</depth>
 						<top>0</top>
 						<left>-20</left>
-						<include content="SmallPosterLayout">
-							<param name="focused" value="true" />
-						</include>
+						<control type="group">
+							<include content="ViewFocusAnimations">
+								<param name="id" value="56"/>
+								<param name="list_id" value="56"/>
+							</include>
+							<include content="SmallPosterLayout">
+								<param name="focused" value="true" />
+							</include>
+						</control>
 						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
@@ -198,9 +204,15 @@
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<top>0</top>
-						<include content="SmallPosterLayout">
-							<param name="focused" value="true" />
-						</include>
+						<control type="group">
+							<include content="ViewFocusAnimations">
+								<param name="id" value="56"/>
+								<param name="list_id" value="56"/>
+							</include>
+							<include content="SmallPosterLayout">
+								<param name="focused" value="true" />
+							</include>
+						</control>
 					</control>
 				</focusedlayout>
 				<itemlayout width="235" height="375" condition="String.IsEqual(Skin.String(ArtworkSize54Setting),1) + Skin.HasSetting(Enable.54Titles) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
@@ -216,9 +228,15 @@
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<top>0</top>
-						<include content="SmallPosterLayout">
-							<param name="focused" value="true" />
-						</include>
+						<control type="group">
+							<include content="ViewFocusAnimations">
+								<param name="id" value="56"/>
+								<param name="list_id" value="56"/>
+							</include>
+							<include content="SmallPosterLayout">
+								<param name="focused" value="true" />
+							</include>
+						</control>
 					</control>
 				</focusedlayout> -->
 			</control>

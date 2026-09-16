@@ -20,9 +20,15 @@
             <left>21</left>
 					<!-- <top>45</top> -->
 					<top>0</top>
-					<include content="LandscapeLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="501"/>
+							<param name="list_id" value="501"/>
+						</include>
+						<include content="LandscapeLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -50,9 +56,15 @@
             <left>21</left>
 					<!-- <top>45</top> -->
 					<top>0</top>
-					<include content="LandscapeLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="501"/>
+							<param name="list_id" value="501"/>
+						</include>
+						<include content="LandscapeLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -80,9 +92,15 @@
             <left>33</left>
 					<!-- <top>45</top> -->
 					<top>0</top>
-					<include content="BigLandscapeLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="501"/>
+							<param name="list_id" value="501"/>
+						</include>
+						<include content="BigLandscapeLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -110,9 +128,15 @@
             <left>13</left>
 					<!-- <top>45</top> -->
 					<top>0</top>
-					<include content="BigLandscapeLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="501"/>
+							<param name="list_id" value="501"/>
+						</include>
+						<include content="BigLandscapeLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -140,9 +164,15 @@
             <left>65</left>
 					<!-- <top>45</top> -->
 					<top>0</top>
-					<include content="SmallLandscapeLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="501"/>
+							<param name="list_id" value="501"/>
+						</include>
+						<include content="SmallLandscapeLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -170,9 +200,15 @@
             <left>20</left>
 					<!-- <top>45</top> -->
 					<top>0</top>
-					<include content="SmallLandscapeLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="501"/>
+							<param name="list_id" value="501"/>
+						</include>
+						<include content="SmallLandscapeLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -259,9 +295,15 @@
 						<depth>DepthContentPopout</depth>
             <left>33</left>
 						<top>0</top>
-						<include content="BigLandscapeLayout">
-							<param name="focused" value="true" />
-						</include>
+						<control type="group">
+							<include content="ViewFocusAnimations">
+								<param name="id" value="501"/>
+								<param name="list_id" value="501"/>
+							</include>
+							<include content="BigLandscapeLayout">
+								<param name="focused" value="true" />
+							</include>
+						</control>
 						<include>FocusBounce</include>
 					</control>
 				</focusedlayout>

@@ -59,7 +59,7 @@
 				<control type="group">
 					<control type="image">
 					<bordersize>border_size</bordersize>
-					<texture colordiffuse="66000000">colors/white.png</texture>
+					<texture colordiffuse="4D000000">colors/white.png</texture>
 					<bordertexture border="border_size" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture2.png</bordertexture>
 				</control>
 				</control>
@@ -143,9 +143,15 @@
 				<control type="group">
 					<depth>DepthContentPopout</depth>
 					<top>0</top>
-					<include content="PosterLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="54"/>
+							<param name="list_id" value="54"/>
+						</include>
+						<include content="PosterLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -169,9 +175,15 @@
 				<control type="group">
 					<depth>DepthContentPopout</depth>
 					<top>0</top>
-					<include content="PosterLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="54"/>
+							<param name="list_id" value="54"/>
+						</include>
+						<include content="PosterLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -195,9 +207,15 @@
 				<control type="group">
 					<depth>DepthContentPopout</depth>
 					<top>0</top>
-					<include content="SmallPosterLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="54"/>
+							<param name="list_id" value="54"/>
+						</include>
+						<include content="SmallPosterLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -221,9 +239,15 @@
 				<control type="group">
 					<depth>DepthContentPopout</depth>
 					<top>0</top>
-					<include content="SmallPosterLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="54"/>
+							<param name="list_id" value="54"/>
+						</include>
+						<include content="SmallPosterLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>

@@ -1,98 +1,280 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-  <include name="BigWeatherLabel">
-		<control type="label">
-			<top>$PARAM[top]</top>
-			<left>$PARAM[left]</left>
-			<aligny>center</aligny>
-			<height>24</height>
-			<right>60</right>
-			<align>left</align>
-			<font>font36_title</font>
-			<label>$PARAM[label]</label>
-			<textcolor>$VAR[FocusColorTheme]</textcolor>
+  <include name="WeatherInfoLabel">
+		<param name="font">font32</param>
+		<param name="textcolor">darkgrey</param>
+		<param name="height">50</param>
+		<param name="visible">true</param>
+		<definition>
+			<control type="label">
+				<align>left</align>
+				<width>418</width>
+				<height>$PARAM[height]</height>
+				<aligny>center</aligny>
+				<font>$PARAM[font]</font>
+				<textcolor>$PARAM[textcolor]</textcolor>
+				<shadowcolor>text_shadow</shadowcolor>
+				<label>$PARAM[label]</label>
+				<scroll>true</scroll>
+				<scrollspeed>170</scrollspeed>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="WeatherInfoPanel">
+		<control type="group">
+			<width>418</width>
+			<visible>ControlGroup(15000).HasFocus + !String.IsEmpty(Weather.plugin)</visible>
+			<animation effect="fade" time="300">VisibleChange</animation>
+			<include>OpenClose_Left</include>
+			<control type="grouplist">
+				<left>40</left>
+				<top>0</top>
+				<bottom>0</bottom>
+				<width>418</width>
+				<orientation>vertical</orientation>
+				<align>center</align>
+				<itemgap>0</itemgap>
+				<include content="WeatherInfoLabel">
+					<param name="label" value="[UPPERCASE]$INFO[Weather.Location][/UPPERCASE]"/>
+					<param name="font" value="font40_title"/>
+					<param name="textcolor" value="$VAR[FocusColorTheme]"/>
+					<param name="height" value="66"/>
+				</include>
+				<include content="WeatherInfoLabel">
+					<param name="label" value="$INFO[Window(weather).Property(Updated),[COLOR white]UPDATED: [/COLOR]]"/>
+					<param name="font" value="font27"/>
+					<param name="height" value="50"/>
+				</include>
+				<control type="group">
+					<width>418</width>
+					<height>40</height>
+				</control>
+				<include content="WeatherInfoLabel">
+					<param name="label" value="CURRENTLY"/>
+					<param name="font" value="font36_title"/>
+					<param name="textcolor" value="$VAR[FocusColorTheme]"/>
+					<param name="height" value="68"/>
+				</include>
+				<include content="WeatherInfoLabel">
+					<param name="label" value="$INFO[Weather.Conditions,[COLOR white]CONDITIONS: [/COLOR]]"/>
+				</include>
+				<include content="WeatherInfoLabel">
+					<param name="label" value="$INFO[Weather.Temperature,[COLOR white]TEMPERATURE: [/COLOR]]"/>
+				</include>
+				<include content="WeatherInfoLabel">
+					<param name="label" value="[COLOR white]FEELS LIKE: [/COLOR]$INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]"/>
+					<param name="visible" value="!String.IsEmpty(Window(weather).Property(Current.FeelsLike))"/>
+				</include>
+				<include content="WeatherInfoLabel">
+					<param name="label" value="$INFO[Window(weather).Property(Current.Humidity),[COLOR white]HUMIDITY: [/COLOR]]"/>
+					<param name="visible" value="!String.IsEmpty(Window(weather).Property(Current.Humidity))"/>
+				</include>
+				<include content="WeatherInfoLabel">
+					<param name="label" value="[COLOR white]DEW POINT: [/COLOR]$INFO[Window(weather).Property(Current.DewPoint)]$INFO[System.TemperatureUnits]"/>
+					<param name="visible" value="!String.IsEmpty(Window(weather).Property(Current.DewPoint))"/>
+				</include>
+				<include content="WeatherInfoLabel">
+					<param name="label" value="$INFO[Window(weather).Property(Current.Wind),[COLOR white]WINDS: [/COLOR]]"/>
+					<param name="visible" value="!String.IsEmpty(Window(weather).Property(Current.Wind))"/>
+				</include>
+				<include content="WeatherInfoLabel">
+					<param name="label" value="$INFO[Window(weather).Property(Current.Precipitation),[COLOR white]PRECIPITATION: [/COLOR]]"/>
+					<param name="visible" value="!String.IsEmpty(Window(weather).Property(Current.Precipitation))"/>
+				</include>
+				<include content="WeatherInfoLabel">
+					<param name="label" value="$INFO[Window(weather).Property(Today.Sunrise),[COLOR white]SUNRISE: [/COLOR]]"/>
+					<param name="visible" value="!String.IsEmpty(Window(weather).Property(Today.Sunrise))"/>
+				</include>
+				<include content="WeatherInfoLabel">
+					<param name="label" value="$INFO[Window(weather).Property(Today.Sunset),[COLOR white]SUNSET: [/COLOR]]"/>
+					<param name="visible" value="!String.IsEmpty(Window(weather).Property(Today.Sunset))"/>
+				</include>
+			</control>
 		</control>
 	</include>
 
-	<include name="SmallWeatherLabel">
-		<control type="label">
-			<top>$PARAM[top]</top>
-			<left>$PARAM[left]</left>
-			<aligny>center</aligny>
-			<height>24</height>
-			<right>60</right>
-			<align>left</align>
-			<font>font27</font>
-			<label>$PARAM[label]</label>
-			<textcolor>darkgrey</textcolor>
-		</control>
+	<include name="HomeWallWeather">
+		<definition>
+			<control type="group">
+				<include content="HomeWallFrame">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="visible" value="$PARAM[visible]"/>
+				</include>
+				<control type="panel" id="$PARAM[list_id]">
+					<include content="HomeWallCommon">
+						<param name="list_id" value="$PARAM[list_id]"/>
+						<param name="row_id" value="$PARAM[row_id]"/>
+						<param name="visible" value="$PARAM[visible]"/>
+					</include>
+					<itemlayout width="283" height="389">
+						<control type="group">
+							<include content="HomeWallUnfocusedAnimations">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+							<include content="WeatherWallLayout">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+						</control>
+					</itemlayout>
+					<focusedlayout width="283" height="389" infoupdate="30">
+						<control type="group">
+							<depth>DepthContentPopout</depth>
+							<control type="group">
+								<include content="HomeWallFocusAnimations">
+									<param name="list_id" value="$PARAM[list_id]"/>
+								</include>
+								<include content="WeatherWallLayout">
+									<param name="list_id" value="$PARAM[list_id]"/>
+									<param name="focused" value="true"/>
+								</include>
+							</control>
+							<include>FocusBounce</include>
+						</control>
+					</focusedlayout>
+					<include>$PARAM[content_include]</include>
+				</control>
+			</control>
+		</definition>
 	</include>
 
-	<include name="WeatherPanel">
-		<control type="group" id="16678">
-			<description>Weather info</description>
-			<animation type="Conditional" condition="!ControlGroup(2000).HasFocus" reversible="true">
-				<effect type="slide" start="0,0" end="0,-560" time="500" tween="cubic" easing="inout" />
-				<effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/>
-			</animation>
-			<left>50</left>
-			<top>-350</top>
-			<height>360</height>
-			<visible>!String.IsEmpty(Weather.plugin) + ControlGroup(2000).HasFocus</visible>
-			<include content="BigWeatherLabel">
-				<param name="top" value="490"/>
-				<param name="left" value="1300"/>
-				<param name="label" value="[UPPERCASE]$INFO[Weather.Location][/UPPERCASE]"/>
+	<include name="WeatherMapListItem">
+		<definition>
+			<item>
+				<label>$INFO[Window(weather).Property(Map.$PARAM[map_index].Heading)]</label>
+				<onclick>noop</onclick>
+				<property name="Area">$INFO[Window(weather).Property(Map.$PARAM[map_index].Area)]</property>
+				<property name="Layer">$INFO[Window(weather).Property(Map.$PARAM[map_index].Layer)]</property>
+				<property name="Legend">$INFO[Window(weather).Property(Map.$PARAM[map_index].Legend)]</property>
+				<visible>!String.IsEmpty(Window(weather).Property(Map.$PARAM[map_index].Area))</visible>
+			</item>
+		</definition>
+	</include>
+
+	<include name="WeatherMapItems">
+		<content>
+			<include content="WeatherMapListItem">
+				<param name="map_index" value="1"/>
 			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="540"/>
-				<param name="left" value="1300"/>
-				<param name="label" value="$INFO[Window(weather).Property(Updated),[COLOR white]LAST UPDATED: [/COLOR]]"/>
+			<include content="WeatherMapListItem">
+				<param name="map_index" value="2"/>
 			</include>
-			<include content="BigWeatherLabel">
-				<param name="top" value="410"/>
-				<param name="label" value="CURRENTLY"/>
+			<include content="WeatherMapListItem">
+				<param name="map_index" value="3"/>
 			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="460"/>
-				<param name="label" value="$INFO[Weather.Conditions,[COLOR white]CONDITIONS: [/COLOR]]"/>
+			<include content="WeatherMapListItem">
+				<param name="map_index" value="4"/>
 			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="500"/>
-				<param name="label" value="$INFO[Weather.Temperature,[COLOR white]TEMPERATURE: [/COLOR]]$INFO[Window(weather).Property(Current.FeelsLike),[COLOR unfocused_text] • [/COLOR][COLOR white][I]FEELS LIKE: [/COLOR]]°F[/I]"/>
+			<include content="WeatherMapListItem">
+				<param name="map_index" value="5"/>
 			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="540"/>
-				<param name="label" value="$INFO[Window(weather).Property(Current.Humidity),[COLOR white]HUMIDITY: [/COLOR]]$INFO[Window(weather).Property(Current.DewPoint),[COLOR unfocused_text] • [/COLOR][COLOR white]DEW POINT: [/COLOR]]°F"/>
-			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="460"/>
-				<param name="left" value="650"/>
-				<param name="label" value="$INFO[Window(weather).Property(Current.Wind),[COLOR white]WINDS: [/COLOR]]"/>
-			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="500"/>
-				<param name="left" value="650"/>
-				<param name="label" value="$INFO[Window(weather).Property(Current.Precipitation),[COLOR white]PRECIPITATION: [/COLOR]]"/>
-			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="540"/>
-				<param name="left" value="650"/>
-				<param name="label" value="$INFO[Window(weather).Property(Today.Sunrise),[COLOR white]SUNRISE: [/COLOR]]$INFO[Window(weather).Property(Today.Sunset),[COLOR unfocused_text] • [/COLOR][COLOR white]SUNSET: [/COLOR]]"/>
-			</include>
-			<!-- <control type="group">
-				<visible>!String.IsEmpty(ListItem.Property(Outlook))</visible>
-				<include content="BigWeatherLabel">
-					<param name="top" value="480"/>
-					<param name="label" value="FORECAST"/>
-				</include>
-				<include content="SmallWeatherLabel">
-					<param name="top" value="530"/>
-					<param name="label" value="$INFO[ListItem.Property(Outlook),[COLOR white]CONDITIONS: [/COLOR]]"/>
-				</include>
-			</control> -->
-		</control>
+		</content>
+	</include>
+
+	<include name="WeatherMapLayout">
+		<param name="focused">false</param>
+		<definition>
+			<control type="group">
+				<top>11</top>
+				<left>20</left>
+				<width>1384</width>
+				<height>770</height>
+				<control type="image">
+					<texture border="20" colordiffuse="4D000000">masks/radius_23.png</texture>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>1384</width>
+					<height>770</height>
+					<texture diffuse="masks/weathermap.png" background="true">$INFO[ListItem.Property(Area)]</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>1384</width>
+					<height>770</height>
+					<texture diffuse="masks/weathermap.png" background="true">$INFO[ListItem.Property(Layer)]</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<colordiffuse>B0FFFFFF</colordiffuse>
+				</control>
+				<control type="image">
+					<right>20</right>
+					<top>695</top>
+					<width>350</width>
+					<height>55</height>
+					<texture background="true">$INFO[ListItem.Property(Legend)]</texture>
+					<aspectratio align="right" aligny="bottom">keep</aspectratio>
+				</control>
+				<control type="group">
+					<left>20</left>
+					<top>20</top>
+					<width>280</width>
+					<height>55</height>
+					<visible>!String.IsEmpty(ListItem.Label)</visible>
+					<control type="image">
+						<texture border="13" colordiffuse="BF000000">masks/radius_15.png</texture>
+					</control>
+					<control type="label">
+						<align>center</align>
+						<aligny>center</aligny>
+						<width>280</width>
+						<height>50</height>
+						<font>p_cache</font>
+						<textcolor>unfocused_text</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</control>
+				<control type="image">
+					<texture border="20" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-23.png</texture>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="HomeWallWeatherMaps">
+		<definition>
+			<control type="group">
+				<visible allowhiddenfocus="true">$PARAM[visible]</visible>
+				<animation effect="fade" time="300">Visible</animation>
+			<control type="fixedlist" id="$PARAM[list_id]">
+				<visible allowhiddenfocus="true">$PARAM[visible]</visible>
+				<animation effect="fade" time="300">Visible</animation>
+				<left>0</left>
+				<top>0</top>
+				<width>1424</width>
+				<height>1008</height>
+				<orientation>vertical</orientation>
+				<focusposition>0</focusposition>
+				<scrolltime tween="cubic" easing="out">400</scrolltime>
+				<onup>SetFocus($PARAM[list_id],0,absolute)</onup>
+				<onup>$PARAM[row_id]</onup>
+				<onleft condition="!String.IsEqual(Skin.String(onLeftSetting.Home),1)">9000</onleft>
+				<onleft condition="String.IsEqual(Skin.String(onLeftSetting.Home),1)">$PARAM[list_id]</onleft>
+				<onright>$PARAM[list_id]</onright>
+				<onback>SetFocus($PARAM[list_id],0,absolute)</onback>
+				<onback condition="!String.IsEqual(Skin.String(onBackSetting.Home),1)">$PARAM[row_id]</onback>
+				<onback condition="String.IsEqual(Skin.String(onBackSetting.Home),1)">9000</onback>
+				<itemlayout width="1424" height="830">
+					<include content="WeatherMapLayout">
+						<param name="list_id" value="$PARAM[list_id]"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="1424" height="830" infoupdate="30">
+					<include content="WeatherMapLayout">
+						<param name="list_id" value="$PARAM[list_id]"/>
+						<param name="focused" value="true"/>
+					</include>
+				</focusedlayout>
+				<include>WeatherMapItems</include>
+				</control>
+			</control>
+		</definition>
 	</include>
 
 	<include name="HourlyItems">
@@ -253,11 +435,11 @@
 	<include name="WeatherHourlyItem">
 		<item>
 			<label>[COLOR unfocused_text]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Time)][/COLOR]</label>
-			<label2>[COLOR unfocused_text][B]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)]  [COLOR unfocused_text]•[/B][/COLOR]  $INFO[Window(weather).Property(Hourly.$PARAM[item_index].Precipitation)][/COLOR]</label2>
+			<label2>[COLOR unfocused_text][B]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)][/B][/COLOR]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Precipitation),[COLOR unfocused_text]  •  ,[/COLOR]]</label2>
 			<property name="Temperature">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)]</property>
 			<property name="Outlook">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Outlook)]</property>
 			<property name="Cloudiness">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Cloudiness)]</property>
-			<property name="ShortDate">[COLOR darkgrey]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].ShortDate)][/COLOR]</property>
+			<property name="ShortDate">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].ShortDate)]</property>
 			<property name="FanartCode">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].FanartCode)]</property>
 			<thumb>resource://resource.images.weathericons.white/$INFO[Window(weather).Property(Hourly.$PARAM[item_index].OutlookIcon)]</thumb>
 			<onclick>noop</onclick>
@@ -268,12 +450,12 @@
 	<include name="WeatherDailyItem">
 		<item>
 			<label>$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDay)]</label>
-			<label2>[COLOR FFFF4C4C][B]$INFO[Window(weather).Property(Daily.$PARAM[item_index].HighTemperature)][/COLOR]  [COLOR unfocused_text]•[/COLOR]  [COLOR FF4C8CFF]$INFO[Window(weather).Property(Daily.$PARAM[item_index].LowTemperature)][/B][/COLOR]</label2>
+			<label2>[COLOR FFFF4C4C][B]$INFO[Window(weather).Property(Daily.$PARAM[item_index].HighTemperature)][/B][/COLOR]$INFO[Window(weather).Property(Daily.$PARAM[item_index].LowTemperature),[COLOR unfocused_text]  •  [/COLOR][COLOR FF4C8CFF][B],[/B][/COLOR]]</label2>
 			<property name="LongDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDay)]</property>
 			<property name="TempDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].TempDay)]</property>
 			<property name="Cloudiness">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Cloudiness)]</property>
 			<property name="Outlook">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Outlook)]</property>
-			<property name="ShortDate">[COLOR darkgrey]$INFO[Window(weather).Property(Daily.$PARAM[item_index].ShortDate)][/COLOR]</property>
+			<property name="ShortDate">$INFO[Window(weather).Property(Daily.$PARAM[item_index].ShortDate)]</property>
 			<property name="FanartCode">$INFO[Window(weather).Property(Daily.$PARAM[item_index].FanartCode)]</property>
 			<thumb>resource://resource.images.weathericons.white/$INFO[Window(weather).Property(Daily.$PARAM[item_index].OutlookIcon)]</thumb>
 			<onclick>noop</onclick>
@@ -284,7 +466,7 @@
 	<include name="WeatherDayItem">
 		<item>
 			<label>$INFO[Window(weather).Property(Day$PARAM[item_index].Title)]</label>
-			<label2>[COLOR blue]$INFO[Window(weather).Property(Day$PARAM[item_index].LowTemp)]$INFO[System.TemperatureUnits][/COLOR] ∙ [COLOR red]$INFO[Window(weather).Property(Day$PARAM[item_index].HighTemp)]$INFO[System.TemperatureUnits][/COLOR]</label2>
+			<label2>[COLOR FFFF4C4C][B]$INFO[Window(weather).Property(Day$PARAM[item_index].HighTemp)]$INFO[System.TemperatureUnits][/B][/COLOR][COLOR unfocused_text]  •  [/COLOR][COLOR FF4C8CFF][B]$INFO[Window(weather).Property(Day$PARAM[item_index].LowTemp)]$INFO[System.TemperatureUnits][/B][/COLOR]</label2>
 			<property name="LongDay"></property>
 			<property name="TempDay"></property>
 			<property name="Cloudiness"></property>
@@ -295,75 +477,6 @@
 			<onclick>noop</onclick>
 			<visible>String.IsEmpty(Window(weather).Property(Daily.IsFetched)) + !String.IsEmpty(Window(weather).Property(Day$PARAM[item_index].Outlook))</visible>
 		</item>
-	</include>
-
-	<include name="WeatherMapItem">
-		<control type="group" id="700$PARAM[item_id]">
-			<height>1110</height>
-			<visible>Weather.IsFetched + !String.IsEmpty(Window(weather).Property(Map.$PARAM[item_id].Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
-			<centerleft>50%</centerleft>
-			<width>1920</width>
-			<control type="button" id="700$PARAM[item_id]0">
-				<left>50</left>
-				<top>100</top>
-				<width>1820</width>
-				<height>920</height>
-				<onup>$PARAM[onup_id]</onup>
-				<ondown>$PARAM[ondown_id]</ondown>
-			</control>
-			<control type="image" id="700$PARAM[item_id]1">
-				<left>50</left>
-				<top>100</top>
-				<width>1820</width>
-				<height>920</height>
-				<texture>dialogs/dialog-bg-nobo.png</texture>
-				<bordertexture border="21" infill="false">overlays/shadow.png</bordertexture>
-				<bordersize>20</bordersize>
-			</control>
-			<control type="image" id="700$PARAM[item_id]2">
-				<left>120</left>
-				<top>160</top>
-				<width>1680</width>
-				<height>800</height>
-				<texture>$INFO[Window(weather).Property(Map.$PARAM[item_id].Area)]</texture>
-				<aspectratio>scale</aspectratio>
-			</control>
-			<control type="image" id="700$PARAM[item_id]3">
-				<left>120</left>
-				<top>160</top>
-				<width>1680</width>
-				<height>800</height>
-				<texture>$INFO[Window(weather).Property(Map.$PARAM[item_id].Layer)]</texture>
-				<aspectratio>scale</aspectratio>
-				<colordiffuse>B0FFFFFF</colordiffuse>
-			</control>
-			<control type="image" id="700$PARAM[item_id]4">
-				<left>1000</left>
-				<top>858</top>
-				<width>340</width>
-				<height>100</height>
-				<texture border="21">buttons/button-nofo.png</texture>
-			</control>
-			<control type="image" id="700$PARAM[item_id]5">
-				<left>1340</left>
-				<top>880</top>
-				<width>350</width>
-				<height>55</height>
-				<texture>$INFO[Window(weather).Property(Map.$PARAM[item_id].Legend)]</texture>
-			</control>
-		</control>
-		<control type="label" id="700$PARAM[item_id]9">
-			<left>1000</left>
-			<top>0</top>
-			<width>340</width>
-			<height>100</height>
-			<align>center</align>
-			<aligny>center</aligny>
-			<animation effect="slide" end="0,-92" time="0" condition="true">Conditional</animation>
-			<font>font30_title</font>
-			<label>$INFO[Window(weather).Property(Map.$PARAM[item_id].Heading)]</label>
-			<visible>Weather.IsFetched + !String.IsEmpty(Window(weather).Property(Map.$PARAM[item_id].Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
-		</control>
 	</include>
 
 </includes>

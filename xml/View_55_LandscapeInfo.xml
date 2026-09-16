@@ -19,9 +19,15 @@
 					<depth>DepthContentPopout</depth>
 					<left>-2</left>
 					<top>0</top>
-					<include content="LandscapeLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="55"/>
+							<param name="list_id" value="55"/>
+						</include>
+						<include content="LandscapeLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -47,9 +53,15 @@
 					<depth>DepthContentPopout</depth>
 					<left>-2</left>
 					<top>0</top>
-					<include content="LandscapeLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="55"/>
+							<param name="list_id" value="55"/>
+						</include>
+						<include content="LandscapeLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -75,9 +87,15 @@
 					<depth>DepthContentPopout</depth>
 					<left>2</left>
 					<top>0</top>
-					<include content="SmallLandscapeLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="55"/>
+							<param name="list_id" value="55"/>
+						</include>
+						<include content="SmallLandscapeLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -103,9 +121,15 @@
 					<depth>DepthContentPopout</depth>
 					<left>2</left>
 					<top>0</top>
-					<include content="SmallLandscapeLayout">
-						<param name="focused" value="true" />
-					</include>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="55"/>
+							<param name="list_id" value="55"/>
+						</include>
+						<include content="SmallLandscapeLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
 					<include>FocusBounce</include>
 					<include>VideoTrailerControl</include>
 				</control>
@@ -183,9 +207,15 @@
 						<depth>DepthContentPopout</depth>
 						<left>0</left>
 						<top>0</top>
-						<include content="LandscapeLayout">
-							<param name="focused" value="true" />
-						</include>
+						<control type="group">
+							<include content="ViewFocusAnimations">
+								<param name="id" value="55"/>
+								<param name="list_id" value="55"/>
+							</include>
+							<include content="LandscapeLayout">
+								<param name="focused" value="true" />
+							</include>
+						</control>
 						<include>FocusBounce</include>
 						<include>VideoTrailerControl</include>
 					</control>
@@ -204,9 +234,15 @@
 						<animation effect="zoom" start="105" end="100" time="200" tween="sine" easing="inout" center="auto">UnFocus</animation>
 						<left>25</left>
 						<top>0</top>
-						<include content="LandscapeLayout">
-							<param name="focused" value="true" />
-						</include>
+						<control type="group">
+							<include content="ViewFocusAnimations">
+								<param name="id" value="55"/>
+								<param name="list_id" value="55"/>
+							</include>
+							<include content="LandscapeLayout">
+								<param name="focused" value="true" />
+							</include>
+						</control>
 					</control>
 				</focusedlayout> -->
 			</control>

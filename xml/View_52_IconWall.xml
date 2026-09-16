@@ -53,7 +53,7 @@
 							<top>40</top>
 							<width>360</width>
 							<height>210</height>
-							<texture border="23" colordiffuse="66000000">masks/radius_23.png</texture>
+							<texture border="23" colordiffuse="4D000000">masks/radius_23.png</texture>
 						</control>
 						<!-- IMAGE CONTROL -->
 						<control type="image">

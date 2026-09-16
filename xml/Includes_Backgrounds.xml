@@ -152,7 +152,6 @@
 						] +
 						String.IsEqual(Skin.String(BackgroundSetting),1) +
 						![Control.IsVisible(51) | Control.IsVisible(56)] +
-						String.IsEmpty(Window(Home).Property(FlixWidget)) +
 						![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] |
 						!String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))
 				</visible>

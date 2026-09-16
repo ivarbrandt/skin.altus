@@ -34,9 +34,7 @@
 
 				<visible>
 						[
-								String.IsEmpty(Window(Home).Property(FlixWidget)) +
 								![
-										ControlGroup(15000).HasFocus |
 										[Window.IsActive(videos) + Control.IsVisible(53)] |
 										Control.IsVisible(54) |
 										Control.IsVisible(55) |
@@ -91,7 +89,7 @@
 					<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
 				</control>
 				<control type="group">
-					<visible>![[Window.IsVisible(home) | Window.IsVisible(1121)] + ControlGroup(2000).HasFocus]</visible>
+					<visible>![Window.IsVisible(1121) + ControlGroup(2000).HasFocus]</visible>
 					<control type="grouplist">
 						<width>900</width>
 						<include content="TopBarLabels">
@@ -139,10 +137,15 @@
 						<!-- <visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56)]</visible> -->
 						<visible>![Control.IsVisible(500) | [Window.IsActive(videos) + Control.IsVisible(501)] | Window.IsVisible(extendedprogressdialog) | Window.IsActive(fullscreenvideo) | !String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
 						<animation effect="fade" time="500" tween="cubic" easing="out">VisibleChange</animation>
+						<animation type="Conditional" condition="$EXP[isHomeWallFocused]" reversible="true">
+							<effect type="zoom" start="100,100" end="76,70" center="1892,46" time="400" tween="cubic" easing="inout" />
+							<effect type="slide" start="0,0" end="-7,7" time="400" tween="cubic" easing="inout" />
+						</animation>
 						<control type="group">
 							<width>600</width>
 							<visible>!Control.IsVisible(503) + Player.HasMedia + String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))</visible>
-							<animation effect="fade" time="300" tween="cubic" easing="out">VisibleChange</animation>
+							<visible>!$EXP[isHomeWallFocused]</visible>
+							<animation effect="fade" time="300" tween="cubic" easing="out" condition="!$EXP[isHomeWallFocused]">VisibleChange</animation>
 							<control type="grouplist">
 								<left>-75</left>
 								<orientation>horizontal</orientation>
@@ -183,6 +186,7 @@
 						</control>
 						<control type="group">
 							<visible>Integer.IsGreater(System.ProfileCount,1) + !Player.HasMedia</visible>
+							<visible>!$EXP[isHomeWallFocused]</visible>
 							<control type="image">
 								<visible>Skin.HasSetting(show_profileavatar)</visible>
 								<top>25</top>
@@ -214,6 +218,7 @@
 							<aspectratio aligny="center" align="left">keep</aspectratio>
 							<texture colordiffuse="unfocused_text">$INFO[Weather.FanartCode,weather/small/,.png]</texture>
 							<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na)]</visible>
+							<visible>!$EXP[isHomeWallFocused]</visible>
 						</control>
 						<control type="label">
 							<font>topbar_chrome</font>
@@ -224,6 +229,7 @@
 							<label>[COLOR unfocused_text]$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits][/COLOR]  • </label>
 							<textcolor>$VAR[FocusColorTheme]</textcolor>
 							<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na)]</visible>
+							<visible>!$EXP[isHomeWallFocused]</visible>
 						</control>
 						<control type="label">
 							<font>topbar_chrome</font>
@@ -232,11 +238,12 @@
 							<aligny>center</aligny>
 							<height>92</height>
 							<width>auto</width>
-							<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
+							<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>							
 							<label>$INFO[System.Time]</label>
 						</control>
 					</control>
 					<control type="grouplist">
+						<visible>!$EXP[isHomeWallFocused]</visible>
 						<right>10</right>
 						<top>70</top>
 						<width>800</width>
@@ -282,6 +289,7 @@
 						<height>80</height>
 						<align>center</align>
 						<visible>!System.HasActiveModalDialog</visible>
+						<visible>!$EXP[isHomeWallFocused]</visible>
 						<visible>Container.Scrolling</visible>
 						<visible>!Container.Content(seasons)</visible>
 						<visible>Container.SortMethod(1) | Container.SortMethod(4) | Container.SortMethod(12) | Container.SortMethod(10) | Container.SortMethod(7) | Container.SortMethod(29) | Container.SortMethod(17)</visible>
@@ -298,9 +306,7 @@
 		<!-- <visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)]</visible> -->
 		<visible>
 				[
-						String.IsEmpty(Window(Home).Property(FlixWidget)) +
 						![
-								ControlGroup(15000).HasFocus |
 								[Window.IsActive(videos) + Control.IsVisible(53)] |
 								Control.IsVisible(54) |
 								Control.IsVisible(55) |

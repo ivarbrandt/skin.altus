@@ -18,11 +18,8 @@
 
 	<include name="WidgetLeftRightArrows">
 		<param name="visible">true</param>
-		<param name="slide_end">0</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]671">
-				<animation effect="slide" start="0,0" end="0,$PARAM[slide_end]" time="400" tween="quadratic" condition="Control.HasFocus($PARAM[list_id])" reversible="true">Conditional</animation>
-				<animation effect="fade" start="100" end="0" time="400" condition="Control.HasFocus($PARAM[list_id]1) + !String.IsEmpty(Window(Home).Property(FlixWidget)) + !String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])">Conditional</animation>
 				<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Skin.HasSetting(Disable.WidgetDimming) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus($PARAM[list_id]1) | String.IsEqual(Window(Home).Property(altus_child_id),$PARAM[list_id])] + ControlGroup(2000).HasFocus" reversible="true">Conditional</animation>
 				<top>-297</top>
 				<height>477</height>
@@ -134,7 +131,6 @@
 	<include name="WidgetListCommon">
 		<scrolltime tween="cubic" easing="out">400</scrolltime>
 		<orientation>horizontal</orientation>
-		<onfocus>SetProperty(altus_saved_list_id,$PARAM[list_id],home)</onfocus>
 		<onunfocus>SetProperty(Widget_$PARAM[list_id]_Position,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
 		<onfocus>ClearProperty(altus_child_id,home)</onfocus>
 		<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
@@ -150,9 +146,6 @@
 		<onback condition="String.IsEqual(Skin.String(onBackSetting),1) | String.IsEqual(Skin.String(onBackSetting),2)">SetFocus($PARAM[list_id],0,absolute)</onback>
 		<onback condition="String.IsEqual(Skin.String(onBackSetting),0) | String.IsEqual(Skin.String(onBackSetting),2)">9000</onback>
 		<include content="WidgetUnfocusedAnimations">
-			<param name="list_id" value="$PARAM[list_id]"/>
-		</include>
-		<include content="FlixAnimations">
 			<param name="list_id" value="$PARAM[list_id]"/>
 		</include>
 		<preloaditems>2</preloaditems>
@@ -182,11 +175,12 @@
 
 	<include name="BusyListSpinner">
 		<param name="posy">187</param>
+		<param name="posx">43</param>
 		<param name="visible">true</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]599">
 				<height>180</height>
-				<left>43</left>
+				<left>$PARAM[posx]</left>
 				<visible>Container($PARAM[list_id]).IsUpdating + !Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)</visible>
 				<visible>$PARAM[visible]</visible>
 				<control type="image">
@@ -265,6 +259,8 @@
 		<onload condition="String.IsEmpty(Skin.String(waitInterval))">Skin.SetString(waitInterval,1)</onload>	
 		<onload condition="String.IsEmpty(Skin.String(onBackSetting))">Skin.SetString(onBackSetting,0)</onload>	
 		<onload condition="String.IsEmpty(Skin.String(onLeftSetting))">Skin.SetString(onLeftSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(onBackSetting.Home))">Skin.SetString(onBackSetting.Home,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(onLeftSetting.Home))">Skin.SetString(onLeftSetting.Home,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(MainBlurTexture))">Skin.SetString(MainBlurTexture,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(EpisodeTypeSetting))">Skin.SetString(EpisodeTypeSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(altus_category_widget_delay))">Skin.SetString(altus_category_widget_delay,750)</onload>

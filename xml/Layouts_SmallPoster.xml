@@ -12,7 +12,7 @@
 					<width>200</width>
 					<height>300</height>
 					<texture colordiffuse="$VAR[FocusColorTheme]">masks/poster.png</texture>
-					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))] | [[$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
+					<visible>[[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))] | [[$PARAM[focused] + [[Control.IsVisible(54) + Integer.IsEqual(ListItem.CurrentItem,Container(54).CurrentItem)] | [Control.IsVisible(500) + Integer.IsEqual(ListItem.CurrentItem,Container(500).CurrentItem)]]] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
 					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -26,8 +26,8 @@
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-					<autoscroll time="2000" delay="1000" repeat="2000">$PARAM[focused] + Control.HasFocus($PARAM[list_id])</autoscroll>
-					<visible>!ListItem.IsParentFolder + [$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
+					<autoscroll time="2000" delay="1000" repeat="2000">$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</autoscroll>
+					<visible>!ListItem.IsParentFolder + [$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]] | [$PARAM[focused] + [[Control.IsVisible(54) + Integer.IsEqual(ListItem.CurrentItem,Container(54).CurrentItem)] | [Control.IsVisible(500) + Integer.IsEqual(ListItem.CurrentItem,Container(500).CurrentItem)]]]</visible>
 				</control>
 				<control type="textbox">
 					<left>27</left>
@@ -39,7 +39,7 @@
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>unfocused_text</textcolor>
-					<visible>!ListItem.IsParentFolder + [!$PARAM[focused] | [!Control.HasFocus($PARAM[list_id]) + ![Control.IsVisible(54) | Control.IsVisible(500)]]]</visible>
+					<visible>!ListItem.IsParentFolder + [!$PARAM[focused] | [![Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)] + ![[Control.IsVisible(54) + Integer.IsEqual(ListItem.CurrentItem,Container(54).CurrentItem)] | [Control.IsVisible(500) + Integer.IsEqual(ListItem.CurrentItem,Container(500).CurrentItem)]]]]</visible>
 				</control>
 				<control type="image">
 					<left>1</left>
@@ -49,7 +49,7 @@
 					<texture fallback="DefaultMovies.png" background="true">$VAR[IconWallThumbVar]</texture>
 					<!-- <aspectratio scalediffuse="false">scale</aspectratio> -->
 					<bordersize>20</bordersize>
-					<visible>!ListItem.IsParentFolder + $PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
+					<visible>!ListItem.IsParentFolder + $PARAM[focused] + [Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</visible>
 				</control>
 				<control type="image">
 					<left>2.5</left>
@@ -59,7 +59,7 @@
 					<texture colordiffuse="unfocused_text" fallback="DefaultMovies.png" background="true">$VAR[IconWallThumbVar]</texture>
 					<!-- <aspectratio scalediffuse="false">scale</aspectratio> -->
 					<bordersize>20</bordersize>
-					<visible>!ListItem.IsParentFolder + ![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
+					<visible>!ListItem.IsParentFolder + ![$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]]</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -78,7 +78,7 @@
 					<include content="InfoBadge">
 						<param name="top" value="6"/>
 						<param name="label" value="[UPPERCASE][LIGHT]$INFO[ListItem.Property(UnwatchedEpisodes)][/LIGHT][/UPPERCASE]"/>
-						<param name="vis" value="[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | $EXP[isFlixInfo] | Control.IsVisible(500)]]"/>
+						<param name="vis" value="[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]] | [$PARAM[focused] + [[Control.IsVisible(54) + Integer.IsEqual(ListItem.CurrentItem,Container(54).CurrentItem)] | [$EXP[isFlixInfo] + Integer.IsEqual(ListItem.CurrentItem,Container(56).CurrentItem)] | [Control.IsVisible(500) + Integer.IsEqual(ListItem.CurrentItem,Container(500).CurrentItem)]]]"/>
 						<param name="vis2" value="Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + !String.IsEqual(ListItem.Property(WatchedEpisodes),ListItem.Property(TotalEpisodes)) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),-1)"/>
 					</include>
 				</control>
@@ -102,7 +102,7 @@
 					<shadowcolor>text_shadow</shadowcolor>
 					<textcolor>unfocused_text</textcolor>
 					<align>center</align>
-					<scroll>$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]</scroll>
+					<scroll>$PARAM[focused] + [[Control.IsVisible(54) + Integer.IsEqual(ListItem.CurrentItem,Container(54).CurrentItem)] | [Control.IsVisible(500) + Integer.IsEqual(ListItem.CurrentItem,Container(500).CurrentItem)]]</scroll>
 					<scrollspeed>100</scrollspeed>
 					<visible>[String.IsEqual(Container.ViewMode,$LOCALIZE[31101]) + Skin.HasSetting(Enable.54Titles)] | [String.IsEqual(Container.ViewMode,$LOCALIZE[31107]) + Skin.HasSetting(Enable.56Titles)] | [String.IsEqual(Container.ViewMode,$LOCALIZE[311022]) + Skin.HasSetting(Enable.500Titles)]</visible>
 				</control>
@@ -115,7 +115,7 @@
 					<shadowcolor>text_shadow</shadowcolor>
 					<textcolor>unfocused_text</textcolor>
 					<align>center</align>
-					<scroll>$PARAM[focused] + Control.IsVisible(500)</scroll>
+					<scroll>$PARAM[focused] + [Control.IsVisible(500) + Integer.IsEqual(ListItem.CurrentItem,Container(500).CurrentItem)]</scroll>
 					<scrollspeed>100</scrollspeed>
 					<visible>Control.IsVisible(500) + Skin.HasSetting(Enable.500Titles)</visible>
 				</control>
@@ -125,7 +125,7 @@
 					<width>204</width>
 					<height>306</height>
 					<texture border="20" colordiffuse="$VAR[FocusColorTheme]" infill="false" >masks/bordertexture-20.png</texture>
-					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(56) | Control.IsVisible(500)]]</visible>
+					<visible>[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]] | [$PARAM[focused] + [[Control.IsVisible(54) + Integer.IsEqual(ListItem.CurrentItem,Container(54).CurrentItem)] | [Control.IsVisible(56) + Integer.IsEqual(ListItem.CurrentItem,Container(56).CurrentItem)] | [Control.IsVisible(500) + Integer.IsEqual(ListItem.CurrentItem,Container(500).CurrentItem)]]]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 			</control>

@@ -19,7 +19,6 @@
 
   <variable name="HomeFanartVar">
     <value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo)">$INFO[Window(home).Property(infobackground)]</value>
-    <value condition="!String.IsEmpty(ListItem.Thumb) + !String.IsEmpty(Window(Home).Property(FlixWidget)) + $EXP[isEpisode]">$INFO[ListItem.Thumb]</value>
     <value condition="!String.IsEmpty(ListItem.Art(fanart)) | [String.IsEmpty(ListItem.Art(landscape)) + !String.IsEmpty(ListItem.Art(fanart))] | [!$EXP[isContent] + !String.IsEmpty(ListItem.Art(fanart))]">$INFO[ListItem.Art(fanart)]</value>
     <value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
     <value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo)">$INFO[Window(home).Property(infobackground)]</value>

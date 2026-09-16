@@ -36,6 +36,11 @@
 		<value>[COLOR unfocused_text]$INFO[Container(57).ListItem.Plot][/COLOR]</value>
   </variable>
 
+	<variable name="CategoryIcon">
+		<value condition="$EXP[isContent]">$VAR[ClearlogoVar]</value>
+		<value>$INFO[ListItem.Icon]</value>
+  </variable>
+	
 	<variable name="InfoBadgeSeasonTitle">
 		<value condition="$EXP[isSeasonView]">$INFO[Container(5057).ListItem.Title]</value>
 		<value>$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle]</value>
@@ -557,7 +562,7 @@
 	</variable>
 
 	<variable name="OnBackSettingVar">
-    <value condition="String.IsEqual(Skin.String(onBackSetting),0)">Open main menu</value>
+    <value condition="String.IsEqual(Skin.String(onBackSetting),0)">Open search panel</value>
     <value condition="String.IsEqual(Skin.String(onBackSetting),1)">Reset widget</value>
     <value condition="String.IsEqual(Skin.String(onBackSetting),2)">Both</value>
 	</variable>
@@ -570,7 +575,7 @@
 	</variable>
 
 	<variable name="OnLeftSettingVar">
-	<value condition="String.IsEqual(Skin.String(onLeftSetting),0)">Open main menu</value>
+	<value condition="String.IsEqual(Skin.String(onLeftSetting),0)">Open search panel</value>
 	<value condition="String.IsEqual(Skin.String(onLeftSetting),1)">Wrap to end</value>
 	</variable>
 
@@ -578,6 +583,31 @@
     <value condition="String.IsEqual(Skin.String(onLeftSetting),0) + String.IsEqual(Skin.String(onBackSetting),0)">Skin.SetString(onLeftSetting,1)</value>
     <value condition="String.IsEqual(Skin.String(onLeftSetting),1)">Skin.SetString(onLeftSetting,0)</value>
     <value condition="String.IsEqual(Skin.String(onLeftSetting),0) + String.IsEqual(Skin.String(onBackSetting),2)">Skin.SetString(onLeftSetting,1)</value>
+	</variable>
+
+	<variable name="HomeOnBackSettingVar">
+		<value condition="String.IsEqual(Skin.String(onBackSetting.Home),1)">Open main menu</value>
+		<value>Open tab row</value>
+	</variable>
+
+	<variable name="HomeOnBackSettingToggleVar">
+		<value condition="String.IsEqual(Skin.String(onBackSetting.Home),1)">Skin.SetString(onBackSetting.Home,0)</value>
+		<value>Skin.SetString(onBackSetting.Home,1)</value>
+	</variable>
+
+	<variable name="HomeOnLeftSettingVar">
+		<value condition="String.IsEqual(Skin.String(onLeftSetting.Home),1)">Wrap to end of row</value>
+		<value>Open main menu</value>
+	</variable>
+
+	<variable name="HomeTabLoadingSettingVar">
+		<value condition="Skin.HasSetting(HomeWalls.ManualLoading)">Manual</value>
+		<value>Auto</value>
+	</variable>
+
+	<variable name="HomeOnLeftSettingToggleVar">
+		<value condition="String.IsEqual(Skin.String(onLeftSetting.Home),1)">Skin.SetString(onLeftSetting.Home,0)</value>
+		<value>Skin.SetString(onLeftSetting.Home,1)</value>
 	</variable>
 
 	<variable name="OSDAudioButtonSettingVar">
@@ -920,8 +950,6 @@
 		<value condition="Window.IsVisible(tvguide)">73FFFFFF</value>
 		<value condition="Window.IsVisible(tvchannels) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)">$VAR[BlurBrightnessVar]</value>
 		<value condition="$EXP[isPosterFlow]">73FFFFFF</value>
-		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEmpty(Window(Home).Property(FlixWidget))">$VAR[BlurBrightnessVar]</value>
-		<value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !String.IsEmpty(Window(Home).Property(FlixWidget))">59FFFFFF</value>
 		<value>$VAR[BlurBrightnessVar]</value>
 	</variable>
 

@@ -16,7 +16,7 @@
 				<control type="image">
 					<width>249</width>
 					<height>249</height>
-					<texture colordiffuse="66000000">masks/small-square.png</texture>
+					<texture colordiffuse="4D000000">masks/small-square.png</texture>
 				</control>
 				<control type="image">
 					<centertop>50%</centertop>
@@ -33,7 +33,7 @@
 				</control> -->
 				<control type="image">
 					<texture border="20" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-20.png</texture>
-					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
+					<visible>[$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]] | [$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 				<control type="label">
@@ -46,7 +46,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$PARAM[single_label]</label>
-					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
+					<scroll>$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</scroll>
 					<scrollspeed>100</scrollspeed>
 					<font>font25</font>
 					<textcolor>unfocused_text</textcolor>

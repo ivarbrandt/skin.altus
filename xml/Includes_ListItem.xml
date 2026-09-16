@@ -239,6 +239,14 @@
           <bottom>$PARAM[img_bottom]</bottom>
           <left>0</left>
           <right>0</right>
+          <texture border="23" colordiffuse="80000000">$PARAM[img_texture]</texture>
+          <visible>$PARAM[focused] + ControlGroup(2000).HasFocus</visible>
+        </control>
+        <control type="image">
+          <top>$PARAM[img_top]</top>
+          <bottom>$PARAM[img_bottom]</bottom>
+          <left>0</left>
+          <right>0</right>
           <texture border="23" colordiffuse="$VAR[FocusColorTheme]">$PARAM[img_texture]</texture>
           <visible>Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
           <include condition="$PARAM[focused]">Animation_FocusTextureFade</include>

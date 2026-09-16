@@ -4,9 +4,6 @@
 	<backgroundcolor>background</backgroundcolor>
 	<onload>RunScript(script.altus.helper, mode=calculate_cache_size)</onload>
 	<!-- <onload>RunScript(script.altus.helper,mode=getkodisettings&amp;window_id=10035&amp;altus_kodisetting_language=locale.language&amp;altus_kodisetting_country=locale.country&amp;altus_kodisetting_screensaver=screensaver.mode&amp;altus_kodisetting_audiolang=locale.audiolanguage&amp;altus_kodisetting_vidprefer=videoplayer.preferdefaultflag&amp;altus_kodisetting_subtitlelang=locale.subtitlelanguage&amp;altus_kodisetting_weather=weather.addon)</onload> -->
-	<onload>ClearProperty(FlixWidget,Home)</onload>
-	<onload>ClearProperty(altus_saved_list_id,Home)</onload>
-	<onload>ClearProperty(altus_stacked_saved_list_id,Home)</onload>
 	<controls>
 		<include>ZeroFadeBackground</include>
 		<control type="group" id="10000">
@@ -96,16 +93,34 @@
 					<onclick>Skin.ToggleSetting(OneClickClose)</onclick>
 					<selected>Skin.HasSetting(OneClickClose)</selected>
 				</control>
-				<!-- HOMESCREEN ON BACK -->
-				<control type="button" id="63702">
+				<control type="button" id="63713">
 					<label>Home screen on back action</label>
+					<label2>$VAR[HomeOnBackSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[HomeOnBackSettingToggleVar]</onclick>
+				</control>
+				<control type="button" id="63714">
+					<label>Home screen on left action</label>
+					<label2>$VAR[HomeOnLeftSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[HomeOnLeftSettingToggleVar]</onclick>
+				</control>
+				<control type="button" id="63715">
+					<label>Home screen tab loading</label>
+					<label2>$VAR[HomeTabLoadingSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(HomeWalls.ManualLoading)</onclick>
+				</control>
+				<!-- SEARCH WINDOW ON BACK -->
+				<control type="button" id="63702">
+					<label>Search window on back action</label>
 					<label2>$VAR[OnBackSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[OnBackSettingToggleVar]</onclick>
 				</control>
-				<!-- HOMESCREEN ON LEFT -->
+				<!-- SEARCH WINDOW ON LEFT -->
 				<control type="button" id="63703">
-					<label>Home screen on left action</label>
+					<label>Search window on left action</label>
 					<label2>$VAR[OnLeftSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[OnLeftSettingToggleVar]</onclick>
@@ -697,12 +712,6 @@
 					<selected>Skin.HasSetting(altus_category_widget_display_delay)</selected>
 					<onclick>Skin.ToggleSetting(altus_category_widget_display_delay)</onclick>
 				</control>
-				<control type="radiobutton" id="64008">
-					<label>Reset stacked widgets when returning home</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Disable.ResetStacked)</selected>
-					<onclick>Skin.ToggleSetting(Disable.ResetStacked)</onclick>
-				</control>
 				<!-- DIM/FADE WIDGETS -->
 				<control type="radiobutton" id="64012">
 					<label>$VAR[Capitalize_DimorFadeLabel] unfocused widgets</label>
@@ -715,6 +724,12 @@
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.MainMenuWidgetDimming)</selected>
 					<onclick>Skin.ToggleSetting(Enable.MainMenuWidgetDimming)</onclick>
+				</control>
+				<control type="radiobutton" id="64014">
+					<label>$VAR[Capitalize_DimorFadeLabel] unfocused items in home walls</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(Enable.HomeWallsDim)</selected>
+					<onclick>Skin.ToggleSetting(Enable.HomeWallsDim)</onclick>
 				</control>
 			</control>
 

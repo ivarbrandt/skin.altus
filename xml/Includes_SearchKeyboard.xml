@@ -19,7 +19,6 @@
         <onleft>9200</onleft>
         <onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
         <onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9201</onright>
-        <onfocus>ClearProperty(FlixWidget,Home)</onfocus>
         <onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
         <onfocus>ClearProperty(altus_stacked_linked_list_id,Home)</onfocus>
         <onright>9998</onright>
@@ -873,7 +872,7 @@
           <onclick>Number0</onclick>
           <onclick>SetFocus(9601)</onclick>
           <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus border="15" colordiffuse="66000000">masks/radius_15.png</texturenofocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
           <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
         </control> -->

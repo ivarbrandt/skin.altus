@@ -134,10 +134,16 @@
               </animation>
               <depth>DepthContentPopout</depth>
               <left>33</left>
-              <include content="BigLandscapeLayout">
-                <param name="focused" value="true" />
-                <param name="list_id" value="5057" />
-              </include>
+              <control type="group">
+                <include content="ViewFocusAnimations">
+                  <param name="id" value="57"/>
+                  <param name="list_id" value="5057"/>
+                </include>
+                <include content="BigLandscapeLayout">
+                  <param name="focused" value="true" />
+                  <param name="list_id" value="5057" />
+                </include>
+              </control>
               <include>FocusBounce</include>
             </control>
           </focusedlayout>

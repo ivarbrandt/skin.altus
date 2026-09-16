@@ -14,10 +14,6 @@
 		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_widget_path)]</value>
 		<value>$INFO[Container(4000).ListItem.Property(widget_path)]</value>
 	</variable>
-	<variable name="WM_DetailStacked">
-		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_is_stacked)]</value>
-		<value>$INFO[Container(4000).ListItem.Property(is_stacked)]</value>
-	</variable>
 	<variable name="WM_DetailTarget">
 		<value condition="!String.IsEmpty(Window.Property(reorder_widgets))">$INFO[Window.Property(reorder_detail_target)]</value>
 		<value>$INFO[Container(4000).ListItem.Property(target)]</value>

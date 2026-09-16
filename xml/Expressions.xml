@@ -3,6 +3,7 @@
 
   <expression name="isPlugin">String.StartsWith(Container.FolderPath,plugin://)</expression>
   <expression name="isContent">String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season)</expression>
+  <expression name="isHomeWallFocused">Window.IsVisible(home) + ControlGroup(2000).HasFocus + String.IsEmpty(ListItem.Property(wall_id))</expression>
   <expression name="isCtxPoster">!String.IsEmpty(Window(Home).Property(altus.ctx.poster))</expression>
   <expression name="isMovie">String.IsEqual(ListItem.DBType,movie)</expression>
   <expression name="isVideo">String.IsEqual(ListItem.DBType,video)</expression>

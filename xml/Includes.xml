@@ -13,6 +13,7 @@
 	<include file="Includes_FlixPanel.xml" />
 	<include file="Includes_Games.xml" />
 	<include file="Includes_Home.xml" />
+	<include file="Includes_HomeWalls.xml" />
 	<include file="Includes_ListItem.xml" />
 	<include file="Includes_MediaMenu.xml" />
 	<include file="Includes_MusicInfo.xml" />
@@ -33,14 +34,8 @@
 	<include file="Widgets_BigPoster.xml" />
 	<include file="Widgets_Landscape.xml" />
 	<include file="Widgets_SmallLandscape.xml" />
-	<include file="Widgets_Weather.xml" />
 	<include file="Widgets_Square.xml" />
 	<include file="Widgets_Category.xml" />
-	<include file="Widgets_Favourites.xml" />
-	<include file="Widgets_PVR.xml" />
-	<include file="Widgets_SmallPosterFlix.xml" />
-	<include file="Widgets_SmallLandscapeFlix.xml" />
-	<include file="Widgets_LandscapeFlix.xml" />
 	<include file="Layouts_Category.xml" />
 	<include file="Layouts_PVR.xml" />
 	<include file="Layouts_SmallSquare.xml" />
@@ -59,8 +54,7 @@
 	<include file="Layouts_Weather.xml" />
 	<include file="script-altus-main_menu.xml" />
 	<include file="script-altus-submenus.xml" />
-	<include file="script-altus-widgets.xml" />
-	<include file="script-altus-home_groups.xml" />
+	<include file="script-altus-home_walls.xml" />
 	<include file="script-altus-search_widgets.xml" />
 	<include file="script-altus-search_kind_filter.xml" />
 	<include file="View_50_Includes.xml" />

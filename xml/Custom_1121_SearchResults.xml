@@ -126,7 +126,7 @@
 						<align>left</align>
 						<textoffsetx>30</textoffsetx>
 						<texturefocus border="23"  colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
-						<texturenofocus border="23"  colordiffuse="33000000">masks/radius_23.png</texturenofocus>
+						<texturenofocus border="23"  colordiffuse="4D000000">masks/radius_23.png</texturenofocus>
 					</control>
 					<include>MiniQWERTY</include>
 					<!-- P8c kind-filter pill panel. Generated content lives in
@@ -205,9 +205,7 @@
 						<top>180</top>
 						<width>428</width>
 						<height>840</height>
-						<onfocus>ClearProperty(FlixWidget,Home)</onfocus>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
-						<onfocus>ClearProperty(altus_saved_list_id,Home)</onfocus>
 						<onfocus>ClearProperty(altus_stacked_linked_list_id,Home)</onfocus>
 						<onleft>9000</onleft>
 						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">SetFocus(2000)</onright>

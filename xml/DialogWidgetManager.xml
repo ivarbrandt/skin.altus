@@ -580,21 +580,6 @@
 						<onleft>4000</onleft>
 					</control>
 					<!-- Target -->
-					<control type="button" id="5103">
-						<width>max</width>
-						<height>65</height>
-						<label>Stacked:</label>
-						<label2>$VAR[WM_DetailStacked]</label2>
-						<font>font32</font>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>4</textoffsety>
-						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-						<texturenofocus />
-						<textcolor>unfocused_text</textcolor>
-						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						<onleft>4000</onleft>
-					</control>
-					<!-- Stacked -->
 					<control type="button" id="5104">
 						<width>max</width>
 						<height>65</height>

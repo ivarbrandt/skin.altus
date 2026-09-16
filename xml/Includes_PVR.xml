@@ -18,7 +18,7 @@
 		<value condition="Integer.IsEqual(ListItem.Property(GenreType),144)">4D9E209E</value>
 		<value condition="Integer.IsEqual(ListItem.Property(GenreType),160)">4D9393CF</value>
 		<value condition="Integer.IsEqual(ListItem.Property(GenreType),176)">4D1DA1B1</value>
-		<value>66000000</value>
+		<value>4D000000</value>
 	</variable>
 	
 	<include name="PVRListItemLayout">
@@ -1343,7 +1343,7 @@
 					<control type="image">
 						<height>84</height>
 						<width>460</width>
-						<texture colordiffuse="66000000" border="10">masks/radius_10-unfo.png</texture>
+						<texture colordiffuse="4D000000" border="10">masks/radius_10-unfo.png</texture>
 						<!-- <visible>Control.HasFocus($PARAM[control_id])</visible> -->
 					</control>
 					<control type="image">

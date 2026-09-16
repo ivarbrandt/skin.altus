@@ -209,7 +209,7 @@
 				<font></font>
 				<label>$PARAM[label]</label>
 				<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>
-				<texturenofocus colordiffuse="33000000">buttons/roundbutton-fo.png</texturenofocus>
+				<texturenofocus colordiffuse="4D000000">buttons/roundbutton-fo.png</texturenofocus>
 				<!-- <texturenofocus/> -->
 				<radioposx>30</radioposx>
 				<radioposy>0</radioposy>

@@ -65,15 +65,15 @@
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
-							<right>0</right>
+							<width>998</width>
 							<bottom>0</bottom>
-							<texture border="23" colordiffuse="66000000">masks/radius_23.png</texture>
+							<texture border="23" colordiffuse="4D000000">masks/radius_23.png</texture>
 							<!-- <animation effect="fade" start="50" end="25" time="1733" tween="cubic" easing="in" pulse="true" condition="ListItem.HasTimer | ListItem.HasReminder">Conditional</animation> -->
 							<visible>ListItem.HasReminder | ListItem.HasTimer</visible>
 						</control>
 						<control type="image">
 							<width>30</width>
-							<right>20</right>
+							<right>422</right>
 							<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[WallWatchedIconVar]</texture>
 							<aspectratio aligny="center">keep</aspectratio>
 							<animation effect="fade" start="100" end="0" time="1733" tween="cubic" easing="in" pulse="true" condition="ListItem.HasTimer | ListItem.HasReminder">Conditional</animation>

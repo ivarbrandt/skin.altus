@@ -37,7 +37,7 @@
 						<top>5</top>
 						<width>320</width>
 						<height>390</height>
-						<texture border="23" colordiffuse="66000000">masks/radius_23-unfo.png</texture>
+						<texture border="23" colordiffuse="4D000000">masks/radius_23-unfo.png</texture>
 						<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 						<bordersize>20</bordersize>
 					</control>
@@ -90,7 +90,7 @@
 							<top>5</top>
 							<width>320</width>
 							<height>390</height>
-							<texture border="23" colordiffuse="66000000">masks/radius_23-unfo.png</texture>
+							<texture border="23" colordiffuse="4D000000">masks/radius_23-unfo.png</texture>
 							<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 							<bordersize>20</bordersize>
 						</control>

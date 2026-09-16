@@ -315,7 +315,7 @@
 		<value condition="!String.IsEmpty(ListItem.Mpaa)"> • [COLOR unfocused_text]$INFO[ListItem.Mpaa][/COLOR]</value>
 	</variable>
 	<variable name="Rated_">
-		<value condition="!String.IsEmpty(ListItem.Mpaa) + String.IsEmpty(Window(Home).Property(FlixWidget))">Rated </value>
+		<value condition="!String.IsEmpty(ListItem.Mpaa)">Rated </value>
 	</variable>
 	<variable name="Alt_Mpaa">
 		<value condition="!String.IsEmpty(ListItem.Mpaa)"> • [COLOR unfocused_text]$VAR[Rated_]$INFO[ListItem.Mpaa][/COLOR]</value>
@@ -541,8 +541,7 @@
 
 	<!-- Ends at: -->
 	<variable name="RI_Endsat">
-		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration) + String.IsEmpty(Window(Home).Property(FlixWidget))"> • [COLOR unfocused_text]$INFO[ListItem.EndTime,$LOCALIZE[31080]: ][/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration) + !String.IsEmpty(Window(Home).Property(FlixWidget))"> » [COLOR unfocused_text]$INFO[ListItem.EndTime][/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration)"> • [COLOR unfocused_text]$INFO[ListItem.EndTime,$LOCALIZE[31080]: ][/COLOR]</value>
 	</variable>
 
 	<variable name="RI_AltEndsat">

@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="HomeWallHeader">
+		<control type="group">
+			<left>15</left>
+			<top>22</top>
+			<height>50</height>
+			<width>1180</width>
+			<visible>ControlGroup($PARAM[section_id]).HasFocus + !Control.HasFocus($PARAM[row_id])</visible>
+			<animation effect="fade" time="200">VisibleChange</animation>
+			<include content="FocusedCategoryLabel">
+				<param name="id" value=""/>
+				<param name="label" value="$VAR[HomescreenFlixCrumbs][COLOR unfocused_text]$INFO[Container($PARAM[row_id]).ListItem.Label][/COLOR]$VAR[HomeFlixCrumbsVar]"/>
+				<param name="visible" value="true"/>
+			</include>
+		</control>
+	</include>
+
+	<include name="HomeWallTabLayout">
+		<param name="focused">false</param>
+		<definition>
+			<control type="group">
+				<top>26</top>
+				<left>20</left>
+				<width>249</width>
+				<height>87</height>
+				<control type="image">
+					<texture border="20" colordiffuse="4D000000">masks/radius_20.png</texture>
+				</control>
+				<control type="image">
+					<texture border="20" colordiffuse="80000000">masks/radius_20.png</texture>
+					<visible>!ControlGroup($PARAM[walls_id]).HasFocus + ![$PARAM[focused] + Control.HasFocus($PARAM[row_id])]</visible>
+					<visible>[!Skin.HasSetting(HomeWalls.ManualLoading) + $PARAM[focused]] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),ListItem.Property(wall_id)) | [$PARAM[fallback] + Integer.IsEqual(ListItem.CurrentItem,1)]]]</visible>
+				</control>
+				<control type="image">
+					<texture border="20" colordiffuse="$VAR[FocusColorTheme]">masks/radius_20.png</texture>
+					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[row_id])] | [$PARAM[focused] + ControlGroup($PARAM[walls_id]).HasFocus]</visible>
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control>
+				<control type="textbox">
+					<centertop>50%</centertop>
+					<left>20</left>
+					<right>20</right>
+					<height>87</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<font>font23_stacked_widgets_fo</font>
+					<autoscroll delay="2000" time="3000" repeat="2000">Control.HasFocus($PARAM[row_id])</autoscroll>
+					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[row_id])] | [$PARAM[focused] + ControlGroup($PARAM[walls_id]).HasFocus]</visible>
+				</control>
+				<control type="textbox">
+					<centertop>50%</centertop>
+					<left>20</left>
+					<right>20</right>
+					<height>87</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>unfocused_text</textcolor>
+					<font>font23_stacked_widgets_unfo</font>
+					<visible>![[$PARAM[focused] + Control.HasFocus($PARAM[row_id])] | [$PARAM[focused] + ControlGroup($PARAM[walls_id]).HasFocus]]</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="HomeWallTabRow">
+		<visible allowhiddenfocus="true">!Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)</visible>
+		<top>57</top>
+		<width>1424</width>
+		<height>140</height>
+		<orientation>horizontal</orientation>
+		<focusposition>0</focusposition>
+		<movement>4</movement>
+		<scrolltime tween="cubic" easing="out">400</scrolltime>
+		<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
+		<onfocus condition="Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)">SetFocus($INFO[Container($PARAM[row_id]).ListItem.Property(wall_id)],0,absolute)</onfocus>
+		<onleft>9000</onleft>
+		<onright>$PARAM[row_id]</onright>
+		<onup>$PARAM[row_id]</onup>
+		<ondown condition="Skin.HasSetting(HomeWalls.ManualLoading)">SetProperty(altus_wall_$PARAM[row_id],$INFO[Container($PARAM[row_id]).ListItem.Property(wall_id)],home)</ondown>		<ondown>SetFocus($INFO[Container($PARAM[row_id]).ListItem.Property(wall_id)],0,absolute)</ondown>
+		<onback>9000</onback>
+		<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="ControlGroup($PARAM[walls_id]).HasFocus">Conditional</animation>
+		<itemlayout width="283" height="140" infoupdate="30">
+			<include content="HomeWallTabLayout">
+				<param name="row_id" value="$PARAM[row_id]"/>
+				<param name="walls_id" value="$PARAM[walls_id]"/>
+				<param name="fallback" value="$PARAM[fallback]"/>
+			</include>
+		</itemlayout>
+		<focusedlayout width="283" height="140" infoupdate="30">
+			<include content="HomeWallTabLayout">
+				<param name="row_id" value="$PARAM[row_id]"/>
+				<param name="walls_id" value="$PARAM[walls_id]"/>
+				<param name="fallback" value="$PARAM[fallback]"/>
+				<param name="focused" value="true"/>
+			</include>
+		</focusedlayout>
+	</include>
+
+	<include name="HomeWallsGroup">
+		<top>193</top>
+		<animation effect="slide" start="0,0" end="0,-121" time="400" tween="cubic" easing="inout" condition="ControlGroup($PARAM[walls_id]).HasFocus | Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)" reversible="true">Conditional</animation>
+		<animation condition="Skin.HasSetting(HomeWalls.ManualLoading) + Control.HasFocus($PARAM[row_id]) + [[String.IsEmpty(Window(Home).Property(altus_wall_$PARAM[row_id])) + !String.IsEqual(Container($PARAM[row_id]).ListItemAbsolute(0).Property(wall_id),Container($PARAM[row_id]).ListItem.Property(wall_id))] | [!String.IsEmpty(Window(Home).Property(altus_wall_$PARAM[row_id])) + !String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),Container($PARAM[row_id]).ListItem.Property(wall_id))]] + String.IsEqual(Skin.String(BackgroundSetting),1)" reversible="true">
+			<effect type="fadediffuse" start="FFFFFFFF" end="FF777777" time="300" />
+		</animation>
+		<animation condition="Skin.HasSetting(HomeWalls.ManualLoading) + Control.HasFocus($PARAM[row_id]) + [[String.IsEmpty(Window(Home).Property(altus_wall_$PARAM[row_id])) + !String.IsEqual(Container($PARAM[row_id]).ListItemAbsolute(0).Property(wall_id),Container($PARAM[row_id]).ListItem.Property(wall_id))] | [!String.IsEmpty(Window(Home).Property(altus_wall_$PARAM[row_id])) + !String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),Container($PARAM[row_id]).ListItem.Property(wall_id))]] + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),2)]" reversible="true">
+			<effect type="fade" start="100" end="50" time="300" tween="sine" easing="inout" />
+		</animation>
+	</include>
+
+	<include name="HomeWallCommon">
+		<visible allowhiddenfocus="true">$PARAM[visible]</visible>
+		<animation effect="fade" time="300">Visible</animation>
+		<left>0</left>
+		<top>0</top>
+		<width>1424</width>
+		<height>1008</height>
+		<orientation>vertical</orientation>
+		<scrolltime tween="cubic" easing="out">600</scrolltime>
+		<preloaditems>1</preloaditems>
+		<onup>SetFocus($PARAM[list_id],0,absolute)</onup>
+		<onup condition="!Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)">SetFocus($PARAM[row_id])</onup>
+		<onup condition="Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)">9000</onup>
+		<onleft condition="!String.IsEqual(Skin.String(onLeftSetting.Home),1)">9000</onleft>
+		<onleft condition="String.IsEqual(Skin.String(onLeftSetting.Home),1)">$PARAM[list_id]</onleft>
+		<onright>$PARAM[list_id]</onright>
+		<onback condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onback>
+		<onback>SetFocus($PARAM[list_id],0,absolute)</onback>
+		<onback condition="!String.IsEqual(Skin.String(onBackSetting.Home),1) + !Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)">$PARAM[row_id]</onback>
+		<onback condition="String.IsEqual(Skin.String(onBackSetting.Home),1) | Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)">9000</onback>
+		<onfocus condition="Skin.HasSetting(HomeWalls.ManualLoading)">SetProperty(altus_wall_$PARAM[row_id],$PARAM[list_id],home)</onfocus>
+		<onunfocus condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onunfocus>
+		<onunfocus condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunfocus>
+	</include>
+
+	<include name="HomeWallUnfocusedAnimations">
+		<animation condition="Skin.HasSetting(Enable.HomeWallsDim) + Control.HasFocus($PARAM[list_id]) + String.IsEqual(Skin.String(BackgroundSetting),1)" reversible="true">
+			<effect type="fadediffuse" start="FFFFFFFF" end="FF777777" time="300" />
+		</animation>
+		<animation condition="Skin.HasSetting(Enable.HomeWallsDim) + Control.HasFocus($PARAM[list_id]) + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),2)]" reversible="true">
+			<effect type="fade" start="100" end="50" time="300" tween="sine" easing="inout" />
+		</animation>
+	</include>
+
+	<include name="HomeWallFocusAnimations">
+		<animation type="Focus" condition="Skin.HasSetting(Enable.HomeWallsDim) + Control.HasFocus($PARAM[list_id]) + String.IsEqual(Skin.String(BackgroundSetting),1)" reversible="false">
+			<effect type="fadediffuse" start="FF777777" end="FFFFFFFF" time="300" />
+		</animation>
+		<animation type="Unfocus" condition="Skin.HasSetting(Enable.HomeWallsDim) + Control.HasFocus($PARAM[list_id]) + String.IsEqual(Skin.String(BackgroundSetting),1)" reversible="false">
+			<effect type="fadediffuse" start="FFFFFFFF" end="FF777777" time="300" />
+		</animation>
+		<animation type="Focus" condition="Skin.HasSetting(Enable.HomeWallsDim) + Control.HasFocus($PARAM[list_id]) + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),2)]" reversible="false">
+			<effect type="fade" start="50" end="100" time="300" tween="sine" easing="inout" />
+		</animation>
+		<animation type="Unfocus" condition="Skin.HasSetting(Enable.HomeWallsDim) + Control.HasFocus($PARAM[list_id]) + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),2)]" reversible="false">
+			<effect type="fade" start="100" end="50" time="300" tween="sine" easing="inout" />
+		</animation>
+	</include>
+
+	<include name="HomeWallContent">
+		<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
+	</include>
+
+	<include name="HomeWallFrame">
+		<include content="BusyListSpinner">
+			<param name="list_id" value="$PARAM[list_id]"/>
+			<param name="posy" value="10"/>
+			<param name="posx" value="20"/>
+			<param name="visible" value="$PARAM[visible]"/>
+		</include>
+	</include>
+
+	<include name="HomeWallPoster">
+		<definition>
+			<control type="group">
+				<include content="HomeWallFrame">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="visible" value="$PARAM[visible]"/>
+				</include>
+				<control type="panel" id="$PARAM[list_id]">
+					<include content="HomeWallCommon">
+						<param name="list_id" value="$PARAM[list_id]"/>
+						<param name="row_id" value="$PARAM[row_id]"/>
+						<param name="visible" value="$PARAM[visible]"/>
+					</include>
+					<itemlayout width="283" height="409">
+						<control type="group">
+							<include content="HomeWallUnfocusedAnimations">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+							<include content="PosterLayout">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+						</control>
+					</itemlayout>
+					<focusedlayout width="283" height="409" infoupdate="30">
+						<control type="group">
+							<depth>DepthContentPopout</depth>
+							<control type="group">
+								<include content="HomeWallFocusAnimations">
+									<param name="list_id" value="$PARAM[list_id]"/>
+								</include>
+								<include content="PosterLayout">
+									<param name="focused" value="true"/>
+									<param name="list_id" value="$PARAM[list_id]"/>
+								</include>
+							</control>
+							<include>FocusBounce</include>
+							<include>VideoTrailerControl</include>
+						</control>
+					</focusedlayout>
+					<include content="HomeWallContent">
+						<param name="content_path" value="$PARAM[content_path]"/>
+						<param name="widget_target" value="$PARAM[widget_target]"/>
+						<param name="sortby" value="$PARAM[sortby]"/>
+						<param name="sortorder" value="$PARAM[sortorder]"/>
+						<param name="limit" value="$PARAM[limit]"/>
+					</include>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="HomeWallSmallPoster">
+		<definition>
+			<control type="group">
+				<include content="HomeWallFrame">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="visible" value="$PARAM[visible]"/>
+				</include>
+				<control type="panel" id="$PARAM[list_id]">
+					<include content="HomeWallCommon">
+						<param name="list_id" value="$PARAM[list_id]"/>
+						<param name="row_id" value="$PARAM[row_id]"/>
+						<param name="visible" value="$PARAM[visible]"/>
+					</include>
+					<itemlayout width="235" height="337">
+						<control type="group">
+							<include content="HomeWallUnfocusedAnimations">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+							<include content="SmallPosterLayout">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+						</control>
+					</itemlayout>
+					<focusedlayout width="235" height="337" infoupdate="30">
+						<control type="group">
+							<depth>DepthContentPopout</depth>
+							<control type="group">
+								<include content="HomeWallFocusAnimations">
+									<param name="list_id" value="$PARAM[list_id]"/>
+								</include>
+								<include content="SmallPosterLayout">
+									<param name="focused" value="true"/>
+									<param name="list_id" value="$PARAM[list_id]"/>
+								</include>
+							</control>
+							<include>FocusBounce</include>
+							<include>VideoTrailerControl</include>
+						</control>
+					</focusedlayout>
+					<include content="HomeWallContent">
+						<param name="content_path" value="$PARAM[content_path]"/>
+						<param name="widget_target" value="$PARAM[widget_target]"/>
+						<param name="sortby" value="$PARAM[sortby]"/>
+						<param name="sortorder" value="$PARAM[sortorder]"/>
+						<param name="limit" value="$PARAM[limit]"/>
+					</include>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="HomeWallLandscape">
+		<definition>
+			<control type="group">
+				<include content="HomeWallFrame">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="visible" value="$PARAM[visible]"/>
+				</include>
+				<control type="panel" id="$PARAM[list_id]">
+					<include content="HomeWallCommon">
+						<param name="list_id" value="$PARAM[list_id]"/>
+						<param name="row_id" value="$PARAM[row_id]"/>
+						<param name="visible" value="$PARAM[visible]"/>
+					</include>
+					<itemlayout width="474" height="286">
+						<control type="group">
+							<include content="HomeWallUnfocusedAnimations">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+							<left>-2</left>
+							<include content="LandscapeLayout">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+						</control>
+					</itemlayout>
+					<focusedlayout width="474" height="286" infoupdate="30">
+						<control type="group">
+							<depth>DepthContentPopout</depth>
+							<left>-2</left>
+							<control type="group">
+								<include content="HomeWallFocusAnimations">
+									<param name="list_id" value="$PARAM[list_id]"/>
+								</include>
+								<include content="LandscapeLayout">
+									<param name="focused" value="true"/>
+									<param name="list_id" value="$PARAM[list_id]"/>
+								</include>
+							</control>
+							<include>FocusBounce</include>
+							<include>VideoTrailerControl</include>
+						</control>
+					</focusedlayout>
+					<include content="HomeWallContent">
+						<param name="content_path" value="$PARAM[content_path]"/>
+						<param name="widget_target" value="$PARAM[widget_target]"/>
+						<param name="sortby" value="$PARAM[sortby]"/>
+						<param name="sortorder" value="$PARAM[sortorder]"/>
+						<param name="limit" value="$PARAM[limit]"/>
+					</include>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="HomeWallSmallLandscape">
+		<definition>
+			<control type="group">
+				<include content="HomeWallFrame">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="visible" value="$PARAM[visible]"/>
+				</include>
+				<control type="panel" id="$PARAM[list_id]">
+					<include content="HomeWallCommon">
+						<param name="list_id" value="$PARAM[list_id]"/>
+						<param name="row_id" value="$PARAM[row_id]"/>
+						<param name="visible" value="$PARAM[visible]"/>
+					</include>
+					<itemlayout width="353" height="214">
+						<control type="group">
+							<include content="HomeWallUnfocusedAnimations">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+							<left>2</left>
+							<include content="SmallLandscapeLayout">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+						</control>
+					</itemlayout>
+					<focusedlayout width="353" height="214" infoupdate="30">
+						<control type="group">
+							<depth>DepthContentPopout</depth>
+							<left>2</left>
+							<control type="group">
+								<include content="HomeWallFocusAnimations">
+									<param name="list_id" value="$PARAM[list_id]"/>
+								</include>
+								<include content="SmallLandscapeLayout">
+									<param name="focused" value="true"/>
+									<param name="list_id" value="$PARAM[list_id]"/>
+								</include>
+							</control>
+							<include>FocusBounce</include>
+							<include>VideoTrailerControl</include>
+						</control>
+					</focusedlayout>
+					<include content="HomeWallContent">
+						<param name="content_path" value="$PARAM[content_path]"/>
+						<param name="widget_target" value="$PARAM[widget_target]"/>
+						<param name="sortby" value="$PARAM[sortby]"/>
+						<param name="sortorder" value="$PARAM[sortorder]"/>
+						<param name="limit" value="$PARAM[limit]"/>
+					</include>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="HomeWallSquare">
+		<param name="fallback_icon">DefaultFolder.png</param>
+		<definition>
+			<control type="group">
+				<include content="HomeWallFrame">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="visible" value="$PARAM[visible]"/>
+				</include>
+				<control type="panel" id="$PARAM[list_id]">
+					<include content="HomeWallCommon">
+						<param name="list_id" value="$PARAM[list_id]"/>
+						<param name="row_id" value="$PARAM[row_id]"/>
+						<param name="visible" value="$PARAM[visible]"/>
+					</include>
+					<itemlayout width="283" height="330">
+						<control type="group">
+							<include content="HomeWallUnfocusedAnimations">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+							<top>11</top>
+							<include content="SmallSquareLayout">
+								<param name="fallback_icon" value="$PARAM[fallback_icon]"/>
+								<param name="single_label" value="$INFO[ListItem.Label]"/>
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+						</control>
+					</itemlayout>
+					<focusedlayout width="283" height="330" infoupdate="30">
+						<control type="group">
+							<depth>DepthContentPopout</depth>
+							<top>11</top>
+							<control type="group">
+								<include content="HomeWallFocusAnimations">
+									<param name="list_id" value="$PARAM[list_id]"/>
+								</include>
+								<include content="SmallSquareLayout">
+									<param name="fallback_icon" value="$PARAM[fallback_icon]"/>
+									<param name="single_label" value="$INFO[ListItem.Label]"/>
+									<param name="list_id" value="$PARAM[list_id]"/>
+									<param name="focused" value="true"/>
+								</include>
+							</control>
+							<include>FocusBounce</include>
+						</control>
+					</focusedlayout>
+					<include content="HomeWallContent">
+						<param name="content_path" value="$PARAM[content_path]"/>
+						<param name="widget_target" value="$PARAM[widget_target]"/>
+						<param name="sortby" value="$PARAM[sortby]"/>
+						<param name="sortorder" value="$PARAM[sortorder]"/>
+						<param name="limit" value="$PARAM[limit]"/>
+					</include>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="HomeWallCategory">
+		<param name="icon">$VAR[CategoryIcon]</param>
+		<definition>
+			<control type="group">
+				<include content="HomeWallFrame">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="visible" value="$PARAM[visible]"/>
+				</include>
+				<control type="panel" id="$PARAM[list_id]">
+					<include content="HomeWallCommon">
+						<param name="list_id" value="$PARAM[list_id]"/>
+						<param name="row_id" value="$PARAM[row_id]"/>
+						<param name="visible" value="$PARAM[visible]"/>
+					</include>
+					<itemlayout width="354" height="178">
+						<control type="group">
+							<include content="HomeWallUnfocusedAnimations">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+							<top>-15</top>
+							<include content="WidgetListCategoryLayout">
+								<param name="list_id" value="$PARAM[list_id]"/>
+								<param name="icon" value="$PARAM[icon]"/>
+							</include>
+						</control>
+					</itemlayout>
+					<focusedlayout width="354" height="178" infoupdate="30">
+						<control type="group">
+							<depth>DepthContentPopout</depth>
+							<top>-15</top>
+							<control type="group">
+								<include content="HomeWallFocusAnimations">
+									<param name="list_id" value="$PARAM[list_id]"/>
+								</include>
+								<include content="WidgetListCategoryLayout">
+									<param name="list_id" value="$PARAM[list_id]"/>
+									<param name="icon" value="$PARAM[icon]"/>
+									<param name="focused" value="true"/>
+								</include>
+							</control>
+							<include>FocusBounce</include>
+						</control>
+					</focusedlayout>
+					<include content="HomeWallContent">
+						<param name="content_path" value="$PARAM[content_path]"/>
+						<param name="widget_target" value="$PARAM[widget_target]"/>
+						<param name="sortby" value="$PARAM[sortby]"/>
+						<param name="sortorder" value="$PARAM[sortorder]"/>
+						<param name="limit" value="$PARAM[limit]"/>
+					</include>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="HomeWallPVR">
+		<definition>
+			<control type="group">
+				<include content="HomeWallFrame">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="visible" value="$PARAM[visible]"/>
+				</include>
+				<control type="panel" id="$PARAM[list_id]">
+					<include content="HomeWallCommon">
+						<param name="list_id" value="$PARAM[list_id]"/>
+						<param name="row_id" value="$PARAM[row_id]"/>
+						<param name="visible" value="$PARAM[visible]"/>
+					</include>
+					<itemlayout width="474" height="339">
+						<control type="group">
+							<include content="HomeWallUnfocusedAnimations">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+							<top>-15</top>
+							<include content="WidgetListPVRLayout">
+								<param name="list_id" value="$PARAM[list_id]"/>
+							</include>
+						</control>
+					</itemlayout>
+					<focusedlayout width="474" height="339" infoupdate="30">
+						<control type="group">
+							<depth>DepthContentPopout</depth>
+							<top>-15</top>
+							<control type="group">
+								<include content="HomeWallFocusAnimations">
+									<param name="list_id" value="$PARAM[list_id]"/>
+								</include>
+								<include content="WidgetListPVRLayout">
+									<param name="list_id" value="$PARAM[list_id]"/>
+									<param name="focused" value="true"/>
+								</include>
+							</control>
+							<include>FocusBounce</include>
+						</control>
+					</focusedlayout>
+					<include content="HomeWallContent">
+						<param name="content_path" value="$PARAM[content_path]"/>
+						<param name="widget_target" value="$PARAM[widget_target]"/>
+						<param name="sortby" value="$PARAM[sortby]"/>
+						<param name="sortorder" value="$PARAM[sortorder]"/>
+						<param name="limit" value="$PARAM[limit]"/>
+					</include>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+</includes>
