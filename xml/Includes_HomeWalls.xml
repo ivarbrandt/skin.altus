@@ -92,7 +92,7 @@
 					<textcolor>$VAR[FocusColorTheme]</textcolor>
 					<font>font23_stacked_widgets_fo</font>
 					<autoscroll delay="2000" time="3000" repeat="2000">Control.HasFocus($PARAM[row_id])</autoscroll>
-					<visible>$PARAM[focused] + Control.HasFocus($PARAM[row_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)</visible>
+					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[row_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)] | [$PARAM[focused] + ControlGroup($PARAM[walls_id]).HasFocus] | [!ControlGroup($PARAM[walls_id]).HasFocus + [[!Skin.HasSetting(HomeWalls.ManualLoading) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),ListItem.Property(wall_id)) | [$PARAM[fallback] + Integer.IsEqual(ListItem.CurrentItem,1)]]]]]</visible>
 				</control>
 				<control type="textbox">
 					<centertop>50%</centertop>
@@ -104,7 +104,7 @@
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>unfocused_text</textcolor>
 					<font>font23_stacked_widgets_fo</font>
-					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[row_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)]</visible>
+					<visible>![[$PARAM[focused] + Control.HasFocus($PARAM[row_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)] | [$PARAM[focused] + ControlGroup($PARAM[walls_id]).HasFocus] | [!ControlGroup($PARAM[walls_id]).HasFocus + [[!Skin.HasSetting(HomeWalls.ManualLoading) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),ListItem.Property(wall_id)) | [$PARAM[fallback] + Integer.IsEqual(ListItem.CurrentItem,1)]]]]]]</visible>
 				</control>
 			</control>
 		</definition>

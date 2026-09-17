@@ -223,6 +223,33 @@
 			</control>
     </definition>
 	</include>
+	<include name="SideMenuIconButton">
+    <param name="height">100</param>
+    <param name="visible">true</param>
+    <definition>
+			<control type="radiobutton" id="$PARAM[control_id]">
+				<width>100</width>
+				<height>$PARAM[height]</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<onclick>$PARAM[onclick]</onclick>
+				<onclick>$PARAM[onclick_2]</onclick>
+				<font></font>
+				<label>$PARAM[label]</label>
+				<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>
+				<texturenofocus colordiffuse="4D000000">buttons/roundbutton-fo.png</texturenofocus>
+				<radioposx>30</radioposx>
+				<radioposy>0</radioposy>
+				<radiowidth>40</radiowidth>
+				<radioheight>40</radioheight>
+				<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon]</textureradioonfocus>
+				<textureradioonnofocus colordiffuse="unfocused_text">$PARAM[icon]</textureradioonnofocus>
+				<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon]</textureradioofffocus>
+				<textureradiooffnofocus colordiffuse="unfocused_text">$PARAM[icon]</textureradiooffnofocus>
+				<visible>$PARAM[visible]</visible>
+			</control>
+    </definition>
+	</include>
 	<!-- <include name="IconButton">
 		<param name="height">120</param>
 		<param name="visible">true</param>

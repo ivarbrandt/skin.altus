@@ -191,6 +191,12 @@
 					</control>
 				</focusedlayout>
 			</control>
+			<include content="TopBottomBars">
+				<param name="top_visible" value="false"/>
+				<param name="bottom_visible" value="true"/>
+				<param name="top" value="-70"/>
+				<param name="bottom" value="0"/>
+			</include>
 		</control>
 	</include>
 </includes>

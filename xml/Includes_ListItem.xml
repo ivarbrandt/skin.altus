@@ -323,7 +323,7 @@
             <height>47</height>
             <texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$VAR[HomeMenuIcon]</texture>
             <aspectratio>keep</aspectratio>
-            <visible>[!String.IsEmpty(ListItem.Property(icon)) | String.IsEqual(ListItem.Property(id),weather)] + ![String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched] + [![Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)]]</visible>
+            <visible>[!String.IsEmpty(ListItem.Property(icon)) | String.IsEqual(ListItem.Property(id),weather)] + ![String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched] + ![[Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)] | [$PARAM[focused] + $PARAM[active]]]</visible>
           </control>
           <control type="image">
             <left>32</left>
@@ -332,7 +332,7 @@
             <height>47</height>
             <texture diffuse="masks/mainmenu-img.png" colordiffuse="$PARAM[focused_icon]">$VAR[HomeMenuIcon]</texture>
             <aspectratio>keep</aspectratio>
-            <visible>[!String.IsEmpty(ListItem.Property(icon)) | String.IsEqual(ListItem.Property(id),weather)] + ![String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched] + Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)</visible>
+            <visible>[!String.IsEmpty(ListItem.Property(icon)) | String.IsEqual(ListItem.Property(id),weather)] + ![String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched] + [[Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)] | [$PARAM[focused] + $PARAM[active]]]</visible>
           </control>
           <!-- Weather placeholder icon (before weather fetched) -->
           <control type="image">
@@ -342,7 +342,7 @@
             <height>47</height>
             <texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">icons/weather/cloudy.png</texture>
             <aspectratio>keep</aspectratio>
-            <visible>String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched + [![Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)]]</visible>
+            <visible>String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched + ![[Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)] | [$PARAM[focused] + $PARAM[active]]]</visible>
           </control>
           <control type="image">
             <left>32</left>
@@ -351,7 +351,7 @@
             <height>47</height>
             <texture diffuse="masks/mainmenu-img.png" colordiffuse="$PARAM[focused_icon]">icons/weather/cloudy.png</texture>
             <aspectratio>keep</aspectratio>
-            <visible>String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched + Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)</visible>
+            <visible>String.IsEqual(ListItem.Property(id),weather) + !Weather.IsFetched + [[Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)] | [$PARAM[focused] + $PARAM[active]]]</visible>
           </control>
         </control>
         <control type="group">
@@ -365,7 +365,7 @@
             <label>$VAR[MenuCaseVar]</label>
             <align>$PARAM[align]</align>
             <shadowcolor>text_shadow</shadowcolor>
-            <visible>![Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)]</visible>
+            <visible>![[Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)] | [$PARAM[focused] + $PARAM[active]]]</visible>
           </control>
           <control type="label">
             <left>$PARAM[left_right_text]</left>
@@ -386,11 +386,22 @@
             <right>$PARAM[left_right_text]</right>
             <aligny>center</aligny>
             <font>$PARAM[unfocused_font]</font>
+            <label>$VAR[MenuCaseVar]</label>
+            <textcolor>$PARAM[focused_text]</textcolor>
+            <align>$PARAM[align]</align>
+            <shadowcolor>text_shadow</shadowcolor>
+            <visible>$PARAM[focused] + $PARAM[active] + ![Control.HasFocus($PARAM[id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)]</visible>
+          </control>
+          <control type="label">
+            <left>$PARAM[left_right_text]</left>
+            <right>$PARAM[left_right_text]</right>
+            <aligny>center</aligny>
+            <font>$PARAM[unfocused_font]</font>
             <align>$PARAM[align]</align>
             <textcolor>unfocused_text</textcolor>
             <label>$VAR[MenuCaseVar]</label>
             <shadowcolor>text_shadow</shadowcolor>
-            <visible>![Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)]</visible>
+            <visible>![[Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)] | [$PARAM[focused] + $PARAM[active]]]</visible>
           </control>
         </control>
         <control type="group">
@@ -404,7 +415,7 @@
             <label>$VAR[MenuCaseVar]</label>
             <align>$PARAM[align]</align>
             <shadowcolor>text_shadow</shadowcolor>
-            <visible>![Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)]</visible>
+            <visible>![[Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)] | [$PARAM[focused] + $PARAM[active]]]</visible>
           </control>
           <control type="label">
             <left>94</left>
@@ -424,11 +435,22 @@
             <right>27</right>
             <aligny>center</aligny>
             <font>$PARAM[unfocused_font]</font>
+            <label>$VAR[MenuCaseVar]</label>
+            <textcolor>$PARAM[focused_text]</textcolor>
+            <align>$PARAM[align]</align>
+            <shadowcolor>text_shadow</shadowcolor>
+            <visible>$PARAM[focused] + $PARAM[active] + ![Control.HasFocus($PARAM[id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)]</visible>
+          </control>
+          <control type="label">
+            <left>94</left>
+            <right>27</right>
+            <aligny>center</aligny>
+            <font>$PARAM[unfocused_font]</font>
             <align>$PARAM[align]</align>
             <textcolor>unfocused_text</textcolor>
             <label>$VAR[MenuCaseVar]</label>
             <shadowcolor>text_shadow</shadowcolor>
-            <visible>![Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)]</visible>
+            <visible>![[Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)] | [$PARAM[focused] + $PARAM[active]]]</visible>
           </control>
         </control>
       </control>
