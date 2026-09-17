@@ -35,13 +35,6 @@
 			<size>25</size>
 		</font>
 		<font>
-			<name>font23_stacked_widgets_unfo</name>
-			<filename>RobotoCJKSC-Regular.ttf</filename>
-			<size>25</size>
-			<!-- <linespacing>0.80</linespacing> -->
-			<linespacing>1.25</linespacing>
-		</font>
-		<font>
 			<name>font25</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>23</size>

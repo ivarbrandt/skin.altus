@@ -168,6 +168,7 @@
 					<height>140</height>
 					<control type="grouplist" id="700">
 						<orientation>horizontal</orientation>
+						<scrolltime tween="cubic" easing="out">500</scrolltime>
 						<itemgap>41</itemgap>
 						<width>467</width>
 						<height>130</height>
@@ -198,6 +199,7 @@
 							<param name="visible" value="Integer.IsGreater(System.AddonUpdateCount,0)" />
 						</include>
 					</control>
+					<include>ButtonRowScrollIndicators</include>
 					<!-- <control type="label">
 						<left>20</left>
 						<top>-38</top>

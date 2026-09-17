@@ -220,6 +220,7 @@
 						<height>140</height>
 						<control type="grouplist" id="700">
 							<orientation>horizontal</orientation>
+							<scrolltime tween="cubic" easing="out">500</scrolltime>
 							<itemgap>51</itemgap>
 							<height>130</height>
 							<!-- <onup condition="!String.IsEqual(Window(home).Property(altus.search.history.count),0)">852</onup>
@@ -262,6 +263,9 @@
 								<param name="icon" value="icons/submenu/history.png" />
 							</include>
 						</control>
+						<include content="ButtonRowScrollIndicators">
+							<param name="right" value="358"/>
+						</include>
 						<control type="label">
 							<left>20</left>
 							<top>-38</top>

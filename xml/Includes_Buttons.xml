@@ -223,6 +223,36 @@
 			</control>
     </definition>
 	</include>
+	<include name="ButtonRowScrollIndicators">
+		<param name="list_id">700</param>
+		<param name="top">0</param>
+		<param name="left">0</param>
+		<param name="right">338</param>
+		<definition>
+			<control type="image">
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<width>128</width>
+				<height>128</height>
+				<texture colordiffuse="$VAR[FocusColorTheme]">masks/button_divider.png</texture>
+				<animation effect="zoom" start="100,0" end="100,100" center="auto" delay="100" time="300">Visible</animation>
+				<animation effect="fade" start="0" end="100" delay="100" time="300">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<visible>Container($PARAM[list_id]).HasPrevious</visible>
+			</control>
+			<control type="image">
+				<left>$PARAM[right]</left>
+				<top>$PARAM[top]</top>
+				<width>128</width>
+				<height>128</height>
+				<texture flipx="true" colordiffuse="$VAR[FocusColorTheme]">masks/button_divider.png</texture>
+				<animation effect="zoom" start="100,0" end="100,100" center="auto" delay="100" time="300">Visible</animation>
+				<animation effect="fade" start="0" end="100" delay="100" time="300">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<visible>Container($PARAM[list_id]).HasNext</visible>
+			</control>
+		</definition>
+	</include>
 	<include name="SideMenuIconButton">
     <param name="height">100</param>
     <param name="visible">true</param>

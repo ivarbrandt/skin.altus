@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-  <include name="51_Font_Default">
-    <font>font27</font>
-  </include>
   <include name="51_Font_Large">
     <font>font32</font>
   </include>
@@ -175,16 +172,14 @@
             <align>center</align>
             <height>35</height>
             <label>$VAR[VideoInfoPanelTop]</label>
-            <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">51_Font_Default</include>
-						<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">51_Font_Large</include>
+            <include>51_Font_Large</include>
             <textcolor>$VAR[FocusColorTheme]</textcolor>
             <scroll>true</scroll>
             <scrollspeed>150</scrollspeed>
           </control>
           <control type="textbox">
             <height max="116">auto</height>
-            <include condition="String.IsEqual(Skin.String(FontSizeSetting),0)">51_Font_Default</include>
-						<include condition="String.IsEqual(Skin.String(FontSizeSetting),1)">51_Font_Large</include>
+            <include>51_Font_Large</include>
             <textcolor>unfocused_text</textcolor>
             <align>center</align>
             <label>$VAR[RI_Plot]</label>

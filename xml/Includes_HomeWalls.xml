@@ -440,7 +440,7 @@
 						<param name="row_id" value="$PARAM[row_id]"/>
 						<param name="visible" value="$PARAM[visible]"/>
 					</include>
-					<itemlayout width="283" height="330">
+					<itemlayout width="283" height="350">
 						<control type="group">
 							<include content="HomeWallUnfocusedAnimations">
 								<param name="list_id" value="$PARAM[list_id]"/>
@@ -453,7 +453,7 @@
 							</include>
 						</control>
 					</itemlayout>
-					<focusedlayout width="283" height="330" infoupdate="30">
+					<focusedlayout width="283" height="350" infoupdate="30">
 						<control type="group">
 							<depth>DepthContentPopout</depth>
 							<top>11</top>

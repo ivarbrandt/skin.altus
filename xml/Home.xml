@@ -272,6 +272,7 @@
 						</control>
 						<control type="grouplist" id="700">
 							<orientation>horizontal</orientation>
+							<scrolltime tween="cubic" easing="out">500</scrolltime>
 							<itemgap>41</itemgap>
 							<height>130</height>
 							<onup>SetFocus(9000,99,absolute)</onup>
@@ -313,6 +314,7 @@
 								<param name="visible" value="Player.HasMedia" />
 							</include>
 						</control>
+						<include>ButtonRowScrollIndicators</include>
 					</control>
 				</control>
 			</control>
