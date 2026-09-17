@@ -15,6 +15,8 @@
 				<param name="diffuse_texture" value="masks/radius_46_left.png" />
 				<param name="border_texture" value="masks/bordertexture-46-thin_left.png" />
 				<param name="border_value" value="46,46,0,46" />
+				<param name="blur" value="true" />
+				<param name="blur_mask" value="masks/dialogselect.png" />
 			</include>
 			<control type="list" id="3">
 				<left>40</left>
@@ -22,13 +24,13 @@
 				<movement>7</movement> -->
 				<top>170</top>
 				<width>850</width>
-				<height>825</height>
+				<height>854</height>
 				<onup>3</onup>
 				<ondown>3</ondown>
 				<onleft>9001</onleft>
 				<onright>61</onright>
 				<pagecontrol>61</pagecontrol>
-				<scrolltime>200</scrolltime>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
 				<include content="DefaultSimpleListLayout">
 					<param name="width" value="850" />
 					<param name="list_id" value="3" />
@@ -39,157 +41,196 @@
 				<left>40</left>
 				<top>170</top>
 				<width>850</width>
-				<height>825</height>
+				<height>845</height>
 				<onup>6</onup>
 				<ondown>6</ondown>
 				<onleft>9001</onleft>
 				<onright>61</onright>
 				<pagecontrol>61</pagecontrol>
-				<scrolltime>200</scrolltime>
-				<itemlayout height="117.85" width="850">
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<itemlayout height="169" width="850">
 					<control type="image">
-						<left>25</left>
-						<width>90</width>
-						<aligny>center</aligny>
-						<texture diffuse="masks/dialogselect_img.png">$VAR[FlixThumbVar]</texture>
-						<aspectratio>keep</aspectratio>
+						<height>140</height>
+						<texture border="70" colordiffuse="4D000000">masks/radius_70.png</texture>
+					</control>
+					<control type="image">
+						<left>20</left>
+						<top>20</top>
+						<width>100</width>
+						<height>100</height>
+						<texture diffuse="masks/mainmenu-img.png">$VAR[FlixThumbVar]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
 						<visible>!ListItem.Property(PVR.IsRecordingTimer) + !ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>
 					<control type="image">
-						<left>52</left>
-						<top>22</top>
-						<width>80</width>
-						<height>80</height>
-						<aspectratio align="top">keep</aspectratio>
-						<aligny>center</aligny>
+						<left>47</left>
+						<top>47</top>
+						<width>47</width>
+						<height>47</height>
+						<aspectratio>keep</aspectratio>
 						<texture>icons/pvr/timers/recording.png</texture>
 						<visible>ListItem.Property(PVR.IsRecordingTimer)</visible>
 					</control>
 					<control type="image">
-						<left>52</left>
-						<top>22</top>
-						<width>80</width>
-						<height>80</height>
-						<aspectratio align="top">keep</aspectratio>
-						<aligny>center</aligny>
+						<left>47</left>
+						<top>47</top>
+						<width>47</width>
+						<height>47</height>
+						<aspectratio>keep</aspectratio>
 						<texture>icons/pvr/timers/bell.png</texture>
 						<visible>ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>
 					<control type="label">
-						<left>145</left>
-						<top>10</top>
-						<right>110</right>
-						<height>60</height>
-						<font>font14</font>
+						<left>150</left>
+						<top>27</top>
+						<right>115</right>
+						<height>40</height>
+						<font>font32_bold</font>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>unfocused_text</textcolor>
 						<selectedcolor>unfocused_text</selectedcolor>
 					</control>
 					<control type="label">
-						<left>145</left>
-						<top>60</top>
-						<right>110</right>
-						<height>67</height>
-						<font>font12</font>
-						<textcolor>unfocused_text</textcolor>
-						<selectedcolor>unfocused_text</selectedcolor>
+						<left>150</left>
+						<top>73</top>
+						<right>115</right>
+						<height>40</height>
+						<font>font27</font>
+						<textcolor>grey</textcolor>
+						<selectedcolor>grey</selectedcolor>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
 					<control type="image">
 						<right>40</right>
+						<top>53</top>
 						<width>35</width>
-						<aligny>center</aligny>
-						<texture colordiffuse="unfocused_text">icons/dialog/radio-checked.png</texture>
+						<height>35</height>
+						<texture colordiffuse="unfocused_text">masks/radio-button-on.png</texture>
 						<visible>ListItem.IsSelected</visible>
-						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="image">
 						<right>40</right>
+						<top>53</top>
 						<width>35</width>
-						<aligny>center</aligny>
-						<texture colordiffuse="unfocused_text">icons/dialog/radio-blank.png</texture>
+						<height>35</height>
+						<texture colordiffuse="unfocused_text">masks/radio-button-off.png</texture>
 						<visible>!ListItem.IsSelected</visible>
-						<aspectratio>keep</aspectratio>
 					</control>
 				</itemlayout>
-				<focusedlayout height="117.85" width="850">
+				<focusedlayout height="169" width="850" infoupdate="30">
 					<control type="image">
-						<left>0</left>
-						<top>0</top>
-						<right>0</right>
-						<bottom>0</bottom>
-						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
-						<!-- <visible>Control.HasFocus(6)</visible> -->
-						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(6)">Conditional</animation>
+						<height>140</height>
+						<texture border="70" colordiffuse="4D000000">masks/radius_70.png</texture>
+						<visible>![Control.HasFocus(6) + Integer.IsEqual(ListItem.CurrentItem,Container(6).CurrentItem)]</visible>
 					</control>
 					<control type="image">
-						<left>25</left>
-						<width>90</width>
-						<aligny>center</aligny>
-						<texture diffuse="masks/dialogselect_img.png">$VAR[FlixThumbVar]</texture>
-						<aspectratio>keep</aspectratio>
+						<height>140</height>
+						<texture border="70" colordiffuse="A6000000">masks/radius_70.png</texture>
+						<visible>Control.HasFocus(6) + Integer.IsEqual(ListItem.CurrentItem,Container(6).CurrentItem)</visible>
+					</control>
+					<include content="FocusBorder">
+						<param name="list_id" value="6"/>
+						<param name="focused" value="true"/>
+						<param name="radius" value="70"/>
+						<param name="border" value="70"/>
+						<param name="bottom" value="29"/>
+					</include>
+					<control type="image">
+						<left>20</left>
+						<top>20</top>
+						<width>100</width>
+						<height>100</height>
+						<texture diffuse="masks/mainmenu-img.png">$VAR[FlixThumbVar]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
 						<visible>!ListItem.Property(PVR.IsRecordingTimer) + !ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>
 					<control type="image">
-						<left>52</left>
-						<top>22</top>
-						<width>80</width>
-						<height>80</height>
-						<aspectratio align="top">keep</aspectratio>
-						<aligny>center</aligny>
+						<left>47</left>
+						<top>47</top>
+						<width>47</width>
+						<height>47</height>
+						<aspectratio>keep</aspectratio>
 						<texture>icons/pvr/timers/recording.png</texture>
 						<visible>ListItem.Property(PVR.IsRecordingTimer)</visible>
 					</control>
 					<control type="image">
-						<left>52</left>
-						<top>22</top>
-						<width>80</width>
-						<height>80</height>
-						<aspectratio align="top">keep</aspectratio>
-						<aligny>center</aligny>
+						<left>47</left>
+						<top>47</top>
+						<width>47</width>
+						<height>47</height>
+						<aspectratio>keep</aspectratio>
 						<texture>icons/pvr/timers/bell.png</texture>
 						<visible>ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>
 					<control type="label">
-						<left>145</left>
-						<top>10</top>
-						<right>110</right>
-						<height>60</height>
-						<font>font14</font>
+						<left>150</left>
+						<top>27</top>
+						<right>115</right>
+						<height>40</height>
+						<font>font32_bold</font>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>unfocused_text</textcolor>
+						<selectedcolor>unfocused_text</selectedcolor>
+						<visible>![Control.HasFocus(6) + Integer.IsEqual(ListItem.CurrentItem,Container(6).CurrentItem)]</visible>
+					</control>
+					<control type="label">
+						<left>150</left>
+						<top>27</top>
+						<right>115</right>
+						<height>40</height>
+						<font>font32_bold</font>
 						<aligny>center</aligny>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<selectedcolor>$VAR[FocusColorTheme]</selectedcolor>
+						<visible>Control.HasFocus(6) + Integer.IsEqual(ListItem.CurrentItem,Container(6).CurrentItem)</visible>
 					</control>
 					<control type="label">
-						<left>145</left>
-						<top>60</top>
-						<right>110</right>
-						<height>67</height>
-						<font>font12</font>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
+						<left>150</left>
+						<top>73</top>
+						<right>115</right>
+						<height>40</height>
+						<font>font27</font>
+						<textcolor>grey</textcolor>
+						<selectedcolor>grey</selectedcolor>
 						<label>$INFO[ListItem.Label2]</label>
 						<scroll>true</scroll>
 						<scrollspeed>150</scrollspeed>
 					</control>
 					<control type="image">
 						<right>40</right>
+						<top>53</top>
 						<width>35</width>
-						<aligny>center</aligny>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">icons/dialog/radio-checked.png</texture>
-						<visible>ListItem.IsSelected</visible>
-						<aspectratio>keep</aspectratio>
+						<height>35</height>
+						<texture colordiffuse="unfocused_text">masks/radio-button-on.png</texture>
+						<visible>ListItem.IsSelected + ![Control.HasFocus(6) + Integer.IsEqual(ListItem.CurrentItem,Container(6).CurrentItem)]</visible>
 					</control>
 					<control type="image">
 						<right>40</right>
+						<top>53</top>
 						<width>35</width>
-						<aligny>center</aligny>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">icons/dialog/radio-blank.png</texture>
-						<visible>!ListItem.IsSelected</visible>
-						<aspectratio>keep</aspectratio>
+						<height>35</height>
+						<texture colordiffuse="unfocused_text">masks/radio-button-off.png</texture>
+						<visible>!ListItem.IsSelected + ![Control.HasFocus(6) + Integer.IsEqual(ListItem.CurrentItem,Container(6).CurrentItem)]</visible>
+					</control>
+					<control type="image">
+						<right>40</right>
+						<top>53</top>
+						<width>35</width>
+						<height>35</height>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/radio-button-on.png</texture>
+						<visible>ListItem.IsSelected + Control.HasFocus(6) + Integer.IsEqual(ListItem.CurrentItem,Container(6).CurrentItem)</visible>
+					</control>
+					<control type="image">
+						<right>40</right>
+						<top>53</top>
+						<width>35</width>
+						<height>35</height>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/radio-button-off.png</texture>
+						<visible>!ListItem.IsSelected + Control.HasFocus(6) + Integer.IsEqual(ListItem.CurrentItem,Container(6).CurrentItem)</visible>
 					</control>
 				</focusedlayout>
 			</control>
@@ -198,12 +239,12 @@
 				<top>170</top>
 				<width>1</width>
 				<height>825</height>
-				<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
+				<texture colordiffuse="$VAR[FocusColorTheme]">colors/greyer.png</texture>
 			</control>
 			<control type="scrollbar" id="61">
-				<left>925</left>
+				<left>924</left>
 				<top>170</top>
-				<width>1</width>
+				<width>3</width>
 				<height>825</height>
 				<onleft condition="Control.IsVisible(3)">3</onleft>
 				<onleft condition="Control.IsVisible(6)">6</onleft>
@@ -219,7 +260,7 @@
 				<bottom>90</bottom>
 				<width>275</width>
 				<height>35</height>
-				<font>font13</font>
+				<font>font32_title</font>
 				<align>center</align>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
 				<label>$VAR[SelectLabel]</label>

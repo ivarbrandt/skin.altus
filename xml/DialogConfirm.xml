@@ -15,6 +15,8 @@
 				<param name="header_id" value="1" />
 				<param name="header_top" value="15" />
 				<param name="divider_top" value="90" />
+				<param name="blur" value="true" />
+				<param name="blur_mask" value="masks/confirm.png" />
 			</include>
 			<control type="textbox" id="9">
 				<left>40</left>
@@ -38,7 +40,7 @@
 			<control type="grouplist" id="9000">
 				<orientation>horizontal</orientation>
 				<left>0</left>
-				<top>330</top>
+				<top>320</top>
 				<width>1144</width>
 				<align>center</align>
 				<itemgap>dialogbuttons_itemgap</itemgap>

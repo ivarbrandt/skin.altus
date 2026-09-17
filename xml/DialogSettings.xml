@@ -6,24 +6,26 @@
 		<control type="group">
 			<centertop>50%</centertop>
 			<centerleft>50%</centerleft>
-			<width>1520</width>
-			<height>815</height>
+			<width>1470</width>
+			<height>807</height>
 			<include>Animation_DialogPopupVisible</include>
 			<visible>!Window.IsVisible(sliderdialog)</visible>
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="" />
 				<param name="header_id" value="2" />
 				<param name="width" value="1470" />
-				<param name="height" value="815" />
+				<param name="height" value="807" />
 				<param name="header_top" value="15" />
 				<param name="divider_top" value="90" />
+				<param name="blur" value="true" />
+				<param name="blur_mask" value="masks/dialogsettings.png" />
 			</include>
 			<control type="grouplist" id="5">
 				<description>control area</description>
 				<left>40</left>
 				<top>130</top>
 				<width>1090</width>
-				<height>630</height>
+				<height>637</height>
 				<pagecontrol>60</pagecontrol>
 				<onleft>9000</onleft>
 				<onright>60</onright>
@@ -36,7 +38,10 @@
 			</control>
 			<control type="radiobutton" id="8">
 				<description>Default RadioButton</description>
-				<include>DefaultSettingButton</include>
+				<include content="DefaultSettingButton">
+					<param name="radioposx" value="1015" />
+					<param name="textwidth" value="935" />
+				</include>
 			</control>
 			<control type="spincontrolex" id="9">
 				<description>Default SpinControlex</description>
@@ -85,14 +90,14 @@
 				<left>1170</left>
 				<top>130</top>
 				<width>1</width>
-				<height>630</height>
-				<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
+				<height>637</height>
+				<texture colordiffuse="$VAR[FocusColorTheme]">colors/greyer.png</texture>
 			</control>
 			<control type="scrollbar" id="60">
-				<left>1170</left>
+				<left>1169</left>
 				<top>130</top>
-				<width>1</width>
-				<height>630</height>
+				<width>3</width>
+				<height>637</height>
 				<orientation>vertical</orientation>
 				<onleft>5</onleft>
 				<onright>9000</onright>

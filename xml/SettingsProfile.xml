@@ -176,41 +176,68 @@
 			<control type="list" id="9000">
 				<left>40</left>
 				<top>130</top>
-				<width>410</width>
+				<width>418</width>
 				<height>567</height>
 				<onleft>9100</onleft>
 				<onright>9100</onright>
 				<onup>9000</onup>
 				<ondown>9000</ondown>
-				<scrolltime>300</scrolltime>
-				<itemlayout height="85" width="410">
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<itemlayout height="122" width="418">
+					<control type="image">
+						<height>93</height>
+						<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+					</control>
 					<control type="label">
-						<textoffsetx>50</textoffsetx>
-						<width>410</width>
-						<height>85</height>
+						<left>40</left>
+						<right>30</right>
+						<height>93</height>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>unfocused_text</textcolor>
-						<font>font37</font>
+						<font>font32_bold</font>
 						<aligny>center</aligny>
 						<align>left</align>
 					</control>
 				</itemlayout>
-				<focusedlayout height="85" width="410">
+				<focusedlayout height="122" width="418" infoupdate="30">
 					<control type="image">
-						<right>0</right>
-						<bottom>0</bottom>
-						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
-						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
+						<height>93</height>
+						<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+						<visible>![[Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)] | ControlGroup(9100).HasFocus]</visible>
 					</control>
+					<control type="image">
+						<height>93</height>
+						<texture border="46" colordiffuse="A6000000">masks/radius_46.png</texture>
+						<visible>[Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)] | ControlGroup(9100).HasFocus</visible>
+					</control>
+					<include content="FocusBorder">
+						<param name="list_id" value="9000"/>
+						<param name="focused" value="true"/>
+						<param name="radius" value="46"/>
+						<param name="border" value="46"/>
+						<param name="bottom" value="29"/>
+					</include>
 					<control type="label">
-						<textoffsetx>50</textoffsetx>
-						<width>410</width>
-						<height>85</height>
+						<left>40</left>
+						<right>30</right>
+						<height>93</height>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<font>font37</font>
+						<textcolor>unfocused_text</textcolor>
+						<font>font32_bold</font>
 						<aligny>center</aligny>
 						<align>left</align>
+						<visible>![[Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)] | ControlGroup(9100).HasFocus]</visible>
+					</control>
+					<control type="label">
+						<left>40</left>
+						<right>30</right>
+						<height>93</height>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<font>font32_bold</font>
+						<aligny>center</aligny>
+						<align>left</align>
+						<visible>[Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)] | ControlGroup(9100).HasFocus</visible>
 					</control>
 				</focusedlayout>
 				<content>

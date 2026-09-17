@@ -20,21 +20,27 @@
     <animation center="35,34" effect="zoom" end="100" reversible="false" start="90" time="480" tween="back">Focus</animation>
 	</include>
 	<include name="DefaultSettingButton">
-		<param name="height">70</param>
+		<param name="height">91</param>
 		<param name="right">0</param>
 		<param name="textoffsetx">40</param>
-		<param name="texture">masks/radius_23.png</param>
+		<param name="texture">masks/pill40_focus.png</param>
+		<param name="focused_text">$VAR[FocusColorTheme]</param>
+		<param name="border">40</param>
+		<param name="radioposx">865</param>
+		<param name="textwidth">785</param>
 		<definition>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
 			<height>$PARAM[height]</height>
 			<right>$PARAM[right]</right>
+			<radioposx>$PARAM[radioposx]</radioposx>
+			<textwidth>$PARAM[textwidth]</textwidth>
 			<aligny>center</aligny>
 			<invalidcolor>invalid</invalidcolor>
 			<selectedcolor>selected</selectedcolor>
-			<font>font32</font>
+			<font>font32_bold</font>
 			<textcolor>unfocused_text</textcolor>
-			<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-			<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">$PARAM[texture]</texturefocus>
+			<focusedcolor>$PARAM[focused_text]</focusedcolor>
+			<texturefocus border="$PARAM[border]" colordiffuse="$VAR[FocusColorTheme]">$PARAM[texture]</texturefocus>
 			<texturenofocus />
 		</definition>
 	</include>
@@ -57,9 +63,9 @@
 		</definition>
 	</include>
 	<include name="DefaultSystemSettingsButton">
-		<param name="height">85</param>
-		<param name="right">25</param>
-		<param name="textoffsetx">50</param>
+		<param name="height">93</param>
+		<param name="right">0</param>
+		<param name="textoffsetx">40</param>
 		<definition>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
 			<height>$PARAM[height]</height>
@@ -67,12 +73,12 @@
 			<aligny>center</aligny>
 			<align>left</align>
 			<textcolor>unfocused_text</textcolor>
-			<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-			<font>font37</font>
+			<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
+			<font>font32_bold</font>
 			<invalidcolor>invalid</invalidcolor>
 			<selectedcolor>selected</selectedcolor>
-			<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
-			<texturenofocus />
+			<texturefocus border="46" colordiffuse="$VAR[FocusColorTheme]">masks/pill46_focus.png</texturefocus>
+			<texturenofocus border="46" colordiffuse="4D000000">masks/radius_46.png</texturenofocus>
 		</definition>
 	</include>
 	<include name="DialogSettingButton">
@@ -133,13 +139,18 @@
 	</include>
 	<include name="DefaultDialogButton">
 		<param name="width">219</param>
-		<param name="height">70</param>
+		<param name="height">80</param>
 		<param name="wrapmultiline">false</param>
-		<param name="font">font27_title</param>
+		<param name="font">font32_bold</param>
 		<param name="onclick"></param>
 		<param name="onclick2"></param>
 		<param name="visible">true</param>
-		<param name="texture">masks/radius_23.png</param>
+		<param name="texture">masks/pill40_focus.png</param>
+		<param name="texture_color">$VAR[FocusColorTheme]</param>
+		<param name="nofocus_texture">masks/radius_40.png</param>
+		<param name="nofocus_color">4D000000</param>
+		<param name="border">40</param>
+		<param name="focused_text">$VAR[FocusColorTheme]</param>
 		<definition>
 			<control type="button" id="$PARAM[id]">
 				<width>$PARAM[width]</width>
@@ -154,23 +165,30 @@
 				<aligny>center</aligny>
 				<!-- <textoffsety>15</textoffsety> -->
 				<textcolor>unfocused_text</textcolor>
-				<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-				<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">$PARAM[texture]</texturefocus>
-				<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_darker.png</texturenofocus>
+				<focusedcolor>$PARAM[focused_text]</focusedcolor>
+				<texturefocus border="$PARAM[border]" colordiffuse="$PARAM[texture_color]">$PARAM[texture]</texturefocus>
+				<texturenofocus border="$PARAM[border]" colordiffuse="$PARAM[nofocus_color]">$PARAM[nofocus_texture]</texturenofocus>
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>
 	</include>
 	<include name="KeyboardButton">
-    <width>100</width>
-    <height>100</height>
-    <texturefocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-fo.png</texturefocus>
-    <texturenofocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-unfo.png</texturenofocus>
+    <width>80</width>
+    <height>80</height>
+    <texturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">masks/pill40_focus.png</texturefocus>
+    <texturenofocus border="40" colordiffuse="4D000000">masks/radius_40.png</texturenofocus>
     <textcolor>unfocused_text</textcolor>
-    <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+    <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
     <align>center</align>
-    <textoffsety>12</textoffsety>
+    <aligny>center</aligny>
     <font>font37</font>
+	</include>
+	<include name="KeyboardIconKey">
+    <width>80</width>
+    <height>80</height>
+    <label></label>
+    <texturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">masks/pill40_focus.png</texturefocus>
+    <texturenofocus border="40" colordiffuse="4D000000">masks/radius_40.png</texturenofocus>
 	</include>
 	<include name="PlaylistWindowButton">
 		<param name="width">100%</param>
@@ -405,53 +423,97 @@
 		<left>40</left>
 		<top>170</top>
 		<width>418</width>
-		<height>825</height>
+		<height>854</height>
 		<onleft>9000</onleft>
 		<onright>Action(close)</onright>
 		<onup>9000</onup>
 		<ondown>9000</ondown>
 		<orientation>vertical</orientation>
-		<itemlayout height="75" width="418">
+		<scrolltime tween="cubic" easing="out">500</scrolltime>
+		<itemlayout height="122" width="418">
 			<control type="image">
-				<left>25</left>
+				<height>93</height>
+				<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+			</control>
+			<control type="image">
+				<left>30</left>
+				<top>26</top>
 				<width>41</width>
+				<height>41</height>
 				<texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
 				<aspectratio>keep</aspectratio>
 				<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 			</control>
 			<control type="label">
-				<left>85</left>
-				<width>418</width>
+				<left>90</left>
+				<right>30</right>
+				<height>93</height>
 				<align>left</align>
 				<aligny>center</aligny>
 				<textcolor>unfocused_text</textcolor>
 				<label>$INFO[ListItem.Label]</label>
-				<font>font32</font>
+				<font>font32_bold</font>
 			</control>
 		</itemlayout>
-		<focusedlayout height="75" width="418">
+		<focusedlayout height="122" width="418" infoupdate="30">
 			<control type="image">
-				<top>0</top>
-				<bottom>0</bottom>
-				<left>0</left>
-				<right>0</right>
-				<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+				<height>93</height>
+				<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+				<visible>![Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)]</visible>
 			</control>
 			<control type="image">
-				<left>25</left>
+				<height>93</height>
+				<texture border="46" colordiffuse="A6000000">masks/radius_46.png</texture>
+				<visible>Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)</visible>
+			</control>
+			<include content="FocusBorder">
+				<param name="list_id" value="9000"/>
+				<param name="focused" value="true"/>
+				<param name="radius" value="46"/>
+				<param name="border" value="46"/>
+				<param name="bottom" value="29"/>
+			</include>
+			<control type="image">
+				<left>30</left>
+				<top>26</top>
 				<width>41</width>
-				<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Property(icon)]</texture>
+				<height>41</height>
+				<texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
+				<visible>!String.IsEmpty(ListItem.Property(icon)) + ![Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)]</visible>
+			</control>
+			<control type="image">
+				<left>30</left>
+				<top>26</top>
+				<width>41</width>
+				<height>41</height>
+				<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusColorTheme]">$INFO[ListItem.Property(icon)]</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)</visible>
 			</control>
 			<control type="label">
-				<left>85</left>
-				<width>418</width>
+				<left>90</left>
+				<right>30</right>
+				<height>93</height>
 				<align>left</align>
 				<aligny>center</aligny>
+				<textcolor>unfocused_text</textcolor>
 				<label>$INFO[ListItem.Label]</label>
-				<font>font32</font>
-				<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+				<font>font32_bold</font>
+				<visible>![Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)]</visible>
+			</control>
+			<control type="label">
+				<left>90</left>
+				<right>30</right>
+				<height>93</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[FocusColorTheme]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<font>font32_bold</font>
+				<scroll>true</scroll>
+				<scrollspeed>150</scrollspeed>
+				<visible>Control.HasFocus(9000) + Integer.IsEqual(ListItem.CurrentItem,Container(9000).CurrentItem)</visible>
 			</control>
 		</focusedlayout>
 	</include>

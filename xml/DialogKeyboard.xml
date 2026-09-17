@@ -5,80 +5,75 @@
 	<depth>DepthDialog+</depth>
 	<controls>
 		<control type="group">
-			<left>100</left>
-			<right>100</right>
-			<top>100</top>
-			<bottom>85</bottom>
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>1760</width>
+			<height>859</height>
 			<visible>!Window.IsVisible(numericinput)</visible>
 			<include>Animation_DialogPopupVisible</include>
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="$PARAM[header_label]" />
 				<param name="header_id" value="311" />
+				<param name="width" value="1760" />
+				<param name="height" value="859" />
 				<param name="header_top" value="15" />
 				<param name="divider_top" value="90" />
+				<param name="blur" value="true" />
+				<param name="blur_mask" value="masks/dialogkeyboard.png" />
 			</include>
-			<!-- <control type="image">
-				<left>-35</left>
-				<bottom>0</bottom>
-				<width>1992</width>
-				<height>472</height>
-				<texture diffuse="masks/keyboard.png" colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
-			</control>
 			<control type="image">
-				<left>-35</left>
-				<bottom>0</bottom>
-				<width>1990</width>
-				<height>470</height>
-				<texture diffuse="masks/keyboard.png" colordiffuse="dialog_bg2">colors/white.png</texture>
-			</control> -->
-			<!-- <control type="label" id="311">
-				<centerleft>50%</centerleft>
-				<top>10</top>
-				<width>1610</width>
-				<height>100</height>
-				<font>font45</font>
-				<label>$PARAM[header_label]</label>
-				<textcolor>unfocused_text</textcolor>
-				<align>center</align>
-				<aligny>center</aligny>
-			</control> -->
-			<!-- <control type="image">
-				<centerleft>50%</centerleft>
-				<top>182</top>
-				<width>1546</width>
-				<height>104</height>
-				<texture colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
-			</control> -->
-			<!-- <control type="image">
-				<centerleft>50%</centerleft>
-				<top>184</top>
-				<width>1542</width>
-				<height>100</height>
-				<texture colordiffuse="dialog_bg2">colors/white.png</texture>
-			</control> -->
+				<left>40</left>
+				<top>130</top>
+				<width>1320</width>
+				<height>93</height>
+				<texture border="46" colordiffuse="A6000000">masks/radius_46.png</texture>
+			</control>
 			<control type="edit" id="312">
-				<centerleft>50%</centerleft>
-				<top>143</top>
-				<width>1610</width>
-				<height>80</height>
-				<font>font47</font>
-				<align>center</align>
+				<left>40</left>
+				<top>130</top>
+				<width>1320</width>
+				<height>93</height>
+				<textoffsetx>46</textoffsetx>
+				<font>font40_title</font>
+				<align>left</align>
 				<aligny>center</aligny>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
+				<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
 				<texturefocus/>
 				<texturenofocus/>
 			</control>
+			<control type="image">
+				<left>1400</left>
+				<top>130</top>
+				<width>1</width>
+				<height>689</height>
+				<texture colordiffuse="$VAR[FocusColorTheme]">colors/greyer.png</texture>
+			</control>
 			<control type="group" id="78500">
-				<centerleft>50%</centerleft>
-				<bottom>15</bottom>
-				<height>520</height>
-				<width>1920</width>
-				<animation effect="slide" end="-60,0" time="200" tween="sine" easing="inout" condition="Control.IsVisible(110) | Control.IsVisible(130) | Control.IsVisible(150) | Control.IsVisible(170)">conditional</animation>
-				<animation effect="slide" end="-110,0" time="200" tween="sine" easing="inout" condition="Control.IsVisible(111) | Control.IsVisible(131) | Control.IsVisible(151) | Control.IsVisible(171)">conditional</animation>
+				<left>40</left>
+				<top>363</top>
+				<width>1320</width>
+				<height>456</height>
+				<control type="group">
+				<animation effect="slide" end="212,0" time="200" tween="sine" easing="inout" condition="[Control.IsVisible(108) | Control.IsVisible(128) | Control.IsVisible(147) | Control.IsVisible(167)] + ![Control.IsVisible(109) | Control.IsVisible(128) | Control.IsVisible(148) | Control.IsVisible(167)]">Conditional</animation>
+				<animation effect="slide" end="188,0" time="200" tween="sine" easing="inout" condition="[Control.IsVisible(109) | Control.IsVisible(128) | Control.IsVisible(148) | Control.IsVisible(167)] + ![Control.IsVisible(109) | Control.IsVisible(129) | Control.IsVisible(148) | Control.IsVisible(168)]">Conditional</animation>
+				<animation effect="slide" end="165,0" time="200" tween="sine" easing="inout" condition="[Control.IsVisible(109) | Control.IsVisible(129) | Control.IsVisible(148) | Control.IsVisible(168)] + ![Control.IsVisible(110) | Control.IsVisible(129) | Control.IsVisible(149) | Control.IsVisible(168)]">Conditional</animation>
+				<animation effect="slide" end="141,0" time="200" tween="sine" easing="inout" condition="[Control.IsVisible(110) | Control.IsVisible(129) | Control.IsVisible(149) | Control.IsVisible(168)] + ![Control.IsVisible(110) | Control.IsVisible(130) | Control.IsVisible(149) | Control.IsVisible(169)]">Conditional</animation>
+				<animation effect="slide" end="118,0" time="200" tween="sine" easing="inout" condition="[Control.IsVisible(110) | Control.IsVisible(130) | Control.IsVisible(149) | Control.IsVisible(169)] + ![Control.IsVisible(111) | Control.IsVisible(130) | Control.IsVisible(150) | Control.IsVisible(169)]">Conditional</animation>
+				<animation effect="slide" end="94,0" time="200" tween="sine" easing="inout" condition="[Control.IsVisible(111) | Control.IsVisible(130) | Control.IsVisible(150) | Control.IsVisible(169)] + ![Control.IsVisible(111) | Control.IsVisible(131) | Control.IsVisible(150) | Control.IsVisible(170)]">Conditional</animation>
+				<animation effect="slide" end="71,0" time="200" tween="sine" easing="inout" condition="[Control.IsVisible(111) | Control.IsVisible(131) | Control.IsVisible(150) | Control.IsVisible(170)] + ![Control.IsVisible(112) | Control.IsVisible(131) | Control.IsVisible(151) | Control.IsVisible(170)]">Conditional</animation>
+				<animation effect="slide" end="47,0" time="200" tween="sine" easing="inout" condition="[Control.IsVisible(112) | Control.IsVisible(131) | Control.IsVisible(151) | Control.IsVisible(170)] + ![Control.IsVisible(112) | Control.IsVisible(132) | Control.IsVisible(151) | Control.IsVisible(171)]">Conditional</animation>
+				<animation effect="slide" end="24,0" time="200" tween="sine" easing="inout" condition="[Control.IsVisible(112) | Control.IsVisible(132) | Control.IsVisible(151) | Control.IsVisible(171)] + ![Control.IsVisible(132) | Control.IsVisible(152) | Control.IsVisible(171)]">Conditional</animation>
+				<animation effect="slide" end="-23,0" time="200" tween="sine" easing="inout" condition="[Control.IsVisible(152) | Control.IsVisible(172)] + !Control.IsVisible(172)">Conditional</animation>
+				<animation effect="slide" end="-47,0" time="200" tween="sine" easing="inout" condition="Control.IsVisible(172)">Conditional</animation>
 				<!-- 1st row -->
 				<control type="grouplist">
-					<left>320</left>
-					<itemgap>-10</itemgap>
+					<top>0</top>
+					<left>32</left>
+					<width>1288</width>
+					<height>80</height>
+					<itemgap>14</itemgap>
+					<align>left</align>
 					<orientation>horizontal</orientation>
 					<onright>95200</onright>
 					<control type="button" id="100">
@@ -175,9 +170,12 @@
 				</control>
 				<!-- 2nd row -->
 				<control type="grouplist">
-					<left>320</left>
-					<top>97</top>
-					<itemgap>-10</itemgap>
+					<top>94</top>
+					<left>79</left>
+					<width>1241</width>
+					<height>80</height>
+					<itemgap>14</itemgap>
+					<align>left</align>
 					<orientation>horizontal</orientation>
 					<onright>95200</onright>
 					<control type="button" id="120">
@@ -249,23 +247,28 @@
 					<control type="button" id="131">
 						<description>(1,11) key button</description>
 						<onup>111</onup>
-						<ondown>151</ondown>
+						<ondown condition="Control.IsVisible(151)">151</ondown>
+						<ondown condition="!Control.IsVisible(151)">150</ondown>
 						<include>KeyboardButton</include>
 					</control>
 					<control type="button" id="132">
 						<description>(1,12) key button</description>
 						<onup>112</onup>
-						<ondown>152</ondown>
+						<ondown condition="Control.IsVisible(152)">152</ondown>
+						<ondown condition="!Control.IsVisible(152)">150</ondown>
 						<include>KeyboardButton</include>
 					</control>
 				</control>
 				<!-- 3rd row -->
 				<control type="grouplist">
-					<left>320</left>
-					<top>194</top>
+					<top>188</top>
+					<left>126</left>
+					<width>1194</width>
+					<height>80</height>
+					<itemgap>14</itemgap>
+					<align>left</align>
 					<orientation>horizontal</orientation>
 					<onright>95200</onright>
-					<itemgap>-10</itemgap>
 					<control type="button" id="140">
 						<description>(2,0) key button</description>
 						<onup>120</onup>
@@ -329,7 +332,8 @@
 					<control type="button" id="150">
 						<description>(2,10) key button</description>
 						<onup>130</onup>
-						<ondown>170</ondown>
+						<ondown condition="Control.IsVisible(170)">170</ondown>
+						<ondown condition="!Control.IsVisible(170)">169</ondown>
 						<include>KeyboardButton</include>
 					</control>
 					<control type="button" id="151">
@@ -347,9 +351,12 @@
 				</control>
 				<!-- 4th row -->
 				<control type="grouplist">
-					<left>320</left>
-					<top>291</top>
-					<itemgap>-10</itemgap>
+					<top>282</top>
+					<left>173</left>
+					<width>1147</width>
+					<height>80</height>
+					<itemgap>14</itemgap>
+					<align>left</align>
 					<orientation>horizontal</orientation>
 					<onright>95200</onright>
 					<control type="button" id="160">
@@ -431,273 +438,248 @@
 						<include>KeyboardButton</include>
 					</control>
 				</control>
+				</control>
 				<!-- 5th row -->
 				<control type="grouplist">
-					<left>320</left>
-					<top>387</top>
-					<itemgap>-10</itemgap>
+					<top>376</top>
+					<width>1320</width>
+					<height>80</height>
+					<itemgap>14</itemgap>
+					<align>center</align>
 					<orientation>horizontal</orientation>
 					<onright>95200</onright>
 					<control type="radiobutton" id="304">
 						<description>Symbols button</description>
-						<width>100</width>
-						<height>100</height>
 						<onup>160</onup>
 						<ondown>100</ondown>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-fo.png</texturefocus>
-						<texturenofocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-unfo.png</texturenofocus>
-						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/letters.png</textureradioonfocus>
+						<include>KeyboardIconKey</include>
+						<textureradioonfocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/letters.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="unfocused_text">icons/keyboard/letters.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/accents.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/accents.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="unfocused_text">icons/keyboard/accents.png</textureradiooffnofocus>
-						<radioposx>27</radioposx>
-						<radioposy>32</radioposy>
-						<radiowidth>47</radiowidth>
-						<radioheight>30</radioheight>
+						<radioposx>18</radioposx>
+						<radiowidth>44</radiowidth>
+						<radioheight>28</radioheight>
 					</control>
 					<control type="radiobutton" id="303">
 						<description>CAPS LOCK button</description>
-						<width>100</width>
-						<height>100</height>
 						<onup>161</onup>
 						<ondown>101</ondown>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-fo.png</texturefocus>
-						<texturenofocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-unfo.png</texturenofocus>
-						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/capslock.png</textureradioonfocus>
+						<include>KeyboardIconKey</include>
+						<textureradioonfocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/capslock.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/capslock.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/capslock.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/capslock.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="unfocused_text">icons/keyboard/capslock.png</textureradiooffnofocus>
-						<radioposx>33</radioposx>
-						<radioposy>27</radioposy>
-						<radiowidth>35</radiowidth>
-						<radioheight>39</radioheight>
+						<radioposx>23</radioposx>
+						<radiowidth>34</radiowidth>
+						<radioheight>38</radioheight>
 					</control>
 					<control type="radiobutton" id="302">
 						<description>SHIFT button</description>
-						<width>100</width>
-						<height>100</height>
 						<onup>162</onup>
 						<ondown>102</ondown>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-fo.png</texturefocus>
-						<texturenofocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-unfo.png</texturenofocus>
-						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/shift.png</textureradioonfocus>
+						<include>KeyboardIconKey</include>
+						<textureradioonfocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/shift.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/shift.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/shift.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/shift.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="unfocused_text">icons/keyboard/shift.png</textureradiooffnofocus>
-						<radioposx>35</radioposx>
-						<radioposy>31</radioposy>
-						<radiowidth>30</radiowidth>
-						<radioheight>30</radioheight>
+						<radioposx>26</radioposx>
+						<radiowidth>28</radiowidth>
+						<radioheight>28</radioheight>
 					</control>
-					<control type="radiobutton" id="32">
+					<control type="button" id="32">
 						<description>SPACE button</description>
-						<width>390</width>
-						<height>100</height>
 						<onup>164</onup>
 						<ondown>104</ondown>
-						<texturefocus />
-						<texturenofocus />
-						<textureradioonfocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/spacebar-fo.png</textureradioonfocus>
-						<textureradioonnofocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/spacebar-unfo.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/spacebar-fo.png</textureradioofffocus>
-						<textureradiooffnofocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/spacebar-unfo.png</textureradiooffnofocus>
-						<radioposx>0.1</radioposx>
-						<radiowidth>390</radiowidth>
-						<radioheight>100</radioheight>
+						<width>362</width>
+						<include>KeyboardIconKey</include>
 					</control>
 					<control type="radiobutton" id="305">
 						<description>previous button</description>
-						<width>100</width>
-						<height>100</height>
 						<ondown>107</ondown>
 						<onup>167</onup>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-fo.png</texturefocus>
-						<texturenofocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-unfo.png</texturenofocus>
-						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowleft.png</textureradioonfocus>
+						<include>KeyboardIconKey</include>
+						<textureradioonfocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/arrowleft.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="unfocused_text">icons/keyboard/arrowleft.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowleft.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/arrowleft.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="unfocused_text">icons/keyboard/arrowleft.png</textureradiooffnofocus>
-						<radioposx>32</radioposx>
-						<radioposy>31</radioposy>
-						<radiowidth>30</radiowidth>
+						<radioposx>28</radioposx>
+						<radiowidth>20</radiowidth>
 						<radioheight>30</radioheight>
 					</control>
 					<control type="radiobutton" id="306">
 						<description>next button</description>
-						<width>100</width>
-						<height>100</height>
 						<ondown>108</ondown>
 						<onup>168</onup>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-fo.png</texturefocus>
-						<texturenofocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-unfo.png</texturenofocus>
-						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowright.png</textureradioonfocus>
+						<include>KeyboardIconKey</include>
+						<textureradioonfocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/arrowright.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="unfocused_text">icons/keyboard/arrowright.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowright.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/arrowright.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="unfocused_text">icons/keyboard/arrowright.png</textureradiooffnofocus>
-						<radioposx>38</radioposx>
-						<radioposy>31</radioposy>
-						<radiowidth>30</radiowidth>
+						<radioposx>32</radioposx>
+						<radiowidth>20</radiowidth>
 						<radioheight>30</radioheight>
 					</control>
 					<control type="radiobutton" id="8">
 						<description>BACKSPACE button</description>
-						<width>100</width>
-						<height>100</height>
 						<onup>169</onup>
 						<ondown>109</ondown>
-						<texturefocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-fo.png</texturefocus>
-						<texturenofocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/key-unfo.png</texturenofocus>
-						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/backspace.png</textureradioonfocus>
+						<include>KeyboardIconKey</include>
+						<textureradioonfocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/backspace.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="unfocused_text">icons/keyboard/backspace.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/backspace.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/backspace.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="unfocused_text">icons/keyboard/backspace.png</textureradiooffnofocus>
-						<radioposx>26</radioposx>
-						<radioposy>31</radioposy>
-						<radiowidth>43</radiowidth>
-						<radioheight>30</radioheight>
+						<radioposx>20</radioposx>
+						<radiowidth>40</radiowidth>
+						<radioheight>28</radioheight>
 					</control>
 				</control>
 			</control>
-			
-			<control type="panel" id="9010">
-				<centerleft>55.8%</centerleft>
-				<bottom>565</bottom>
-				<width>1810</width>
-				<height>60</height>
+			<control type="fixedlist" id="9010">
+				<left>40</left>
+				<top>253</top>
+				<width>1349</width>
+				<height>80</height>
 				<scrolltime tween="cubic" easing="out">500</scrolltime>
-				<orientation>vertical</orientation>
+				<orientation>horizontal</orientation>
+				<focusposition>0</focusposition>
+				<movement>3</movement>
 				<onleft>9010</onleft>
 				<onright>9010</onright>
 				<onup>noop</onup>
 				<ondown>105</ondown>
 				<visible>!Control.IsVisible(313)</visible>
-				<itemlayout width="326" height="60">
-					<!-- <control type="image">
-						<left>10</left>
-						<top>0</top>
-						<width>380</width>
-						<height>60</height>
-						<texture diffuse="focus/suggestions.png" colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
-					</control> -->
+				<itemlayout width="337.25" height="80">
 					<control type="image">
-						<left>5</left>
-						<top>0</top>
-						<width>300</width>
-						<height>60</height>
-						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_dark.png</texture>
+						<width>308.25</width>
+						<height>80</height>
+						<texture border="40" colordiffuse="4D000000">masks/radius_40.png</texture>
 					</control>
 					<control type="label">
-						<textoffsetx>30</textoffsetx>
-						<width>300</width>
-						<height>60</height>
+						<left>30</left>
+						<width>248.25</width>
+						<height>80</height>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>unfocused_text</textcolor>
-						<font>font14</font>
+						<font>font32_bold</font>
 						<align>center</align>
-						<shadowcolor>text_shadow</shadowcolor>
 						<aligny>center</aligny>
 					</control>
 				</itemlayout>
-				<focusedlayout width="326" height="60">
+				<focusedlayout width="337.25" height="80" infoupdate="30">
 					<control type="image">
-						<left>5</left>
-						<width>300</width>
-						<height>60</height>
-						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
-						
+						<width>308.25</width>
+						<height>80</height>
+						<texture border="40" colordiffuse="4D000000">masks/radius_40.png</texture>
+						<visible>![Control.HasFocus(9010) + Integer.IsEqual(ListItem.CurrentItem,Container(9010).CurrentItem)]</visible>
+					</control>
+					<control type="image">
+						<width>308.25</width>
+						<height>80</height>
+						<texture border="40" colordiffuse="$VAR[FocusColorTheme]">masks/pill40_focus.png</texture>
+						<visible>Control.HasFocus(9010) + Integer.IsEqual(ListItem.CurrentItem,Container(9010).CurrentItem)</visible>
+						<include>Animation_FocusTextureFade</include>
 					</control>
 					<control type="label">
-						<textoffsetx>30</textoffsetx>
-						<width>300</width>
-						<height>60</height>
+						<left>30</left>
+						<width>248.25</width>
+						<height>80</height>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<font>font14</font>
-						<shadowcolor>text_shadow</shadowcolor>
+						<textcolor>unfocused_text</textcolor>
+						<font>font32_bold</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<visible>![Control.HasFocus(9010) + Integer.IsEqual(ListItem.CurrentItem,Container(9010).CurrentItem)]</visible>
+					</control>
+					<control type="label">
+						<left>30</left>
+						<width>248.25</width>
+						<height>80</height>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<font>font32_bold</font>
 						<align>center</align>
 						<aligny>center</aligny>
 						<scroll>true</scroll>
 						<scrollspeed>100</scrollspeed>
+						<visible>Control.HasFocus(9010) + Integer.IsEqual(ListItem.CurrentItem,Container(9010).CurrentItem)</visible>
 					</control>
 				</focusedlayout>
 				<content>$VAR[AutoCompletionContentVar]</content>
 			</control>
-			<control type="label" id="313">
-				<centerleft>50%</centerleft>
-				<top>290</top>
-				<width>1480</width>
-				<height>90</height>
-				<font>font37</font>
-				<shadowcolor>text_shadow</shadowcolor>
-				<aligny>center</aligny>
-			</control>
 			<control type="group">
 				<visible>Control.IsVisible(313)</visible>
 				<control type="image">
-					<centerleft>50%</centerleft>
-					<top>290</top>
-					<width>1560</width>
-					<height>90</height>
-					<texture border="40">buttons/dialogbutton-nofo.png</texture>
+					<left>40</left>
+					<top>253</top>
+					<width>260</width>
+					<height>80</height>
+					<texture border="40" colordiffuse="4D000000">masks/radius_40.png</texture>
 				</control>
 				<control type="image">
-					<centerleft>50%</centerleft>
-					<top>370</top>
-					<width>1560</width>
-					<height>90</height>
-					<texture border="40">buttons/dialogbutton-nofo.png</texture>
+					<left>329</left>
+					<top>253</top>
+					<width>1031</width>
+					<height>80</height>
+					<texture border="40" colordiffuse="4D000000">masks/radius_40.png</texture>
 				</control>
 				<control type="label" id="314">
-					<centerleft>50%</centerleft>
-					<top>370</top>
-					<width>1480</width>
-					<height>90</height>
-					<font>font37</font>
-					<shadowcolor>text_shadow</shadowcolor>
+					<left>329</left>
+					<top>253</top>
+					<width>1031</width>
+					<height>80</height>
+					<textoffsetx>40</textoffsetx>
+					<font>font32_bold</font>
+					<textcolor>unfocused_text</textcolor>
 					<aligny>center</aligny>
 				</control>
 			</control>
-		</control>
-		<control type="grouplist" id="95200">
-				<top>465</top>
-				<bottom>0</bottom>
-				<height>460</height>
-				<right>105</right>
+			<control type="label" id="313">
+				<left>40</left>
+				<top>253</top>
+				<width>260</width>
+				<height>80</height>
+				<font>font32_bold</font>
+				<textcolor>$VAR[FocusColorTheme]</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+			</control>
+			<control type="grouplist" id="95200">
+				<left>1440</left>
+				<top>130</top>
+				<width>280</width>
+				<height>689</height>
 				<itemgap>dialogbuttons_itemgap</itemgap>
 				<onup condition="!Integer.IsGreater(Container(9010).NumItems,0)">95200</onup>
 				<onup condition="Integer.IsGreater(Container(9010).NumItems,0)">9010</onup>
 				<ondown>95200</ondown>
 				<onleft>78500</onleft>
 				<onright>140</onright>
-				<width>350</width>
 				<orientation>vertical</orientation>
-				<!-- <animation condition="ControlGroup(78500).HasFocus | Control.HasFocus(9010)">
-					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
-					<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
-				</animation> -->
 				<include content="DefaultDialogButton">
 					<param name="id" value="300" />
 					<param name="label" value="$LOCALIZE[12321]" />
-					<param name="width" value="300" />
+					<param name="width" value="280" />
 				</include>
 				<include content="DefaultDialogButton">
 					<param name="id" value="301" />
 					<param name="label" value="$LOCALIZE[222]" />
-					<param name="width" value="300" />
+					<param name="width" value="280" />
 				</include>
 				<include content="DefaultDialogButton">
 					<param name="id" value="310" />
-					<param name="width" value="300" />
+					<param name="width" value="280" />
 				</include>
 				<include content="DefaultDialogButton">
 					<param name="id" value="309" />
-					<param name="width" value="300" />
+					<param name="width" value="280" />
 				</include>
 				<include content="DefaultDialogButton">
 					<param name="id" value="307" />
 					<param name="label" value="$LOCALIZE[1006]" />
-					<param name="width" value="300" />
+					<param name="width" value="280" />
 				</include>
 			</control>
+		</control>
 	</controls>
 </window>

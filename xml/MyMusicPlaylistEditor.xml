@@ -32,6 +32,7 @@
 					<description>Button Network</description>
 					<include content="DefaultSettingButton">
 						<param name="height" value="120" />
+						<param name="textwidth" value="220" />
 					</include>
 					<width>300</width>
 					<label>$LOCALIZE[502]</label>
@@ -39,6 +40,7 @@
 				<control type="button" id="7">
 					<include content="DefaultSettingButton">
 						<param name="height" value="120" />
+						<param name="textwidth" value="220" />
 					</include>
 					<width>300</width>
 					<label>$LOCALIZE[190]</label>
@@ -46,6 +48,7 @@
 				<control type="button" id="8">
 					<include content="DefaultSettingButton">
 						<param name="height" value="120" />
+						<param name="textwidth" value="220" />
 					</include>
 					<width>300</width>
 					<label>$LOCALIZE[192]</label>

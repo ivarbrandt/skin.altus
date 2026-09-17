@@ -19,6 +19,8 @@
 				<param name="diffuse_texture" value="masks/radius_46_right.png" />
 				<param name="border_texture" value="masks/bordertexture-46-thin_right.png" />
 				<param name="border_value" value="0,46,46,46" />
+				<param name="blur" value="true" />
+				<param name="blur_mask" value="masks/buttonmenu.png" />
 			</include>
 			<left>0</left>
 			<width>578</width>
@@ -119,6 +121,15 @@
 						<property name="icon">icons/dialog/quit.png</property>
 					</item>
 				</content>
+			</control>
+			<control type="group">
+				<left>40</left>
+				<include content="MenuScrollIndicators">
+					<param name="list_id" value="9000"/>
+					<param name="width" value="418"/>
+					<param name="top" value="168"/>
+					<param name="bottom" value="894"/>
+				</include>
 			</control>
 		</control>
 	</controls>

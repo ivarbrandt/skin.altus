@@ -8,7 +8,7 @@
 			<top>133</top>
 			<include>OpenClose_Right</include>
 			<control type="grouplist">
-				<left>420</left>
+				<left>450</left>
 				<top>-18</top>
 				<height>550</height>
 				<orientation>vertical</orientation>
@@ -80,7 +80,7 @@
 				</control>
 			</control>
 			<control type="textbox" id="30">
-				<left>420</left>
+				<left>450</left>
 				<right>50</right>
 				<top>-18</top>
 				<bottom>347</bottom>
@@ -119,8 +119,9 @@
 			<control type="grouplist" id="9100">
 				<left>40</left>
 				<top>130</top>
-				<width>380</width>
+				<width>418</width>
 				<height>100%</height>
+				<itemgap>29</itemgap>
 				<onup>9100</onup>
 				<ondown>9100</ondown>
 				<onright>60</onright>
@@ -180,7 +181,7 @@
 			<control type="grouplist">
 				<top>15</top>
 				<itemgap>4</itemgap>
-				<left>420</left>
+				<left>450</left>
 				<orientation>vertical</orientation>
 				<control type="label">
 					<description>Memory Text</description>
@@ -225,7 +226,7 @@
 				<animation effect="slide" end="0,-55" time="0" condition="!System.SupportsCPUUsage">Conditional</animation>
 				<control type="label">
 					<top>155</top>
-					<left>420</left>
+					<left>450</left>
 					<width>auto</width>
 					<height>50</height>
 					<aligny>bottom</aligny>
@@ -239,7 +240,7 @@
 					<description>Kodi build version</description>
 					<itemgap>10</itemgap>
 					<top>200</top>
-					<left>420</left>
+					<left>450</left>
 					<width>820</width>
 					<orientation>horizontal</orientation>
 					<control type="label">
@@ -265,7 +266,7 @@
 					<description>Git version</description>
 					<itemgap>10</itemgap>
 					<top>235</top>
-					<left>420</left>
+					<left>450</left>
 					<width>820</width>
 					<orientation>horizontal</orientation>
 					<control type="label">
@@ -291,7 +292,7 @@
 					<description>Build date</description>
 					<itemgap>10</itemgap>
 					<top>270</top>
-					<left>420</left>
+					<left>450</left>
 					<width>820</width>
 					<orientation>horizontal</orientation>
 					<control type="label">

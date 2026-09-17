@@ -74,25 +74,30 @@
 				<description>button area</description>
 				<left>40</left>
 				<top>130</top>
-				<width>410</width>
-				<height>810</height>
+				<width>418</width>
+				<height>732</height>
+				<itemgap>29</itemgap>
 				<usecontrolcoords>true</usecontrolcoords>
 				<onleft>5</onleft>
 				<onright>5</onright>
 				<onup>3</onup>
 				<ondown>20</ondown>
 			</control>
-			<control type="button" id="10">
+			<control type="togglebutton" id="10">
 				<description>Default Category Button</description>
 				<left>0</left>
-				<height>85</height>
-				<width>410</width>
-				<textoffsetx>50</textoffsetx>
+				<height>93</height>
+				<width>418</width>
+				<textoffsetx>40</textoffsetx>
 				<aligny>center</aligny>
 				<align>left</align>
-				<font>font37</font>
-				<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
-				<texturenofocus />
+				<font>font32_bold</font>
+				<textcolor>unfocused_text</textcolor>
+				<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
+				<texturefocus border="46" colordiffuse="$VAR[FocusColorTheme]">masks/pill46_focus.png</texturefocus>
+				<texturenofocus border="46" colordiffuse="4D000000">masks/radius_46.png</texturenofocus>
+				<alttexturefocus border="46" colordiffuse="A6000000">masks/radius_46.png</alttexturefocus>
+				<alttexturenofocus border="46" colordiffuse="4D000000">masks/radius_46.png</alttexturenofocus>
 			</control>
 		</control>
 		<control type="group">
@@ -125,35 +130,30 @@
 			<depth>DepthContentPanel</depth>
 			<include>OpenClose_Left</include>
 			<control type="radiobutton" id="20">
-				<width>410</width>
+				<width>418</width>
 				<left>40</left>
-				<bottom>70</bottom>
-				<height>90</height>
+				<bottom>37</bottom>
+				<height>93</height>
 				<aligny>center</aligny>
 				<onclick>SettingsLevelChange</onclick>
-				<textoffsetx>100</textoffsetx>
+				<textoffsetx>90</textoffsetx>
 				<textoffsety>0</textoffsety>
-				<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
-				<texturenofocus />
-				<radioposx>40</radioposx>
-				<radioposy>0</radioposy>
-				<radiowidth>40</radiowidth>
-				<radioheight>40</radioheight>
+				<texturefocus border="46" colordiffuse="$VAR[FocusColorTheme]">masks/pill46_focus.png</texturefocus>
+				<texturenofocus border="46" colordiffuse="4D000000">masks/radius_46.png</texturenofocus>
+				<radioposx>30</radioposx>
+				<radiowidth>41</radiowidth>
+				<radioheight>41</radioheight>
 				<onleft>5</onleft>
 				<onright>5</onright>
 				<onup>3</onup>
 				<ondown>3</ondown>
 				<textcolor>unfocused_text</textcolor>
-				<font>font32</font>
-				<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-				<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/settings.png</textureradioonfocus>
+				<font>font32_bold</font>
+				<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
+				<textureradioonfocus colordiffuse="$VAR[FocusColorTheme]">icons/settings.png</textureradioonfocus>
 				<textureradioonnofocus colordiffuse="unfocused_text">icons/settings.png</textureradioonnofocus>
-				<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/settings.png</textureradioofffocus>
+				<textureradioofffocus colordiffuse="$VAR[FocusColorTheme]">icons/settings.png</textureradioofffocus>
 				<textureradiooffnofocus colordiffuse="unfocused_text">icons/settings.png</textureradiooffnofocus>
-				<textureradioonfocus/>
-				<textureradioonnofocus/>
-				<textureradioofffocus/>
-				<textureradiooffnofocus/>
 			</control>
 		</control>
 		<control type="group">
@@ -164,7 +164,7 @@
 				<top>105</top>
 				<right>40</right>
 				<height>940</height>
-				<font>font27</font>
+				<font>font32</font>
 				<align>left</align>
 				<aligny>center</aligny>
 				<textcolor>unfocused_text</textcolor>

@@ -42,7 +42,6 @@
 							<param name="id" value="160" />
 							<param name="label" value="$LOCALIZE[24120]" />
 							<param name="width" value="310" />
-							<param name="height" value="70" />
 						</include>
 					</control>
 					<control type="label" id="140">

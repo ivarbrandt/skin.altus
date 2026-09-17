@@ -3,17 +3,20 @@
 
   <include name="DefaultSimpleListLayout">
 		<param name="align">left</param>
-		<param name="height">75</param>
-		<param name="font">font32</param>
-		<param name="fontcolor">unfocused_text</param>
-		<param name="diffuse">$PARAM[diffuse]</param>
-		<param name="border">23</param>
+		<param name="height">122</param>
+		<param name="pill_height">93</param>
+		<param name="font">font32_bold</param>
 		<definition>
 			<itemlayout width="$PARAM[width]" height="$PARAM[height]">
+				<control type="image">
+					<height>$PARAM[pill_height]</height>
+					<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+				</control>
 				<control type="group">
+					<height>$PARAM[pill_height]</height>
 					<visible>ListItem.Property(PVR.IsRecordingTimer) | ListItem.Property(PVR.IsRemindingTimer)</visible>
 					<control type="image">
-						<left>20</left>
+						<left>30</left>
 						<width>40</width>
 						<aspectratio align="left">keep</aspectratio>
 						<aligny>center</aligny>
@@ -21,7 +24,7 @@
 						<visible>ListItem.Property(PVR.IsRecordingTimer)</visible>
 					</control>
 					<control type="image">
-						<left>20</left>
+						<left>30</left>
 						<width>40</width>
 						<aspectratio align="left">keep</aspectratio>
 						<aligny>center</aligny>
@@ -29,25 +32,22 @@
 						<visible>ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>
 					<control type="label">
-						<left>80</left>
-						<top>0</top>
-						<right>110</right>
-						<bottom>0</bottom>
+						<left>90</left>
+						<right>40</right>
 						<align>$PARAM[align]</align>
 						<font>$PARAM[font]</font>
 						<aligny>center</aligny>
-						<textcolor>$PARAM[fontcolor]</textcolor>
-						<selectedcolor>$PARAM[fontcolor]</selectedcolor>
+						<textcolor>unfocused_text</textcolor>
+						<selectedcolor>unfocused_text</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</control>
 				<control type="group">
+					<height>$PARAM[pill_height]</height>
 					<visible>!ListItem.Property(PVR.IsRecordingTimer) + !ListItem.Property(PVR.IsRemindingTimer)</visible>
 					<control type="label">
 						<left>40</left>
-						<top>0</top>
-						<right>110</right>
-						<bottom>0</bottom>
+						<right>115</right>
 						<align>$PARAM[align]</align>
 						<font>$PARAM[font]</font>
 						<aligny>center</aligny>
@@ -57,93 +57,142 @@
 					</control>
 					<control type="image">
 						<right>40</right>
+						<top>29</top>
 						<width>35</width>
-						<aligny>center</aligny>
-						<texture colordiffuse="unfocused_text">icons/dialog/radio-checked.png</texture>
+						<height>35</height>
+						<texture colordiffuse="unfocused_text">masks/radio-button-on.png</texture>
 						<visible>ListItem.IsSelected</visible>
-						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="image">
 						<right>40</right>
+						<top>29</top>
 						<width>35</width>
-						<aligny>center</aligny>
-						<texture colordiffuse="unfocused_text">icons/dialog/radio-blank.png</texture>
+						<height>35</height>
+						<texture colordiffuse="unfocused_text">masks/radio-button-off.png</texture>
 						<visible>!ListItem.IsSelected</visible>
-						<aspectratio>keep</aspectratio>
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout width="$PARAM[width]" height="$PARAM[height]">
+			<focusedlayout width="$PARAM[width]" height="$PARAM[height]" infoupdate="30">
 				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<right>0</right>
-					<bottom>0</bottom>
-					<texture border="$PARAM[border]" colordiffuse="$VAR[FocusColorTheme]">$PARAM[diffuse]</texture>
-					<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
+					<height>$PARAM[pill_height]</height>
+					<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+					<visible>![Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</visible>
+				</control>
+				<control type="image">
+					<height>$PARAM[pill_height]</height>
+					<texture border="46" colordiffuse="A6000000">masks/radius_46.png</texture>
+					<visible>Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
 				</control>
 				<control type="group">
+					<height>$PARAM[pill_height]</height>
+					<include content="FocusBorder">
+						<param name="list_id" value="$PARAM[list_id]"/>
+						<param name="focused" value="true"/>
+						<param name="radius" value="46"/>
+						<param name="border" value="46"/>
+					</include>
+				</control>
+				<control type="group">
+					<height>$PARAM[pill_height]</height>
 					<visible>ListItem.Property(PVR.IsRecordingTimer) | ListItem.Property(PVR.IsRemindingTimer)</visible>
 					<control type="image">
-						<left>20</left>
+						<left>30</left>
 						<width>40</width>
 						<aspectratio align="left">keep</aspectratio>
 						<aligny>center</aligny>
-						<texture olordiffuse="$VAR[FocusedTextColorVar]">icons/pvr/timers/recording.png</texture>
+						<texture>icons/pvr/timers/recording.png</texture>
 						<visible>ListItem.Property(PVR.IsRecordingTimer)</visible>
 					</control>
 					<control type="image">
-						<left>20</left>
+						<left>30</left>
 						<width>40</width>
 						<aspectratio align="left">keep</aspectratio>
 						<aligny>center</aligny>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">icons/pvr/timers/bell.png</texture>
+						<texture>icons/pvr/timers/bell.png</texture>
 						<visible>ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>
 					<control type="label">
-						<left>80</left>
-						<top>0</top>
-						<right>20</right>
-						<bottom>0</bottom>
+						<left>90</left>
+						<right>40</right>
 						<align>$PARAM[align]</align>
 						<font>$PARAM[font]</font>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
+						<textcolor>unfocused_text</textcolor>
+						<selectedcolor>unfocused_text</selectedcolor>
+						<visible>![Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</visible>
+					</control>
+					<control type="label">
+						<left>90</left>
+						<right>40</right>
+						<align>$PARAM[align]</align>
+						<font>$PARAM[font]</font>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<selectedcolor>$VAR[FocusColorTheme]</selectedcolor>
 						<scroll>true</scroll>
+						<visible>Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
 					</control>
 				</control>
 				<control type="group">
+					<height>$PARAM[pill_height]</height>
 					<visible>!ListItem.Property(PVR.IsRecordingTimer) + !ListItem.Property(PVR.IsRemindingTimer)</visible>
 					<control type="label">
 						<left>40</left>
-						<top>0</top>
-						<right>110</right>
-						<bottom>0</bottom>
+						<right>115</right>
 						<align>$PARAM[align]</align>
 						<font>$PARAM[font]</font>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
+						<textcolor>unfocused_text</textcolor>
+						<selectedcolor>unfocused_text</selectedcolor>
+						<visible>![Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</visible>
+					</control>
+					<control type="label">
+						<left>40</left>
+						<right>115</right>
+						<align>$PARAM[align]</align>
+						<font>$PARAM[font]</font>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<selectedcolor>$VAR[FocusColorTheme]</selectedcolor>
 						<scroll>true</scroll>
+						<visible>Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
 					</control>
 					<control type="image">
 						<right>40</right>
+						<top>29</top>
 						<width>35</width>
-						<aligny>center</aligny>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">icons/dialog/radio-checked.png</texture>
-						<visible>ListItem.IsSelected</visible>
-						<aspectratio>keep</aspectratio>
+						<height>35</height>
+						<texture colordiffuse="unfocused_text">masks/radio-button-on.png</texture>
+						<visible>ListItem.IsSelected + ![Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</visible>
 					</control>
 					<control type="image">
 						<right>40</right>
+						<top>29</top>
 						<width>35</width>
-						<aligny>center</aligny>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">icons/dialog/radio-blank.png</texture>
-						<visible>!ListItem.IsSelected</visible>
-						<aspectratio>keep</aspectratio>
+						<height>35</height>
+						<texture colordiffuse="unfocused_text">masks/radio-button-off.png</texture>
+						<visible>!ListItem.IsSelected + ![Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</visible>
+					</control>
+					<control type="image">
+						<right>40</right>
+						<top>29</top>
+						<width>35</width>
+						<height>35</height>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/radio-button-on.png</texture>
+						<visible>ListItem.IsSelected + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+					</control>
+					<control type="image">
+						<right>40</right>
+						<top>29</top>
+						<width>35</width>
+						<height>35</height>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/radio-button-off.png</texture>
+						<visible>!ListItem.IsSelected + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
 					</control>
 				</control>
 			</focusedlayout>
