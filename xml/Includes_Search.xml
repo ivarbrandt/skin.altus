@@ -810,25 +810,81 @@
        (script-altus-search_kind_filter.xml) emits one of these per distinct
        kind plus an "All" pill. Selected indicator is property-driven so the
        active filter stays visible regardless of focus. -->
-  <include name="SearchKindFilterButton">
+  <expression name="SearchKindSelected">[String.IsEqual(ListItem.Property(token),all) + [String.IsEqual(Window(home).Property(altus.search.filter.kind),all) | String.IsEmpty(Window(home).Property(altus.search.filter.kind))]] | [!String.IsEqual(ListItem.Property(token),all) + String.Contains(Window(home).Property(altus.search.filter.kind),ListItem.Property(token))]</expression>
+
+  <include name="SearchKindFilterPanel">
+    <param name="height">321</param>
     <definition>
-      <control type="radiobutton" id="$PARAM[control_id]">
-        <width>428</width>
-        <height>60</height>
-        <align>left</align>
-        <textoffsetx>30</textoffsetx>
-        <aligny>center</aligny>
-        <font>flixinfo_header</font>
-        <label>$PARAM[label]</label>
-        <onclick>$PARAM[onclick_action]</onclick>
-        <selected>$PARAM[selected_condition]</selected>
-        <texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
-        <texturenofocus />
-        <radioposx>310</radioposx>
-        <alttexturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</alttexturefocus>
-        <alttexturenofocus></alttexturenofocus>
-        <textcolor>unfocused_text</textcolor>
-        <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+      <left>30</left>
+      <top>639</top>
+      <width>476</width>
+      <height>$PARAM[height]</height>
+      <orientation>vertical</orientation>
+      <scrolltime tween="cubic" easing="out">300</scrolltime>
+      <onup>9600</onup>
+      <ondown>9700</ondown>
+      <onleft>9700</onleft>
+      <onback>801</onback>
+      <onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
+      <onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9700</onright>
+      <itemlayout width="238" height="107" infoupdate="30">
+        <include content="SearchKindFilterItem"/>
+      </itemlayout>
+      <focusedlayout width="238" height="107" infoupdate="30">
+        <include content="SearchKindFilterItem">
+          <param name="focused" value="true"/>
+        </include>
+      </focusedlayout>
+      <content>
+        <include content="SearchKindFilter"/>
+      </content>
+    </definition>
+  </include>
+
+  <include name="SearchKindFilterItem">
+    <param name="focused">false</param>
+    <definition>
+      <control type="group">
+        <width>210</width>
+        <height>79</height>
+        <control type="image">
+          <texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
+          <visible>!$EXP[SearchKindSelected]</visible>
+        </control>
+        <control type="image">
+          <texture border="33" colordiffuse="A6000000">masks/radius_33.png</texture>
+          <visible>$EXP[SearchKindSelected]</visible>
+        </control>
+        <include content="FocusBorder">
+          <param name="list_id" value="9700"/>
+          <param name="focused" value="$PARAM[focused]"/>
+          <param name="radius" value="33_alt"/>
+          <param name="border" value="33"/>
+        </include>
+        <control type="label">
+          <left>20</left>
+          <right>20</right>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>font32_title</font>
+          <textcolor>unfocused_text</textcolor>
+          <label>$INFO[ListItem.Label]</label>
+          <scroll>$PARAM[focused]</scroll>
+          <scrollspeed>75</scrollspeed>
+          <visible>!$EXP[SearchKindSelected]</visible>
+        </control>
+        <control type="label">
+          <left>20</left>
+          <right>20</right>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>font32_title</font>
+          <textcolor>$VAR[FocusColorTheme]</textcolor>
+          <label>$INFO[ListItem.Label]</label>
+          <scroll>$PARAM[focused]</scroll>
+          <scrollspeed>75</scrollspeed>
+          <visible>$EXP[SearchKindSelected]</visible>
+        </control>
       </control>
     </definition>
   </include>

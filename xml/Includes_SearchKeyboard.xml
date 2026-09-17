@@ -7,12 +7,12 @@
       <visible>!Skin.HasSetting(Disable.MiniQwerty) + String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
       <animation effect="fade" time="200">VisibleChange</animation>
       <control type="grouplist" id="9200">
-        <left>40</left>
+        <left>30</left>
         <top>285</top>
-        <width>430</width>
-        <height>46</height>
+        <width>450</width>
+        <height>56</height>
         <orientation>horizontal</orientation>
-        <itemgap>0</itemgap>
+        <itemgap>2</itemgap>
         <align>center</align>
         <onup>9100</onup>
         <onback>801</onback>
@@ -26,7 +26,7 @@
         <control type="button" id="9201">
           <ondown>9301</ondown>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>$NUMBER[1]</label>
           <font>font34</font>
           <align>center</align>
@@ -47,15 +47,15 @@
           <onclick>Number1</onclick>
           <onclick>Number1</onclick>
           <onclick>SetFocus(9201)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9202">
           <ondown>9302</ondown>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>$NUMBER[2]</label>
           <font>font34</font>
           <align>center</align>
@@ -66,15 +66,15 @@
           <onclick>Number2</onclick>
           <onclick>Number2</onclick>
           <onclick>SetFocus(9202)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9203">
           <ondown>9303</ondown>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>$NUMBER[3]</label>
           <font>font34</font>
           <align>center</align>
@@ -85,15 +85,15 @@
           <onclick>Number3</onclick>
           <onclick>Number3</onclick>
           <onclick>SetFocus(9203)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9204">
           <ondown>9304</ondown>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>$NUMBER[4]</label>
           <font>font34</font>
           <align>center</align>
@@ -104,15 +104,15 @@
           <onclick>Number4</onclick>
           <onclick>Number4</onclick>
           <onclick>SetFocus(9204)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9205">
           <ondown>9305</ondown>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>$NUMBER[5]</label>
           <font>font34</font>
           <align>center</align>
@@ -123,15 +123,15 @@
           <onclick>Number5</onclick>
           <onclick>Number5</onclick>
           <onclick>SetFocus(9205)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9206">
           <ondown>9306</ondown>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>$NUMBER[6]</label>
           <font>font34</font>
           <align>center</align>
@@ -142,15 +142,15 @@
           <onclick>Number6</onclick>
           <onclick>Number6</onclick>
           <onclick>SetFocus(9206)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9207">
           <ondown>9307</ondown>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>$NUMBER[7]</label>
           <font>font34</font>
           <align>center</align>
@@ -162,15 +162,15 @@
           <onclick>Number7</onclick>
           <onclick>Number7</onclick>
           <onclick>SetFocus(9207)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9208">
           <ondown>9308</ondown>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>$NUMBER[8]</label>
           <font>font34</font>
           <align>center</align>
@@ -181,15 +181,15 @@
           <onclick>Number8</onclick>
           <onclick>Number8</onclick>
           <onclick>SetFocus(9208)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9209">
           <ondown>9309</ondown>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>$NUMBER[9]</label>
           <font>font34</font>
           <align>center</align>
@@ -201,15 +201,15 @@
           <onclick>Number9</onclick>
           <onclick>Number9</onclick>
           <onclick>SetFocus(9209)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9210">
           <ondown>9310</ondown>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>$NUMBER[0]</label>
           <font>font34</font>
           <align>center</align>
@@ -237,19 +237,19 @@
           <onclick>Number0</onclick>
           <onclick>Number0</onclick>
           <onclick>SetFocus(9210)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
       </control>
       <control type="grouplist" id="9300">
-        <left>40</left>
-        <top>335</top>
-        <width>430</width>
-        <height>46</height>
+        <left>30</left>
+        <top>345</top>
+        <width>450</width>
+        <height>56</height>
         <orientation>horizontal</orientation>
-        <itemgap>0</itemgap>
+        <itemgap>2</itemgap>
         <align>center</align>
         <onup>9200</onup>
         <ondown>9400</ondown>
@@ -261,7 +261,7 @@
           <ondown>9401</ondown>
           <onup>9201</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>q</label>
           <font>font34</font>
           <align>center</align>
@@ -270,16 +270,16 @@
           <onclick>Number7</onclick>
           <onclick>Number7</onclick>
           <onclick>SetFocus(9301)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9302">
           <ondown>9402</ondown>
           <onup>9202</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>w</label>
           <font>font34</font>
           <align>center</align>
@@ -287,16 +287,16 @@
           <onclick>SetFocus(9100)</onclick>
           <onclick>Number9</onclick>
           <onclick>SetFocus(9302)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9303">
           <ondown>9403</ondown>
           <onup>9203</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>e</label>
           <font>font34</font>
           <align>center</align>
@@ -305,16 +305,16 @@
           <onclick>Number3</onclick>
           <onclick>Number3</onclick>
           <onclick>SetFocus(9303)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9304">
           <ondown>9404</ondown>
           <onup>9204</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>r</label>
           <font>font34</font>
           <align>center</align>
@@ -324,16 +324,16 @@
           <onclick>Number7</onclick>
           <onclick>Number7</onclick>
           <onclick>SetFocus(9304)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9305">
           <ondown>9405</ondown>
           <onup>9205</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>t</label>
           <font>font34</font>
           <align>center</align>
@@ -341,16 +341,16 @@
           <onclick>SetFocus(9100)</onclick>
           <onclick>Number8</onclick>
           <onclick>SetFocus(9305)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9306">
           <ondown>9406</ondown>
           <onup>9206</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>y</label>
           <font>font34</font>
           <align>center</align>
@@ -360,16 +360,16 @@
           <onclick>Number9</onclick>
           <onclick>Number9</onclick>
           <onclick>SetFocus(9306)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9307">
           <ondown>9407</ondown>
           <onup>9207</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>u</label>
           <font>font34</font>
           <align>center</align>
@@ -378,16 +378,16 @@
           <onclick>Number8</onclick>
           <onclick>Number8</onclick>
           <onclick>SetFocus(9307)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9308">
           <ondown>9408</ondown>
           <onup>9208</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>i</label>
           <font>font34</font>
           <align>center</align>
@@ -397,16 +397,16 @@
           <onclick>Number4</onclick>
           <onclick>Number4</onclick>
           <onclick>SetFocus(9308)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9309">
           <ondown>9409</ondown>
           <onup>9209</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>o</label>
           <font>font34</font>
           <align>center</align>
@@ -416,10 +416,10 @@
           <onclick>Number6</onclick>
           <onclick>Number6</onclick>
           <onclick>SetFocus(9309)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9310">
           <onleft condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onleft>
@@ -427,7 +427,7 @@
           <ondown>9409</ondown>
           <onup>9210</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>p</label>
           <font>font34</font>
           <align>center</align>
@@ -435,19 +435,19 @@
           <onclick>SetFocus(9100)</onclick>
           <onclick>Number7</onclick>
           <onclick>SetFocus(9310)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
       </control>
       <control type="grouplist" id="9400">
-        <left>40</left>
-        <top>385</top>
-        <width>430</width>
-        <height>46</height>
+        <left>30</left>
+        <top>405</top>
+        <width>450</width>
+        <height>56</height>
         <orientation>horizontal</orientation>
-        <itemgap>0</itemgap>
+        <itemgap>2</itemgap>
         <align>center</align>
         <onup>9300</onup>
         <ondown>9500</ondown>
@@ -459,7 +459,7 @@
           <ondown>9501</ondown>
           <onup>9301</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>a</label>
           <font>font34</font>
           <align>center</align>
@@ -467,16 +467,16 @@
           <onclick>SetFocus(9100)</onclick>
           <onclick>Number2</onclick>
           <onclick>SetFocus(9401)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9402">
           <ondown>9502</ondown>
           <onup>9302</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>s</label>
           <font>font34</font>
           <align>center</align>
@@ -487,16 +487,16 @@
           <onclick>Number7</onclick>
           <onclick>Number7</onclick>
           <onclick>SetFocus(9402)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9403">
           <ondown>9503</ondown>
           <onup>9303</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>d</label>
           <font>font34</font>
           <align>center</align>
@@ -504,16 +504,16 @@
           <onclick>SetFocus(9100)</onclick>
           <onclick>Number3</onclick>
           <onclick>SetFocus(9403)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9404">
           <ondown>9504</ondown>
           <onup>9304</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>f</label>
           <font>font34</font>
           <align>center</align>
@@ -523,16 +523,16 @@
           <onclick>Number3</onclick>
           <onclick>Number3</onclick>
           <onclick>SetFocus(9404)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9405">
           <ondown>9505</ondown>
           <onup>9305</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>g</label>
           <font>font34</font>
           <align>center</align>
@@ -540,16 +540,16 @@
           <onclick>SetFocus(9100)</onclick>
           <onclick>Number4</onclick>
           <onclick>SetFocus(9405)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9406">
           <ondown>9506</ondown>
           <onup>9306</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>h</label>
           <font>font34</font>
           <align>center</align>
@@ -558,16 +558,16 @@
           <onclick>Number4</onclick>
           <onclick>Number4</onclick>
           <onclick>SetFocus(9406)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9407">
           <ondown>9507</ondown>
           <onup>9307</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>j</label>
           <font>font34</font>
           <align>center</align>
@@ -575,16 +575,16 @@
           <onclick>SetFocus(9100)</onclick>
           <onclick>Number5</onclick>
           <onclick>SetFocus(9407)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9408">
           <ondown>9508</ondown>
           <onup>9308</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>k</label>
           <font>font34</font>
           <align>center</align>
@@ -593,10 +593,10 @@
           <onclick>Number5</onclick>
           <onclick>Number5</onclick>
           <onclick>SetFocus(9408)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9409">
           <onleft condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onleft>
@@ -604,7 +604,7 @@
           <ondown>9509</ondown>
           <onup>9309</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>l</label>
           <font>font34</font>
           <align>center</align>
@@ -614,19 +614,19 @@
           <onclick>Number5</onclick>
           <onclick>Number5</onclick>
           <onclick>SetFocus(9409)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
       </control>
       <control type="grouplist" id="9500">
-        <left>40</left>
-        <top>435</top>
-        <width>430</width>
-        <height>46</height>
+        <left>30</left>
+        <top>465</top>
+        <width>450</width>
+        <height>56</height>
         <orientation>horizontal</orientation>
-        <itemgap>0</itemgap>
+        <itemgap>2</itemgap>
         <align>center</align>
         <onup>9400</onup>
         <ondown>9600</ondown>
@@ -638,7 +638,7 @@
           <ondown>9601</ondown>
           <onup>9401</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>z</label>
           <font>font34</font>
           <align>center</align>
@@ -649,16 +649,16 @@
           <onclick>Number9</onclick>
           <onclick>Number9</onclick>
           <onclick>SetFocus(9501)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9502">
           <ondown>9601</ondown>
           <onup>9402</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>x</label>
           <font>font34</font>
           <align>center</align>
@@ -667,16 +667,16 @@
           <onclick>Number9</onclick>
           <onclick>Number9</onclick>
           <onclick>SetFocus(9502)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9503">
           <ondown>9601</ondown>
           <onup>9403</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>c</label>
           <font>font34</font>
           <align>center</align>
@@ -686,16 +686,16 @@
           <onclick>Number2</onclick>
           <onclick>Number2</onclick>
           <onclick>SetFocus(9503)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9504">
           <ondown>9601</ondown>
           <onup>9404</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>v</label>
           <font>font34</font>
           <align>center</align>
@@ -705,16 +705,16 @@
           <onclick>Number8</onclick>
           <onclick>Number8</onclick>
           <onclick>SetFocus(9504)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9505">
           <ondown>9601</ondown>
           <onup>9405</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>b</label>
           <font>font34</font>
           <align>center</align>
@@ -723,16 +723,16 @@
           <onclick>Number2</onclick>
           <onclick>Number2</onclick>
           <onclick>SetFocus(9505)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9506">
           <ondown>9601</ondown>
           <onup>9406</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>n</label>
           <font>font34</font>
           <align>center</align>
@@ -741,16 +741,16 @@
           <onclick>Number6</onclick>
           <onclick>Number6</onclick>
           <onclick>SetFocus(9506)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9507">
           <ondown>9602</ondown>
           <onup>9407</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>m</label>
           <font>font34</font>
           <align>center</align>
@@ -758,16 +758,16 @@
           <onclick>SetFocus(9100)</onclick>
           <onclick>Number6</onclick>
           <onclick>SetFocus(9507)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9508">
           <ondown>9602</ondown>
           <onup>9408</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>'</label>
           <font>font34</font>
           <align>center</align>
@@ -779,16 +779,16 @@
           <onclick>Number1</onclick>
           <onclick>Number1</onclick>
           <onclick>SetFocus(9508)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9509">
           <ondown>9603</ondown>
           <onup>9409</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>-</label>
           <font>font34</font>
           <align>center</align>
@@ -802,10 +802,10 @@
           <onclick>Number1</onclick>
           <onclick>Number1</onclick>
           <onclick>SetFocus(9509)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
         <control type="button" id="9510">
           <onleft condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onleft>
@@ -813,7 +813,7 @@
           <ondown>9603</ondown>
           <onup>9409</onup>
           <width>43</width>
-          <height>46</height>
+          <height>56</height>
           <label>.</label>
           <font>font34</font>
           <align>center</align>
@@ -821,19 +821,19 @@
           <onclick>SetFocus(9100)</onclick>
           <onclick>Number1</onclick>
           <onclick>SetFocus(9510)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control>
       </control>
       <control type="grouplist" id="9600">
-        <left>40</left>
-        <top>485</top>
-        <width>430</width>
-        <height>46</height>
+        <left>30</left>
+        <top>525</top>
+        <width>450</width>
+        <height>56</height>
         <orientation>horizontal</orientation>
-        <itemgap>0</itemgap>
+        <itemgap>2</itemgap>
         <align>center</align>
         <onup>9500</onup>
         <ondown>9700</ondown>
@@ -843,19 +843,19 @@
         <onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9601</onright>
         <control type="radiobutton" id="9601">
           <onup>9500</onup>
-          <width>240</width>
-          <height>46</height>
+          <width>260</width>
+          <height>56</height>
           <label></label>
           <align>center</align>
           <aligny>center</aligny>
           <onclick>SetFocus(9100)</onclick>
           <onclick>Number0</onclick>
           <onclick>SetFocus(9601)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
-          <textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/spacebardivider.png</textureradioonfocus>
-          <textureradioonnofocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/spacebardivider.png</textureradioonnofocus>
-          <radiowidth>240</radiowidth>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
+          <textureradioonfocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/spacebardivider.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="unfocused_text">icons/keyboard/spacebardivider.png</textureradioonnofocus>
+          <radiowidth>260</radiowidth>
           <radioheight>3</radioheight>
           <radioposx>5</radioposx>
           <radioposy>0</radioposy>
@@ -863,8 +863,8 @@
         </control>
         <!-- <control type="button" id="9601">
           <onup>9502</onup>
-          <width>240</width>
-          <height>46</height>
+          <width>260</width>
+          <height>56</height>
           <label>Space</label>
           <font>font24</font>
           <align>center</align>
@@ -872,27 +872,27 @@
           <onclick>SetFocus(9100)</onclick>
           <onclick>Number0</onclick>
           <onclick>SetFocus(9601)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
           <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
           <textcolor>unfocused_text</textcolor>
-          <focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+          <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
         </control> -->
         <control type="radiobutton" id="9602">
           <onup>9508</onup>
           <width>70</width>
-          <height>46</height>
+          <height>56</height>
           <label></label>
           <onclick>SetFocus(9100)</onclick>
           <onclick>Action(Backspace)</onclick>
           <onclick>SetFocus(9602)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
-          <textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/backspace.png</textureradioonfocus>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
+          <textureradioonfocus colordiffuse="$VAR[FocusColorTheme]">icons/keyboard/backspace.png</textureradioonfocus>
           <textureradioonnofocus colordiffuse="unfocused_text">icons/keyboard/backspace.png</textureradioonnofocus>
           <radiowidth>32</radiowidth>
           <radioheight>32</radioheight>
           <radioposx>19</radioposx>
-          <radioposy>7</radioposy>
+          <radioposy>12</radioposy>
           <selected>true</selected>
         </control>
         <control type="radiobutton" id="9603">
@@ -900,7 +900,7 @@
           <onleft condition="String.IsEmpty(Window(home).Property(altus.search.input))">9601</onleft>
           <onup>9509</onup>
           <width>70</width>
-          <height>46</height>
+          <height>56</height>
           <label></label>
           <onclick>SetFocus(9100)</onclick>
           <onclick>Action(Backspace)</onclick>
@@ -968,14 +968,14 @@
           <onclick>Action(Backspace)</onclick>
           <onclick>Action(Backspace)</onclick>
           <onclick>SetFocus(9603)</onclick>
-          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-          <texturenofocus/>
-          <textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">dialogs/close.png</textureradioonfocus>
+          <texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">buttons/minikeys.png</texturefocus>
+          <texturenofocus border="15" colordiffuse="4D000000">masks/radius_15.png</texturenofocus>
+          <textureradioonfocus colordiffuse="$VAR[FocusColorTheme]">dialogs/close.png</textureradioonfocus>
           <textureradioonnofocus colordiffuse="unfocused_text">dialogs/close.png</textureradioonnofocus>
-          <radiowidth>32</radiowidth>
-          <radioheight>32</radioheight>
-          <radioposx>19</radioposx>
-          <radioposy>7</radioposy>
+          <radiowidth>36</radiowidth>
+          <radioheight>36</radioheight>
+          <radioposx>17</radioposx>
+          <radioposy>10</radioposy>
           <selected>true</selected>
         </control>
       </control>

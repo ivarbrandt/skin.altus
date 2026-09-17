@@ -110,9 +110,9 @@
 					<control type="group">
 						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
 						<animation effect="fade" time="200">VisibleChange</animation>
-						<left>40</left>
+						<left>30</left>
 						<top>198</top>
-						<width>428</width>
+						<width>448</width>
 						<height>87</height>
 						<control type="image">
 							<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
@@ -132,10 +132,10 @@
 					<control type="edit" id="9100">
 						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
 						<animation effect="fade" time="200">VisibleChange</animation>
-						<left>40</left>
+						<left>30</left>
 						<top>198</top>
 						<onup>700</onup>
-						<width>428</width>
+						<width>448</width>
 						<height>87</height>
 						<font>font37_title</font>
 						<ondown>9200</ondown>
@@ -153,65 +153,27 @@
 					<include>MiniQWERTY</include>
 					<!-- P8c kind-filter pill panel. Generated content lives in
 					     script-altus-search_kind_filter.xml; Includes_Search.xml
-					     defines the SearchKindFilterButton style. Active filter is
+					     defines the SearchKindFilterPanel layout. Active filter is
 					     property-driven so the selected pill stays highlighted
 					     even when focus has moved off the panel. -->
-					<control type="label">
-						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
-						<animation effect="fade" time="200">VisibleChange</animation>
-						<animation effect="slide" condition="Skin.HasSetting(Disable.MiniQwerty)" time="300" start="0,0" end="0,-265" tween="cubic" easing="inout">Conditional</animation>
-						<left>40</left>
-						<top>585</top>
-						<width>428</width>
-						<height>75</height>
-						<font>font27</font>
-						<textcolor>unfocused_text</textcolor>
-						<aligny>center</aligny>
-						<align>left</align>
-						<label>[UPPERCASE][B]Filter by...[/B][/UPPERCASE]</label>
-					</control>
-					<control type="grouplist" id="9700">
+					<control type="panel" id="9700">
 						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live) + !Skin.HasSetting(Disable.MiniQwerty)</visible>
-						<animation effect="slide" condition="Skin.HasSetting(Disable.MiniQwerty)" time="300" start="0,0" end="0,-265" tween="cubic" easing="inout">Conditional</animation>
+						<animation effect="slide" condition="Skin.HasSetting(Disable.MiniQwerty)" time="300" start="0,0" end="0,-326" tween="cubic" easing="inout">Conditional</animation>
 						<animation effect="fade" time="200">VisibleChange</animation>
-						<left>40</left>
-						<top>660</top>
-						<width>428</width>
-						<height>360</height>
-						<orientation>vertical</orientation>
-						<itemgap>0</itemgap>
-						<align>top</align>
-						<onup>9600</onup>
-						<ondown>9700</ondown>
-						<onleft>9700</onleft>
-						<onback>801</onback>
-						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
-						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9700</onright>
-						<include content="SearchKindFilter"/>
+						<include content="SearchKindFilterPanel"/>
 					</control>
-					<control type="grouplist" id="9700">
+					<control type="panel" id="9700">
 						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live) + Skin.HasSetting(Disable.MiniQwerty)</visible>
-						<animation effect="slide" condition="Skin.HasSetting(Disable.MiniQwerty)" time="300" start="0,0" end="0,-265" tween="cubic" easing="inout">Conditional</animation>
+						<animation effect="slide" condition="Skin.HasSetting(Disable.MiniQwerty)" time="300" start="0,0" end="0,-326" tween="cubic" easing="inout">Conditional</animation>
 						<animation effect="fade" time="200">VisibleChange</animation>
-						<left>40</left>
-						<top>660</top>
-						<width>428</width>
-						<height>600</height>
-						<orientation>vertical</orientation>
-						<itemgap>0</itemgap>
-						<align>top</align>
-						<onup>9600</onup>
-						<ondown>9700</ondown>
-						<onleft>9700</onleft>
-						<onback>801</onback>
-						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
-						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9700</onright>
-						<include content="SearchKindFilter"/>
+						<include content="SearchKindFilterPanel">
+							<param name="height" value="535"/>
+						</include>
 					</control>
 					<control type="textbox">
 						<top>145</top>
-						<left>40</left>
-						<width>418</width>
+						<left>30</left>
+						<width>438</width>
 						<aligny>center</aligny>
 						<align>center</align>
 						<height>200</height>
@@ -223,9 +185,9 @@
 					<control type="list" id="9000">
 						<visible>!String.IsEqual(Window(home).Property(altus.search.history.count),0) + String.IsEqual(Window(home).Property(altus.search.mode),history)</visible>
 						<animation effect="fade" time="200">VisibleChange</animation>
-						<left>40</left>
+						<left>30</left>
 						<top>180</top>
-						<width>428</width>
+						<width>448</width>
 						<height>840</height>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onfocus>ClearProperty(altus_stacked_linked_list_id,Home)</onfocus>
@@ -243,20 +205,21 @@
 						</content>
 					</control>
 					<control type="group">
-						<left>40</left>
+						<left>30</left>
 						<visible>!String.IsEqual(Window(home).Property(altus.search.history.count),0) + String.IsEqual(Window(home).Property(altus.search.mode),history)</visible>
 						<include content="MenuScrollIndicators">
 							<param name="list_id" value="9000"/>
+							<param name="width" value="448"/>
 						</include>
 					</control>
 					<control type="group">
-						<left>23</left>
+						<left>13</left>
 						<top>63</top>
-						<width>467</width>
+						<width>487</width>
 						<height>140</height>
 						<control type="grouplist" id="700">
 							<orientation>horizontal</orientation>
-							<itemgap>41</itemgap>
+							<itemgap>51</itemgap>
 							<height>130</height>
 							<!-- <onup condition="!String.IsEqual(Window(home).Property(altus.search.history.count),0)">852</onup>
 							<onup condition="String.IsEqual(Window(home).Property(altus.search.history.count),0)">700</onup> -->
