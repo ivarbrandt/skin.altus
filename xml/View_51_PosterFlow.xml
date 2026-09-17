@@ -163,7 +163,7 @@
             <align>center</align>
             <height>65</height>
             <label>$VAR[LeftVideoHeader]</label>
-            <font>font36_title_uppercase</font>
+            <font>font36_title</font>
             <textcolor>$VAR[FocusColorTheme]</textcolor>
             <shadowcolor>text_shadow</shadowcolor>
             <!-- <visible>!Window.IsVisible(busydialog)</visible> -->
@@ -195,7 +195,7 @@
             <align>center</align>
             <height>50</height>
             <label>$VAR[RightVideoHeader]</label>
-            <font>font36_title_uppercase</font>
+            <font>font36_title</font>
             <textcolor>$VAR[FocusColorTheme]</textcolor>
             <shadowcolor>text_shadow</shadowcolor>
             <!-- <visible>!Window.IsVisible(busydialog)</visible> -->

@@ -137,7 +137,7 @@
 						<onup>700</onup>
 						<width>448</width>
 						<height>87</height>
-						<font>font37_title</font>
+						<font>font36_title</font>
 						<ondown>9200</ondown>
 						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
 						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9100</onright>
@@ -170,6 +170,7 @@
 							<param name="height" value="535"/>
 						</include>
 					</control>
+					<include>SearchKindFilterIndicators</include>
 					<control type="textbox">
 						<top>145</top>
 						<left>30</left>

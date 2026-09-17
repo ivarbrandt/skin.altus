@@ -695,7 +695,7 @@
 					<top>50</top>
 					<width>810</width>
 					<label>$VAR[ListLandscapeHeaderVar]</label>
-					<font>font36_title_uppercase</font>
+					<font>font36_title</font>
 					<textcolor>$VAR[FocusColorTheme]</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>left</align>
@@ -707,7 +707,7 @@
 					<top>982</top>
 					<width>810</width>
 					<label>$VAR[RightVideoHeader]</label>
-					<font>font36_title_uppercase</font>
+					<font>font36_title</font>
 					<textcolor>$VAR[FocusColorTheme]</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>left</align>

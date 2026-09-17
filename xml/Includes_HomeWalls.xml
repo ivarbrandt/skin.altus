@@ -24,8 +24,8 @@
 
 	<include name="HomeWallTabIndicators">
 		<param name="top">83</param>
-		<param name="left">18</param>
-		<param name="right">1344</param>
+		<param name="left">20</param>
+		<param name="right">1342</param>
 		<definition>
 			<control type="group">
 				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="ControlGroup($PARAM[section_id]).HasFocus + !Control.HasFocus($PARAM[row_id])">Conditional</animation>
