@@ -196,22 +196,25 @@
       <control type="image">
         <top>$PARAM[top]</top>
         <width>$PARAM[width]</width>
-        <height>103</height>
+        <height>94</height>
         <texture flipy="true" border="46,0,46,0" colordiffuse="$VAR[FocusColorTheme]">masks/mainmenu_divider.png</texture>
         <animation effect="zoom" start="0,100" end="100,100" center="auto" delay="100" time="300">Visible</animation>
         <animation effect="fade" start="0" end="100" delay="100" time="300">Visible</animation>
         <animation effect="fade" start="100" end="0" time="0">Hidden</animation>
         <visible>Container($PARAM[list_id]).HasPrevious + !Container($PARAM[list_id]).OnScrollNext + !Container($PARAM[list_id]).OnScrollPrevious</visible>
       </control>
-      <control type="image">
+      <control type="group">
         <top>$PARAM[bottom]</top>
-        <width>$PARAM[width]</width>
-        <height>103</height>
-        <texture border="46,0,46,0" colordiffuse="$VAR[FocusColorTheme]">masks/mainmenu_divider.png</texture>
-        <animation effect="zoom" start="0,100" end="100,100" center="auto" delay="100" time="300">Visible</animation>
-        <animation effect="fade" start="0" end="100" delay="100" time="300">Visible</animation>
-        <animation effect="fade" start="100" end="0" time="0">Hidden</animation>
-        <visible>Container($PARAM[list_id]).HasNext + !Container($PARAM[list_id]).OnScrollNext + !Container($PARAM[list_id]).OnScrollPrevious</visible>
+        <control type="image">
+          <top>9</top>
+          <width>$PARAM[width]</width>
+          <height>94</height>
+          <texture border="46,0,46,0" colordiffuse="$VAR[FocusColorTheme]">masks/mainmenu_divider.png</texture>
+          <animation effect="zoom" start="0,100" end="100,100" center="auto" delay="100" time="300">Visible</animation>
+          <animation effect="fade" start="0" end="100" delay="100" time="300">Visible</animation>
+          <animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+          <visible>Container($PARAM[list_id]).HasNext + !Container($PARAM[list_id]).OnScrollNext + !Container($PARAM[list_id]).OnScrollPrevious</visible>
+        </control>
       </control>
     </definition>
   </include>

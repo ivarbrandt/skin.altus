@@ -205,6 +205,7 @@
             <left>580</left>
             <top>145</top>
             <height>810</height>
+            <scrolltime tween="cubic" easing="out">500</scrolltime>
             <!-- <height>850</height> -->
             <onleft>20000</onleft>
             <include content="CastItem">
@@ -243,6 +244,7 @@
             </include>
             <top>145</top>
             <height>810</height>
+            <scrolltime tween="cubic" easing="out">500</scrolltime>
             <onleft>20000</onleft>
             <itemlayout width="540" height="135">
               <include content="ListItemTwoLine">

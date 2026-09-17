@@ -255,8 +255,9 @@
 					</control>
 					<control type="group">
 						<left>13</left>
-						<top>70</top>
-						<width>460</width>
+						<!-- 63 -->
+						<top>63</top>
+						<width>467</width>
 						<height>140</height>
 						<control type="label">
 							<left>20</left>
@@ -271,8 +272,8 @@
 						</control>
 						<control type="grouplist" id="700">
 							<orientation>horizontal</orientation>
-							<itemgap>20</itemgap>
-							<height>100</height>
+							<itemgap>41</itemgap>
+							<height>130</height>
 							<onup>SetFocus(9000,99,absolute)</onup>
 							<ondown>SetFocus(9000,0,absolute)</ondown>
 							<onright>2000</onright>

@@ -73,12 +73,12 @@
 			</control>
 			<control type="group">
 				<include>OpenClose_Left</include>
-				<animation effect="slide" time="400" start="-442,0" end="0,0" tween="cubic" easing="inout">VisibleChange</animation>
+				<animation effect="slide" time="400" start="-482,0" end="0,0" tween="cubic" easing="inout">VisibleChange</animation>
 				<visible allowhiddenfocus="true">!ControlGroup(400).HasFocus</visible>
 				<control type="fixedlist" id="9000">
 					<left>40</left>
 					<top>190</top>
-					<width>388</width>
+					<width>428</width>
 					<height>840</height>
 					<pagecontrol>70</pagecontrol>
 					<movement>9</movement>
@@ -155,21 +155,21 @@
 					<left>40</left>
 					<include content="MenuScrollIndicators">
 						<param name="list_id" value="9000"/>
-						<param name="width" value="388"/>
+						<param name="width" value="428"/>
 						<param name="top" value="206"/>
 						<param name="bottom" value="910"/>
 					</include>
 				</control>
 				<control type="group">
-					<left>28</left>
-					<top>80</top>
-					<width>415</width>
+					<left>23</left>
+					<top>73</top>
+					<width>467</width>
 					<height>140</height>
 					<control type="grouplist" id="700">
 						<orientation>horizontal</orientation>
-						<itemgap>4</itemgap>
-						<width>415</width>
-						<height>100</height>
+						<itemgap>41</itemgap>
+						<width>467</width>
+						<height>130</height>
 						<onup>SetFocus(9000,99,absolute)</onup>
 						<ondown>SetFocus(9000,0,absolute)</ondown>
 						<onright>400</onright>

@@ -107,26 +107,48 @@
 				<control type="group">
 					<visible allowhiddenfocus="true">!$EXP[isContent]</visible>
 					<animation effect="fade" condition="!$EXP[isContent]" time="300" end="100" tween="sine" easing="inout">Conditional</animation>
+					<control type="group">
+						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
+						<animation effect="fade" time="200">VisibleChange</animation>
+						<left>40</left>
+						<top>198</top>
+						<width>428</width>
+						<height>87</height>
+						<control type="image">
+							<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
+							<visible>!Control.HasFocus(9100)</visible>
+						</control>
+						<control type="image">
+							<texture border="33" colordiffuse="A6000000">masks/radius_33.png</texture>
+							<visible>Control.HasFocus(9100)</visible>
+						</control>
+						<control type="image">
+							<texture border="33" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-33_alt.png</texture>
+							<visible>Control.HasFocus(9100)</visible>
+							<animation effect="fade" start="0" end="100" time="300" tween="sine">Visible</animation>
+							<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+						</control>
+					</control>
 					<control type="edit" id="9100">
 						<visible>String.IsEqual(Window(home).Property(altus.search.mode),live)</visible>
 						<animation effect="fade" time="200">VisibleChange</animation>
 						<left>40</left>
-						<top>180</top>
+						<top>198</top>
 						<onup>700</onup>
 						<width>428</width>
-						<height>75</height>
-						<font>font32</font>
+						<height>87</height>
+						<font>font37_title</font>
 						<ondown>9200</ondown>
 						<onright condition="!String.IsEmpty(Window(home).Property(altus.search.input))">2000</onright>
 						<onright condition="String.IsEmpty(Window(home).Property(altus.search.input))">9100</onright>
 						<hinttext>Type to search...</hinttext>
 						<textcolor>unfocused_text</textcolor>
-						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+						<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
 						<aligny>center</aligny>
 						<align>left</align>
-						<textoffsetx>30</textoffsetx>
-						<texturefocus border="23"  colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
-						<texturenofocus border="23"  colordiffuse="4D000000">masks/radius_23.png</texturenofocus>
+						<textoffsetx>37</textoffsetx>
+						<texturefocus />
+						<texturenofocus />
 					</control>
 					<include>MiniQWERTY</include>
 					<!-- P8c kind-filter pill panel. Generated content lives in
@@ -139,7 +161,7 @@
 						<animation effect="fade" time="200">VisibleChange</animation>
 						<animation effect="slide" condition="Skin.HasSetting(Disable.MiniQwerty)" time="300" start="0,0" end="0,-265" tween="cubic" easing="inout">Conditional</animation>
 						<left>40</left>
-						<top>555</top>
+						<top>585</top>
 						<width>428</width>
 						<height>75</height>
 						<font>font27</font>
@@ -153,7 +175,7 @@
 						<animation effect="slide" condition="Skin.HasSetting(Disable.MiniQwerty)" time="300" start="0,0" end="0,-265" tween="cubic" easing="inout">Conditional</animation>
 						<animation effect="fade" time="200">VisibleChange</animation>
 						<left>40</left>
-						<top>630</top>
+						<top>660</top>
 						<width>428</width>
 						<height>360</height>
 						<orientation>vertical</orientation>
@@ -172,7 +194,7 @@
 						<animation effect="slide" condition="Skin.HasSetting(Disable.MiniQwerty)" time="300" start="0,0" end="0,-265" tween="cubic" easing="inout">Conditional</animation>
 						<animation effect="fade" time="200">VisibleChange</animation>
 						<left>40</left>
-						<top>630</top>
+						<top>660</top>
 						<width>428</width>
 						<height>600</height>
 						<orientation>vertical</orientation>
@@ -229,13 +251,13 @@
 					</control>
 					<control type="group">
 						<left>23</left>
-						<top>70</top>
-						<width>460</width>
+						<top>63</top>
+						<width>467</width>
 						<height>140</height>
 						<control type="grouplist" id="700">
 							<orientation>horizontal</orientation>
-							<itemgap>20</itemgap>
-							<height>100</height>
+							<itemgap>41</itemgap>
+							<height>130</height>
 							<!-- <onup condition="!String.IsEqual(Window(home).Property(altus.search.history.count),0)">852</onup>
 							<onup condition="String.IsEqual(Window(home).Property(altus.search.history.count),0)">700</onup> -->
 							<ondown condition="String.IsEqual(Window(home).Property(altus.search.mode),history) + !String.IsEqual(Window(home).Property(altus.search.history.count),0)">SetFocus(9000,0,absolute)</ondown>

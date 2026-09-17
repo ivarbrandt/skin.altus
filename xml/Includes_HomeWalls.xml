@@ -24,14 +24,14 @@
 	<include name="HomeWallTabIndicators">
 		<param name="top">83</param>
 		<param name="left">18</param>
-		<param name="right">1333</param>
+		<param name="right">1335</param>
 		<definition>
 			<control type="group">
 				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="ControlGroup($PARAM[section_id]).HasFocus + !Control.HasFocus($PARAM[row_id])">Conditional</animation>
 				<control type="image">
 					<left>$PARAM[left]</left>
 					<top>$PARAM[top]</top>
-					<width>70</width>
+					<width>68</width>
 					<height>87</height>
 					<texture border="0,33,0,33" colordiffuse="$VAR[FocusColorTheme]">masks/tabrow_divider.png</texture>
 					<animation effect="zoom" start="100,0" end="100,100" center="auto" delay="100" time="300">Visible</animation>
@@ -42,7 +42,7 @@
 				<control type="image">
 					<left>$PARAM[right]</left>
 					<top>$PARAM[top]</top>
-					<width>70</width>
+					<width>68</width>
 					<height>87</height>
 					<texture flipx="true" border="0,33,0,33" colordiffuse="$VAR[FocusColorTheme]">masks/tabrow_divider.png</texture>
 					<animation effect="zoom" start="100,0" end="100,100" center="auto" delay="100" time="300">Visible</animation>
