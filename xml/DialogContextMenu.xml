@@ -27,6 +27,8 @@
 					<param name="diffuse_texture" value="masks/radius_46_right.png" />
 					<param name="border_texture" value="masks/bordertexture-46-thin_right.png" />
 					<param name="border_value" value="0,46,46,46" />
+					<param name="blur" value="true" />
+					<param name="blur_mask" value="masks/buttonmenu.png" />
 				</include>
 			</control>
 			<control type="group">
@@ -45,6 +47,8 @@
 					<param name="content_visible" value="$EXP[isCtxPoster]" />
 					<param name="diffuse_texture" value="masks/radius_46.png" />
 					<param name="border_texture" value="masks/bordertexture-46-thin.png" />
+					<param name="blur" value="true" />
+					<param name="blur_mask" value="masks/contextmenu.png" />
 				</include>
 			</control>
 			<control type="button">
@@ -77,38 +81,49 @@
 				<left>40</left>
 				<top>170</top>
 				<height>825</height>
+				<itemgap>29</itemgap>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
 				<onright>Action(close)</onright>
 				<usecontrolcoords>true</usecontrolcoords>
 				<control type="button" id="8001">
-					<height>75</height>
+					<height>93</height>
 					<align>left</align>
 					<width>418</width>
 					<aligny>center</aligny>
 					<textoffsetx>35</textoffsetx>
 					<label>[I][B]Play Trailer (Altus)[/B][/I]</label>
-					<font>font32</font>
+					<font>font32_bold</font>
 					<textcolor>unfocused_text</textcolor>
-					<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-					<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
-					<texturenofocus />
+					<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
+					<texturefocus border="46" colordiffuse="$VAR[FocusColorTheme]">masks/pill46_focus.png</texturefocus>
+					<texturenofocus border="46" colordiffuse="4D000000">masks/radius_46.png</texturenofocus>
 					<onclick>RunScript(script.altus.helper, mode=play_trailer)</onclick>
 					<visible>!String.IsEmpty(Window(Home).Property(CurrentDBType)) + !String.IsEqual(Window(Home).Property(CurrentDBType),season) + !String.IsEqual(Window(Home).Property(CurrentDBType),episode)</visible>
 				</control>
 			</control>
+			<!-- <control type="group">
+				<left>40</left>
+				<include content="MenuScrollIndicators">
+					<param name="list_id" value="996"/>
+					<param name="width" value="418"/>
+					<param name="top" value="168"/>
+					<param name="bottom" value="894"/>
+				</include>
+			</control> -->
 			<control type="button" id="1000">
 				<description>button template</description>
 				<left>0</left>
 				<top></top>
 				<width>418</width>
-				<height>75</height>
+				<height>93</height>
 				<align>left</align>
 				<aligny>center</aligny>
 				<textoffsetx>35</textoffsetx>
-				<font>font32</font>
+				<font>font32_bold</font>
 				<textcolor>unfocused_text</textcolor>
-				<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-				<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
-				<texturenofocus />
+				<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
+				<texturefocus border="46" colordiffuse="$VAR[FocusColorTheme]">masks/pill46_focus.png</texturefocus>
+				<texturenofocus border="46" colordiffuse="4D000000">masks/radius_46.png</texturenofocus>
 			</control>
 			</control>
 		</control>
