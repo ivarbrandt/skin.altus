@@ -13,10 +13,10 @@
 		<height max="297">auto</height>
 	</include>
 	<include name="PlotHeight_51_FontSize_Default">
-		<height max="78">auto</height>
+		<height max="39">auto</height>
 	</include>
 	<include name="PlotHeight_51_FontSize_Large">
-		<height max="87">auto</height>
+		<height max="50">auto</height>
 	</include>
 	<include name="Flix_Font_Default">
 		<font>font27_plot</font>
@@ -32,10 +32,11 @@
 				<top>-70</top>
 				<visible>[$EXP[isWall] + Skin.HasSetting(Enable.500Info)] | [$EXP[isLandscapeWall] + Skin.HasSetting(Enable.501Info)]</visible>
 				<control type="grouplist">
-					<top>960</top>
+					<top>0</top>
+					<bottom>10</bottom>
 					<orientation>vertical</orientation>
 					<align>right</align>
-					<itemgap>0</itemgap>
+					<itemgap>3</itemgap>
 					<include condition="!String.IsEmpty(Skin.String(valid_api_key))" content="HorizontalRatings">
 						<param name="align" value="center"/>
 					</include>

@@ -85,7 +85,7 @@
         <include content="FocusBorder">
           <param name="list_id" value="$PARAM[id]"/>
           <param name="focused" value="$PARAM[focused]"/>
-          <param name="radius" value="46_alt"/>
+          <param name="radius" value="46"/>
           <param name="border" value="46"/>
           <param name="top" value="18"/>
           <param name="bottom" value="19"/>
@@ -307,7 +307,7 @@
         <include content="FocusBorder">
           <param name="list_id" value="$PARAM[id]"/>
           <param name="focused" value="$PARAM[focused]"/>
-          <param name="radius" value="46_alt"/>
+          <param name="radius" value="46"/>
           <param name="border" value="46"/>
           <param name="extra" value="$PARAM[active]"/>
           <param name="top" value="$PARAM[img_top]"/>
@@ -602,7 +602,7 @@
         <include content="FocusBorder">
           <param name="list_id" value="$PARAM[id]"/>
           <param name="focused" value="$PARAM[focused]"/>
-          <param name="radius" value="46_alt"/>
+          <param name="radius" value="46"/>
           <param name="border" value="46"/>
           <param name="top" value="16"/>
           <param name="bottom" value="16"/>
@@ -738,7 +738,7 @@
 				<include content="FocusBorder">
 					<param name="list_id" value="$PARAM[list_id]"/>
 					<param name="focused" value="true"/>
-					<param name="radius" value="46_alt"/>
+					<param name="radius" value="46"/>
 					<param name="border" value="46"/>
 					<param name="top" value="18"/>
 					<param name="bottom" value="19"/>

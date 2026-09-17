@@ -13,6 +13,7 @@
 				<param name="id" value=""/>
 				<param name="label" value="$VAR[HomescreenFlixCrumbs][COLOR unfocused_text]$INFO[Container($PARAM[row_id]).ListItem.Label][/COLOR]$VAR[HomeFlixCrumbsVar]"/>
 				<param name="visible" value="true"/>
+				<param name="font" value="font36_title"/>
 			</include>
 		</control>
 		<include content="HomeWallTabIndicators">
@@ -24,7 +25,7 @@
 	<include name="HomeWallTabIndicators">
 		<param name="top">83</param>
 		<param name="left">18</param>
-		<param name="right">1335</param>
+		<param name="right">1344</param>
 		<definition>
 			<control type="group">
 				<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="ControlGroup($PARAM[section_id]).HasFocus + !Control.HasFocus($PARAM[row_id])">Conditional</animation>
@@ -60,7 +61,7 @@
 			<control type="group">
 				<top>26</top>
 				<left>20</left>
-				<width>249</width>
+				<width>322</width>
 				<height>87</height>
 				<control type="image">
 					<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
@@ -77,7 +78,7 @@
 				<include content="FocusBorder">
 					<param name="list_id" value="$PARAM[row_id]"/>
 					<param name="focused" value="$PARAM[focused]"/>
-					<param name="radius" value="33_alt"/>
+					<param name="radius" value="33"/>
 					<param name="border" value="33"/>
 					<param name="extra" value="ControlGroup($PARAM[walls_id]).HasFocus"/>
 				</include>
@@ -88,9 +89,9 @@
 					<height>87</height>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>$INFO[ListItem.Label]</label>
+					<label>$VAR[MenuCaseVar]</label>
 					<textcolor>$VAR[FocusColorTheme]</textcolor>
-					<font>font23_stacked_widgets_fo</font>
+					<font>font27_title</font>
 					<autoscroll delay="2000" time="3000" repeat="2000">Control.HasFocus($PARAM[row_id])</autoscroll>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[row_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)] | [$PARAM[focused] + ControlGroup($PARAM[walls_id]).HasFocus] | [!ControlGroup($PARAM[walls_id]).HasFocus + [[!Skin.HasSetting(HomeWalls.ManualLoading) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),ListItem.Property(wall_id)) | [$PARAM[fallback] + Integer.IsEqual(ListItem.CurrentItem,1)]]]]]</visible>
 				</control>
@@ -101,9 +102,9 @@
 					<height>87</height>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>$INFO[ListItem.Label]</label>
+					<label>$VAR[MenuCaseVar]</label>
 					<textcolor>unfocused_text</textcolor>
-					<font>font23_stacked_widgets_fo</font>
+					<font>font27_title</font>
 					<visible>![[$PARAM[focused] + Control.HasFocus($PARAM[row_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)] | [$PARAM[focused] + ControlGroup($PARAM[walls_id]).HasFocus] | [!ControlGroup($PARAM[walls_id]).HasFocus + [[!Skin.HasSetting(HomeWalls.ManualLoading) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[row_id]).CurrentItem)] | [Skin.HasSetting(HomeWalls.ManualLoading) + [String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),ListItem.Property(wall_id)) | [$PARAM[fallback] + Integer.IsEqual(ListItem.CurrentItem,1)]]]]]]</visible>
 				</control>
 			</control>
@@ -117,7 +118,7 @@
 		<height>140</height>
 		<orientation>horizontal</orientation>
 		<focusposition>0</focusposition>
-		<movement>4</movement>
+		<movement>3</movement>
 		<scrolltime tween="cubic" easing="out">400</scrolltime>
 		<onfocus>ClearProperty(FeatureWidgetFocused,Home)</onfocus>
 		<onfocus condition="Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)">SetFocus($INFO[Container($PARAM[row_id]).ListItem.Property(wall_id)],0,absolute)</onfocus>
@@ -127,14 +128,14 @@
 		<ondown condition="Skin.HasSetting(HomeWalls.ManualLoading)">SetProperty(altus_wall_$PARAM[row_id],$INFO[Container($PARAM[row_id]).ListItem.Property(wall_id)],home)</ondown>		<ondown>SetFocus($INFO[Container($PARAM[row_id]).ListItem.Property(wall_id)],0,absolute)</ondown>
 		<onback>9000</onback>
 		<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="ControlGroup($PARAM[walls_id]).HasFocus">Conditional</animation>
-		<itemlayout width="283" height="140" infoupdate="30">
+		<itemlayout width="356" height="140" infoupdate="30">
 			<include content="HomeWallTabLayout">
 				<param name="row_id" value="$PARAM[row_id]"/>
 				<param name="walls_id" value="$PARAM[walls_id]"/>
 				<param name="fallback" value="$PARAM[fallback]"/>
 			</include>
 		</itemlayout>
-		<focusedlayout width="283" height="140" infoupdate="30">
+		<focusedlayout width="356" height="140" infoupdate="30">
 			<include content="HomeWallTabLayout">
 				<param name="row_id" value="$PARAM[row_id]"/>
 				<param name="walls_id" value="$PARAM[walls_id]"/>
@@ -146,7 +147,7 @@
 
 	<include name="HomeWallsGroup">
 		<top>193</top>
-		<animation effect="slide" start="0,0" end="0,-121" time="400" tween="cubic" easing="inout" condition="ControlGroup($PARAM[walls_id]).HasFocus | Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)" reversible="true">Conditional</animation>
+		<animation effect="slide" start="0,0" end="0,-105" time="400" tween="cubic" easing="inout" condition="ControlGroup($PARAM[walls_id]).HasFocus | Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)" reversible="true">Conditional</animation>
 		<animation condition="Skin.HasSetting(HomeWalls.ManualLoading) + Control.HasFocus($PARAM[row_id]) + [[String.IsEmpty(Window(Home).Property(altus_wall_$PARAM[row_id])) + !String.IsEqual(Container($PARAM[row_id]).ListItemAbsolute(0).Property(wall_id),Container($PARAM[row_id]).ListItem.Property(wall_id))] | [!String.IsEmpty(Window(Home).Property(altus_wall_$PARAM[row_id])) + !String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),Container($PARAM[row_id]).ListItem.Property(wall_id))]] + String.IsEqual(Skin.String(BackgroundSetting),1)" reversible="true">
 			<effect type="fadediffuse" start="FFFFFFFF" end="FF777777" time="300" />
 		</animation>
@@ -550,7 +551,7 @@
 						<param name="row_id" value="$PARAM[row_id]"/>
 						<param name="visible" value="$PARAM[visible]"/>
 					</include>
-					<itemlayout width="474" height="339">
+					<itemlayout width="712" height="264" infoupdate="30">
 						<control type="group">
 							<include content="HomeWallUnfocusedAnimations">
 								<param name="list_id" value="$PARAM[list_id]"/>
@@ -561,7 +562,7 @@
 							</include>
 						</control>
 					</itemlayout>
-					<focusedlayout width="474" height="339" infoupdate="30">
+					<focusedlayout width="712" height="264" infoupdate="30">
 						<control type="group">
 							<depth>DepthContentPopout</depth>
 							<top>-15</top>

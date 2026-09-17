@@ -7,6 +7,7 @@
 	<include name="FocusBorder">
 		<param name="radius">20</param>
 		<param name="border">20</param>
+		<param name="stroke">_alt</param>
 		<param name="focused">false</param>
 		<param name="extra">false</param>
 		<param name="top">0</param>
@@ -19,7 +20,7 @@
 				<bottom>$PARAM[bottom]</bottom>
 				<left>$PARAM[left]</left>
 				<right>$PARAM[right]</right>
-				<texture border="$PARAM[border]" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-$PARAM[radius].png</texture>
+				<texture border="$PARAM[border]" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-$PARAM[radius]$PARAM[stroke].png</texture>
 				<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)] | [$PARAM[focused] + $PARAM[extra]]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 			</control>

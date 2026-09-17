@@ -147,6 +147,7 @@
 			<control type="panel" id="55">
 				<left>500</left>
 				<right>0</right>
+				<top>16</top>
 				<height>100%</height>
 				<onleft>9000</onleft>
 				<onright>532</onright>
@@ -257,7 +258,7 @@
 				<right>video_header_right</right>
 				<top>-45</top>
 				<label>$VAR[LeftVideoHeader]</label>
-				<font>font30_title_uppercase</font>
+				<font>font36_title_uppercase</font>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>
 				<align>left</align>
@@ -271,7 +272,7 @@
 				<top>-45</top>
 				<width>1815</width>
 				<label>$VAR[RightVideoHeader]</label>
-				<font>font30_title_uppercase</font>
+				<font>font36_title_uppercase</font>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>
 				<align>right</align>

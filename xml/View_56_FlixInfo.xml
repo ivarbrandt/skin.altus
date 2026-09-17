@@ -23,7 +23,7 @@
 				<right>video_header_right</right>
 				<top>655</top>
 				<label>$VAR[LeftVideoHeader]</label>
-				<font>font30_title_uppercase</font>
+				<font>font36_title_uppercase</font>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>
 				<align>left</align>
@@ -35,7 +35,7 @@
 				<right>45</right>
 				<top>655</top>
 				<label>$VAR[RightVideoHeader]</label>
-				<font>font30_title_uppercase</font>
+				<font>font36_title_uppercase</font>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>
 				<align>right</align>
@@ -44,7 +44,7 @@
 				<!-- <visible>!Window.IsVisible(busydialog)</visible> -->
 			</control>
 			<control type="fixedlist" id="56">
-				<top>700</top>
+				<top>711</top>
 				<left>541</left>
 				<right>0</right>
 				<onright>56</onright>

@@ -232,6 +232,8 @@
 					<param name="list_id" value="$PARAM[list_id]"/>
 					<param name="focused" value="$PARAM[focused]"/>
 					<param name="radius" value="23"/>
+					<param name="border" value="23"/>
+					<param name="stroke" value=""/>
 				</include>
 			</control>
 		</definition>

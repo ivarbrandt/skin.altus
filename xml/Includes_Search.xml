@@ -858,7 +858,7 @@
         <include content="FocusBorder">
           <param name="list_id" value="9700"/>
           <param name="focused" value="$PARAM[focused]"/>
-          <param name="radius" value="33_alt"/>
+          <param name="radius" value="33"/>
           <param name="border" value="33"/>
         </include>
         <control type="label">

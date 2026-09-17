@@ -2,10 +2,12 @@
 <includes>
 
   <include name="FocusedCategoryLabel">
+		<param name="font">font30_title</param>
+		<definition>
 		<control type="label" id="$PARAM[id]">
 			<top>3</top>
 			<label>$PARAM[label]</label>
-			<font>font30_title</font>
+			<font>$PARAM[font]</font>
 			<textcolor>$VAR[FocusColorTheme]</textcolor>
 			<shadowcolor>text_shadow</shadowcolor>
 			<scroll>true</scroll>
@@ -13,6 +15,7 @@
 			<visible>$PARAM[visible]</visible>
 			<!-- <animation effect="fade" time="100">Visible</animation> -->
 		</control>
+		</definition>
 	</include>
 
 	<include name="UnfocusedCategoryLabel">

@@ -138,8 +138,8 @@
 						<visible>![Control.IsVisible(500) | [Window.IsActive(videos) + Control.IsVisible(501)] | Window.IsVisible(extendedprogressdialog) | Window.IsActive(fullscreenvideo) | !String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
 						<animation effect="fade" time="500" tween="cubic" easing="out">VisibleChange</animation>
 						<animation type="Conditional" condition="$EXP[isHomeWallFocused]" reversible="true">
-							<effect type="zoom" start="100,100" end="76,70" center="1892,46" time="400" tween="cubic" easing="inout" />
-							<effect type="slide" start="0,0" end="-7,7" time="400" tween="cubic" easing="inout" />
+							<effect type="zoom" start="100,100" end="94,86" center="1892,46" time="400" tween="cubic" easing="inout" />
+							<effect type="slide" start="0,0" end="-7,14" time="400" tween="cubic" easing="inout" />
 						</animation>
 						<control type="group">
 							<width>600</width>
