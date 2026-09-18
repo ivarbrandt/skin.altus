@@ -193,28 +193,34 @@
 					<include>ArtworkAnimations</include>
 					<include>ListLandscapeArtworkSlide</include>
 					<visible>
-						Control.IsVisible(50) + !Player.HasMedia + 
-						[
-							[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),0)] | 
-							[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),0)] | 
-							[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),0)] | 
-							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),0)] | 
-							[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),0)] | 
-							[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),0)] |
-							[Container.Content(addons) + String.StartsWith(Container.PluginName,plugin.video.otaku) + String.IsEqual(Skin.String(ListArtworkChoice.addons),0)]
+						Control.IsVisible(50) + !Player.HasMedia +
+						![Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video.otaku)] +
+						![
+							[Container.Content(movies) + [String.IsEqual(Skin.String(ListArtworkChoice.movies),1) | String.IsEqual(Skin.String(ListArtworkChoice.movies),2)]] |
+							[Container.Content(tvshows) + [String.IsEqual(Skin.String(ListArtworkChoice.tvshows),1) | String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)]] |
+							[Container.Content(seasons) + [String.IsEqual(Skin.String(ListArtworkChoice.seasons),1) | String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)]] |
+							[Container.Content(episodes) + [String.IsEqual(Skin.String(ListArtworkChoice.episodes),1) | String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)]] |
+							[Container.Content(files) + [String.IsEqual(Skin.String(ListArtworkChoice.files),1) | String.IsEqual(Skin.String(ListArtworkChoice.files),2)]] |
+							[Container.Content(videos) + [String.IsEqual(Skin.String(ListArtworkChoice.videos),1) | String.IsEqual(Skin.String(ListArtworkChoice.videos),2)]] |
+							[Container.Content(favourites) + [String.IsEqual(Skin.String(ListArtworkChoice.favourites),1) | String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)]] |
+							[Container.Content() + [String.IsEqual(Skin.String(ListArtworkChoice.),1) | String.IsEqual(Skin.String(ListArtworkChoice.),2)]] |
+							[Container.Content(addons) + [String.IsEqual(Skin.String(ListArtworkChoice.addons),1) | String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]]
 						]
 					</visible>
 				</control>
 				<control type="group">
-					<visible>Control.IsVisible(50) + 
-					[
-						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),0)] | 
-						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),0)] | 
-						[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),0)] | 
-						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),0)] | 
-						[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),0)] | 
-						[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),0)] |
-						[Container.Content(addons) + String.StartsWith(Container.PluginName,plugin.video.otaku) + String.IsEqual(Skin.String(ListArtworkChoice.addons),0)]
+					<visible>Control.IsVisible(50) +
+					![Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video.otaku)] +
+					![
+						[Container.Content(movies) + [String.IsEqual(Skin.String(ListArtworkChoice.movies),1) | String.IsEqual(Skin.String(ListArtworkChoice.movies),2)]] |
+						[Container.Content(tvshows) + [String.IsEqual(Skin.String(ListArtworkChoice.tvshows),1) | String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)]] |
+						[Container.Content(seasons) + [String.IsEqual(Skin.String(ListArtworkChoice.seasons),1) | String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)]] |
+						[Container.Content(episodes) + [String.IsEqual(Skin.String(ListArtworkChoice.episodes),1) | String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)]] |
+						[Container.Content(files) + [String.IsEqual(Skin.String(ListArtworkChoice.files),1) | String.IsEqual(Skin.String(ListArtworkChoice.files),2)]] |
+						[Container.Content(videos) + [String.IsEqual(Skin.String(ListArtworkChoice.videos),1) | String.IsEqual(Skin.String(ListArtworkChoice.videos),2)]] |
+						[Container.Content(favourites) + [String.IsEqual(Skin.String(ListArtworkChoice.favourites),1) | String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)]] |
+						[Container.Content() + [String.IsEqual(Skin.String(ListArtworkChoice.),1) | String.IsEqual(Skin.String(ListArtworkChoice.),2)]] |
+						[Container.Content(addons) + [String.IsEqual(Skin.String(ListArtworkChoice.addons),1) | String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]]
 					]</visible>
 					<include>ListLandscapeArtworkSlide</include>
 				</control>
@@ -714,7 +720,7 @@
 					<orientation>vertical</orientation>
 					<pagecontrol>50600</pagecontrol>
 					<!-- LANDSCAPE + POSTER -->
-					<onleft condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + !String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">9000</onleft>
+					<onleft condition="![[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]]">9000</onleft>
 							<!-- ONRIGHT SCROLLBAR -->
 							<onright condition="[$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnRightSetting.MovieTV),0)">50600</onright>
 							<onright condition="![$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnRightSetting.Other),0)">50600</onright>
