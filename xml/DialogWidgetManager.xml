@@ -13,6 +13,7 @@
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="Widget Manager" />
 				<param name="header_id" value="1" />
+				<param name="blur" value="false" />
 				<param name="header_top" value="15" />
 				<param name="divider_top" value="90" />
 			</include>

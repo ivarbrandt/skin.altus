@@ -3,8 +3,8 @@
 
 	<variable name="DialogBackgroundTexture">
 		<value condition="!Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">$INFO[Window(home).Property(listitem_blurred)]</value>
-		<value condition="Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">colors/darkk.png</value>
-		<value>colors/darkk.png</value>
+		<value condition="Player.HasMedia + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !String.IsEmpty(Window(home).Property(listitem_blurred))">colors/darkest.png</value>
+		<value>colors/darkest.png</value>
 	</variable>
 
   <variable name="DialogBackgroundDiffuse">
@@ -33,7 +33,7 @@
 		<param name="header_top">60</param>
 		<param name="divider_top">135</param>
 		<param name="header_label_color">unfocused_text</param>
-		<param name="blur">false</param>
+		<param name="blur">true</param>
 		<param name="blur_mask">masks/buttonmenu.png</param>
 		<definition>
 			<control type="image">

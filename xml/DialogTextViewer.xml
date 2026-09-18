@@ -11,6 +11,7 @@
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="$LOCALIZE[13406]" />
 				<param name="header_id" value="1" />
+				<param name="blur" value="false" />
 				<param name="top" value="40" />
 				<param name="bottom" value="40" />
 			</include>

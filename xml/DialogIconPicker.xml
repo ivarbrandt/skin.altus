@@ -34,6 +34,7 @@
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="Choose icon" />
 				<param name="header_id" value="1" />
+				<param name="blur" value="false" />
 				<param name="width" value="1085" />
 				<param name="height" value="730" />
 				<param name="header_top" value="15" />

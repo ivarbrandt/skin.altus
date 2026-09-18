@@ -50,23 +50,23 @@
 				<include content="DefaultDialogButton">
 					<param name="id" value="2" />
 					<param name="label" value="$LOCALIZE[294]" />
-					<param name="width" value="270" />
+					<param name="width" value="300" />
 				</include>
 				<include content="DefaultDialogButton">
 					<param name="id" value="3" />
 					<param name="label" value="$LOCALIZE[296]" />
-					<param name="width" value="270" />
+					<param name="width" value="300" />
 				</include>
 				<include content="DefaultDialogButton">
 					<param name="id" value="4" />
 					<param name="label" value="$LOCALIZE[20406]" />
-					<param name="width" value="270" />
+					<param name="width" value="300" />
 					<param name="visible" value="Control.IsEnabled(4)" />
 				</include>
 			</control>
 			<control type="panel" id="11">
 				<left>0</left>
-				<top>81</top>
+				<top>101</top>
 				<width>100%</width>
 				<height>350</height>
 				<onup>9001</onup>
@@ -75,56 +75,61 @@
 				<scrolltime tween="sine">200</scrolltime>
 				<orientation>horizontal</orientation>
 				<itemlayout width="360" height="340">
-					<control type="group">
-						<left>70</left>
-						<control type="image">
-							<left>0</left>
-							<top>5</top>
-							<width>330</width>
-							<height>250</height>
-							<texture diffuse="osd/bookmarks.png" fallback="DefaultVideo.png">$INFO[ListItem.Art(thumb)]</texture>
-						</control>
-						<control type="label">
-							<left>20</left>
-							<top>255</top>
-							<width>290</width>
-							<height>40</height>
-							<label>$INFO[ListItem.Label][CR]$INFO[ListItem.Label2]</label>
-							<font>font12</font>
-							<shadowcolor>text_shadow</shadowcolor>
-							<align>center</align>
-						</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>331</width>
+						<height>250</height>
+						<texture diffuse="osd/bookmarks.png" fallback="DefaultVideo.png">$INFO[ListItem.Art(thumb)]</texture>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>260</top>
+						<width>331</width>
+						<height>70</height>
+						<label>$INFO[ListItem.Label][CR]$INFO[ListItem.Label2]</label>
+						<font>font27_title</font>
+						<textcolor>unfocused_text</textcolor>
+						<align>center</align>
 					</control>
 				</itemlayout>
 				<focusedlayout width="360" height="340">
-					<control type="group">
-						<left>70</left>
-						<control type="image">
-							<left>0</left>
-							<top>5</top>
-							<width>330</width>
-							<height>250</height>
-							<texture diffuse="osd/bookmarks.png" fallback="DefaultVideo.png">$INFO[ListItem.Art(thumb)]</texture>
-						</control>
-						<control type="label">
-							<left>20</left>
-							<top>255</top>
-							<width>290</width>
-							<height>40</height>
-							<label>$INFO[ListItem.Label][CR]$INFO[ListItem.Label2]</label>
-							<font>font12</font>
-							<shadowcolor>text_shadow</shadowcolor>
-							<align>center</align>
-						</control>
-						<control type="image">
-							<left>0</left>
-							<top>5</top>
-							<width>330</width>
-							<height>250</height>
-							<texture border="26" colordiffuse="$VAR[FocusColorTheme]" infill="false" >masks/bordertexture-26.png</texture>
-							<visible>Control.HasFocus(11)</visible>
-							<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-						</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>331</width>
+						<height>250</height>
+						<texture diffuse="osd/bookmarks.png" fallback="DefaultVideo.png">$INFO[ListItem.Art(thumb)]</texture>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>331</width>
+						<height>250</height>
+						<texture border="26" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-26.png</texture>
+						<visible>Control.HasFocus(11)</visible>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>260</top>
+						<width>331</width>
+						<height>70</height>
+						<label>$INFO[ListItem.Label][CR]$INFO[ListItem.Label2]</label>
+						<font>font27_title</font>
+						<textcolor>unfocused_text</textcolor>
+						<align>center</align>
+						<visible>!Control.HasFocus(11)</visible>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>260</top>
+						<width>331</width>
+						<height>70</height>
+						<label>$INFO[ListItem.Label][CR]$INFO[ListItem.Label2]</label>
+						<font>font27_title</font>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<align>center</align>
+						<visible>Control.HasFocus(11)</visible>
 					</control>
 				</focusedlayout>
 			</control>

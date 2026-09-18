@@ -292,6 +292,7 @@
 		<include content="DialogBackgroundCommons">
 			<param name="header_label" value="" />
 			<param name="header_id" value="1" />
+			<param name="blur" value="false" />
 			<param name="width" value="500" />
 			<param name="left" value="-9" />
 			<param name="top" value="40" />

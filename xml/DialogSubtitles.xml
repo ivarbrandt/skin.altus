@@ -11,6 +11,7 @@
 				<include content="DialogBackgroundCommons">
 					<param name="header_label" value="$LOCALIZE[24012]" />
 					<param name="header_id" value="100" />
+					<param name="blur" value="false" />
 					<param name="width" value="1860" />
 					<param name="height" value="930" />
 					<param name="header_top" value="15" />
@@ -21,14 +22,14 @@
 					<top>130</top>
 					<width>1</width>
 					<height>700</height>
-					<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
+					<texture colordiffuse="$VAR[FocusColorTheme]">colors/greyer.png</texture>
 				</control>
 				<control type="image">
 					<left>1465</left>
 					<top>130</top>
 					<width>1</width>
 					<height>700</height>
-					<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
+					<texture colordiffuse="$VAR[FocusColorTheme]">colors/greyer.png</texture>
 				</control>
 				<control type="group">
 					<left>1480</left>
@@ -118,7 +119,7 @@
 							<top>20</top>
 							<width>100</width>
 							<height>100</height>
-							<font>font12</font>
+							<font>font27_title</font>
 							<textcolor>unfocused_text</textcolor>
 							<align>center</align>
 							<aligny>center</aligny>
@@ -145,7 +146,7 @@
 							<width>670</width>
 							<height>100</height>
 							<aligny>center</aligny>
-							<font>font12</font>
+							<font>font27_title</font>
 							<label>$INFO[ListItem.Label2]</label>
 							<textcolor>unfocused_text</textcolor>
 						</control>
@@ -160,9 +161,16 @@
 					</itemlayout>
 					<focusedlayout width="970" height="100">
 						<control type="image">
-							<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
-							<!-- <visible>Control.HasFocus(120)</visible> -->
-							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(120)">Conditional</animation>
+							<texture border="23" colordiffuse="A6000000">masks/radius_23.png</texture>
+						</control>
+						<control type="image">
+							<texture border="23" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-23_alt.png</texture>
+							<visible>Control.HasFocus(120)</visible>
+						</control>
+						<control type="image">
+							<texture border="23" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-23_alt.png</texture>
+							<animation effect="fade" end="40" time="0" condition="true">Conditional</animation>
+							<visible>!Control.HasFocus(120)</visible>
 						</control>
 						<control type="image">
 							<left>50</left>
@@ -177,7 +185,7 @@
 							<top>20</top>
 							<width>100</width>
 							<height>100</height>
-							<font>font12</font>
+							<font>font27_title</font>
 							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 							<align>center</align>
 							<aligny>center</aligny>
@@ -204,7 +212,7 @@
 							<width>670</width>
 							<height>100</height>
 							<aligny>center</aligny>
-							<font>font12</font>
+							<font>font27_title</font>
 							<label>$INFO[ListItem.Label2]</label>
 							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 						</control>
@@ -257,7 +265,7 @@
 				<control type="list" id="150">
 					<top>45</top>
 					<width>335</width>
-					<height>480</height>
+					<height>366</height>
 					<onleft>160</onleft>
 					<onright>120</onright>
 					<onup>150</onup>

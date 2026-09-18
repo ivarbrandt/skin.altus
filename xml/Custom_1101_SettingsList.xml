@@ -19,6 +19,7 @@
 				<include content="DialogBackgroundCommons">
 					<param name="header_label" value="$INFO[Window(home).Property(settingslist_Header)]" />
 					<param name="header_id" value="1" />
+					<param name="blur" value="false" />
 					<param name="width" value="700" />
 					<param name="top" value="40" />
 					<param name="bottom" value="40" />

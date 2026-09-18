@@ -18,6 +18,7 @@
 				<include content="DialogBackgroundCommons">
 					<param name="header_label" value="$LOCALIZE[35221]" />
 					<param name="header_id" value="2" />
+					<param name="blur" value="false" />
 				</include>
 				<control type="group" id="1000">
 					<top>80</top>
@@ -68,6 +69,7 @@
 				<include content="DialogBackgroundCommons">
 					<param name="header_label" value="$LOCALIZE[35221]" />
 					<param name="header_id" value="3" />
+					<param name="blur" value="false" />
 				</include>
 				<control type="group" id="2000">
 					<top>80</top>
