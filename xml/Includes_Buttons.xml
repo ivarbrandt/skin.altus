@@ -26,8 +26,8 @@
 		<param name="texture">masks/pill40_focus.png</param>
 		<param name="focused_text">$VAR[FocusColorTheme]</param>
 		<param name="border">40</param>
-		<param name="radioposx">865</param>
-		<param name="textwidth">785</param>
+		<param name="radioposx">931</param>
+		<param name="textwidth">851</param>
 		<definition>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
 			<height>$PARAM[height]</height>

@@ -19,101 +19,138 @@
 				<param name="diffuse_texture" value="masks/radius_46_left.png" />
 				<param name="border_texture" value="masks/bordertexture-46-thin_left.png" />
 				<param name="border_value" value="46,46,0,46" />
+				<param name="blur" value="true" />
+				<param name="blur_mask" value="masks/dialogselect.png" />
 			</include>
 			<control type="label">
 				<description>path label</description>
 				<left>40</left>
 				<top>170</top>
-				<width>930</width>
-				<height>30</height>
+				<width>850</width>
+				<height>40</height>
 				<align>left</align>
 				<aligny>center</aligny>
-				<font>font12</font>
+				<font>font27_title</font>
 				<label>$LOCALIZE[1021]</label>
-				<textcolor>unfocused_text</textcolor>
+				<textcolor>$VAR[FocusColorTheme]</textcolor>
 			</control>
 			<control type="panel" id="10">
 				<left>40</left>
-				<top>220</top>
+				<top>240</top>
 				<width>850</width>
-				<height>245</height>
+				<height>366</height>
 				<onup>9001</onup>
 				<onleft>9000</onleft>
 				<onright>60</onright>
 				<ondown>12</ondown>
 				<pagecontrol>60</pagecontrol>
-				<scrolltime>200</scrolltime>
-				<itemlayout height="70" width="850">
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<itemlayout height="122" width="850">
 					<control type="image">
-						<texture border="23"  colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_dark.png</texture>
+						<height>93</height>
+						<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
 					</control>
 					<control type="label">
-						<left>30</left>
-						<right>30</right>
+						<left>46</left>
+						<right>46</right>
+						<height>93</height>
 						<aligny>center</aligny>
-						<align>center</align>
+						<align>left</align>
+						<font>font32_bold</font>
 						<textcolor>unfocused_text</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</itemlayout>
-				<focusedlayout height="70" width="850">
+				<focusedlayout height="122" width="850" infoupdate="30">
 					<control type="image">
+						<height>93</height>
+						<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+						<visible>![Control.HasFocus(10)]</visible>
+					</control>
+					<control type="image">
+						<height>93</height>
+						<texture border="46" colordiffuse="A6000000">masks/radius_46.png</texture>
 						<visible>Control.HasFocus(10)</visible>
-						<texture border="23"  colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+					</control>
+					<control type="image">
+						<bottom>29</bottom>
+						<texture border="46" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46_alt.png</texture>
+						<visible>Control.HasFocus(10)</visible>
 					</control>
 					<control type="label">
-						<left>30</left>
-						<right>30</right>
+						<left>46</left>
+						<right>46</right>
+						<height>93</height>
 						<aligny>center</aligny>
-						<align>center</align>
+						<align>left</align>
+						<font>font32_bold</font>
+						<textcolor>unfocused_text</textcolor>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+						<visible>![Control.HasFocus(10)]</visible>
+					</control>
+					<control type="label">
+						<left>46</left>
+						<right>46</right>
+						<height>93</height>
+						<aligny>center</aligny>
+						<align>left</align>
+						<font>font32_bold</font>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>true</scroll>
+						<scrollspeed>150</scrollspeed>
+						<visible>Control.HasFocus(10)</visible>
 					</control>
 				</focusedlayout>
 			</control>
-			
+			<control type="image">
+				<left>925</left>
+				<top>170</top>
+				<width>1</width>
+				<height>810</height>
+				<texture colordiffuse="$VAR[FocusColorTheme]">colors/greyer.png</texture>
+			</control>
 			<control type="label">
 				<description>Name label</description>
 				<left>40</left>
-				<right>30</right>
-				<top>350</top>
-				<width>890</width>
-				<height>30</height>
-				<align>center</align>
+				<top>656</top>
+				<width>850</width>
+				<height>40</height>
+				<align>left</align>
 				<aligny>center</aligny>
-				<font>font12</font>
+				<font>font27_title</font>
 				<label>$LOCALIZE[1022]</label>
-				<textcolor>darkgrey</textcolor>
+				<textcolor>$VAR[FocusColorTheme]</textcolor>
 			</control>
 			<control type="edit" id="12">
 				<description>Name Button</description>
 				<left>40</left>
-				<top>400</top>
+				<top>726</top>
 				<width>850</width>
-				<height>60</height>
-				<align>center</align>
+				<height>93</height>
+				<textoffsetx>46</textoffsetx>
+				<align>left</align>
 				<aligny>center</aligny>
+				<font>font32_bold</font>
 				<label></label>
 				<onup>10</onup>
 				<onright>9000</onright>
 				<ondown>9001</ondown>
-				<texturefocus border="23"  colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
-				<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_dark.png</texturenofocus>
+				<textcolor>unfocused_text</textcolor>
+				<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
+				<texturefocus border="46" colordiffuse="$VAR[FocusColorTheme]">masks/pill46_focus.png</texturefocus>
+				<texturenofocus border="46" colordiffuse="4D000000">masks/radius_46.png</texturenofocus>
 			</control>
 			<control type="grouplist" id="9001">
 				<left>40</left>
-				<bottom>440</bottom>
-				<height>100</height>
-				<width>890</width>
+				<top>900</top>
+				<height>80</height>
+				<width>850</width>
 				<align>center</align>
 				<itemgap>dialogbuttons_itemgap</itemgap>
 				<orientation>horizontal</orientation>
 				<onup>12</onup>
 				<onright>9000</onright>
-				<!-- <onleft condition="!Control.IsVisible(60)">9000</onleft>
-				<onleft condition="Control.IsVisible(60)">60</onleft>
-				<onright condition="!Control.IsVisible(60)">9000</onright>
-				<onright condition="Control.IsVisible(60)">60</onright> -->
 				<include content="DefaultDialogButton">
 					<param name="id" value="18" />
 					<param name="label" value="$LOCALIZE[186]" />
@@ -125,21 +162,19 @@
 			</control>
 		</control>
 		<control type="scrollbar" id="60">
-			<left>870</left>
-			<top>166</top>
-			<width>12</width>
-			<height>243</height>
+			<left>924</left>
+			<top>170</top>
+			<width>3</width>
+			<height>810</height>
 			<onleft>10</onleft>
 			<onright>9000</onright>
 			<orientation>vertical</orientation>
 		</control>
 		<control type="grouplist" id="9000">
-			<!-- <animation condition="Control.HasFocus(10) | Control.HasFocus(12) | ControlGroup(9001).HasFocus | Control.HasFocus(60)">
-				<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
-				<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
-			</animation> -->
 			<left>1662</left>
 			<top>170</top>
+			<width>219</width>
+			<height>298</height>
 			<orientation>vertical</orientation>
 			<onleft>10</onleft>
 			<onright>10</onright>

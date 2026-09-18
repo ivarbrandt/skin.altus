@@ -95,7 +95,7 @@
           <bottom>0</bottom>
           <left>430</left>
           <!-- <aspectratio scalediffuse="false">scale</aspectratio> -->
-          <texture diffuse="masks/poster-videoinfo.png" >$VAR[FlixPosterVar]</texture>
+          <texture colordiffuse="artwork_dim" diffuse="masks/poster-videoinfo.png" >$VAR[FlixPosterVar]</texture>
           <bordersize>3</bordersize>
           <bordertexture border="46" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46.png</bordertexture>
           <visible>!String.IsEqual(Container(20000).ListItem.Property(id),cast)</visible>
@@ -180,7 +180,7 @@
             <bottom>160</bottom>
             <left>0</left>
             <!-- <aspectratio scalediffuse="false">scale</aspectratio> -->
-            <texture diffuse="masks/poster-videoinfo.png">$INFO[Container(50).ListItem.Art(thumb)]</texture>
+            <texture colordiffuse="artwork_dim" diffuse="masks/poster-videoinfo.png">$INFO[Container(50).ListItem.Art(thumb)]</texture>
             <bordersize>3</bordersize>
             <bordertexture border="46" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46.png</bordertexture>
             <fadetime>600</fadetime>

@@ -287,6 +287,13 @@
 			<style>bold</style>
 		</font>
 		<font>
+			<name>addonsettings_desc</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>27</size>
+			<style>bold</style>
+			<linespacing>1.2</linespacing>
+		</font>
+		<font>
 			<name>font30_title</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>26</size>
@@ -366,7 +373,6 @@
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>37</size>
 			<style>bold uppercase</style>
-			<aspect>0.92</aspect>
 		</font>
 		<font>
 			<name>font52_title</name>

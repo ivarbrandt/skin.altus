@@ -19,6 +19,8 @@
 				<param name="border_texture" value="masks/bordertexture-46-thin_left.png" />
 				<param name="diffuse_texture" value="masks/radius_46_left.png" />
 				<param name="border_value" value="46,46,0,46" />
+				<param name="blur" value="true" />
+				<param name="blur_mask" value="masks/dialogselect.png" />
 			</include>
 			<control type="grouplist" id="9000">
 				<!-- <animation condition="Control.HasFocus(450) | Control.HasFocus(451) | Control.HasFocus(60)">
@@ -67,121 +69,205 @@
 				<aspectratio aligny="center">keep</aspectratio>
 				<bordersize>4</bordersize>
 				<texture border="4" background="true">$INFO[ListItem.Icon]</texture>
-				<visible>Control.IsVisible(451)</visible>
+				<visible>false</visible>
 			</control>
 			<control type="panel" id="450">
 				<left>40</left>
 				<top>170</top>
 				<width>850</width>
-				<height>803</height>
+				<height>854</height>
 				<onleft>9000</onleft>
 				<onright>60</onright>
 				<onup>450</onup>
 				<ondown>450</ondown>
 				<pagecontrol>60</pagecontrol>
-				<scrolltime>200</scrolltime>
-				<itemlayout height="73" width="850">
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<itemlayout height="122" width="850">
 					<control type="image">
-						<left>30</left>
-						<top>10</top>
-						<width>50</width>
-						<height>50</height>
-						<texture>$INFO[ListItem.Icon]</texture>
+						<height>93</height>
+						<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+					</control>
+					<control type="image">
+						<left>40</left>
+						<top>26</top>
+						<width>41</width>
+						<height>41</height>
+						<texture colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
 						<left>100</left>
-						<right>40</right>
-						<height>73</height>
+						<right>46</right>
+						<height>93</height>
 						<aligny>center</aligny>
-						<selectedcolor>green</selectedcolor>
+						<selectedcolor>$VAR[FocusColorTheme]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
-						<font>font32</font>
+						<font>font32_bold</font>
 						<textcolor>unfocused_text</textcolor>
 					</control>
 				</itemlayout>
-				<focusedlayout height="73" width="850">
+				<focusedlayout height="122" width="850" infoupdate="30">
 					<control type="image">
-						<left>0</left>
-						<height>71</height>
-						<visible>Control.HasFocus(450)</visible>
-						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+						<height>93</height>
+						<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+						<visible>![Control.HasFocus(450)]</visible>
 					</control>
 					<control type="image">
-						<left>30</left>
-						<top>10</top>
-						<width>50</width>
-						<height>50</height>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Icon]</texture>
+						<height>93</height>
+						<texture border="46" colordiffuse="A6000000">masks/radius_46.png</texture>
+						<visible>Control.HasFocus(450)</visible>
+					</control>
+					<control type="image">
+						<bottom>29</bottom>
+						<texture border="46" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46_alt.png</texture>
+						<visible>Control.HasFocus(450)</visible>
+					</control>
+					<control type="image">
+						<left>40</left>
+						<top>26</top>
+						<width>41</width>
+						<height>41</height>
+						<texture colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
 						<aspectratio>keep</aspectratio>
+						<visible>![Control.HasFocus(450)]</visible>
+					</control>
+					<control type="image">
+						<left>40</left>
+						<top>26</top>
+						<width>41</width>
+						<height>41</height>
+						<texture colordiffuse="$VAR[FocusColorTheme]">$INFO[ListItem.Icon]</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>Control.HasFocus(450)</visible>
 					</control>
 					<control type="label">
 						<left>100</left>
-						<right>40</right>
-						<height>73</height>
+						<right>46</right>
+						<height>93</height>
 						<aligny>center</aligny>
-						<selectedcolor>green</selectedcolor>
+						<selectedcolor>$VAR[FocusColorTheme]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
-						<font>font32</font>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+						<font>font32_bold</font>
+						<textcolor>unfocused_text</textcolor>
+						<visible>![Control.HasFocus(450)]</visible>
+					</control>
+					<control type="label">
+						<left>100</left>
+						<right>46</right>
+						<height>93</height>
+						<aligny>center</aligny>
+						<selectedcolor>$VAR[FocusColorTheme]</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<font>font32_bold</font>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<scroll>true</scroll>
+						<scrollspeed>150</scrollspeed>
+						<visible>Control.HasFocus(450)</visible>
 					</control>
 				</focusedlayout>
 			</control>
 			<control type="panel" id="451">
 				<left>40</left>
 				<top>170</top>
-				<width>850</width>
-				<height>803</height>
+				<width>879</width>
+				<height>854</height>
 				<onleft>9000</onleft>
 				<onright>60</onright>
 				<onup>451</onup>
 				<ondown>451</ondown>
 				<pagecontrol>60</pagecontrol>
-				<scrolltime>200</scrolltime>
-				<itemlayout height="73" width="850">
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<itemlayout height="284" width="439">
 					<control type="image">
-						<left>30</left>
-						<top>10</top>
-						<width>50</width>
-						<height>50</height>
-						<texture colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
+						<right>29</right>
+						<bottom>29</bottom>
+						<texture border="23" colordiffuse="4D000000">masks/radius_23.png</texture>
+					</control>
+					<control type="image">
+						<left>20</left>
+						<top>20</top>
+						<right>49</right>
+						<height>165</height>
 						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
-						<left>100</left>
-						<right>40</right>
-						<height>73</height>
+						<left>20</left>
+						<right>49</right>
+						<top>190</top>
+						<height>50</height>
+						<align>center</align>
 						<aligny>center</aligny>
-						<selectedcolor>green</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<font>font32</font>
+						<font>font27_title</font>
+						<selectedcolor>$VAR[FocusColorTheme]</selectedcolor>
 						<textcolor>unfocused_text</textcolor>
+						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</itemlayout>
-				<focusedlayout height="73" width="850">
+				<focusedlayout height="284" width="439">
 					<control type="image">
-						<left>0</left>
-						<height>71</height>
-						<visible>Control.HasFocus(451)</visible>
-						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+						<right>29</right>
+						<bottom>29</bottom>
+						<texture border="23" colordiffuse="4D000000">masks/radius_23.png</texture>
+						<visible>!Control.HasFocus(451)</visible>
 					</control>
 					<control type="image">
-						<left>30</left>
-						<top>10</top>
-						<width>50</width>
-						<height>50</height>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Icon]</texture>
+						<right>29</right>
+						<bottom>29</bottom>
+						<texture border="23" colordiffuse="A6000000">masks/radius_23.png</texture>
+						<visible>Control.HasFocus(451)</visible>
+					</control>
+					<control type="image">
+						<right>29</right>
+						<bottom>29</bottom>
+						<texture border="23" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-23_alt.png</texture>
+						<visible>Control.HasFocus(451)</visible>
+					</control>
+					<control type="image">
+						<left>20</left>
+						<top>20</top>
+						<right>49</right>
+						<height>165</height>
 						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
+						<visible>!Control.HasFocus(451)</visible>
+					</control>
+					<control type="image">
+						<left>20</left>
+						<top>20</top>
+						<right>49</right>
+						<height>165</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$INFO[ListItem.Icon]</texture>
+						<visible>Control.HasFocus(451)</visible>
 					</control>
 					<control type="label">
-						<left>100</left>
-						<right>40</right>
-						<height>73</height>
+						<left>20</left>
+						<right>49</right>
+						<top>190</top>
+						<height>50</height>
+						<align>center</align>
 						<aligny>center</aligny>
-						<selectedcolor>green</selectedcolor>
+						<font>font27_title</font>
+						<selectedcolor>$VAR[FocusColorTheme]</selectedcolor>
+						<textcolor>unfocused_text</textcolor>
 						<label>$INFO[ListItem.Label]</label>
-						<font>font32</font>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+						<visible>!Control.HasFocus(451)</visible>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<right>49</right>
+						<top>190</top>
+						<height>50</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>font27_title</font>
+						<selectedcolor>$VAR[FocusColorTheme]</selectedcolor>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>true</scroll>
+						<scrollspeed>150</scrollspeed>
+						<visible>Control.HasFocus(451)</visible>
 					</control>
 				</focusedlayout>
 			</control>
@@ -189,37 +275,37 @@
 				<left>925</left>
 				<top>170</top>
 				<width>1</width>
-				<height>803</height>
-				<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
+				<height>825</height>
+				<texture colordiffuse="$VAR[FocusColorTheme]">colors/greyer.png</texture>
 			</control>
 			<control type="scrollbar" id="60">
-				<left>925</left>
+				<left>924</left>
 				<top>170</top>
-				<width>1</width>
-				<height>803</height>
+				<width>3</width>
+				<height>825</height>
 				<onleft>451</onleft>
 				<onright>9000</onright>
 				<orientation>vertical</orientation>
 			</control>
 			<control type="label" id="412">
 				<description>Path label</description>
-				<left>60</left>
-				<bottom>68</bottom>
-				<width>840</width>
-				<height>30</height>
+				<left>960</left>
+				<bottom>170</bottom>
+				<width>219</width>
+				<height>40</height>
 				<haspath>true</haspath>
-				<font>font12</font>
-				<aligny>bottom</aligny>
-				<textcolor>grey</textcolor>
+				<font>font27</font>
+				<aligny>center</aligny>
+				<textcolor>unfocused_text</textcolor>
 			</control>
 			<control type="label">
-				<left>940</left>
-				<bottom>112</bottom>
-				<width>275</width>
-				<height>35</height>
-				<font>font13</font>
-				<align>center</align>
-				<font>font13</font>
+				<left>960</left>
+				<bottom>110</bottom>
+				<width>219</width>
+				<height>40</height>
+				<font>font32_title</font>
+				<align>left</align>
+				<aligny>center</aligny>
 				<label>$VAR[FileBrowserSelectLabel]</label>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
 			</control>
