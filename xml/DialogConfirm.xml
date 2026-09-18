@@ -25,7 +25,7 @@
 				<height>190</height>
 				<align>left</align>
 				<label/>
-				<font>font32</font>
+				<font>font32_bold</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 			</control>

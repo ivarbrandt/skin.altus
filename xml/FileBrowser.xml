@@ -75,7 +75,7 @@
 				<left>40</left>
 				<top>170</top>
 				<width>850</width>
-				<height>854</height>
+				<height>732</height>
 				<onleft>9000</onleft>
 				<onright>60</onright>
 				<onup>450</onup>
@@ -287,20 +287,41 @@
 				<onright>9000</onright>
 				<orientation>vertical</orientation>
 			</control>
-			<control type="label" id="412">
-				<description>Path label</description>
-				<left>960</left>
-				<bottom>170</bottom>
-				<width>219</width>
-				<height>40</height>
-				<haspath>true</haspath>
-				<font>font27</font>
-				<aligny>center</aligny>
-				<textcolor>unfocused_text</textcolor>
+			<control type="group">
+				<description>Path row</description>
+				<left>40</left>
+				<top>902</top>
+				<width>850</width>
+				<height>93</height>
+				<visible>Control.IsVisible(450)</visible>
+				<control type="image">
+					<height>93</height>
+					<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+				</control>
+				<control type="image">
+					<left>44</left>
+					<top>31</top>
+					<width>32</width>
+					<height>32</height>
+					<texture colordiffuse="FF929292">icons/filemanager.png</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label" id="412">
+					<description>Path label</description>
+					<left>100</left>
+					<right>46</right>
+					<height>93</height>
+					<haspath>true</haspath>
+					<font>font27_title</font>
+					<aligny>center</aligny>
+					<textcolor>FF929292</textcolor>
+					<scroll>true</scroll>
+					<scrollspeed>150</scrollspeed>
+				</control>
 			</control>
 			<control type="label">
 				<left>960</left>
-				<bottom>110</bottom>
+				<bottom>85</bottom>
 				<width>219</width>
 				<height>40</height>
 				<font>font32_title</font>
