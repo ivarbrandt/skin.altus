@@ -84,10 +84,10 @@
 		<spinheight>60</spinheight>
 		<texturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">buttons/button-fo.png</texturefocus>
 		<texturenofocus border="40">buttons/button-nofo.png</texturenofocus>
-		<textureup colordiffuse="FFCFCFCF">buttons/spinctrl/arrow-light-up.png</textureup>
-		<texturedown colordiffuse="FFCFCFCF">buttons/spinctrl/arrow-light-down.png</texturedown>
-		<textureupfocus colordiffuse="$VAR[FocusedTextColorVar]">buttons/spinctrl/arrow-light-up.png</textureupfocus>
-		<texturedownfocus colordiffuse="$VAR[FocusedTextColorVar]">buttons/spinctrl/arrow-light-down.png</texturedownfocus>
+		<textureup colordiffuse="unfocused_text">buttons/spinctrl/arrow-light-up.png</textureup>
+		<texturedown colordiffuse="unfocused_text">buttons/spinctrl/arrow-light-down.png</texturedown>
+		<textureupfocus colordiffuse="$VAR[FocusColorTheme]">buttons/spinctrl/arrow-light-up.png</textureupfocus>
+		<texturedownfocus colordiffuse="$VAR[FocusColorTheme]">buttons/spinctrl/arrow-light-down.png</texturedownfocus>
 		<textureupdisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-up.png</textureupdisabled>
 		<texturedowndisabled colordiffuse="disabled">buttons/spinctrl/arrow-light-down.png</texturedowndisabled>
 		<font>font13</font>
@@ -156,9 +156,9 @@
 		<texturenofocus border="40" >buttons/button-nofo.png</texturenofocus>
 		<sliderwidth>150</sliderwidth>
 		<sliderheight>30</sliderheight>
-		<texturesliderbar colordiffuse="FFCFCFCF">buttons/slider-back.png</texturesliderbar>
-		<textureslidernib colordiffuse="FFCFCFCF">buttons/slider-nib.png</textureslidernib>
-		<textureslidernibfocus colordiffuse="$VAR[FocusedTextColorVar]">buttons/slider-nib.png</textureslidernibfocus>
+		<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">buttons/slider-back.png</texturesliderbar>
+		<textureslidernib colordiffuse="unfocused_text">buttons/slider-nib.png</textureslidernib>
+		<textureslidernibfocus colordiffuse="$VAR[FocusColorTheme]">buttons/slider-nib.png</textureslidernibfocus>
 		<font>font13</font>
 		<textcolor>white</textcolor>
 		<disabledcolor>disabled</disabledcolor>

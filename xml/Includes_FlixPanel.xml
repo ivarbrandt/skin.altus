@@ -209,7 +209,7 @@
 							<align>left</align>
 							<height max="300">auto</height>
 							<label>$VAR[VI_WidgetInfoPanelTop]</label>
-							<include>Flix_Font_Large</include>
+							<font>font32_bold</font>
 							<textcolor>unfocused_text</textcolor>
 							<scroll>true</scroll>
 							<scrollspeed>150</scrollspeed>
