@@ -179,8 +179,8 @@
           </control>
           <control type="textbox">
             <height max="116">auto</height>
-            <include>51_Font_Large</include>
-            <textcolor>unfocused_text</textcolor>
+            <font>font32_bold</font>
+            <textcolor>bright_text</textcolor>
             <align>center</align>
             <label>$VAR[RI_Plot]</label>
             <autoscroll delay="12000" time="5000" repeat="12000">Skin.HasSetting(autoscroll)</autoscroll>

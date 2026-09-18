@@ -635,7 +635,7 @@
   </include>
 
   <include name="FlixPanelRatingsFont_Large">
-    <font>font27</font>
+    <font>font27_title</font>
   </include>
 
   <include name="FlixPanelRatingSlotTemplate">
@@ -669,9 +669,9 @@
         <height>24</height>
         <align>center</align>
         <aligny>center</aligny>
-        <label>$PARAM[rating_value]</label>
+        <label>[LIGHT]$PARAM[rating_value][/LIGHT]</label>
         <include>FlixPanelRatingsFont_Large</include>
-        <textcolor>unfocused_text</textcolor>
+        <textcolor>bright_text</textcolor>
       </control>
     </control>
   </include>

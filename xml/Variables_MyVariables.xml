@@ -483,7 +483,7 @@
 	<variable name="PosterFlowArtworkDiffuse">
     <value condition="Skin.HasSetting(Disable.51Dim)">FFE9E9E9</value>
     <value condition="Skin.HasSetting(Enable.SpineClearlogo)">FF4C4C4C</value>
-    <value>FF777777</value>
+    <value>FFBFBFBF</value>
 	</variable>
 
 	<variable name="BorderColorVar">

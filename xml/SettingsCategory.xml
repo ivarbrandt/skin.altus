@@ -164,7 +164,7 @@
 				<top>105</top>
 				<right>40</right>
 				<height>940</height>
-				<font>font32</font>
+				<font>font32_bold</font>
 				<align>left</align>
 				<aligny>center</aligny>
 				<textcolor>unfocused_text</textcolor>

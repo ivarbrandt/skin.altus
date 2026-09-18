@@ -2,8 +2,8 @@
 <includes>
 
 	<variable name="EpisodeTitle">
-		<value condition="[[Window.IsVisible(videos) + !String.IsEqual(Container.Viewmode,$LOCALIZE[311012])] | [Window.IsVisible(Home) | Window.IsVisible(1121)]] + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)">[B]$INFO[ListItem.Season]x$INFO[ListItem.Episode] [COLOR $VAR[FocusColorTheme]]-[/COLOR] $INFO[ListItem.Title][/B]</value>
-		<value>[B]$INFO[ListItem.Title][/B]</value>
+		<value condition="[[Window.IsVisible(videos) + !String.IsEqual(Container.Viewmode,$LOCALIZE[311012])] | [Window.IsVisible(Home) | Window.IsVisible(1121)]] + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)">$INFO[ListItem.Season]x$INFO[ListItem.Episode] [COLOR $VAR[FocusColorTheme]]-[/COLOR] $INFO[ListItem.Title]</value>
+		<value>$INFO[ListItem.Title]</value>
 	</variable>
 
   <!-- RATINGS INFOPANEL VARIABLES -->
@@ -150,6 +150,10 @@
 	</variable>
 
 	<variable name="VI_Genre">
+		<value condition="!Skin.HasSetting(Disable.VI.Genre) + !String.IsEmpty(ListItem.Genre)">[LIGHT]$VAR[VI_GenreValue][/LIGHT]</value>
+	</variable>
+
+	<variable name="VI_GenreValue">
 		<!-- Specific Genre Combinations -->
     <value condition="!Skin.HasSetting(Disable.VI.Genre) + !String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Documentary) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,History)">Historical Docudrama[CR]</value>
     <value condition="!Skin.HasSetting(Disable.VI.Genre) + !String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,History) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)">Historical Dramedy[CR]</value>
@@ -292,11 +296,11 @@
 	</variable>
 	<variable name="VI_Digital">
     <!-- Already digitally released (more than 3 days) - teal label -->
-    <value condition="!Skin.HasSetting(Disable.VI.Digital) + Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(altus.digital_release_flag),true)">[COLOR FF40E0B0][B]Released:[/COLOR] [LIGHT]$INFO[Window(home).Property(altus.digital_release_date)][/LIGHT][CR]</value>
+    <value condition="!Skin.HasSetting(Disable.VI.Digital) + Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(altus.digital_release_flag),true)">[COLOR FF40E0B0]Released:[/COLOR] [LIGHT]$INFO[Window(home).Property(altus.digital_release_date)][/LIGHT][CR]</value>
     <!-- Recently released (within 3 days) - yellow label -->
-    <value condition="!Skin.HasSetting(Disable.VI.Digital) + Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(altus.digital_release_flag),recently)">[COLOR FFFFC30B][B]Released:[/COLOR] [LIGHT]$INFO[Window(home).Property(altus.digital_release_date)][/LIGHT][CR]</value>
+    <value condition="!Skin.HasSetting(Disable.VI.Digital) + Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(altus.digital_release_flag),recently)">[COLOR FFFFC30B]Released:[/COLOR] [LIGHT]$INFO[Window(home).Property(altus.digital_release_date)][/LIGHT][CR]</value>
     <!-- Future digital release - coral label -->
-    <value condition="!Skin.HasSetting(Disable.VI.Digital) + Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(altus.digital_release_flag),false) + !String.IsEmpty(Window(home).Property(altus.digital_release_date))">[COLOR FFFF4D4D][B]Upcoming:[/COLOR] [LIGHT]$INFO[Window(home).Property(altus.digital_release_date)][/LIGHT][CR]</value>
+    <value condition="!Skin.HasSetting(Disable.VI.Digital) + Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(altus.digital_release_flag),false) + !String.IsEmpty(Window(home).Property(altus.digital_release_date))">[COLOR FFFF4D4D]Upcoming:[/COLOR] [LIGHT]$INFO[Window(home).Property(altus.digital_release_date)][/LIGHT][CR]</value>
     <!-- Expired or disabled or fallback - show premiered date in unfocused color -->
     <value condition="!Skin.HasSetting(Disable.VI.Digital) + [!Skin.HasSetting(Enable.SmartStatus) | String.IsEqual(Window(home).Property(altus.digital_release_flag),expired) | !String.IsEmpty(ListItem.Premiered)]">[COLOR $VAR[FocusColorTheme]]Premiered:[/COLOR] [LIGHT]$INFO[ListItem.Premiered][/LIGHT][CR]</value>
 	</variable>
@@ -570,7 +574,7 @@
 
 	<!-- Plot -->
 	<variable name="RI_Plot">
-		<value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
+		<value condition="!String.IsEmpty(ListItem.Plot)">[LIGHT]$INFO[ListItem.Plot][/LIGHT]</value>
 		<value></value>
 	</variable>
 
@@ -627,11 +631,11 @@
 
 	<variable name="VI_WidgetInfoPanelTop">
 		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + $EXP[isMovie]">$VAR[VI_Digital]$VAR[VI_Mpaa]$VAR[VI_GenreLabel][LIGHT]$VAR[VI_Genre][/LIGHT]$VAR[VI_Director]$VAR[VI_Runtime]$VAR[VI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isMovie]">$VAR[VI_Digital]$VAR[VI_Mpaa]$VAR[VI_GenreLabel]$VAR[VI_Genre]$VAR[VI_Director]$VAR[VI_Runtime]$VAR[VI_Endsat]</value>
 		<!-- SHOWS -->
-		<value condition="!ListItem.IsCollection + $EXP[isTVShow]">$VAR[VI_Aired]$VAR[VI_Mpaa]$VAR[VI_GenreLabel][LIGHT]$VAR[VI_Genre][/LIGHT]$VAR[VI_Director]$VAR[VI_TotalSeasons]$VAR[VI_TotalEpisodes]$VAR[VI_EpDuration]$VAR[VI_Status]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isTVShow]">$VAR[VI_Aired]$VAR[VI_Mpaa]$VAR[VI_GenreLabel]$VAR[VI_Genre]$VAR[VI_Director]$VAR[VI_TotalSeasons]$VAR[VI_TotalEpisodes]$VAR[VI_EpDuration]$VAR[VI_Status]</value>
 		<!-- SEASONS -->
-		<value condition="!ListItem.IsCollection + $EXP[isSeason]">$VAR[VI_Aired]$VAR[VI_Mpaa]$VAR[VI_GenreLabel][LIGHT]$VAR[VI_Genre][/LIGHT]$VAR[VI_EpDuration]$VAR[VI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isSeason]">$VAR[VI_Aired]$VAR[VI_Mpaa]$VAR[VI_GenreLabel]$VAR[VI_Genre]$VAR[VI_EpDuration]$VAR[VI_Endsat]</value>
 		<!-- EPISODES -->
 		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + String.IsEmpty(ListItem.Property(episode_type))">$VAR[VI_Aired]$VAR[VI_Director]$VAR[VI_Writer]$VAR[VI_Runtime]$VAR[VI_Endsat]</value>
 		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + !String.IsEmpty(ListItem.Property(episode_type))">$VAR[VI_Aired]$VAR[VI_Director]$VAR[VI_Writer]$VAR[VI_Runtime]$VAR[VI_Endsat][CR]$VAR[VI_EpisodeType]</value>

@@ -204,8 +204,8 @@
 							</include>
               <control type="textbox">
                 <include>53_Plot_Height_Large</include>
-                <include>53_Font_Large</include>
-                <textcolor>unfocused_text</textcolor>
+                <font>font32_bold</font>
+                <textcolor>bright_text</textcolor>
                 <align>left</align>
                 <label>$VAR[RI_Plot]</label>
                 <autoscroll delay="11000" time="4500" repeat="11000">Skin.HasSetting(autoscroll)</autoscroll>

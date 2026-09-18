@@ -113,7 +113,7 @@
           <scrolltime tween="cubic" easing="inout">400</scrolltime>
           <animation condition="Container(5057).IsUpdating" reversible="true" pulse="true">
             <effect type="fade" start="100" end="80" time="700" tween="sine" easing="inout" />
-            <effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="700" />
+            <effect type="fadediffuse" start="FFE9E9E9" end="FFBFBFBF" time="700" />
           </animation>
           <itemlayout width="615" height="297">
             <control type="group">
@@ -127,10 +127,10 @@
           <focusedlayout width="615" height="297" infoupdate="30">
             <control type="group">
               <animation condition="Skin.HasSetting(Enable.57Dim) + String.IsEqual(Skin.String(BackgroundSetting),1) + [Control.HasFocus(57) | $EXP[sidebar_visible] | Control.HasFocus(5157)]" reversible="true">
-                <effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="0" />
+                <effect type="fadediffuse" start="FFE9E9E9" end="FFBFBFBF" time="0" />
               </animation>
               <animation condition="Skin.HasSetting(Enable.57Dim) + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),2)] + [Control.HasFocus(57) | $EXP[sidebar_visible] | Control.HasFocus(5157)]" reversible="true">
-                <effect type="fade" start="100" end="50" time="0" tween="sine" easing="inout" />
+                <effect type="fade" start="100" end="60" time="0" tween="sine" easing="inout" />
               </animation>
               <depth>DepthContentPopout</depth>
               <left>33</left>

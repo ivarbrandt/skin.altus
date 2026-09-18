@@ -149,10 +149,10 @@
 		<top>193</top>
 		<animation effect="slide" start="0,0" end="0,-105" time="400" tween="cubic" easing="inout" condition="ControlGroup($PARAM[walls_id]).HasFocus | Integer.IsEqual(Container($PARAM[row_id]).NumItems,1)" reversible="true">Conditional</animation>
 		<animation condition="Skin.HasSetting(HomeWalls.ManualLoading) + Control.HasFocus($PARAM[row_id]) + [[String.IsEmpty(Window(Home).Property(altus_wall_$PARAM[row_id])) + !String.IsEqual(Container($PARAM[row_id]).ListItemAbsolute(0).Property(wall_id),Container($PARAM[row_id]).ListItem.Property(wall_id))] | [!String.IsEmpty(Window(Home).Property(altus_wall_$PARAM[row_id])) + !String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),Container($PARAM[row_id]).ListItem.Property(wall_id))]] + String.IsEqual(Skin.String(BackgroundSetting),1)" reversible="true">
-			<effect type="fadediffuse" start="FFFFFFFF" end="FF777777" time="300" />
+			<effect type="fadediffuse" start="FFFFFFFF" end="FFBFBFBF" time="300" />
 		</animation>
 		<animation condition="Skin.HasSetting(HomeWalls.ManualLoading) + Control.HasFocus($PARAM[row_id]) + [[String.IsEmpty(Window(Home).Property(altus_wall_$PARAM[row_id])) + !String.IsEqual(Container($PARAM[row_id]).ListItemAbsolute(0).Property(wall_id),Container($PARAM[row_id]).ListItem.Property(wall_id))] | [!String.IsEmpty(Window(Home).Property(altus_wall_$PARAM[row_id])) + !String.IsEqual(Window(Home).Property(altus_wall_$PARAM[row_id]),Container($PARAM[row_id]).ListItem.Property(wall_id))]] + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),2)]" reversible="true">
-			<effect type="fade" start="100" end="50" time="300" tween="sine" easing="inout" />
+			<effect type="fade" start="100" end="60" time="300" tween="sine" easing="inout" />
 		</animation>
 	</include>
 
@@ -183,25 +183,25 @@
 
 	<include name="HomeWallUnfocusedAnimations">
 		<animation condition="Skin.HasSetting(Enable.HomeWallsDim) + Control.HasFocus($PARAM[list_id]) + String.IsEqual(Skin.String(BackgroundSetting),1)" reversible="true">
-			<effect type="fadediffuse" start="FFFFFFFF" end="FF777777" time="300" />
+			<effect type="fadediffuse" start="FFFFFFFF" end="FFBFBFBF" time="300" />
 		</animation>
 		<animation condition="Skin.HasSetting(Enable.HomeWallsDim) + Control.HasFocus($PARAM[list_id]) + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),2)]" reversible="true">
-			<effect type="fade" start="100" end="50" time="300" tween="sine" easing="inout" />
+			<effect type="fade" start="100" end="60" time="300" tween="sine" easing="inout" />
 		</animation>
 	</include>
 
 	<include name="HomeWallFocusAnimations">
 		<animation type="Focus" condition="Skin.HasSetting(Enable.HomeWallsDim) + Control.HasFocus($PARAM[list_id]) + String.IsEqual(Skin.String(BackgroundSetting),1)" reversible="false">
-			<effect type="fadediffuse" start="FF777777" end="FFFFFFFF" time="300" />
+			<effect type="fadediffuse" start="FFBFBFBF" end="FFFFFFFF" time="300" />
 		</animation>
 		<animation type="Unfocus" condition="Skin.HasSetting(Enable.HomeWallsDim) + Control.HasFocus($PARAM[list_id]) + String.IsEqual(Skin.String(BackgroundSetting),1)" reversible="false">
-			<effect type="fadediffuse" start="FFFFFFFF" end="FF777777" time="300" />
+			<effect type="fadediffuse" start="FFFFFFFF" end="FFBFBFBF" time="300" />
 		</animation>
 		<animation type="Focus" condition="Skin.HasSetting(Enable.HomeWallsDim) + Control.HasFocus($PARAM[list_id]) + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),2)]" reversible="false">
-			<effect type="fade" start="50" end="100" time="300" tween="sine" easing="inout" />
+			<effect type="fade" start="60" end="100" time="300" tween="sine" easing="inout" />
 		</animation>
 		<animation type="Unfocus" condition="Skin.HasSetting(Enable.HomeWallsDim) + Control.HasFocus($PARAM[list_id]) + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),2)]" reversible="false">
-			<effect type="fade" start="100" end="50" time="300" tween="sine" easing="inout" />
+			<effect type="fade" start="100" end="60" time="300" tween="sine" easing="inout" />
 		</animation>
 	</include>
 

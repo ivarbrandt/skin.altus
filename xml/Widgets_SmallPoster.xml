@@ -24,7 +24,7 @@
 				<orientation>horizontal</orientation>
 				<animation condition="Window.IsVisible(1121) + Container($PARAM[list_id]).IsUpdating" reversible="true" pulse="true">
 					<effect type="fade" start="100" end="80" time="700" tween="sine" easing="inout" />
-					<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="700" />
+					<effect type="fadediffuse" start="FFE9E9E9" end="FFBFBFBF" time="700" />
 				</animation>
 				<visible>[Container($PARAM[list_id]).IsUpdating | Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | String.IsEqual(Window(Home).Property(altus.search.refreshing),true)] + [$PARAM[filter_visible]]</visible>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>

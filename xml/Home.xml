@@ -39,11 +39,11 @@
 			<control type="group" id="2000">
 				<left>487</left>
 				<animation condition="Skin.HasSetting(Enable.MainMenuWidgetDimming) + String.IsEqual(Skin.String(BackgroundSetting),1) + !ControlGroup(2000).HasFocus" reversible="true">
-					<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="300" />
+					<effect type="fadediffuse" start="FFE9E9E9" end="FFBFBFBF" time="300" />
 				</animation>
 				<animation condition="Skin.HasSetting(Enable.MainMenuWidgetDimming) + [String.IsEqual(Skin.String(BackgroundSetting),0) | String.IsEqual(Skin.String(BackgroundSetting),2)] + !ControlGroup(2000).HasFocus" reversible="true">
 					<effect type="fade" start="100" end="60" time="300" tween="sine" easing="inout" />
-					<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="300" />
+					<effect type="fadediffuse" start="FFE9E9E9" end="FFBFBFBF" time="300" />
 				</animation>
 				<!-- <animation effect="slide" condition="!String.IsEmpty(Window(Home).Property(FlixWidget))" time="0" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation> -->
 				<!-- <animation effect="slide" condition="!ControlGroup(15000).HasFocus" time="500" start="0,0" end="498,0" tween="cubic" easing="inout">Conditional</animation> -->

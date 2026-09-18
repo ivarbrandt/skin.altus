@@ -162,9 +162,9 @@
           <width>810</width>
           <bottom>10</bottom>
           <aligny>center</aligny>
-          <font>font23</font>
+          <font>font23_title</font>
           <label>$VAR[RI_Plot]</label>
-          <textcolor>unfocused_text</textcolor>
+          <textcolor>bright_text</textcolor>
           <shadowcolor>text_shadow</shadowcolor>
           <autoscroll delay="7000" time="3000" repeat="7000">$PARAM[focused]</autoscroll>
           <visible>![Container.OnNext | Container.OnPrevious] + Control.HasFocus($PARAM[list_id])</visible>
@@ -175,9 +175,9 @@
           <width>810</width>
           <bottom>10</bottom>
           <aligny>center</aligny>
-          <font>font23</font>
+          <font>font23_title</font>
           <label>$VAR[RI_Plot]</label>
-          <textcolor>unfocused_text</textcolor>
+          <textcolor>bright_text</textcolor>
           <shadowcolor>text_shadow</shadowcolor>
           <visible>[Container.OnNext | Container.OnPrevious] | !Control.HasFocus($PARAM[list_id])</visible>
         </control>
@@ -187,9 +187,9 @@
           <width>810</width>
           <bottom>5</bottom>
           <aligny>center</aligny>
-          <font>font23</font>
+          <font>font23_title</font>
           <label>$VAR[RI_Plot]</label>
-          <textcolor>unfocused_text</textcolor>
+          <textcolor>bright_text</textcolor>
           <shadowcolor>text_shadow</shadowcolor>
           <autoscroll delay="7000" time="3000" repeat="7000">$PARAM[focused]</autoscroll>
           <visible>[$PARAM[focused] + Control.IsVisible($PARAM[list_id])] + String.StartsWith(Container.PluginName,plugin.video.dramacool)</visible>

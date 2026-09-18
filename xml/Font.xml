@@ -148,6 +148,7 @@
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>30</size>
 			<style>bold</style>
+			<linespacing>1.1</linespacing>
 		</font>
 		<font>
 			<name>font33</name>
@@ -158,6 +159,20 @@
 			<name>font34</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>33</size>
+		</font>
+		<font>
+			<name>font40_bold</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>36</size>
+			<style>bold</style>
+			<linespacing>1.1</linespacing>
+		</font>
+		<font>
+			<name>font34_bold</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>33</size>
+			<style>bold</style>
+			<linespacing>1.1</linespacing>
 		</font>
 		<font>
 			<name>font32_eps</name>

@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<include name="PlotHeight_1080_FontSize_Large">
-		<height max="297">auto</height>
-	</include>
-	<include name="PlotHeight_4K_FontSize_Large">
-		<height max="297">auto</height>
-	</include>
 	<include name="PlotHeight_51_FontSize_Large">
 		<height max="50">auto</height>
 	</include>
@@ -41,8 +35,8 @@
 						<include>PlotHeight_51_FontSize_Large</include>
 						<bottom>70</bottom>
 						<label>$VAR[RI_Plot]</label>
-						<include>Flix_Font_Large</include>
-						<textcolor>unfocused_text</textcolor>
+						<font>font32_bold</font>
+						<textcolor>bright_text</textcolor>
 						<align>center</align>
 						<autoscroll delay="10000" time="5000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
 						<visible>!String.IsEqual(Container.PluginName,plugin.program.openwizard) + [String.IsEqual(Container.Viewmode,$LOCALIZE[311022]) | String.IsEqual(Container.Viewmode,$LOCALIZE[311023])]</visible>
@@ -64,8 +58,8 @@
 	<include name="PlotBox">
 		<control type="textbox">
 			<height max="$PARAM[max_height]">auto</height>
-			<font>font27</font>
-			<textcolor>unfocused_text</textcolor>
+			<font>font27_title</font>
+			<textcolor>bright_text</textcolor>
 			<align>left</align>
 			<label>$VAR[RI_Plot]</label>
 			<autoscroll delay="$PARAM[delay_repeat]" time="1700" repeat="$PARAM[delay_repeat]">Skin.HasSetting(autoscroll)</autoscroll>
@@ -93,16 +87,23 @@
 							<align>left</align>
 							<height>50</height>
 							<label>$VAR[InfoTitle]</label>
-							<font>font36_title</font>
-							<textcolor>unfocused_text</textcolor>
+							<font>font40_bold</font>
+							<textcolor>bright_text</textcolor>
 							<scroll>true</scroll>
 							<scrollspeed>170</scrollspeed>
 							<visible>
 									[
-											!Window.IsVisible(videos) + 
-											!String.IsEqual(Skin.String(WidgetClearlogoSetting),2) + 
+											!Window.IsVisible(videos) +
+											!String.IsEqual(Skin.String(WidgetClearlogoSetting),2) +
 											[
-													String.IsEqual(Skin.String(WidgetClearlogoSetting),1) | 
+													String.IsEqual(Skin.String(WidgetClearlogoSetting),1) |
+													String.IsEmpty(ListItem.Art(clearlogo))
+											]
+									] |
+									[
+											Window.IsVisible(videos) +
+											[
+													!Skin.HasSetting(Enable.Clearlogo) |
 													String.IsEmpty(ListItem.Art(clearlogo))
 											]
 									]
@@ -116,10 +117,17 @@
 							<label></label>
 							<visible>
 									[
-											!Window.IsVisible(videos) + 
-											!String.IsEqual(Skin.String(WidgetClearlogoSetting),2) + 
+											!Window.IsVisible(videos) +
+											!String.IsEqual(Skin.String(WidgetClearlogoSetting),2) +
 											[
-													String.IsEqual(Skin.String(WidgetClearlogoSetting),1) | 
+													String.IsEqual(Skin.String(WidgetClearlogoSetting),1) |
+													String.IsEmpty(ListItem.Art(clearlogo))
+											]
+									] |
+									[
+											Window.IsVisible(videos) +
+											[
+													!Skin.HasSetting(Enable.Clearlogo) |
 													String.IsEmpty(ListItem.Art(clearlogo))
 											]
 									]
@@ -187,8 +195,8 @@
 							<align>left</align>
 							<height max="300">auto</height>
 							<label>$VAR[EpisodeTitle]</label>
-							<include>Flix_Font_Large</include>
-							<textcolor>unfocused_text</textcolor>
+							<font>font34_bold</font>
+							<textcolor>bright_text</textcolor>
 							<scroll>true</scroll>
 							<scrollspeed>150</scrollspeed>
 							<visible>$EXP[isEpisode]</visible>
@@ -210,7 +218,7 @@
 							<height max="300">auto</height>
 							<label>$VAR[VI_WidgetInfoPanelTop]</label>
 							<font>font32_bold</font>
-							<textcolor>unfocused_text</textcolor>
+							<textcolor>bright_text</textcolor>
 							<scroll>true</scroll>
 							<scrollspeed>150</scrollspeed>
 							<visible>$EXP[hasAnyVI]</visible>
@@ -232,12 +240,11 @@
 						<include>FlixPanelRatings</include>
 						
 						<control type="textbox">
-							<include condition="!Integer.IsGreater(System.ScreenHeight,1080)">PlotHeight_1080_FontSize_Large</include>
-							<include condition="Integer.IsGreater(System.ScreenHeight,1080)">PlotHeight_4K_FontSize_Large</include>
-							<include>Flix_Font_Large</include>
-							<textcolor>unfocused_text</textcolor>
+							<font>font32_bold</font>
+							<textcolor>bright_text</textcolor>
 							<align>left</align>
 							<label>$VAR[RI_Plot]</label>
+							<height max="247">auto</height>
 							<autoscroll delay="13000" time="3000" repeat="13000">Skin.HasSetting(autoscroll)</autoscroll>
 							<visible>$EXP[showPlot] + [[Window.IsVisible(Home) | Window.IsVisible(1121)] | [String.IsEqual(Container.Viewmode,$LOCALIZE[31101]) | String.IsEqual(Container.Viewmode,$LOCALIZE[311012]) | String.IsEqual(Container.Viewmode,$LOCALIZE[31107])]]</visible>
 						</control>

@@ -71,7 +71,7 @@
 				<top>170</top>
 				<height>825</height>
 				<aspectratio>stretch</aspectratio>
-				<texture diffuse="masks/poster-videoinfo.png">$INFO[Window(Home).Property(altus.ctx.poster)]</texture>
+				<texture colordiffuse="artwork_dim" diffuse="masks/poster-videoinfo.png">$INFO[Window(Home).Property(altus.ctx.poster)]</texture>
 				<!-- <bordersize>2</bordersize>
 				<bordertexture border="46" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46.png</bordertexture> -->
 				<visible>$EXP[isCtxPoster]</visible>
