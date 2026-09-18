@@ -9,10 +9,9 @@
 			<control type="panel" id="$PARAM[list_id]">
 				<left>$PARAM[left]</left>
 				<top>150</top>
-				<bottom>list_bottom_offset</bottom>
 				<right>$PARAM[right]</right>
 				<width>$PARAM[width]</width>
-				<height>840</height>
+				<height>854</height>
 				<focusposition>4</focusposition>
 				<movement>3</movement>
 				<onleft>$PARAM[onleft_id]</onleft>
@@ -20,84 +19,119 @@
 				<onup>$PARAM[list_id]</onup>
 				<ondown>$PARAM[list_id]</ondown>
 				<pagecontrol>$PARAM[scrollbar_id]</pagecontrol>
-				<scrolltime>200</scrolltime>
-				<focusedlayout height="list_item_height">
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<itemlayout height="122">
 					<control type="image">
-						<left>0</left>
-						<top>0</top>
-						<right>0</right>
-						<bottom>0</bottom>
-						<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
-						<animation effect="fade" start="100" end="0" time="40" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
+						<height>93</height>
+						<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
 					</control>
 					<control type="image">
-						<left>25</left>
-						<top>0</top>
-						<width>32</width>
-						<bottom>0</bottom>
-						<aspectratio aligny="center">keep</aspectratio>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">$VAR[ListWatchedIconVar]</texture>
-					</control>
-					<control type="label">
-						<left>75</left>
-						<top>0</top>
-						<bottom>0</bottom>
-						<right>20</right>
-						<aligny>center</aligny>
-						<textoffsety>11</textoffsety>
-						<scroll>true</scroll>
-						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<shadowcolor>text_shadow</shadowcolor>
-					</control>
-					<control type="label">
-						<left>0</left>
-						<textoffsetx>30</textoffsetx>
-						<top>0</top>
-						<bottom>0</bottom>
-						<right>0</right>
-						<align>right</align>
-						<aligny>center</aligny>
-						<!-- <textoffsety>11</textoffsety> -->
-						<label>$INFO[ListItem.Label2]</label>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<shadowcolor>text_shadow</shadowcolor>
-					</control>
-				</focusedlayout>
-				<itemlayout height="list_item_height">
-					<control type="image">
-						<left>25</left>
-						<top>0</top>
-						<width>32</width>
-						<bottom>0</bottom>
-						<aspectratio aligny="center">keep</aspectratio>
+						<left>40</left>
+						<top>26</top>
+						<width>41</width>
+						<height>41</height>
+						<aspectratio>keep</aspectratio>
 						<texture colordiffuse="unfocused_text">$VAR[ListWatchedIconVar]</texture>
 					</control>
 					<control type="label">
-						<left>75</left>
-						<top>0</top>
-						<bottom>0</bottom>
-						<right>20</right>
+						<left>100</left>
+						<right>160</right>
+						<height>93</height>
 						<aligny>center</aligny>
-						<!-- <textoffsety>11</textoffsety> -->
+						<font>font32_bold</font>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>unfocused_text</textcolor>
-						<shadowcolor>text_shadow</shadowcolor>
 					</control>
 					<control type="label">
-						<left>0</left>
-						<textoffsetx>30</textoffsetx>
-						<top>0</top>
-						<bottom>0</bottom>
-						<right>0</right>
+						<right>46</right>
+						<width>120</width>
+						<height>93</height>
 						<align>right</align>
 						<aligny>center</aligny>
-						<!-- <textoffsety>11</textoffsety> -->
+						<font>font27_title</font>
 						<label>$INFO[ListItem.Label2]</label>
-						<textcolor>unfocused_text</textcolor>
-						<shadowcolor>text_shadow</shadowcolor>
+						<textcolor>grey</textcolor>
 					</control>
 				</itemlayout>
+				<focusedlayout height="122">
+					<control type="image">
+						<height>93</height>
+						<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+						<visible>!Control.HasFocus($PARAM[list_id])</visible>
+					</control>
+					<control type="image">
+						<height>93</height>
+						<texture border="46" colordiffuse="A6000000">masks/radius_46.png</texture>
+						<visible>Control.HasFocus($PARAM[list_id])</visible>
+					</control>
+					<control type="image">
+						<bottom>29</bottom>
+						<texture border="46" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46_alt.png</texture>
+						<visible>Control.HasFocus($PARAM[list_id])</visible>
+					</control>
+					<control type="image">
+						<left>40</left>
+						<top>26</top>
+						<width>41</width>
+						<height>41</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="unfocused_text">$VAR[ListWatchedIconVar]</texture>
+						<visible>!Control.HasFocus($PARAM[list_id])</visible>
+					</control>
+					<control type="image">
+						<left>40</left>
+						<top>26</top>
+						<width>41</width>
+						<height>41</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[ListWatchedIconVar]</texture>
+						<visible>Control.HasFocus($PARAM[list_id])</visible>
+					</control>
+					<control type="label">
+						<left>100</left>
+						<right>160</right>
+						<height>93</height>
+						<aligny>center</aligny>
+						<font>font32_bold</font>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>unfocused_text</textcolor>
+						<visible>!Control.HasFocus($PARAM[list_id])</visible>
+					</control>
+					<control type="label">
+						<left>100</left>
+						<right>160</right>
+						<height>93</height>
+						<aligny>center</aligny>
+						<font>font32_bold</font>
+						<scroll>true</scroll>
+						<scrollspeed>150</scrollspeed>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<visible>Control.HasFocus($PARAM[list_id])</visible>
+					</control>
+					<control type="label">
+						<right>46</right>
+						<width>120</width>
+						<height>93</height>
+						<align>right</align>
+						<aligny>center</aligny>
+						<font>font27_title</font>
+						<label>$INFO[ListItem.Label2]</label>
+						<textcolor>grey</textcolor>
+						<visible>!Control.HasFocus($PARAM[list_id])</visible>
+					</control>
+					<control type="label">
+						<right>46</right>
+						<width>120</width>
+						<height>93</height>
+						<align>right</align>
+						<aligny>center</aligny>
+						<font>font27_title</font>
+						<label>$INFO[ListItem.Label2]</label>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<visible>Control.HasFocus($PARAM[list_id])</visible>
+					</control>
+				</focusedlayout>
 			</control>
 		</definition>
 	</include>

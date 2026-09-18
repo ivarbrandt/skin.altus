@@ -62,6 +62,7 @@
 			</control>
 			<control type="label" id="14">
 				<description>Default Label</description>
+				<height>91</height>
 				<include>DefaultSettingLabel</include>
 			</control>
 			<control type="grouplist" id="9000">
