@@ -959,3 +959,9 @@ msgstr ""
 msgctxt "#31612"
 msgid "Maps"
 msgstr ""
+
+#: /xml/DialogPVRChannelManager.xml
+#. Dialog button applying pending channel edits without closing
+msgctxt "#31613"
+msgid "Apply"
+msgstr ""
