@@ -28,6 +28,8 @@
 		<param name="border">40</param>
 		<param name="radioposx">931</param>
 		<param name="textwidth">851</param>
+		<param name="nofocus_texture"></param>
+		<param name="nofocus_color">4D000000</param>
 		<definition>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
 			<height>$PARAM[height]</height>
@@ -41,7 +43,7 @@
 			<textcolor>unfocused_text</textcolor>
 			<focusedcolor>$PARAM[focused_text]</focusedcolor>
 			<texturefocus border="$PARAM[border]" colordiffuse="$VAR[FocusColorTheme]">$PARAM[texture]</texturefocus>
-			<texturenofocus />
+			<texturenofocus border="$PARAM[border]" colordiffuse="$PARAM[nofocus_color]">$PARAM[nofocus_texture]</texturenofocus>
 		</definition>
 	</include>
 	<include name="DefaultAddonSettingsButton">
