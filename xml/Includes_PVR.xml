@@ -712,76 +712,106 @@
 		<control type="grouplist">
 			<orientation>horizontal</orientation>
 			<left>0</left>
+			<top>14</top>
 			<align>center</align>
 			<width>480</width>
 			<control type="label" id="$PARAM[header_id]">
 				<width>auto</width>
-				<height>70</height>
+				<height>52</height>
 				<align>center</align>
 				<aligny>center</aligny>
+				<font>font27_title</font>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
 			</control>
 			<control type="label">
 				<width>auto</width>
-				<height>70</height>
+				<height>52</height>
 				<align>center</align>
 				<aligny>center</aligny>
+				<font>font27_title</font>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
 				<label>: [COLOR white]$INFO[Container($PARAM[list_id]).Numitems][/COLOR]</label>
 			</control>
 		</control>
 		<control type="list" id="$PARAM[list_id]">
 			<left>0</left>
-			<top>70</top>
+			<top>81</top>
 			<width>480</width>
-			<height>836</height>
+			<height>854</height>
 			<onup>$PARAM[list_id]</onup>
 			<ondown>$PARAM[list_id]</ondown>
 			<onleft>$PARAM[onleft]</onleft>
 			<onright>$PARAM[scrollbar_id]</onright>
 			<pagecontrol>$PARAM[scrollbar_id]</pagecontrol>
-			<scrolltime>200</scrolltime>
-			<itemlayout height="76" width="480">
+			<scrolltime tween="cubic" easing="out">500</scrolltime>
+			<itemlayout height="122" width="480">
 				<control type="image">
+					<height>93</height>
+					<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+				</control>
+				<control type="image">
+					<right>30</right>
+					<top>16</top>
 					<width>60</width>
-					<right>20</right>
+					<height>61</height>
 					<texture>$INFO[ListItem.ActualIcon]</texture>
-					<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
-					<bordersize>2</bordersize>
 					<aspectratio aligny="center">keep</aspectratio>
 				</control>
 				<control type="label">
-					<left>20</left>
-					<right>85</right>
-					<height>76</height>
+					<left>30</left>
+					<right>119</right>
+					<height>93</height>
 					<aligny>center</aligny>
-					<font>font27</font>
+					<font>font27_title</font>
 					<textcolor>unfocused_text</textcolor>
-					<label>$INFO[ListItem.ChannelNumberLabel,[B],[/B] - ]$INFO[ListItem.ChannelName]</label>
+					<label>$INFO[ListItem.ChannelNumberLabel,,  -  ]$INFO[ListItem.ChannelName]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout height="76" width="480">
+			<focusedlayout height="122" width="480">
 				<control type="image">
-					<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
-					<!-- <visible>Control.HasFocus($PARAM[list_id])</visible> -->
-					<animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus($PARAM[list_id])">conditional</animation>
+					<height>93</height>
+					<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+					<visible>!Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="image">
+					<height>93</height>
+					<texture border="46" colordiffuse="A6000000">masks/radius_46.png</texture>
+					<visible>Control.HasFocus($PARAM[list_id])</visible>
+				</control>
+				<control type="image">
+					<bottom>29</bottom>
+					<texture border="46" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46_alt.png</texture>
+					<visible>Control.HasFocus($PARAM[list_id])</visible>
+				</control>
+				<control type="image">
+					<right>30</right>
+					<top>16</top>
 					<width>60</width>
-					<right>20</right>
+					<height>61</height>
 					<texture>$INFO[ListItem.ActualIcon]</texture>
-					<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
-					<bordersize>2</bordersize>
 					<aspectratio aligny="center">keep</aspectratio>
 				</control>
 				<control type="label">
-					<left>20</left>
-					<right>85</right>
-					<height>76</height>
-					<font>font27</font>
+					<left>30</left>
+					<right>119</right>
+					<height>93</height>
 					<aligny>center</aligny>
-					<label>$INFO[ListItem.ChannelNumberLabel,[B],[/B] - ]$INFO[ListItem.ChannelName]</label>
-					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+					<font>font27_title</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>$INFO[ListItem.ChannelNumberLabel,,  -  ]$INFO[ListItem.ChannelName]</label>
+					<visible>!Control.HasFocus($PARAM[list_id])</visible>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<right>119</right>
+					<height>93</height>
+					<aligny>center</aligny>
+					<font>font27_title</font>
+					<scroll>true</scroll>
+					<scrollspeed>150</scrollspeed>
+					<textcolor>$VAR[FocusColorTheme]</textcolor>
+					<label>$INFO[ListItem.ChannelNumberLabel,,  -  ]$INFO[ListItem.ChannelName]</label>
+					<visible>Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 			</focusedlayout>
 		</control>
