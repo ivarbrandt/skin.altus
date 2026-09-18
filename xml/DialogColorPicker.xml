@@ -6,110 +6,121 @@
 	<controls>
 		<control type="group">
 			<centertop>50%</centertop>
+			<height>1038</height>
 			<centerleft>50%</centerleft>
-			<height>750</height>
-			<width>1220</width>
+			<width>1575</width>
 			<include content="DialogBackgroundCommons">
-				<param name="header_label" value="" />
+				<param name="header_label" value="$LOCALIZE[737]" />
 				<param name="header_id" value="1" />
+				<param name="width" value="1575" />
+				<param name="height" value="1038" />
+				<param name="header_top" value="15" />
+				<param name="divider_top" value="90" />
+				<param name="blur" value="true" />
+				<param name="blur_mask" value="masks/dialogcolorpicker.png" />
 			</include>
-			<control type="image">
-				<left>0</left>
-				<top>80</top>
-				<width>920</width>
-				<bottom>2</bottom>
-				<texture border="40">buttons/dialogbutton-nofo.png</texture>
-			</control>
-			<!-- Color picker panel -->
 			<control type="panel" id="6">
-				<left>20</left>
-				<top>100</top>
-				<width>880</width>
-				<bottom>26</bottom>
+				<description>Colour swatches</description>
+				<left>40</left>
+				<top>130</top>
+				<width>1224</width>
+				<height>816</height>
 				<onup>6</onup>
 				<ondown>6</ondown>
 				<onleft>9001</onleft>
 				<onright>61</onright>
 				<orientation>vertical</orientation>
 				<pagecontrol>61</pagecontrol>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
 				<viewtype label="100">icon</viewtype>
-				<itemlayout height="80" width="146">
-					<control type="group">
-						<control type="image">
-							<top>3</top>
-							<left>8</left>
-							<width>138</width>
-							<height>74</height>
-							<texture>buttons/color-back.png</texture>
-						</control>
-						<control type="image">
-							<top>3</top>
-							<left>8</left>
-							<width>138</width>
-							<height>74</height>
-							<texture border="0">colors/white.png</texture>
-							<colordiffuse>$INFO[ListItem.Label2]</colordiffuse>
-							<aspectratio>stretch</aspectratio>
-						</control>
+				<itemlayout height="136" width="136">
+					<control type="image">
+						<width>107</width>
+						<height>107</height>
+						<texture border="23" colordiffuse="4D000000">masks/radius_23.png</texture>
+					</control>
+					<control type="image">
+						<width>107</width>
+						<height>107</height>
+						<texture border="23">masks/radius_23-unfo.png</texture>
+						<colordiffuse>$INFO[ListItem.Label2]</colordiffuse>
 					</control>
 				</itemlayout>
-				<focusedlayout height="80" width="146">
+				<focusedlayout height="136" width="136">
 					<control type="group">
-						<animation effect="zoom" time="200" tween="sine" easing="inout" start="100" end="124" center="auto">Focus</animation>
+						<animation effect="zoom" start="100" end="120" center="53,53" time="200" tween="sine" easing="inout">Focus</animation>
 						<control type="image">
-							<top>3</top>
-							<left>8</left>
-							<width>138</width>
-							<height>74</height>
-							<texture>buttons/color-back.png</texture>
+							<width>107</width>
+							<height>107</height>
+							<texture border="23" colordiffuse="4D000000">masks/radius_23.png</texture>
 						</control>
 						<control type="image">
-							<top>3</top>
-							<left>8</left>
-							<width>138</width>
-							<height>74</height>
-							<texture border="0">colors/white.png</texture>
+							<width>107</width>
+							<height>107</height>
+							<texture border="23">masks/radius_23-unfo.png</texture>
 							<colordiffuse>$INFO[ListItem.Label2]</colordiffuse>
-							<aspectratio>stretch</aspectratio>
 						</control>
 					</control>
 				</focusedlayout>
 			</control>
+			<control type="image">
+				<description>Divider before the dialog buttons</description>
+				<left>1275</left>
+				<top>130</top>
+				<width>1</width>
+				<height>787</height>
+				<texture colordiffuse="$VAR[FocusColorTheme]">colors/greyer.png</texture>
+			</control>
 			<control type="scrollbar" id="61">
-				<left>910</left>
-				<top>100</top>
-				<width>12</width>
-				<bottom>26</bottom>
+				<left>1274</left>
+				<top>130</top>
+				<width>3</width>
+				<height>787</height>
 				<onleft condition="Control.IsVisible(6)">6</onleft>
 				<onright>9001</onright>
+				<onup>61</onup>
+				<ondown>61</ondown>
 				<orientation>vertical</orientation>
 			</control>
 			<control type="label">
-				<left>28</left>
-				<top>740</top>
-				<width>880</width>
-				<height>35</height>
+				<description>Selected colour name and value</description>
+				<left>40</left>
+				<top>946</top>
+				<width>1224</width>
+				<height>52</height>
 				<align>left</align>
-				<label>[COLOR button_focus]$LOCALIZE[737]: [/COLOR]$INFO[Container(6).ListItem.Label,, - ]$INFO[Container(6).ListItem.Label2,#,]</label>
+				<aligny>center</aligny>
+				<font>font32_bold</font>
+				<textcolor>unfocused_text</textcolor>
+				<label>[COLOR $VAR[FocusColorTheme]]$LOCALIZE[737]: [/COLOR]$INFO[Container(6).ListItem.Label,, - ]$INFO[Container(6).ListItem.Label2,#,]</label>
 			</control>
 			<control type="label">
-				<left>925</left>
-				<top>748</top>
-				<width>275</width>
-				<height>35</height>
-				<font>font12</font>
-				<align>right</align>
-				<textcolor>grey</textcolor>
-				<label>$VAR[SelectLabel]</label>
+				<description>Item count</description>
+				<left>1316</left>
+				<top>876</top>
+				<width>219</width>
+				<height>52</height>
+				<align>left</align>
+				<aligny>bottom</aligny>
+				<font>font27_title</font>
+				<textcolor>$VAR[FocusColorTheme]</textcolor>
+				<label>$INFO[Container(6).NumItems] [COLOR unfocused_text]$LOCALIZE[31036][/COLOR]</label>
 			</control>
 			<control type="grouplist" id="9001">
-				<left>920</left>
-				<top>80</top>
+				<description>Dialog buttons</description>
+				<left>1316</left>
+				<top>130</top>
+				<width>219</width>
+				<height>80</height>
 				<onleft>61</onleft>
-				<itemgap>dialogbuttons_itemgap</itemgap>
 				<onright>6</onright>
+				<onup>9001</onup>
+				<ondown>9001</ondown>
+				<itemgap>dialogbuttons_itemgap</itemgap>
+				<orientation>vertical</orientation>
 				<include content="DefaultDialogButton">
 					<param name="id" value="7" />
+					<param name="width" value="219" />
 					<param name="label" value="$LOCALIZE[222]" />
 				</include>
 			</control>
