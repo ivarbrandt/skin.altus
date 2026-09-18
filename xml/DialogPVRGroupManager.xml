@@ -55,52 +55,74 @@
 					<textcolor>$VAR[FocusColorTheme]</textcolor>
 				</control>
 				<!-- LEFT -->
-				<control type="list" id="13">
+				<control type="fixedlist" id="13">
+					<focusposition>1</focusposition>
+					<movement>1</movement>
 					<left>0</left>
-					<top>81</top>
+					<top>80</top>
 					<width>330</width>
-					<height>854</height>
+					<height>855</height>
 					<onup>13</onup>
 					<ondown>13</ondown>
 					<onleft>9000</onleft>
 					<onright>73</onright>
 					<pagecontrol>73</pagecontrol>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<itemlayout width="330" height="122">
+					<itemlayout width="330" height="285">
 						<control type="image">
-							<height>93</height>
-							<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+							<height>256</height>
+							<texture border="23" colordiffuse="4D000000">masks/radius_23.png</texture>
+						</control>
+						<control type="image">
+							<left>30</left>
+							<top>18</top>
+							<width>270</width>
+							<height>192</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="label">
-							<left>30</left>
-							<right>30</right>
-							<height>93</height>
+							<left>20</left>
+							<right>20</right>
+							<top>214</top>
+							<height>34</height>
+							<align>center</align>
 							<aligny>center</aligny>
 							<font>font27_title</font>
 							<textcolor>unfocused_text</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout width="330" height="122">
+					<focusedlayout width="330" height="285">
 						<control type="image">
-							<height>93</height>
-							<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
-							<visible>!Control.HasFocus(13)</visible>
+							<height>256</height>
+							<texture border="23" colordiffuse="A6000000">masks/radius_23.png</texture>
 						</control>
 						<control type="image">
-							<height>93</height>
-							<texture border="46" colordiffuse="A6000000">masks/radius_46.png</texture>
+							<bottom>29</bottom>
+							<texture border="23" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-23_alt.png</texture>
 							<visible>Control.HasFocus(13)</visible>
 						</control>
 						<control type="image">
 							<bottom>29</bottom>
-							<texture border="46" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46_alt.png</texture>
-							<visible>Control.HasFocus(13)</visible>
+							<texture border="23" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-23_alt.png</texture>
+							<animation effect="fade" end="40" time="0" condition="true">Conditional</animation>
+							<visible>!Control.HasFocus(13)</visible>
+						</control>
+						<control type="image">
+							<left>30</left>
+							<top>18</top>
+							<width>270</width>
+							<height>192</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="label">
-							<left>30</left>
-							<right>30</right>
-							<height>93</height>
+							<left>20</left>
+							<right>20</right>
+							<top>214</top>
+							<height>34</height>
+							<align>center</align>
 							<aligny>center</aligny>
 							<font>font27_title</font>
 							<textcolor>unfocused_text</textcolor>
@@ -108,9 +130,11 @@
 							<visible>!Control.HasFocus(13)</visible>
 						</control>
 						<control type="label">
-							<left>30</left>
-							<right>30</right>
-							<height>93</height>
+							<left>20</left>
+							<right>20</right>
+							<top>214</top>
+							<height>34</height>
+							<align>center</align>
 							<aligny>center</aligny>
 							<font>font27_title</font>
 							<scroll>true</scroll>
@@ -188,14 +212,14 @@
 				<left>1570</left>
 				<top>157</top>
 				<width>280</width>
-				<height>625</height>
+				<height>734</height>
 				<itemgap>dialogbuttons_itemgap</itemgap>
 				<align>center</align>
 				<orientation>vertical</orientation>
 				<onleft>12</onleft>
 				<onright>13</onright>
-				<onup>35</onup>
-				<ondown>35</ondown>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
 				<include content="DefaultDialogButton">
 					<param name="id" value="29" />
 					<param name="width" value="280" />
@@ -237,6 +261,20 @@
 					<param name="font" value="font27_title" />
 					<param name="label" value="$LOCALIZE[31046]" />
 				</include>
+				<control type="button" id="35">
+					<description>Regenerate Group Thumbnail</description>
+					<width>280</width>
+					<height>80</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>font27_title</font>
+					<label>$LOCALIZE[13315]</label>
+					<textwidth>240</textwidth>
+					<textcolor>unfocused_text</textcolor>
+					<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
+					<texturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">masks/pill40_focus.png</texturefocus>
+					<texturenofocus border="40" colordiffuse="4D000000">masks/radius_40.png</texturenofocus>
+				</control>
 				<control type="togglebutton" id="34">
 					<description>TV/Radio toggle</description>
 					<width>280</width>
@@ -246,6 +284,7 @@
 					<font>font27_title</font>
 					<label>$LOCALIZE[19174]</label>
 					<altlabel>$LOCALIZE[19173]</altlabel>
+					<textwidth>240</textwidth>
 					<textcolor>unfocused_text</textcolor>
 					<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
 					<usealttexture>!String.IsEmpty(Window.Property(IsRadio))</usealttexture>
@@ -254,43 +293,6 @@
 					<alttexturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">masks/pill40_focus.png</alttexturefocus>
 					<alttexturenofocus border="40" colordiffuse="4D000000">masks/radius_40.png</alttexturenofocus>
 				</control>
-			</control>
-			<control type="button" id="35">
-				<description>Regenerate group thumbnail</description>
-				<left>1610</left>
-				<top>811</top>
-				<width>200</width>
-				<height>200</height>
-				<label></label>
-				<texturefocus />
-				<texturenofocus />
-				<onleft>12</onleft>
-				<onright>13</onright>
-				<onup>9000</onup>
-				<ondown>9000</ondown>
-			</control>
-			<control type="image">
-				<left>1610</left>
-				<top>811</top>
-				<width>200</width>
-				<height>200</height>
-				<texture border="23" colordiffuse="4D000000">masks/radius_23.png</texture>
-			</control>
-			<control type="image">
-				<left>1620</left>
-				<top>821</top>
-				<width>180</width>
-				<height>180</height>
-				<texture>$INFO[Container(13).ListItem.Icon]</texture>
-				<aspectratio>keep</aspectratio>
-			</control>
-			<control type="image">
-				<left>1606</left>
-				<top>807</top>
-				<width>208</width>
-				<height>208</height>
-				<texture border="23" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-23_alt.png</texture>
-				<visible>Control.HasFocus(35)</visible>
 			</control>
 		</control>
 		<control type="label" id="20">

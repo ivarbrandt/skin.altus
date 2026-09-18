@@ -18,7 +18,9 @@
 				<param name="blur" value="true" />
 				<param name="blur_mask" value="masks/dialogaddonsettings.png" />
 			</include>
-			<control type="panel" id="20">
+			<control type="fixedlist" id="20">
+				<focusposition>3</focusposition>
+				<movement>3</movement>
 				<left>40</left>
 				<top>130</top>
 				<width>669</width>
@@ -163,11 +165,10 @@
 					<description>channel options Header</description>
 					<width>640</width>
 					<height>70</height>
-					<textoffsetx>40</textoffsetx>
 					<font>font27_title</font>
 					<label>$LOCALIZE[31097]</label>
 					<aligny>center</aligny>
-					<align>left</align>
+					<align>center</align>
 					<textcolor>$VAR[FocusColorTheme]</textcolor>
 				</control>
 				<control type="radiobutton" id="7">

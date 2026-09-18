@@ -733,7 +733,9 @@
 				<label>: [COLOR white]$INFO[Container($PARAM[list_id]).Numitems][/COLOR]</label>
 			</control>
 		</control>
-		<control type="list" id="$PARAM[list_id]">
+		<control type="fixedlist" id="$PARAM[list_id]">
+			<focusposition>3</focusposition>
+			<movement>3</movement>
 			<left>0</left>
 			<top>81</top>
 			<width>480</width>
