@@ -608,6 +608,10 @@
 		<value condition="!String.IsEmpty(Window.Property(IsRadio))">$LOCALIZE[19199] - $LOCALIZE[19024]</value>
 		<value>$LOCALIZE[19199] - $LOCALIZE[19023]</value>
 	</variable>
+	<variable name="PVRChannelNameColor">
+		<value condition="ListItem.Property(ParentalLocked)">red</value>
+		<value>unfocused_text</value>
+	</variable>
 	<variable name="RDSInfoSubTitle">
 		<value condition="String.IsEmpty(MusicPlayer.ChannelName)">$INFO[Player.Title]</value>
 		<value>$INFO[MusicPlayer.ChannelName]$INFO[Player.Title, - ]</value>
