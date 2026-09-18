@@ -25,6 +25,12 @@
 					<include>DefaultSettingButton</include>
 					<onclick>Notification(Altus, Test notification, 7000, special://skin/resources/icon.jpg)</onclick>
 				</control> -->
+				<control type="button" id="6299">
+					<description>TEMP - scaffolding to reach the smart playlist dialogs, remove once styled</description>
+					<label>Video playlists (temp)</label>
+					<include>DefaultSettingButton</include>
+					<onclick>ActivateWindow(Videos,special://videoplaylists/,return)</onclick>
+				</control>
 				<control type="button" id="624">
 					<label>Customize widgets</label>
 					<label2>$VAR[ActiveWidgetConfigVar]</label2>

@@ -1,76 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">9001</defaultcontrol>
+	<defaultcontrol always="true">15</defaultcontrol>
 	<include>Animation_DialogPopupOpenClose</include>
 	<controls>
 		<control type="group">
+			<centertop>50%</centertop>
+			<height>618</height>
 			<centerleft>50%</centerleft>
 			<width>960</width>
-			<top>330</top>
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="$LOCALIZE[21421]" />
 				<param name="header_id" value="2" />
+				<param name="width" value="960" />
+				<param name="height" value="618" />
+				<param name="header_top" value="15" />
+				<param name="divider_top" value="90" />
+				<param name="blur" value="true" />
+				<param name="blur_mask" value="masks/dialogsmartplaylistrule.png" />
 			</include>
-			<control type="label">
-				<description>Rule match label</description>
-				<left>20</left>
-				<top>65</top>
-				<width>720</width>
-				<include>SettingsLabelCommon</include>
-				<label>$LOCALIZE[21422]</label>
-			</control>
 			<control type="grouplist" id="9001">
-				<left>30</left>
-				<top>100</top>
+				<description>Rule definition</description>
+				<left>40</left>
+				<top>105</top>
+				<width>880</width>
+				<height>364</height>
+				<onleft>18</onleft>
+				<onright>18</onright>
+				<onup>18</onup>
+				<ondown>18</ondown>
+				<itemgap>0</itemgap>
 				<orientation>vertical</orientation>
-				<onup>9000</onup>
-				<ondown>9000</ondown>
+				<control type="label">
+					<description>Match items where</description>
+					<width>880</width>
+					<include>DefaultSettingLabel</include>
+					<height>91</height>
+					<label>$LOCALIZE[21422]</label>
+				</control>
 				<control type="button" id="15">
 					<description>Rule Field</description>
-					<include>SettingsItemCommon</include>
-					<width>900</width>
+					<width>880</width>
+					<include content="DefaultSettingButton">
+						<param name="textwidth" value="725" />
+					</include>
 				</control>
 				<control type="button" id="16">
 					<description>Rule operator</description>
-					<width>900</width>
-					<include>SettingsItemCommon</include>
+					<width>880</width>
+					<include content="DefaultSettingButton">
+						<param name="textwidth" value="725" />
+					</include>
 				</control>
-				<control type="grouplist" id="9002">
-					<left>30</left>
-					<top>200</top>
-					<orientation>horizontal</orientation>
-					<control type="edit" id="17">
-						<description>Value Button</description>
-						<width>600</width>
-						<include>SettingsItemCommon</include>
-						<hinttext>$LOCALIZE[31103]</hinttext>
-					</control>
-					<control type="button" id="20">
-						<description>Browse Button</description>
-						<width>300</width>
-						<include>SettingsItemCommon</include>
-						<align>center</align>
-						<label>$LOCALIZE[1024]</label>
-					</control>
+				<control type="edit" id="17">
+					<description>Value Button</description>
+					<width>880</width>
+					<ondown>18</ondown>
+					<include content="DefaultSettingButton">
+						<param name="textwidth" value="725" />
+					</include>
+					<hinttext>$LOCALIZE[31103]</hinttext>
 				</control>
 			</control>
-			<control type="grouplist" id="9000">
-				<orientation>horizontal</orientation>
-				<left>0</left>
-				<top>410</top>
-				<width>960</width>
+			<control type="button" id="20">
+				<description>Browse Button</description>
+				<left>40</left>
+				<top>498</top>
+				<width>274</width>
+				<height>80</height>
 				<align>center</align>
-				<onup>9002</onup>
+				<aligny>center</aligny>
+				<font>font32_bold</font>
+				<label>$LOCALIZE[1024]</label>
+				<textoffsetx>20</textoffsetx>
+				<textcolor>unfocused_text</textcolor>
+				<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
+				<texturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">masks/pill40_focus.png</texturefocus>
+				<texturenofocus border="40" colordiffuse="4D000000">masks/radius_40.png</texturenofocus>
+				<onleft>19</onleft>
+				<onright>18</onright>
+				<onup>17</onup>
 				<ondown>15</ondown>
-				<itemgap>dialogbuttons_itemgap</itemgap>
-				<include content="DefaultDialogButton">
-					<param name="id" value="18" />
-					<param name="label" value="$LOCALIZE[186]" />
-				</include>
-				<include content="DefaultDialogButton">
-					<param name="id" value="19" />
-					<param name="label" value="$LOCALIZE[222]" />
-				</include>
+			</control>
+			<control type="button" id="18">
+				<description>OK Button</description>
+				<left>343</left>
+				<top>498</top>
+				<width>274</width>
+				<height>80</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font32_bold</font>
+				<label>$LOCALIZE[186]</label>
+				<textoffsetx>20</textoffsetx>
+				<textcolor>unfocused_text</textcolor>
+				<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
+				<texturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">masks/pill40_focus.png</texturefocus>
+				<texturenofocus border="40" colordiffuse="4D000000">masks/radius_40.png</texturenofocus>
+				<onleft>20</onleft>
+				<onright>19</onright>
+				<onup>17</onup>
+				<ondown>15</ondown>
+			</control>
+			<control type="button" id="19">
+				<description>Cancel Button</description>
+				<left>646</left>
+				<top>498</top>
+				<width>274</width>
+				<height>80</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font32_bold</font>
+				<label>$LOCALIZE[222]</label>
+				<textoffsetx>20</textoffsetx>
+				<textcolor>unfocused_text</textcolor>
+				<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
+				<texturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">masks/pill40_focus.png</texturefocus>
+				<texturenofocus border="40" colordiffuse="4D000000">masks/radius_40.png</texturenofocus>
+				<onleft>18</onleft>
+				<onright>20</onright>
+				<onup>17</onup>
+				<ondown>15</ondown>
 			</control>
 		</control>
 	</controls>

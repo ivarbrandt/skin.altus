@@ -4,115 +4,163 @@
 	<include>Animation_DialogPopupOpenClose</include>
 	<controls>
 		<control type="group">
-			<top>150</top>
+			<centertop>50%</centertop>
+			<height>1009</height>
 			<centerleft>50%</centerleft>
-			<width>1700</width>
+			<width>1820</width>
 			<include content="DialogBackgroundCommons">
-				<param name="header_label" value="" />
+				<param name="header_label" value="$LOCALIZE[10136]" />
 				<param name="header_id" value="2" />
+				<param name="width" value="1820" />
+				<param name="height" value="1009" />
+				<param name="header_top" value="15" />
+				<param name="divider_top" value="90" />
+				<param name="blur" value="true" />
+				<param name="blur_mask" value="masks/dialogaddonsettings.png" />
 			</include>
 			<control type="grouplist" id="500">
-				<orientation>vertical</orientation>
-				<left>10</left>
-				<top>95</top>
-				<onright>10</onright>
+				<description>Playlist settings</description>
+				<left>40</left>
+				<top>130</top>
+				<width>700</width>
+				<height>819</height>
 				<onleft>9001</onleft>
-				<itemgap>-20</itemgap>
+				<onright>10</onright>
+				<onup>500</onup>
+				<ondown>500</ondown>
+				<itemgap>0</itemgap>
+				<orientation>vertical</orientation>
 				<control type="button" id="22">
 					<description>Set Playlist type</description>
 					<width>700</width>
-					<include>SettingsItemCommon</include>
+					<include content="DefaultSettingButton">
+						<param name="textwidth" value="545" />
+					</include>
 					<label>$LOCALIZE[467]</label>
 				</control>
 				<control type="button" id="12">
 					<description>Name Button</description>
-					<label>$LOCALIZE[21433]</label>
 					<width>700</width>
-					<include>SettingsItemCommon</include>
+					<include content="DefaultSettingButton">
+						<param name="textwidth" value="545" />
+					</include>
+					<label>$LOCALIZE[21433]</label>
 				</control>
 				<control type="label" id="1101">
-					<description>Name Label</description>
+					<description>Playlist options header</description>
 					<width>700</width>
+					<include>DefaultSettingLabel</include>
+					<height>91</height>
 					<label>$LOCALIZE[31042]</label>
-					<include>SettingsLabelCommon</include>
 				</control>
 				<control type="button" id="16">
+					<description>Items must match</description>
 					<width>700</width>
+					<include content="DefaultSettingButton">
+						<param name="textwidth" value="545" />
+					</include>
 					<label>$LOCALIZE[21424]</label>
-					<include>SettingsItemCommon</include>
 				</control>
 				<control type="button" id="17">
+					<description>Limit to</description>
 					<width>700</width>
+					<include content="DefaultSettingButton">
+						<param name="textwidth" value="545" />
+					</include>
 					<label>$LOCALIZE[21427]</label>
-					<include>SettingsItemCommon</include>
 				</control>
 				<control type="button" id="18">
-					<label>$LOCALIZE[21429]</label>
+					<description>Order by</description>
 					<width>700</width>
-					<include>SettingsItemCommon</include>
+					<include content="DefaultSettingButton">
+						<param name="textwidth" value="545" />
+					</include>
+					<label>$LOCALIZE[21429]</label>
 				</control>
 				<control type="button" id="19">
+					<description>Order direction</description>
 					<width>700</width>
-					<include>SettingsItemCommon</include>
+					<include content="DefaultSettingButton">
+						<param name="textwidth" value="545" />
+					</include>
 					<label>$LOCALIZE[31032]</label>
 				</control>
 				<control type="button" id="23">
+					<description>Group by</description>
 					<width>700</width>
+					<include content="DefaultSettingButton">
+						<param name="textwidth" value="545" />
+					</include>
 					<label>$LOCALIZE[21458]</label>
-					<include>SettingsItemCommon</include>
 				</control>
 				<control type="radiobutton" id="24">
+					<description>Group mixed</description>
 					<width>700</width>
-					<include>SettingsItemCommon</include>
+					<include content="DefaultSettingButton">
+						<param name="radioposx" value="625" />
+						<param name="textwidth" value="545" />
+					</include>
 					<label>$LOCALIZE[467]: $LOCALIZE[21459]</label>
 				</control>
 			</control>
-			<control type="image">
-				<left>720</left>
-				<top>95</top>
-				<width>640</width>
-				<height>530</height>
-				<texture border="40">buttons/dialogbutton-nofo.png</texture>
-			</control>
 			<control type="list" id="10">
 				<description>Rules List Control</description>
-				<left>740</left>
-				<top>115</top>
-				<width>600</width>
-				<height>480</height>
+				<left>769</left>
+				<top>130</top>
+				<width>621</width>
+				<height>732</height>
 				<onleft>500</onleft>
 				<onright>9001</onright>
+				<onup>10</onup>
+				<ondown>10</ondown>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
 				<orientation>vertical</orientation>
 				<include content="DefaultSimpleListLayout">
-					<param name="width" value="600" />
+					<param name="width" value="621" />
 					<param name="list_id" value="10" />
-					<param name="diffuse" value="colors/white.png" />
 				</include>
 			</control>
 			<control type="textbox">
-				<left>740</left>
-				<top>620</top>
-				<width>610</width>
-				<height>348</height>
+				<description>Help text</description>
+				<left>1470</left>
+				<top>348</top>
+				<width>310</width>
+				<height>601</height>
 				<aligny>top</aligny>
+				<align>left</align>
+				<font>addonsettings_desc</font>
+				<textcolor>unfocused_text</textcolor>
+				<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
 				<label>$LOCALIZE[31043]</label>
-				<textcolor>grey</textcolor>
-				<font>font12</font>
+			</control>
+			<control type="image">
+				<description>Divider before the dialog buttons</description>
+				<left>1430</left>
+				<top>130</top>
+				<width>1</width>
+				<height>819</height>
+				<texture colordiffuse="$VAR[FocusColorTheme]">colors/greyer.png</texture>
 			</control>
 			<control type="grouplist" id="9001">
-				<orientation>vertical</orientation>
-				<left>1380</left>
-				<width>1300</width>
-				<itemgap>dialogbuttons_itemgap</itemgap>
-				<top>100</top>
+				<description>Dialog buttons</description>
+				<left>1470</left>
+				<top>130</top>
+				<width>310</width>
+				<height>189</height>
 				<onleft>10</onleft>
 				<onright>500</onright>
+				<onup>9001</onup>
+				<ondown>9001</ondown>
+				<itemgap>dialogbuttons_itemgap</itemgap>
+				<orientation>vertical</orientation>
 				<include content="DefaultDialogButton">
 					<param name="id" value="20" />
+					<param name="width" value="310" />
 					<param name="label" value="$LOCALIZE[186]" />
 				</include>
 				<include content="DefaultDialogButton">
 					<param name="id" value="21" />
+					<param name="width" value="310" />
 					<param name="label" value="$LOCALIZE[222]" />
 				</include>
 			</control>
