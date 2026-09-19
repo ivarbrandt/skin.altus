@@ -10,7 +10,7 @@
     <value condition="String.IsEmpty(ListItem.EpgEventTitle)">$INFO[ListItem.Label]</value>
     <value>$INFO[ListItem.ChannelName]</value>
 	</variable> -->
-	<variable name="PVRMySearchLabel1Var">
+	<variable name="PVRListItemChannelLabelVar">
 		<value condition="!String.IsEmpty(ListItem.ChannelName)">$INFO[ListItem.ChannelName]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
@@ -693,10 +693,6 @@
 	<variable name="SeasonEpisodeAndNameLabel">
     <value>$VAR[SeasonEpisodeLabel]$VAR[EpisodeNameLabel]</value>
 	</variable>
-	<variable name="PVRIconDiffuse">
-    <value condition="ListItem.IsFolder">$VAR[FocusedTextColorVar]</value>
-    <value></value>
-	</variable>
 	<variable name="VideoPlayerSeasonEpisodeAndNameLabel">
 		<value condition="!String.IsEmpty(VideoPlayer.Season)">[COLOR button_focus][CAPITALIZE]$LOCALIZE[36906]:[/CAPITALIZE][/COLOR] $INFO[VideoPlayer.Season,S]$INFO[VideoPlayer.Episode,E]$INFO[VideoPlayer.EpisodePart,/]$INFO[VideoPlayer.EpisodeName, - ]</value>
 		<value condition="!String.IsEmpty(VideoPlayer.Episode)">[COLOR button_focus][CAPITALIZE]$LOCALIZE[36906]:[/CAPITALIZE][/COLOR] $INFO[VideoPlayer.Episode]$INFO[VideoPlayer.EpisodePart,/]$INFO[VideoPlayer.EpisodeName, - ]</value>
@@ -760,16 +756,119 @@
 		<value condition="!String.IsEmpty(ListItem.NextTitle)">$LOCALIZE[209]: $INFO[ListItem.NextTitle]</value>
 	</variable>
 	<variable name="PVRListItemSubLabel">
-		<value condition="ListItem.IsFolder">[COLOR grey]$INFO[ListItem.Timertype][/COLOR]</value>
-		<value condition="$EXP[listitem_has_episode_info] + !String.IsEmpty(ListItem.EpgEventTitle) + !String.StartsWith(ListItem.EpisodeName,ListItem.EpgEventTitle)">$INFO[ListItem.EpgEventTitle] | [COLOR grey]$VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName][/COLOR]</value>
-		<value condition="$EXP[listitem_has_episode_info]">[COLOR grey]$VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName][/COLOR]</value>
-		<value>$INFO[ListItem.EpgEventTitle]</value>
+		<value condition="ListItem.IsFolder">[LIGHT][COLOR grey]$INFO[ListItem.Timertype][/COLOR][/LIGHT]</value>
+		<value condition="$EXP[listitem_has_episode_info] + !String.IsEmpty(ListItem.EpgEventTitle) + !String.StartsWith(ListItem.EpisodeName,ListItem.EpgEventTitle)">[LIGHT]$INFO[ListItem.EpgEventTitle] | [COLOR grey]$VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName][/COLOR][/LIGHT]</value>
+		<value condition="$EXP[listitem_has_episode_info]">[LIGHT][COLOR grey]$VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName][/COLOR][/LIGHT]</value>
+		<value>[LIGHT]$INFO[ListItem.EpgEventTitle][/LIGHT]</value>
 	</variable>
 	<variable name="PVRListItemSubLabelFocused">
-		<value condition="ListItem.IsFolder">$INFO[ListItem.Timertype]</value>
-		<value condition="$EXP[listitem_has_episode_info] + !String.IsEmpty(ListItem.EpgEventTitle) + !String.StartsWith(ListItem.EpisodeName,ListItem.EpgEventTitle)">$INFO[ListItem.EpgEventTitle] | $VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName]</value>
-		<value condition="$EXP[listitem_has_episode_info]">$VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName]</value>
-		<value>$INFO[ListItem.EpgEventTitle]</value>
+		<value condition="ListItem.IsFolder">[LIGHT]$INFO[ListItem.Timertype][/LIGHT]</value>
+		<value condition="$EXP[listitem_has_episode_info] + !String.IsEmpty(ListItem.EpgEventTitle) + !String.StartsWith(ListItem.EpisodeName,ListItem.EpgEventTitle)">[LIGHT]$INFO[ListItem.EpgEventTitle] | $VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName][/LIGHT]</value>
+		<value condition="$EXP[listitem_has_episode_info]">[LIGHT]$VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName][/LIGHT]</value>
+		<value>[LIGHT]$INFO[ListItem.EpgEventTitle][/LIGHT]</value>
+	</variable>
+	<variable name="PVRProgressWheelVar">
+		<value condition="Integer.IsGreater(ListItem.Progress,99)">progress/unwatched/100.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,98)">progress/unwatched/99.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,97)">progress/unwatched/98.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,96)">progress/unwatched/97.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,95)">progress/unwatched/96.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,94)">progress/unwatched/95.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,93)">progress/unwatched/94.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,92)">progress/unwatched/93.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,91)">progress/unwatched/92.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,90)">progress/unwatched/91.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,89)">progress/unwatched/90.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,88)">progress/unwatched/89.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,87)">progress/unwatched/88.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,86)">progress/unwatched/87.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,85)">progress/unwatched/86.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,84)">progress/unwatched/85.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,83)">progress/unwatched/84.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,82)">progress/unwatched/83.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,81)">progress/unwatched/82.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,80)">progress/unwatched/81.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,79)">progress/unwatched/80.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,78)">progress/unwatched/79.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,77)">progress/unwatched/78.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,76)">progress/unwatched/77.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,75)">progress/unwatched/76.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,74)">progress/unwatched/75.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,73)">progress/unwatched/74.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,72)">progress/unwatched/73.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,71)">progress/unwatched/72.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,70)">progress/unwatched/71.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,69)">progress/unwatched/70.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,68)">progress/unwatched/69.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,67)">progress/unwatched/68.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,66)">progress/unwatched/67.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,65)">progress/unwatched/66.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,64)">progress/unwatched/65.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,63)">progress/unwatched/64.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,62)">progress/unwatched/63.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,61)">progress/unwatched/62.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,60)">progress/unwatched/61.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,59)">progress/unwatched/60.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,58)">progress/unwatched/59.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,57)">progress/unwatched/58.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,56)">progress/unwatched/57.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,55)">progress/unwatched/56.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,54)">progress/unwatched/55.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,53)">progress/unwatched/54.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,52)">progress/unwatched/53.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,51)">progress/unwatched/52.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,50)">progress/unwatched/51.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,49)">progress/unwatched/50.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,48)">progress/unwatched/49.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,47)">progress/unwatched/48.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,46)">progress/unwatched/47.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,45)">progress/unwatched/46.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,44)">progress/unwatched/45.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,43)">progress/unwatched/44.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,42)">progress/unwatched/43.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,41)">progress/unwatched/42.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,40)">progress/unwatched/41.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,39)">progress/unwatched/40.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,38)">progress/unwatched/39.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,37)">progress/unwatched/38.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,36)">progress/unwatched/37.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,35)">progress/unwatched/36.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,34)">progress/unwatched/35.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,33)">progress/unwatched/34.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,32)">progress/unwatched/33.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,31)">progress/unwatched/32.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,30)">progress/unwatched/31.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,29)">progress/unwatched/30.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,28)">progress/unwatched/29.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,27)">progress/unwatched/28.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,26)">progress/unwatched/27.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,25)">progress/unwatched/26.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,24)">progress/unwatched/25.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,23)">progress/unwatched/24.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,22)">progress/unwatched/23.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,21)">progress/unwatched/22.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,20)">progress/unwatched/21.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,19)">progress/unwatched/20.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,18)">progress/unwatched/19.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,17)">progress/unwatched/18.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,16)">progress/unwatched/17.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,15)">progress/unwatched/16.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,14)">progress/unwatched/15.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,13)">progress/unwatched/14.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,12)">progress/unwatched/13.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,11)">progress/unwatched/12.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,10)">progress/unwatched/11.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,9)">progress/unwatched/10.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,8)">progress/unwatched/9.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,7)">progress/unwatched/8.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,6)">progress/unwatched/7.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,5)">progress/unwatched/6.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,4)">progress/unwatched/5.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,3)">progress/unwatched/4.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,2)">progress/unwatched/3.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,1)">progress/unwatched/2.png</value>
+		<value condition="Integer.IsGreater(ListItem.Progress,0)">progress/unwatched/1.png</value>
+		<value></value>
 	</variable>
 	<variable name="PVRInfoPanelDateDurationLabel">
 		<value condition="!String.IsEmpty(ListItem.StartDate) + !String.IsEmpty(ListItem.StartTime)">$INFO[ListItem.StartDate,[COLOR grey]$LOCALIZE[552]:[/COLOR] ,[CR]]$INFO[ListItem.StartTime,[COLOR grey]$LOCALIZE[555]:[/COLOR] ,[CR]]$INFO[ListItem.Duration,[COLOR grey]$LOCALIZE[180]:[/COLOR] ]</value>

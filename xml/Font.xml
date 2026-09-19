@@ -125,6 +125,13 @@
 			<style>light uppercase</style>
 		</font>
 		<font>
+			<name>eps_26</name>
+			<filename>Nick-Titling.ttf</filename>
+			<size>26</size>
+			<aspect>0.85</aspect>
+			<style>light uppercase</style>
+		</font>
+		<font>
 			<name>eps_51</name>
 			<filename>Nick-Titling.ttf</filename>
 			<size>34</size>

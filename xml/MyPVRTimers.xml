@@ -15,13 +15,13 @@
 					<right>768</right>
 					<align>center</align>
 					<top>105</top>
-					<bottom>40</bottom>
+					<height>935</height>
 					<onleft>73</onleft>
 					<onright>73</onright>
 					<onup>50</onup>
 					<ondown>50</ondown>
-					<movement>12</movement>
-					<focusposition>3</focusposition>
+					<movement>2</movement>
+					<focusposition>2</focusposition>
 					<pagecontrol>73</pagecontrol>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<include content="PVRListItemLayouts">
@@ -29,10 +29,13 @@
 						<param name="only_label_condition" value="String.IsEmpty(ListItem.Date)" />
 						<param name="info_icon" value="$VAR[ListPVRTimersIconVar]" />
 						<param name="has_info_icon" value="true" />
-						<param name="label1" value="$INFO[ListItem.Label]" />
-						<param name="label2" value="$INFO[ListItem.Date]" />
-						<param name="label4_font_unfocused" value="font27" />
-						<param name="label4_font_focused" value="font27" />
+						<param name="label1" value="$VAR[PVRListItemChannelLabelVar]" />
+						<param name="label_right" value="330" />
+						<param name="right_label_width" value="250" />
+						<param name="meta_left" value="166" />
+						<param name="progress_visible" value="false" />
+						<param name="meta_label" value="$INFO[ListItem.Date]" />
+						<param name="meta_visible" value="!String.IsEmpty(ListItem.Date)" />
 					</include>
 				</control>
 			</control>
@@ -41,7 +44,7 @@
 				<left>0</left>
 				<top>105</top>
 				<width>8</width>
-				<height>936</height>
+				<height>906</height>
 				<onleft>9000</onleft>
 				<onright>50</onright>
 				<orientation>vertical</orientation>
