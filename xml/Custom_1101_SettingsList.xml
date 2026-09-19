@@ -19,14 +19,12 @@
 				<include content="DialogBackgroundCommons">
 					<param name="header_label" value="$INFO[Window(home).Property(settingslist_Header)]" />
 					<param name="header_id" value="1" />
-					<param name="blur" value="false" />
+					<param name="blur" value="true" />
+					<param name="blur_mask" value="masks/settingslist.png" />
 					<param name="width" value="700" />
 					<param name="top" value="40" />
 					<param name="bottom" value="40" />
 					<param name="right" value="-42" />
-					<param name="diffuse_texture" value="masks/radius_46_left.png" />
-					<param name="border_texture" value="masks/bordertexture-46-thin_left.png" />
-					<param name="border_value" value="46,46,0,46" />
 				</include>
 			</control>
 			<control type="group" id="11000">
@@ -35,7 +33,7 @@
 				<control type="grouplist" id="11100">
 					<visible>String.IsEqual(window(home).Property(settingslist_content),osd)</visible>
 					<width>620</width>
-					<height>700</height>
+					<height>637</height>
 					<itemgap>0</itemgap>
 					<onup>11100</onup>
 					<ondown>11100</ondown>
@@ -107,7 +105,7 @@
 				<control type="grouplist" id="13100">
 					<visible>String.IsEqual(window(home).Property(settingslist_content),3d)</visible>
 					<width>620</width>
-					<height>360</height>
+					<height>273</height>
 					<itemgap>0</itemgap>
 					<onup>13100</onup>
 					<ondown>13100</ondown>
@@ -115,7 +113,8 @@
 					<control type="radiobutton" id="13101">
 						<width>620</width>
 						<include>DialogSettingButton</include>
-						<radioposx>590</radioposx>
+						<radioposx>545</radioposx>
+						<textwidth>465</textwidth>
 						<label>$LOCALIZE[24022]</label>
 						<onclick>ToggleStereoMode</onclick>
 						<selected>Integer.IsGreater(System.StereoscopicMode,0)</selected>
@@ -130,7 +129,8 @@
 					<control type="radiobutton" id="13103">
 						<width>620</width>
 						<include>DialogSettingButton</include>
-						<radioposx>590</radioposx>
+						<radioposx>545</radioposx>
+						<textwidth>465</textwidth>
 						<label>$LOCALIZE[31005]</label>
 						<onclick>StereoModeToMono</onclick>
 						<selected>Integer.IsEqual(System.StereoscopicMode,9)</selected>
@@ -140,7 +140,7 @@
 					<defaultcontrol always="true">14101</defaultcontrol>
 					<visible>String.IsEqual(window(home).Property(settingslist_content),games)</visible>
 					<width>620</width>
-					<height>500</height>
+					<height>637</height>
 					<itemgap>0</itemgap>
 					<onup>14100</onup>
 					<ondown>14100</ondown>
@@ -196,12 +196,12 @@
 						<onclick>ActivateWindow(GameAdvancedSettings)</onclick>
 					</control>
 				</control>
-				<include content="UpDownArrows">
+				<!-- <include content="UpDownArrows">
 					<param name="container_id" value="11100" />
 					<param name="posx" value="326" />
 					<param name="up_posy" value="-135" />
 					<param name="down_posy" value="360" />
-				</include>
+				</include> -->
 			</control>
 		</control>
 	</controls>

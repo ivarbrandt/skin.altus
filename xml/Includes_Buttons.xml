@@ -84,17 +84,19 @@
 		</definition>
 	</include>
 	<include name="DialogSettingButton">
-		<param name="height">70</param>
+		<param name="height">91</param>
 		<param name="textoffsetx">40</param>
 		<definition>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
 			<top>0</top>
 			<height>$PARAM[height]</height>
 			<aligny>center</aligny>
-			<font>font14</font>
+			<font>font32_bold</font>
 			<invalidcolor>invalid</invalidcolor>
 			<selectedcolor>selected</selectedcolor>
-			<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
+			<textcolor>unfocused_text</textcolor>
+			<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
+			<texturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">masks/pill40_focus.png</texturefocus>
 			<texturenofocus/>
 		</definition>
 	</include>

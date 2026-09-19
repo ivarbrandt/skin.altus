@@ -7,7 +7,7 @@
 			<centerleft>50%</centerleft>
 			<width>600</width>
 			<centertop>50%</centertop>
-			<height>700</height>
+			<height>757</height>
 			<include content="DialogBackgroundCommons">
 				<!-- <param name="width" value="600" />
 				<param name="height" value="80" /> -->
@@ -21,7 +21,7 @@
 				<top>80</top>
 				<control type="grouplist" id="5000">
 					<width>600</width>
-					<height>700</height>
+					<height>637</height>
 					<itemgap>0</itemgap>
 					<onup>5000</onup>
 					<ondown>5000</ondown>
