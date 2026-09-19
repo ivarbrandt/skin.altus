@@ -13,6 +13,11 @@
 				<height>355</height>
 				<control type="image">
 					<texture colordiffuse="4D000000">masks/small-square.png</texture>
+					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</visible>
+				</control>
+				<control type="image">
+					<texture colordiffuse="A6000000">masks/small-square.png</texture>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
 				</control>
 				<include content="FocusBorder">
 					<param name="list_id" value="$PARAM[list_id]"/>

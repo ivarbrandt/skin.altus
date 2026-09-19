@@ -739,6 +739,20 @@
 	<variable name="AddonNewsVar">
 		<value condition="!String.IsEmpty(ListItem.AddonNews)">$LOCALIZE[31136]</value>
 	</variable>
+	<variable name="PVRDurationVar">
+		<value condition="Integer.IsGreater(ListItem.Duration(h),0) + Integer.IsGreater(ListItem.Duration(m),0)">$INFO[ListItem.Duration(h),,h ]$INFO[ListItem.Duration(m),,m]</value>
+		<value condition="Integer.IsGreater(ListItem.Duration(h),0)">$INFO[ListItem.Duration(h),,h]</value>
+		<value>$INFO[ListItem.Duration(m),,m]</value>
+	</variable>
+	<variable name="WidgetPVRTimeLabelVar">
+		<value condition="ListItem.HasEpg + Integer.IsGreater(ListItem.Progress,0) + !String.IsEmpty(ListItem.Duration)">$VAR[PVRDurationVar] • $LOCALIZE[31080] $INFO[ListItem.EndTime]</value>
+		<value condition="ListItem.HasEpg + Integer.IsGreater(ListItem.Progress,0)">$LOCALIZE[31080] $INFO[ListItem.EndTime]</value>
+		<value>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</value>
+	</variable>
+	<variable name="PVRMetaEndsAtVar">
+		<value condition="!String.IsEmpty(ListItem.Duration)">$VAR[PVRDurationVar] • $LOCALIZE[31080] $INFO[ListItem.EndTime]</value>
+		<value>$LOCALIZE[31080] $INFO[ListItem.EndTime]</value>
+	</variable>
 	<variable name="WidgetUnfocusedPVRNextProgrammeLabel">
 		<value condition="!String.IsEmpty(ListItem.NextStartTime) + !String.IsEmpty(ListItem.NextTitle)">[COLOR grey]$LOCALIZE[209]:[/COLOR] $INFO[ListItem.NextTitle]</value>
 		<value condition="!String.IsEmpty(ListItem.NextTitle)">[COLOR grey]$LOCALIZE[209]:[/COLOR] $INFO[ListItem.NextTitle]</value>
@@ -766,6 +780,10 @@
 		<value condition="$EXP[listitem_has_episode_info] + !String.IsEmpty(ListItem.EpgEventTitle) + !String.StartsWith(ListItem.EpisodeName,ListItem.EpgEventTitle)">[LIGHT]$INFO[ListItem.EpgEventTitle] | $VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName][/LIGHT]</value>
 		<value condition="$EXP[listitem_has_episode_info]">[LIGHT]$VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName][/LIGHT]</value>
 		<value>[LIGHT]$INFO[ListItem.EpgEventTitle][/LIGHT]</value>
+	</variable>
+	<variable name="PVRProgressWheelColorVar">
+		<value condition="ListItem.IsRecording">red</value>
+		<value>dim_text</value>
 	</variable>
 	<variable name="PVRProgressWheelVar">
 		<value condition="Integer.IsGreater(ListItem.Progress,99)">progress/unwatched/100.png</value>

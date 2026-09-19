@@ -55,8 +55,8 @@
 					<left>458</left>
 					<top>105</top>
 					<right>650</right>
-					<height>946</height>
-					<movement>6</movement>
+					<height>945</height>
+					<movement>4</movement>
 					<focusposition>4</focusposition>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<animation effect="slide" start="0,0" end="-418,0" time="400" tween="cubic" easing="inout" condition="Control.HasFocus(51) | Control.HasFocus(74)">Conditional</animation>
@@ -92,7 +92,7 @@
 					<left>0</left>
 					<top>105</top>
 					<width>8</width>
-					<height>946</height>
+					<height>929</height>
 					<onleft>49</onleft>
 					<onright>51</onright>
 					<orientation>vertical</orientation>

@@ -22,8 +22,8 @@
 					<onright>73</onright>
 					<onup>50</onup>
 					<ondown>50</ondown>
-					<movement>12</movement>
-					<focusposition>3</focusposition>
+					<movement>2</movement>
+					<focusposition>2</focusposition>
 					<pagecontrol>73</pagecontrol>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<include content="PVRListItemLayouts">
