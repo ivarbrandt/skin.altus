@@ -25,7 +25,7 @@
 					<include content="List">
 						<param name="id" value="49" />
 					</include>
-					<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="tvguide" limit="$PARAM[limit]">pvr://channels/tv</content>
+					<content target="tvguide" >pvr://channels/tv</content>
 				</control>
 				<control type="fixedlist" id="50">
 					<left>458</left>
@@ -49,7 +49,7 @@
 						<param name="has_status_icon" value="true" />
 						<param name="info_update" value="5000" />
 					</include>
-					<content sortby="lastplayed" sortorder="descending">$INFO[Container(49).ListItem.FolderPath]</content>
+					<content sortby="number" sortorder="ascending">$INFO[Container(49).ListItem.FolderPath]</content>
 				</control>
 				<control type="fixedlist" id="51">
 					<left>458</left>
@@ -72,7 +72,7 @@
 						<param name="has_status_icon" value="true" />
 						<param name="info_update" value="5000" />
 					</include>
-					<content sortby="lastplayed" sortorder="descending">$INFO[Container(49).ListItem.FolderPath]</content>
+					<content sortby="number" sortorder="ascending">$INFO[Container(49).ListItem.FolderPath]</content>
 				</control>
 				<control type="scrollbar" id="73">
 					<visible>[Control.HasFocus(50) | Control.HasFocus(73)] + !Window.IsVisible(pvrchannelguide)</visible>
