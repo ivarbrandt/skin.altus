@@ -11,11 +11,13 @@
 			<control type="group">
 				<include>OpenClose_Left</include>
 				<include>Visible_Left</include>
-				<control type="list" id="49">
+				<control type="fixedlist" id="49">
 					<left>40</left>
 					<top>105</top>
 					<width>378</width>
-					<height>936</height>
+					<height>938</height>
+					<movement>3</movement>
+					<focusposition>3</focusposition>
 					<onright condition="Control.IsVisible(50)">SetFocus(50,0,absolute)</onright>
 					<onright condition="Control.IsVisible(51)">SetFocus(51,0,absolute)</onright>
 					<onleft>9000</onleft>

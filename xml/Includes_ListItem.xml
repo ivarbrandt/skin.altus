@@ -2,7 +2,7 @@
 <includes>
 
   <include name="List">
-    <param name="height">85</param>
+    <param name="height">134</param>
     <definition>
       <focusedlayout height="$PARAM[height]" infoupdate="30">
         <control type="group">
@@ -465,43 +465,61 @@
     <param name="img_top">0</param>
     <param name="img_bottom">0</param>
     <param name="align">left</param>
-    <param name="left_right_text">30</param>
+    <param name="left_right_text">45</param>
     <!-- <param name="img_left">47</param> -->
     <param name="focused_font">font37_title</param>
-    <param name="unfocused_font">font37</param>
-    <param name="img_texture">masks/radius_23.png</param>
-    <param name="focused_text">$VAR[FocusedTextColorVar]</param>
+    <param name="unfocused_font">font37_title</param>
+    <param name="img_texture">masks/radius_46.png</param>
+    <param name="focused_text">$VAR[FocusColorTheme]</param>
     <definition>
       <control type="group">
         <control type="image">
           <top>$PARAM[img_top]</top>
-          <bottom>$PARAM[img_bottom]</bottom>
+          <bottom>32</bottom>
           <left>0</left>
           <right>0</right>
-          <texture border="23" colordiffuse="$VAR[FocusColorTheme]">$PARAM[img_texture]</texture>
+          <texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+          <visible>![Control.HasFocus($PARAM[id]) + $PARAM[focused]]</visible>
+        </control>
+        <control type="image">
+          <top>$PARAM[img_top]</top>
+          <bottom>32</bottom>
+          <left>0</left>
+          <right>0</right>
+          <texture border="46" colordiffuse="A6000000">masks/radius_46.png</texture>
+          <visible>Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
+          <include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+        </control>
+        <control type="image">
+          <top>$PARAM[img_top]</top>
+          <bottom>32</bottom>
+          <left>0</left>
+          <right>0</right>
+          <texture border="46" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46_alt.png</texture>
           <visible>Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
           <include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
         </control>
         <!-- Section icon -->
         <control type="image">
           <left>25</left>
-          <top>19</top>
+          <top>0</top>
+          <bottom>32</bottom>
           <width>47</width>
-          <height>47</height>
+          <aspectratio align="center" aligny="center">keep</aspectratio>
           <texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Property(icon)]</texture>
-          <aspectratio>keep</aspectratio>
           <visible>!String.IsEmpty(ListItem.Property(icon)) + [!Control.HasFocus($PARAM[id]) | !$PARAM[focused]]</visible>
         </control>
         <control type="image">
           <left>25</left>
-          <top>19</top>
+          <top>0</top>
+          <bottom>32</bottom>
           <width>47</width>
-          <height>47</height>
-          <texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Property(icon)]</texture>
-          <aspectratio>keep</aspectratio>
+          <aspectratio align="center" aligny="center">keep</aspectratio>
+          <texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusColorTheme]">$INFO[ListItem.Property(icon)]</texture>
           <visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
         </control>
         <control type="group">
+          <bottom>32</bottom>
           <visible>String.IsEmpty(ListItem.Property(icon))</visible>
           <control type="label">
             <left>$PARAM[left_right_text]</left>
@@ -528,22 +546,12 @@
             <scrollspeed>150</scrollspeed>
             <scroll>$PARAM[focused]</scroll>
           </control>
-          <control type="label">
-            <left>$PARAM[left_right_text]</left>
-            <right>$PARAM[left_right_text]</right>
-            <aligny>center</aligny>
-            <font>$PARAM[unfocused_font]</font>
-            <align>$PARAM[align]</align>
-            <textcolor>unfocused_text</textcolor>
-            <label>$VAR[MenuCaseVar]</label>
-            <shadowcolor>text_shadow</shadowcolor>
-            <visible>!Control.HasFocus($PARAM[id]) | !$PARAM[focused]</visible>
-          </control>
         </control>
         <control type="group">
+          <bottom>32</bottom>
           <visible>!String.IsEmpty(ListItem.Property(icon))</visible>
           <control type="label">
-            <left>87</left>
+            <left>102</left>
             <right>27</right>
             <aligny>center</aligny>
             <font>$PARAM[unfocused_font]</font>
@@ -554,7 +562,7 @@
             <visible>!Control.HasFocus($PARAM[id]) | !$PARAM[focused]</visible>
           </control>
           <control type="label">
-            <left>87</left>
+            <left>102</left>
             <right>27</right>
             <aligny>center</aligny>
             <font>$PARAM[focused_font]</font>
@@ -565,17 +573,6 @@
             <visible>Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
             <scrollspeed>150</scrollspeed>
             <scroll>$PARAM[focused]</scroll>
-          </control>
-          <control type="label">
-            <left>87</left>
-            <right>27</right>
-            <aligny>center</aligny>
-            <font>$PARAM[unfocused_font]</font>
-            <align>$PARAM[align]</align>
-            <textcolor>unfocused_text</textcolor>
-            <label>$VAR[MenuCaseVar]</label>
-            <shadowcolor>text_shadow</shadowcolor>
-            <visible>!Control.HasFocus($PARAM[id]) | !$PARAM[focused]</visible>
           </control>
         </control>
       </control>
