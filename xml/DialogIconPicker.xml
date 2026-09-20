@@ -42,29 +42,6 @@
 				<param name="blur_mask" value="masks/dialogaddonsettings.png" />
 			</include>
 
-			<!-- Background -->
-			<!-- <control type="image">
-				<left>0</left>
-				<top>0</top>
-				<right>0</right>
-				<bottom>0</bottom>
-				<texture colordiffuse="$VAR[DialogBackgroundDiffuse]">$VAR[DialogBackgroundTexture]</texture>
-				<aspectratio>scale</aspectratio>
-			</control> -->
-
-			<!-- Header label -->
-			<!-- <control type="label" id="1">
-				<left>30</left>
-				<right>30</right>
-				<top>17</top>
-				<height>50</height>
-				<label>Choose icon</label>
-				<align>left</align>
-				<aligny>center</aligny>
-				<font>font36_title</font>
-				<textcolor>unfocused_text</textcolor>
-			</control> -->
-
 			<!-- Folder list (left side) -->
 			<control type="list" id="3001">
 				<left>40</left>

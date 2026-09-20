@@ -31,10 +31,6 @@
 		<value>$INFO[Container(4000).ListItem.Property(sortorder)]</value>
 	</variable>
 
-	<variable name="WM_UnfocusedBtnClr">
-		<value>4DFFFFFF</value>
-	</variable>
-
 	<variable name="WM_WidgetLabelColor">
 		<value condition="ControlGroup(5001).HasFocus">$VAR[FocusColorTheme]</value>
 		<value>unfocused_text</value>
