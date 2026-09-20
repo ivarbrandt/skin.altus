@@ -32,8 +32,12 @@
 	</variable>
 
 	<variable name="WM_UnfocusedBtnClr">
-		<value condition="String.IsEqual(Window(home).Property(listitem_textcolor),FFFFFFFF)">60FFFFFF</value>
-		<value>40000000</value>
+		<value>4DFFFFFF</value>
+	</variable>
+
+	<variable name="WM_WidgetLabelColor">
+		<value condition="ControlGroup(5001).HasFocus">$VAR[FocusColorTheme]</value>
+		<value>unfocused_text</value>
 	</variable>
 
 	<variable name="WidgetManagerItemIcon">
@@ -48,12 +52,44 @@
 	</variable>
 	<variable name="WM_ItemIconDiffuseFocused">
 		<value condition="String.IsEqual(ListItem.Property(hidden),true)">60FFFFFF</value>
-		<value>$VAR[FocusedTextColorVar]</value>
+		<value>$VAR[FocusColorTheme]</value>
 	</variable>
+
+	<include name="WM_DetailRow">
+		<definition>
+			<control type="group">
+				<width>569</width>
+				<height>118</height>
+				<control type="button" id="$PARAM[id]">
+					<width>569</width>
+					<height>89</height>
+					<label>$PARAM[label]</label>
+					<label2>[COLOR 60FFFFFF]$PARAM[value][/COLOR]</label2>
+					<font>font32_bold</font>
+					<textoffsetx>30</textoffsetx>
+					<aligny>center</aligny>
+					<texturefocus border="33" colordiffuse="A6000000">masks/radius_33.png</texturefocus>
+					<texturenofocus border="33" colordiffuse="4D000000">masks/radius_33.png</texturenofocus>
+					<textcolor>unfocused_text</textcolor>
+					<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
+					<onleft>4000</onleft>
+					<onup>$PARAM[up]</onup>
+					<ondown>$PARAM[down]</ondown>
+				</control>
+				<control type="image">
+					<width>569</width>
+					<height>89</height>
+					<texture border="33" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-33_alt.png</texture>
+					<visible>Control.HasFocus($PARAM[id])</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
 
 	<!-- Inline icon button for widget manager lists. Used inside focusedlayout. -->
 	<include name="WM_InlineBtn">
 		<param name="btn_color">$VAR[FocusColorTheme]</param>
+		<param name="btn_dim">40</param>
 		<param name="btn_hide">false</param>
 		<param name="btn_slide_weather">false</param>
 		<definition>
@@ -67,19 +103,22 @@
 				<!-- Icon - highlighted -->
 				<control type="image">
 					<visible>String.IsEqual(Window.Property($PARAM[btn_prop]),$PARAM[btn_id])</visible>
-					<left>7</left>
+					<left>10</left>
+					<top>10</top>
 					<width>42</width>
 					<height>42</height>
-					<texture colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[btn_icon]</texture>
+					<texture colordiffuse="$PARAM[btn_color]">$PARAM[btn_icon]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<!-- Icon - normal -->
 				<control type="image">
 					<visible>!String.IsEqual(Window.Property($PARAM[btn_prop]),$PARAM[btn_id])</visible>
-					<left>7</left>
+					<left>10</left>
+					<top>10</top>
 					<width>42</width>
 					<height>42</height>
-					<texture colordiffuse="$VAR[WM_UnfocusedBtnClr]">$PARAM[btn_icon]</texture>
+					<texture colordiffuse="$PARAM[btn_color]">$PARAM[btn_icon]</texture>
+					<animation effect="fade" start="100" end="$PARAM[btn_dim]" time="0" condition="true">Conditional</animation>
 					<aspectratio>keep</aspectratio>
 				</control>
 			</control>

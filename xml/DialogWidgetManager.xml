@@ -5,34 +5,37 @@
 	<include>Animation_DialogPopupOpenClose</include>
 	<controls>
 		<control type="group">
-			<left>40</left>
-			<top>77</top>
-			<right>40</right>
-			<bottom>77</bottom>
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>1890</width>
+			<height>1045</height>
 
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="Widget Manager" />
 				<param name="header_id" value="1" />
-				<param name="blur" value="false" />
+				<param name="width" value="1890" />
+				<param name="height" value="1045" />
 				<param name="header_top" value="15" />
 				<param name="divider_top" value="90" />
+				<param name="blur" value="true" />
+				<param name="blur_mask" value="masks/dialogaddonsettings.png" />
 			</include>
 
 			<!-- ═══════════════════════════════════════ -->
 			<!-- LEFT PANEL: Sections (width 520)        -->
 			<!-- ═══════════════════════════════════════ -->
 			<control type="group">
-				<left>40</left>
+				<left>20</left>
 				<top>100</top>
-				<width>520</width>
-				<height>760</height>
+				<width>590</width>
+				<height>911</height>
 
 				<!-- Header: label + reorder indicator -->
 				<control type="grouplist">
 					<left>20</left>
 					<top>10</top>
-					<width>480</width>
-					<height>43</height>
+					<width>550</width>
+					<height>55</height>
 					<orientation>horizontal</orientation>
 					<itemgap>2</itemgap>
 					<align>left</align>
@@ -40,9 +43,9 @@
 					<!-- Section label (normal mode) -->
 					<control type="label">
 						<width>auto</width>
-						<height>43</height>
+						<height>55</height>
 						<label>Sections</label>
-						<font>font27_title</font>
+						<font>font36_title</font>
 						<textcolor>$VAR[FocusColorTheme]</textcolor>
 						<visible>String.IsEmpty(Window.Property(submenu_mode))</visible>
 					</control>
@@ -50,25 +53,25 @@
 					<!-- Section label (submenu mode) -->
 					<control type="label">
 						<width>auto</width>
-						<height>43</height>
+						<height>55</height>
 						<label>$INFO[Window.Property(submenu_header)]</label>
-						<font>font27_title</font>
+						<font>font36_title</font>
 						<textcolor>$VAR[FocusColorTheme]</textcolor>
 						<visible>!String.IsEmpty(Window.Property(submenu_mode))</visible>
 					</control>
 
 					<!-- Reorder indicator icon -->
 					<control type="group">
-						<width>40</width>
-						<height>50</height>
+						<width>42</width>
+						<height>55</height>
 						<visible>!String.IsEmpty(Window.Property(reorder_sections))</visible>
 						<animation effect="fade" time="200">VisibleChange</animation>
 						<control type="image">
-							<top>4</top>
-							<width>35</width>
-							<width>35</width>
+							<top>5</top>
+							<height>55</height>
+							<width>37</width>
 							<texture colordiffuse="$VAR[FocusColorTheme]">buttons/widget_manager/reorder.png</texture>
-							<aspectratio>keep</aspectratio>
+							<aspectratio aligny="center">keep</aspectratio>
 						</control>
 					</control>
 				</control>
@@ -76,7 +79,7 @@
 				<!-- Add Section button (visible when list is empty, normal mode) -->
 				<control type="button" id="3500">
 					<left>20</left>
-					<top>65</top>
+					<top>85</top>
 					<right>20</right>
 					<height>65</height>
 					<label>$INFO[Window.Property(add_section_label)]</label>
@@ -93,27 +96,36 @@
 				<!-- Sections list -->
 				<control type="list" id="3000">
 					<left>20</left>
-					<top>65</top>
+					<top>85</top>
 					<right>20</right>
-					<height>715</height>
+					<height>826</height>
 					<scrolltime tween="cubic" easing="out">300</scrolltime>
 					<pagecontrol>3001</pagecontrol>
-					<itemlayout width="480" height="65">
+					<itemlayout width="550" height="118">
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<right>0</right>
+							<height>89</height>
+							<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
+						</control>
 						<!-- Icon -->
 						<control type="image">
-							<left>25</left>
-							<width>30</width>
+							<left>38</left>
+							<top>0</top>
+							<height>89</height>
+							<width>48</width>
 							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuse]">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio aligny="center">keep</aspectratio>
 							<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 						</control>
 						<!-- Label (no icon) -->
 						<control type="label">
-							<left>20</left>
+							<left>33</left>
 							<top>0</top>
 							<right>10</right>
-							<height>65</height>
-							<font>font32</font>
+							<height>89</height>
+							<font>font32_bold</font>
 							<textcolor>unfocused_text</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<aligny>center</aligny>
@@ -121,75 +133,77 @@
 						</control>
 						<!-- Label (with icon) -->
 						<control type="label">
-							<left>68</left>
+							<left>99</left>
 							<top>0</top>
 							<right>10</right>
-							<height>65</height>
-							<font>font32</font>
+							<height>89</height>
+							<font>font32_bold</font>
 							<textcolor>unfocused_text</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<aligny>center</aligny>
 							<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 						</control>
 					</itemlayout>
-					<focusedlayout width="480" height="65">
+					<focusedlayout width="550" height="118">
 						<!-- Focus background -->
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
 							<right>0</right>
-							<height>65</height>
-							<texture border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texture>
-							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(3000)">Conditional</animation>
+							<height>89</height>
+							<texture border="33" colordiffuse="A6000000">masks/radius_33.png</texture>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<right>0</right>
+							<height>89</height>
+							<texture border="33" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-33_alt.png</texture>
+							<visible>Control.HasFocus(3000)</visible>
 						</control>
 						<!-- Icon -->
 						<control type="image">
-							<left>25</left>
-							<width>30</width>
-							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuse]">$VAR[WidgetManagerItemIcon]</texture>
-							<aspectratio aligny="center">keep</aspectratio>
-							<visible>!String.IsEmpty(ListItem.Property(icon)) + !Control.HasFocus(3000)</visible>
-						</control>
-						<control type="image">
-							<left>25</left>
-							<width>30</width>
+							<left>38</left>
+							<top>0</top>
+							<height>89</height>
+							<width>48</width>
 							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[WM_ItemIconDiffuseFocused]">$VAR[WidgetManagerItemIcon]</texture>
 							<aspectratio aligny="center">keep</aspectratio>
-							<visible>!String.IsEmpty(ListItem.Property(icon)) + Control.HasFocus(3000)</visible>
+							<visible>!String.IsEmpty(ListItem.Property(icon))</visible>
 						</control>
 						<!-- Label - unfocused (no icon) -->
 						<control type="label">
 							<visible>!Control.HasFocus(3000) + String.IsEmpty(ListItem.Property(icon))</visible>
-							<left>20</left>
+							<left>33</left>
 							<top>0</top>
 							<right>10</right>
-							<height>65</height>
-							<font>font32</font>
-							<textcolor>unfocused_text</textcolor>
+							<height>89</height>
+							<font>font32_bold</font>
+							<textcolor>$VAR[FocusColorTheme]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<aligny>center</aligny>
 						</control>
 						<!-- Label - unfocused (with icon) -->
 						<control type="label">
 							<visible>!Control.HasFocus(3000) + !String.IsEmpty(ListItem.Property(icon))</visible>
-							<left>68</left>
+							<left>99</left>
 							<top>0</top>
 							<right>10</right>
-							<height>65</height>
-							<font>font32</font>
-							<textcolor>unfocused_text</textcolor>
+							<height>89</height>
+							<font>font32_bold</font>
+							<textcolor>$VAR[FocusColorTheme]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<aligny>center</aligny>
 						</control>
 						<!-- Label - focused (no icon) -->
 						<control type="label">
 							<visible>Control.HasFocus(3000) + String.IsEmpty(ListItem.Property(icon))</visible>
-							<left>20</left>
+							<left>33</left>
 							<top>0</top>
 							<right>205</right>
-							<height>65</height>
-							<font>font32</font>
-							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+							<height>89</height>
+							<font>font32_bold</font>
+							<textcolor>$VAR[FocusColorTheme]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<aligny>center</aligny>
 							<scroll>true</scroll>
@@ -198,12 +212,12 @@
 						<!-- Label - focused (with icon) -->
 						<control type="label">
 							<visible>Control.HasFocus(3000) + !String.IsEmpty(ListItem.Property(icon))</visible>
-							<left>68</left>
+							<left>99</left>
 							<top>0</top>
 							<right>205</right>
-							<height>65</height>
-							<font>font32</font>
-							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+							<height>89</height>
+							<font>font32_bold</font>
+							<textcolor>$VAR[FocusColorTheme]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<aligny>center</aligny>
 							<scroll>true</scroll>
@@ -214,8 +228,8 @@
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="add" />
 							<param name="btn_icon" value="buttons/widget_manager/add.png" />
-							<param name="btn_left" value="280" />
-							<param name="btn_top" value="10" />
+							<param name="btn_left" value="329" />
+							<param name="btn_top" value="14" />
 							<param name="list_id" value="3000" />
 							<param name="btn_prop" value="section_active_btn" />
 							<param name="btn_slide_weather" value="true" />
@@ -223,8 +237,8 @@
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="edit" />
 							<param name="btn_icon" value="buttons/widget_manager/edit.png" />
-							<param name="btn_left" value="327" />
-							<param name="btn_top" value="10" />
+							<param name="btn_left" value="376" />
+							<param name="btn_top" value="14" />
 							<param name="list_id" value="3000" />
 							<param name="btn_prop" value="section_active_btn" />
 							<param name="btn_hide" value="String.IsEqual(Window.Property(weather_section),true)" />
@@ -232,16 +246,16 @@
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="reorder" />
 							<param name="btn_icon" value="buttons/widget_manager/reorder.png" />
-							<param name="btn_left" value="374" />
-							<param name="btn_top" value="10" />
+							<param name="btn_left" value="423" />
+							<param name="btn_top" value="14" />
 							<param name="list_id" value="3000" />
 							<param name="btn_prop" value="section_active_btn" />
 						</include>
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="delete" />
 							<param name="btn_icon" value="buttons/widget_manager/trash.png" />
-							<param name="btn_left" value="421" />
-							<param name="btn_top" value="10" />
+							<param name="btn_left" value="470" />
+							<param name="btn_top" value="14" />
 							<param name="list_id" value="3000" />
 							<param name="btn_prop" value="section_active_btn" />
 						</include>
@@ -251,19 +265,19 @@
 
 				<!-- Right divider -->
 				<control type="image">
-					<left>530</left>
-					<top>20</top>
+					<left>600</left>
+					<top>77</top>
 					<width>1</width>
-					<height>760</height>
-					<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
+					<height>834</height>
+					<texture colordiffuse="$VAR[FocusColorTheme]">colors/greyer.png</texture>
 				</control>
 
 				<!-- Scrollbar -->
 				<control type="scrollbar" id="3001">
-					<left>530</left>
-					<top>20</top>
-					<width>1</width>
-					<height>760</height>
+					<left>599</left>
+					<top>77</top>
+					<width>3</width>
+					<height>834</height>
 					<orientation>vertical</orientation>
 					<texturesliderbackground/>
 					<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
@@ -277,17 +291,17 @@
 			<!-- MIDDLE PANEL: Widgets (581 to 1211)      -->
 			<!-- ═══════════════════════════════════════ -->
 			<control type="group">
-				<left>581</left>
+				<left>631</left>
 				<top>100</top>
 				<width>609</width>
-				<height>760</height>
+				<height>911</height>
 
 				<!-- Header: label + reorder indicator -->
 				<control type="grouplist">
 					<left>20</left>
 					<top>10</top>
 					<width>569</width>
-					<height>43</height>
+					<height>55</height>
 					<orientation>horizontal</orientation>
 					<itemgap>2</itemgap>
 					<align>left</align>
@@ -295,24 +309,24 @@
 					<!-- Widget label -->
 					<control type="label">
 						<width>auto</width>
-						<height>43</height>
+						<height>55</height>
 						<label>Widgets</label>
-						<font>font27_title</font>
+						<font>font36_title</font>
 						<textcolor>$VAR[FocusColorTheme]</textcolor>
 					</control>
 
 					<!-- Reorder indicator icon -->
 					<control type="group">
-						<width>40</width>
-						<height>50</height>
+						<width>42</width>
+						<height>55</height>
 						<visible>!String.IsEmpty(Window.Property(reorder_widgets))</visible>
 						<animation effect="fade" time="200">VisibleChange</animation>
 						<control type="image">
-							<top>4</top>
-							<width>35</width>
-							<width>35</width>
+							<top>5</top>
+							<height>55</height>
+							<width>37</width>
 							<texture colordiffuse="$VAR[FocusColorTheme]">buttons/widget_manager/reorder.png</texture>
-							<aspectratio>keep</aspectratio>
+							<aspectratio aligny="center">keep</aspectratio>
 						</control>
 					</control>
 				</control>
@@ -320,7 +334,7 @@
 				<!-- Add Widget button (visible when list is empty) -->
 				<control type="button" id="4500">
 					<left>20</left>
-					<top>65</top>
+					<top>85</top>
 					<right>20</right>
 					<height>65</height>
 					<label>Add Widget...</label>
@@ -338,65 +352,87 @@
 				<!-- Widgets list -->
 				<control type="list" id="4000">
 					<left>20</left>
-					<top>65</top>
+					<top>85</top>
 					<right>20</right>
-					<height>715</height>
+					<height>822</height>
 					<scrolltime tween="cubic" easing="out">300</scrolltime>
 					<pagecontrol>4001</pagecontrol>
-					<itemlayout width="569" height="89">
+					<itemlayout width="569" height="137">
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<right>0</right>
+							<height>108</height>
+							<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
+						</control>
 						<control type="label">
-							<left>20</left>
-							<top>-3</top>
+							<left>38</left>
+							<top>8</top>
 							<right>10</right>
-							<height>34</height>
-							<font>font32</font>
+							<height>40</height>
+							<font>font32_bold</font>
 							<textcolor>unfocused_text</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<aligny>top</aligny>
 						</control>
 						<control type="label">
-							<left>20</left>
-							<top>35</top>
+							<left>38</left>
+							<bottom>55</bottom>
 							<right>10</right>
-							<height>25</height>
-							<font>font23</font>
+							<height>34</height>
+							<font>font23_title</font>
 							<textcolor>60FFFFFF</textcolor>
 							<label>$INFO[ListItem.Label2]</label>
-							<aligny>top</aligny>
+							<aligny>bottom</aligny>
 						</control>
 					</itemlayout>
-					<focusedlayout width="569" height="89">
+					<focusedlayout width="569" height="137">
 						<!-- Focus background -->
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
 							<right>0</right>
-							<height>90</height>
-							<texture border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texture>
+							<height>108</height>
+							<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
+							<visible>!Control.HasFocus(4000) + !ControlGroup(5001).HasFocus</visible>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<right>0</right>
+							<height>108</height>
+							<texture border="33" colordiffuse="A6000000">masks/radius_33.png</texture>
 							<visible>Control.HasFocus(4000) | ControlGroup(5001).HasFocus</visible>
-							<animation effect="fade" start="100" end="50" time="40" condition="ControlGroup(5001).HasFocus">Conditional</animation>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<right>0</right>
+							<height>108</height>
+							<texture border="33" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-33_alt.png</texture>
+							<visible>Control.HasFocus(4000)</visible>
 						</control>
 						<!-- Main label - unfocused -->
 						<control type="label">
 							<visible>!Control.HasFocus(4000)</visible>
-							<left>20</left>
-							<top>-3</top>
+							<left>38</left>
+							<top>8</top>
 							<right>10</right>
-							<height>34</height>
-							<font>font32</font>
-							<textcolor>unfocused_text</textcolor>
+							<height>40</height>
+							<font>font32_bold</font>
+							<textcolor>$VAR[WM_WidgetLabelColor]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<aligny>top</aligny>
 						</control>
 						<!-- Main label - focused -->
 						<control type="label">
 							<visible>Control.HasFocus(4000)</visible>
-							<left>20</left>
-							<top>-3</top>
+							<left>38</left>
+							<top>8</top>
 							<right>160</right>
-							<height>34</height>
-							<font>font32</font>
-							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+							<height>40</height>
+							<font>font32_bold</font>
+							<textcolor>$VAR[FocusColorTheme]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<aligny>top</aligny>
 							<scroll>true</scroll>
@@ -405,26 +441,26 @@
 						<!-- Sub label - unfocused -->
 						<control type="label">
 							<visible>!Control.HasFocus(4000)</visible>
-							<left>20</left>
-							<top>35</top>
+							<left>38</left>
+							<bottom>55</bottom>
 							<right>10</right>
-							<height>25</height>
-							<font>font23</font>
+							<height>34</height>
+							<font>font23_title</font>
 							<textcolor>60FFFFFF</textcolor>
 							<label>$INFO[ListItem.Label2]</label>
-							<aligny>top</aligny>
+							<aligny>bottom</aligny>
 						</control>
 						<!-- Sub label - focused -->
 						<control type="label">
 							<visible>Control.HasFocus(4000)</visible>
-							<left>20</left>
-							<top>35</top>
+							<left>38</left>
+							<bottom>55</bottom>
 							<right>160</right>
-							<height>25</height>
-							<font>font23</font>
-							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+							<height>34</height>
+							<font>font23_title</font>
+							<textcolor>unfocused_text</textcolor>
 							<label>$INFO[ListItem.Label2]</label>
-							<aligny>top</aligny>
+							<aligny>bottom</aligny>
 							<scroll>true</scroll>
 							<scrollspeed>75</scrollspeed>
 						</control>
@@ -433,7 +469,7 @@
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="add" />
 							<param name="btn_icon" value="buttons/widget_manager/add.png" />
-							<param name="btn_left" value="415" />
+							<param name="btn_left" value="395" />
 							<param name="btn_top" value="23" />
 							<param name="list_id" value="4000" />
 							<param name="btn_prop" value="widget_active_btn" />
@@ -441,7 +477,7 @@
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="reorder" />
 							<param name="btn_icon" value="buttons/widget_manager/reorder.png" />
-							<param name="btn_left" value="462" />
+							<param name="btn_left" value="442" />
 							<param name="btn_top" value="23" />
 							<param name="list_id" value="4000" />
 							<param name="btn_prop" value="widget_active_btn" />
@@ -449,7 +485,7 @@
 						<include content="WM_InlineBtn">
 							<param name="btn_id" value="delete" />
 							<param name="btn_icon" value="buttons/widget_manager/trash.png" />
-							<param name="btn_left" value="509" />
+							<param name="btn_left" value="489" />
 							<param name="btn_top" value="23" />
 							<param name="list_id" value="4000" />
 							<param name="btn_prop" value="widget_active_btn" />
@@ -460,18 +496,18 @@
 				<!-- Right divider -->
 				<control type="image">
 					<left>619</left>
-					<top>20</top>
+					<top>77</top>
 					<width>1</width>
-					<height>760</height>
-					<texture colordiffuse="$VAR[FocusColorTheme]">colors/dark.png</texture>
+					<height>834</height>
+					<texture colordiffuse="$VAR[FocusColorTheme]">colors/greyer.png</texture>
 				</control>
 
 				<!-- Scrollbar -->
 				<control type="scrollbar" id="4001">
-					<left>619</left>
-					<top>20</top>
-					<width>1</width>
-					<height>760</height>
+					<left>618</left>
+					<top>77</top>
+					<width>3</width>
+					<height>834</height>
 					<orientation>vertical</orientation>
 					<texturesliderbackground/>
 					<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
@@ -485,25 +521,25 @@
 			<!-- RIGHT PANEL: Widget Detail/Edit (1211+)  -->
 			<!-- ═══════════════════════════════════════ -->
 			<control type="group">
-				<left>1211</left>
+				<left>1261</left>
 				<top>100</top>
 				<right>40</right>
-				<height>790</height>
+				<height>911</height>
 
 				<!-- Detail label -->
 				<control type="label">
 					<left>20</left>
 					<top>10</top>
-					<height>43</height>
+					<height>55</height>
 					<label>Details</label>
-					<font>font27_title</font>
+					<font>font36_title</font>
 					<textcolor>$VAR[FocusColorTheme]</textcolor>
 				</control>
 
 				<!-- Empty state -->
 				<control type="label" id="5000">
 					<left>20</left>
-					<top>65</top>
+					<top>85</top>
 					<right>20</right>
 					<height>43</height>
 					<label>Select a widget to edit</label>
@@ -514,7 +550,7 @@
 				</control>
 				<control type="label">
 					<left>20</left>
-					<top>65</top>
+					<top>85</top>
 					<right>20</right>
 					<height>43</height>
 					<label>Weather widgets are built-in</label>
@@ -527,119 +563,70 @@
 				<!-- Detail fields grouplist -->
 				<control type="grouplist" id="5001">
 					<left>20</left>
-					<top>65</top>
-					<right>20</right>
-					<bottom>10</bottom>
+					<top>85</top>
+					<right>0</right>
+					<bottom>0</bottom>
 					<orientation>vertical</orientation>
 					<itemgap>0</itemgap>
 					<onleft>4000</onleft>
 					<scrolltime tween="cubic" easing="out">300</scrolltime>
 					<visible>Integer.IsGreater(Container(4000).NumItems,0)</visible>
 					<!-- Label -->
-					<control type="button" id="5100">
-						<width>max</width>
-						<height>65</height>
-						<label>Label:</label>
-						<label2>$VAR[WM_DetailLabel]</label2>
-						<font>font32</font>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>4</textoffsety>
-						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-						<texturenofocus />
-						<textcolor>unfocused_text</textcolor>
-						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						<onleft>4000</onleft>
-					</control>
+					<include content="WM_DetailRow">
+						<param name="id" value="5100" />
+						<param name="label" value="Label:" />
+						<param name="value" value="$VAR[WM_DetailLabel]" />
+						<param name="up" value="5108" />
+						<param name="down" value="5101" />
+					</include>
 					<!-- Display Type -->
-					<control type="button" id="5101">
-						<width>max</width>
-						<height>65</height>
-						<label>Display Type:</label>
-						<label2>$VAR[WM_DetailDisplayType]</label2>
-						<font>font32</font>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>4</textoffsety>
-						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-						<texturenofocus />
-						<textcolor>unfocused_text</textcolor>
-						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						<onleft>4000</onleft>
-					</control>
+					<include content="WM_DetailRow">
+						<param name="id" value="5101" />
+						<param name="label" value="Display Type:" />
+						<param name="value" value="$VAR[WM_DetailDisplayType]" />
+						<param name="up" value="5100" />
+						<param name="down" value="5102" />
+					</include>
 					<!-- Path -->
-					<control type="button" id="5102">
-						<width>max</width>
-						<height>65</height>
-						<label>Path:</label>
-						<label2>$VAR[WM_DetailPath]</label2>
-						<font>font32</font>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>4</textoffsety>
-						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-						<texturenofocus />
-						<textcolor>unfocused_text</textcolor>
-						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						<onleft>4000</onleft>
-					</control>
+					<include content="WM_DetailRow">
+						<param name="id" value="5102" />
+						<param name="label" value="Path:" />
+						<param name="value" value="$VAR[WM_DetailPath]" />
+						<param name="up" value="5101" />
+						<param name="down" value="5104" />
+					</include>
 					<!-- Target -->
-					<control type="button" id="5104">
-						<width>max</width>
-						<height>65</height>
-						<label>Target:</label>
-						<label2>$VAR[WM_DetailTarget]</label2>
-						<font>font32</font>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>4</textoffsety>
-						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-						<texturenofocus />
-						<textcolor>unfocused_text</textcolor>
-						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						<onleft>4000</onleft>
-					</control>
+					<include content="WM_DetailRow">
+						<param name="id" value="5104" />
+						<param name="label" value="Target:" />
+						<param name="value" value="$VAR[WM_DetailTarget]" />
+						<param name="up" value="5102" />
+						<param name="down" value="5106" />
+					</include>
 					<!-- Limit -->
-					<control type="button" id="5106">
-						<width>max</width>
-						<height>65</height>
-						<label>Limit:</label>
-						<label2>$VAR[WM_DetailLimit]</label2>
-						<font>font32</font>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>4</textoffsety>
-						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-						<texturenofocus />
-						<textcolor>unfocused_text</textcolor>
-						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						<onleft>4000</onleft>
-					</control>
+					<include content="WM_DetailRow">
+						<param name="id" value="5106" />
+						<param name="label" value="Limit:" />
+						<param name="value" value="$VAR[WM_DetailLimit]" />
+						<param name="up" value="5104" />
+						<param name="down" value="5107" />
+					</include>
 					<!-- Sort By -->
-					<control type="button" id="5107">
-						<width>max</width>
-						<height>65</height>
-						<label>Sort By:</label>
-						<label2>$VAR[WM_DetailSortBy]</label2>
-						<font>font32</font>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>4</textoffsety>
-						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-						<texturenofocus />
-						<textcolor>unfocused_text</textcolor>
-						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						<onleft>4000</onleft>
-					</control>
+					<include content="WM_DetailRow">
+						<param name="id" value="5107" />
+						<param name="label" value="Sort By:" />
+						<param name="value" value="$VAR[WM_DetailSortBy]" />
+						<param name="up" value="5106" />
+						<param name="down" value="5108" />
+					</include>
 					<!-- Sort Order -->
-					<control type="button" id="5108">
-						<width>max</width>
-						<height>65</height>
-						<label>Sort Order:</label>
-						<label2>$VAR[WM_DetailSortOrder]</label2>
-						<font>font32</font>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>4</textoffsety>
-						<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-						<texturenofocus />
-						<textcolor>unfocused_text</textcolor>
-						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						<onleft>4000</onleft>
-					</control>
+					<include content="WM_DetailRow">
+						<param name="id" value="5108" />
+						<param name="label" value="Sort Order:" />
+						<param name="value" value="$VAR[WM_DetailSortOrder]" />
+						<param name="up" value="5107" />
+						<param name="down" value="5100" />
+					</include>
 				</control>
 			</control>
 		</control>
