@@ -77,13 +77,6 @@
 						<visible>Control.HasFocus(20)</visible>
 					</control>
 					<control type="image">
-						<bottom>29</bottom>
-						<right>29</right>
-						<texture border="46" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46_alt.png</texture>
-						<animation effect="fade" end="40" time="0" condition="true">Conditional</animation>
-						<visible>!Control.HasFocus(20)</visible>
-					</control>
-					<control type="image">
 						<height>93</height>
 						<right>29</right>
 						<texture border="46" colordiffuse="$VAR[FocusColorTheme]">masks/pill46-focus_bright.png</texture>

@@ -122,7 +122,7 @@
 							<width>998</width>
 							<bottom>20</bottom>
 							<texture border="40" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-40_alt.png</texture>
-							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(11)">Conditional</animation>
+							<visible>Control.HasFocus(11)</visible>
 						</control>
 						<!-- <control type="image">
 							<height>1</height>

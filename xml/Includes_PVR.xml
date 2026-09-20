@@ -34,6 +34,10 @@
 		<value condition="Integer.IsEqual(ListItem.Property(GenreType),176)">A61DA1B1</value>
 		<value>A6000000</value>
 	</variable>
+	<variable name="EPGFocusBorderVar">
+		<value condition="Control.HasFocus(50) | Control.HasFocus(52)">$VAR[FocusColorTheme]</value>
+		<value>00FFFFFF</value>
+	</variable>
 
 	<include name="PVRListItemLayout">
 		<param name="focused">false</param>
@@ -276,15 +280,6 @@
 					<visible>Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<right>0</right>
-					<bottom>29</bottom>
-					<texture border="46" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46_alt.png</texture>
-					<animation effect="fade" end="40" time="0" condition="true">Conditional</animation>
-					<visible>!Control.HasFocus($PARAM[list_id]) + [Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
-				</control>
-				<control type="image">
 					<right>20</right>
 					<top>0</top>
 					<height>158</height>
@@ -422,15 +417,6 @@
 					<bottom>16</bottom>
 					<texture border="40" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-40_alt.png</texture>
 					<visible>Control.HasFocus($PARAM[list_id])</visible>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<right>0</right>
-					<bottom>16</bottom>
-					<texture border="40" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-40_alt.png</texture>
-					<animation effect="fade" end="40" time="0" condition="true">Conditional</animation>
-					<visible>!Control.HasFocus($PARAM[list_id]) + [Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
 				</control>
 				<control type="image">
 					<right>26</right>
@@ -1405,9 +1391,13 @@
 					<control type="image">
 						<height>118</height>
 						<width>460</width>
-						<bordersize>4</bordersize>
 						<texture colordiffuse="A6000000" border="15">masks/radius_15.png</texture>
-						<bordertexture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-15.png</bordertexture>
+					</control>
+					<control type="image">
+						<height>118</height>
+						<width>460</width>
+						<texture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-15.png</texture>
+						<visible>Control.HasFocus($PARAM[control_id])</visible>
 					</control>
 					<control type="image">
 						<left>24</left>
@@ -1494,8 +1484,7 @@
 						<height>118</height>
 						<bordersize>4</bordersize>
 						<texture border="15" colordiffuse="$VAR[EPGFocusedColorVar]">masks/radius_15.png</texture>
-						<bordertexture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-15.png</bordertexture>
-						<animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus($PARAM[control_id])">conditional</animation>
+						<bordertexture border="15" colordiffuse="$VAR[EPGFocusBorderVar]" infill="false">masks/bordertexture-15.png</bordertexture>
 					</control>
 					<!-- unfocused grid (back) -->
 					<control type="textbox" id="1">

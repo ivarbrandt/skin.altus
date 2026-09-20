@@ -168,11 +168,6 @@
 							<visible>Control.HasFocus(120)</visible>
 						</control>
 						<control type="image">
-							<texture border="23" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-23_alt.png</texture>
-							<animation effect="fade" end="40" time="0" condition="true">Conditional</animation>
-							<visible>!Control.HasFocus(120)</visible>
-						</control>
-						<control type="image">
 							<left>50</left>
 							<top>5</top>
 							<width>50</width>
