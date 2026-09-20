@@ -395,17 +395,6 @@
             <shadowcolor>text_shadow</shadowcolor>
             <visible>$PARAM[focused] + $PARAM[active] + ![Control.HasFocus($PARAM[id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)]</visible>
           </control>
-          <control type="label">
-            <left>$PARAM[left_right_text]</left>
-            <right>$PARAM[left_right_text]</right>
-            <aligny>center</aligny>
-            <font>$PARAM[unfocused_font]</font>
-            <align>$PARAM[align]</align>
-            <textcolor>unfocused_text</textcolor>
-            <label>$VAR[MenuCaseVar]</label>
-            <shadowcolor>text_shadow</shadowcolor>
-            <visible>![[Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)] | [$PARAM[focused] + $PARAM[active]]]</visible>
-          </control>
         </control>
         <control type="group">
           <visible>!String.IsEmpty(ListItem.Property(icon)) | String.IsEqual(ListItem.Property(id),weather)</visible>
@@ -443,17 +432,6 @@
             <align>$PARAM[align]</align>
             <shadowcolor>text_shadow</shadowcolor>
             <visible>$PARAM[focused] + $PARAM[active] + ![Control.HasFocus($PARAM[id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)]</visible>
-          </control>
-          <control type="label">
-            <left>94</left>
-            <right>27</right>
-            <aligny>center</aligny>
-            <font>$PARAM[unfocused_font]</font>
-            <align>$PARAM[align]</align>
-            <textcolor>unfocused_text</textcolor>
-            <label>$VAR[MenuCaseVar]</label>
-            <shadowcolor>text_shadow</shadowcolor>
-            <visible>![[Control.HasFocus($PARAM[id]) + $PARAM[focused] + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)] | [$PARAM[focused] + $PARAM[active]]]</visible>
           </control>
         </control>
       </control>

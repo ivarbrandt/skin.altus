@@ -20,7 +20,21 @@
 		<value condition="Integer.IsEqual(ListItem.Property(GenreType),176)">4D1DA1B1</value>
 		<value>4D000000</value>
 	</variable>
-	
+	<variable name="EPGFocusedColorVar">
+		<value condition="Integer.IsEqual(ListItem.Property(GenreType),16)">A6DB7817</value>
+		<value condition="Integer.IsEqual(ListItem.Property(GenreType),32)">A6649A64</value>
+		<value condition="Integer.IsEqual(ListItem.Property(GenreType),48)">A6DBD917</value>
+		<value condition="Integer.IsEqual(ListItem.Property(GenreType),64)">A6ED0E28</value>
+		<value condition="Integer.IsEqual(ListItem.Property(GenreType),80)">A617DBC2</value>
+		<value condition="Integer.IsEqual(ListItem.Property(GenreType),96)">A641EA4D</value>
+		<value condition="Integer.IsEqual(ListItem.Property(GenreType),112)">A60043EC</value>
+		<value condition="Integer.IsEqual(ListItem.Property(GenreType),128)">A6C6C8CB</value>
+		<value condition="Integer.IsEqual(ListItem.Property(GenreType),144)">A69E209E</value>
+		<value condition="Integer.IsEqual(ListItem.Property(GenreType),160)">A69393CF</value>
+		<value condition="Integer.IsEqual(ListItem.Property(GenreType),176)">A61DA1B1</value>
+		<value>A6000000</value>
+	</variable>
+
 	<include name="PVRListItemLayout">
 		<param name="focused">false</param>
 		<param name="only_label_font_unfocused">font36_title</param>
@@ -1320,7 +1334,7 @@
 				<left>40</left>
 				<top>$PARAM[control_top]</top>
 				<right>0</right>
-				<height>961</height>
+				<height>957</height>
 				<orientation>$PARAM[control_orientation]</orientation>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="cubic" easing="out">300</scrolltime>
@@ -1351,36 +1365,34 @@
 				<rulerlayout height="60" width="$PARAM[ruler_width]">
 					<control type="label">
 					<animation effect="fade" start="0" end="100" time="300" tween="cubic" easing="inout">Visible</animation>
-						<visible>!Control.HasFocus(11)</visible>
 						<width>$PARAM[ruler_label_width]</width>
 						<height>60</height>
-						<font>font32</font>
+						<font>font32_bold</font>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>unfocused_text</textcolor>
 						<!-- -107 -55 -->
 						<textoffsetx>-55</textoffsetx>
 					</control>
 				</rulerlayout>
-				<channellayout height="90" width="$PARAM[channel_width]">
+				<channellayout height="128" width="$PARAM[channel_width]">
 					<control type="image">
-						<height>84</height>
+						<height>118</height>
 						<width>460</width>
-						<texture colordiffuse="4D000000" border="10">masks/radius_10-unfo.png</texture>
-						<!-- <visible>Control.HasFocus($PARAM[control_id])</visible> -->
+						<texture colordiffuse="4D000000" border="15">masks/radius_15.png</texture>
 					</control>
 					<control type="image">
-						<left>20</left>
-						<top>7</top>
+						<left>24</left>
+						<top>0</top>
 						<width>70</width>
-						<height>70</height>
+						<height>118</height>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label" id="1">
-						<top>-6</top>
-						<width>336</width>
+						<top>0</top>
+						<width>326</width>
 						<left>110</left>
-						<height>90</height>
+						<height>118</height>
 						<font>font36_guide</font>
 						<label>$VAR[ChannelNumDisplayVar]$INFO[ListItem.ChannelName]</label>
 						<textcolor>unfocused_text</textcolor>
@@ -1389,72 +1401,77 @@
 						<textoffsetx>10</textoffsetx>
 					</control>
 				</channellayout>
-				<focusedchannellayout height="90" width="$PARAM[channel_width]">
+				<focusedchannellayout height="128" width="$PARAM[channel_width]">
 					<control type="image">
-						<height>84</height>
+						<height>118</height>
 						<width>460</width>
-						<texture border="10" colordiffuse="$VAR[FocusColorTheme]">masks/radius_10-fo.png</texture>
-						<!-- <visible>Control.HasFocus($PARAM[control_id])</visible> -->
+						<bordersize>4</bordersize>
+						<texture colordiffuse="A6000000" border="15">masks/radius_15.png</texture>
+						<bordertexture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-15.png</bordertexture>
 					</control>
 					<control type="image">
-						<left>20</left>
-						<top>7</top>
+						<left>24</left>
+						<top>0</top>
 						<width>70</width>
-						<height>70</height>
+						<height>118</height>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label" id="1">
-						<top>-6</top>
+						<top>0</top>
 						<left>110</left>
-						<width>336</width>
-						<height>90</height>
+						<width>326</width>
+						<height>118</height>
 						<font>font36_guide</font>
 						<label>$VAR[ChannelNumDisplayVar]$INFO[ListItem.ChannelName]</label>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-						<selectedcolor>$VAR[FocusedTextColorVar]</selectedcolor>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<selectedcolor>$VAR[FocusColorTheme]</selectedcolor>
 						<aligny>center</aligny>
 						<textoffsetx>10</textoffsetx>
 						<scroll>true</scroll>
 					</control>
 				</focusedchannellayout>
 				<!-- unfocused layout -->
-				<itemlayout height="90" width="90">
+				<itemlayout height="128" width="90">
 					<control type="image" id="2">
-						<width>84</width>
-						<height>84</height>
-						<texture colordiffuse="$VAR[EPGUnfocusedColorVar]" border="10">masks/radius_10-unfo.png</texture>
+						<left>0</left>
+						<right>10</right>
+						<height>118</height>
+						<texture colordiffuse="$VAR[EPGUnfocusedColorVar]" border="15">masks/radius_15.png</texture>
 						<visible>!ListItem.HasReminder | Skin.HasSetting(Disable.PVRAnimations)</visible>
 					</control>
 					<control type="image" id="3">
-						<width>84</width>
-						<height>84</height>
-						<texture border="10" colordiffuse="$VAR[EPGUnfocusedColorVar]">masks/radius_10-unfo.png</texture>
+						<left>0</left>
+						<right>10</right>
+						<height>118</height>
+						<texture border="15" colordiffuse="$VAR[EPGUnfocusedColorVar]">masks/radius_15.png</texture>
 						<animation effect="fade" start="100" end="0" time="1733" tween="cubic" easing="in" pulse="true" condition="true">Conditional</animation>
 						<visible>!Skin.HasSetting(Disable.PVRAnimations) + ListItem.HasReminder</visible>
 					</control>
 					<control type="image" id="4">
-						<width>84</width>
-						<height>84</height>
+						<left>0</left>
+						<right>10</right>
+						<height>118</height>
 						<texture border="10" colordiffuse="$VAR[FocusColorTheme]">windows/pvr/flash.png</texture>
 						<animation effect="fade" start="0" end="100" time="1733" tween="cubic" easing="in" pulse="true" condition="true">Conditional</animation>
 						<visible>!Skin.HasSetting(Disable.PVRAnimations) + ListItem.HasReminder</visible>
 					</control>
 					<control type="textbox" id="1">
 						<left>30</left>
-						<right>30</right>
-						<height>76</height>
+						<right>40</right>
+						<top>12</top>
+						<bottom>26</bottom>
 						<aligny>center</aligny>
 						<align>left</align>
 						<!-- <textoffsety>40</textoffsety> -->
-						<font>Font300</font>
+						<font>addonsettings_desc</font>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>unfocused_text</textcolor>
 					</control>
 					<control type="image">
 						<visible>ListItem.IsNew | ListItem.IsPremiere | ListItem.IsFinale | ListItem.IsLive</visible>
 						<left>6</left>
-						<top>35</top>
+						<top>51</top>
 						<width>16</width>
 						<height>16</height>
 						<aspectratio>keep</aspectratio>
@@ -1462,7 +1479,7 @@
 					</control>
 					<control type="image">
 						<left>6</left>
-						<top>35</top>
+						<top>51</top>
 						<width>16</width>
 						<height>16</height>
 						<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[PVRTimerIcon]</texture>
@@ -1470,31 +1487,34 @@
 						<visible>Skin.HasSetting(Disable.PVRAnimations)</visible>
 					</control>
 				</itemlayout>
-				<focusedlayout height="90" width="90">
-					<control type="image" id="2">
-						<width>84</width>
-						<height>84</height>
-						<texture border="10" colordiffuse="$VAR[FocusColorTheme]">masks/radius_10-fo.png</texture>
-						<!-- <visible>Control.HasFocus($PARAM[control_id])</visible> -->
+				<focusedlayout height="128" width="90">
+					<control type="image" id="5">
+						<left>0</left>
+						<right>10</right>
+						<height>118</height>
+						<bordersize>4</bordersize>
+						<texture border="15" colordiffuse="$VAR[EPGFocusedColorVar]">masks/radius_15.png</texture>
+						<bordertexture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-15.png</bordertexture>
 						<animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus($PARAM[control_id])">conditional</animation>
 					</control>
 					<!-- unfocused grid (back) -->
 					<control type="textbox" id="1">
 						<left>30</left>
-						<right>30</right>
-						<height>76</height>
+						<right>40</right>
+						<top>12</top>
+						<bottom>26</bottom>
 						<aligny>center</aligny>
 						<align>left</align>
 						<!-- <textoffsety>40</textoffsety> -->
-						<font>Font300</font>
+						<font>addonsettings_desc</font>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
 						<autoscroll delay="2000" time="1500" repeat="3000">$PARAM[focused]</autoscroll>
 					</control>
 					<control type="image">
 						<visible>ListItem.IsNew | ListItem.IsPremiere | ListItem.IsFinale | ListItem.IsLive</visible>
 						<left>6</left>
-						<top>35</top>
+						<top>51</top>
 						<width>16</width>
 						<height>16</height>
 						<aspectratio>keep</aspectratio>
@@ -1502,10 +1522,10 @@
 					</control>
 					<control type="image">
 						<left>6</left>
-						<top>35</top>
+						<top>51</top>
 						<width>16</width>
 						<height>16</height>
-						<texture colordiffuse="$VAR[FocusedTextColorVar]">$VAR[PVRTimerIcon]</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[PVRTimerIcon]</texture>
 						<animation effect="slide" start="0,0" end="19,0" condition="ListItem.IsNew | ListItem.IsPremiere | ListItem.IsFinale | ListItem.IsLive">Conditional</animation>
 					</control>
 				</focusedlayout>
