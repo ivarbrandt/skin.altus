@@ -81,16 +81,24 @@
 					<left>20</left>
 					<top>85</top>
 					<right>20</right>
-					<height>65</height>
+					<height>89</height>
 					<label>$INFO[Window.Property(add_section_label)]</label>
-					<font>font32</font>
-					<textoffsetx>20</textoffsetx>
-					<textoffsety>4</textoffsety>
-					<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-					<texturenofocus />
+					<font>font32_bold</font>
+					<textoffsetx>38</textoffsetx>
+					<aligny>center</aligny>
+					<texturefocus border="33" colordiffuse="A6000000">masks/radius_33.png</texturefocus>
+					<texturenofocus border="33" colordiffuse="4D000000">masks/radius_33.png</texturenofocus>
 					<textcolor>unfocused_text</textcolor>
-					<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+					<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
 					<visible>!Integer.IsGreater(Container(3000).NumItems,0)</visible>
+				</control>
+				<control type="image">
+					<left>20</left>
+					<top>85</top>
+					<right>20</right>
+					<height>89</height>
+					<texture border="33" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-33_alt.png</texture>
+					<visible>Control.HasFocus(3500)</visible>
 				</control>
 
 				<!-- Sections list -->
@@ -266,18 +274,18 @@
 				<!-- Right divider -->
 				<control type="image">
 					<left>600</left>
-					<top>77</top>
+					<top>85</top>
 					<width>1</width>
-					<height>834</height>
+					<height>797</height>
 					<texture colordiffuse="$VAR[FocusColorTheme]">colors/greyer.png</texture>
 				</control>
 
 				<!-- Scrollbar -->
 				<control type="scrollbar" id="3001">
 					<left>599</left>
-					<top>77</top>
+					<top>85</top>
 					<width>3</width>
-					<height>834</height>
+					<height>797</height>
 					<orientation>vertical</orientation>
 					<texturesliderbackground/>
 					<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
@@ -336,17 +344,25 @@
 					<left>20</left>
 					<top>85</top>
 					<right>20</right>
-					<height>65</height>
+					<height>89</height>
 					<label>Add Widget...</label>
-					<font>font32</font>
-					<textoffsetx>20</textoffsetx>
-					<textoffsety>4</textoffsety>
-					<texturefocus border="15" colordiffuse="$VAR[FocusColorTheme]">masks/radius_15.png</texturefocus>
-					<texturenofocus />
+					<font>font32_bold</font>
+					<textoffsetx>38</textoffsetx>
+					<aligny>center</aligny>
+					<texturefocus border="33" colordiffuse="A6000000">masks/radius_33.png</texturefocus>
+					<texturenofocus border="33" colordiffuse="4D000000">masks/radius_33.png</texturenofocus>
 					<textcolor>unfocused_text</textcolor>
-					<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+					<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
 					<onleft>3000</onleft>
 					<visible>!Integer.IsGreater(Container(4000).NumItems,0) + String.IsEmpty(Window.Property(weather_section))</visible>
+				</control>
+				<control type="image">
+					<left>20</left>
+					<top>85</top>
+					<right>20</right>
+					<height>89</height>
+					<texture border="33" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-33_alt.png</texture>
+					<visible>Control.HasFocus(4500)</visible>
 				</control>
 
 				<!-- Widgets list -->
@@ -496,18 +512,18 @@
 				<!-- Right divider -->
 				<control type="image">
 					<left>619</left>
-					<top>77</top>
+					<top>85</top>
 					<width>1</width>
-					<height>834</height>
+					<height>793</height>
 					<texture colordiffuse="$VAR[FocusColorTheme]">colors/greyer.png</texture>
 				</control>
 
 				<!-- Scrollbar -->
 				<control type="scrollbar" id="4001">
 					<left>618</left>
-					<top>77</top>
+					<top>85</top>
 					<width>3</width>
-					<height>834</height>
+					<height>793</height>
 					<orientation>vertical</orientation>
 					<texturesliderbackground/>
 					<texturesliderbar colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texturesliderbar>
@@ -543,7 +559,7 @@
 					<right>20</right>
 					<height>43</height>
 					<label>Select a widget to edit</label>
-					<font>font27</font>
+					<font>font27_title</font>
 					<textcolor>60FFFFFF</textcolor>
 					<aligny>center</aligny>
 					<visible>!Integer.IsGreater(Container(4000).NumItems,0) + String.IsEmpty(Window.Property(weather_section))</visible>
@@ -554,7 +570,7 @@
 					<right>20</right>
 					<height>43</height>
 					<label>Weather widgets are built-in</label>
-					<font>font27</font>
+					<font>font27_title</font>
 					<textcolor>60FFFFFF</textcolor>
 					<aligny>center</aligny>
 					<visible>!String.IsEmpty(Window.Property(weather_section))</visible>

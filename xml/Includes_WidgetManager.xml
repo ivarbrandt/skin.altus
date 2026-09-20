@@ -56,12 +56,15 @@
 	</variable>
 
 	<include name="WM_DetailRow">
+		<param name="width">569</param>
+		<param name="value"></param>
+		<param name="onleft">4000</param>
 		<definition>
 			<control type="group">
-				<width>569</width>
+				<width>$PARAM[width]</width>
 				<height>118</height>
 				<control type="button" id="$PARAM[id]">
-					<width>569</width>
+					<width>$PARAM[width]</width>
 					<height>89</height>
 					<label>$PARAM[label]</label>
 					<label2>[COLOR 60FFFFFF]$PARAM[value][/COLOR]</label2>
@@ -72,12 +75,12 @@
 					<texturenofocus border="33" colordiffuse="4D000000">masks/radius_33.png</texturenofocus>
 					<textcolor>unfocused_text</textcolor>
 					<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
-					<onleft>4000</onleft>
+					<onleft>$PARAM[onleft]</onleft>
 					<onup>$PARAM[up]</onup>
 					<ondown>$PARAM[down]</ondown>
 				</control>
 				<control type="image">
-					<width>569</width>
+					<width>$PARAM[width]</width>
 					<height>89</height>
 					<texture border="33" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-33_alt.png</texture>
 					<visible>Control.HasFocus($PARAM[id])</visible>
