@@ -29,13 +29,13 @@
 			<centerleft>50%</centerleft>
 			<centertop>50%</centertop>
 			<width>1450</width>
-			<height>835</height>
+			<height>885</height>
 
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="Choose icon" />
 				<param name="header_id" value="1" />
 				<param name="width" value="1450" />
-				<param name="height" value="835" />
+				<param name="height" value="885" />
 				<param name="header_top" value="15" />
 				<param name="divider_top" value="90" />
 				<param name="blur" value="true" />
@@ -70,7 +70,7 @@
 				<left>40</left>
 				<top>130</top>
 				<width>320</width>
-				<height>660</height>
+				<height>684</height>
 				<onup>3001</onup>
 				<ondown>3001</ondown>
 				<onleft>3001</onleft>
@@ -78,38 +78,38 @@
 				<pagecontrol>33</pagecontrol>
 				<onfocus>RunScript(script.altus.helper,mode=icon_folder_debounce)</onfocus>
 				<scrolltime tween="cubic" easing="out">300</scrolltime>
-				<itemlayout width="320" height="110">
+				<itemlayout width="320" height="114">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<right>0</right>
-						<height>81</height>
+						<height>85</height>
 						<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
 					</control>
 					<control type="label">
 						<left>38</left>
 						<top>0</top>
 						<right>20</right>
-						<height>81</height>
+						<height>85</height>
 						<font>font32_bold</font>
 						<textcolor>unfocused_text</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<aligny>center</aligny>
 					</control>
 				</itemlayout>
-				<focusedlayout width="320" height="110">
+				<focusedlayout width="320" height="114">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<right>0</right>
-						<height>81</height>
+						<height>85</height>
 						<texture border="33" colordiffuse="A6000000">masks/radius_33.png</texture>
 					</control>
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<right>0</right>
-						<height>81</height>
+						<height>85</height>
 						<texture border="33" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-33_alt.png</texture>
 						<visible>Control.HasFocus(3001)</visible>
 					</control>
@@ -117,7 +117,7 @@
 						<left>38</left>
 						<top>0</top>
 						<right>20</right>
-						<height>81</height>
+						<height>85</height>
 						<font>font32_bold</font>
 						<textcolor>$VAR[FocusColorTheme]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
@@ -128,7 +128,7 @@
 
 			<!-- Separator -->
 			<control type="image">
-				<height>631</height>
+				<height>655</height>
 				<left>390</left>
 				<top>130</top>
 				<width>1</width>
@@ -136,7 +136,7 @@
 			</control>
 
 			<control type="scrollbar" id="33">
-				<height>631</height>
+				<height>655</height>
 				<left>389</left>
 				<top>130</top>
 				<width>3</width>
@@ -172,10 +172,10 @@
 							<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
 						</control>
 						<control type="image">
-							<left>25</left>
-							<top>25</top>
-							<width>50</width>
-							<height>50</height>
+							<left>18</left>
+							<top>18</top>
+							<width>64</width>
+							<height>64</height>
 							<texture diffuse="masks/mainmenu-img.png" colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
@@ -203,10 +203,10 @@
 							<visible>Control.HasFocus(3000)</visible>
 						</control>
 						<control type="image">
-							<left>25</left>
-							<top>25</top>
-							<width>50</width>
-							<height>50</height>
+							<left>18</left>
+							<top>18</top>
+							<width>64</width>
+							<height>64</height>
 							<texture diffuse="masks/mainmenu-img.png" colordiffuse="$VAR[FocusColorTheme]">$INFO[ListItem.Icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
@@ -216,9 +216,9 @@
 
 			<!-- Selected icon name -->
 			<control type="label">
-				<left>420</left>
-				<right>40</right>
-				<bottom>10</bottom>
+				<left>425</left>
+				<right>45</right>
+				<bottom>35</bottom>
 				<height>35</height>
 				<font>font27_title</font>
 				<align>right</align>
