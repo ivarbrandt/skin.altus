@@ -177,6 +177,8 @@
 		<param name="meta_slide">![ListItem.HasEpg + Integer.IsGreater(ListItem.Progress,0)]</param>
 		<param name="meta_visible">ListItem.HasEpg + !String.IsEmpty(ListItem.EndTime)</param>
 		<param name="meta_left">204</param>
+		<param name="tile_diffuse">4D000000</param>
+		<param name="tile_focus_diffuse">A6000000</param>
 		<param name="progress_visible">ListItem.HasEpg + Integer.IsGreater(ListItem.Progress,0)</param>
 		<definition>
 			<itemlayout height="187"  infoupdate="$PARAM[info_update]">
@@ -185,7 +187,7 @@
 					<top>0</top>
 					<right>0</right>
 					<bottom>29</bottom>
-					<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+					<texture border="46" colordiffuse="$PARAM[tile_diffuse]">masks/radius_46.png</texture>
 				</control>
 				<control type="label">
 					<description>Time remaining</description>
@@ -240,7 +242,7 @@
 					<top>0</top>
 					<right>0</right>
 					<bottom>29</bottom>
-					<texture border="46" colordiffuse="4D000000">masks/radius_46.png</texture>
+					<texture border="46" colordiffuse="$PARAM[tile_diffuse]">masks/radius_46.png</texture>
 					<visible>![Control.HasFocus($PARAM[list_id]) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)]</visible>
 				</control>
 				<control type="image">
@@ -248,7 +250,7 @@
 					<top>0</top>
 					<right>0</right>
 					<bottom>29</bottom>
-					<texture border="46" colordiffuse="A6000000">masks/radius_46.png</texture>
+					<texture border="46" colordiffuse="$PARAM[tile_focus_diffuse]">masks/radius_46.png</texture>
 					<visible>Control.HasFocus($PARAM[list_id]) | Window.IsVisible(pvrchannelguide) | String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)</visible>
 				</control>
 				<control type="image">

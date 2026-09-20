@@ -20,11 +20,20 @@
 			<control type="group">
 				<include condition="!Window.IsVisible(tvchannels)">OpenClose_Left</include>
 				<control type="image">
-					<visible>!Window.IsVisible(tvchannels)</visible>
+					<visible>!Window.IsVisible(tvchannels) + !Player.HasMedia</visible>
 					<animation effect="fade" time="400">VisibleChange</animation>
 					<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
 					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
 					<texture colordiffuse="E6575757" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[DialogBackgroundTexture]</texture>
+				</control>
+				<control type="image">
+					<left>-2</left>
+					<right>0</right>
+					<visible>!Window.IsVisible(tvchannels) + Player.HasMedia</visible>
+					<animation effect="fade" time="400">VisibleChange</animation>
+					<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+					<texture colordiffuse="$VAR[FocusColorTheme]">lists/contentpanel-fade-guide.png</texture>
 				</control>
 				<control type="fixedlist" id="11">
 					<left>40</left>

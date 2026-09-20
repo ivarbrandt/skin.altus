@@ -13,10 +13,9 @@
 					<param name="blur" value="false" />
 					<param name="left" value="-2" />
 					<param name="divider_visible" value="false" />
-					<param name="colordiffuse" value="66FFFFFF" />
+					<param name="colordiffuse" value="$VAR[FocusColorTheme]" />
 					<param name="border_texture" value=""/>
-					<param name="diffuse_texture" value="lists/contentpanel-fade.png" />
-					<!-- <param name="darken_bg" value="false" /> -->
+					<param name="diffuse_texture" value="lists/contentpanel-fade-white.png" />
 				</include>
 				<control type="fixedlist" id="11">
 					<left>40</left>
