@@ -744,9 +744,7 @@
 		<value condition="Integer.IsGreater(ListItem.Duration(h),0)">$INFO[ListItem.Duration(h),,h]</value>
 		<value>$INFO[ListItem.Duration(m),,m]</value>
 	</variable>
-	<variable name="WidgetPVRTimeLabelVar">
-		<value condition="ListItem.HasEpg + Integer.IsGreater(ListItem.Progress,0) + !String.IsEmpty(ListItem.Duration)">$VAR[PVRDurationVar] • $LOCALIZE[31080] $INFO[ListItem.EndTime]</value>
-		<value condition="ListItem.HasEpg + Integer.IsGreater(ListItem.Progress,0)">$LOCALIZE[31080] $INFO[ListItem.EndTime]</value>
+	<variable name="PVRTimeRangeVar">
 		<value>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</value>
 	</variable>
 	<variable name="PVRMetaEndsAtVar">

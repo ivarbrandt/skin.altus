@@ -5,6 +5,7 @@
 		<param name="icon">$INFO[ListItem.Icon]</param>
     <param name="label">$INFO[ListItem.ChannelName]</param>
 		<param name="label2">$INFO[ListItem.Title]</param>
+		<param name="time_label">$VAR[PVRMetaEndsAtVar]</param>
 		<param name="focused">false</param>
 		<definition>
 			<control type="group">
@@ -97,7 +98,7 @@
 						<height>36</height>
 						<aligny>center</aligny>
 						<animation effect="slide" end="-36,0" time="0" condition="![ListItem.HasEpg + Integer.IsGreater(ListItem.Progress,0)]">Conditional</animation>
-						<label>$VAR[WidgetPVRTimeLabelVar]</label>
+						<label>$PARAM[time_label]</label>
 						<font>eps_26</font>
 						<textcolor>dim_text</textcolor>
 						<selectedcolor>dim_text</selectedcolor>

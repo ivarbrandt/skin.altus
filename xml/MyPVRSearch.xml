@@ -31,6 +31,7 @@
 						<param name="only_label_condition" value="String.IsEmpty(ListItem.Date)" />
 						<param name="label1" value="$VAR[PVRListItemChannelLabelVar]" />
 						<param name="meta_left" value="166" />
+						<param name="meta_slide" value="false" />
 						<param name="progress_visible" value="false" />
 						<param name="meta_label" value="$INFO[ListItem.Date]" />
 						<param name="meta_visible" value="!String.IsEmpty(ListItem.Date)" />
