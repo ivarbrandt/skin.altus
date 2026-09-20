@@ -781,6 +781,12 @@
 		<value condition="$EXP[listitem_has_episode_info]">[LIGHT]$VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName][/LIGHT]</value>
 		<value>[LIGHT]$INFO[ListItem.EpgEventTitle][/LIGHT]</value>
 	</variable>
+	<variable name="PVRGuideTitleVar">
+		<value condition="ListItem.IsFolder">$INFO[ListItem.Timertype]</value>
+		<value condition="$EXP[listitem_has_episode_info] + !String.IsEmpty(ListItem.EpgEventTitle) + !String.StartsWith(ListItem.EpisodeName,ListItem.EpgEventTitle)">$INFO[ListItem.EpgEventTitle] | $VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName]</value>
+		<value condition="$EXP[listitem_has_episode_info]">$VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName]</value>
+		<value>$INFO[ListItem.EpgEventTitle]</value>
+	</variable>
 	<variable name="PVRProgressWheelColorVar">
 		<value condition="ListItem.IsRecording">red</value>
 		<value>dim_text</value>

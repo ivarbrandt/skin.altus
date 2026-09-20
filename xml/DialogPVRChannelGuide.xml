@@ -8,7 +8,6 @@
 			<animation effect="fade" start="100" end="0" time="400" tween="cubic" easing="inout">WindowClose</animation>
 			<!-- Shift left when called from tvchannels (embedded look). Tune the -500 to taste. -->
 			<animation effect="slide" start="0,0" end="852,0" time="0" condition="Window.IsVisible(tvchannels)">Conditional</animation>
-
 			<!-- OSD video backdrop: only show outside tvchannels -->
 			<control type="group">
 				<animation effect="fade" start="0" end="100" time="100">WindowOpen</animation>
@@ -17,40 +16,21 @@
 				<visible>!Window.IsActive(fullscreenvideo) + !Window.IsVisible(tvchannels)</visible>
 				<include>ColoredBackgroundImages</include>
 			</control>
-
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
-
 			<control type="group">
 				<include condition="!Window.IsVisible(tvchannels)">OpenClose_Left</include>
-				<!-- <include content="DialogBackgroundCommons">
-					<param name="left" value="0" />
-					<param name="right" value="645" />
-					<param name="header_label" value="" />
-					<param name="header_id" value="" />
-					<param name="blur" value="false" />
-					<param name="darken_bg" value="!Window.IsVisible(tvchannels)" />
-					<param name="visible" value="!Window.IsVisible(tvchannels)" />
-					<param name="divider_visible" value="false" />
-					<param name="colordiffuse" value="66FFFFFF" />
-					<param name="border_texture"/>
-					<param name="diffuse_texture" value="lists/contentpanel-fade.png" />
-				</include> -->
 				<control type="image">
-					<left>-2000</left>
-					<top>-2000</top>
-					<width>6000</width>
-					<height>6000</height>
+					<visible>!Window.IsVisible(tvchannels)</visible>
 					<animation effect="fade" time="400">VisibleChange</animation>
 					<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
 					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-					<texture colordiffuse="CCFFFFFF">colors/black.png</texture>
-					<visible>!Window.IsVisible(tvchannels)</visible>
+					<texture colordiffuse="E6575757" fallback="$VAR[AltusCustomBackgroundImage]">$VAR[MainBlurTextureVar]</texture>
 				</control>
 				<control type="fixedlist" id="11">
 					<left>40</left>
 					<top>105</top>
 					<width>1400</width>
-					<height>936</height>
+					<height>926</height>
 					<onleft>60</onleft>
 					<onleft condition="Window.IsVisible(tvchannels)">close</onleft>
 					<onleft condition="!Window.IsVisible(tvchannels)">60</onleft>
@@ -60,44 +40,46 @@
 					<ondown>11</ondown>
 					<pagecontrol>60</pagecontrol>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<movement>5</movement>
-					<focusposition>5</focusposition>
-					<itemlayout height="72" width="1400">
+					<movement>3</movement>
+					<focusposition>3</focusposition>
+					<itemlayout height="105" width="1400">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
 							<width>998</width>
-							<bottom>0</bottom>
-							<texture border="23" colordiffuse="4D000000">masks/radius_23.png</texture>
-							<!-- <animation effect="fade" start="50" end="25" time="1733" tween="cubic" easing="in" pulse="true" condition="ListItem.HasTimer | ListItem.HasReminder">Conditional</animation> -->
-							<visible>ListItem.HasReminder | ListItem.HasTimer</visible>
+							<bottom>20</bottom>
+							<texture border="40" colordiffuse="4D000000">masks/radius_40.png</texture>
 						</control>
 						<control type="image">
 							<width>30</width>
-							<right>422</right>
-							<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[WallWatchedIconVar]</texture>
+							<right>442</right>
+							<top>0</top>
+							<bottom>20</bottom>
+							<texture colordiffuse="unfocused_text">$VAR[WallWatchedIconVar]</texture>
 							<aspectratio aligny="center">keep</aspectratio>
 							<animation effect="fade" start="100" end="0" time="1733" tween="cubic" easing="in" pulse="true" condition="ListItem.HasTimer | ListItem.HasReminder">Conditional</animation>
 						</control>
 						<control type="label">
-							<left>20</left>
+							<left>40</left>
 							<top>0</top>
-							<bottom>0</bottom>
-							<width>120</width>
+							<bottom>20</bottom>
+							<width>170</width>
 							<aligny>center</aligny>
-							<font>font27</font>
+							<font>font32_bold</font>
 							<textcolor>unfocused_text</textcolor>
+							<selectedcolor>unfocused_text</selectedcolor>
 							<label>$INFO[ListItem.StartTime]</label>
 						</control>
 						<control type="label">
-							<left>200</left>
+							<left>220</left>
 							<top>0</top>
-							<bottom>0</bottom>
-							<right>482</right>
+							<bottom>20</bottom>
+							<right>502</right>
 							<aligny>center</aligny>
-							<font>font27</font>
+							<font>font32_bold</font>
 							<textcolor>unfocused_text</textcolor>
-							<label>$VAR[PVRListItemSubLabelFocused]</label>
+							<selectedcolor>unfocused_text</selectedcolor>
+							<label>$VAR[PVRGuideTitleVar]</label>
 						</control>
 						<!-- <control type="label">
 							<right>90</right>
@@ -111,7 +93,7 @@
 							<label>$INFO[ListItem.Duration, ,m]</label>
 						</control> -->
 					</itemlayout>
-					<focusedlayout height="216" width="1400">
+					<focusedlayout height="296" width="1400">
 						<!-- <control type="image">
 							<bottom>0</bottom>
 							<texture colordiffuse="99000000">colors/darkest.png</texture>
@@ -121,9 +103,16 @@
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
-							<width>988</width>
-							<bottom>0</bottom>
-							<texture border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texture>
+							<width>998</width>
+							<bottom>20</bottom>
+							<texture border="40" colordiffuse="A6000000">masks/radius_40.png</texture>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>998</width>
+							<bottom>20</bottom>
+							<texture border="40" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-40_alt.png</texture>
 							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(11)">Conditional</animation>
 						</control>
 						<!-- <control type="image">
@@ -134,30 +123,34 @@
 						</control> -->
 						<control type="image">
 							<width>30</width>
-							<right>20</right>
-							<bottom>144</bottom>
-							<texture colordiffuse="$VAR[FocusedTextColorVar]">$VAR[WallWatchedIconVar]</texture>
+							<right>442</right>
+							<top>20</top>
+							<height>60</height>
+							<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[WallWatchedIconVar]</texture>
 							<aspectratio aligny="center">keep</aspectratio>
-							<!-- <animation effect="fade" start="100" end="0" time="1733" tween="cubic" easing="in" pulse="true" condition="ListItem.HasTimer | ListItem.HasReminder">Conditional</animation> -->
 						</control>
 						<control type="label">
-							<left>20</left>
-							<top>10</top>
-							<bottom>0</bottom>
-							<width>125</width>
-							<font>font27_title</font>
-							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+							<left>40</left>
+							<top>20</top>
+							<height>60</height>
+							<width>170</width>
+							<aligny>center</aligny>
+							<font>font32_bold</font>
+							<textcolor>$VAR[FocusColorTheme]</textcolor>
+							<selectedcolor>$VAR[FocusColorTheme]</selectedcolor>
 							<label>$INFO[ListItem.StartTime]</label>
 						</control>
 						<control type="label">
-							<left>200</left>
-							<top>10</top>
-							<bottom>0</bottom>
-							<right>482</right>
-							<font>font27_title</font>
-							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
-							<label>$VAR[PVRListItemSubLabelFocused]</label>
-							<scroll>$PARAM[focused]</scroll>
+							<left>220</left>
+							<top>20</top>
+							<height>60</height>
+							<right>502</right>
+							<aligny>center</aligny>
+							<font>font32_bold</font>
+							<textcolor>$VAR[FocusColorTheme]</textcolor>
+							<selectedcolor>$VAR[FocusColorTheme]</selectedcolor>
+							<label>$VAR[PVRGuideTitleVar]</label>
+							<scroll>Control.HasFocus(11)</scroll>
 							<scrollspeed>100</scrollspeed>
 						</control>
 						<!-- <control type="label">
@@ -171,21 +164,22 @@
 							<label>$INFO[ListItem.Duration, ,m]</label>
 						</control> -->
 						<control type="textbox">
-							<left>20</left>
-							<top>53</top>
-							<right>432</right>
-							<bottom>20</bottom>
-							<font>font27_plot</font>
-							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+							<left>40</left>
+							<top>77</top>
+							<right>452</right>
+							<!-- <bottom>20</bottom> -->
+							<height>157</height>
+							<font>addonsettings_desc</font>
+							<textcolor>unfocused_text</textcolor>
 							<label>$INFO[ListItem.Plot]</label>
 							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
 							<visible>!String.IsEmpty(ListItem.Plot)</visible>
 						</control>
 						<control type="image">
-							<top>-30</top>
+							<top>0</top>
+							<bottom>20</bottom>
 							<left>1040</left>
 							<width>320</width>
-							<height>280</height>
 							<aspectratio align="center" aligny="center">keep</aspectratio>
 							<texture fallback="DefaultTVShows.png" >$INFO[ListItem.Icon]</texture>
 							<visible>!Window.IsVisible(tvchannels)</visible>
@@ -197,7 +191,7 @@
 					<left>1064</left>
 					<top>105</top>
 					<width>8</width>
-					<height>936</height>
+					<height>906</height>
 					<onleft>11</onleft>
 					<onright>11</onright>
 					<visible>Window.IsVisible(tvchannels) + [Control.HasFocus(11) | Control.HasFocus(60)]</visible>
