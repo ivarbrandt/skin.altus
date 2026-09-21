@@ -32,8 +32,8 @@
 			<include>MediaMenuMouseOverlay</include>
 			<control type="group">
 				<include>MediaMenuCommon</include>
+				<include>MediaMenuSectionHeader</include>
 				<control type="grouplist" id="9000">
-					<top>50</top>
 					<include>MediaMenuListCommon</include>
 					<include>MediaMenuNowPlaying</include>
 				</control>

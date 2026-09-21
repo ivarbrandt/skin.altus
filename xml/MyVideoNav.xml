@@ -63,8 +63,8 @@
 			<include>MediaMenuMouseOverlay</include>
 			<control type="group">
 				<include>MediaMenuCommon</include>
+				<include>MediaMenuSectionHeader</include>
 				<control type="grouplist" id="9000">
-					<top>70</top>
 					<include>MediaMenuListCommon</include>
 					<control type="button" id="10">
 						<description>Watched Toggle</description>
@@ -72,10 +72,6 @@
 						<label>$LOCALIZE[20367]</label>
 						<label2>[B]$INFO[Container.NumItems][/B]</label2>
 						<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.content(seasons) | Container.Content(episodes) | Container.Content(MusicVideos)</visible>
-					</control>
-					<control type="label" id="203">
-						<include>MediaMenuLabelCommon</include>
-						<label>$LOCALIZE[31020]</label>
 					</control>
 					<control type="radiobutton" id="16">
 						<description>PartyMode</description>

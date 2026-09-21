@@ -14,7 +14,6 @@
 				<param name="width" value="1730" />
 				<param name="header_top" value="15" />
 				<param name="divider_top" value="90" />
-				<param name="blur" value="true" />
 				<param name="blur_mask" value="masks/pvrsearch.png" />
 			</include>
 			<control type="image">

@@ -17,7 +17,6 @@
 				<param name="height" value="807" />
 				<param name="header_top" value="15" />
 				<param name="divider_top" value="90" />
-				<param name="blur" value="true" />
 				<param name="blur_mask" value="masks/dialogsettings.png" />
 			</include>
 			<control type="grouplist" id="5">
@@ -69,8 +68,8 @@
 				<left>1210</left>
 				<top>130</top>
 				<orientation>vertical</orientation>
-				<width>300</width>
-				<height>250</height>
+				<width>219</width>
+				<height>298</height>
 				<itemgap>dialogbuttons_itemgap</itemgap>
 				<onleft>5</onleft>
 				<onright>5</onright>

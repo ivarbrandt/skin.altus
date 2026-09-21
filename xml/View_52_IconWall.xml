@@ -94,7 +94,7 @@
 							<top>40</top>
 							<width>360</width>
 							<height>210</height>
-							<texture border="23" colordiffuse="4D000000">masks/radius_23.png</texture>
+							<texture border="23" colordiffuse="A6000000">masks/radius_23.png</texture>
 						</control>
 						<control type="image">
 							<left>160</left>
@@ -142,9 +142,7 @@
 						<control type="image">
 							<width>330</width>
 							<height>140</height>
-							<texture>dialogs/dialog-bg-nobo.png</texture>
-							<bordertexture border="21" infill="false">overlays/shadow.png</bordertexture>
-							<bordersize>20</bordersize>
+							<texture border="23" colordiffuse="4D000000">masks/radius_23.png</texture>
 						</control>
 						<control type="textbox">
 							<left>30</left>
@@ -168,16 +166,17 @@
 						<control type="image">
 							<width>330</width>
 							<height>140</height>
-							<texture>dialogs/dialog-bg-nobo.png</texture>
-							<bordertexture border="21" infill="false">overlays/shadow.png</bordertexture>
-							<bordersize>20</bordersize>
+							<texture border="23" colordiffuse="A6000000">masks/radius_23.png</texture>
 						</control>
-						<control type="image">
+						<control type="group">
 							<width>330</width>
 							<height>140</height>
-							<texture colordiffuse="button_focus2">colors/grey.png</texture>
-							<bordersize>20</bordersize>
-							<include>Animation_FocusTextureFade</include>
+							<include content="FocusBorder">
+								<param name="list_id" value="52"/>
+								<param name="focused" value="true"/>
+								<param name="radius" value="23"/>
+								<param name="border" value="23"/>
+							</include>
 						</control>
 						<control type="textbox">
 							<left>30</left>

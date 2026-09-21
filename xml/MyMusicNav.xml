@@ -32,14 +32,9 @@
 			<include>MediaMenuMouseOverlay</include>
 			<control type="group">
 				<include>MediaMenuCommon</include>
+				<include>MediaMenuSectionHeader</include>
 				<control type="grouplist" id="9000">
-					<top>50</top>
 					<include>MediaMenuListCommon</include>
-					<control type="label" id="203">
-						<description>Actions</description>
-						<include>MediaMenuLabelCommon</include>
-						<label>$LOCALIZE[31020]</label>
-					</control>
 					<control type="togglebutton" id="619">
 						<include>MediaMenuItemsCommon</include>
 						<label>$LOCALIZE[653]</label>

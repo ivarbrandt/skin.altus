@@ -51,36 +51,61 @@
 		<value>$VAR[FocusColorTheme]</value>
 	</variable>
 
+	<variable name="WM_ValueColor5100">
+		<value condition="Control.HasFocus(5100)">unfocused_text</value>
+		<value>60FFFFFF</value>
+	</variable>
+	<variable name="WM_ValueColor5101">
+		<value condition="Control.HasFocus(5101)">unfocused_text</value>
+		<value>60FFFFFF</value>
+	</variable>
+	<variable name="WM_ValueColor5102">
+		<value condition="Control.HasFocus(5102)">unfocused_text</value>
+		<value>60FFFFFF</value>
+	</variable>
+	<variable name="WM_ValueColor5103">
+		<value condition="Control.HasFocus(5103)">unfocused_text</value>
+		<value>60FFFFFF</value>
+	</variable>
+	<variable name="WM_ValueColor5104">
+		<value condition="Control.HasFocus(5104)">unfocused_text</value>
+		<value>60FFFFFF</value>
+	</variable>
+	<variable name="WM_ValueColor5105">
+		<value condition="Control.HasFocus(5105)">unfocused_text</value>
+		<value>60FFFFFF</value>
+	</variable>
+	<variable name="WM_ValueColor5106">
+		<value condition="Control.HasFocus(5106)">unfocused_text</value>
+		<value>60FFFFFF</value>
+	</variable>
+	<variable name="WM_ValueColor5107">
+		<value condition="Control.HasFocus(5107)">unfocused_text</value>
+		<value>60FFFFFF</value>
+	</variable>
+	<variable name="WM_ValueColor5108">
+		<value condition="Control.HasFocus(5108)">unfocused_text</value>
+		<value>60FFFFFF</value>
+	</variable>
+
 	<include name="WM_DetailRow">
 		<param name="width">569</param>
 		<param name="value"></param>
 		<param name="onleft">4000</param>
 		<definition>
-			<control type="group">
+			<control type="button" id="$PARAM[id]">
 				<width>$PARAM[width]</width>
-				<height>118</height>
-				<control type="button" id="$PARAM[id]">
-					<width>$PARAM[width]</width>
-					<height>89</height>
-					<label>$PARAM[label]</label>
-					<label2>[COLOR 60FFFFFF]$PARAM[value][/COLOR]</label2>
-					<font>font32_bold</font>
-					<textoffsetx>30</textoffsetx>
-					<aligny>center</aligny>
-					<texturefocus border="33" colordiffuse="A6000000">masks/radius_33.png</texturefocus>
-					<texturenofocus border="33" colordiffuse="4D000000">masks/radius_33.png</texturenofocus>
-					<textcolor>unfocused_text</textcolor>
-					<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
-					<onleft>$PARAM[onleft]</onleft>
-					<onup>$PARAM[up]</onup>
-					<ondown>$PARAM[down]</ondown>
-				</control>
-				<control type="image">
-					<width>$PARAM[width]</width>
-					<height>89</height>
-					<texture border="33" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-33_alt.png</texture>
-					<visible>Control.HasFocus($PARAM[id])</visible>
-				</control>
+				<height>89</height>
+				<label>$PARAM[label]</label>
+				<label2>[COLOR $VAR[WM_ValueColor$PARAM[id]]]$PARAM[value][/COLOR]</label2>
+				<font>font32_bold</font>
+				<textoffsetx>30</textoffsetx>
+				<aligny>center</aligny>
+				<texturefocus border="33" colordiffuse="$VAR[FocusColorTheme]">masks/pill33_focus.png</texturefocus>
+				<texturenofocus border="33" colordiffuse="4D000000">masks/radius_33.png</texturenofocus>
+				<textcolor>unfocused_text</textcolor>
+				<focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
+				<onleft>$PARAM[onleft]</onleft>
 			</control>
 		</definition>
 	</include>

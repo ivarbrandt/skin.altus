@@ -185,7 +185,7 @@
     <focusedcolor>$VAR[FocusColorTheme]</focusedcolor>
     <align>center</align>
     <aligny>center</aligny>
-    <font>font37</font>
+    <font>font37_title</font>
 	</include>
 	<include name="KeyboardIconKey">
     <width>80</width>
@@ -276,11 +276,11 @@
 		</definition>
 	</include>
 	<include name="SideMenuIconButton">
-    <param name="height">100</param>
+    <param name="height">93</param>
     <param name="visible">true</param>
     <definition>
 			<control type="radiobutton" id="$PARAM[control_id]">
-				<width>100</width>
+				<width>92</width>
 				<height>$PARAM[height]</height>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -288,15 +288,15 @@
 				<onclick>$PARAM[onclick_2]</onclick>
 				<font></font>
 				<label>$PARAM[label]</label>
-				<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>
-				<texturenofocus colordiffuse="4D000000">buttons/roundbutton-fo.png</texturenofocus>
-				<radioposx>30</radioposx>
+				<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/dark-button-alt.png</texturefocus>
+				<texturenofocus />
+				<radioposx>26</radioposx>
 				<radioposy>0</radioposy>
 				<radiowidth>40</radiowidth>
 				<radioheight>40</radioheight>
-				<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon]</textureradioonfocus>
+				<textureradioonfocus colordiffuse="$VAR[FocusColorTheme]">$PARAM[icon]</textureradioonfocus>
 				<textureradioonnofocus colordiffuse="unfocused_text">$PARAM[icon]</textureradioonnofocus>
-				<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon]</textureradioofffocus>
+				<textureradioofffocus colordiffuse="$VAR[FocusColorTheme]">$PARAM[icon]</textureradioofffocus>
 				<textureradiooffnofocus colordiffuse="unfocused_text">$PARAM[icon]</textureradiooffnofocus>
 				<visible>$PARAM[visible]</visible>
 			</control>
@@ -330,25 +330,25 @@
 		</definition>
 	</include> -->
 	<include name="BottomMainMenuToggleItem">
-    <param name="height">100</param>
+    <param name="height">93</param>
     <definition>
 			<control type="radiobutton" id="$PARAM[control_id]">
-				<width>100</width>
+				<width>92</width>
 				<height>$PARAM[height]</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<onclick>$PARAM[onclick]</onclick>
 				<font></font>
 				<label>$PARAM[label]</label>
-				<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>
+				<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/dark-button-alt.png</texturefocus>
 				<texturenofocus />
-				<radioposx>30</radioposx>
+				<radioposx>26</radioposx>
 				<radioposy>0</radioposy>
 				<radiowidth>40</radiowidth>
 				<radioheight>40</radioheight>
-				<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon_on]</textureradioonfocus>
+				<textureradioonfocus colordiffuse="$VAR[FocusColorTheme]">$PARAM[icon_on]</textureradioonfocus>
 				<textureradioonnofocus colordiffuse="unfocused_text">$PARAM[icon_on]</textureradioonnofocus>
-				<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon_off]</textureradioofffocus>
+				<textureradioofffocus colordiffuse="$VAR[FocusColorTheme]">$PARAM[icon_off]</textureradioofffocus>
 				<textureradiooffnofocus colordiffuse="unfocused_text">$PARAM[icon_off]</textureradiooffnofocus>
 				<selected>$PARAM[selected]</selected>
 			</control>

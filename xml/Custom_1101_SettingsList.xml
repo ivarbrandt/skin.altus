@@ -19,7 +19,6 @@
 				<include content="DialogBackgroundCommons">
 					<param name="header_label" value="$INFO[Window(home).Property(settingslist_Header)]" />
 					<param name="header_id" value="1" />
-					<param name="blur" value="true" />
 					<param name="blur_mask" value="masks/settingslist.png" />
 					<param name="width" value="700" />
 					<param name="top" value="40" />

@@ -17,7 +17,6 @@
 				<param name="height" value="1045" />
 				<param name="header_top" value="15" />
 				<param name="divider_top" value="90" />
-				<param name="blur" value="true" />
 				<param name="blur_mask" value="masks/dialogaddonsettings.png" />
 			</include>
 
@@ -295,7 +294,7 @@
 					<right>0</right>
 					<bottom>0</bottom>
 					<orientation>vertical</orientation>
-					<itemgap>0</itemgap>
+					<itemgap>29</itemgap>
 					<onleft>3000</onleft>
 					<scrolltime tween="cubic" easing="out">300</scrolltime>
 					<visible>Integer.IsGreater(Container(3000).NumItems,0)</visible>
@@ -307,8 +306,6 @@
 						<param name="value" value="$VAR[SM_DetailLabel]" />
 						<param name="width" value="1009" />
 						<param name="onleft" value="3000" />
-						<param name="up" value="5106" />
-						<param name="down" value="5101" />
 					</include>
 
 					<!-- Content Type -->
@@ -318,8 +315,6 @@
 						<param name="value" value="$VAR[SM_DetailKind]" />
 						<param name="width" value="1009" />
 						<param name="onleft" value="3000" />
-						<param name="up" value="5100" />
-						<param name="down" value="5102" />
 					</include>
 
 					<!-- Path Template -->
@@ -329,8 +324,6 @@
 						<param name="value" value="$VAR[SM_DetailUrl]" />
 						<param name="width" value="1009" />
 						<param name="onleft" value="3000" />
-						<param name="up" value="5101" />
-						<param name="down" value="5103" />
 					</include>
 
 					<!-- Display Type (for stacked widgets, this is the stacked child type) -->
@@ -340,8 +333,6 @@
 						<param name="value" value="$VAR[SM_DetailDisplayType]" />
 						<param name="width" value="1009" />
 						<param name="onleft" value="3000" />
-						<param name="up" value="5102" />
-						<param name="down" value="5104" />
 					</include>
 
 					<!-- Target -->
@@ -351,8 +342,6 @@
 						<param name="value" value="$VAR[SM_DetailTarget]" />
 						<param name="width" value="1009" />
 						<param name="onleft" value="3000" />
-						<param name="up" value="5103" />
-						<param name="down" value="5105" />
 					</include>
 
 					<!-- Stacked toggle -->
@@ -362,8 +351,6 @@
 						<param name="value" value="$VAR[SM_DetailStacked]" />
 						<param name="width" value="1009" />
 						<param name="onleft" value="3000" />
-						<param name="up" value="5104" />
-						<param name="down" value="5106" />
 					</include>
 
 					<!-- Test This Path (P7 stub) -->
@@ -372,8 +359,6 @@
 						<param name="label" value="Test This Path" />
 						<param name="width" value="1009" />
 						<param name="onleft" value="3000" />
-						<param name="up" value="5105" />
-						<param name="down" value="5100" />
 					</include>
 				</control>
 			</control>

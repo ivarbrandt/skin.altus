@@ -17,7 +17,6 @@
 				<param name="height" value="1045" />
 				<param name="header_top" value="15" />
 				<param name="divider_top" value="90" />
-				<param name="blur" value="true" />
 				<param name="blur_mask" value="masks/dialogaddonsettings.png" />
 			</include>
 
@@ -583,7 +582,7 @@
 					<right>0</right>
 					<bottom>0</bottom>
 					<orientation>vertical</orientation>
-					<itemgap>0</itemgap>
+					<itemgap>29</itemgap>
 					<onleft>4000</onleft>
 					<scrolltime tween="cubic" easing="out">300</scrolltime>
 					<visible>Integer.IsGreater(Container(4000).NumItems,0)</visible>
@@ -592,56 +591,42 @@
 						<param name="id" value="5100" />
 						<param name="label" value="Label:" />
 						<param name="value" value="$VAR[WM_DetailLabel]" />
-						<param name="up" value="5108" />
-						<param name="down" value="5101" />
 					</include>
 					<!-- Display Type -->
 					<include content="WM_DetailRow">
 						<param name="id" value="5101" />
 						<param name="label" value="Display Type:" />
 						<param name="value" value="$VAR[WM_DetailDisplayType]" />
-						<param name="up" value="5100" />
-						<param name="down" value="5102" />
 					</include>
 					<!-- Path -->
 					<include content="WM_DetailRow">
 						<param name="id" value="5102" />
 						<param name="label" value="Path:" />
 						<param name="value" value="$VAR[WM_DetailPath]" />
-						<param name="up" value="5101" />
-						<param name="down" value="5104" />
 					</include>
 					<!-- Target -->
 					<include content="WM_DetailRow">
 						<param name="id" value="5104" />
 						<param name="label" value="Target:" />
 						<param name="value" value="$VAR[WM_DetailTarget]" />
-						<param name="up" value="5102" />
-						<param name="down" value="5106" />
 					</include>
 					<!-- Limit -->
 					<include content="WM_DetailRow">
 						<param name="id" value="5106" />
 						<param name="label" value="Limit:" />
 						<param name="value" value="$VAR[WM_DetailLimit]" />
-						<param name="up" value="5104" />
-						<param name="down" value="5107" />
 					</include>
 					<!-- Sort By -->
 					<include content="WM_DetailRow">
 						<param name="id" value="5107" />
 						<param name="label" value="Sort By:" />
 						<param name="value" value="$VAR[WM_DetailSortBy]" />
-						<param name="up" value="5106" />
-						<param name="down" value="5108" />
 					</include>
 					<!-- Sort Order -->
 					<include content="WM_DetailRow">
 						<param name="id" value="5108" />
 						<param name="label" value="Sort Order:" />
 						<param name="value" value="$VAR[WM_DetailSortOrder]" />
-						<param name="up" value="5107" />
-						<param name="down" value="5100" />
 					</include>
 				</control>
 			</control>
