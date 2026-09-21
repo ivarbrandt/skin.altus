@@ -13,7 +13,12 @@
 				<width>317</width>
 				<height>155</height>
 				<control type="image">
-					<texture border="20" colordiffuse="4D000000">masks/radius_20.png</texture>
+					<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
+					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | !Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+				</control>
+				<control type="image">
+					<texture border="33" colordiffuse="A6000000">masks/radius_33.png</texture>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
 				</control>
 				<control type="group">
 					<centertop>37%</centertop>
@@ -42,7 +47,7 @@
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>unfocused_text</textcolor>
-					<font>font25</font>
+					<font>font25_title</font>
 					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
 					<scrollspeed>50</scrollspeed>
 					<visible>$EXP[isContent] + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
@@ -50,6 +55,8 @@
 				<include content="FocusBorder">
 					<param name="list_id" value="$PARAM[list_id]"/>
 					<param name="focused" value="$PARAM[focused]"/>
+					<param name="radius" value="33"/>
+					<param name="border" value="33"/>
 				</include>
 				<control type="label">
 					<centerleft>50%</centerleft>
@@ -61,7 +68,7 @@
 					<aligny>center</aligny>
 					<label>$VAR[AddonsTitleVar]</label>
 					<textcolor>unfocused_text</textcolor>
-					<font>font25</font>
+					<font>font25_title</font>
 					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
 					<scrollspeed>50</scrollspeed>
 					<visible>!$EXP[isContent]</visible>

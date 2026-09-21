@@ -449,7 +449,7 @@
 			<name>font25</name>
 			<filename>arial.ttf</filename>
 			<size>23</size>
-			
+
 		</font>
 		<font>
 			<name>font25_narrow</name>
@@ -462,8 +462,8 @@
 			<name>font27</name>
 			<filename>arial.ttf</filename>
 			<size>27</size>
-			
-			
+
+
 		</font>
 		<font>
 			<name>font27_narrow</name>

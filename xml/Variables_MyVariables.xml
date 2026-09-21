@@ -327,13 +327,13 @@
 	</variable>
 
 	<variable name="RightVideoHeader">
-    <value>$VAR[FilterLabel][COLOR unfocused_text]$INFO[Container.CurrentItem][/COLOR] / [COLOR unfocused_text]$INFO[Container.NumItems][/COLOR]$VAR[ClockCrumbs]</value>
+    <value>$VAR[FilterLabel][COLOR unfocused_text]$INFO[Container.NumItems] $LOCALIZE[31036][/COLOR]$VAR[ClockCrumbs]</value>
 
 		<!-- <value>[COLOR unfocused_text]$INFO[Control.GetLabel(10)][/COLOR] • [COLOR unfocused_text]$INFO[Container.CurrentItem][/COLOR] / [COLOR unfocused_text]$INFO[Container.NumItems][/COLOR] • [COLOR unfocused_text]$INFO[System.Time][/COLOR]</value> -->
 	</variable>
 
 	<variable name="FilterLabel">
-    <value condition="Window.IsVisible(videos)">[COLOR unfocused_text]$INFO[Control.GetLabel(10)][/COLOR] • </value>
+    <value condition="Window.IsVisible(videos) + !String.IsEqual(Control.GetLabel(10),$LOCALIZE[16100])">[COLOR unfocused_text]$INFO[Control.GetLabel(10)][/COLOR] • </value>
 	</variable>
 
 	<variable name="ClockCrumbs">
@@ -1142,7 +1142,7 @@
 		<value condition="[Container.Content(favourites) + !String.IsEmpty(Skin.String(Skin.ForcedView.favourites))]">[B]$INFO[Skin.String(Skin.ForcedView.favourites)][/B]</value>
 		<value condition="[Container.Content(unknown) + !String.IsEmpty(Skin.String(Skin.ForcedView.unknown))]">[B]$INFO[Skin.String(Skin.ForcedView.unknown)][/B]</value>
 		<value condition="[Container.Content(videos) + !String.IsEmpty(Skin.String(Skin.ForcedView.videos))]">[B]$INFO[Skin.String(Skin.ForcedView.videos)][/B]</value>
-		<value>$INFO[Container.Viewmode]</value>
+		<value>[COLOR grey]$INFO[Container.Viewmode][/COLOR]</value>
 	</variable>	
 
 	<variable name="APIKeyLabel">

@@ -55,7 +55,7 @@
 					<label>$PARAM[single_label]</label>
 					<scroll>$PARAM[focused] + [Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</scroll>
 					<scrollspeed>100</scrollspeed>
-					<font>font27</font>
+					<font>font23_title</font>
 					<textcolor>unfocused_text</textcolor>
 					<visible>!String.IsEqual(ListItem.DBType,album)</visible>
 				</control>
@@ -67,7 +67,7 @@
 					<control type="label">
 						<top>244</top>
 						<label>$PARAM[sub_label]</label>
-						<font>font23</font>
+						<font>font23_title</font>
 						<shadowcolor>text_shadow</shadowcolor>
 						<scroll>$PARAM[focused]</scroll>
 						<align>center</align>
@@ -75,7 +75,7 @@
 					<control type="label">
 						<top>292</top>
 						<label>$PARAM[main_label]</label>
-						<font>font27</font>
+						<font>font27_title</font>
 						<shadowcolor>text_shadow</shadowcolor>
 						<scroll>$PARAM[focused]</scroll>
 						<align>center</align>
