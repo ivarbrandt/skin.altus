@@ -7,16 +7,33 @@
 			<control type="group">
 				<depth>DepthOSD</depth>
 				<include>OpenClose_Left</include>
-				<include content="DialogBackgroundCommons">
-					<param name="header_label" value="" />
-					<param name="header_id" value="" />
-					<param name="blur" value="false" />
-					<param name="left" value="-2" />
-					<param name="divider_visible" value="false" />
-					<param name="colordiffuse" value="$VAR[FocusColorTheme]" />
-					<param name="border_texture" value=""/>
-					<param name="diffuse_texture" value="lists/contentpanel-fade-white.png" />
-				</include>
+				<control type="image">
+					<left>-2000</left>
+					<top>-2000</top>
+					<width>6000</width>
+					<height>6000</height>
+					<animation effect="slide" end="-20000,-20000" time="0" condition="String.IsEqual(Window(Home).Property(altus.pvr.hiding_ctx),true)">Conditional</animation>
+					<animation effect="fade" time="375">VisibleChange</animation>
+					<animation effect="fade" start="0" end="100" time="375">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="375">WindowClose</animation>
+					<texture colordiffuse="A6FFFFFF">colors/black.png</texture>
+				</control>
+				<control type="button">
+					<left>-2000</left>
+					<top>-2000</top>
+					<width>6000</width>
+					<height>6000</height>
+					<texturefocus />
+					<texturenofocus />
+					<onclick>Action(close)</onclick>
+				</control>
+				<control type="image">
+					<left>-2</left>
+					<top>0</top>
+					<right>0</right>
+					<bottom>0</bottom>
+					<texture border="46" colordiffuse="$VAR[FocusColorTheme]">lists/contentpanel-fade-white.png</texture>
+				</control>
 				<control type="fixedlist" id="11">
 					<left>40</left>
 					<top>105</top>

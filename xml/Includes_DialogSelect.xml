@@ -302,7 +302,6 @@
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="35260" />
 				<param name="header_id" value="10820" />
-				<param name="blur" value="false" />
 			</include>
 			<control type="group">
 				<description>Content area</description>

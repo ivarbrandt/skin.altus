@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="dialog" id="1102">
 	<defaultcontrol always="true">1000</defaultcontrol>
-	<onunload>ClearProperty(TextViewerHeader,Home)</onunload>
+	<onunload>ClearProperty(TextViewer_Header,Home)</onunload>
 	<onunload>ClearProperty(TextViewerSubHeader,Home)</onunload>
 	<onunload>ClearProperty(TextViewer_Text,Home)</onunload>
 	<include>Animation_DialogPopupOpenClose</include>
@@ -14,7 +14,7 @@
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="$INFO[Window(home).Property(TextViewer_Header)]" />
 				<param name="header_id" value="1" />
-				<param name="blur" value="false" />
+				<param name="blur_mask" value="masks/textviewer.png" />
 				<param name="header_top" value="15" />
 				<param name="divider_top" value="90" />
 			</include>
@@ -26,7 +26,7 @@
 				<height>611</height>
 				<shadowcolor>black</shadowcolor>
 				<pagecontrol>3000</pagecontrol>
-				<font>font32</font>
+				<font>font32_bold</font>
 				<focusedcolor>unfocused_text</focusedcolor>
 				<label>$INFO[Window(home).Property(TextViewer_Text)]</label>
 			</control>

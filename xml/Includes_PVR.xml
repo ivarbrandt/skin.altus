@@ -1396,7 +1396,7 @@
 					<control type="image">
 						<height>118</height>
 						<width>460</width>
-						<texture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-15.png</texture>
+						<texture border="15" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-15_alt.png</texture>
 						<visible>Control.HasFocus($PARAM[control_id])</visible>
 					</control>
 					<control type="image">
@@ -1484,7 +1484,7 @@
 						<height>118</height>
 						<bordersize>4</bordersize>
 						<texture border="15" colordiffuse="$VAR[EPGFocusedColorVar]">masks/radius_15.png</texture>
-						<bordertexture border="15" colordiffuse="$VAR[EPGFocusBorderVar]" infill="false">masks/bordertexture-15.png</bordertexture>
+						<bordertexture border="19" colordiffuse="$VAR[EPGFocusBorderVar]" infill="false">masks/bordertexture-19_alt.png</bordertexture>
 					</control>
 					<!-- unfocused grid (back) -->
 					<control type="textbox" id="1">

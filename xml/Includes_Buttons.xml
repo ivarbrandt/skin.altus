@@ -148,6 +148,7 @@
 		<param name="font">font32_bold</param>
 		<param name="onclick"></param>
 		<param name="onclick2"></param>
+		<param name="onclick3"></param>
 		<param name="visible">true</param>
 		<param name="texture">masks/pill40_focus.png</param>
 		<param name="texture_color">$VAR[FocusColorTheme]</param>
@@ -164,6 +165,7 @@
 				<textoffsetx>20</textoffsetx>
 				<onclick>$PARAM[onclick]</onclick>
 				<onclick>$PARAM[onclick2]</onclick>
+				<onclick>$PARAM[onclick3]</onclick>
 				<wrapmultiline>$PARAM[wrapmultiline]</wrapmultiline>
 				<align>center</align>
 				<aligny>center</aligny>

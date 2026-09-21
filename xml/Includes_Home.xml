@@ -253,7 +253,7 @@
 	</include>
 
 	<include name="AltusSkinStringsInitialization">
-		<onload>ActivateWindow(1112)</onload>
+		<onload>ActivateWindow(1116)</onload>
 		<onload condition="String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,20)</onload>	
 		<onload condition="String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,1.0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(waitInterval))">Skin.SetString(waitInterval,1)</onload>	

@@ -22,10 +22,6 @@
 		<param name="width">100%</param>
 		<param name="height">100%</param>
 		<param name="darken_bg">true</param>
-		<param name="colordiffuse">$VAR[FocusColorTheme]</param>
-		<param name="border_colordiffuse">$VAR[FocusColorTheme]</param>
-		<param name="diffuse_texture">masks/radius_46.png</param>
-		<param name="border_texture">masks/bordertexture-46-thin.png</param>
 		<param name="border_value">46</param>
 		<param name="visible">true</param>
 		<param name="content_visible">true</param>
@@ -33,7 +29,6 @@
 		<param name="header_top">60</param>
 		<param name="divider_top">135</param>
 		<param name="header_label_color">unfocused_text</param>
-		<param name="blur">true</param>
 		<param name="blur_mask">masks/buttonmenu.png</param>
 		<definition>
 			<control type="image">
@@ -66,17 +61,7 @@
 					<top>$PARAM[top]</top>
 					<right>$PARAM[right]</right>
 					<bottom>$PARAM[bottom]</bottom>
-					<visible>$PARAM[visible] + !$PARAM[blur]</visible>
-					<bordersize>2</bordersize>
-					<texture border="$PARAM[border_value]" colordiffuse="$PARAM[colordiffuse]">$PARAM[diffuse_texture]</texture>
-					<bordertexture border="$PARAM[border_value]" colordiffuse="$PARAM[border_colordiffuse]" infill="false">$PARAM[border_texture]</bordertexture>
-				</control>
-				<control type="image">
-					<left>$PARAM[left]</left>
-					<top>$PARAM[top]</top>
-					<right>$PARAM[right]</right>
-					<bottom>$PARAM[bottom]</bottom>
-					<visible>$PARAM[visible] + $PARAM[blur]</visible>
+					<visible>$PARAM[visible]</visible>
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<texture diffuse="$PARAM[blur_mask]" colordiffuse="$VAR[DialogBackgroundDiffuse]">$VAR[DialogBackgroundTexture]</texture>
 				</control>
@@ -85,8 +70,8 @@
 					<top>$PARAM[top]</top>
 					<right>$PARAM[right]</right>
 					<bottom>$PARAM[bottom]</bottom>
-					<visible>$PARAM[visible] + $PARAM[blur]</visible>
-					<texture border="46" colordiffuse="$PARAM[border_colordiffuse]" infill="false">masks/bordertexture-46-alt.png</texture>
+					<visible>$PARAM[visible]</visible>
+					<texture border="$PARAM[border_value]" colordiffuse="$VAR[FocusColorTheme]" infill="false">masks/bordertexture-46-alt.png</texture>
 				</control>
 				<control type="image">
 					<left>40</left>

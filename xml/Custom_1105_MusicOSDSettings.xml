@@ -13,7 +13,6 @@
 				<param name="height" value="80" /> -->
 				<param name="header_label" value="$LOCALIZE[5]" />
 				<param name="header_id" value="" />
-				<param name="blur" value="false" />
 				<!-- <param name="diffusetexture" value="colors/white.png" /> -->
 			</include>
 			<control type="group">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window id="1112">
+<window id="1116">
 	<defaultcontrol always="true">100</defaultcontrol>
 	<include>Animation_DialogPopupOpenClose</include>
 	<depth>DepthDialog+</depth>
@@ -13,7 +13,7 @@
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="Welcome to Altus" />
 				<param name="header_id" value="1" />
-				<param name="blur" value="false" />
+				<param name="blur_mask" value="masks/starthelp.png" />
 				<param name="header_top" value="15" />
 				<param name="divider_top" value="90" />
 				<param name="darken_bg" value="false" />
@@ -22,28 +22,26 @@
 				<left>40</left>
 				<top>100</top>
 				<width>1220</width>
-				<height>1000</height>
+				<height>440</height>
 				<textcolor>unfocused_text</textcolor>
-				<font>font32</font>
-				<label>Pressing OK will set up your home screen.[CR][CR]If you're coming from a previous version of Altus, your existing widget configuration will be migrated automatically.[CR][CR]If this is a fresh install, a default set of sections and widgets will be created for you.[CR][CR]Coming from Nimbus or FENtastic? You can import your widget configuration from Skin Settings > Import from Other Skin.[CR][CR]You can customize everything from Skin Settings > Widget Manager.</label>
+				<font>font32_bold</font>
+				<label>Pressing OK will set up your home screen.[CR][CR]If you're coming from a previous version of Altus, your existing widget configuration will be migrated automatically.[CR][CR]If this is a fresh install, a default set of sections and widgets will be created for you.[CR][CR]Coming from Nimbus or FENtastic? You can import your widget configuration from Skin Settings > Main menu items > Import.[CR][CR]You can customize everything from Skin Settings > Widget Manager.</label>
 				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 			</control>
-			<control type="button" id="100">
-				<visible>!Skin.HasSetting(firsttimerun)</visible>
-				<centerleft>50%</centerleft>
-				<top>570</top>
-				<width>219</width>
-				<height>70</height>
-				<label>OK</label>
-				<font>font25_title</font>
-				<textoffsetx>20</textoffsetx>
-				<onclick>Skin.Setbool(firsttimerun)</onclick>
-				<onclick>back</onclick>
-				<onclick>RunScript(script.altus.helper,mode=migrate_and_generate)</onclick>
+			<control type="grouplist" id="9000">
+				<orientation>horizontal</orientation>
+				<left>0</left>
+				<top>575</top>
+				<width>1300</width>
 				<align>center</align>
-				<aligny>center</aligny>
-				<texturefocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23.png</texturefocus>
-				<texturenofocus border="23" colordiffuse="$VAR[FocusColorTheme]">masks/radius_23_dark.png</texturenofocus>
+				<itemgap>dialogbuttons_itemgap</itemgap>
+				<include content="DefaultDialogButton">
+					<param name="id" value="100" />
+					<param name="label" value="$LOCALIZE[186]" />
+					<param name="onclick" value="Skin.Setbool(firsttimerun)" />
+					<param name="onclick2" value="back" />
+					<param name="onclick3" value="RunScript(script.altus.helper,mode=migrate_and_generate)" />
+				</include>
 			</control>
 		</control>
 	</controls>
