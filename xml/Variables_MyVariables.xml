@@ -1069,15 +1069,6 @@
 		<value condition="Control.HasFocus(806)">Toggle fullscreen</value>
 	</variable>
 
-	<!-- ADDON LAUNCHER SUBMENU BUTTON LABELS -->
-	<variable name="AddonLauncherSubmenuButtonLabelsVar">
-		<value condition="Control.HasFocus(801)">Open addon browser</value>
-		<value condition="Control.HasFocus(802)">Install from zip</value>
-		<value condition="Control.HasFocus(803)">Search addons</value>
-		<value condition="Control.HasFocus(804) + Integer.IsEqual(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available update</value>
-		<value condition="Control.HasFocus(804) + Integer.IsGreater(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available updates</value>
-	</variable>
-
 	<!-- SEARCH WINDOW SUBMENU BUTTON LABELS -->
 	<variable name="SearchSubmenuButtonLabelsVar">
 		<value condition="Control.HasFocus(801)">New search</value>

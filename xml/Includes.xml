@@ -2,7 +2,7 @@
 <includes>
 	<include file="Defaults.xml" />
 	<include file="Expressions.xml" />
-	<include file="Includes_AddonLauncher.xml" />
+	<include file="Includes_AddonLauncherWall.xml" />
 	<include file="Includes_Animations.xml" />
 	<include file="Includes_Arrows.xml" />
 	<include file="Includes_Backgrounds.xml" />
@@ -48,8 +48,6 @@
 	<include file="Layouts_SimpleList.xml" />
 	<include file="Layouts_SettingsPanel.xml" />
 	<include file="Layouts_FileManager.xml" />
-	<include file="Layouts_TeiredAddonLauncherList.xml" />
-	<include file="Layouts_AddonLauncherList.xml" />
 	<include file="Layouts_BigLandscape.xml" />
 	<include file="Layouts_Weather.xml" />
 	<include file="script-altus-main_menu.xml" />

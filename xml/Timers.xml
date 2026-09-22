@@ -26,5 +26,12 @@
         <!-- <onstop>Notification(View locked$VAR[ContentTypeLabel], [UPPERCASE]$INFO[Container.Viewmode][/UPPERCASE], 2000)</onstop> -->
         <onstop>RunScript(script.altus.helper,mode=save_view)</onstop>
     </timer>
-    
+    <timer>
+        <name>addon_launcher_focus_rescue</name>
+        <description>Returns focus to the add-on launcher menu when it lands on nothing visible, e.g. after a root's list empties and its menu item hides.</description>
+        <start reset="true">Window.IsActive(1100) + !System.HasActiveModalDialog + !Control.HasFocus(9000) + !ControlGroup(700).HasFocus + ![[ControlGroup(501).HasFocus + Control.IsVisible(501)] | [ControlGroup(502).HasFocus + Control.IsVisible(502)] | [ControlGroup(503).HasFocus + Control.IsVisible(503)] | [ControlGroup(504).HasFocus + Control.IsVisible(504)] | [ControlGroup(505).HasFocus + Control.IsVisible(505)] | [ControlGroup(506).HasFocus + Control.IsVisible(506)] | [ControlGroup(507).HasFocus + Control.IsVisible(507)] | [ControlGroup(508).HasFocus + Control.IsVisible(508)]]</start>
+        <onstart>SetFocus(9000)</onstart>
+        <stop>Control.HasFocus(9000) | !Window.IsActive(1100)</stop>
+    </timer>
+
 </timers>
