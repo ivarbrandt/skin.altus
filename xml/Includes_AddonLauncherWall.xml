@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="AddonLauncherTile">
+		<param name="focused">false</param>
+		<definition>
+			<control type="group">
+				<left>18</left>
+				<top>18</top>
+				<width>675</width>
+				<height>122</height>
+				<control type="image">
+					<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
+					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | !Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+				</control>
+				<control type="image">
+					<texture border="33" colordiffuse="A6000000">masks/radius_33.png</texture>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+				</control>
+				<control type="image">
+					<left>21</left>
+					<centertop>50%</centertop>
+					<width>80</width>
+					<height>80</height>
+					<texture diffuse="masks/small-square.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>!String.IsEmpty(ListItem.Property(Addon.ID))</visible>
+				</control>
+				<control type="image">
+					<left>31</left>
+					<centertop>50%</centertop>
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="unfocused_text" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>String.IsEmpty(ListItem.Property(Addon.ID))</visible>
+					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | !Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+				</control>
+				<control type="image">
+					<left>31</left>
+					<centertop>50%</centertop>
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="$VAR[FocusColorTheme]" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>String.IsEmpty(ListItem.Property(Addon.ID))</visible>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+				</control>
+				<control type="group">
+					<left>125</left>
+					<width>526</width>
+					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | !Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+					<control type="label">
+						<height>122</height>
+						<aligny>center</aligny>
+						<font>font27_title</font>
+						<textcolor>unfocused_text</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>String.IsEmpty(ListItem.Property(Addon.Status))</visible>
+					</control>
+					<control type="label">
+						<top>23</top>
+						<height>40</height>
+						<aligny>center</aligny>
+						<font>font27_title</font>
+						<textcolor>unfocused_text</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>!String.IsEmpty(ListItem.Property(Addon.Status))</visible>
+					</control>
+					<control type="label">
+						<top>63</top>
+						<height>36</height>
+						<aligny>center</aligny>
+						<font>font23_title</font>
+						<textcolor>unfocused_text</textcolor>
+						<label>[LIGHT]$INFO[ListItem.Property(Addon.Status)][/LIGHT]</label>
+					</control>
+				</control>
+				<control type="group">
+					<left>125</left>
+					<width>526</width>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+					<control type="label">
+						<height>122</height>
+						<aligny>center</aligny>
+						<font>font27_title</font>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<scroll>true</scroll>
+						<scrollspeed>50</scrollspeed>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>String.IsEmpty(ListItem.Property(Addon.Status))</visible>
+					</control>
+					<control type="label">
+						<top>23</top>
+						<height>40</height>
+						<aligny>center</aligny>
+						<font>font27_title</font>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<scroll>true</scroll>
+						<scrollspeed>50</scrollspeed>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>!String.IsEmpty(ListItem.Property(Addon.Status))</visible>
+					</control>
+					<control type="label">
+						<top>63</top>
+						<height>36</height>
+						<aligny>center</aligny>
+						<font>font23_title</font>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<label>[LIGHT]$INFO[ListItem.Property(Addon.Status)][/LIGHT]</label>
+					</control>
+				</control>
+				<include content="FocusBorder">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="focused" value="$PARAM[focused]"/>
+					<param name="radius" value="33"/>
+					<param name="border" value="33"/>
+				</include>
+			</control>
+		</definition>
+	</include>
+
+	<include name="AddonLauncherPanel">
+		<param name="last">false</param>
+		<param name="sortby">label</param>
+		<param name="sortorder">ascending</param>
+		<definition>
+			<control type="panel" id="$PARAM[root]5$PARAM[level]">
+				<visible allowhiddenfocus="true">$PARAM[visible] + !Container($PARAM[root]5$PARAM[level]).IsUpdating</visible>
+				<left>0</left>
+				<top>159</top>
+				<width>1424</width>
+				<height>795</height>
+				<orientation>vertical</orientation>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<preloaditems>1</preloaditems>
+				<onup>$PARAM[root]5$PARAM[level]</onup>
+				<ondown>$PARAM[root]5$PARAM[level]</ondown>
+				<onleft>9000</onleft>
+				<onright>$PARAM[root]5$PARAM[level]</onright>
+				<onclick condition="!ListItem.IsFolder">Action(Info)</onclick>
+				<onclick condition="ListItem.IsFolder + $PARAM[last]">ActivateWindow(AddonBrowser,$INFO[Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath],return)</onclick>
+				<onclick condition="ListItem.IsFolder + !$PARAM[last] + String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_depth,$PARAM[next],1100)</onclick>
+				<onclick condition="ListItem.IsFolder + !$PARAM[last] + String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetFocus($PARAM[root]5$PARAM[next])</onclick>
+				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_hold_art,$INFO[Container($PARAM[root]5$PARAM[level]).ListItem.Art(fanart)],1100)</onclick>
+				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_label$PARAM[next],"$INFO[Container($PARAM[root]5$PARAM[level]).ListItem.Label]",1100)</onclick>
+				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_depth,$PARAM[next],1100)</onclick>
+				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetFocus($PARAM[root]5$PARAM[next],0,absolute)</onclick>
+				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">AlarmClock(launcher_refocus,SetFocus($PARAM[root]5$PARAM[next],0,absolute),00:00,silent)</onclick>
+				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_path$PARAM[next],$INFO[Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath],1100)</onclick>
+				<onback>$PARAM[back_depth]</onback>
+				<onback>$PARAM[back_id]</onback>
+				<itemlayout width="712" height="159" infoupdate="30">
+					<include content="AddonLauncherTile">
+						<param name="list_id" value="$PARAM[root]5$PARAM[level]"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="712" height="159" infoupdate="30">
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<include content="AddonLauncherTile">
+							<param name="list_id" value="$PARAM[root]5$PARAM[level]"/>
+							<param name="focused" value="true"/>
+						</include>
+						<include>FocusBounce</include>
+					</control>
+				</focusedlayout>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="addonbrowser">$PARAM[content]</content>
+			</control>
+		</definition>
+	</include>
+
+	<include name="AddonLauncherHeader">
+		<definition>
+			<control type="group">
+				<left>18</left>
+				<top>18</top>
+				<width>1387</width>
+				<height>122</height>
+				<control type="image">
+					<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
+				</control>
+				<control type="image">
+					<left>31</left>
+					<centertop>50%</centertop>
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="unfocused_text">$INFO[Container(9000).ListItem.Property(icon)]</texture>
+					<aspectratio>keep</aspectratio>
+					<animation effect="fade" start="100" end="30" time="500" tween="sine" easing="inout" pulse="true" condition="$PARAM[loading]">Conditional</animation>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="AddonLauncherWall">
+		<param name="sortby">label</param>
+		<param name="sortorder">ascending</param>
+		<definition>
+			<include content="AddonLauncherHeader">
+				<param name="loading" value="[Container($PARAM[root]50).IsUpdating | Container($PARAM[root]51).IsUpdating | Container($PARAM[root]52).IsUpdating | Container($PARAM[root]53).IsUpdating]"/>
+			</include>
+			<include content="AddonLauncherPanel">
+				<param name="root" value="$PARAM[root]"/>
+				<param name="level" value="0"/>
+				<param name="next" value="1"/>
+				<param name="visible" value="String.IsEmpty(Window(1100).Property(launcher_$PARAM[root]_depth))"/>
+				<param name="content" value="$PARAM[root_path]"/>
+				<param name="sortby" value="$PARAM[sortby]"/>
+				<param name="sortorder" value="$PARAM[sortorder]"/>
+				<param name="back_depth" value="ClearProperty(launcher_$PARAM[root]_depth,1100)"/>
+				<param name="back_id" value="9000"/>
+			</include>
+			<include content="AddonLauncherPanel">
+				<param name="root" value="$PARAM[root]"/>
+				<param name="level" value="1"/>
+				<param name="next" value="2"/>
+				<param name="visible" value="String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),1)"/>
+				<param name="content" value="$INFO[Window(1100).Property(launcher_$PARAM[root]_path1)]"/>
+				<param name="back_depth" value="ClearProperty(launcher_$PARAM[root]_depth,1100)"/>
+				<param name="back_id" value="$PARAM[root]50"/>
+			</include>
+			<include content="AddonLauncherPanel">
+				<param name="root" value="$PARAM[root]"/>
+				<param name="level" value="2"/>
+				<param name="next" value="3"/>
+				<param name="visible" value="String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),2)"/>
+				<param name="content" value="$INFO[Window(1100).Property(launcher_$PARAM[root]_path2)]"/>
+				<param name="back_depth" value="SetProperty(launcher_$PARAM[root]_depth,1,1100)"/>
+				<param name="back_id" value="$PARAM[root]51"/>
+			</include>
+			<include content="AddonLauncherPanel">
+				<param name="root" value="$PARAM[root]"/>
+				<param name="level" value="3"/>
+				<param name="next" value="4"/>
+				<param name="last" value="true"/>
+				<param name="visible" value="String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),3)"/>
+				<param name="content" value="$INFO[Window(1100).Property(launcher_$PARAM[root]_path3)]"/>
+				<param name="back_depth" value="SetProperty(launcher_$PARAM[root]_depth,2,1100)"/>
+				<param name="back_id" value="$PARAM[root]52"/>
+			</include>
+		</definition>
+	</include>
+
+</includes>

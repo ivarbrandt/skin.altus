@@ -25,13 +25,6 @@
 					<param name="sortorder" value="descending" />
 					<param name="imagewidget_onclick" value="ActivateWindow(addonbrowser,addons://recently_updated/,return)" />
 				</include>
-				<include content="TieredAddonLauncherList">
-					<param name="group_id" value="503" />
-					<param name="id" value="Repositories" />
-					<param name="container_path" value="addons://repos/" />
-					<param name="container_target" value="addonbrowser" />
-					<param name="imagewidget_onclick" value="ActivateWindow(addonbrowser,addons://repos/,return)" />
-				</include>
 				<include content="AddonLauncherList">
 					<param name="group_id" value="504" />
 					<param name="id" value="Manage dependencies" />
@@ -71,6 +64,19 @@
 					<animation effect="fade" time="200" tween="cubic" easing="out">VisibleChange</animation>
 				</control>
 			</control>
+			<control type="group" id="503">
+				<left>487</left>
+				<top>76</top>
+				<include>OpenClose_Right</include>
+				<include content="Visible_Right_Delayed">
+					<param name="id" value="Repositories"/>
+				</include>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(id),Repositories)</visible>
+				<include content="AddonLauncherWall">
+					<param name="root" value="503"/>
+					<param name="root_path" value="addons://repos/"/>
+				</include>
+			</control>
 			<control type="group">
 				<include>OpenClose_Left</include>
 				<animation effect="slide" time="400" start="-482,0" end="0,0" tween="cubic" easing="inout">VisibleChange</animation>
@@ -85,11 +91,13 @@
 					<focusposition>0</focusposition>
 					<onup>700</onup>
 					<ondown>9000</ondown>
-					<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
+					<onright condition="!String.IsEqual(Container(9000).ListItem.Property(menu_id),503)">SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
+					<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),503) + String.IsEmpty(Window(1100).Property(launcher_503_depth))">SetFocus(50350)</onright>
+					<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),503) + !String.IsEmpty(Window(1100).Property(launcher_503_depth))">SetFocus(5035$INFO[Window(1100).Property(launcher_503_depth)])</onright>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<include content="MainMenuList">
 						<param name="id" value="9000" />
-						<param name="active" value="ControlGroup(400).HasFocus" />
+						<param name="active" value="[ControlGroup(400).HasFocus | ControlGroup(503).HasFocus]" />
 					</include>
 					<content>
 						<item id="1">

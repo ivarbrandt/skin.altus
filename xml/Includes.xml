@@ -3,6 +3,7 @@
 	<include file="Defaults.xml" />
 	<include file="Expressions.xml" />
 	<include file="Includes_AddonLauncher.xml" />
+	<include file="Includes_AddonLauncherWall.xml" />
 	<include file="Includes_Animations.xml" />
 	<include file="Includes_Arrows.xml" />
 	<include file="Includes_Backgrounds.xml" />
