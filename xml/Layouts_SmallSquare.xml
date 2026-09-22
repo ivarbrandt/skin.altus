@@ -17,13 +17,13 @@
 					<width>249</width>
 					<height>249</height>
 					<texture colordiffuse="4D000000">masks/small-square.png</texture>
-					<visible>![[$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)] | [$PARAM[focused] + ControlGroup(400).HasFocus]]</visible>
+					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)]</visible>
 				</control>
 				<control type="image">
 					<width>249</width>
 					<height>249</height>
 					<texture colordiffuse="A6000000">masks/small-square.png</texture>
-					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)] | [$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
 				</control>
 				<control type="image">
 					<centertop>50%</centertop>
@@ -41,7 +41,6 @@
 				<include content="FocusBorder">
 					<param name="list_id" value="$PARAM[list_id]"/>
 					<param name="focused" value="$PARAM[focused]"/>
-					<param name="extra" value="ControlGroup(400).HasFocus"/>
 				</include>
 				<control type="label">
 					<centerleft>50%</centerleft>

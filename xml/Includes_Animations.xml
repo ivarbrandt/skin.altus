@@ -454,12 +454,6 @@
 
 	<animation effect="zoom" condition="">conditional</animation>
 
-	<include name="AddonsMenuAnimations">
-		<animation condition="!ControlGroup(400).HasFocus" reversible="true">
-			<effect type="slide" start="0,0" end="442,0" time="400" tween="cubic" easing="inout" />
-		</animation>
-	</include>
-
 	<include name="SearchMenuAnimations">
 		<animation condition="!ControlGroup(2000).HasFocus" reversible="true">
 			<effect type="slide" start="0,0" end="498,0" time="400" tween="cubic" easing="inout" />

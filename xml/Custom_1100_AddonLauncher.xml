@@ -215,25 +215,8 @@
 							<param name="onclick" value="ActivateWindow(addonbrowser,addons://search/,return)" />
 							<param name="icon" value="icons/submenu/search.png" />
 						</include>
-						<include content="IconButton">
-							<param name="control_id" value="804" />
-							<param name="onclick" value="ActivateWindow(addonbrowser,addons://outdated/,return)" />
-							<param name="icon" value="icons/submenu/updates.png" />
-							<param name="visible" value="Integer.IsGreater(System.AddonUpdateCount,0)" />
-						</include>
 					</control>
 					<include>ButtonRowScrollIndicators</include>
-					<!-- <control type="label">
-						<left>20</left>
-						<top>-38</top>
-						<width>415</width>
-						<height>30</height>
-						<font>font12</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>unfocused_text</textcolor>
-						<label>$VAR[AddonLauncherSubmenuButtonLabelsVar]</label>
-					</control> -->
 				</control>
 			</control>
 			<include content="TopBar">
@@ -242,13 +225,6 @@
 			<include>BottomBar</include>
 			<control type="group">
 				<left>-10000</left>
-				<include content="InfoList">
-					<param name="path" value="addons://outdated/" />
-					<param name="bottom" value="1" />
-					<param name="width" value="1" />
-					<param name="list_id" value="8000" />
-					<param name="item_label" value="" />
-				</include>
 				<include content="InfoList">
 					<param name="path" value="addons://recently_updated/" />
 					<param name="bottom" value="1" />
