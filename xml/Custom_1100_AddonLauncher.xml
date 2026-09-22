@@ -17,10 +17,17 @@
 					<param name="has_sublabel" value="!String.IsEmpty(ListItem.AddonVersion)"/>
 				</include>
 				<include content="AddonLauncherRoot">
+					<param name="root" value="508"/>
+					<param name="id" value="Available updates"/>
+					<param name="root_path" value="addons://outdated/"/>
+					<param name="sublabel" value="$INFO[ListItem.AddonVersion]"/>
+					<param name="has_sublabel" value="!String.IsEmpty(ListItem.AddonVersion)"/>
+				</include>
+				<include content="AddonLauncherRoot">
 					<param name="root" value="502"/>
 					<param name="id" value="Recently updated"/>
 					<param name="root_path" value="addons://recently_updated/"/>
-					<param name="sortby" value="lastupdate"/>
+					<param name="sortby" value="lastupdated"/>
 					<param name="sortorder" value="descending"/>
 					<param name="sublabel" value="$INFO[ListItem.AddonLastUpdated]"/>
 					<param name="has_sublabel" value="!String.IsEmpty(ListItem.AddonLastUpdated)"/>
@@ -61,18 +68,19 @@
 			</control>
 			<control type="group">
 				<include>OpenClose_Left</include>
-				<control type="fixedlist" id="9000">
+				<control type="list" id="9000">
 					<left>40</left>
 					<top>190</top>
 					<width>428</width>
 					<height>840</height>
 					<pagecontrol>70</pagecontrol>
-					<movement>9</movement>
-					<focusposition>0</focusposition>
 					<onup>700</onup>
 					<ondown>9000</ondown>
 					<include content="AddonLauncherMenuRight">
 						<param name="root" value="501"/>
+					</include>
+					<include content="AddonLauncherMenuRight">
+						<param name="root" value="508"/>
 					</include>
 					<include content="AddonLauncherMenuRight">
 						<param name="root" value="502"/>
@@ -105,6 +113,15 @@
 							<property name="path">addons://user/</property>
 							<property name="menu_id">$NUMBER[501]</property>
 							<property name="icon">icons/sidemenu/myaddons.png</property>
+						</item>
+						<item id="8">
+							<label>$LOCALIZE[24043]</label>
+							<onclick>ActivateWindow(addonbrowser,addons://outdated/,return)</onclick>
+							<property name="id">Available updates</property>
+							<property name="path">addons://outdated/</property>
+							<property name="menu_id">$NUMBER[508]</property>
+							<property name="icon">icons/submenu/updates.png</property>
+							<visible>Integer.IsGreater(System.AddonUpdateCount,0) | ControlGroup(508).HasFocus</visible>
 						</item>
 						<item id="2">
 							<label>$LOCALIZE[24004]</label>

@@ -164,6 +164,7 @@
 				<pagecontrol>$PARAM[root]3$PARAM[level]</pagecontrol>
 				<onclick condition="!ListItem.IsFolder">$PARAM[item_click]</onclick>
 				<onclick condition="ListItem.IsFolder + $PARAM[last]">ActivateWindow(AddonBrowser,$INFO[Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath],return)</onclick>
+				<onclick condition="ListItem.IsFolder + !$PARAM[last] + String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_label$PARAM[next],"$INFO[Container($PARAM[root]5$PARAM[level]).ListItem.Label]",1100)</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_depth,$PARAM[next],1100)</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetFocus($PARAM[root]5$PARAM[next])</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_path$PARAM[flush1],plugin://script.altus.helper/?mode=noop_empty,1100)</onclick>
@@ -174,6 +175,7 @@
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetFocus($PARAM[root]5$PARAM[next],0,absolute)</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">AlarmClock(launcher_refocus,SetFocus($PARAM[root]5$PARAM[next],0,absolute),00:00,silent)</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_path$PARAM[next],$INFO[Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath],1100)</onclick>
+				<onback>ClearProperty(launcher_$PARAM[root]_label$PARAM[level],1100)</onback>
 				<onback>$PARAM[back_depth]</onback>
 				<onback>$PARAM[back_id]</onback>
 				<itemlayout width="712" height="159" infoupdate="30">
@@ -232,6 +234,15 @@
 					<aspectratio>keep</aspectratio>
 					<animation effect="fade" start="100" end="30" time="500" tween="sine" easing="inout" pulse="true" condition="$PARAM[loading]">Conditional</animation>
 				</control>
+				<control type="label">
+					<left>133</left>
+					<width>1223</width>
+					<height>122</height>
+					<aligny>center</aligny>
+					<font>font37_title</font>
+					<textcolor>$VAR[FocusColorTheme]</textcolor>
+					<label>[COLOR unfocused_text]root[/COLOR] /$INFO[Window(1100).Property(launcher_$PARAM[root]_label1), [COLOR unfocused_text],[/COLOR]]$INFO[Window(1100).Property(launcher_$PARAM[root]_label2), / [COLOR unfocused_text],[/COLOR]]$INFO[Window(1100).Property(launcher_$PARAM[root]_label3), / [COLOR unfocused_text],[/COLOR]]</label>
+				</control>
 			</control>
 		</definition>
 	</include>
@@ -241,6 +252,7 @@
 		<param name="sortorder">ascending</param>
 		<definition>
 			<include content="AddonLauncherHeader">
+				<param name="root" value="$PARAM[root]"/>
 				<param name="loading" value="[[String.IsEmpty(Window(1100).Property(launcher_$PARAM[root]_depth)) + Container($PARAM[root]50).IsUpdating] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),1) + Container($PARAM[root]51).IsUpdating] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),2) + Container($PARAM[root]52).IsUpdating] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),3) + Container($PARAM[root]53).IsUpdating]]"/>
 			</include>
 			<include content="AddonLauncherPanel">
