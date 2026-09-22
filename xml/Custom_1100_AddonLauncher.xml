@@ -103,7 +103,7 @@
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<include content="MainMenuList">
 						<param name="id" value="9000" />
-						<param name="active" value="ControlGroup(400).HasFocus" />
+						<param name="active" value="![Control.HasFocus(9000) | ControlGroup(700).HasFocus]" />
 					</include>
 					<content>
 						<item id="1">
@@ -220,7 +220,7 @@
 				</control>
 			</control>
 			<include content="TopBar">
-				<param name="breadcrumbs_label" value="$VAR[BreadcrumbsAddonLauncherVar]" />
+				<param name="breadcrumbs_label" value="[COLOR unfocused_text]$LOCALIZE[24001][/COLOR]" />
 			</include>
 			<include>BottomBar</include>
 			<control type="group">

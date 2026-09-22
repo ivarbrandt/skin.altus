@@ -144,13 +144,15 @@
 
 	<include name="AddonLauncherPanel">
 		<param name="last">false</param>
+		<param name="hold">false</param>
 		<param name="item_click">Action(Info)</param>
 		<param name="target">addonbrowser</param>
 		<param name="sortby">label</param>
 		<param name="sortorder">ascending</param>
 		<definition>
 			<control type="panel" id="$PARAM[root]5$PARAM[level]">
-				<visible allowhiddenfocus="true">$PARAM[visible] + !Container($PARAM[root]5$PARAM[level]).IsUpdating</visible>				<left>0</left>
+				<visible allowhiddenfocus="true">[$PARAM[visible] + !Container($PARAM[root]5$PARAM[level]).IsUpdating + !String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_pending),$PARAM[level])] | [$PARAM[hold]]</visible>
+				<left>0</left>
 				<top>159</top>
 				<width>1424</width>
 				<height>795</height>
@@ -169,12 +171,15 @@
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetFocus($PARAM[root]5$PARAM[next])</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_path$PARAM[flush1],plugin://script.altus.helper/?mode=noop_empty,1100)</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_path$PARAM[flush2],plugin://script.altus.helper/?mode=noop_empty,1100)</onclick>
+				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_pending,$PARAM[next],1100)</onclick>
+				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">AlarmClock(launcher_pending,ClearProperty(launcher_$PARAM[root]_pending,1100),00:00,silent)</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_hold_art,$INFO[Container($PARAM[root]5$PARAM[level]).ListItem.Art(fanart)],1100)</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_label$PARAM[next],"$INFO[Container($PARAM[root]5$PARAM[level]).ListItem.Label]",1100)</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_depth,$PARAM[next],1100)</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetFocus($PARAM[root]5$PARAM[next],0,absolute)</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">AlarmClock(launcher_refocus,SetFocus($PARAM[root]5$PARAM[next],0,absolute),00:00,silent)</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + !String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_path$PARAM[next],$INFO[Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath],1100)</onclick>
+				<onback>ClearProperty(launcher_$PARAM[root]_pending,1100)</onback>
 				<onback>ClearProperty(launcher_$PARAM[root]_label$PARAM[level],1100)</onback>
 				<onback>$PARAM[back_depth]</onback>
 				<onback>$PARAM[back_id]</onback>
@@ -266,6 +271,7 @@
 				<param name="flush1" value="2"/>
 				<param name="flush2" value="3"/>
 				<param name="visible" value="String.IsEmpty(Window(1100).Property(launcher_$PARAM[root]_depth))"/>
+				<param name="hold" value="String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),1) + [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_pending),1) | Container($PARAM[root]51).IsUpdating]"/>
 				<param name="content" value="$PARAM[root_path]"/>
 				<param name="sortby" value="$PARAM[sortby]"/>
 				<param name="sortorder" value="$PARAM[sortorder]"/>
@@ -283,6 +289,7 @@
 				<param name="flush1" value="3"/>
 				<param name="flush2" value="4"/>
 				<param name="visible" value="String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),1)"/>
+				<param name="hold" value="String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),2) + [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_pending),2) | Container($PARAM[root]52).IsUpdating]"/>
 				<param name="content" value="$INFO[Window(1100).Property(launcher_$PARAM[root]_path1)]"/>
 				<param name="back_depth" value="ClearProperty(launcher_$PARAM[root]_depth,1100)"/>
 				<param name="back_id" value="$PARAM[root]50"/>
@@ -298,6 +305,7 @@
 				<param name="flush1" value="4"/>
 				<param name="flush2" value="5"/>
 				<param name="visible" value="String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),2)"/>
+				<param name="hold" value="String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),3) + [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_pending),3) | Container($PARAM[root]53).IsUpdating]"/>
 				<param name="content" value="$INFO[Window(1100).Property(launcher_$PARAM[root]_path2)]"/>
 				<param name="back_depth" value="SetProperty(launcher_$PARAM[root]_depth,1,1100)"/>
 				<param name="back_id" value="$PARAM[root]51"/>
