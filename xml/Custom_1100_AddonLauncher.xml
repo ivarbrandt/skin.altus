@@ -8,79 +8,59 @@
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group" id="400">
-			<include>AddonsMenuAnimations</include>
 				<include>OpenClose_Right</include>
-				<include content="TieredAddonLauncherList">
-					<param name="group_id" value="501" />
-					<param name="id" value="Manage add-ons" />
-					<param name="container_path" value="addons://user" />
-					<param name="container_target" value="addonbrowser" />
+				<include content="AddonLauncherRoot">
+					<param name="root" value="501"/>
+					<param name="id" value="Manage add-ons"/>
+					<param name="root_path" value="addons://user/"/>
+					<param name="sublabel" value="$INFO[ListItem.AddonVersion]"/>
+					<param name="has_sublabel" value="!String.IsEmpty(ListItem.AddonVersion)"/>
 				</include>
-				<include content="AddonLauncherList">
-					<param name="group_id" value="502" />
-					<param name="id" value="Recently updated" />
-					<param name="container_path" value="addons://recently_updated/" />
-					<param name="container_target" value="addonbrowser" />
-					<param name="sortby" value="lastupdate" />
-					<param name="sortorder" value="descending" />
-					<param name="imagewidget_onclick" value="ActivateWindow(addonbrowser,addons://recently_updated/,return)" />
+				<include content="AddonLauncherRoot">
+					<param name="root" value="502"/>
+					<param name="id" value="Recently updated"/>
+					<param name="root_path" value="addons://recently_updated/"/>
+					<param name="sortby" value="lastupdate"/>
+					<param name="sortorder" value="descending"/>
+					<param name="sublabel" value="$INFO[ListItem.AddonLastUpdated]"/>
+					<param name="has_sublabel" value="!String.IsEmpty(ListItem.AddonLastUpdated)"/>
 				</include>
-				<include content="AddonLauncherList">
-					<param name="group_id" value="504" />
-					<param name="id" value="Manage dependencies" />
-					<param name="container_path" value="addons://dependencies/" />
-					<param name="container_target" value="addonbrowser" />
-					<param name="imagewidget_onclick" value="ActivateWindow(addonbrowser,addons://dependencies/,return)" />
-				</include>
-				<include content="AddonLauncherList">
-					<param name="group_id" value="505" />
-					<param name="id" value="Running add-ons" />
-					<param name="container_path" value="addons://running/" />
-					<param name="container_target" value="addonbrowser" />
-					<param name="imagewidget_onclick" value="ActivateWindow(addonbrowser,addons://running/,return)" />
-				</include>
-				<include content="TieredAddonLauncherList">
-					<param name="group_id" value="506" />
-					<param name="id" value="Download" />
-					<param name="container_path" value="addons://all/" />
-					<param name="container_target" value="addonbrowser" />
-				</include>
-				<include content="AddonLauncherList" condition="System.Platform.Android">
-					<param name="group_id" value="507" />
-					<param name="id" value="Android" />
-					<param name="container_path" value="androidapp://sources/apps/" />
-					<param name="container_target" value="programs" />
-				</include>
-				<control type="label">
-					<top>930</top>
-					<right>40</right>
-					<align>right</align>
-					<aligny>center</aligny>
-					<width>1440</width>
-					<font>font27</font>
-					<textcolor>$VAR[FocusColorTheme]</textcolor>
-					<label>[COLOR unfocused_text]$INFO[ListItem.AddonVersion][/COLOR] • [COLOR unfocused_text]$INFO[ListItem.AddonCreator][/COLOR]</label>
-					<visible>ControlGroup(400).HasFocus + !ControlGroup(507).HasFocus + ![String.StartsWith(ListItem.Property(Addon.ID),repository) | ListItem.IsFolder]</visible>
-					<animation effect="fade" time="200" tween="cubic" easing="out">VisibleChange</animation>
-				</control>
-			</control>
-			<control type="group" id="503">
-				<left>487</left>
-				<top>76</top>
-				<include>OpenClose_Right</include>
-				<include content="Visible_Right_Delayed">
-					<param name="id" value="Repositories"/>
-				</include>
-				<visible>String.IsEqual(Container(9000).ListItem.Property(id),Repositories)</visible>
-				<include content="AddonLauncherWall">
+				<include content="AddonLauncherRoot">
 					<param name="root" value="503"/>
+					<param name="id" value="Repositories"/>
 					<param name="root_path" value="addons://repos/"/>
+				</include>
+				<include content="AddonLauncherRoot">
+					<param name="root" value="504"/>
+					<param name="id" value="Manage dependencies"/>
+					<param name="root_path" value="addons://dependencies/"/>
+					<param name="sublabel" value="$INFO[ListItem.AddonVersion]"/>
+					<param name="has_sublabel" value="!String.IsEmpty(ListItem.AddonVersion)"/>
+				</include>
+				<include content="AddonLauncherRoot">
+					<param name="root" value="505"/>
+					<param name="id" value="Running add-ons"/>
+					<param name="root_path" value="addons://running/"/>
+					<param name="sublabel" value="$INFO[ListItem.AddonVersion]"/>
+					<param name="has_sublabel" value="!String.IsEmpty(ListItem.AddonVersion)"/>
+				</include>
+				<include content="AddonLauncherRoot">
+					<param name="root" value="506"/>
+					<param name="id" value="Download"/>
+					<param name="root_path" value="addons://all/"/>
+				</include>
+				<include content="AddonLauncherRoot" condition="System.Platform.Android">
+					<param name="root" value="507"/>
+					<param name="id" value="Android"/>
+					<param name="root_path" value="androidapp://sources/apps/"/>
+					<param name="target" value="programs"/>
+					<param name="item_click" value="StartAndroidActivity($INFO[ListItem.FileName])"/>
+					<param name="sublabel" value=""/>
+					<param name="has_sublabel" value="false"/>
 				</include>
 			</control>
 			<control type="group">
 				<include>OpenClose_Left</include>
-				<animation effect="slide" time="400" start="-482,0" end="0,0" tween="cubic" easing="inout">VisibleChange</animation>
-				<visible allowhiddenfocus="true">!ControlGroup(400).HasFocus</visible>
 				<control type="fixedlist" id="9000">
 					<left>40</left>
 					<top>190</top>
@@ -91,13 +71,31 @@
 					<focusposition>0</focusposition>
 					<onup>700</onup>
 					<ondown>9000</ondown>
-					<onright condition="!String.IsEqual(Container(9000).ListItem.Property(menu_id),503)">SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
-					<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),503) + String.IsEmpty(Window(1100).Property(launcher_503_depth))">SetFocus(50350)</onright>
-					<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),503) + !String.IsEmpty(Window(1100).Property(launcher_503_depth))">SetFocus(5035$INFO[Window(1100).Property(launcher_503_depth)])</onright>
+					<include content="AddonLauncherMenuRight">
+						<param name="root" value="501"/>
+					</include>
+					<include content="AddonLauncherMenuRight">
+						<param name="root" value="502"/>
+					</include>
+					<include content="AddonLauncherMenuRight">
+						<param name="root" value="503"/>
+					</include>
+					<include content="AddonLauncherMenuRight">
+						<param name="root" value="504"/>
+					</include>
+					<include content="AddonLauncherMenuRight">
+						<param name="root" value="505"/>
+					</include>
+					<include content="AddonLauncherMenuRight">
+						<param name="root" value="506"/>
+					</include>
+					<include content="AddonLauncherMenuRight">
+						<param name="root" value="507"/>
+					</include>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<include content="MainMenuList">
 						<param name="id" value="9000" />
-						<param name="active" value="[ControlGroup(400).HasFocus | ControlGroup(503).HasFocus]" />
+						<param name="active" value="ControlGroup(400).HasFocus" />
 					</include>
 					<content>
 						<item id="1">
@@ -115,7 +113,7 @@
 							<property name="path">addons://recently_updated/</property>
 							<property name="menu_id">$NUMBER[502]</property>
 							<property name="icon">icons/sidemenu/time.png</property>
-							<visible>Integer.IsGreater(Container(50250).NumItems,0)</visible>
+							<visible>Integer.IsGreater(Container(8010).NumItems,0)</visible>
 						</item>
 						<item id="3">
 							<label>$LOCALIZE[24087]</label>
@@ -232,6 +230,13 @@
 					<param name="bottom" value="1" />
 					<param name="width" value="1" />
 					<param name="list_id" value="8000" />
+					<param name="item_label" value="" />
+				</include>
+				<include content="InfoList">
+					<param name="path" value="addons://recently_updated/" />
+					<param name="bottom" value="1" />
+					<param name="width" value="1" />
+					<param name="list_id" value="8010" />
 					<param name="item_label" value="" />
 				</include>
 				<include content="InfoList">

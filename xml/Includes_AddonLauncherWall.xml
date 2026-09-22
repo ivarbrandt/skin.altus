@@ -26,7 +26,7 @@
 					<height>88</height>
 					<texture diffuse="masks/small-square.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>!String.IsEmpty(ListItem.Property(Addon.ID))</visible>
+					<visible>!String.IsEmpty(ListItem.Property(Addon.ID)) | !ListItem.IsFolder</visible>
 				</control>
 				<control type="image">
 					<left>35</left>
@@ -35,7 +35,7 @@
 					<height>60</height>
 					<texture colordiffuse="unfocused_text" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(ListItem.Property(Addon.ID))</visible>
+					<visible>String.IsEmpty(ListItem.Property(Addon.ID)) + ListItem.IsFolder</visible>
 					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | !Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
 				</control>
 				<control type="image">
@@ -45,7 +45,7 @@
 					<height>60</height>
 					<texture colordiffuse="$VAR[FocusColorTheme]" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(ListItem.Property(Addon.ID))</visible>
+					<visible>String.IsEmpty(ListItem.Property(Addon.ID)) + ListItem.IsFolder</visible>
 					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
 				</control>
 				<control type="group">
@@ -144,6 +144,8 @@
 
 	<include name="AddonLauncherPanel">
 		<param name="last">false</param>
+		<param name="item_click">Action(Info)</param>
+		<param name="target">addonbrowser</param>
 		<param name="sortby">label</param>
 		<param name="sortorder">ascending</param>
 		<definition>
@@ -160,7 +162,7 @@
 				<onleft>9000</onleft>
 				<onright>$PARAM[root]3$PARAM[level]</onright>
 				<pagecontrol>$PARAM[root]3$PARAM[level]</pagecontrol>
-				<onclick condition="!ListItem.IsFolder">Action(Info)</onclick>
+				<onclick condition="!ListItem.IsFolder">$PARAM[item_click]</onclick>
 				<onclick condition="ListItem.IsFolder + $PARAM[last]">ActivateWindow(AddonBrowser,$INFO[Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath],return)</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetProperty(launcher_$PARAM[root]_depth,$PARAM[next],1100)</onclick>
 				<onclick condition="ListItem.IsFolder + !$PARAM[last] + String.IsEqual(Container($PARAM[root]5$PARAM[level]).ListItem.FolderPath,Window(1100).Property(launcher_$PARAM[root]_path$PARAM[next]))">SetFocus($PARAM[root]5$PARAM[next])</onclick>
@@ -193,7 +195,7 @@
 						<include>FocusBounce</include>
 					</control>
 				</focusedlayout>
-				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="addonbrowser">$PARAM[content]</content>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[target]">$PARAM[content]</content>
 			</control>
 			<control type="scrollbar" id="$PARAM[root]3$PARAM[level]">
 				<left>1421</left>
@@ -243,6 +245,8 @@
 			</include>
 			<include content="AddonLauncherPanel">
 				<param name="root" value="$PARAM[root]"/>
+				<param name="item_click" value="$PARAM[item_click]"/>
+				<param name="target" value="$PARAM[target]"/>
 				<param name="sublabel" value="$PARAM[sublabel]"/>
 				<param name="has_sublabel" value="$PARAM[has_sublabel]"/>
 				<param name="level" value="0"/>
@@ -258,6 +262,8 @@
 			</include>
 			<include content="AddonLauncherPanel">
 				<param name="root" value="$PARAM[root]"/>
+				<param name="item_click" value="$PARAM[item_click]"/>
+				<param name="target" value="$PARAM[target]"/>
 				<param name="sublabel" value="$PARAM[sublabel]"/>
 				<param name="has_sublabel" value="$PARAM[has_sublabel]"/>
 				<param name="level" value="1"/>
@@ -271,6 +277,8 @@
 			</include>
 			<include content="AddonLauncherPanel">
 				<param name="root" value="$PARAM[root]"/>
+				<param name="item_click" value="$PARAM[item_click]"/>
+				<param name="target" value="$PARAM[target]"/>
 				<param name="sublabel" value="$PARAM[sublabel]"/>
 				<param name="has_sublabel" value="$PARAM[has_sublabel]"/>
 				<param name="level" value="2"/>
@@ -284,6 +292,8 @@
 			</include>
 			<include content="AddonLauncherPanel">
 				<param name="root" value="$PARAM[root]"/>
+				<param name="item_click" value="$PARAM[item_click]"/>
+				<param name="target" value="$PARAM[target]"/>
 				<param name="sublabel" value="$PARAM[sublabel]"/>
 				<param name="has_sublabel" value="$PARAM[has_sublabel]"/>
 				<param name="level" value="3"/>
@@ -296,6 +306,36 @@
 				<param name="back_depth" value="SetProperty(launcher_$PARAM[root]_depth,2,1100)"/>
 				<param name="back_id" value="$PARAM[root]52"/>
 			</include>
+		</definition>
+	</include>
+
+	<include name="AddonLauncherRoot">
+		<definition>
+			<control type="group" id="$PARAM[root]">
+				<left>487</left>
+				<top>76</top>
+				<include content="Visible_Right_Delayed">
+					<param name="id" value="$PARAM[id]"/>
+				</include>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(id),$PARAM[id])</visible>
+				<include content="AddonLauncherWall">
+					<param name="root" value="$PARAM[root]"/>
+					<param name="root_path" value="$PARAM[root_path]"/>
+					<param name="sortby" value="$PARAM[sortby]"/>
+					<param name="sortorder" value="$PARAM[sortorder]"/>
+					<param name="item_click" value="$PARAM[item_click]"/>
+					<param name="target" value="$PARAM[target]"/>
+					<param name="sublabel" value="$PARAM[sublabel]"/>
+					<param name="has_sublabel" value="$PARAM[has_sublabel]"/>
+				</include>
+			</control>
+		</definition>
+	</include>
+
+	<include name="AddonLauncherMenuRight">
+		<definition>
+			<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),$PARAM[root]) + String.IsEmpty(Window(1100).Property(launcher_$PARAM[root]_depth))">SetFocus($PARAM[root]50)</onright>
+			<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),$PARAM[root]) + !String.IsEmpty(Window(1100).Property(launcher_$PARAM[root]_depth))">SetFocus($PARAM[root]5$INFO[Window(1100).Property(launcher_$PARAM[root]_depth)])</onright>
 		</definition>
 	</include>
 
