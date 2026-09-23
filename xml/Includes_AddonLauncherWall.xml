@@ -225,6 +225,8 @@
 	</include>
 
 	<include name="AddonLauncherHeader">
+		<param name="icon">$INFO[Container(9000).ListItem.Property(icon)]</param>
+		<param name="label"></param>
 		<definition>
 			<control type="group">
 				<left>18</left>
@@ -239,7 +241,7 @@
 					<centertop>50%</centertop>
 					<width>60</width>
 					<height>60</height>
-					<texture colordiffuse="unfocused_text">$INFO[Container(9000).ListItem.Property(icon)]</texture>
+					<texture colordiffuse="unfocused_text">$PARAM[icon]</texture>
 					<aspectratio>keep</aspectratio>
 					<animation effect="fade" start="100" end="30" time="500" tween="sine" easing="inout" pulse="true" condition="$PARAM[loading]">Conditional</animation>
 				</control>
@@ -250,7 +252,7 @@
 					<aligny>center</aligny>
 					<font>font37_title</font>
 					<textcolor>$VAR[FocusColorTheme]</textcolor>
-					<label>[COLOR unfocused_text]root[/COLOR] /$INFO[Window(1100).Property(launcher_$PARAM[root]_label1), [COLOR unfocused_text],[/COLOR]]$INFO[Window(1100).Property(launcher_$PARAM[root]_label2), / [COLOR unfocused_text],[/COLOR]]$INFO[Window(1100).Property(launcher_$PARAM[root]_label3), / [COLOR unfocused_text],[/COLOR]]</label>
+					<label>$PARAM[label]</label>
 				</control>
 			</control>
 		</definition>
@@ -262,6 +264,7 @@
 		<definition>
 			<include content="AddonLauncherHeader">
 				<param name="root" value="$PARAM[root]"/>
+				<param name="label" value="[COLOR unfocused_text]root[/COLOR] /$INFO[Window(1100).Property(launcher_$PARAM[root]_label1), [COLOR unfocused_text],[/COLOR]]$INFO[Window(1100).Property(launcher_$PARAM[root]_label2), / [COLOR unfocused_text],[/COLOR]]$INFO[Window(1100).Property(launcher_$PARAM[root]_label3), / [COLOR unfocused_text],[/COLOR]]"/>
 				<param name="loading" value="[[String.IsEmpty(Window(1100).Property(launcher_$PARAM[root]_depth)) + Container($PARAM[root]50).IsUpdating] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),1) + Container($PARAM[root]51).IsUpdating] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),2) + Container($PARAM[root]52).IsUpdating] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),3) + Container($PARAM[root]53).IsUpdating]]"/>
 			</include>
 			<include content="AddonLauncherPanel">

@@ -5,11 +5,20 @@
 			<visible>Control.IsVisible(58)</visible>
 			<include>OpenClose_Right</include>
 			<include>Visible_Right</include>
+			<control type="group">
+				<left>487</left>
+				<top>76</top>
+				<include content="AddonLauncherHeader">
+					<param name="icon" value="$INFO[Container(9100).ListItem.Property(icon)]"/>
+					<param name="label" value="$VAR[AddonTilesCrumbVar]"/>
+					<param name="loading" value="Container.IsUpdating | Window.IsActive(busydialog) | Window.IsActive(busydialognocancel)"/>
+				</include>
+			</control>
 			<control type="panel" id="58">
 				<left>487</left>
-				<top>94</top>
+				<top>235</top>
 				<width>1424</width>
-				<height>954</height>
+				<height>795</height>
 				<orientation>vertical</orientation>
 				<scrolltime tween="cubic" easing="out">500</scrolltime>
 				<preloaditems>1</preloaditems>

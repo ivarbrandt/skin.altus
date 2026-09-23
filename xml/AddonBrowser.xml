@@ -2,6 +2,7 @@
 <window>
 	<defaultcontrol always="true">9100</defaultcontrol>
 	<onload>SetProperty(root_path,addons://,AddonBrowser)</onload>
+	<onload>RunScript(script.altus.helper,mode=addonbrowser_monitor&amp;menu_id=9100)</onload>
 	<onload>ClearProperty(altus_fanart_art, home)</onload>
 	<onload>ClearProperty(altus_fanart_prop, home)</onload>
 	<backgroundcolor>background</backgroundcolor>
@@ -65,12 +66,9 @@
 					<onup>9100</onup>
 					<ondown>9100</ondown>
 					<onback>SetFocus(9100,0,absolute)</onback>
-					<onfocus>RunScript(script.altus.helper,mode=addonbrowser_menu_monitor&amp;menu_id=9100)</onfocus>
-					<onright condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">SetProperty(root_path,$INFO[Container(9100).ListItem.Property(path)],AddonBrowser)</onright>
-					<onright condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">Container.Update($INFO[Container(9100).ListItem.Property(path)],replace)</onright>
+										<onright condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">SetProperty(root_path,$INFO[Container(9100).ListItem.Property(path)],AddonBrowser)</onright>					<onright condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">Container.Update($INFO[Container(9100).ListItem.Property(path)],replace)</onright>
 					<onright>58</onright>
-					<onclick condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">SetProperty(root_path,$INFO[Container(9100).ListItem.Property(path)],AddonBrowser)</onclick>
-					<onclick condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">Container.Update($INFO[Container(9100).ListItem.Property(path)],replace)</onclick>
+					<onclick condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">SetProperty(root_path,$INFO[Container(9100).ListItem.Property(path)],AddonBrowser)</onclick>					<onclick condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">Container.Update($INFO[Container(9100).ListItem.Property(path)],replace)</onclick>
 					<onclick>SetFocus(58)</onclick>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<include content="MainMenuList">

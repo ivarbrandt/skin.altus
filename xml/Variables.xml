@@ -314,6 +314,11 @@
 		<value condition="$EXP[addonTilesVersionPath]">$INFO[ListItem.AddonVersion]</value>
 		<value>$INFO[ListItem.AddonSummary]</value>
 	</variable>
+	<variable name="AddonTilesCrumbVar">
+		<value condition="String.IsEqual(Container.FolderPath,Window(AddonBrowser).Property(root_path)) | Window.IsActive(busydialog) | Window.IsActive(busydialognocancel)">[COLOR unfocused_text]root[/COLOR] /</value>
+		<value condition="String.IsEqual(Container.FolderPath,Window(AddonBrowser).Property(crumb_path))">[COLOR unfocused_text]root[/COLOR] /$INFO[Window(AddonBrowser).Property(crumb1), [COLOR unfocused_text],[/COLOR]]$INFO[Window(AddonBrowser).Property(crumb2), / [COLOR unfocused_text],[/COLOR]]$INFO[Window(AddonBrowser).Property(crumb3), / [COLOR unfocused_text],[/COLOR]]</value>
+		<value>[COLOR unfocused_text]root[/COLOR] /$INFO[Container.FolderName, [COLOR unfocused_text],[/COLOR]]</value>
+	</variable>
 	<variable name="AddonLauncherStatusIconVar">
 		<value condition="[String.IsEqual(ListItem.AddonLifecycleType,$LOCALIZE[24170]) | String.IsEqual(ListItem.AddonLifecycleType,$LOCALIZE[24171])] + !ListItem.Property(addon.isenabled)">icons/addonstatus/disable.png</value>
 		<value condition="ListItem.Property(addon.orphaned)">icons/addonstatus/orphan.png</value>

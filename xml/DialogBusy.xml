@@ -8,6 +8,7 @@
 			<animation effect="fade" time="400">VisibleChange</animation>
 			<visible>!Window.IsActive(startup) + !Player.Caching</visible>
 			<visible>String.IsEmpty(Skin.String(TrailerPlaying))</visible>
+			<visible>!Window.IsActive(addonbrowser)</visible>
 			<control type="image">
 				<texture>colors/black.png</texture>
 				<include>FullScreenDimensions</include>
