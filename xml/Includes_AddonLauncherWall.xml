@@ -144,6 +144,7 @@
 
 	<include name="AddonLauncherPanel">
 		<param name="last">false</param>
+		<param name="back_has_items">false</param>
 		<param name="hold">false</param>
 		<param name="item_click">Action(Info)</param>
 		<param name="target">addonbrowser</param>
@@ -182,7 +183,8 @@
 				<onback>ClearProperty(launcher_$PARAM[root]_pending,1100)</onback>
 				<onback>ClearProperty(launcher_$PARAM[root]_label$PARAM[level],1100)</onback>
 				<onback>$PARAM[back_depth]</onback>
-				<onback>$PARAM[back_id]</onback>
+				<onback condition="$PARAM[back_has_items]">$PARAM[back_id]</onback>
+				<onback>9000</onback>
 				<itemlayout width="712" height="159" infoupdate="30">
 					<include content="AddonLauncherTile">
 						<param name="list_id" value="$PARAM[root]5$PARAM[level]"/>
@@ -293,6 +295,7 @@
 				<param name="content" value="$INFO[Window(1100).Property(launcher_$PARAM[root]_path1)]"/>
 				<param name="back_depth" value="ClearProperty(launcher_$PARAM[root]_depth,1100)"/>
 				<param name="back_id" value="$PARAM[root]50"/>
+				<param name="back_has_items" value="Integer.IsGreater(Container($PARAM[root]50).NumItems,0)"/>
 			</include>
 			<include content="AddonLauncherPanel">
 				<param name="root" value="$PARAM[root]"/>
@@ -309,6 +312,7 @@
 				<param name="content" value="$INFO[Window(1100).Property(launcher_$PARAM[root]_path2)]"/>
 				<param name="back_depth" value="SetProperty(launcher_$PARAM[root]_depth,1,1100)"/>
 				<param name="back_id" value="$PARAM[root]51"/>
+				<param name="back_has_items" value="Integer.IsGreater(Container($PARAM[root]51).NumItems,0)"/>
 			</include>
 			<include content="AddonLauncherPanel">
 				<param name="root" value="$PARAM[root]"/>
@@ -325,6 +329,7 @@
 				<param name="content" value="$INFO[Window(1100).Property(launcher_$PARAM[root]_path3)]"/>
 				<param name="back_depth" value="SetProperty(launcher_$PARAM[root]_depth,2,1100)"/>
 				<param name="back_id" value="$PARAM[root]52"/>
+				<param name="back_has_items" value="Integer.IsGreater(Container($PARAM[root]52).NumItems,0)"/>
 			</include>
 		</definition>
 	</include>
@@ -354,8 +359,14 @@
 
 	<include name="AddonLauncherMenuRight">
 		<definition>
-			<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),$PARAM[root]) + String.IsEmpty(Window(1100).Property(launcher_$PARAM[root]_depth))">SetFocus($PARAM[root]50)</onright>
-			<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),$PARAM[root]) + !String.IsEmpty(Window(1100).Property(launcher_$PARAM[root]_depth))">SetFocus($PARAM[root]5$INFO[Window(1100).Property(launcher_$PARAM[root]_depth)])</onright>
+			<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),$PARAM[root]) + String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),3) + Integer.IsGreater(Container($PARAM[root]53).NumItems,0)">SetFocus($PARAM[root]53)</onright>
+			<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),$PARAM[root]) + [[String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),2) + Integer.IsGreater(Container($PARAM[root]52).NumItems,0)] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),3) + !Integer.IsGreater(Container($PARAM[root]53).NumItems,0) + Integer.IsGreater(Container($PARAM[root]52).NumItems,0)]]">SetProperty(launcher_$PARAM[root]_depth,2,1100)</onright>
+			<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),$PARAM[root]) + [[String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),2) + Integer.IsGreater(Container($PARAM[root]52).NumItems,0)] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),3) + !Integer.IsGreater(Container($PARAM[root]53).NumItems,0) + Integer.IsGreater(Container($PARAM[root]52).NumItems,0)]]">SetFocus($PARAM[root]52)</onright>
+			<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),$PARAM[root]) + [[String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),1) + Integer.IsGreater(Container($PARAM[root]51).NumItems,0)] | [[[String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),2) + !Integer.IsGreater(Container($PARAM[root]52).NumItems,0)] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),3) + !Integer.IsGreater(Container($PARAM[root]53).NumItems,0) + !Integer.IsGreater(Container($PARAM[root]52).NumItems,0)]] + Integer.IsGreater(Container($PARAM[root]51).NumItems,0)]]">SetProperty(launcher_$PARAM[root]_depth,1,1100)</onright>
+			<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),$PARAM[root]) + [[String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),1) + Integer.IsGreater(Container($PARAM[root]51).NumItems,0)] | [[[String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),2) + !Integer.IsGreater(Container($PARAM[root]52).NumItems,0)] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),3) + !Integer.IsGreater(Container($PARAM[root]53).NumItems,0) + !Integer.IsGreater(Container($PARAM[root]52).NumItems,0)]] + Integer.IsGreater(Container($PARAM[root]51).NumItems,0)]]">SetFocus($PARAM[root]51)</onright>
+			<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),$PARAM[root]) + ![String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),1) | String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),2) | String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),3)]">SetFocus($PARAM[root]50)</onright>
+			<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),$PARAM[root]) + [[String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),1) + !Integer.IsGreater(Container($PARAM[root]51).NumItems,0)] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),2) + !Integer.IsGreater(Container($PARAM[root]52).NumItems,0) + !Integer.IsGreater(Container($PARAM[root]51).NumItems,0)] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),3) + !Integer.IsGreater(Container($PARAM[root]53).NumItems,0) + !Integer.IsGreater(Container($PARAM[root]52).NumItems,0) + !Integer.IsGreater(Container($PARAM[root]51).NumItems,0)]]">ClearProperty(launcher_$PARAM[root]_depth,1100)</onright>
+			<onright condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),$PARAM[root]) + [[String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),1) + !Integer.IsGreater(Container($PARAM[root]51).NumItems,0)] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),2) + !Integer.IsGreater(Container($PARAM[root]52).NumItems,0) + !Integer.IsGreater(Container($PARAM[root]51).NumItems,0)] | [String.IsEqual(Window(1100).Property(launcher_$PARAM[root]_depth),3) + !Integer.IsGreater(Container($PARAM[root]53).NumItems,0) + !Integer.IsGreater(Container($PARAM[root]52).NumItems,0) + !Integer.IsGreater(Container($PARAM[root]51).NumItems,0)]]">SetFocus($PARAM[root]50)</onright>
 		</definition>
 	</include>
 
