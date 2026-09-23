@@ -379,7 +379,7 @@
 			<include>BreadcrumbsLabel</include>
 			<visible>![Container.Content()]</visible>
 			<!-- <visible>![Container.Content() + Window.IsActive(videos)]</visible> -->
-			<visible>!String.IsEmpty(Container.FolderName) + ![Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRTimers.xml) | Window.IsActive(MyPVRRecordings.xml) | Window.IsActive(MyPVRSearch.xml) | Window.IsActive(MyVideoNav.xml)]</visible>
+			<visible>!String.IsEmpty(Container.FolderName) + ![Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRTimers.xml) | Window.IsActive(MyPVRRecordings.xml) | Window.IsActive(MyPVRSearch.xml) | Window.IsActive(MyVideoNav.xml) | Window.IsActive(addonbrowser)]</visible>
 		</control>
 		<control type="label">
 			<label> » [COLOR unfocused_text]$INFO[Container.PluginCategory][/COLOR]</label>

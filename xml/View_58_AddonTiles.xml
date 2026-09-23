@@ -24,9 +24,10 @@
 				<preloaditems>1</preloaditems>
 				<onleft>9100</onleft>
 				<onback condition="String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">9100</onback>
-				<onright>58</onright>
+				<onright>5800</onright>
 				<onup>58</onup>
 				<ondown>58</ondown>
+				<pagecontrol>5800</pagecontrol>
 				<viewtype label="31102">list</viewtype>
 				<itemlayout width="712" height="159" infoupdate="30">
 					<include content="AddonLauncherTile">
@@ -49,6 +50,18 @@
 						<include>FocusBounce</include>
 					</control>
 				</focusedlayout>
+			</control>
+			<control type="scrollbar" id="5800">
+				<left>1908</left>
+				<top>94</top>
+				<width>12</width>
+				<height>917</height>
+				<orientation>vertical</orientation>
+				<texturesliderbackground />
+				<animation effect="slide" end="6,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(5800)">conditional</animation>
+				<onleft>58</onleft>
+				<onright>noop</onright>
+				<onback>58</onback>
 			</control>
 		</control>
 	</include>

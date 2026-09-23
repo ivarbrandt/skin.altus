@@ -50,8 +50,7 @@
 				</control>
 			</control>
 			<include content="TopBar">
-				<!-- <param name="breadcrumbs_label" value="[COLOR unfocused_text]$LOCALIZE[24001][/COLOR]" /> -->
-				<param name="breadcrumbs_label" value="[COLOR unfocused_text]$INFO[Container.FolderName][/COLOR]" />
+				<param name="breadcrumbs_label" value="[COLOR unfocused_text]$LOCALIZE[10040][/COLOR]" />
 			</include>
 			<!-- <include content="BottomBar">
 				<param name="info_visible" value="true" />
