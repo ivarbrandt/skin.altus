@@ -5,6 +5,7 @@
 		<param name="focused">false</param>
 		<param name="sublabel">$INFO[ListItem.AddonSummary]</param>
 		<param name="has_sublabel">!String.IsEmpty(ListItem.AddonSummary)</param>
+		<param name="skip_current">false</param>
 		<definition>
 			<control type="group">
 				<left>18</left>
@@ -13,11 +14,11 @@
 				<height>122</height>
 				<control type="image">
 					<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
-					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | !Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | ![Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem) | $PARAM[skip_current]]</visible>
 				</control>
 				<control type="image">
 					<texture border="33" colordiffuse="A6000000">masks/radius_33.png</texture>
-					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + [Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem) | $PARAM[skip_current]]</visible>
 				</control>
 				<control type="image">
 					<left>21</left>
@@ -26,7 +27,7 @@
 					<height>88</height>
 					<texture diffuse="masks/small-square.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>!String.IsEmpty(ListItem.Property(Addon.ID)) | !ListItem.IsFolder</visible>
+					<visible>!String.IsEmpty(ListItem.Icon) + !String.StartsWith(ListItem.Icon,Default)</visible>
 				</control>
 				<control type="image">
 					<left>35</left>
@@ -35,8 +36,8 @@
 					<height>60</height>
 					<texture colordiffuse="unfocused_text" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(ListItem.Property(Addon.ID)) + ListItem.IsFolder</visible>
-					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | !Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+					<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | ![Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem) | $PARAM[skip_current]]</visible>
 				</control>
 				<control type="image">
 					<left>35</left>
@@ -45,13 +46,13 @@
 					<height>60</height>
 					<texture colordiffuse="$VAR[FocusColorTheme]" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(ListItem.Property(Addon.ID)) + ListItem.IsFolder</visible>
-					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+					<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + [Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem) | $PARAM[skip_current]]</visible>
 				</control>
 				<control type="group">
 					<left>133</left>
 					<width>455</width>
-					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | !Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | ![Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem) | $PARAM[skip_current]]</visible>
 					<control type="label">
 						<height>122</height>
 						<aligny>center</aligny>
@@ -90,7 +91,7 @@
 				<control type="group">
 					<left>133</left>
 					<width>455</width>
-					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem)</visible>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + [Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem) | $PARAM[skip_current]]</visible>
 					<control type="label">
 						<height>122</height>
 						<aligny>center</aligny>
@@ -135,6 +136,7 @@
 				<include content="FocusBorder">
 					<param name="list_id" value="$PARAM[list_id]"/>
 					<param name="focused" value="$PARAM[focused]"/>
+					<param name="extra" value="Control.HasFocus($PARAM[list_id]) + $PARAM[skip_current]"/>
 					<param name="radius" value="33"/>
 					<param name="border" value="33"/>
 				</include>

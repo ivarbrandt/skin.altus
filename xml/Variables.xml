@@ -306,6 +306,11 @@
 		<value condition="ListItem.Property(addon.isenabled) + String.IsEqual(ListItem.AddonLifecycleType,$LOCALIZE[24171])">icons/addonstatus/enabled-broken.png</value>
 		<value condition="!ListItem.IsParentFolder">OverlayUnwatched.png</value>
 	</variable>
+	<variable name="AddonTilesSublabelVar">
+		<value condition="$EXP[addonTilesDatePath]">$INFO[ListItem.AddonLastUpdated]</value>
+		<value condition="$EXP[addonTilesVersionPath]">$INFO[ListItem.AddonVersion]</value>
+		<value>$INFO[ListItem.AddonSummary]</value>
+	</variable>
 	<variable name="AddonLauncherStatusIconVar">
 		<value condition="[String.IsEqual(ListItem.AddonLifecycleType,$LOCALIZE[24170]) | String.IsEqual(ListItem.AddonLifecycleType,$LOCALIZE[24171])] + !ListItem.Property(addon.isenabled)">icons/addonstatus/disable.png</value>
 		<value condition="ListItem.Property(addon.orphaned)">icons/addonstatus/orphan.png</value>

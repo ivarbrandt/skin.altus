@@ -31,6 +31,7 @@
   </variable>
 
 	<variable name="MediaFanartVar">
+		<value condition="Window.IsActive(addonbrowser) + Control.HasFocus(9100)"></value>
     <value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo)">$INFO[Window(home).Property(infobackground)]</value>
 		<value condition="Window.IsActive(1100) + Container.IsUpdating">$INFO[Window(1100).Property(launcher_hold_art)]</value>
 		<!-- <value condition="!String.IsEmpty(ListItem.Thumb) + $EXP[isEpisode] + Control.IsVisible(56)">$INFO[ListItem.Thumb]</value> -->

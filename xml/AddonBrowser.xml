@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">50</defaultcontrol>
+	<defaultcontrol always="true">9100</defaultcontrol>
+	<onload>SetProperty(root_path,addons://,AddonBrowser)</onload>
 	<onload>ClearProperty(altus_fanart_art, home)</onload>
 	<onload>ClearProperty(altus_fanart_prop, home)</onload>
 	<backgroundcolor>background</backgroundcolor>
-	<views>50,52,56</views>
+	<views>58</views>
 	<menucontrol>9000</menucontrol>
 	<controls>
 		<include>ZeroFadeBackground</include>
 		<include>DefaultBackground</include>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
-			<include>View_50_List</include>
-			<include>View_52_IconWall</include>
+			<include>View_58_AddonTiles</include>
 			<!-- <include content="View_56_ListInfo">
 				<param name="bottom_offset">list_bottom</param>
 			</include> -->
@@ -55,6 +55,82 @@
 			<!-- <include content="BottomBar">
 				<param name="info_visible" value="true" />
 			</include> -->
+			<control type="group">
+				<include>OpenClose_Left</include>
+				<control type="list" id="9100">
+					<left>40</left>
+					<top>190</top>
+					<width>428</width>
+					<height>840</height>
+					<onup>9100</onup>
+					<ondown>9100</ondown>
+					<onback>SetFocus(9100,0,absolute)</onback>
+					<onfocus>RunScript(script.altus.helper,mode=addonbrowser_menu_monitor&amp;menu_id=9100)</onfocus>
+					<onright condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">SetProperty(root_path,$INFO[Container(9100).ListItem.Property(path)],AddonBrowser)</onright>
+					<onright condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">Container.Update($INFO[Container(9100).ListItem.Property(path)],replace)</onright>
+					<onright>58</onright>
+					<onclick condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">SetProperty(root_path,$INFO[Container(9100).ListItem.Property(path)],AddonBrowser)</onclick>
+					<onclick condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">Container.Update($INFO[Container(9100).ListItem.Property(path)],replace)</onclick>
+					<onclick>SetFocus(58)</onclick>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<include content="MainMenuList">
+						<param name="id" value="9100" />
+						<param name="active" value="!Control.HasFocus(9100)" />
+					</include>
+					<content>
+						<item id="1">
+							<label>$LOCALIZE[24001]</label>
+							<property name="path">addons://</property>
+							<property name="icon">icons/sidemenu/addons.png</property>
+						</item>
+						<item id="2">
+							<label>$LOCALIZE[24998]</label>
+							<property name="path">addons://user/</property>
+							<property name="icon">icons/sidemenu/myaddons.png</property>
+						</item>
+						<item id="3">
+							<label>$LOCALIZE[24043]</label>
+							<property name="path">addons://outdated/</property>
+							<property name="icon">icons/submenu/updates.png</property>
+							<visible>Integer.IsGreater(System.AddonUpdateCount,0)</visible>
+						</item>
+						<item id="4">
+							<label>$LOCALIZE[24004]</label>
+							<property name="path">addons://recently_updated/</property>
+							<property name="icon">icons/sidemenu/time.png</property>
+						</item>
+						<item id="5">
+							<label>$LOCALIZE[24087]</label>
+							<property name="path">addons://repos/</property>
+							<property name="icon">icons/sidemenu/repos.png</property>
+						</item>
+						<item id="6">
+							<label>$LOCALIZE[39024]</label>
+							<property name="path">addons://dependencies/</property>
+							<property name="icon">icons/sidemenu/dependencies.png</property>
+						</item>
+						<item id="7">
+							<label>$LOCALIZE[23054]</label>
+							<property name="path">addons://running/</property>
+							<property name="icon">icons/sidemenu/running.png</property>
+						</item>
+						<item id="8">
+							<label>$LOCALIZE[33003]</label>
+							<property name="path">addons://all/</property>
+							<property name="icon">icons/sidemenu/download.png</property>
+						</item>
+						</content>
+				</control>
+				<control type="group">
+					<left>40</left>
+					<include content="MenuScrollIndicators">
+						<param name="list_id" value="9100"/>
+						<param name="width" value="428"/>
+						<param name="top" value="206"/>
+						<param name="bottom" value="910"/>
+					</include>
+				</control>
+			</control>
 			<include>MediaMenuMouseOverlay</include>
 			<control type="group">
 				<include>MediaMenuCommon</include>

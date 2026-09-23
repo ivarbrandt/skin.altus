@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="View_58_AddonTiles">
+		<control type="group">
+			<visible>Control.IsVisible(58)</visible>
+			<include>OpenClose_Right</include>
+			<include>Visible_Right</include>
+			<control type="panel" id="58">
+				<left>487</left>
+				<top>94</top>
+				<width>1424</width>
+				<height>954</height>
+				<orientation>vertical</orientation>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<preloaditems>1</preloaditems>
+				<onleft>9100</onleft>
+				<onback condition="String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">9100</onback>
+				<onright>58</onright>
+				<onup>58</onup>
+				<ondown>58</ondown>
+				<viewtype label="31102">list</viewtype>
+				<itemlayout width="712" height="159" infoupdate="30">
+					<include content="AddonLauncherTile">
+						<param name="list_id" value="58"/>
+						<param name="skip_current" value="Container(58).ListItemAbsolute(0).IsParentFolder"/>
+						<param name="sublabel" value="$VAR[AddonTilesSublabelVar]"/>
+						<param name="has_sublabel" value="[$EXP[addonTilesVersionPath] + !String.IsEmpty(ListItem.AddonVersion)] | [$EXP[addonTilesDatePath] + !String.IsEmpty(ListItem.AddonLastUpdated)] | [![$EXP[addonTilesVersionPath] | $EXP[addonTilesDatePath]] + !String.IsEmpty(ListItem.AddonSummary)]"/>
+					</include>
+				</itemlayout>
+				<focusedlayout width="712" height="159" infoupdate="30">
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<include content="AddonLauncherTile">
+							<param name="list_id" value="58"/>
+							<param name="focused" value="true"/>
+							<param name="skip_current" value="Container(58).ListItemAbsolute(0).IsParentFolder"/>
+						<param name="sublabel" value="$VAR[AddonTilesSublabelVar]"/>
+						<param name="has_sublabel" value="[$EXP[addonTilesVersionPath] + !String.IsEmpty(ListItem.AddonVersion)] | [$EXP[addonTilesDatePath] + !String.IsEmpty(ListItem.AddonLastUpdated)] | [![$EXP[addonTilesVersionPath] | $EXP[addonTilesDatePath]] + !String.IsEmpty(ListItem.AddonSummary)]"/>
+						</include>
+						<include>FocusBounce</include>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
+</includes>

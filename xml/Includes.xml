@@ -59,6 +59,7 @@
 	<include file="View_50_List.xml" />
 	<include file="View_51_PosterFlow.xml" />
 	<include file="View_52_IconWall.xml" />
+	<include file="View_58_AddonTiles.xml" />
 	<include file="View_53_Slide.xml" />
 	<include file="View_54_PosterInfo.xml" />
 	<include file="View_55_LandscapeInfo.xml" />
