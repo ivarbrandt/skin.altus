@@ -307,7 +307,10 @@
 		<value condition="!ListItem.IsParentFolder">OverlayUnwatched.png</value>
 	</variable>
 	<variable name="AddonTilesSublabelVar">
+		<value condition="$EXP[addonTilesStatusLine]">$INFO[ListItem.Property(Addon.Status)]</value>
+		<value condition="$EXP[addonTilesDatePath] + !String.IsEmpty(ListItem.Label2)">$INFO[ListItem.Label2]</value>
 		<value condition="$EXP[addonTilesDatePath]">$INFO[ListItem.AddonLastUpdated]</value>
+		<value condition="$EXP[addonTilesUpdateLine]">$INFO[ListItem.AddonVersion] → $INFO[ListItem.Property(Addon.ValidUpdateVersion)]</value>
 		<value condition="$EXP[addonTilesVersionPath]">$INFO[ListItem.AddonVersion]</value>
 		<value>$INFO[ListItem.AddonSummary]</value>
 	</variable>

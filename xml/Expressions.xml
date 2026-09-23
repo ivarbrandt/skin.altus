@@ -56,6 +56,8 @@
   <expression name="hasWallWatchedIcon">ListItem.IsRecording | ListItem.HasReminder | ListItem.HasTimer | ListItem.IsCollection | ListItem.IsPlaying | Integer.IsGreater(ListItem.Playcount,0) | !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)</expression>
 
   <expression name="addonTilesVersionPath">String.StartsWith(Container.FolderPath,addons://user/) | String.IsEqual(Container.FolderPath,addons://outdated/) | String.IsEqual(Container.FolderPath,addons://dependencies/) | String.IsEqual(Container.FolderPath,addons://running/)</expression>
+  <expression name="addonTilesStatusLine">ListItem.Property(addon.downloading) + !String.IsEmpty(ListItem.Property(Addon.Status))</expression>
+  <expression name="addonTilesUpdateLine">[ListItem.Property(addon.hasupdate) | ListItem.Property(addon.isupdate)] + !String.IsEmpty(ListItem.Property(Addon.ValidUpdateVersion))</expression>
   <expression name="addonTilesDatePath">String.IsEqual(Container.FolderPath,addons://recently_updated/)</expression>
 
 </includes>
