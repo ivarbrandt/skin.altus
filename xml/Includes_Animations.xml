@@ -156,15 +156,26 @@
 		</animation>
 	</include>
 
+	<include name="OpenClose_FadeZoom">
+		<animation type="WindowOpen">
+			<effect type="fade" start="0" end="100" time="300" tween="sine" easing="out" />
+			<effect type="zoom" start="103" end="100" center="auto" time="400" tween="cubic" easing="out" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+			<effect type="zoom" start="100" end="103" center="auto" time="300" tween="cubic" easing="out" />
+		</animation>
+	</include>
+
 	<include name="OpenClose_Left">
 		<include condition="Skin.HasSetting(no_slide_animations)">OpenClose_Fade</include>
-		<include condition="!Skin.HasSetting(no_slide_animations)">OpenClose_FadeSlide_Left</include>
+		<include condition="!Skin.HasSetting(no_slide_animations)">OpenClose_FadeZoom</include>
 	</include>
 
 	<include name="OpenClose_FadeSlide_Left">
 		<animation type="WindowOpen">
-			<effect type="fade" start="0" end="100" time="300" tween="sine" easing="out" />
-			<effect type="slide" start="-320" end="0" time="400" tween="cubic" easing="out" />
+			<effect type="fade" start="0" end="100" time="300" delay="200" tween="sine" easing="out" />
+			<effect type="slide" start="-320" end="0" time="400" delay="200" tween="cubic" easing="out" />
 		</animation>
 		<animation type="WindowClose">
 			<effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
@@ -220,13 +231,13 @@
 
 	<include name="OpenClose_Right">
 		<include condition="Skin.HasSetting(no_slide_animations)">OpenClose_Fade</include>
-		<include condition="!Skin.HasSetting(no_slide_animations)">OpenClose_FadeSlide_Right</include>
+		<include condition="!Skin.HasSetting(no_slide_animations)">OpenClose_FadeZoom</include>
 	</include>
 
 	<include name="OpenClose_FadeSlide_Right">
 		<animation type="WindowOpen">
-			<effect type="fade" start="0" end="100" time="300" tween="sine" easing="out" />
-			<effect type="slide" start="320" end="0" time="400" tween="cubic" easing="out" />
+			<effect type="fade" start="0" end="100" time="300" delay="200" tween="sine" easing="out" />
+			<effect type="slide" start="320" end="0" time="400" delay="200" tween="cubic" easing="out" />
 		</animation>
 		<animation type="WindowClose">
 			<effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
