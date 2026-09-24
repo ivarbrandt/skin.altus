@@ -23,6 +23,7 @@
 				<scrolltime tween="cubic" easing="out">500</scrolltime>
 				<preloaditems>1</preloaditems>
 				<onleft>9100</onleft>
+				<onfocus>SetProperty(wall_focused,1,AddonBrowser)</onfocus>
 				<onback condition="String.IsEqual(Container.FolderPath,Window(AddonBrowser).Property(root_path))">9100</onback>
 				<onright>5800</onright>
 				<onup>58</onup>
@@ -60,6 +61,7 @@
 				<texturesliderbackground />
 				<animation effect="slide" end="6,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(5800)">conditional</animation>
 				<onleft>58</onleft>
+				<onfocus>SetProperty(wall_focused,1,AddonBrowser)</onfocus>
 				<onright>noop</onright>
 				<onback>58</onback>
 			</control>

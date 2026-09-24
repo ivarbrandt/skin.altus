@@ -2,6 +2,7 @@
 <window>
 	<defaultcontrol always="true">9100</defaultcontrol>
 	<onload>SetProperty(root_path,addons://,AddonBrowser)</onload>
+	<onload>ClearProperty(wall_focused,AddonBrowser)</onload>
 	<onload>RunScript(script.altus.helper,mode=addonbrowser_crumb_monitor)</onload>
 	<onload>ClearProperty(altus_fanart_art, home)</onload>
 	<onload>ClearProperty(altus_fanart_prop, home)</onload>
@@ -82,6 +83,7 @@
 					<onup>9100</onup>
 					<ondown>9100</ondown>
 					<onback>SetFocus(9100,0,absolute)</onback>
+					<onfocus>ClearProperty(wall_focused,AddonBrowser)</onfocus>
 					<onfocus>RunScript(script.altus.helper,mode=addonbrowser_menu_monitor&amp;menu_id=9100)</onfocus>
 					<onright condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">SetProperty(root_path,$INFO[Container(9100).ListItem.Property(path)],AddonBrowser)</onright>					<onright condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">Container.Update($INFO[Container(9100).ListItem.Property(path)],replace)</onright>
 					<onright>58</onright>
@@ -90,7 +92,7 @@
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<include content="MainMenuList">
 						<param name="id" value="9100" />
-						<param name="active" value="!Control.HasFocus(9100)" />
+						<param name="active" value="!String.IsEmpty(Window(AddonBrowser).Property(wall_focused)) | String.IsEmpty(System.CurrentControlID)" />
 					</include>
 					<content>
 						<item id="1">
