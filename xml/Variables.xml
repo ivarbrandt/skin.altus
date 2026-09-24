@@ -314,6 +314,10 @@
 		<value condition="$EXP[addonTilesVersionPath]">$INFO[ListItem.AddonVersion]</value>
 		<value>$INFO[ListItem.AddonSummary]</value>
 	</variable>
+	<variable name="AddonUpdateCountVar">
+		<value condition="Integer.IsEqual(System.AddonUpdateCount,0)">$LOCALIZE[21341]</value>
+		<value>$LOCALIZE[24043] ($INFO[System.AddonUpdateCount])</value>
+	</variable>
 	<variable name="AddonTilesCrumbVar">
 		<value>[COLOR unfocused_text]root[/COLOR] /$INFO[Window(AddonBrowser).Property(crumb1), [COLOR unfocused_text],[/COLOR]]$INFO[Window(AddonBrowser).Property(crumb2), / [COLOR unfocused_text],[/COLOR]]$INFO[Window(AddonBrowser).Property(crumb3), / [COLOR unfocused_text],[/COLOR]]</value>
 	</variable>

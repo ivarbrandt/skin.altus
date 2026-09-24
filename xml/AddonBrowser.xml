@@ -57,6 +57,23 @@
 			</include> -->
 			<control type="group">
 				<include>OpenClose_Left</include>
+				<control type="group">
+					<left>40</left>
+					<top>94</top>
+					<width>428</width>
+					<height>83</height>
+					<control type="image">
+						<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
+					</control>
+					<control type="label">
+						<left>35</left>
+						<aligny>center</aligny>
+						<width>358</width>
+						<font>font32_bold</font>
+						<textcolor>unfocused_text</textcolor>
+						<label>$VAR[AddonUpdateCountVar]</label>
+					</control>
+				</control>
 				<control type="list" id="9100">
 					<left>40</left>
 					<top>190</top>
@@ -66,7 +83,7 @@
 					<ondown>9100</ondown>
 					<onback>SetFocus(9100,0,absolute)</onback>
 					<onfocus>RunScript(script.altus.helper,mode=addonbrowser_menu_monitor&amp;menu_id=9100)</onfocus>
-										<onright condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">SetProperty(root_path,$INFO[Container(9100).ListItem.Property(path)],AddonBrowser)</onright>					<onright condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">Container.Update($INFO[Container(9100).ListItem.Property(path)],replace)</onright>
+					<onright condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">SetProperty(root_path,$INFO[Container(9100).ListItem.Property(path)],AddonBrowser)</onright>					<onright condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">Container.Update($INFO[Container(9100).ListItem.Property(path)],replace)</onright>
 					<onright>58</onright>
 					<onclick condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">SetProperty(root_path,$INFO[Container(9100).ListItem.Property(path)],AddonBrowser)</onclick>					<onclick condition="!String.IsEqual(Window(AddonBrowser).Property(root_path),Container(9100).ListItem.Property(path)) + !String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">Container.Update($INFO[Container(9100).ListItem.Property(path)],replace)</onclick>
 					<onclick>SetFocus(58)</onclick>
@@ -81,17 +98,12 @@
 							<property name="path">addons://</property>
 							<property name="icon">icons/sidemenu/addons.png</property>
 						</item>
-						<item id="2">
-							<label>$LOCALIZE[24998]</label>
-							<property name="path">addons://user/</property>
-							<property name="icon">icons/sidemenu/myaddons.png</property>
-						</item>
-						<item id="3">
+						<!-- <item id="3">
 							<label>$LOCALIZE[24043]</label>
 							<property name="path">addons://outdated/</property>
 							<property name="icon">icons/submenu/updates.png</property>
 							<visible>Integer.IsGreater(System.AddonUpdateCount,0)</visible>
-						</item>
+						</item> -->
 						<item id="4">
 							<label>$LOCALIZE[24004]</label>
 							<property name="path">addons://recently_updated/</property>

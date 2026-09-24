@@ -23,7 +23,7 @@
 				<scrolltime tween="cubic" easing="out">500</scrolltime>
 				<preloaditems>1</preloaditems>
 				<onleft>9100</onleft>
-				<onback condition="String.IsEqual(Container.FolderPath,Container(9100).ListItem.Property(path))">9100</onback>
+				<onback condition="String.IsEqual(Container.FolderPath,Window(AddonBrowser).Property(root_path))">9100</onback>
 				<onright>5800</onright>
 				<onup>58</onup>
 				<ondown>58</ondown>
@@ -44,8 +44,8 @@
 							<param name="list_id" value="58"/>
 							<param name="focused" value="true"/>
 							<param name="skip_current" value="Container(58).ListItemAbsolute(0).IsParentFolder"/>
-						<param name="sublabel" value="$VAR[AddonTilesSublabelVar]"/>
-						<param name="has_sublabel" value="$EXP[addonTilesStatusLine] | $EXP[addonTilesUpdateLine] | [$EXP[addonTilesVersionPath] + !String.IsEmpty(ListItem.AddonVersion)] | [$EXP[addonTilesDatePath] + [!String.IsEmpty(ListItem.Label2) | !String.IsEmpty(ListItem.AddonLastUpdated)]] | [![$EXP[addonTilesVersionPath] | $EXP[addonTilesDatePath]] + !String.IsEmpty(ListItem.AddonSummary)]"/>
+							<param name="sublabel" value="$VAR[AddonTilesSublabelVar]"/>
+							<param name="has_sublabel" value="$EXP[addonTilesStatusLine] | $EXP[addonTilesUpdateLine] | [$EXP[addonTilesVersionPath] + !String.IsEmpty(ListItem.AddonVersion)] | [$EXP[addonTilesDatePath] + [!String.IsEmpty(ListItem.Label2) | !String.IsEmpty(ListItem.AddonLastUpdated)]] | [![$EXP[addonTilesVersionPath] | $EXP[addonTilesDatePath]] + !String.IsEmpty(ListItem.AddonSummary)]"/>
 						</include>
 						<include>FocusBounce</include>
 					</control>
