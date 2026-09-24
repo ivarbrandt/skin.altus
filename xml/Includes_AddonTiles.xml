@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="AddonTile">
+		<param name="focused">false</param>
+		<param name="sublabel">$INFO[ListItem.AddonSummary]</param>
+		<param name="has_sublabel">!String.IsEmpty(ListItem.AddonSummary)</param>
+		<param name="skip_current">false</param>
+		<definition>
+			<control type="group">
+				<left>18</left>
+				<top>18</top>
+				<width>675</width>
+				<height>122</height>
+				<control type="image">
+					<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
+					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | ![Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem) | $PARAM[skip_current]]</visible>
+				</control>
+				<control type="image">
+					<texture border="33" colordiffuse="A6000000">masks/radius_33.png</texture>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + [Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem) | $PARAM[skip_current]]</visible>
+				</control>
+				<control type="image">
+					<left>21</left>
+					<centertop>50%</centertop>
+					<width>88</width>
+					<height>88</height>
+					<texture diffuse="masks/small-square.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>!String.IsEmpty(ListItem.Icon) + !String.StartsWith(ListItem.Icon,Default)</visible>
+				</control>
+				<control type="image">
+					<left>35</left>
+					<centertop>50%</centertop>
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="unfocused_text" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | ![Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem) | $PARAM[skip_current]]</visible>
+				</control>
+				<control type="image">
+					<left>35</left>
+					<centertop>50%</centertop>
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="$VAR[FocusColorTheme]" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)</visible>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + [Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem) | $PARAM[skip_current]]</visible>
+				</control>
+				<control type="group">
+					<left>133</left>
+					<width>455</width>
+					<visible>!$PARAM[focused] | !Control.HasFocus($PARAM[list_id]) | ![Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem) | $PARAM[skip_current]]</visible>
+					<control type="label">
+						<height>122</height>
+						<aligny>center</aligny>
+						<font>font32_bold</font>
+						<textcolor>unfocused_text</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>String.IsEmpty(ListItem.Property(Addon.ID)) | ![$PARAM[has_sublabel]]</visible>
+					</control>
+					<control type="label">
+						<top>15</top>
+						<height>40</height>
+						<aligny>top</aligny>
+						<font>font32_bold</font>
+						<textcolor>unfocused_text</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>!String.IsEmpty(ListItem.Property(Addon.ID)) + [$PARAM[has_sublabel]]</visible>
+					</control>
+					<control type="label">
+						<top>55</top>
+						<height>34</height>
+						<aligny>bottom</aligny>
+						<font>font23_title</font>
+						<textcolor>60FFFFFF</textcolor>
+						<label>$PARAM[sublabel]</label>
+						<visible>!String.IsEmpty(ListItem.Property(Addon.ID)) + [$PARAM[has_sublabel]]</visible>
+					</control>
+					<control type="image">
+						<left>479</left>
+						<centertop>50%</centertop>
+						<width>32</width>
+						<height>32</height>
+						<texture colordiffuse="unfocused_text">$VAR[AddonTilesStatusIconVar]</texture>
+						<visible>!String.IsEmpty(ListItem.Property(Addon.ID))</visible>
+					</control>
+				</control>
+				<control type="group">
+					<left>133</left>
+					<width>455</width>
+					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id]) + [Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[list_id]).CurrentItem) | $PARAM[skip_current]]</visible>
+					<control type="label">
+						<height>122</height>
+						<aligny>center</aligny>
+						<font>font32_bold</font>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<scroll>true</scroll>
+						<scrollspeed>75</scrollspeed>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>String.IsEmpty(ListItem.Property(Addon.ID)) | ![$PARAM[has_sublabel]]</visible>
+					</control>
+					<control type="label">
+						<top>15</top>
+						<height>40</height>
+						<aligny>top</aligny>
+						<font>font32_bold</font>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
+						<scroll>true</scroll>
+						<scrollspeed>75</scrollspeed>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>!String.IsEmpty(ListItem.Property(Addon.ID)) + [$PARAM[has_sublabel]]</visible>
+					</control>
+					<control type="label">
+						<top>55</top>
+						<height>34</height>
+						<aligny>bottom</aligny>
+						<font>font23_title</font>
+						<textcolor>unfocused_text</textcolor>
+						<scroll>true</scroll>
+						<scrollspeed>75</scrollspeed>
+						<label>$PARAM[sublabel]</label>
+						<visible>!String.IsEmpty(ListItem.Property(Addon.ID)) + [$PARAM[has_sublabel]]</visible>
+					</control>
+					<control type="image">
+						<left>479</left>
+						<centertop>50%</centertop>
+						<width>32</width>
+						<height>32</height>
+						<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[AddonTilesStatusIconVar]</texture>
+						<visible>!String.IsEmpty(ListItem.Property(Addon.ID))</visible>
+					</control>
+				</control>
+				<include content="FocusBorder">
+					<param name="list_id" value="$PARAM[list_id]"/>
+					<param name="focused" value="$PARAM[focused]"/>
+					<param name="extra" value="Control.HasFocus($PARAM[list_id]) + $PARAM[skip_current]"/>
+					<param name="radius" value="33"/>
+					<param name="border" value="33"/>
+				</include>
+			</control>
+		</definition>
+	</include>
+
+	<include name="AddonHeaderTile">
+		<param name="icon"></param>
+		<param name="label"></param>
+		<definition>
+			<control type="group">
+				<left>18</left>
+				<top>18</top>
+				<width>1387</width>
+				<height>122</height>
+				<control type="image">
+					<texture border="33" colordiffuse="4D000000">masks/radius_33.png</texture>
+				</control>
+				<control type="image">
+					<left>35</left>
+					<centertop>50%</centertop>
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="unfocused_text">$PARAM[icon]</texture>
+					<aspectratio>keep</aspectratio>
+					<animation effect="fade" start="100" end="30" time="500" tween="sine" easing="inout" pulse="true" condition="$PARAM[loading]">Conditional</animation>
+				</control>
+				<control type="label">
+					<left>133</left>
+					<width>1223</width>
+					<height>122</height>
+					<aligny>center</aligny>
+					<font>font37_title</font>
+					<textcolor>$VAR[FocusColorTheme]</textcolor>
+					<label>$PARAM[label]</label>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+</includes>

@@ -62,8 +62,7 @@
 					</item>
 					<item>
 						<label>$LOCALIZE[24001]</label>
-						<onclick>ActivateWindow(1100)</onclick>
-						<!-- <onclick>ActivateWindow(addonbrowser)</onclick> -->
+						<onclick>ActivateWindow(addonbrowser)</onclick>
 						<icon>icons/settings/addons.png</icon>
 					</item>
 					<item>

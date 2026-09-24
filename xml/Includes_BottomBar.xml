@@ -31,7 +31,7 @@
 						]
 					]
 				</visible> -->
-				<visible>!Window.IsVisible(videos) + !Window.IsVisible(1100)</visible>
+				<visible>!Window.IsVisible(videos)</visible>
 				<animation effect="fade" time="300" tween="cubic" easing="out">VisibleChange</animation>
 				<bottom>0</bottom>
 				<control type="image">

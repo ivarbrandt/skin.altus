@@ -8,7 +8,7 @@
 			<control type="group">
 				<left>487</left>
 				<top>76</top>
-				<include content="AddonLauncherHeader">
+				<include content="AddonHeaderTile">
 					<param name="icon" value="$INFO[Container(9100).ListItem.Property(icon)]"/>
 					<param name="label" value="$VAR[AddonTilesCrumbVar]"/>
 					<param name="loading" value="Container.IsUpdating | Window.IsActive(busydialog) | Window.IsActive(busydialognocancel)"/>
@@ -30,7 +30,7 @@
 				<pagecontrol>5800</pagecontrol>
 				<viewtype label="31102">list</viewtype>
 				<itemlayout width="712" height="159" infoupdate="30">
-					<include content="AddonLauncherTile">
+					<include content="AddonTile">
 						<param name="list_id" value="58"/>
 						<param name="skip_current" value="Container(58).ListItemAbsolute(0).IsParentFolder"/>
 						<param name="sublabel" value="$VAR[AddonTilesSublabelVar]"/>
@@ -40,7 +40,7 @@
 				<focusedlayout width="712" height="159" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<include content="AddonLauncherTile">
+						<include content="AddonTile">
 							<param name="list_id" value="58"/>
 							<param name="focused" value="true"/>
 							<param name="skip_current" value="Container(58).ListItemAbsolute(0).IsParentFolder"/>
