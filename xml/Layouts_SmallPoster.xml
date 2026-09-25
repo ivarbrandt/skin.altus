@@ -104,7 +104,7 @@
 					<align>center</align>
 					<scroll>$PARAM[focused] + [[Control.IsVisible(54) + Integer.IsEqual(ListItem.CurrentItem,Container(54).CurrentItem)] | [Control.IsVisible(500) + Integer.IsEqual(ListItem.CurrentItem,Container(500).CurrentItem)]]</scroll>
 					<scrollspeed>100</scrollspeed>
-					<visible>[String.IsEqual(Container.ViewMode,$LOCALIZE[31101]) + Skin.HasSetting(Enable.54Titles)] | [String.IsEqual(Container.ViewMode,$LOCALIZE[31107]) + Skin.HasSetting(Enable.56Titles)] | [String.IsEqual(Container.ViewMode,$LOCALIZE[311022]) + Skin.HasSetting(Enable.500Titles)]</visible>
+					<visible>[String.IsEqual(Container.ViewMode,$LOCALIZE[31101]) + Skin.HasSetting(Enable.54Titles)] | [String.IsEqual(Container.ViewMode,$LOCALIZE[311022]) + Skin.HasSetting(Enable.500Titles)]</visible>
 				</control>
 				<control type="label">
 					<left>30</left>

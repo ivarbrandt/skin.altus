@@ -297,7 +297,7 @@
 			[
 				[$EXP[isPosterInfo] + !Skin.HasSetting(Enable.54Titles)] |
 				[$EXP[isLandscapeInfo] + !Skin.HasSetting(Enable.55Titles)] |
-				[$EXP[isFlixInfo] + !Skin.HasSetting(Enable.56Titles)] |
+				$EXP[isFlixInfo] |
 				[$EXP[isWall] + !Skin.HasSetting(Enable.500Titles)] |
 				[$EXP[isLandscapeWall] + !Skin.HasSetting(Enable.501Titles)] |
 				!

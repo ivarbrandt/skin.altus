@@ -740,13 +740,6 @@
 			</control>
 
 			<!-- 56 -->
-			<control type="radiobutton" id="6082">
-				<label>[LIGHT]Enable titles[/LIGHT]</label>
-				<include>MediaMenuItemsCommon</include>
-				<onclick>Skin.ToggleSetting(Enable.56Titles)</onclick>
-				<selected>Skin.HasSetting(Enable.56Titles)</selected>
-				<visible>Control.IsVisible(56) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
-			</control>
 			<control type="radiobutton" id="6083">
 				<label>[LIGHT]Ratings[/LIGHT]</label>
 				<include>MediaMenuItemsCommon</include>
