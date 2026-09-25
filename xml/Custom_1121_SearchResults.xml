@@ -274,7 +274,7 @@
 							<font>font12</font>
 							<align>left</align>
 							<aligny>center</aligny>
-							<textcolor>lightgrey</textcolor>
+							<textcolor>unfocused_text</textcolor>
 							<label>$VAR[SearchSubmenuButtonLabelsVar]</label>
 						</control>
 					</control>

@@ -266,7 +266,7 @@
 							<font>font12</font>
 							<align>left</align>
 							<aligny>center</aligny>
-							<textcolor>lightgrey</textcolor>
+							<textcolor>unfocused_text</textcolor>
 							<label>$VAR[HomeSubmenuButtonLabelsVar]</label>
 							<!-- <label>$INFO[System.Time] • $INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label> -->
 						</control>

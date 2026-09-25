@@ -119,7 +119,7 @@
           <bottom>0</bottom>
           <aligny>center</aligny>
           <font>font32</font>
-          <textcolor>lightgrey</textcolor>
+          <textcolor>unfocused_text</textcolor>
           <label>$VAR[ListLabelVar]</label>
           <shadowcolor>text_shadow</shadowcolor>
           <visible>![$PARAM[focused] + Control.IsVisible($PARAM[list_id])]</visible>
@@ -216,7 +216,7 @@
           <centertop>49%</centertop>
           <width>21</width>
           <height>21</height>
-          <texture colordiffuse="lightgrey">$VAR[ListWatchedIconVar]</texture>
+          <texture colordiffuse="unfocused_text">$VAR[ListWatchedIconVar]</texture>
           <visible>![$PARAM[focused] + Control.IsVisible($PARAM[list_id])]</visible>
         </control>
       </control>

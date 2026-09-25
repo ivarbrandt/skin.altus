@@ -216,13 +216,13 @@
     <value>[COLOR unfocused_text]$INFO[ListItem.Label][/COLOR]</value>
 	</variable>
 	<variable name="AddonsLabel2Var">
-    <value condition="ListItem.Property(addon.downloading)">[COLOR unfocused_text]$INFO[ListItem.Property(addon.status)][/COLOR]</value>
-    <value condition="!Container.SortMethod(1)">$INFO[ListItem.Label2]</value>
-    <value condition="String.IsEqual(ListItem.Path,addons://all/) + !String.IsEmpty(ListItem.AddonOrigin) + !String.IsEmpty(ListItem.AddonVersion)">[COLOR unfocused_text]$INFO[ListItem.AddonOrigin][/COLOR] [B]»[/B] [COLOR unfocused_text]$INFO[ListItem.AddonVersion][/COLOR]</value>
-    <value condition="!String.IsEmpty(ListItem.AddonCreator) + !String.IsEmpty(ListItem.AddonVersion)">[COLOR unfocused_text]$INFO[ListItem.AddonCreator][/COLOR] [B]»[/B] [COLOR unfocused_text]$INFO[ListItem.AddonVersion][/COLOR]</value>
-    <value condition="!String.IsEmpty(ListItem.AddonOrigin)">[COLOR unfocused_text]$INFO[ListItem.AddonOrigin][/COLOR]</value>
-    <value condition="!String.IsEmpty(ListItem.AddonCreator)">[COLOR unfocused_text]$INFO[ListItem.AddonCreator][/COLOR]</value>
-    <value condition="!String.IsEmpty(ListItem.AddonVersion)">[COLOR unfocused_text]$INFO[ListItem.AddonVersion][/COLOR]</value>
+    <value condition="ListItem.Property(addon.downloading)">[COLOR bright_text][LIGHT]$INFO[ListItem.Property(addon.status)][/LIGHT][/COLOR]</value>
+    <value condition="!Container.SortMethod(1)">[COLOR bright_text][LIGHT]$INFO[ListItem.Label2][/LIGHT][/COLOR]</value>
+    <value condition="String.IsEqual(ListItem.Path,addons://all/) + !String.IsEmpty(ListItem.AddonOrigin) + !String.IsEmpty(ListItem.AddonVersion)">[COLOR bright_text][LIGHT]$INFO[ListItem.AddonOrigin][/LIGHT][/COLOR] » [COLOR bright_text][LIGHT]$INFO[ListItem.AddonVersion][/LIGHT][/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.AddonCreator) + !String.IsEmpty(ListItem.AddonVersion)">[COLOR bright_text][LIGHT]$INFO[ListItem.AddonCreator][/LIGHT][/COLOR] » [COLOR bright_text][LIGHT]$INFO[ListItem.AddonVersion][/LIGHT][/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.AddonOrigin)">[COLOR bright_text][LIGHT]$INFO[ListItem.AddonOrigin][/LIGHT][/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.AddonCreator)">[COLOR bright_text][LIGHT]$INFO[ListItem.AddonCreator][/LIGHT][/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.AddonVersion)">[COLOR bright_text][LIGHT]$INFO[ListItem.AddonVersion][/LIGHT][/COLOR]</value>
     <value></value>
 	</variable>
 	<variable name="AddonsLabel3Var">

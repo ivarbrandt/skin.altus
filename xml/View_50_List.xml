@@ -607,15 +607,15 @@
 	</include>
 
 	<include name="50_FanartList_FontPlot_Large">
-		<font>font32</font>
+		<font>font32_bold</font>
 	</include>
 
 	<include name="50_FanartList_FontHeader_Large">
-		<font>font27</font>
+		<font>font27_title</font>
 	</include>
 
 	<include name="50_FanartList_FontUnfo_Large">
-		<font>font33</font>
+		<font>font32_bold</font>
 	</include>
 
 	<include name="ListContainer">
@@ -843,7 +843,7 @@
 							<control type="label">
 								<left>70</left>
 								<width>810</width>
-								<centertop>12%</centertop>
+								<centertop>10%</centertop>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<scroll>$PARAM[focused]</scroll>
@@ -866,7 +866,7 @@
 							<control type="label">
 								<left>33</left>
 								<width>810</width>
-								<centertop>33%</centertop>
+								<centertop>31%</centertop>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<scroll>$PARAM[focused]</scroll>
@@ -878,7 +878,7 @@
 								<shadowcolor>text_shadow</shadowcolor>
 							</control>
 							<control type="textbox">
-								<top>78</top>
+								<top>72</top>
 								<left>33</left>
 								<width>810</width>
 								<bottom>8</bottom>
@@ -929,7 +929,7 @@
 							</control> -->
 							<control type="image">
 								<left>33</left>
-								<top>16</top>
+								<top>12</top>
 								<width>21</width>
 								<height>21</height>
 								<texture>$VAR[ListWatchedIconVar]</texture>
@@ -964,7 +964,7 @@
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<include>50_FanartList_FontUnfo_Large</include>
-								<textcolor>lightgrey</textcolor>
+								<textcolor>unfocused_text</textcolor>
 								<label>$VAR[ListLabelVar]$VAR[RI_EpisodeType]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 							</control>
@@ -973,7 +973,7 @@
 								<centertop>52%</centertop>
 								<width>21</width>
 								<height>21</height>
-								<texture colordiffuse="lightgrey">$VAR[ListWatchedIconVar]</texture>
+								<texture colordiffuse="unfocused_text">$VAR[ListWatchedIconVar]</texture>
 							</control>
 						</control>
 					</itemlayout>
@@ -1028,7 +1028,7 @@
 							<control type="label">
 								<left>70</left>
 								<width>830</width>
-								<centertop>13%</centertop>
+								<centertop>11%</centertop>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<scroll>$PARAM[focused]</scroll>
@@ -1051,7 +1051,7 @@
 							<control type="label">
 								<left>33</left>
 								<width>830</width>
-								<centertop>33%</centertop>
+								<centertop>31%</centertop>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<scroll>$PARAM[focused]</scroll>
@@ -1062,7 +1062,7 @@
 								<shadowcolor>text_shadow</shadowcolor>
 							</control>
 							<control type="textbox">
-								<top>85</top>
+								<top>74</top>
 								<left>33</left>
 								<width>830</width>
 								<bottom>9</bottom>
@@ -1114,7 +1114,7 @@
 							</control> -->
 							<control type="image">
 								<left>33</left>
-								<top>19</top>
+								<top>15</top>
 								<width>21</width>
 								<height>21</height>
 								<texture>$VAR[ListWatchedIconVar]</texture>
@@ -1148,7 +1148,7 @@
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<include>50_FanartList_FontUnfo_Large</include>
-								<textcolor>lightgrey</textcolor>
+								<textcolor>unfocused_text</textcolor>
 								<label>$VAR[ListLabelVar]$VAR[RI_EpisodeType]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 							</control>
@@ -1157,7 +1157,7 @@
 								<centertop>52%</centertop>
 								<width>21</width>
 								<height>21</height>
-								<texture colordiffuse="lightgrey">$VAR[ListWatchedIconVar]</texture>
+								<texture colordiffuse="unfocused_text">$VAR[ListWatchedIconVar]</texture>
 							</control>
 						</control>
 					</itemlayout>
@@ -1215,7 +1215,7 @@
 							<control type="label">
 								<left>70</left>
 								<width>930</width>
-								<centertop>13%</centertop>
+								<centertop>11%</centertop>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<scroll>$PARAM[focused]</scroll>
@@ -1238,7 +1238,7 @@
 							<control type="label">
 								<left>33</left>
 								<width>930</width>
-								<centertop>33%</centertop>
+								<centertop>31%</centertop>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<scroll>$PARAM[focused]</scroll>
@@ -1249,7 +1249,7 @@
 								<shadowcolor>text_shadow</shadowcolor>
 							</control>
 							<control type="textbox">
-								<top>85</top>
+								<top>74</top>
 								<left>33</left>
 								<width>930</width>
 								<bottom>9</bottom>
@@ -1301,7 +1301,7 @@
 							</control> -->
 							<control type="image">
 								<left>33</left>
-								<top>19</top>
+								<top>15</top>
 								<width>21</width>
 								<height>21</height>
 								<texture>$VAR[ListWatchedIconVar]</texture>
@@ -1338,7 +1338,7 @@
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<include>50_FanartList_FontUnfo_Large</include>
-								<textcolor>lightgrey</textcolor>
+								<textcolor>unfocused_text</textcolor>
 								<label>$VAR[ListLabelVar]$VAR[RI_EpisodeType]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 							</control>
@@ -1347,7 +1347,7 @@
 								<centertop>52%</centertop>
 								<width>21</width>
 								<height>21</height>
-								<texture colordiffuse="lightgrey">$VAR[ListWatchedIconVar]</texture>
+								<texture colordiffuse="unfocused_text">$VAR[ListWatchedIconVar]</texture>
 							</control>
 						</control>
 					</itemlayout>
@@ -1405,7 +1405,7 @@
 							<control type="label">
 								<left>70</left>
 								<width>1096</width>
-								<centertop>13%</centertop>
+								<centertop>11%</centertop>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<scroll>$PARAM[focused]</scroll>
@@ -1428,7 +1428,7 @@
 							<control type="label">
 								<left>33</left>
 								<width>1096</width>
-								<centertop>33%</centertop>
+								<centertop>31%</centertop>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<scroll>$PARAM[focused]</scroll>
@@ -1439,7 +1439,7 @@
 								<shadowcolor>text_shadow</shadowcolor>
 							</control>
 							<control type="textbox">
-								<top>85</top>
+								<top>74</top>
 								<left>33</left>
 								<width>1096</width>
 								<bottom>9</bottom>
@@ -1491,7 +1491,7 @@
 							</control> -->
 							<control type="image">
 								<left>33</left>
-								<top>19</top>
+								<top>15</top>
 								<width>21</width>
 								<height>21</height>
 								<texture>$VAR[ListWatchedIconVar]</texture>
@@ -1528,7 +1528,7 @@
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<include>50_FanartList_FontUnfo_Large</include>
-								<textcolor>lightgrey</textcolor>
+								<textcolor>unfocused_text</textcolor>
 								<label>$VAR[ListLabelVar]$VAR[RI_EpisodeType]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 							</control>
@@ -1537,7 +1537,7 @@
 								<centertop>52%</centertop>
 								<width>21</width>
 								<height>21</height>
-								<texture colordiffuse="lightgrey">$VAR[ListWatchedIconVar]</texture>
+								<texture colordiffuse="unfocused_text">$VAR[ListWatchedIconVar]</texture>
 							</control>
 						</control>
 					</itemlayout>
@@ -1586,7 +1586,7 @@
 							<bottom>0</bottom>
 							<aligny>center</aligny>
 							<include>50_FanartList_FontUnfo_Large</include>
-							<textcolor>lightgrey</textcolor>
+							<textcolor>unfocused_text</textcolor>
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -1636,7 +1636,7 @@
 							<bottom>0</bottom>
 							<aligny>center</aligny>
 							<include>50_FanartList_FontUnfo_Large</include>
-							<textcolor>lightgrey</textcolor>
+							<textcolor>unfocused_text</textcolor>
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -1657,7 +1657,7 @@
 							<control type="label">
 								<left>79</left>
 								<width>790</width>
-								<centertop>13%</centertop>
+								<centertop>11%</centertop>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<scroll>true</scroll>
@@ -1680,7 +1680,7 @@
 							<control type="label">
 								<left>33</left>
 								<width>900</width>
-								<centertop>33%</centertop>
+								<centertop>31%</centertop>
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<scroll>true</scroll>
@@ -1703,14 +1703,14 @@
 								<autoscroll delay="3000" time="3000" repeat="3000">$PARAM[focused]</autoscroll>
 							</control> -->
 							<control type="textbox">
-								<top>85</top>
+								<top>74</top>
 								<left>33</left>
 								<width>900</width>
-								<bottom>10</bottom>
+								<bottom>9</bottom>
 								<aligny>center</aligny>
 								<include>50_FanartList_FontPlot_Large</include>
 								<label>$VAR[ListBoxInfoVar]</label>
-								<textcolor>unfocused_text</textcolor>
+								<textcolor>bright_text</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
 								<autoscroll delay="7000" time="3000" repeat="7000">true</autoscroll>
 								<visible>![Container.OnNext | Container.OnPrevious]</visible>
@@ -1729,7 +1729,7 @@
 							</control> -->
 							<control type="image">
 								<left>890</left>
-								<centertop>13.5%</centertop>
+								<centertop>11.5%</centertop>
 								<width>30</width>
 								<height>30</height>
 								<texture>$VAR[AddonsOriginVar]</texture>
@@ -1747,7 +1747,7 @@
 							</control> -->
 							<control type="image">
 								<left>33</left>
-								<centertop>13.5%</centertop>
+								<centertop>11.5%</centertop>
 								<width>33</width>
 								<height>30</height>
 								<texture>$VAR[AddonsListIconVar]</texture>
@@ -1775,7 +1775,7 @@
 								<bottom>0</bottom>
 								<aligny>center</aligny>
 								<include>50_FanartList_FontUnfo_Large</include>
-								<textcolor>lightgrey</textcolor>
+								<textcolor>unfocused_text</textcolor>
 								<label>$VAR[unfocused_AddonsLabelVar]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 							</control>
@@ -1785,7 +1785,7 @@
 								<width>30</width>
 								<height>30</height>
 								<aspectratio>keep</aspectratio>
-								<texture colordiffuse="lightgrey">$VAR[AddonsOriginVar]</texture>
+								<texture colordiffuse="unfocused_text">$VAR[AddonsOriginVar]</texture>
 							</control>
 							<control type="image">
 								<left>33</left>
@@ -1793,7 +1793,7 @@
 								<width>33</width>
 								<height>33</height>
 								<aspectratio>keep</aspectratio>
-								<texture colordiffuse="lightgrey">$VAR[AddonsListIconVar]</texture>
+								<texture colordiffuse="unfocused_text">$VAR[AddonsListIconVar]</texture>
 							</control>
 						</control>
 					</itemlayout>
