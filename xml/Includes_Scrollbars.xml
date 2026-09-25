@@ -98,7 +98,7 @@
 						<!-- <ondown condition="Control.IsVisible(51) | Control.IsVisible(54)">Container.SetViewMode(500)</ondown>
 						<ondown condition="Control.IsVisible(55)">Container.SetViewMode(501)</ondown> -->
 						<orientation>horizontal</orientation>
-						<visible>Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(56) |  Control.IsVisible(57)</visible>
+						<visible>Control.IsVisible(51) | Control.IsVisible(53) | Control.IsVisible(57)</visible>
 						<animation effect="slide" end="0,6" time="300" tween="sine" easing="inout" condition="![Control.HasFocus(5199) | Container.Scrolling]">conditional</animation>
 						<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
 						<animation effect="fade" start="100" end="0" time="200">Hidden</animation>

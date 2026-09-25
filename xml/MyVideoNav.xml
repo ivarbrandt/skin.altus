@@ -31,7 +31,7 @@
 				<include>OpenClose_FadeZoom</include>
 				<include>Vis_FadeZoom</include>
 				<include>VerticalInfoPanel</include>
-				<visible>Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)</visible>
+				<visible>Control.IsVisible(54) | Control.IsVisible(55)</visible>
 				<control type="group">
 					<left>20</left>
 					<top>245</top>

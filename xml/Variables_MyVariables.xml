@@ -678,33 +678,6 @@
 		<value>Skin.SetString(53OnDownSetting.Other,0)</value>
 	</variable>
 
-	<!-- FLIXINFO TOGGLES -->
-	<variable name="56OnDownSettingVar.MovieTV">
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),0)">Scrollbar</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),1)">Play trailer</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),2)">Information</value>
-		<value>Scrollbar</value>
-	</variable>
-
-	<variable name="56OnDownSettingVar.Other">
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.Other),0)">Scrollbar</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.Other),1)">Information</value>
-		<value>Scrollbar</value>
-	</variable>
-
-	<variable name="56OnDownToggleVar.MovieTV">
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),0)">Skin.SetString(56OnDownSetting.MovieTV,1)</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),1)">Skin.SetString(56OnDownSetting.MovieTV,2)</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.MovieTV),2)">Skin.SetString(56OnDownSetting.MovieTV,0)</value>
-		<value>Skin.SetString(56OnDownSetting.MovieTV,0)</value>
-	</variable>
-
-	<variable name="56OnDownToggleVar.Other">
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.Other),0)">Skin.SetString(56OnDownSetting.Other,1)</value>
-		<value condition="String.IsEqual(Skin.String(56OnDownSetting.Other),1)">Skin.SetString(56OnDownSetting.Other,0)</value>
-		<value>Skin.SetString(56OnDownSetting.Other,0)</value>
-	</variable>
-
 	<variable name="StudioLogoSettingVar">
 		<value condition="String.IsEqual(Skin.String(StudioLogoSetting),0)">Off</value>
 		<value condition="String.IsEqual(Skin.String(StudioLogoSetting),1)">Movies</value>

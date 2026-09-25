@@ -618,20 +618,6 @@
 				<onclick>$VAR[53OnDownToggleVar.Other]</onclick>
 				<visible>Control.IsVisible(53) + [Container.Content(seasons) | Container.Content(episodes)]</visible>
 			</control>
-			<control type="button" id="6065">
-				<include>MediaMenuItemsCommon</include>
-				<label>[LIGHT]On down[/LIGHT]</label>
-				<label2>$VAR[56OnDownSettingVar.MovieTV]</label2>
-				<onclick>$VAR[56OnDownToggleVar.MovieTV]</onclick>
-				<visible>Control.IsVisible(56) + [[Container.Content(movies) + !String.StartsWith(Container.PluginName,plugin.video.the-loop)] | Container.Content(tvshows)]</visible>
-			</control>
-			<control type="button" id="6066">
-				<include>MediaMenuItemsCommon</include>
-				<label>[LIGHT]On down[/LIGHT]</label>
-				<label2>$VAR[56OnDownSettingVar.Other]</label2>
-				<onclick>$VAR[56OnDownToggleVar.Other]</onclick>
-				<visible>Control.IsVisible(56) + [Container.Content(seasons) | Container.Content(episodes)]</visible>
-			</control>
 			<!-- <control type="button" id="6061">
 				<include>MediaMenuItemsCommon</include>
 				<label>[LIGHT]Artwork (Items)[/LIGHT]</label>

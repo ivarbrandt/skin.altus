@@ -18,8 +18,8 @@
 	<include name="NetflixScreenDimensions">
 		<right>-3</right>
 		<top>-3</top>
-		<width>1300</width>
-		<height>731</height>
+		<width>1140</width>
+		<height>641</height>
 	</include>
 
 	<include name="NetflixScreenVideoDimensions">

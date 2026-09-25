@@ -572,7 +572,7 @@
   </include>
 
   <include name="HorizontalRatingsFont_Large">
-    <font>font32</font>
+    <font>font32_bold</font>
   </include>
   <include name="HorizontalRatingsOffset_Large">
     <textoffsety>-9</textoffsety>

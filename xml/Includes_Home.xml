@@ -290,8 +290,6 @@
 		<onload condition="String.IsEmpty(Skin.String(51OnDownSetting.Other))">Skin.SetString(51OnDownSetting.Other,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(53OnDownSetting.MovieTV))">Skin.SetString(53OnDownSetting.MovieTV,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(53OnDownSetting.Other))">Skin.SetString(53OnDownSetting.Other,0)</onload>
-		<onload condition="String.IsEmpty(Skin.String(56OnDownSetting.MovieTV))">Skin.SetString(56OnDownSetting.MovieTV,0)</onload>
-		<onload condition="String.IsEmpty(Skin.String(56OnDownSetting.Other))">Skin.SetString(56OnDownSetting.Other,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(StudioLogoSetting))">Skin.SetString(StudioLogoSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(StudioLogoColorSetting))">Skin.SetString(StudioLogoColorSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(BadgeColorSetting))">Skin.SetString(BadgeColorSetting,0)</onload>
