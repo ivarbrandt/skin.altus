@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-	<include name="53_Font_Large">
-		<font>font32</font>
-	</include>
 	<include name="53_Header_Height_Large">
 		<height>60</height>
-	</include>
-	<include name="53_Plot_Height_Large">
-		<height max="157">auto</height>
 	</include>
 	<include name="53InfoWidth_StudioEnabled">
 		<right>310</right>
@@ -193,7 +187,7 @@
               <control type="label">
 								<align>left</align>
                 <include>53_Header_Height_Large</include>
-                <include>53_Font_Large</include>
+                <font>font32_bold</font>
                 <label>$VAR[VideoInfoPanelTop]</label>
                 <textcolor>$VAR[FocusColorTheme]</textcolor>
                 <scroll>true</scroll>
@@ -203,7 +197,7 @@
 								<param name="align" value="left"/>
 							</include>
               <control type="textbox">
-                <include>53_Plot_Height_Large</include>
+                <height max="165">auto</height>
                 <font>font32_bold</font>
                 <textcolor>bright_text</textcolor>
                 <align>left</align>
