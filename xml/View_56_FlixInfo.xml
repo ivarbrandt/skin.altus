@@ -93,9 +93,9 @@
 					<visible>Skin.HasSetting(Enable.Clearlogo) + !String.IsEmpty(ListItem.Art(clearlogo))</visible>
 				</control>
 				<control type="label">
-					<height>50</height>
+					<height>77</height>
 					<label>$VAR[InfoTitle]</label>
-					<font>font40_bold</font>
+					<font>font52_title</font>
 					<textcolor>bright_text</textcolor>
 					<scroll>true</scroll>
 					<scrollspeed>170</scrollspeed>

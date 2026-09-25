@@ -26,7 +26,7 @@
 						<align>center</align>
 						<height>35</height>
 						<label>$VAR[VideoInfoPanelTop]</label>
-						<include>Flix_Font_Large</include>
+						<font>font32_bold</font>
 						<textcolor>$VAR[FocusColorTheme]</textcolor>
 						<scroll>true</scroll>
 						<scrollspeed>150</scrollspeed>
