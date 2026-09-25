@@ -239,7 +239,7 @@
 				<aspectratio>stretch</aspectratio>
 				<include>FullScreenDimensions</include>
 				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
-				<visible>!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEmpty(Skin.String(TrailerPlaying)) + 
+				<visible>!Player.HasMedia + String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEmpty(Skin.String(TrailerPlaying)) + !Control.IsVisible(56) + 
 				![Control.IsVisible(50) + [Window.IsVisible(videos) | ![Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvtimers) | Window.IsVisible(tvsearch)]] + 
 				[
 						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 

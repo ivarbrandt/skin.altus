@@ -1,5 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	<include name="View56_Poster">
+		<definition>
+			<itemlayout width="233.4" height="335.4" condition="[Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
+				<control type="group">
+					<include content="ViewUnfocusedAnimations">
+						<param name="id" value="56"/>
+					</include>
+					<top>0</top>
+					<left>-20</left>
+					<include>SmallPosterLayout</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="233.4" height="335.4" condition="[Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
+				<control type="group">
+					<depth>DepthContentPopout</depth>
+					<top>0</top>
+					<left>-20</left>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="56"/>
+							<param name="list_id" value="56"/>
+						</include>
+						<include content="SmallPosterLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
+					<include>VideoTrailerControl</include>
+				</control>
+			</focusedlayout>
+		</definition>
+	</include>
+
+	<include name="View56_Landscape">
+		<definition>
+			<itemlayout width="470" height="282" condition="[Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
+				<control type="group">
+					<include content="ViewUnfocusedAnimations">
+						<param name="id" value="56"/>
+					</include>
+					<top>0</top>
+					<left>-20</left>
+					<include>LandscapeLayout</include>
+				</control>
+			</itemlayout>
+			<focusedlayout width="470" height="282" condition="[Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
+				<control type="group">
+					<depth>DepthContentPopout</depth>
+					<top>0</top>
+					<left>-20</left>
+					<control type="group">
+						<include content="ViewFocusAnimations">
+							<param name="id" value="56"/>
+							<param name="list_id" value="56"/>
+						</include>
+						<include content="LandscapeLayout">
+							<param name="focused" value="true" />
+						</include>
+					</control>
+					<include>VideoTrailerControl</include>
+				</control>
+			</focusedlayout>
+		</definition>
+	</include>
+
 	<include name="View_56_FlixInfo">
 		<control type="group">
 			<include>OpenClose_FadeZoom</include>
@@ -92,7 +156,7 @@
 				<viewtype label="31107">icon</viewtype>
 				<preloaditems>2</preloaditems>
 				<pagecontrol>5600</pagecontrol>
-				<scrolltime tween="cubic" easing="out">400</scrolltime>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
 				<onback condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onback>
 				<onunfocus condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onunfocus>
 				<onunfocus condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunfocus>
@@ -122,33 +186,8 @@
 
 				<!-- DEFAULT LAYOUT -->
 				<!-- W: 204 H: 306 -->
-				<itemlayout width="233.4" height="335.4" condition="[Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
-					<control type="group">
-						<include content="ViewUnfocusedAnimations">
-							<param name="id" value="56"/>
-						</include>
-						<top>0</top>
-						<left>-20</left>
-						<include>SmallPosterLayout</include>
-					</control>
-				</itemlayout>
-				<focusedlayout width="233.4" height="335.4" condition="[Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]" infoupdate="30">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-						<top>0</top>
-						<left>-20</left>
-						<control type="group">
-							<include content="ViewFocusAnimations">
-								<param name="id" value="56"/>
-								<param name="list_id" value="56"/>
-							</include>
-							<include content="SmallPosterLayout">
-								<param name="focused" value="true" />
-							</include>
-						</control>
-						<include>VideoTrailerControl</include>
-					</control>
-				</focusedlayout>
+				<include condition="!String.IsEqual(Skin.String(Artwork56Setting),1)">View56_Poster</include>
+				<include condition="String.IsEqual(Skin.String(Artwork56Setting),1)">View56_Landscape</include>
 
 				<!-- <itemlayout width="272" height="337" condition="[Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]]">
 					<control type="group">

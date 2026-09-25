@@ -298,6 +298,7 @@
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting.Other))">Skin.SetString(OnRightSetting.Other,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting))">Skin.SetString(OnRightSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ArtworkSize54Setting))">Skin.SetString(ArtworkSize54Setting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(Artwork56Setting))">Skin.SetString(Artwork56Setting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ArtworkSize55Setting))">Skin.SetString(ArtworkSize55Setting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ArtworkSize500Setting))">Skin.SetString(ArtworkSize500Setting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ArtworkSize501Setting))">Skin.SetString(ArtworkSize501Setting,0)</onload>

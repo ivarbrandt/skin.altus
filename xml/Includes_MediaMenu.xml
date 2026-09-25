@@ -740,13 +740,28 @@
 			</control>
 
 			<!-- 56 -->
+			<control type="button" id="6082">
+				<include>MediaMenuItemsCommon</include>
+				<label>[LIGHT]Layout[/LIGHT]</label>
+				<label2>$VAR[Artwork56SettingVar]</label2>
+				<onclick>$VAR[Artwork56ToggleVar]</onclick>
+				<onclick>ReloadSkin()</onclick>
+				<visible>Control.IsVisible(56) + [Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)]</visible>
+			</control>
 			<control type="radiobutton" id="6083">
 				<label>[LIGHT]Ratings[/LIGHT]</label>
 				<include>MediaMenuItemsCommon</include>
 				<onclick>Skin.ToggleSetting(Disable.56Ratings)</onclick>
 				<selected>!Skin.HasSetting(Disable.56Ratings)</selected>
-				<visible>Control.IsVisible(56) + 
+				<visible>Control.IsVisible(56) +
 					[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+			</control>
+			<control type="radiobutton" id="6065">
+				<label>[LIGHT]$VAR[Capitalize_DimorFadeLabel] unfocused items[/LIGHT]</label>
+				<include>MediaMenuItemsCommon</include>
+				<onclick>Skin.ToggleSetting(Enable.56Dim)</onclick>
+				<selected>Skin.HasSetting(Enable.56Dim)</selected>
+				<visible>Control.IsVisible(56) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 			</control>
 
 			<!-- 57 -->

@@ -782,6 +782,15 @@
 		<value condition="String.IsEqual(Skin.String(ArtworkSize54Setting),1)">Skin.SetString(ArtworkSize54Setting,0)</value>
 	</variable>
 
+	<variable name="Artwork56SettingVar">
+		<value condition="String.IsEqual(Skin.String(Artwork56Setting),1)">Landscape</value>
+		<value>Poster</value>
+	</variable>
+	<variable name="Artwork56ToggleVar">
+		<value condition="String.IsEqual(Skin.String(Artwork56Setting),1)">Skin.SetString(Artwork56Setting,0)</value>
+		<value>Skin.SetString(Artwork56Setting,1)</value>
+	</variable>
+
 	<variable name="ArtworkSize54SettingVar">
 		<value condition="String.IsEqual(Skin.String(ArtworkSize54Setting),0)">Default</value>
 		<value condition="String.IsEqual(Skin.String(ArtworkSize54Setting),1)">Small</value>
