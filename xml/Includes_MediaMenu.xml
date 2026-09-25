@@ -142,9 +142,11 @@
 				<itemgap>29</itemgap>
 				<onleft>9000</onleft>
 				<onup>6056</onup>
-				<onright>SetFocus(49)</onright>
+				<onright condition="Window.IsVisible(tvchannels)">49</onright>
+				<onright condition="!Window.IsVisible(tvchannels)">50</onright>
 				<ondown>14100</ondown>
-				<onback>SetFocus(49)</onback>
+				<onback condition="Window.IsVisible(tvchannels)">SetFocus(49)</onback>
+				<onback condition="!Window.IsVisible(tvchannels)">SetFocus(50)</onback>
 				<!-- <control type="button" id="6051">
 					<include>MediaMenuItemsCommon</include>
 					<label>$LOCALIZE[31023]</label>
@@ -152,13 +154,13 @@
 					<onclick>Container.NextViewMode</onclick>
 					<visible>Window.IsActive(MyPVRGuide.xml)</visible>
 				</control> -->
-				<control type="button" id="6054">
+				<!-- <control type="button" id="6054">
 					<include>MediaMenuItemsCommon</include>
 					<label>[LIGHT]$LOCALIZE[19141][/LIGHT]</label>
 					<label2>$PARAM[group_label2]</label2>
 					<onclick>SendClick(28)</onclick>
 					<visible>Window.IsActive(MyPVRGuide.xml)</visible>
-				</control>
+				</control> -->
 				<control type="button" id="6053">
 					<include>MediaMenuItemsCommon</include>
 					<label>[LIGHT]$LOCALIZE[31022][/LIGHT]</label>
