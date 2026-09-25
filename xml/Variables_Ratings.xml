@@ -627,9 +627,9 @@
         <align>left</align>
         <aligny>left</aligny>
         <include>HorizontalRatingsOffset_Large</include>
-        <label>$PARAM[rating_value]</label>
+        <label>[LIGHT]$PARAM[rating_value][/LIGHT]</label>
         <include>HorizontalRatingsFont_Large</include>
-        <textcolor>unfocused_text</textcolor>
+        <textcolor>bright_text</textcolor>
       </control>
     </control>
   </include>
