@@ -2,6 +2,7 @@
 <includes>
 
   <variable name="ImageTextureSourceVar">
+    <!-- <value condition="Window.IsVisible(addonbrowser)">$VAR[AltusCustomBackgroundImage]</value> -->
     <!-- <value condition="ControlGroup(12000).HasFocus | Window.IsVisible(tvguide) | Window.IsVisible(tvchannels)">$VAR[ChannelListEPGIconVar]</value> -->
     <value condition="[Window.IsVisible(Home) + !ControlGroup(15000).HasFocus + !String.IsEqual(Container(9000).ListItem.Property(id),weather)] | Window.IsVisible(1121)">$VAR[HomeFanartVar]</value>
     <!-- <value condition="Window.IsVisible(Home) + [ControlGroup(15000).HasFocus | String.IsEqual(Container(9000).ListItem.Property(id),weather)]">$VAR[WeatherFanartVar]</value> -->

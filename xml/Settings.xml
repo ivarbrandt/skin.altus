@@ -3,7 +3,7 @@
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
 	<controls>
-		<include>ZeroFadeBackground</include>
+		<include>SimpleBackground</include>
 		<control type="group">
 			<centerleft>50%</centerleft>
 			<width>1600</width>

@@ -4,7 +4,7 @@
 	<include>Animation_DialogPopupOpenClose</include>
 	<depth>DepthDialog+</depth>
 	<controls>
-		<include>ZeroFadeBackground</include>
+		<include>SimpleBackground</include>
 		<control type="group">
 			<height>700</height>
 			<centertop>50%</centertop>

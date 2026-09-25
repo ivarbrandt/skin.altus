@@ -3,7 +3,7 @@
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
 	<controls>
-		<include>ZeroFadeBackground</include>
+		<include>SimpleBackground</include>
 		<control type="group" id="9100">
 			<include>OpenClose_Right</include>
 			<left>396</left>

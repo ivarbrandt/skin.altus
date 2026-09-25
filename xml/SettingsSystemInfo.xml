@@ -2,7 +2,7 @@
 <window>
 	<defaultcontrol always="true">95</defaultcontrol>
 	<controls>
-		<include>ZeroFadeBackground</include>
+		<include>SimpleBackground</include>
 		<control type="group">
 			<left>40</left>
 			<top>133</top>

@@ -10,14 +10,10 @@
 	<views>58</views>
 	<menucontrol>9000</menucontrol>
 	<controls>
-		<include>ZeroFadeBackground</include>
-		<include>DefaultBackground</include>
+		<include>SimpleBackground</include>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<include>View_58_AddonTiles</include>
-			<!-- <include content="View_56_ListInfo">
-				<param name="bottom_offset">list_bottom</param>
-			</include> -->
 			<include content="CommonScrollbars">
 				<param name="bottom_offset">list_bottom</param>
 			</include>
@@ -53,9 +49,9 @@
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="[COLOR unfocused_text]$LOCALIZE[10040][/COLOR]" />
 			</include>
-			<!-- <include content="BottomBar">
+			<include content="BottomBar">
 				<param name="info_visible" value="true" />
-			</include> -->
+			</include>
 			<control type="group">
 				<include>OpenClose_Left</include>
 				<control type="group">

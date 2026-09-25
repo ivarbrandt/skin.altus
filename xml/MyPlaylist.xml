@@ -5,7 +5,7 @@
 	<menucontrol>9000</menucontrol>
 	<views>56,503</views>
 	<controls>
-		<include>ZeroFadeBackground</include>
+		<include>SimpleBackground</include>
 		<!-- <include>DefaultBackground</include> -->
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
