@@ -521,7 +521,7 @@
   </variable>
 
   <include name="VerticalRatingsFont_Large">
-    <font>font32</font>
+    <font>font32_bold</font>
   </include>
 
   <include name="VerticalRatingSlotTemplate">
@@ -564,9 +564,9 @@
         <height>38</height>
         <align>center</align>
         <aligny>center</aligny>
-        <label>$PARAM[rating_value]</label>
+        <label>[LIGHT]$PARAM[rating_value][/LIGHT]</label>
         <include>VerticalRatingsFont_Large</include>
-        <textcolor>unfocused_text</textcolor>
+        <textcolor>bright_text</textcolor>
       </control>
     </control>
   </include>
