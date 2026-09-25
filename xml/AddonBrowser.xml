@@ -96,12 +96,12 @@
 							<property name="path">addons://</property>
 							<property name="icon">icons/sidemenu/addons.png</property>
 						</item>
-						<!-- <item id="3">
+						<item id="3">
 							<label>$LOCALIZE[24043]</label>
 							<property name="path">addons://outdated/</property>
 							<property name="icon">icons/submenu/updates.png</property>
 							<visible>Integer.IsGreater(System.AddonUpdateCount,0)</visible>
-						</item> -->
+						</item>
 						<item id="4">
 							<label>$LOCALIZE[24004]</label>
 							<property name="path">addons://recently_updated/</property>
