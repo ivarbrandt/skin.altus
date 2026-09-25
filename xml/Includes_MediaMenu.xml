@@ -286,7 +286,7 @@
 		<textcolor>$VAR[FocusColorTheme]</textcolor>
 	</include>
 	<include name="MediaMenuCommon">
-		<include>OpenClose_Left</include>
+		<include>OpenClose_FadeZoom</include>
 		<depth>DepthSideBlade</depth>
 		<left>-501</left>
 		<animation type="Conditional" condition="$EXP[sidebar_visible]" reversible="true">

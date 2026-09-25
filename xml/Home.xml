@@ -56,10 +56,10 @@
 					<effect type="slide" end="0,20" time="180" tween="sine" delay="80" />
 				</animation> -->
 				<!-- <include>MainMenuAnimations</include> -->
-				<include>OpenClose_Right</include>
+				<include>OpenClose_FadeZoom</include>
 				<control type="group" id="27000">
 					<visible>false</visible>
-					<include content="Visible_Right_Delayed">
+					<include content="Vis_FadeZoom_Delayed">
 						<param name="id" value="addons"/>
 					</include>
 					<control type="grouplist" id="27001">
@@ -88,7 +88,7 @@
 				<include>HomeWalls</include>
 				<control type="group" id="15000">
 					<visible>String.IsEqual(Container(9000).ListItem.Property(id),weather)</visible>
-					<include content="Visible_Right_Delayed">
+					<include content="Vis_FadeZoom_Delayed">
 						<param name="id" value="weather"/>
 					</include>
 					<defaultcontrol>15002</defaultcontrol>
@@ -157,7 +157,7 @@
 				</control>
 				<control type="group" id="21000">
 					<visible>String.IsEqual(Container(9000).ListItem.Property(id),disc)</visible>
-					<include content="Visible_Right_Delayed">
+					<include content="Vis_FadeZoom_Delayed">
 						<param name="id" value="disc"/>
 					</include>
 					<include content="ImageWidget">
@@ -196,7 +196,7 @@
 			</control> -->
 			<control type="group">
 				<depth>DepthContentPanel</depth>
-				<include>OpenClose_Left</include>
+				<include>OpenClose_FadeZoom</include>
 				<!-- <animation effect="slide" condition="ControlGroup(2000).HasFocus + ![ControlGroup(19000).HasFocus | ControlGroup(22000).HasFocus | ControlGroup(23000).HasFocus | ControlGroup(24000).HasFocus | ControlGroup(25000).HasFocus]" time="500" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation> -->
 				<!-- <animation effect="slide" condition="ControlGroup(2000).HasFocus + !Control.HasFocus(9000) + !ControlGroup(15000).HasFocus" time="500" start="0,0" end="-498,0" tween="cubic" easing="inout">Conditional</animation> -->
 				<include>VerticalInfoPanel</include>

@@ -73,7 +73,7 @@
 			<control type="group">
 				<width>418</width>
 				<animation effect="fade" condition="$EXP[isContent]" time="300" end="100" tween="sine" easing="inout">Conditonal</animation>
-				<include>OpenClose_Left</include>
+				<include>OpenClose_FadeZoom</include>
 				<control type="grouplist">
 					<left>$PARAM[left]</left>
 					<top>0</top>

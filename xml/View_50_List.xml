@@ -128,11 +128,11 @@
 				</control>
 			</control>
 			<control type="group">
-				<include>OpenClose_Left</include>
+				<include>OpenClose_FadeZoom</include>
 				<left>0</left>
 				<top>0</top>
 				<visible>Control.IsVisible(50)</visible>
-				<include>Visible_Left</include>
+				<include>Vis_FadeZoom</include>
 				<control type="group">
 					<visible>
 					![

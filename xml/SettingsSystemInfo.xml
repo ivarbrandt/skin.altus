@@ -6,7 +6,7 @@
 		<control type="group">
 			<left>40</left>
 			<top>133</top>
-			<include>OpenClose_Right</include>
+			<include>OpenClose_FadeZoom</include>
 			<control type="grouplist">
 				<left>384</left>
 				<top>-18</top>
@@ -115,7 +115,7 @@
 			<left>0</left>
 			<top>0</top>
 			<depth>DepthContentPanel</depth>
-			<include>OpenClose_Left</include>
+			<include>OpenClose_FadeZoom</include>
 			<control type="grouplist" id="9100">
 				<left>40</left>
 				<top>130</top>
@@ -170,7 +170,7 @@
 			<bottom>0</bottom>
 			<left>40</left>
 			<height>370</height>
-			<include>OpenClose_Right</include>
+			<include>OpenClose_FadeZoom</include>
 			<!-- <control type="image">
 				<left>400</left>
 				<top>30</top>

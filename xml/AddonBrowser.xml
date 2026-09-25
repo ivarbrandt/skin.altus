@@ -18,10 +18,10 @@
 				<param name="bottom_offset">list_bottom</param>
 			</include>
 			<control type="group">
-				<include>OpenClose_Left</include>
+				<include>OpenClose_FadeZoom</include>
 				<visible>Control.IsVisible(56)</visible>
 				<visible>Container.Content(addons) | Container.Content()</visible>
-				<include>Visible_Left</include>
+				<include>Vis_FadeZoom</include>
 				<include content="ListThumbInfoPanel">
 					<param name="fallback_image" value="DefaultAddon.png" />
 				</include>
@@ -53,7 +53,7 @@
 				<param name="info_visible" value="true" />
 			</include>
 			<control type="group">
-				<include>OpenClose_Left</include>
+				<include>OpenClose_FadeZoom</include>
 				<control type="group">
 					<left>40</left>
 					<top>94</top>

@@ -16,8 +16,8 @@
 
 	<include name="View_51_PosterFlow">
 		<control type="group">
-			<include>OpenClose_Right</include>
-			<include>Visible_Right</include>
+			<include>OpenClose_FadeZoom</include>
+			<include>Vis_FadeZoom</include>
 			<visible>Control.IsVisible(51)</visible>
 			<left>0</left>
 			<top>0</top>

@@ -23,7 +23,7 @@
       </control>
     </control> -->
     <control type="group">
-      <include>OpenClose_Right</include>
+      <include>OpenClose_FadeZoom</include>
       <!-- <include>Visible_Fade</include> -->
       <!-- <include content="OpenClose_Slide_Right">
         <param name="distance" value="650" />

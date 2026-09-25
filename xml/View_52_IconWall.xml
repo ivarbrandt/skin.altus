@@ -3,8 +3,8 @@
 	<include name="View_52_IconWall">
 		<control type="group">
 			<visible>Control.IsVisible(52)</visible>
-			<include>OpenClose_Right</include>
-			<include>Visible_Right</include>
+			<include>OpenClose_FadeZoom</include>
+			<include>Vis_FadeZoom</include>
 			<control type="panel" id="52">
 				<centerleft>50%</centerleft>
 				<top>120</top>

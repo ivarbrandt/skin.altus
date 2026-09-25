@@ -6,7 +6,7 @@
 		<include>SimpleBackground</include>
 		<control type="group">
 			<left>396</left>
-			<include>OpenClose_Right</include>
+			<include>OpenClose_FadeZoom</include>
 			<control type="grouplist" id="5">
 				<description>control area</description>
 				<top>133</top>
@@ -69,7 +69,7 @@
 		</control>
 		<control type="group">
 			<depth>DepthContentPanel</depth>
-			<include>OpenClose_Left</include>
+			<include>OpenClose_FadeZoom</include>
 			<control type="grouplist" id="3">
 				<description>button area</description>
 				<left>40</left>
@@ -128,7 +128,7 @@
 		<!-- <include>BottomBar</include> -->
 		<control type="group">
 			<depth>DepthContentPanel</depth>
-			<include>OpenClose_Left</include>
+			<include>OpenClose_FadeZoom</include>
 			<control type="radiobutton" id="20">
 				<width>344</width>
 				<left>40</left>
@@ -157,7 +157,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<include>OpenClose_Right</include>
+			<include>OpenClose_FadeZoom</include>
 			<control type="textbox" id="6">
 				<description>description area</description>
 				<left>1470</left>

@@ -18,7 +18,7 @@
 			</control>
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group">
-				<include condition="!Window.IsVisible(tvchannels)">OpenClose_Left</include>
+				<include condition="!Window.IsVisible(tvchannels)">OpenClose_FadeZoom</include>
 				<control type="image">
 					<visible>!Window.IsVisible(tvchannels) + !Player.HasMedia</visible>
 					<animation effect="fade" time="400">VisibleChange</animation>

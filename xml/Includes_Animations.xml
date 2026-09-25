@@ -66,45 +66,26 @@
 		<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 	</include>
 
-	<include name="Visible_Right_Delayed">
-		<include condition="Skin.HasSetting(no_slide_animations)">Visible_Fade</include>
-		<include content="Vis_FadeSlide_Right_Delayed" condition="!Skin.HasSetting(no_slide_animations)">
-			<param name="id" value="$PARAM[id]" />
-		</include>
-	</include>
-
-	<include name="Vis_FadeSlide_Right_Delayed">
+	<include name="Vis_FadeZoom_Delayed">
 		<animation type="Conditional" condition="String.IsEqual(Container(9000).ListItem.Property(id),$PARAM[id])">
 			<effect type="fade" start="0" end="100" time="200" tween="sine" delay="200" easing="out" />
-			<effect type="slide" start="320" end="0" time="267" delay="200" tween="cubic" easing="out" />
+			<effect type="zoom" start="103" end="100" center="auto" time="267" delay="200" tween="cubic" easing="out" />
 		</animation>
 		<animation type="Hidden">
 			<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
-			<effect type="slide" start="0" end="320" time="200" tween="cubic" easing="out" />
+			<effect type="zoom" start="100" end="103" center="auto" time="200" tween="cubic" easing="out" />
 		</animation>
 	</include>
 
-	<include name="Section_Visible_Right_Delayed">
-		<include condition="Skin.HasSetting(no_slide_animations)">Visible_Fade</include>
-		<include content="Section_Vis_FadeSlide_Right_Delayed" condition="!Skin.HasSetting(no_slide_animations)">
-			<param name="menu_id" value="$PARAM[menu_id]" />
-		</include>
-	</include>
-
-	<include name="Section_Vis_FadeSlide_Right_Delayed">
+	<include name="Section_Vis_FadeZoom_Delayed">
 		<animation type="Conditional" condition="String.IsEqual(Container(9000).ListItem.Property(menu_id),$PARAM[menu_id])">
 			<effect type="fade" start="0" end="100" time="200" tween="sine" delay="200" easing="out" />
-			<effect type="slide" start="320" end="0" time="267" delay="200" tween="cubic" easing="out" />
+			<effect type="zoom" start="103" end="100" center="auto" time="267" delay="200" tween="cubic" easing="out" />
 		</animation>
 		<animation type="Hidden">
 			<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
-			<effect type="slide" start="0" end="320" time="200" tween="cubic" easing="out" />
+			<effect type="zoom" start="100" end="103" center="auto" time="200" tween="cubic" easing="out" />
 		</animation>
-	</include>
-
-	<include name="Visible_Right">
-		<include condition="Skin.HasSetting(no_slide_animations)">Visible_Fade</include>
-		<include condition="!Skin.HasSetting(no_slide_animations)">Vis_FadeSlide_Right</include>
 	</include>
 
 	<include name="Animation_TopSlide">
@@ -129,33 +110,6 @@
 		</animation>
 	</include>
 
-	<include name="Vis_FadeSlide_Right">
-		<animation type="Visible" reversible="False">
-			<effect type="fade" start="0" end="100" time="300" tween="sine" easing="out"/>
-			<effect type="slide" start="320" end="0" time="400" tween="cubic" easing="out" />
-		</animation>
-		<animation type="Hidden" reversible="False">
-			<effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-			<effect type="slide" start="0" end="320" time="300" tween="cubic" easing="out" />
-		</animation>
-	</include>
-
-	<include name="Visible_Left">
-		<include condition="Skin.HasSetting(no_slide_animations)">Visible_Fade</include>
-		<include condition="!Skin.HasSetting(no_slide_animations)">Vis_FadeSlide_Left</include>
-	</include>
-
-	<include name="Vis_FadeSlide_Left">
-		<animation type="Visible" reversible="False">
-			<effect type="fade" start="0" end="100" time="300" tween="sine" easing="out" />
-			<effect type="slide" start="-320" end="0" time="400" tween="cubic" easing="out" />
-		</animation>
-		<animation type="Hidden" reversible="False">
-			<effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-			<effect type="slide" start="0" end="-320" time="300" tween="cubic" easing="out" />
-		</animation>
-	</include>
-
 	<include name="OpenClose_FadeZoom">
 		<animation type="WindowOpen">
 			<effect type="fade" start="0" end="100" time="300" tween="sine" easing="out" />
@@ -167,21 +121,29 @@
 		</animation>
 	</include>
 
-	<include name="OpenClose_Left">
-		<include condition="Skin.HasSetting(no_slide_animations)">OpenClose_Fade</include>
-		<include condition="!Skin.HasSetting(no_slide_animations)">OpenClose_FadeZoom</include>
+	<include name="Vis_FadeZoom">
+		<animation type="Visible" reversible="False">
+			<effect type="fade" start="0" end="100" time="300" tween="sine" easing="out" />
+			<effect type="zoom" start="105" end="100" center="auto" time="400" tween="cubic" easing="out" />
+		</animation>
+		<animation type="Hidden" reversible="False">
+			<effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+			<effect type="zoom" start="100" end="105" center="auto" time="300" tween="cubic" easing="out" />
+		</animation>
 	</include>
 
-	<include name="OpenClose_FadeSlide_Left">
-		<animation type="WindowOpen">
-			<effect type="fade" start="0" end="100" time="300" delay="200" tween="sine" easing="out" />
-			<effect type="slide" start="-320" end="0" time="400" delay="200" tween="cubic" easing="out" />
+	<include name="Wall_FadeZoom">
+		<animation type="Conditional" condition="Control.HasFocus($PARAM[id]) | Control.HasFocus(532) | ControlGroup(9000).HasFocus">
+			<effect type="fade" start="0" end="100" time="300" tween="sine" easing="out" />
+			<effect type="zoom" start="105" end="100" center="auto" time="400" tween="cubic" easing="out" />
 		</animation>
 		<animation type="WindowClose">
 			<effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-			<effect type="slide" start="0" end="-320" time="300" tween="cubic" easing="out" />
+			<effect type="zoom" start="100" end="105" center="auto" time="300" tween="cubic" easing="out" />
 		</animation>
+		<include>Vis_FadeZoom</include>
 	</include>
+
 	<include name="OpenClose_Slide_Top">
 		<animation type="WindowOpen">
 			<effect type="fade" start="0" end="100" time="500" tween="sine" easing="out" />
@@ -226,22 +188,6 @@
 		<animation type="WindowClose">
 			<!-- <effect type="fade" start="100" end="0" time="375" tween="sine" easing="out" /> -->
 			<effect type="slide" start="0" end="$PARAM[distance]" time="500" tween="cubic" easing="out" />
-		</animation>
-	</include>
-
-	<include name="OpenClose_Right">
-		<include condition="Skin.HasSetting(no_slide_animations)">OpenClose_Fade</include>
-		<include condition="!Skin.HasSetting(no_slide_animations)">OpenClose_FadeZoom</include>
-	</include>
-
-	<include name="OpenClose_FadeSlide_Right">
-		<animation type="WindowOpen">
-			<effect type="fade" start="0" end="100" time="300" delay="200" tween="sine" easing="out" />
-			<effect type="slide" start="320" end="0" time="400" delay="200" tween="cubic" easing="out" />
-		</animation>
-		<animation type="WindowClose">
-			<effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-			<effect type="slide" start="0" end="320" time="300" tween="cubic" easing="out" />
 		</animation>
 	</include>
 

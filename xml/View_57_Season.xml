@@ -9,8 +9,8 @@
       <control type="group">
         <left>-3</left>
         <top>222</top>
-        <include>Visible_Right</include>
-        <include>OpenClose_Right</include>
+        <include>Vis_FadeZoom</include>
+        <include>OpenClose_FadeZoom</include>
         <control type="fixedlist" id="57">
           <top>0</top>
           <left>0</left>
@@ -92,8 +92,8 @@
       </control>
       <!-- Main Episode List -->
       <control type="group">
-        <include>Visible_Right</include>
-        <include>OpenClose_Right</include>
+        <include>Vis_FadeZoom</include>
+        <include>OpenClose_FadeZoom</include>
         <control type="fixedlist" id="5057">
           <top>329</top>
           <width>100%</width>

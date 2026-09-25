@@ -36,10 +36,10 @@
 					<effect type="fade" start="100" end="60" time="300" tween="sine" easing="inout" />
 					<effect type="fadediffuse" start="FFE9E9E9" end="FFBFBFBF" time="300" />
 				</animation>
-				<include>OpenClose_Right</include>
+				<include>OpenClose_FadeZoom</include>
 				<control type="group" id="27000">
 					<visible>false</visible>
-					<include content="Visible_Right_Delayed">
+					<include content="Vis_FadeZoom_Delayed">
 						<param name="id" value="addons"/>
 					</include>
 					<control type="grouplist" id="27001">
@@ -67,7 +67,7 @@
 				</control>
 				<!-- SEARCH RESULTS -->
 				<control type="group" id="3000">
-					<include content="Visible_Right_Delayed">
+					<include content="Vis_FadeZoom_Delayed">
 						<param name="id" value="movies"/>
 					</include>
 					<control type="grouplist" id="3001">
@@ -103,7 +103,7 @@
 			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
-				<include>OpenClose_Left</include>
+				<include>OpenClose_FadeZoom</include>
 				<control type="group">
 					<visible allowhiddenfocus="true">!$EXP[isContent]</visible>
 					<animation effect="fade" condition="!$EXP[isContent]" time="300" end="100" tween="sine" easing="inout">Conditional</animation>

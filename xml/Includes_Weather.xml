@@ -28,7 +28,7 @@
 			<width>418</width>
 			<visible>ControlGroup(15000).HasFocus + !String.IsEmpty(Weather.plugin)</visible>
 			<animation effect="fade" time="300">VisibleChange</animation>
-			<include>OpenClose_Left</include>
+			<include>OpenClose_FadeZoom</include>
 			<control type="grouplist">
 				<left>40</left>
 				<top>0</top>

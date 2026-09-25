@@ -15,7 +15,7 @@
 		</control>
 		<control type="group">
 			<left>0</left>
-			<include>OpenClose_Left</include>
+			<include>OpenClose_FadeZoom</include>
 			<include content="FileManagerPanel">
 				<param name="list_id" value="20" />
 				<param name="scrollbar_id" value="60" />
@@ -38,7 +38,7 @@
 		<control type="group">
 			<width>818</width>
 			<right>0</right>
-			<include>OpenClose_Right</include>
+			<include>OpenClose_FadeZoom</include>
 			<include content="FileManagerPanel">
 				<param name="left" value="0" />
 				<param name="right" value="0" />

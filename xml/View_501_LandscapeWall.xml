@@ -218,14 +218,11 @@
 
 	<include name="View_501_LandscapeWall">
 		<control type="group">
-			<!-- <include>OpenClose_Right</include> -->
-			<!-- <include>Visible_Right</include> -->
+			<include content="Wall_FadeZoom">
+				<param name="id" value="501"/>
+			</include>
 			<height>100%</height>
 			<visible>Control.IsVisible(501)</visible>
-			<animation condition="Control.HasFocus(501) | Control.HasFocus(532) | ControlGroup(9000).HasFocus">
-				<effect type="fade" start="0" end="100" time="300" tween="cubic" easing="in"/>
-				<effect type="slide" start="0,937" end="0,0" time="500" tween="cubic" easing="out" />
-			</animation>
 			<control type="panel" id="501">
 				<top>81</top>
 				<onright>532</onright>

@@ -5,7 +5,7 @@
 	<controls>
 		<include>SimpleBackground</include>
 		<control type="group" id="9100">
-			<include>OpenClose_Right</include>
+			<include>OpenClose_FadeZoom</include>
 			<left>396</left>
 			<!-- <control type="image">
 				<left>20</left>
@@ -172,7 +172,7 @@
 		</control>
 		<control type="group">
 			<depth>DepthContentPanel</depth>
-			<include>OpenClose_Left</include>
+			<include>OpenClose_FadeZoom</include>
 			<control type="list" id="9000">
 				<left>40</left>
 				<top>130</top>

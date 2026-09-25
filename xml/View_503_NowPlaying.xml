@@ -2,10 +2,10 @@
 <includes>
 	<include name="View_503_NowPlaying">
 		<control type="group">
-			<include>OpenClose_Right</include>
+			<include>OpenClose_FadeZoom</include>
 			<left>596</left>
 			<visible>Control.IsVisible(503)</visible>
-			<include>Visible_Right</include>
+			<include>Vis_FadeZoom</include>
 			<include content="ListContainer">
 				<param name="list_id" value="503" />
 				<param name="right" value="594" />

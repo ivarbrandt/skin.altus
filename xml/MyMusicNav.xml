@@ -18,9 +18,9 @@
 			<include>View_501_LandscapeWall</include>
 			<include>CommonScrollbars</include>
 			<control type="group">
-				<include>OpenClose_Left</include>
+				<include>OpenClose_FadeZoom</include>
 				<visible>Control.IsVisible(51) | Control.Isvisible(54) | Control.IsVisible(56)</visible>
-				<include>Visible_Left</include>
+				<include>Vis_FadeZoom</include>
 				<include>ListThumbInfoPanel</include>
 			</control>
 			<include content="TopBar">

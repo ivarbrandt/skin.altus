@@ -6,7 +6,7 @@
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group">
 				<depth>DepthOSD</depth>
-				<include>OpenClose_Left</include>
+				<include>OpenClose_FadeZoom</include>
 				<control type="image">
 					<left>-2000</left>
 					<top>-2000</top>

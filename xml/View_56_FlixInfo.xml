@@ -2,8 +2,8 @@
 <includes>
 	<include name="View_56_FlixInfo">
 		<control type="group">
-			<include>OpenClose_Right</include>
-			<include>Visible_Right</include>
+			<include>OpenClose_FadeZoom</include>
+			<include>Vis_FadeZoom</include>
 			<left>0</left>
 			<visible>Control.IsVisible(56)</visible>
 			<control type="image">

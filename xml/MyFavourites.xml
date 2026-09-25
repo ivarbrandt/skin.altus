@@ -17,8 +17,8 @@
 			<include>View_501_LandscapeWall</include>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
-				<include>OpenClose_Left</include>
-				<include>Visible_Left</include>
+				<include>OpenClose_FadeZoom</include>
+				<include>Vis_FadeZoom</include>
 				<visible>Control.IsVisible(56)</visible>
 				<include>ListThumbInfoPanel</include>
 			</control>

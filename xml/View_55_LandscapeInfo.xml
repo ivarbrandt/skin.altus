@@ -139,8 +139,8 @@
 
 	<include name="View_55_LandscapeInfo">
 		<control type="group">
-			<include>OpenClose_Right</include>
-			<include>Visible_Right</include>
+			<include>OpenClose_FadeZoom</include>
+			<include>Vis_FadeZoom</include>
 			<left>0</left>
 			<top>70</top>
 			<visible>Control.IsVisible(55)</visible>

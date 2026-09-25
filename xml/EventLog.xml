@@ -9,7 +9,7 @@
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group">
 				<visible>Control.IsVisible(50)</visible>
-				<include>OpenClose_Right</include>
+				<include>OpenClose_FadeZoom</include>
 				<control type="fixedlist" id="50">
 					<left>490</left>
 					<top>list_top_offset</top>
@@ -113,7 +113,7 @@
 			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
-				<include>OpenClose_Left</include>
+				<include>OpenClose_FadeZoom</include>
 				<include content="ContentPanel">
 					<param name="width" value="550" />
 				</include>

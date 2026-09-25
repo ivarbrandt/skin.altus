@@ -43,8 +43,8 @@
 			</control> -->
 			<control type="group">
 				<visible>Control.IsVisible(53)</visible>
-				<include>Visible_Right</include>
-				<include>OpenClose_Right</include>
+				<include>Vis_FadeZoom</include>
+				<include>OpenClose_FadeZoom</include>
 				<control type="fixedlist" id="53">
 					<left>-25</left>
 					<top>0</top>
@@ -239,8 +239,8 @@
 			<left>49</left>
 			<depth>DepthContentPopout</depth>
 			<visible>Control.IsVisible(53)</visible>
-			<include>OpenClose_Left</include>
-			<include>Visible_Left</include>
+			<include>OpenClose_FadeZoom</include>
+			<include>Vis_FadeZoom</include>
 			<!-- <control type="image">
 				<top>-16</top>
 				<left>-16</left>
@@ -330,8 +330,8 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(53)</visible>
-			<include>OpenClose_Right</include>
-			<include>Visible_Right</include>
+			<include>OpenClose_FadeZoom</include>
+			<include>Vis_FadeZoom</include>
 			<control type="image">
         <left>1621</left>
         <top>640</top>

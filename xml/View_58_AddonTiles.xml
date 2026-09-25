@@ -3,8 +3,8 @@
 	<include name="View_58_AddonTiles">
 		<control type="group">
 			<visible>Control.IsVisible(58)</visible>
-			<include>OpenClose_Right</include>
-			<include>Visible_Right</include>
+			<include>OpenClose_FadeZoom</include>
+			<include>Vis_FadeZoom</include>
 			<control type="group">
 				<left>487</left>
 				<top>76</top>

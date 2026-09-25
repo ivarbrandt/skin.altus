@@ -9,8 +9,8 @@
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group">
-				<include>OpenClose_Left</include>
-				<include>Visible_Left</include>
+				<include>OpenClose_FadeZoom</include>
+				<include>Vis_FadeZoom</include>
 				<control type="list" id="49">
 					<left>40</left>
 					<top>105</top>
@@ -101,7 +101,7 @@
 			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
-				<include>OpenClose_Right</include>
+				<include>OpenClose_FadeZoom</include>
 				<right>40</right>
 				<left>892</left>
 				<visible>[Control.HasFocus(50) | Control.HasFocus(51) | Control.HasFocus(73) | Control.HasFocus(74)] + !Window.IsVisible(pvrchannelguide)</visible>
@@ -126,7 +126,7 @@
 			</include> -->
 			<control type="label">
 				<right>40</right>
-				<include>OpenClose_Right</include>
+				<include>OpenClose_FadeZoom</include>
 				<bottom>40</bottom>
 				<width>850</width>
 				<height>60</height>
