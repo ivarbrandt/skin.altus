@@ -126,7 +126,7 @@
           <height>22</height>
           <aligny>center</aligny>
           <font>$PARAM[sub_font]</font>
-          <textcolor>unfocused_text</textcolor>
+          <textcolor>60FFFFFF</textcolor>
           <shadowcolor>text_shadow</shadowcolor>
           <label>$INFO[ListItem.Property(count),Searches: ,  •  ]$INFO[ListItem.Property(last)]</label>
           <visible>![$PARAM[focused] + Control.HasFocus($PARAM[id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)]</visible>
@@ -139,7 +139,7 @@
           <height>22</height>
           <aligny>center</aligny>
           <font>$PARAM[sub_font]</font>
-          <textcolor>$VAR[FocusColorTheme]</textcolor>
+          <textcolor>unfocused_text</textcolor>
           <shadowcolor>text_shadow</shadowcolor>
           <label>$INFO[ListItem.Property(count),Searches: ,  •  ]$INFO[ListItem.Property(last)]</label>
           <visible>$PARAM[focused] + Control.HasFocus($PARAM[id]) + Integer.IsEqual(ListItem.CurrentItem,Container($PARAM[id]).CurrentItem)</visible>

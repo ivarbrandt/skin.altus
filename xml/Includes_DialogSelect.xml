@@ -78,7 +78,7 @@
 					</control>
 					<control type="label">
 						<left>150</left>
-						<top>27</top>
+						<top>30</top>
 						<right>115</right>
 						<height>40</height>
 						<font>font32_bold</font>
@@ -89,12 +89,13 @@
 					</control>
 					<control type="label">
 						<left>150</left>
-						<top>73</top>
+						<top>70</top>
 						<right>115</right>
 						<height>40</height>
-						<font>font27</font>
-						<textcolor>grey</textcolor>
-						<selectedcolor>grey</selectedcolor>
+						<font>font27_title</font>
+						<aligny>center</aligny>
+						<textcolor>60FFFFFF</textcolor>
+						<selectedcolor>60FFFFFF</selectedcolor>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
 					<control type="image">
@@ -161,7 +162,7 @@
 					</control>
 					<control type="label">
 						<left>150</left>
-						<top>27</top>
+						<top>30</top>
 						<right>115</right>
 						<height>40</height>
 						<font>font32_bold</font>
@@ -173,7 +174,7 @@
 					</control>
 					<control type="label">
 						<left>150</left>
-						<top>27</top>
+						<top>30</top>
 						<right>115</right>
 						<height>40</height>
 						<font>font32_bold</font>
@@ -186,15 +187,29 @@
 					</control>
 					<control type="label">
 						<left>150</left>
-						<top>73</top>
+						<top>70</top>
 						<right>115</right>
 						<height>40</height>
-						<font>font27</font>
-						<textcolor>grey</textcolor>
-						<selectedcolor>grey</selectedcolor>
+						<font>font27_title</font>
+						<aligny>center</aligny>
+						<textcolor>60FFFFFF</textcolor>
+						<selectedcolor>60FFFFFF</selectedcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<visible>![Control.HasFocus(6) + Integer.IsEqual(ListItem.CurrentItem,Container(6).CurrentItem)]</visible>
+					</control>
+					<control type="label">
+						<left>150</left>
+						<top>70</top>
+						<right>115</right>
+						<height>40</height>
+						<font>font27_title</font>
+						<aligny>center</aligny>
+						<textcolor>unfocused_text</textcolor>
+						<selectedcolor>unfocused_text</selectedcolor>
 						<label>$INFO[ListItem.Label2]</label>
 						<scroll>true</scroll>
 						<scrollspeed>150</scrollspeed>
+						<visible>Control.HasFocus(6) + Integer.IsEqual(ListItem.CurrentItem,Container(6).CurrentItem)</visible>
 					</control>
 					<control type="image">
 						<right>40</right>
