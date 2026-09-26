@@ -172,13 +172,13 @@
 					</control>
 					<include>SearchKindFilterIndicators</include>
 					<control type="textbox">
-						<top>145</top>
+						<top>155</top>
 						<left>30</left>
 						<width>438</width>
 						<aligny>center</aligny>
 						<align>center</align>
 						<height>200</height>
-						<font>font27</font>
+						<font>font32_bold</font>
 						<label>$INFO[Window(home).Property(altus.search.history.empty)]</label>
 						<textcolor>unfocused_text</textcolor>
 						<visible>String.IsEqual(Window(home).Property(altus.search.history.count),0) + String.IsEqual(Window(home).Property(altus.search.mode),history)</visible>
