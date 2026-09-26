@@ -294,6 +294,12 @@
 			<style>bold</style>
 		</font>
 		<font>
+			<name>font29_title</name>
+			<filename>RobotoCJKSC-Regular.ttf</filename>
+			<size>29</size>
+			<style>bold</style>
+		</font>
+		<font>
 			<name>addonsettings_desc</name>
 			<filename>RobotoCJKSC-Regular.ttf</filename>
 			<size>27</size>
