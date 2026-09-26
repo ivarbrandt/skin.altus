@@ -80,7 +80,7 @@
 			<control type="grouplist">
 				<left>40</left>
 				<top>40</top>
-				<width>1100</width>
+				<width>1020</width>
 				<height>443</height>
 				<orientation>vertical</orientation>
 				<itemgap>16</itemgap>
@@ -122,7 +122,7 @@
 			<control type="label">
 				<left>40</left>
 				<right>video_header_right</right>
-				<top>511</top>
+				<top>506</top>
 				<label>$VAR[LeftVideoHeader]</label>
 				<font>font36_title</font>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
@@ -134,7 +134,7 @@
 			</control>
 			<control type="label">
 				<right>40</right>
-				<top>511</top>
+				<top>506</top>
 				<label>$VAR[RightVideoHeader]</label>
 				<font>font36_title</font>
 				<textcolor>$VAR[FocusColorTheme]</textcolor>
