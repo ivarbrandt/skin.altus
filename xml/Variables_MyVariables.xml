@@ -423,7 +423,7 @@
 	</variable>
 
 	<variable name="FocusColorTheme">
-    <value condition="Player.HasVideo + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + String.IsEqual(Skin.String(FocusColorThemeSetting),0)">$INFO[Window(Home).Property(listitem_logo_color_video)]</value>
+    <value condition="Player.HasVideo + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + String.IsEqual(Skin.String(FocusColorThemeSetting),0) + !String.IsEmpty(Window(home).Property(listitem_logo_color_video))">$INFO[Window(Home).Property(listitem_logo_color_video)]</value>
     <value condition="Player.HasVideo + [String.IsEqual(Skin.String(BackgroundSetting),1) | String.IsEqual(Skin.String(BackgroundSetting),2)] + String.IsEqual(Skin.String(FocusColorThemeSetting),1)">unfocused_text</value>
 		<value condition="Player.HasVideo + String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEqual(Skin.String(FocusColorThemeSetting),0)">accent_color</value>
 		<value condition="Player.HasVideo + String.IsEqual(Skin.String(BackgroundSetting),0) + String.IsEqual(Skin.String(FocusColorThemeSetting),1)">unfocused_text</value>
